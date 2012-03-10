@@ -1,0 +1,22 @@
+OASISFormat: 0.2
+Name: ocaml-extjs
+Version: 0.1
+Synopsis: Ext JS 4.x bindings for the js_of_ocaml compiler
+Authors: Alessandro Strada
+License: MIT
+LicenseFile: LICENSE
+Plugins: META (0.2)
+BuildTools: ocamlbuild
+
+Library oextjs
+  Path: lib
+  Modules: Ext
+  BuildDepends: js_of_ocaml, js_of_ocaml.syntax
+  XMETADescription: Ext JS 4.x for js_of_ocaml
+
+# Examples
+Library helloext
+  Path: examples/helloext
+  Install: false
+  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+
