@@ -469,19 +469,12 @@ let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 Ocamlbuild_pack.Log.classic_display := true;;
 
 (* build helloext.js if helloext_client dependency is specified in _tags *)
-dep ["helloext_client"] ["examples/helloext/helloext.js"];;
+dep ["helloext_client"] ["examples/helloext/app.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"
   begin fun env _ ->
-    let src = Filename.concat (Unix.getcwd ()) (env "%.js") in
-    let dst = (Filename.dirname
-                 (Filename.concat
-                    (Filename.dirname (Unix.getcwd ())) (env "%.js"))) in
-      Seq [
-        Cmd (S [A "js_of_ocaml"; A "-pretty"; A "-noinline"; A (env "%.byte")]);
-        Cmd (S [A "cp"; Px src; Px dst])
-      ]
+    Cmd (S [A "js_of_ocaml"; A "-pretty"; A "-noinline"; A (env "%.byte")]);
   end;;
 
 Ocamlbuild_plugin.dispatch dispatch_default;;

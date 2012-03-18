@@ -26,8 +26,11 @@
 <examples/helloext/*.ml{,i}>: pkg_js_of_ocaml
 # OASIS_STOP
 
+"examples/helloext": -include
+
 # build helloext.js
-<examples/helloext/helloext.byte>: use_oextjs
-<examples/helloext/helloext.byte>: pkg_js_of_ocaml
-<examples/helloext/helloext.byte>: pkg_js_of_ocaml.syntax
+"examples/helloext/app.byte": use_oextjs
+"examples/helloext/app.byte": pkg_js_of_ocaml
+"examples/helloext/app.byte": pkg_js_of_ocaml.syntax
 <examples/helloext/helloext.cm{a,xa}>: helloext_client
+

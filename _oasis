@@ -17,6 +17,8 @@ Library oextjs
 # Examples
 Library helloext
   Path: examples/helloext
+  InternalModules: App
   Install: false
+  CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 
