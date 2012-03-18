@@ -16,11 +16,9 @@ let () =
                    ~launch
                    () in
 
-  let callback () =
-    Firebug.console##log(Js.string "require callback") in
   let () =
     Ext.require
       ~expressions:[|"Ext.container.Viewport"|]
-      ~fn:callback () in
+      () in
   Ext.application ~config:app_conf
 
