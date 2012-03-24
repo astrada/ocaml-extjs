@@ -19,3 +19,19 @@ let create ~name ~(args : 'a Js.t) =
     [|Js.Unsafe.inject (Js.string name);
       Js.Unsafe.inject args|]
 
+let define ~className ~(data : 'a Js.t) ?(createdFn:(unit -> unit) option) () =
+  let _createdFn = match createdFn with
+      None -> Js.Unsafe.inject Js.undefined
+    | Some v -> Js.Unsafe.inject (Js.wrap_callback v)
+  in
+    Js.Unsafe.fun_call
+      (Js.Unsafe.variable "Ext.define")
+      [|Js.Unsafe.inject (Js.string className);
+        Js.Unsafe.inject data;
+        _createdFn|]
+
+let widget ~name =
+  Js.Unsafe.fun_call
+    (Js.Unsafe.variable "Ext.widget")
+    [|Js.Unsafe.inject (Js.string name)|]
+

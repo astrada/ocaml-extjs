@@ -22,3 +22,15 @@ Library helloext
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 
+Library account_manager
+  Path: examples/account_manager
+  InternalModules:
+    App,
+    app/controller/Users,
+    app/view/user/List,
+    app/view/user/Edit,
+    app/store/Users
+  Install: false
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+

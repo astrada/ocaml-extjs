@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 8506f457157b206edb41837315ebb35f) *)
+(* DO NOT EDIT (digest: acadcc46e21d052ab8cb6dc9295f1a37) *)
 module OASISGettext = struct
 # 21 "/home/alex/.odb/install-oasis/oasis-0.2.1~alpha1/src/oasis/OASISGettext.ml"
   
@@ -455,6 +455,8 @@ let package_default =
      MyOCamlbuildBase.lib_ocaml =
        [
           ("lib/oextjs", ["lib"]);
+          ("examples/account_manager/account_manager",
+            ["examples/account_manager"]);
           ("examples/helloext/helloext", ["examples/helloext"])
        ];
      lib_c = [];
@@ -468,8 +470,16 @@ let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
 Ocamlbuild_pack.Log.classic_display := true;;
 
-(* build helloext.js if helloext_client dependency is specified in _tags *)
+(* build helloext client scripts if helloext_client dependency is specified in
+ * _tags *)
 dep ["helloext_client"] ["examples/helloext/app.js"];;
+(* build account manager client scripts if account_manager_client dependency is
+ * specified in _tags *)
+dep ["account_manager_client"] ["examples/account_manager/app.js";
+                                "examples/account_manager/app/controller/Users.js";
+                                "examples/account_manager/app/view/user/List.js";
+                                "examples/account_manager/app/view/user/Edit.js";
+                                "examples/account_manager/app/store/Users.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"

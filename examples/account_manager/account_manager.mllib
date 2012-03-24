@@ -1,0 +1,8 @@
+# OASIS_START
+# DO NOT EDIT (digest: 75c0109fd4253d0f96bada030711e062)
+App
+app/controller/Users
+app/view/user/List
+app/view/user/Edit
+app/store/Users
+# OASIS_STOP

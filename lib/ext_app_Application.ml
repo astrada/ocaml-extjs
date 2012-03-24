@@ -1,6 +1,7 @@
 class type configs = object
   method appFolder : Js.js_string Js.t Js.prop
   method name : Js.js_string Js.t Js.prop
+  method controllers : Js.js_string Js.t Js.js_array Js.t Js.prop
 end
 
 class type properties = object
@@ -13,7 +14,7 @@ class type t = object
 end
 
 let config
-      ?appFolder ?name ?launch () =
+      ?appFolder ?name ?controllers ?launch () =
   let constr : t Js.t Js.constr = Js.Unsafe.variable "Object" in
   let instance = jsnew constr () in
   begin match appFolder with
@@ -23,6 +24,10 @@ let config
   begin match name with
       None -> ()
     | Some v -> instance##name <- Js.string v
+  end;
+  begin match controllers with
+      None -> ()
+    | Some v -> instance##controllers <- Js.array (Array.map Js.string v)
   end;
   begin match launch with
       None -> ()
