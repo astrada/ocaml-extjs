@@ -20,16 +20,8 @@ let () =
   view_conf##extend <- Js.string "Ext.grid.Panel";
   view_conf##alias <- Js.array [|Js.string "widget.userlist"|];
   view_conf##title <- Js.string "All Users";
-  let init_component this (*this : Ext_grid_Panel.t*) () =
-    let data = [|
-      data_row "Ed" "ed@sencha.com";
-      data_row "Tommy" "tommy@sencha.com";
-    |] in
-    let store =
-      Ext_data_Store.config
-        ~fields:[|"name"; "email"|]
-        ~data () in
-    this##store <- store;
+  let init_component (this : t Js.t) () =
+    this##store_string <- Js.string "Users";
 
     let columns = [|
       Ext_grid_column_Column.config
@@ -41,7 +33,8 @@ let () =
 
     (* Cannot call "this##callParent ()" because ExtJs uses call stack to figure
      * out which method to call in which superclass *)
-    this##superclass##initComponent##apply (this)
+    let t1 = Js.Unsafe.coerce this in
+    t1##superclass##initComponent##apply (t1, Js.Unsafe.variable "arguments")
   in
   view_conf##initComponent <- Js.wrap_meth_callback init_component;
   Ext.define

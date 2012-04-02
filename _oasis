@@ -12,6 +12,9 @@ Library oextjs
   Path: lib
   Modules: Ext
   BuildDepends: js_of_ocaml, js_of_ocaml.syntax
+  CompiledObject: byte
+  CSources: stubs.c
+  CCOpt: -D OPTION_PASSED
   XMETADescription: Ext JS 4.x for js_of_ocaml
 
 # Examples
@@ -29,7 +32,8 @@ Library account_manager
     app/controller/Users,
     app/view/user/List,
     app/view/user/Edit,
-    app/store/Users
+    app/store/Users,
+    app/model/User
   Install: false
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax

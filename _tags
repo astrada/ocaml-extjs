@@ -1,7 +1,7 @@
 <**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 35304390fb20cac23136618f1bfe0372)
+# DO NOT EDIT (digest: b708192b20e5b8495d56327a307007d3)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -17,8 +17,13 @@
 "_darcs": not_hygienic
 # Library oextjs
 "lib": include
+<lib/*.ml{,i}>: oasis_library_oextjs_ccopt
+"lib/stubs.c": oasis_library_oextjs_ccopt
+"lib/oextjs.cma": use_liboextjs
 <lib/*.ml{,i}>: pkg_js_of_ocaml.syntax
 <lib/*.ml{,i}>: pkg_js_of_ocaml
+"lib/stubs.c": pkg_js_of_ocaml.syntax
+"lib/stubs.c": pkg_js_of_ocaml
 # Library account_manager
 <examples/account_manager/*.ml{,i}>: use_oextjs
 <examples/account_manager/*.ml{,i}>: pkg_js_of_ocaml.syntax
@@ -26,6 +31,9 @@
 <examples/account_manager/app/controller/*.ml{,i}>: use_oextjs
 <examples/account_manager/app/controller/*.ml{,i}>: pkg_js_of_ocaml.syntax
 <examples/account_manager/app/controller/*.ml{,i}>: pkg_js_of_ocaml
+<examples/account_manager/app/model/*.ml{,i}>: use_oextjs
+<examples/account_manager/app/model/*.ml{,i}>: pkg_js_of_ocaml.syntax
+<examples/account_manager/app/model/*.ml{,i}>: pkg_js_of_ocaml
 <examples/account_manager/app/store/*.ml{,i}>: use_oextjs
 <examples/account_manager/app/store/*.ml{,i}>: pkg_js_of_ocaml.syntax
 <examples/account_manager/app/store/*.ml{,i}>: pkg_js_of_ocaml
@@ -34,6 +42,7 @@
 <examples/account_manager/app/view/user/*.ml{,i}>: pkg_js_of_ocaml
 "examples/account_manager": include
 "examples/account_manager/app/controller": include
+"examples/account_manager/app/model": include
 "examples/account_manager/app/store": include
 "examples/account_manager/app/view/user": include
 # Library helloext
@@ -42,6 +51,12 @@
 <examples/helloext/*.ml{,i}>: pkg_js_of_ocaml.syntax
 <examples/helloext/*.ml{,i}>: pkg_js_of_ocaml
 # OASIS_STOP
+
+"examples/account_manager": -include
+"examples/account_manager/app/controller": -include
+"examples/account_manager/app/view/user": -include
+"examples/account_manager/app/store": -include
+"examples/account_manager/app/model": -include
 
 # HelloExt
 # build helloext/app.js
@@ -59,6 +74,8 @@
 "examples/account_manager/app/view/user/Edit.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 # build account_manager/app/store/Users.js
 "examples/account_manager/app/store/Users.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+# build account_manager/app/model/User.js
+"examples/account_manager/app/model/User.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 
 <examples/account_manager/account_manager.cm{a,xa}>: account_manager_client
 

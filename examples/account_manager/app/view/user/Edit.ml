@@ -55,7 +55,8 @@ let () =
 
     (* Cannot call "this##callParent ()" because ExtJs uses call stack to figure
      * out which method to call in which superclass *)
-    this##superclass##initComponent##apply (this)
+    let t1 = Js.Unsafe.coerce this in
+    t1##superclass##initComponent##apply (t1, Js.Unsafe.variable "arguments")
   in
   view_conf##initComponent <- Js.wrap_meth_callback init_component;
   Ext.define

@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: acadcc46e21d052ab8cb6dc9295f1a37) *)
+(* DO NOT EDIT (digest: deeeaf6b9eede003402b27fad050231e) *)
 module OASISGettext = struct
 # 21 "/home/alex/.odb/install-oasis/oasis-0.2.1~alpha1/src/oasis/OASISGettext.ml"
   
@@ -459,8 +459,15 @@ let package_default =
             ["examples/account_manager"]);
           ("examples/helloext/helloext", ["examples/helloext"])
        ];
-     lib_c = [];
-     flags = [];
+     lib_c = [("oextjs", "lib", [])];
+     flags =
+       [
+          (["oasis_library_oextjs_ccopt"; "compile"],
+            [
+               (OASISExpr.EBool true,
+                 S [A "-ccopt"; A "-D"; A "-ccopt"; A "OPTION_PASSED"])
+            ])
+       ];
      }
   ;;
 
@@ -479,12 +486,17 @@ dep ["account_manager_client"] ["examples/account_manager/app.js";
                                 "examples/account_manager/app/controller/Users.js";
                                 "examples/account_manager/app/view/user/List.js";
                                 "examples/account_manager/app/view/user/Edit.js";
-                                "examples/account_manager/app/store/Users.js"];;
+                                "examples/account_manager/app/store/Users.js";
+                                "examples/account_manager/app/model/User.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"
   begin fun env _ ->
-    Cmd (S [A "js_of_ocaml"; A "-pretty"; A "-noinline"; A (env "%.byte")]);
+    Cmd (S [A "js_of_ocaml";
+            A "-pretty";
+            A "-noinline";
+            A (Pathname.pwd / "lib/utils.js");
+            A (env "%.byte")]);
   end;;
 
 Ocamlbuild_plugin.dispatch dispatch_default;;
