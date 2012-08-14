@@ -1,7 +1,8 @@
-<**/*.ml>: syntax_camlp4o
+<lib/**/*.ml>: syntax_camlp4o
+<examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: b708192b20e5b8495d56327a307007d3)
+# DO NOT EDIT (digest: 1e3fe8c80233cd7a5c8c80a581808585)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -16,40 +17,39 @@
 "_darcs": -traverse
 "_darcs": not_hygienic
 # Library oextjs
-"lib": include
+"lib/oextjs.cmxs": use_oextjs
 <lib/*.ml{,i}>: oasis_library_oextjs_ccopt
 "lib/stubs.c": oasis_library_oextjs_ccopt
-"lib/oextjs.cma": use_liboextjs
-<lib/*.ml{,i}>: pkg_js_of_ocaml.syntax
+"lib/oextjs.cma": use_liboextjs_stubs
 <lib/*.ml{,i}>: pkg_js_of_ocaml
-"lib/stubs.c": pkg_js_of_ocaml.syntax
+<lib/*.ml{,i}>: pkg_js_of_ocaml.syntax
 "lib/stubs.c": pkg_js_of_ocaml
-# Library account_manager
-<examples/account_manager/*.ml{,i}>: use_oextjs
-<examples/account_manager/*.ml{,i}>: pkg_js_of_ocaml.syntax
-<examples/account_manager/*.ml{,i}>: pkg_js_of_ocaml
-<examples/account_manager/app/controller/*.ml{,i}>: use_oextjs
-<examples/account_manager/app/controller/*.ml{,i}>: pkg_js_of_ocaml.syntax
-<examples/account_manager/app/controller/*.ml{,i}>: pkg_js_of_ocaml
-<examples/account_manager/app/model/*.ml{,i}>: use_oextjs
-<examples/account_manager/app/model/*.ml{,i}>: pkg_js_of_ocaml.syntax
-<examples/account_manager/app/model/*.ml{,i}>: pkg_js_of_ocaml
-<examples/account_manager/app/store/*.ml{,i}>: use_oextjs
-<examples/account_manager/app/store/*.ml{,i}>: pkg_js_of_ocaml.syntax
-<examples/account_manager/app/store/*.ml{,i}>: pkg_js_of_ocaml
-<examples/account_manager/app/view/user/*.ml{,i}>: use_oextjs
-<examples/account_manager/app/view/user/*.ml{,i}>: pkg_js_of_ocaml.syntax
-<examples/account_manager/app/view/user/*.ml{,i}>: pkg_js_of_ocaml
-"examples/account_manager": include
-"examples/account_manager/app/controller": include
-"examples/account_manager/app/model": include
-"examples/account_manager/app/store": include
-"examples/account_manager/app/view/user": include
+"lib/stubs.c": pkg_js_of_ocaml.syntax
+# Executable libgen
+"tools/libgen.byte": pkg_yojson
+<tools/*.ml{,i}>: pkg_yojson
 # Library helloext
-"examples/helloext": include
+"examples/helloext/helloext.cmxs": use_helloext
 <examples/helloext/*.ml{,i}>: use_oextjs
-<examples/helloext/*.ml{,i}>: pkg_js_of_ocaml.syntax
 <examples/helloext/*.ml{,i}>: pkg_js_of_ocaml
+<examples/helloext/*.ml{,i}>: pkg_js_of_ocaml.syntax
+# Library account_manager
+"examples/account_manager/account_manager.cmxs": use_account_manager
+<examples/account_manager/*.ml{,i}>: use_oextjs
+<examples/account_manager/*.ml{,i}>: pkg_js_of_ocaml
+<examples/account_manager/*.ml{,i}>: pkg_js_of_ocaml.syntax
+<examples/account_manager/app/controller/*.ml{,i}>: use_oextjs
+<examples/account_manager/app/controller/*.ml{,i}>: pkg_js_of_ocaml
+<examples/account_manager/app/controller/*.ml{,i}>: pkg_js_of_ocaml.syntax
+<examples/account_manager/app/model/*.ml{,i}>: use_oextjs
+<examples/account_manager/app/model/*.ml{,i}>: pkg_js_of_ocaml
+<examples/account_manager/app/model/*.ml{,i}>: pkg_js_of_ocaml.syntax
+<examples/account_manager/app/store/*.ml{,i}>: use_oextjs
+<examples/account_manager/app/store/*.ml{,i}>: pkg_js_of_ocaml
+<examples/account_manager/app/store/*.ml{,i}>: pkg_js_of_ocaml.syntax
+<examples/account_manager/app/view/user/*.ml{,i}>: use_oextjs
+<examples/account_manager/app/view/user/*.ml{,i}>: pkg_js_of_ocaml
+<examples/account_manager/app/view/user/*.ml{,i}>: pkg_js_of_ocaml.syntax
 # OASIS_STOP
 
 "examples/account_manager": -include

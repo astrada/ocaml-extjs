@@ -1,13 +1,32 @@
-OASISFormat: 0.2
+OASISFormat: 0.3
+OCamlVersion: >= 3.12.0
 Name: ocaml-extjs
 Version: 0.1
-Synopsis: Ext JS 4.x bindings for the js_of_ocaml compiler
-Authors: Alessandro Strada
-License: MIT
 LicenseFile: LICENSE
-Plugins: META (0.2)
+License: MIT
+BuildType: ocamlbuild (0.3)
+Authors: Alessandro Strada
+Copyrights: (C) 2012 Alessandro Strada
+Plugins: META (0.3)
 BuildTools: ocamlbuild
 
+Synopsis: Ext JS 4.x bindings for the js_of_ocaml compiler
+
+# Flags
+Flag all
+  Description: Build all
+  Default: false
+
+# Flags
+Flag examples
+  Description: Build examples
+  Default$: flag(all)
+
+Flag generator
+  Description: Build library generator
+  Default$: flag(all)
+
+# Library
 Library oextjs
   Path: lib
   Modules: Ext
@@ -17,8 +36,17 @@ Library oextjs
   CCOpt: -D OPTION_PASSED
   XMETADescription: Ext JS 4.x for js_of_ocaml
 
+# Executables
+Executable libgen
+  Build$: flag(generator) || flag(all)
+  Path: tools
+  Install: false
+  MainIs: libgen.ml
+  BuildDepends: yojson
+
 # Examples
 Library helloext
+  Build$: flag(examples) || flag(all)
   Path: examples/helloext
   InternalModules: App
   Install: false
@@ -26,6 +54,7 @@ Library helloext
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 
 Library account_manager
+  Build$: flag(examples) || flag(all)
   Path: examples/account_manager
   InternalModules:
     App,
