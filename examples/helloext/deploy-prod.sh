@@ -1,7 +1,7 @@
 #!/bin/bash
 
-SENCHA=sencha
-WWWROOT=/var/www
+. ../setup-deploy.sh
+
 SITENAME=helloext
 SITEROOT="$WWWROOT/$SITENAME"
 
@@ -14,13 +14,18 @@ cp "_build/examples/$SITENAME/app.js" "examples/$SITENAME"
 cd -
 
 # minify
+link_extjs extjs
 $SENCHA create jsb -a index.html -p app.jsb3
 $SENCHA build -p app.jsb3 -d .
 
-cp index-prod.html $SITEROOT/index.html
+# deploy
+create_dir "$SITEROOT"
+link_extjs "$SITEROOT/extjs"
+cp index-prod.html "$SITEROOT/index.html"
 cp app-all.js $SITEROOT
 
 # clean up
+rm extjs
 rm app.js
 rm app.jsb3
 rm all-classes.js

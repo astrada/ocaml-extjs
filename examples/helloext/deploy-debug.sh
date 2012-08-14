@@ -1,7 +1,8 @@
 #!/bin/bash
 
+. ../setup-deploy.sh
+
 SITENAME=helloext
-WWWROOT=/var/www
 SITEROOT="$WWWROOT/$SITENAME"
 
 set -e
@@ -13,6 +14,8 @@ cp "_build/examples/$SITENAME/app.js" "examples/$SITENAME"
 cd -
 
 # deploy
+create_dir "$SITEROOT"
+link_extjs "$SITEROOT/extjs"
 cp index.html $SITEROOT
 cp app.js $SITEROOT
 
