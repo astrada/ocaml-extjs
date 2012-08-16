@@ -1,25 +1,26 @@
 let () =
-  let view_conf = Ext_container_Viewport.config
-                    ~layout:"fit"
-                    ~items:[|
-                      Ext_panel_Panel.config
-                        ~xtype:"userlist"
-                        ()
-                    |] () in
+  let panel : Ext_panel_Panel.t Js.t =
+    {| xtype = Js.string "userlist" |}
+  in
 
-  let app_conf = Ext_app_Application.config
-                   ~name:"AM"
+  let viewport : Ext_container_Viewport.t Js.t =
+    {| layout = Js.string "fit";
+       items = Js.array [|Js.Unsafe.inject panel|];
+     |}
+  in
 
-                   ~appFolder:"app"
+  let application : Ext_app_Application.t Js.t =
+    {| name = Js.string "AM";
 
-                   ~controllers: [|"Users"|]
+       appFolder = Js.string "app";
 
-                   ~launch: (
-                     fun () ->
-                       Ext.create ~name:"Ext.container.Viewport"
-                         ~args:view_conf
+       controllers = Js.array [|Js.string "Users"|];
 
-                   ) () in
+       launch = Js.wrap_callback
+                  (fun () ->
+                     Ext.create ~name:"Ext.container.Viewport" ~args:viewport);
+     |}
+  in
 
-  Ext.application ~config:app_conf
+  Ext.application ~config:application
 
