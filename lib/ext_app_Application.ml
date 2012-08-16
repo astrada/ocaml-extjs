@@ -13,25 +13,3 @@ class type t = object
   inherit properties
 end
 
-let config
-      ?appFolder ?name ?controllers ?launch () =
-  let constr : t Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let instance = jsnew constr () in
-  begin match appFolder with
-      None -> ()
-    | Some v -> instance##appFolder <- Js.string v
-  end;
-  begin match name with
-      None -> ()
-    | Some v -> instance##name <- Js.string v
-  end;
-  begin match controllers with
-      None -> ()
-    | Some v -> instance##controllers <- Js.array (Array.map Js.string v)
-  end;
-  begin match launch with
-      None -> ()
-    | Some v -> instance##launch <- Js.wrap_callback v;
-  end;
-  instance
-

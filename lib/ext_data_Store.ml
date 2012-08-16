@@ -6,17 +6,3 @@ class type t = object
   method proxy : 'a Js.t Js.prop
 end
 
-let config
-      ?fields ?data () =
-  let constr : t Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let instance = jsnew constr () in
-  begin match fields with
-      None -> ()
-    | Some v -> instance##fields <- Js.array (Array.map Js.string v)
-  end;
-  begin match data with
-      None -> ()
-    | Some v -> instance##data <- Js.array v
-  end;
-  instance
-

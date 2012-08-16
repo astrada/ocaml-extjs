@@ -11,21 +11,3 @@ class type t = object
   method close : unit Js.meth
 end
 
-let config
-      ?xtype ?title ?html () =
-  let constr : t Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let instance = jsnew constr () in
-  begin match xtype with
-      None -> ()
-    | Some v -> instance##xtype <- Js.string v
-  end;
-  begin match title with
-      None -> ()
-    | Some v -> instance##title <- Js.string v
-  end;
-  begin match html with
-      None -> ()
-    | Some v -> instance##html <- Js.string v
-  end;
-  instance
-
