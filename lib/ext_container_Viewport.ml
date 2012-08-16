@@ -17,7 +17,7 @@ let config
   end;
   begin match items with
       None -> ()
-    | Some v -> instance##items <- Js.array v;
+    | Some v -> instance##items <- Js.array (Array.map Js.Unsafe.inject v);
   end;
   instance
 

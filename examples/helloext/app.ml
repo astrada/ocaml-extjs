@@ -1,24 +1,24 @@
 let () =
-  let panel_conf = Ext_panel_Panel.config
-                     ~title:"Hello Ext"
-                     ~html:"Hello! Welcome to Ext JS."
-                     () in
+  let panel : Ext_panel_Panel.t Js.t =
+    {| title = Js.string "Hello Ext";
+       html = Js.string "Hello! Welcome to Ext JS.";
+     |}
+  in
 
-  let view_conf = Ext_container_Viewport.config
-                    ~layout:"fit"
-                    ~items:[|panel_conf|]
-                    () in
+  let viewport : Ext_container_Viewport.t Js.t =
+    {| layout = Js.string "fit";
+       items = Js.array [|Js.Unsafe.inject panel|];
+     |}
+  in
 
-  let launch () =
-    Ext.create ~name:"Ext.container.Viewport" ~args:view_conf in
-  let app_conf = Ext_app_Application.config
-                   ~name:"HelloExt"
-                   ~launch
-                   () in
+  let application : Ext_app_Application.t Js.t =
+    {| name = Js.string "HelloExt";
+       launch = Js.wrap_callback
+                  (fun () ->
+                     Ext.create ~name:"Ext.container.Viewport" ~args:viewport);
+    |}
+  in
 
-  let () =
-    Ext.require
-      ~expressions:[|"Ext.container.Viewport"|]
-      () in
-  Ext.application ~config:app_conf
+  Ext.require ~expressions:[|"Ext.container.Viewport"|] ();
+  Ext.application ~config:application
 

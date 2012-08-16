@@ -41,7 +41,7 @@ let () =
     let panel_constr : Ext_panel_Panel.t Js.t Js.constr = Js.Unsafe.variable "Object" in
     let panel_conf = jsnew panel_constr () in
     panel_conf##xtype <- Js.string "form";
-    panel_conf##items <- Js.array panel_items;
+    panel_conf##items <- Js.array (Array.map Js.Unsafe.inject panel_items);
     this##items <- panel_conf;
 
     let button_constr : button Js.t Js.constr = Js.Unsafe.variable "Object" in
