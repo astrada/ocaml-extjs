@@ -8,6 +8,7 @@ end
 class type t = object
   inherit Ext_container_AbstractContainer.t
   inherit configs
+  method close : unit Js.meth
 end
 
 let config
