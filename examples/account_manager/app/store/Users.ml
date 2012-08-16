@@ -2,12 +2,11 @@ class type data = object
   method name : Js.js_string Js.t Js.prop
   method email : Js.js_string Js.t Js.prop
 end
+
 let data_row name email =
-  let constr : data Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let instance = jsnew constr () in
-  instance##name <- Js.string name;
-  instance##email <- Js.string email;
-  instance
+  ({| name = Js.string name;
+      email = Js.string email;
+   |} : data Js.t)
 
 class type t = object
   inherit Ext_Class.t
@@ -15,28 +14,32 @@ class type t = object
 end
 
 let () =
-  let api_constr : 'a Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let api_conf = jsnew api_constr () in
-  api_conf##read <- Js.string "data/users.json";
-  api_conf##update <- Js.string "data/updateUsers.json";
-  let reader_constr : Ext_data_reader_Reader.t Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let reader_conf = jsnew reader_constr () in
-  reader_conf##_type <- Js.string "json";
-  reader_conf##root <- Js.string "users";
-  reader_conf##successProperty <- Js.string "success";
-  let proxy_constr : Ext_data_proxy_Ajax.t Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let proxy_conf = jsnew proxy_constr () in
-  proxy_conf##_type <- Js.string "ajax";
-  proxy_conf##api <- api_conf;
-  proxy_conf##reader <- reader_conf;
-  let store_constr : t Js.t Js.constr = Js.Unsafe.variable "Object" in
-  let store_conf = jsnew store_constr () in
-  store_conf##extend <- Js.string "Ext.data.Store";
-  store_conf##model <- Js.string "AM.model.User";
-  store_conf##autoLoad <- Js.bool true;
-  store_conf##proxy <- proxy_conf;
+  let api =
+    {| read = Js.string "data/users.json";
+       update = Js.string "data/updateUsers.json";
+    |}
+  in
+  let reader : Ext_data_reader_Reader.t Js.t =
+    {| _type = Js.string "json";
+       root = Js.string "users";
+       successProperty = Js.string "success";
+    |}
+  in
+  let proxy : Ext_data_proxy_Ajax.t Js.t =
+    {| _type = Js.string "ajax"; |}
+  in
+  proxy##api <- api;
+  proxy##reader <- reader;
+  let store : t Js.t =
+    {| extend = Js.string "Ext.data.Store";
+       model = Js.string "AM.model.User";
+       autoLoad = Js.bool true;
+    |}
+  in
+  store##proxy <- proxy;
+
   Ext.define
     ~className:"AM.store.Users"
-    ~data:store_conf
+    ~data:store
     ()
 
