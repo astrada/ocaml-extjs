@@ -40,11 +40,10 @@ let () =
       |]
     in
     let panel : Ext_panel_Panel.t Js.t =
-      {| xtype = Js.string "form";
-         items = Js.array (Array.map Js.Unsafe.inject panel_items);
-      |}
+      {| xtype = Js.string "form"; |}
     in
-    this##items <- Js.array [|Js.Unsafe.inject panel|];
+    panel##items <- Js.array panel_items;
+    this##items <- Js.array [|panel|];
 
     let button1 : button Js.t =
       {| text = Js.string "Save";

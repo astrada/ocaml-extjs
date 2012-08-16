@@ -24,7 +24,7 @@ let () =
        models = Js.array [|Js.string "User"|];
        views = Js.array [|Js.string "user.List";
                           Js.string "user.Edit"|];
-     |}
+    |}
   in
 
   controller##init <- Js.wrap_meth_callback

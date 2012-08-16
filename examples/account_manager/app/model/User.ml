@@ -8,7 +8,7 @@ let () =
     {| extend = Js.string "Ext.data.Model";
        fields = Js.array [|Js.string "name";
                            Js.string "email"|];
-     |}
+    |}
   in
 
   Ext.define

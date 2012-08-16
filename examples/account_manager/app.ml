@@ -4,10 +4,9 @@ let () =
   in
 
   let viewport : Ext_container_Viewport.t Js.t =
-    {| layout = Js.string "fit";
-       items = Js.array [|Js.Unsafe.inject panel|];
-     |}
+    {| layout = Js.string "fit"; |}
   in
+  viewport##items <- Js.array [|panel|];
 
   let application : Ext_app_Application.t Js.t =
     {| name = Js.string "AM";
@@ -19,7 +18,7 @@ let () =
        launch = Js.wrap_callback
                   (fun () ->
                      Ext.create ~name:"Ext.container.Viewport" ~args:viewport);
-     |}
+    |}
   in
 
   Ext.application ~config:application
