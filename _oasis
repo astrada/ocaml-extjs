@@ -20,7 +20,7 @@ Flag all
 # Flags
 Flag examples
   Description: Build examples
-  Default$: flag(all)
+  Default: true
 
 Flag generator
   Description: Build library generator
