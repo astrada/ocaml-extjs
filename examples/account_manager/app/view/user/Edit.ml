@@ -56,10 +56,9 @@ let () =
     button2##handler <- Js.wrap_callback (fun _ _ -> this##close ());
     this##buttons <- Js.array [|button1; button2|];
 
-    (* Cannot call "this##callParent ()" because ExtJs uses call stack to figure
-     * out which method to call in which superclass *)
-    let t1 = Js.Unsafe.coerce this in
-    t1##superclass##initComponent##apply (t1, Js.Unsafe.variable "arguments")
+    (* Cannot call "this##callParent ()", because ExtJs uses the call stack to
+     * figure out which method of the superclass to call *)
+    ExtUtils.call_parent this "initComponent";
   in
   view##initComponent <- Js.wrap_meth_callback init_component;
   Ext.define

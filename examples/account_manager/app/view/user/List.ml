@@ -27,10 +27,9 @@ let () =
     in
     this##columns <- Js.array [|column1; column2|];
 
-    (* Cannot call "this##callParent ()" because ExtJs uses call stack to figure
-     * out which method to call in which superclass *)
-    let t1 = Js.Unsafe.coerce this in
-    t1##superclass##initComponent##apply (t1, Js.Unsafe.variable "arguments")
+    (* Cannot call "this##callParent ()", because ExtJs uses the call stack to
+     * figure out which method of the superclass to call *)
+    ExtUtils.call_parent this "initComponent";
   in
   view##initComponent <- Js.wrap_meth_callback init_component;
   Ext.define
