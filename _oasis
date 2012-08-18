@@ -32,7 +32,7 @@ Library oextjs
   Modules: Ext
   BuildDepends: js_of_ocaml, js_of_ocaml.syntax
   CompiledObject: byte
-  CSources: stubs.c
+  CSources: extUtils_stubs.c
   CCOpt: -D OPTION_PASSED
   XMETADescription: Ext JS 4.x for js_of_ocaml
 

@@ -564,7 +564,7 @@ rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"
     Cmd (S [A "js_of_ocaml";
             A "-pretty";
             A "-noinline";
-            A (Pathname.pwd / "lib/utils.js");
+            A (Pathname.pwd / "lib/extUtils.js");
             A (env "%.byte")]);
   end;;
 
