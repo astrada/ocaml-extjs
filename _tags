@@ -2,7 +2,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: bdfe1deee80cbb1d0e1abb7e93ade895)
+# DO NOT EDIT (digest: 2d134cac419fb3b99f6cd5d07b6069ef)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -26,7 +26,9 @@
 "lib/extUtils_stubs.c": pkg_js_of_ocaml
 "lib/extUtils_stubs.c": pkg_js_of_ocaml.syntax
 # Executable libgen
+"tools/libgen.byte": pkg_batteries
 "tools/libgen.byte": pkg_yojson
+<tools/*.ml{,i}>: pkg_batteries
 <tools/*.ml{,i}>: pkg_yojson
 # Library helloext
 "examples/helloext/helloext.cmxs": use_helloext

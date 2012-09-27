@@ -42,7 +42,7 @@ Executable libgen
   Path: tools
   Install: false
   MainIs: libgen.ml
-  BuildDepends: yojson
+  BuildDepends: batteries, yojson
 
 # Examples
 Library helloext
