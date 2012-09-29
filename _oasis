@@ -17,7 +17,6 @@ Flag all
   Description: Build all
   Default: false
 
-# Flags
 Flag examples
   Description: Build examples
   Default: true
@@ -26,15 +25,29 @@ Flag generator
   Description: Build library generator
   Default$: flag(all)
 
-# Library
+Flag docgen
+  Description: Build ocamldoc custom generator
+  Default$: flag(all)
+
+# Libraries
 Library oextjs
   Path: lib
-  Modules: Ext
+  Modules:
+    Ext
   BuildDepends: js_of_ocaml, js_of_ocaml.syntax
   CompiledObject: byte
   CSources: extUtils_stubs.c
   CCOpt: -D OPTION_PASSED
   XMETADescription: Ext JS 4.x for js_of_ocaml
+
+Library generator
+  Build$: flag(docgen) || flag(all)
+  Path: doc
+  Modules:
+    Generator
+  ByteOpt: -I +ocamldoc
+  NativeOpt: -I +ocamldoc
+  Install: false
 
 # Executables
 Executable libgen
@@ -43,6 +56,16 @@ Executable libgen
   Install: false
   MainIs: libgen.ml
   BuildDepends: batteries, yojson
+
+# Documentation
+Document oextjs
+  Title: API reference for Ext JS 4.x client library
+  Type: ocamlbuild (0.3)
+  Install: false
+  DataFiles: doc/style.css
+  BuildTools+: ocamldoc
+  XOCamlbuildPath: lib/
+  XOCamlbuildLibraries: oextjs
 
 # Examples
 Library helloext

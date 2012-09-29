@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 792e6e2661d574b6d6fcb2858490545e) *)
+(* DO NOT EDIT (digest: 59a954ff821b17390454462abcd65404) *)
 module OASISGettext = struct
 (* # 21 "/home/alex/.odb/install-oasis/oasis-0.3.0/src/oasis/OASISGettext.ml" *)
 
@@ -480,6 +480,7 @@ let package_default =
      MyOCamlbuildBase.lib_ocaml =
        [
           ("oextjs", ["lib"]);
+          ("generator", ["doc"]);
           ("helloext", ["examples/helloext"]);
           ("account_manager", ["examples/account_manager"])
        ];
@@ -490,7 +491,19 @@ let package_default =
             [
                (OASISExpr.EBool true,
                  S [A "-ccopt"; A "-D"; A "-ccopt"; A "OPTION_PASSED"])
-            ])
+            ]);
+          (["oasis_library_generator_byte"; "ocaml"; "link"; "byte"],
+            [(OASISExpr.EBool true, S [A "-I"; A "+ocamldoc"])]);
+          (["oasis_library_generator_native"; "ocaml"; "link"; "native"],
+            [(OASISExpr.EBool true, S [A "-I"; A "+ocamldoc"])]);
+          (["oasis_library_generator_byte"; "ocaml"; "ocamldep"; "byte"],
+            [(OASISExpr.EBool true, S [A "-I"; A "+ocamldoc"])]);
+          (["oasis_library_generator_native"; "ocaml"; "ocamldep"; "native"],
+            [(OASISExpr.EBool true, S [A "-I"; A "+ocamldoc"])]);
+          (["oasis_library_generator_byte"; "ocaml"; "compile"; "byte"],
+            [(OASISExpr.EBool true, S [A "-I"; A "+ocamldoc"])]);
+          (["oasis_library_generator_native"; "ocaml"; "compile"; "native"],
+            [(OASISExpr.EBool true, S [A "-I"; A "+ocamldoc"])])
        ];
      includes =
        [
@@ -541,7 +554,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 545 "myocamlbuild.ml"
+# 558 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 Ocamlbuild_pack.Log.classic_display := true;;
@@ -568,5 +581,33 @@ rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"
             A (env "%.byte")]);
   end;;
 
-Ocamlbuild_plugin.dispatch dispatch_default;;
+(* copy of the normal ocamldoc rule that uses a custom generator. *)
+rule "ocamldoc: document ocaml project odocl & *odoc -> docdir (html+)"
+  ~insert:`top
+  ~prod:"%.docdir/index.html"
+  ~stamp:"%.docdir/html.stamp"
+  ~dep:"%.odocl"
+  begin
+    let my_ocamldoc tags deps docout docdir =
+      let tags = tags -- "extension:html" in
+        Ocamlbuild_pack.Ocaml_tools.ocamldoc_l_dir tags deps docout docdir
+    in
+    Ocamlbuild_pack.Ocaml_tools.document_ocaml_project
+      ~ocamldoc:my_ocamldoc
+      "%.odocl"
+      "%.docdir/index.html"
+      "%.docdir"
+  end;;
+
+let dispatch_ocamlbuild = function
+  | After_rules ->
+      flag ["doc"; "ocaml"]
+        (S [A "-i"; A "doc";
+            A "-g"; A "generator.cmo"])
+  | e -> dispatch_default e
+
+let () =
+  Ocamlbuild_plugin.dispatch
+    (MyOCamlbuildBase.dispatch_combine
+       [dispatch_default; dispatch_ocamlbuild]);;
 

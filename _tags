@@ -2,7 +2,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 2d134cac419fb3b99f6cd5d07b6069ef)
+# DO NOT EDIT (digest: 951b994642b93fb635b1ec2b51d7bf37)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -25,6 +25,12 @@
 <lib/*.ml{,i}>: pkg_js_of_ocaml.syntax
 "lib/extUtils_stubs.c": pkg_js_of_ocaml
 "lib/extUtils_stubs.c": pkg_js_of_ocaml.syntax
+# Library generator
+"doc/generator.cmxs": use_generator
+<doc/generator.{cma,cmxa}>: oasis_library_generator_byte
+<doc/*.ml{,i}>: oasis_library_generator_byte
+<doc/generator.{cma,cmxa}>: oasis_library_generator_native
+<doc/*.ml{,i}>: oasis_library_generator_native
 # Executable libgen
 "tools/libgen.byte": pkg_batteries
 "tools/libgen.byte": pkg_yojson
