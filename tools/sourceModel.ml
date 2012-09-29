@@ -12,7 +12,16 @@ type name_type =
 
 module OCamlName =
 struct
-  let keywords = ["type"; "method"; "private"; "end"; "ref"; "object"; "open"]
+  let keywords = [
+    "type";
+    "method";
+    "private";
+    "end";
+    "ref";
+    "object";
+    "open";
+    "raise";
+  ]
 
   let is_first_character_valid s =
     match s.[0] with
@@ -178,6 +187,9 @@ struct
     add_type table
       ~params:[Symbol.TypeVariable] "Function" "Js" "callback"
       |> ignore;
+    add_type table
+      "Error" "" ""
+      |> ignore;
     add_type table "undefined" "" "unit" |> ignore;
     table
 
@@ -185,9 +197,11 @@ struct
     try
       Hashtbl.find table id
     with Not_found ->
-      let prefix =
-        OCamlName.get_ocaml_name ModuleName id in
-      add_type table id prefix "t"
+      if String.starts_with id "Ext." then
+        let prefix =
+          OCamlName.get_ocaml_name ModuleName id in
+        add_type table id prefix "t"
+      else failwith ("Unsupported type: " ^ id)
 
   let map_type table id =
     match id with
@@ -235,6 +249,15 @@ struct
     symbol;
   }
 
+  let unit_type = {
+    id = "";
+    symbol = {
+      Symbol.module_prefix = "";
+      symbol_name = "unit";
+      params = [];
+    };
+  }
+
 end
 
 module Param =
@@ -270,6 +293,13 @@ struct
     doc;
   }
 
+  let unit_param = {
+    id = "";
+    name = "()";
+    ptype = Type.unit_type;
+    doc = "";
+  }
+
 end
 
 module Function =
@@ -278,6 +308,9 @@ struct
     id : string;
     name : string;
     doc : string;
+    owner : string;
+    property : bool;
+    readonly : bool;
     params : Param.t list;
     return : Param.t
   }
@@ -294,6 +327,18 @@ struct
 		Lens.get = (fun x -> x.doc);
 		Lens.set = (fun v x -> { x with doc = v })
 	}
+	let owner = {
+		Lens.get = (fun x -> x.owner);
+		Lens.set = (fun v x -> { x with owner = v })
+	}
+	let property = {
+		Lens.get = (fun x -> x.property);
+		Lens.set = (fun v x -> { x with property = v })
+	}
+	let readonly = {
+		Lens.get = (fun x -> x.readonly);
+		Lens.set = (fun v x -> { x with readonly = v })
+	}
 	let params = {
 		Lens.get = (fun x -> x.params);
 		Lens.set = (fun v x -> { x with params = v })
@@ -302,6 +347,28 @@ struct
 		Lens.get = (fun x -> x.return);
 		Lens.set = (fun v x -> { x with return = v })
 	}
+
+  let create id doc owner params return = {
+    id;
+    name = OCamlName.get_ocaml_name ValueName id;
+    doc;
+    owner;
+    property = false;
+    readonly = false;
+    params = if params = [] then [Param.unit_param] else params;
+    return
+  }
+
+  let create_property id doc owner readonly return = {
+    id;
+    name = OCamlName.get_ocaml_name ValueName id;
+    doc;
+    owner;
+    property = true;
+    readonly;
+    params = [];
+    return
+  }
 
 end
 
@@ -386,11 +453,7 @@ struct
     template = false;
     method_type = Callback;
     params;
-    return = Param.create "" (Type.create "" {
-      Symbol.module_prefix = "";
-      symbol_name = "unit";
-      params = [];
-    }) "";
+    return = Param.unit_param;
   }
 
 end
