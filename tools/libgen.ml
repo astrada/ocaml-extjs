@@ -107,11 +107,15 @@ let parse_param table json_object =
   let ptype = SymbolTable.map_type table ext_type |> Type.create ext_type in
   Param.create name ptype doc default
 
-let create_and_add_members create_member json_array current_class_type =
+let create_and_add_members
+      create_member json_array current_module current_class_type =
   ContextM.foldM
     (fun current json_object ->
        let es = get_json_elements json_object in
-       if is_private es || is_deprecated es then
+       let owner = get_json_element "owner" es |> get_json_string in
+       if owner <> current_module.Module.id ||
+          is_private es ||
+          is_deprecated es then
          ContextM.return current
        else
          Lens.get_state Context.symbol_table >>= fun table ->
@@ -158,16 +162,16 @@ let add_events =
            |> List.map (parse_param table) in
        Method.create_event name doc params)
 
-let add_members json_elements current_class_type =
+let add_members json_elements current_module current_class_type =
   ContextM.foldM
     (fun current -> function
          ("property", `List xs)
        | ("cfg", `List xs) ->
-           add_properties xs current
+           add_properties xs current_module current
        | ("method", `List xs) ->
-           add_methods xs current
+           add_methods xs current_module current
        | ("event", `List xs) ->
-           add_events xs current
+           add_events xs current_module current
        | _ ->
            ContextM.return current
     )
@@ -187,7 +191,7 @@ let add_class_type json_elements current_module =
        | ("mixins", `List xs) ->
            add_superclasses xs current
        | ("members", `Assoc xs) ->
-           add_members xs current
+           add_members xs current_module current
        | _ ->
            ContextM.return current
     )
@@ -210,13 +214,16 @@ let create_and_add_statics create_function json_array current_module =
   ContextM.foldM
     (fun current json_object ->
        let es = get_json_elements json_object in
-       if is_private es || is_deprecated es then
+       let owner = get_json_element "owner" es |> get_json_string in
+       if owner <> current_module.Module.id ||
+          is_private es ||
+          is_deprecated es then
          ContextM.return current
        else
          Lens.get_state Context.symbol_table >>= fun table ->
          let name = get_json_element "name" es |> get_json_string in
          let doc = get_json_element "doc" es |> get_json_string in
-         let f = create_function es table name doc in
+         let f = create_function es table name doc owner in
          let updated =
            current
              |> Module.functions ^%= (fun fs -> fs @ [f])
@@ -227,8 +234,7 @@ let create_and_add_statics create_function json_array current_module =
 
 let add_static_properties =
   create_and_add_statics
-    (fun es table name doc ->
-       let owner = get_json_element "owner" es |> get_json_string in
+    (fun es table name doc owner ->
        let readonly = is_readonly es in
        let ext_type = get_json_element "type" es |> get_json_string in
        let return_type = SymbolTable.map_type table ext_type in
@@ -239,8 +245,7 @@ let add_static_properties =
 
 let add_static_methods =
   create_and_add_statics
-    (fun es table name doc ->
-       let owner = get_json_element "owner" es |> get_json_string in
+    (fun es table name doc owner ->
        let params =
          get_json_element "params" es |> get_json_array
            |> List.map (parse_param table) in
@@ -250,7 +255,7 @@ let add_static_methods =
 
 let add_static_events =
   create_and_add_statics
-    (fun es table name doc ->
+    (fun es table name doc owner ->
        failwith ("Static events are not supported: " ^ name))
 
 let add_statics json_elements current_module =
@@ -273,11 +278,10 @@ let add_statics json_elements current_module =
 let tag_regexp = Str.regexp "<[^>]+>"
 
 let build_module json_elements toplevel =
-  let empty_module = Module.create toplevel in
+  let id = get_json_element "name" json_elements |> get_json_string in
+  let current_module = Module.create toplevel |> Module.set_id id in
   ContextM.foldM
     (fun current -> function
-         ("name", `String s) ->
-           ContextM.return (current |> Module.set_id s)
        | ("tagname", `String "class") ->
            if is_singleton json_elements then
              ContextM.return current
@@ -299,7 +303,7 @@ let build_module json_elements toplevel =
            add_statics xs current
        | _ ->
            ContextM.return current)
-    empty_module
+    current_module
     json_elements >>= fun created_module ->
   Lens.get_state Context.symbol_table >>= fun table ->
   ContextM.return created_module
@@ -425,15 +429,20 @@ let write_class_type formatter write_method current_module ct =
 
 let write_function formatter f =
   if f.Function.property then begin
+    let name =
+      (* HACK: beautify case of all uppercase properties *)
+      if f.Function.name.[1] = Char.uppercase f.Function.name.[1]
+      then String.capitalize f.Function.name
+      else f.Function.name in
     Format.fprintf formatter
       "@[<hov 2>let get_%s@ ()@ =@,@[<hv 2>Js.Unsafe.get@ (Js.Unsafe.variable \"%s\")@ (Js.Unsafe.variable \"%s\")@]@]@\n@\n"
-      f.Function.name
+      name
       f.Function.owner
       f.Function.id;
     if not f.Function.readonly then begin
       Format.fprintf formatter
         "@[<hov 2>let set_%s@ v =@,@[<hv 2>Js.Unsafe.set@ (Js.Unsafe.variable \"%s\")@ (Js.Unsafe.variable \"%s\")@ v@]@]@\n@\n"
-        f.Function.name
+        name
         f.Function.owner
         f.Function.id;
     end;
@@ -539,15 +548,20 @@ let write_class_type_with_docs formatter current_module ct =
 
 let write_function_declaration formatter current_module f =
   if f.Function.property then begin
+    (* HACK: beautify case of all uppercase properties *)
+    let name =
+      if f.Function.name.[1] = Char.uppercase f.Function.name.[1]
+      then String.capitalize f.Function.name
+      else f.Function.name in
     let return_string = get_return_string current_module f.Function.return in
     Format.fprintf formatter
       "@[<hov 2>val get_%s@ :@ unit@ ->@ %s@]@\n"
-      f.Function.name
+      name
       return_string;
     if not f.Function.readonly then begin
       Format.fprintf formatter
         "@[<hov 2>val set_%s@ :@ %s@ ->@ unit@]@\n"
-        f.Function.name
+        name
         return_string;
     end;
     Format.fprintf formatter "@[<hov 2>(**@ {%% %s %%}@\n" f.Function.doc;

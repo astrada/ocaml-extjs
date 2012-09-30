@@ -92,45 +92,11 @@ struct
     params : type_param list;
   }
 
-  let map_symbols_to_strings current_module symbols =
-    let get_param n =
-      let start_code = Char.code 'a' in
-      let param_code = start_code + n - 1 in
-      let param_chr = Char.chr param_code in
-      let param_string = String.of_char param_chr in
-        "'" ^ param_string
-    in
-    let i = ref 0 in
-    let rec loop symbol =
-      let params_string =
-        List.map
-          (function
-               TypeVariable -> incr i; get_param !i
-             | Type t -> loop t)
-          symbol.params
-        |> String.concat ","
-      in
-        match symbol.params with
-            [] ->
-              if symbol.module_prefix <> "" &&
-                 symbol.module_prefix <> current_module then
-                symbol.module_prefix ^ "." ^ symbol.symbol_name
-              else symbol.symbol_name
-          | [_] ->
-            Printf.sprintf "%s %s.%s"
-              params_string
-              symbol.module_prefix
-              symbol.symbol_name
-          | _ ->
-            Printf.sprintf "(%s) %s.%s"
-              params_string
-              symbol.module_prefix
-              symbol.symbol_name
-    in
-    List.map loop symbols
-
-  let to_string current_module symbol =
-    map_symbols_to_strings current_module [symbol] |> List.hd
+  let js_object = {
+    module_prefix = "Js";
+    symbol_name = "t";
+    params = [TypeVariable];
+  }
 
   let boolean = {
     module_prefix = "";
@@ -152,11 +118,121 @@ struct
 
   let generic_js_array = js_array TypeVariable
 
+  let type_variable = {
+    module_prefix = "";
+    symbol_name = "";
+    params = [TypeVariable];
+  }
+
+  module Aliases =
+  struct
+    let module_aliases =
+      let tbl = Hashtbl.create 64 in
+      Hashtbl.add tbl "Ext_Element" "Ext_dom_Element";
+      Hashtbl.add tbl "Ext_core_Element" "Ext_dom_Element";
+      Hashtbl.add tbl "Ext_CompositeElement" "Ext_dom_CompositeElement";
+      tbl
+
+    let get_canonical alias =
+      try
+        Hashtbl.find module_aliases alias
+      with Not_found -> alias
+
+  end
+
+  module TypeMap =
+  struct
+    let type_map =
+      [("Ext_dom_AbstractElement",
+        [("Ext_dom_Element", type_variable);
+         ("Ext_dom_CompositeElement", type_variable);
+        ]);
+       ]
+
+    let type_table =
+      let create_subtable submap =
+        let tbl = Hashtbl.create 64 in
+        List.iter
+          (fun (id, symbol) -> Hashtbl.add tbl id symbol)
+          submap;
+        tbl
+      in
+      let tbl = Hashtbl.create 64 in
+      List.iter
+        (fun (id, subtbl) ->
+           Hashtbl.add tbl id (create_subtable subtbl))
+        type_map;
+      tbl
+
+    let map_symbol current_module symbol =
+      try
+        let subtbl =
+          Hashtbl.find type_table current_module in
+        let canonical_module =
+          Aliases.get_canonical symbol.module_prefix in
+        Hashtbl.find subtbl canonical_module
+      with Not_found -> symbol
+
+  end
+
+  let map_symbols_to_strings current_module symbols =
+    let get_param n =
+      let start_code = Char.code 'a' in
+      let param_code = start_code + n - 1 in
+      let param_chr = Char.chr param_code in
+      let param_string = String.of_char param_chr in
+        "'" ^ param_string
+    in
+    let i = ref 0 in
+    let rec loop orig_symbol =
+      let symbol = TypeMap.map_symbol current_module orig_symbol in
+      let params_string =
+        List.map
+          (function
+               TypeVariable -> incr i; get_param !i
+             | Type t -> loop t)
+          symbol.params
+        |> String.concat ","
+      in
+        match symbol.params with
+            [] ->
+              if symbol.module_prefix <> "" &&
+                 symbol.module_prefix <> current_module then
+                symbol.module_prefix ^ "." ^ symbol.symbol_name
+              else symbol.symbol_name
+          | [_] ->
+              if symbol.module_prefix <> "" &&
+                 symbol.module_prefix <> current_module then
+                Printf.sprintf "%s %s.%s"
+                  params_string
+                  symbol.module_prefix
+                  symbol.symbol_name
+              else if symbol.symbol_name <> "" then
+                Printf.sprintf "%s %s"
+                  params_string
+                  symbol.symbol_name
+              else
+                params_string
+          | _ ->
+            Printf.sprintf "(%s) %s.%s"
+              params_string
+              symbol.module_prefix
+              symbol.symbol_name
+    in
+    List.map loop symbols
+
+  let to_string current_module symbol =
+    map_symbols_to_strings current_module [symbol] |> List.hd
+
 end
 
 module SymbolTable =
 struct
   type t = (string, Symbol.t) Hashtbl.t
+
+  let add_symbol table id symbol =
+    Hashtbl.add table id symbol;
+    symbol
 
   let add_type table ?(params = []) id prefix name =
     let symbol = {
@@ -164,8 +240,7 @@ struct
       symbol_name = name;
       params;
     } in
-    Hashtbl.add table id symbol;
-    symbol
+    add_symbol table id symbol
 
   let create () : t =
     let table = Hashtbl.create 64 in
@@ -181,16 +256,16 @@ struct
     add_type table
       ~params:[Symbol.Type Symbol.generic_js_array] "Array" "Js" "t"
       |> ignore;
-    add_type table
-      ~params:[Symbol.TypeVariable] "Object" "Js" "t"
-      |> ignore;
+    add_symbol table "Object" Symbol.js_object |> ignore;
     add_type table
       ~params:[Symbol.TypeVariable] "Function" "Js" "callback"
       |> ignore;
-    add_type table
-      "Error" "" ""
-      |> ignore;
     add_type table "undefined" "" "unit" |> ignore;
+    (* Undefined types *)
+    add_type table "Error" "" "" |> ignore;
+    add_symbol table "HTMLElement" Symbol.js_object |> ignore;
+    add_symbol table "Mixed" Symbol.js_object |> ignore;
+    add_symbol table "Ext" Symbol.js_object |> ignore;
     table
 
   let lookup_type table id =
@@ -215,6 +290,9 @@ struct
             symbol_name = "t";
             params = [Symbol.Type (Symbol.js_array (Symbol.Type inner_type))];
           }
+      | s when String.ends_with s "..." ->
+          (* varargs are not supported *)
+          lookup_type table (String.rchop ~n:3 s)
       | s when String.starts_with s "Ext." ->
           let inner_type =
             lookup_type table s in
