@@ -1,8 +1,6 @@
 #!/bin/bash
 
-set -e
-
-EXTJS=/usr/local/src/extjs-4.1.1/src
+. ../examples/setup-deploy.sh
 
 jsduck $EXTJS \
   --verbose \
