@@ -1,4 +1,4 @@
-(** Handles class creation throughout the framework...
+(** Handles class creation throughout the framework. T...
   
   {% <p>Handles class creation throughout the framework. This is a low level factory that is used by <a href="#!/api/Ext.ClassManager" rel="Ext.ClassManager" class="docClass">Ext.ClassManager</a> and generally
 should not be used directly. If you choose to use <a href="#!/api/Ext.Class" rel="Ext.Class" class="docClass">Ext.Class</a> you will lose out on the namespace, aliasing and depency loading
@@ -19,7 +19,7 @@ object('self)
   (** {% <p>List of short aliases for class names.  Most useful for defining xtypes for widgets:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.CoolPanel', {
-    extend: 'Ext.panel.Panel',
+    extend: '<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>',
     alias: ['widget.coolpanel'],
     title: 'Yeah!'
 });
@@ -187,7 +187,7 @@ var dellComputer = Computer.factory('Dell');
     *)
   method uses : Js.js_string Js.t Js.js_array Js.t Js.prop
   (** {% <p>List of optional classes to load together with this class. These aren't neccessarily loaded before
-this class is created, but are guaranteed to be available before Ext.onReady listeners are
+this class is created, but are guaranteed to be available before <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a> listeners are
 invoked. For example:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Mother', {

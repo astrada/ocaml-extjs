@@ -1,4 +1,4 @@
-(** A wrapper class for the native JavaScript Error...
+(** A wrapper class for the native JavaScript Error ob...
   
   {% <p>A wrapper class for the native JavaScript Error object that adds a few useful capabilities for handling
 errors in an Ext application. When you use <a href="#!/api/Ext.Error" rel="Ext.Error" class="docClass">Ext.Error</a> to <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">raise</a> an error from within any class that
@@ -27,7 +27,7 @@ added to the error object and, if the console is available, logged to the consol
 
 <p>Example usage:</p>
 
-<pre><code>Ext.define('Ext.Foo', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.Foo', {
     doSomething: function(option){
         if (someCondition === false) {
             <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>({
@@ -87,7 +87,7 @@ a particular error instance, if you want to provide a custom description that wi
  %}
     
     {b Returns}:
-    [Js.js_string Js.t]
+    - [Js.js_string Js.t]
     {% <p>The error message. If raised from within the Ext 4 class system, the error message will also
 include the raising class and method names, if available.</p>
  %}
@@ -175,7 +175,7 @@ execution will halt.</p>
 
 // or...
 
-Ext.define('Ext.Foo', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.Foo', {
     doSomething: function(option){
         if (someCondition === false) {
             <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>({

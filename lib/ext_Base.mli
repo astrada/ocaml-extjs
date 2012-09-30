@@ -1,6 +1,6 @@
-(** The root of all classes created with Ext.define...
+(** The root of all classes created with Ext.define....
   
-  {% <p>The root of all classes created with Ext.define.</p>
+  {% <p>The root of all classes created with <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>.</p>
 
 <p><a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base</a> is the building block of all Ext classes. All classes in Ext inherit from <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base</a>.
 All prototype and static members of this class are inherited by all other classes.</p>
@@ -15,7 +15,7 @@ object('self)
 <code>this.self</code> is scope-dependent and it's meant to be used for dynamic inheritance. See <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>
 for a detailed comparison</p>
 
-<pre><code>Ext.define('My.Cat', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Cat', {
     statics: {
         speciesName: 'Cat' // My.Cat.speciesName = 'Cat'
     },
@@ -30,7 +30,7 @@ for a detailed comparison</p>
 });
 
 
-Ext.define('My.SnowLeopard', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.SnowLeopard', {
     extend: 'My.Cat',
     statics: {
         speciesName: 'Snow Leopard'         // My.SnowLeopard.speciesName = 'Snow Leopard'
@@ -41,15 +41,15 @@ var cat = new My.Cat();                     // alerts 'Cat'
 var snowLeopard = new My.SnowLeopard();     // alerts 'Snow Leopard'
 
 var clone = snowLeopard.clone();
-alert(Ext.getClassName(clone));             // alerts 'My.SnowLeopard'
+alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">Ext.getClassName</a>(clone));             // alerts 'My.SnowLeopard'
 </code></pre>
  %}
     *)
-  method callParent : ('a Js.t -> 'a Js.t) Js.meth
+  method callParent : ('a Js.t -> 'b Js.t) Js.meth
   (** {% <p>Call the "parent" method of the current method. That is the method previously
-overridden by derivation or by an override (see Ext.define).</p>
+overridden by derivation or by an override (see <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>).</p>
 
-<pre><code> Ext.define('My.Base', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Base', {
      constructor: function (x) {
          this.x = x;
      },
@@ -61,7 +61,7 @@ overridden by derivation or by an override (see Ext.define).</p>
      }
  });
 
- Ext.define('My.Derived', {
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Derived', {
      extend: 'My.Base',
 
      constructor: function () {
@@ -76,7 +76,7 @@ overridden by derivation or by an override (see Ext.define).</p>
 
 <p>This can be used with an override as follows:</p>
 
-<pre><code> Ext.define('My.DerivedOverride', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.DerivedOverride', {
      override: 'My.Derived',
 
      constructor: function (x) {
@@ -91,7 +91,7 @@ overridden by derivation or by an override (see Ext.define).</p>
 
 <p>This also works with static methods.</p>
 
-<pre><code> Ext.define('My.Derived2', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Derived2', {
      extend: 'My.Base',
 
      statics: {
@@ -107,7 +107,7 @@ overridden by derivation or by an override (see Ext.define).</p>
 
 <p>Lastly, it also works with overridden static methods.</p>
 
-<pre><code> Ext.define('My.Derived2Override', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Derived2Override', {
      override: 'My.Derived2',
 
      statics: {
@@ -134,6 +134,65 @@ from the current method, for example: <code>this.callParent(arguments)</code></p
  %}
     
     *)
+  method callSuper : ('a Js.t -> 'b Js.t) Js.meth
+  (** {% <p>This method is used by an override to call the superclass method but bypass any
+overridden method. This is often done to "patch" a method that contains a bug
+but for whatever reason cannot be fixed directly.</p>
+
+<p>Consider:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.some.Class', {
+     method: function () {
+         console.log('Good');
+     }
+ });
+
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.some.DerivedClass', {
+     method: function () {
+         console.log('Bad');
+
+         // ... logic but with a bug ...
+
+         this.callParent();
+     }
+ });
+</code></pre>
+
+<p>To patch the bug in <code>DerivedClass.method</code>, the typical solution is to create an
+override:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('App.paches.DerivedClass', {
+     override: 'Ext.some.DerivedClass',
+
+     method: function () {
+         console.log('Fixed');
+
+         // ... logic but with bug fixed ...
+
+         this.callSuper();
+     }
+ });
+</code></pre>
+
+<p>The patch method cannot use <code>callParent</code> to call the superclass <code>method</code> since
+that would call the overridden method containing the bug. In other words, the
+above patch would only produce "Fixed" then "Good" in the console log, whereas,
+using <code>callParent</code> would produce "Fixed" then "Bad" then "Good".</p>
+ %}
+    
+    {b Parameters}:
+    - args: ['a Js.t]
+    {% <p>The arguments, either an array or the <code>arguments</code> object
+from the current method, for example: <code>this.callSuper(arguments)</code></p>
+ %}
+    
+    
+    {b Returns}:
+    - ['a Js.t]
+    {% <p>Returns the result of calling the superclass method</p>
+ %}
+    
+    *)
   method getInitialConfig : (Js.js_string Js.t -> 'a Js.t) Js.meth
   (** {% <p>Returns the initial configuration passed to constructor when instantiating
 this class.</p>
@@ -155,7 +214,7 @@ when <code>name</code> parameter specified.</p>
   method initConfig : ('a Js.t -> t Js.t) Js.meth
   (** {% <p>Initialize configuration for this class. a typical example:</p>
 
-<pre><code>Ext.define('My.awesome.Class', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.awesome.Class', {
     // The default config
     config: {
         name: 'Awesome',
@@ -190,7 +249,7 @@ alert(awesome.getName()); // 'Super Awesome'
 <code>this.statics()</code> is scope-independent and it always returns the class from which it was called, regardless of what
 <code>this</code> points to during run-time</p>
 
-<pre><code>Ext.define('My.Cat', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Cat', {
     statics: {
         totalCreated: 0,
         speciesName: 'Cat' // My.Cat.speciesName = 'Cat'
@@ -217,7 +276,7 @@ alert(awesome.getName()); // 'Super Awesome'
 });
 
 
-Ext.define('My.SnowLeopard', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.SnowLeopard', {
     extend: 'My.Cat',
 
     statics: {
@@ -234,7 +293,7 @@ var cat = new My.Cat();                 // alerts 'Cat', then alerts 'Cat'
 var snowLeopard = new My.SnowLeopard(); // alerts 'Cat', then alerts 'Snow Leopard'
 
 var clone = snowLeopard.clone();
-alert(Ext.getClassName(clone));         // alerts 'My.SnowLeopard'
+alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">Ext.getClassName</a>(clone));         // alerts 'My.SnowLeopard'
 alert(clone.groupName);                 // alerts 'Cat'
 
 alert(My.Cat.totalCreated);             // alerts 3
@@ -248,7 +307,7 @@ val addMembers : 'a Js.t -> unit
 (**
   {% <p>Add methods / properties to the prototype of this class.</p>
 
-<pre><code>Ext.define('My.awesome.Cat', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.awesome.Cat', {
     constructor: function() {
         ...
     }
@@ -275,7 +334,7 @@ val addStatics : 'a Js.t -> t Js.t
 (**
   {% <p>Add / override static properties of this class.</p>
 
-<pre><code>Ext.define('My.cool.Class', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     ...
 });
 
@@ -302,7 +361,7 @@ val create : unit -> 'a Js.t
 (**
   {% <p>Create a new instance of this Class.</p>
 
-<pre><code>Ext.define('My.cool.Class', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     ...
 });
 
@@ -324,7 +383,7 @@ val createAlias : 'a Js.t -> 'b Js.t -> unit
 (**
   {% <p>Create aliases for existing prototype methods. Example:</p>
 
-<pre><code>Ext.define('My.cool.Class', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     method1: function() { ... },
     method2: function() { ... }
 });
@@ -347,7 +406,7 @@ test.method5(); // test.method3() -&gt; test.method1()
   {b Parameters}:
   - alias: ['a Js.t]
   {% <p>The new method name, or an object to set multiple aliases. See
-flexSetter</p>
+<a href="#!/api/Ext.Function-method-flexSetter" rel="Ext.Function-method-flexSetter" class="docClass">flexSetter</a></p>
  %}
   - origin: ['a Js.t] {% <p>The original method name</p>
  %}
@@ -358,7 +417,7 @@ val getName : unit -> Js.js_string Js.t
 (**
   {% <p>Get the current class' name in string format.</p>
 
-<pre><code>Ext.define('My.cool.Class', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     constructor: function() {
         alert(this.self.getName()); // alerts 'My.cool.Class'
     }
