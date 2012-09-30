@@ -92,7 +92,7 @@ struct
     params : type_param list;
   }
 
-  let symbols_to_string sep symbols =
+  let map_symbols_to_strings current_module symbols =
     let get_param n =
       let start_code = Char.code 'a' in
       let param_code = start_code + n - 1 in
@@ -112,7 +112,8 @@ struct
       in
         match symbol.params with
             [] ->
-              if symbol.module_prefix <> "" then
+              if symbol.module_prefix <> "" &&
+                 symbol.module_prefix <> current_module then
                 symbol.module_prefix ^ "." ^ symbol.symbol_name
               else symbol.symbol_name
           | [_] ->
@@ -127,10 +128,9 @@ struct
               symbol.symbol_name
     in
     List.map loop symbols
-      |> String.concat sep
 
-  let to_string symbol =
-    symbols_to_string "" [symbol]
+  let to_string current_module symbol =
+    map_symbols_to_strings current_module [symbol] |> List.hd
 
   let boolean = {
     module_prefix = "";
@@ -266,7 +266,8 @@ struct
     id : string;
     name : string;
     ptype : Type.t;
-    doc : string
+    doc : string;
+    default : string;
   }
 
 	let id = {
@@ -285,12 +286,17 @@ struct
 		Lens.get = (fun x -> x.doc);
 		Lens.set = (fun v x -> { x with doc = v })
 	}
+	let default = {
+		Lens.get = (fun x -> x.default);
+		Lens.set = (fun v x -> { x with default = v })
+	}
 
-  let create id ptype doc = {
+  let create id ptype doc default = {
     id;
     name = OCamlName.get_ocaml_name ParameterName id;
     ptype;
     doc;
+    default;
   }
 
   let unit_param = {
@@ -298,6 +304,7 @@ struct
     name = "()";
     ptype = Type.unit_type;
     doc = "";
+    default = "";
   }
 
 end
@@ -504,6 +511,7 @@ struct
   type t = {
     id : string;
     name : string;
+    shortdoc : string;
     doc : string;
     toplevel : bool;
     class_types : ClassType.t list;
@@ -517,6 +525,10 @@ struct
 	let name = {
 		Lens.get = (fun x -> x.name);
 		Lens.set = (fun v x -> { x with name = v })
+	}
+	let shortdoc = {
+		Lens.get = (fun x -> x.shortdoc);
+		Lens.set = (fun v x -> { x with shortdoc = v })
 	}
 	let doc = {
 		Lens.get = (fun x -> x.doc);
@@ -538,6 +550,7 @@ struct
   let create toplevel = {
     id = "";
     name = "";
+    shortdoc = "";
     doc = "";
     toplevel;
     class_types = [];
