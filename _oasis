@@ -33,7 +33,10 @@ Flag docgen
 Library oextjs
   Path: lib
   Modules:
-    Ext
+    Ext,
+    Ext_Error,
+    Ext_Class,
+    Ext_Base
   BuildDepends: js_of_ocaml, js_of_ocaml.syntax
   CompiledObject: byte
   CSources: extUtils_stubs.c
