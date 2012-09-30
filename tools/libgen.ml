@@ -284,8 +284,9 @@ let build_module json_elements toplevel =
            else
              add_class_type json_elements current
        | ("doc", `String s) ->
-           let shortdoc =
-             Str.global_replace tag_regexp "" (String.left s 50) in
+           let stripped =
+             Str.global_replace tag_regexp "" (String.left s 200) in
+           let shortdoc = String.left stripped 50 |> String.trim in
            ContextM.return (current
                               |> Module.doc ^= s
                               |> Module.shortdoc ^= shortdoc)
@@ -603,8 +604,40 @@ let generate_mli file =
     close_file oc formatter
 (* END .mli write *)
 
+(* Main program *)
 let () =
-  let file = build_file "tools/jsduck/Ext.json" in
-  generate_ml file;
-  generate_mli file
+  let path = ref "tools/jsduck" in
+  let usage =
+    "Usage: " ^ Sys.executable_name ^ " [-nooverwrite] [-outdir <path>] [<json-path>]" in
+  let arg_specs =
+    Arg.align (
+      ["-api",
+       Arg.Set no_overwrite,
+       " Refuse to overwrite previously generated files.";
+       "-outdir",
+       Arg.Set_string output_path,
+       "<path> Place the generated files into <path> (defaults to: \"./tools/generated/\")."
+      ]) in
+  let () =
+    Arg.parse
+      arg_specs
+      (fun s -> path := s)
+      usage in
+  let generate_module filepath =
+    let file = build_file filepath in
+    generate_ml file;
+    generate_mli file in
+  if Sys.is_directory !path then begin
+    let files = Sys.readdir !path in
+      Array.iter
+        (fun f ->
+           if String.ends_with f ".json" then begin
+             print_endline f;
+             generate_module (Filename.concat !path f)
+           end)
+        files
+  end else begin
+    generate_module !path
+  end
+(* END Main program *)
 
