@@ -21,6 +21,8 @@ struct
     "object";
     "open";
     "raise";
+    "exception";
+    "done";
   ]
 
   let is_first_character_valid s =
@@ -73,7 +75,7 @@ struct
               String.uncapitalize name_with_valid_first_character
       in
         if List.mem name_with_proper_first_letter_case keywords then
-          "_" ^ name_with_proper_first_letter_case
+          name_with_proper_first_letter_case ^ "_"
         else
           name_with_proper_first_letter_case
 
@@ -85,35 +87,48 @@ module Symbol =
 struct
   type type_param =
       TypeVariable
+    | SelfTypeVariable
     | Type of t
   and t = {
     module_prefix : string;
     symbol_name : string;
     params : type_param list;
+    optional : bool;
   }
 
   let js_object = {
     module_prefix = "Js";
     symbol_name = "t";
     params = [TypeVariable];
+    optional = false;
+  }
+
+  let self_object = {
+    module_prefix = "Js";
+    symbol_name = "t";
+    params = [SelfTypeVariable];
+    optional = false;
   }
 
   let boolean = {
     module_prefix = "";
     symbol_name = "bool";
     params = [];
+    optional = false;
   }
 
   let js_type n = {
     module_prefix = "Js";
     symbol_name = n;
     params = [];
+    optional = false;
   }
 
   let js_array param = {
     module_prefix = "Js";
     symbol_name = "js_array";
     params = [param];
+    optional = false;
   }
 
   let generic_js_array = js_array TypeVariable
@@ -122,6 +137,14 @@ struct
     module_prefix = "";
     symbol_name = "";
     params = [TypeVariable];
+    optional = false;
+  }
+
+  let self_type_variable = {
+    module_prefix = "";
+    symbol_name = "";
+    params = [SelfTypeVariable];
+    optional = false;
   }
 
   module Aliases =
@@ -131,6 +154,7 @@ struct
       Hashtbl.add tbl "Ext_Element" "Ext_dom_Element";
       Hashtbl.add tbl "Ext_core_Element" "Ext_dom_Element";
       Hashtbl.add tbl "Ext_CompositeElement" "Ext_dom_CompositeElement";
+      Hashtbl.add tbl "Ext_Container" "Ext_container_Container";
       tbl
 
     let get_canonical alias =
@@ -144,10 +168,44 @@ struct
   struct
     let type_map =
       [("Ext_dom_AbstractElement",
-        [("Ext_dom_Element", type_variable);
+        [("Ext_dom_Element", self_type_variable);
          ("Ext_dom_CompositeElement", type_variable);
+         ("Ext_dom_AbstractElement_Fly", self_type_variable);
         ]);
-       ]
+       ("Ext_ElementLoader",
+        [("Ext_Component", type_variable)]);
+       ("Ext_util_Region",
+        [("Ext_util_Point", type_variable)]);
+       ("Ext_AbstractPlugin",
+        [("Ext_Component", type_variable);
+        ]);
+       ("Ext_AbstractComponent",
+        [("Ext_Component", self_type_variable);
+         ("Ext_container_Container", self_type_variable);
+        ]);
+       ("Ext_util_Floating",
+        [("Ext_Component", type_variable);
+        ]);
+       ("Ext_ZIndexManager",
+        [("Ext_Component", type_variable);
+        ]);
+       ("Ext_Component",
+        [("Ext_container_Container", self_type_variable);
+         ("Ext_LoadMask", type_variable);
+        ]);
+       ("Ext_util_AbstractMixedCollection",
+        [("Ext_util_MixedCollection", self_type_variable);
+        ]);
+       ("Ext_util_Sortable",
+        [("Ext_util_MixedCollection", type_variable);
+        ]);
+       ("Ext_layout_ContextItem",
+        [("Ext_layout_Layout", type_variable);
+        ]);
+       ("Ext_container_AbstractContainer",
+        [("Ext_container_Container", self_type_variable);
+        ]);
+      ]
 
     let type_table =
       let create_subtable submap =
@@ -165,17 +223,37 @@ struct
       tbl
 
     let map_symbol current_module symbol =
+      let canonical_module =
+        Aliases.get_canonical symbol.module_prefix in
       try
         let subtbl =
           Hashtbl.find type_table current_module in
-        let canonical_module =
-          Aliases.get_canonical symbol.module_prefix in
         Hashtbl.find subtbl canonical_module
-      with Not_found -> symbol
+      with Not_found ->
+        { symbol with
+              module_prefix = canonical_module }
 
   end
 
-  let map_symbols_to_strings current_module symbols =
+  module BaseClasses =
+  struct
+    module StringSet =
+      Set.Make(struct type t = string let compare = compare end)
+
+    let base_classes =
+      List.fold_left
+        (fun set name -> StringSet.add name set)
+        StringSet.empty
+        ["Ext_Base";
+         "Ext_dom_AbstractElement";
+        ]
+
+    let is_base_class symbol =
+      StringSet.mem symbol.module_prefix base_classes
+
+  end
+
+  let map_symbols_to_strings current_module in_event_class symbols =
     let get_param n =
       let start_code = Char.code 'a' in
       let param_code = start_code + n - 1 in
@@ -190,16 +268,32 @@ struct
         List.map
           (function
                TypeVariable -> incr i; get_param !i
+             | SelfTypeVariable -> if in_event_class then "t" else "'self"
              | Type t -> loop t)
           symbol.params
         |> String.concat ","
       in
+      let type_string =
         match symbol.params with
             [] ->
               if symbol.module_prefix <> "" &&
                  symbol.module_prefix <> current_module then
-                symbol.module_prefix ^ "." ^ symbol.symbol_name
+                Printf.sprintf "%s.%s"
+                  symbol.module_prefix
+                  symbol.symbol_name
+              else if symbol.module_prefix = current_module &&
+                      symbol.symbol_name = "t" &&
+                      not in_event_class then
+                "'self"
               else symbol.symbol_name
+          | [Type t] when symbol.module_prefix = "Js" &&
+                          symbol.symbol_name = "t" &&
+                          (not (String.starts_with params_string "'")) &&
+                          BaseClasses.is_base_class t ->
+                Printf.sprintf "#%s %s.%s"
+                  params_string
+                  symbol.module_prefix
+                  symbol.symbol_name
           | [_] ->
               if symbol.module_prefix <> "" &&
                  symbol.module_prefix <> current_module then
@@ -218,11 +312,15 @@ struct
               params_string
               symbol.module_prefix
               symbol.symbol_name
+      in
+      if symbol.optional
+      then type_string ^ " Js.optdef"
+      else type_string
     in
     List.map loop symbols
 
-  let to_string current_module symbol =
-    map_symbols_to_strings current_module [symbol] |> List.hd
+  let to_string current_module in_event_class symbol =
+    map_symbols_to_strings current_module in_event_class [symbol] |> List.hd
 
 end
 
@@ -234,11 +332,13 @@ struct
     Hashtbl.add table id symbol;
     symbol
 
-  let add_type table ?(params = []) id prefix name =
+  let add_type
+        table ?(params = []) id prefix name =
     let symbol = {
       Symbol.module_prefix = prefix;
       symbol_name = name;
       params;
+      optional = false;
     } in
     add_symbol table id symbol
 
@@ -261,18 +361,44 @@ struct
       ~params:[Symbol.TypeVariable] "Function" "Js" "callback"
       |> ignore;
     add_type table "undefined" "" "unit" |> ignore;
+    add_type
+      ~params:[Symbol.Type (
+        { Symbol.module_prefix = "Dom_html";
+          symbol_name = "element";
+          params = [];
+          optional = false;
+        })] table "HTMLElement" "Js" "t"
+      |> ignore;
+    add_type
+      ~params:[Symbol.Type (
+        { Symbol.module_prefix = "Dom_html";
+          symbol_name = "event";
+          params = [];
+          optional = false;
+        })] table "Event" "Js" "t"
+      |> ignore;
+    add_symbol table "Ext" Symbol.js_object |> ignore;
     (* Undefined types *)
     add_type table "Error" "" "" |> ignore;
-    add_symbol table "HTMLElement" Symbol.js_object |> ignore;
     add_symbol table "Mixed" Symbol.js_object |> ignore;
-    add_symbol table "Ext" Symbol.js_object |> ignore;
     table
 
-  let lookup_type table id =
+  let rec lookup_type table id =
     try
       Hashtbl.find table id
     with Not_found ->
-      if String.starts_with id "Ext." then
+      if String.ends_with id "_events" then
+        let stripped_id = String.rchop ~n:7 id in
+        try
+          let symbol = lookup_type table stripped_id in
+            if symbol.Symbol.symbol_name <> "" then
+              { symbol with Symbol.symbol_name = "events" }
+            else symbol
+        with Not_found ->
+          let prefix =
+            OCamlName.get_ocaml_name ModuleName stripped_id in
+          add_type table id prefix "events"
+      else if String.starts_with id "Ext." then
         let prefix =
           OCamlName.get_ocaml_name ModuleName id in
         add_type table id prefix "t"
@@ -289,6 +415,7 @@ struct
           { Symbol.module_prefix = "Js";
             symbol_name = "t";
             params = [Symbol.Type (Symbol.js_array (Symbol.Type inner_type))];
+            optional = false;
           }
       | s when String.ends_with s "..." ->
           (* varargs are not supported *)
@@ -299,6 +426,7 @@ struct
           { Symbol.module_prefix = "Js";
             symbol_name = "t";
             params = [Symbol.Type inner_type];
+            optional = false;
           }
       | s ->
           lookup_type table s
@@ -333,6 +461,7 @@ struct
       Symbol.module_prefix = "";
       symbol_name = "unit";
       params = [];
+      optional = false;
     };
   }
 
@@ -346,6 +475,7 @@ struct
     ptype : Type.t;
     doc : string;
     default : string;
+    optional : bool;
   }
 
 	let id = {
@@ -368,13 +498,18 @@ struct
 		Lens.get = (fun x -> x.default);
 		Lens.set = (fun v x -> { x with default = v })
 	}
+	let optional = {
+		Lens.get = (fun x -> x.optional);
+		Lens.set = (fun v x -> { x with optional = v })
+	}
 
-  let create id ptype doc default = {
+  let create id ptype doc default optional = {
     id;
     name = OCamlName.get_ocaml_name ParameterName id;
     ptype;
     doc;
     default;
+    optional;
   }
 
   let unit_param = {
@@ -383,6 +518,7 @@ struct
     ptype = Type.unit_type;
     doc = "";
     default = "";
+    optional = false;
   }
 
 end
@@ -526,7 +662,7 @@ struct
     readonly = false;
     template;
     method_type = Method;
-    params;
+    params = if params = [] then [Param.unit_param] else params;
     return
   }
 
@@ -551,6 +687,7 @@ struct
     doc : string;
     superclasses : string list;
     methods : Method.t list;
+    event_class : bool;
   }
 
 	let id = {
@@ -573,6 +710,10 @@ struct
 		Lens.get = (fun x -> x.methods);
 		Lens.set = (fun v x -> { x with methods = v })
 	}
+	let event_class = {
+		Lens.get = (fun x -> x.event_class);
+		Lens.set = (fun v x -> { x with event_class = v })
+	}
 
   let create id = {
     id;
@@ -580,6 +721,16 @@ struct
     doc = "";
     superclasses = [];
     methods = [];
+    event_class = false;
+  }
+
+  let create_event_class id = {
+    id = id ^ "_events";
+    name = "events";
+    doc = "";
+    superclasses = [];
+    methods = [];
+    event_class = true;
   }
 
 end
@@ -594,6 +745,7 @@ struct
     toplevel : bool;
     class_types : ClassType.t list;
     functions : Function.t list;
+    singleton : bool;
   }
 
 	let id = {
@@ -624,6 +776,10 @@ struct
 		Lens.get = (fun x -> x.functions);
 		Lens.set = (fun v x -> { x with functions = v })
 	}
+	let singleton = {
+		Lens.get = (fun x -> x.singleton);
+		Lens.set = (fun v x -> { x with singleton = v })
+	}
 
   let create toplevel = {
     id = "";
@@ -633,6 +789,7 @@ struct
     toplevel;
     class_types = [];
     functions = [];
+    singleton = false;
   }
 
   let set_id id m =
