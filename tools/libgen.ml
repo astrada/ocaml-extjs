@@ -80,20 +80,26 @@ let is_optional =
 (* END JSON *)
 
 (* Superclasses *)
-let add_superclasses is_event json_elements current_class_type =
+let add_superclasses json_elements current_class_type =
   Lens.get_state Context.symbol_table >>= fun table ->
   let superclasses =
     List.map
       (fun json ->
          let superclass_id = get_json_string json in
          let id =
-           if is_event
-           then superclass_id ^ "_events"
-           else superclass_id in
+           match current_class_type.ClassType.class_cat with
+               EventClass ->
+                 superclass_id ^ "_events"
+             | ConfigClass ->
+                 superclass_id ^ "_configs"
+             | StandardClass ->
+                 superclass_id
+         in
          let superclass_symbol =
            SymbolTable.lookup_type table id
          in
-         Symbol.to_string "" false superclass_symbol)
+         Symbol.to_string
+           "" current_class_type.ClassType.class_cat superclass_symbol)
       json_elements
       |> List.filter (fun s -> s <> "")
       |> List.unique
@@ -160,7 +166,6 @@ struct
        ("Ext.dom.Element", "setXY", Method);
        ("Ext.dom.Element", "update", Method);
        ("Ext.ComponentLoader", "renderer", Cfg);
-       ("Ext.AbstractComponent", "draggable", Property);
        ("Ext.Component", "afterRender", Method);
        ("Ext.Component", "draggable", Cfg);
        ("Ext.layout.Layout", "getLayoutItems", Method);
@@ -168,8 +173,21 @@ struct
        ("Ext.layout.container.Container", "configureItem", Method);
        ("Ext.container.AbstractContainer", "disable", Method);
        ("Ext.container.AbstractContainer", "enable", Method);
-       ("Ext.container.AbstractContainer", "items", Property);
        ("Ext.container.AbstractContainer", "renderTpl", Cfg);
+       ("Ext.panel.AbstractPanel", "componentLayout", Cfg);
+       ("Ext.dd.StatusProxy", "renderTpl", Cfg);
+       ("Ext.dd.StatusProxy", "hide", Method);
+       ("Ext.dd.StatusProxy", "update", Method);
+       ("Ext.util.ComponentDragger", "delegate", Cfg);
+       ("Ext.window.Window", "autoRender", Cfg);
+       ("Ext.window.Window", "dd", Property);
+       ("Ext.window.Window", "activate", Event);
+       ("Ext.window.Window", "deactivate", Event);
+       ("Ext.window.Window", "resize", Event);
+       ("Ext.window.MessageBox", "resizable", Cfg);
+       ("Ext.window.MessageBox", "hide", Method);
+       ("Ext.window.MessageBox", "setIcon", Method);
+       ("Ext.window.MessageBox", "show", Method);
       ]
 
   let is_blacklisted current_module name member_type =
@@ -255,8 +273,6 @@ let add_members json_elements current_module current_class_type =
     (fun current -> function
          ("property", `List xs) ->
            add_properties xs current_module current
-       | ("cfg", `List xs) ->
-           add_configs xs current_module current
        | ("method", `List xs) ->
            add_methods xs current_module current
        | _ ->
@@ -265,7 +281,7 @@ let add_members json_elements current_module current_class_type =
     current_class_type
     json_elements
 
-let add_events json_elements current_module current_class_type =
+let add_events_to_class json_elements current_module current_class_type =
   ContextM.foldM
     (fun current -> function
          ("event", `List xs) ->
@@ -275,46 +291,82 @@ let add_events json_elements current_module current_class_type =
     )
     current_class_type
     json_elements
+
+let add_configs_to_class json_elements current_module current_class_type =
+  ContextM.foldM
+    (fun current -> function
+         ("cfg", `List xs) ->
+           add_configs xs current_module current
+       | _ ->
+           ContextM.return current
+    )
+    current_class_type
+    json_elements
 (* END Members *)
 
 (* Class types *)
 let add_class_type json_elements current_module =
-  let new_class_type = ClassType.create current_module.Module.id in
+  let new_class_type =
+    ClassType.create current_module.Module.id in
   let new_event_class_type =
     ClassType.create_event_class current_module.Module.id in
+  let new_config_class_type =
+    ClassType.create_config_class current_module.Module.id in
   ContextM.foldM
-    (fun (current, current_event) -> function
+    (fun (current, current_event, current_config) -> function
          ("doc", `String s) ->
            ContextM.return
              (current |> ClassType.doc ^= String.trim s,
-              current_event)
+              current_event,
+              current_config)
        | ("superclasses", `List xs)
        | ("mixins", `List xs) ->
-           add_superclasses false xs current >>= fun current' ->
-           add_superclasses true xs current_event >>= fun current_event' ->
-           ContextM.return (current', current_event')
+           add_superclasses xs current >>= fun current' ->
+           add_superclasses xs current_event >>= fun current_event' ->
+           add_superclasses xs current_config >>= fun current_config' ->
+           ContextM.return
+             (current',
+              current_event',
+              current_config')
        | ("members", `Assoc xs) ->
            add_members xs current_module current >>= fun current' ->
-           add_events xs current_module current_event >>= fun current_event' ->
-           ContextM.return (current', current_event')
+           add_events_to_class
+             xs current_module current_event >>= fun current_event' ->
+           add_configs_to_class
+             xs current_module current_config >>= fun current_config' ->
+           ContextM.return
+             (current',
+              current_event',
+              current_config')
        | _ ->
-           ContextM.return (current, current_event)
+           ContextM.return
+             (current,
+              current_event,
+              current_config)
     )
-    (new_class_type, new_event_class_type)
-    json_elements >>= fun (class_type, event_class_type) ->
+    (new_class_type, new_event_class_type, new_config_class_type)
+    json_elements >>= fun (class_type, event_class_type, config_class_type) ->
   let updated_module =
-    current_module |> Module.class_types ^= [class_type; event_class_type]
+    current_module
+      |> Module.class_types ^= [config_class_type;
+                                class_type;
+                                event_class_type]
   in
   Lens.get_state Context.symbol_table >>= fun table ->
   SymbolTable.add_type table
-    new_class_type.ClassType.id
+    class_type.ClassType.id
     current_module.Module.name
-    new_class_type.ClassType.name
+    class_type.ClassType.name
     |> ignore;
   SymbolTable.add_type table
-    new_event_class_type.ClassType.id
+    event_class_type.ClassType.id
     current_module.Module.name
-    new_event_class_type.ClassType.name
+    event_class_type.ClassType.name
+    |> ignore;
+  SymbolTable.add_type table
+    config_class_type.ClassType.id
+    current_module.Module.name
+    config_class_type.ClassType.name
     |> ignore;
   ContextM.return updated_module
 (* END Class types *)
@@ -465,11 +517,11 @@ let print_meth_callback_prop formatter print_type =
   print_type ();
   Format.fprintf formatter ")@ Js.meth_callback@ Js.writeonly_prop"
 
-let get_return_string current_module in_event_class param =
+let get_return_string current_module class_cat param =
   Symbol.to_string
-    current_module.Module.name in_event_class param.Param.ptype.Type.symbol
+    current_module.Module.name class_cat param.Param.ptype.Type.symbol
 
-let get_param_strings current_module in_event_class params =
+let get_param_strings current_module class_cat params =
   let param_types =
     List.map
       (fun param ->
@@ -477,9 +529,9 @@ let get_param_strings current_module in_event_class params =
                Symbol.optional = param.Param.optional })
       params in
   Symbol.map_symbols_to_strings
-    current_module.Module.name in_event_class param_types
+    current_module.Module.name class_cat param_types
 
-let get_param_and_return_strings current_module in_event_class params return =
+let get_param_and_return_strings current_module class_cat params return =
   let param_types =
     List.map
       (fun param ->
@@ -489,7 +541,7 @@ let get_param_and_return_strings current_module in_event_class params return =
   let all_strings =
     Symbol.map_symbols_to_strings
       current_module.Module.name
-      in_event_class
+      class_cat
       param_types in
   let (param_strings, return_strings) =
     List.split_at (List.length all_strings - 1) all_strings in
@@ -497,14 +549,14 @@ let get_param_and_return_strings current_module in_event_class params return =
 (* END utils *)
 
 (* .ml write *)
-let write_method formatter current_module in_event_class m =
+let write_method formatter current_module class_cat m =
   Format.fprintf formatter "@[<hov 2>method %s :@ " m.Method.name;
   let (param_strings, return_string) =
     if m.Method.params <> [] then
       get_param_and_return_strings
-        current_module in_event_class m.Method.params m.Method.return
+        current_module class_cat m.Method.params m.Method.return
     else
-      ([], get_return_string current_module in_event_class m.Method.return)
+      ([], get_return_string current_module class_cat m.Method.return)
   in
   begin match m.Method.method_type with
       Method.Property ->
@@ -542,13 +594,13 @@ let write_method formatter current_module in_event_class m =
 let write_class_type formatter write_method current_module ct =
   Format.fprintf formatter "class type %s =@\n@[<v 2>object%s@\n"
     ct.ClassType.name
-    (if ct.ClassType.event_class then "" else "('self)");
+    (match ct.ClassType.class_cat with EventClass -> "" | _ -> "('self)");
   List.iter
     (Format.fprintf formatter "inherit %s@\n")
     ct.ClassType.superclasses;
   Format.fprintf formatter "@\n";
   List.iter
-    (write_method formatter current_module ct.ClassType.event_class)
+    (write_method formatter current_module ct.ClassType.class_cat)
     ct.ClassType.methods;
   Format.fprintf formatter "@]@\nend@\n@\n"
 
@@ -578,7 +630,7 @@ let write_function formatter f =
       (fun param -> Format.fprintf formatter "%s@ " param.Param.name)
       f.Function.params;
     Format.fprintf formatter
-      "=@]@\n@[<hv 2>Js.Unsafe.fun_call@ (Js.Unsafe.variable \"%s.%s\")@ @[<hv 2>[|"
+      "=@]@\n@[<hv 2>Js.Unsafe.meth_call@ (Js.Unsafe.variable \"%s\")@ (Js.Unsafe.variable \"%s\")@ @[<hv 2>[|"
       f.Function.owner
       f.Function.id;
     List.iter
@@ -629,7 +681,7 @@ let print_param_doc formatter params =
          if param.Param.name <> "()" then begin
            Format.fprintf formatter "{- %s: [%s]@ {%% %s %%}@\n"
              param.Param.name
-             (Symbol.to_string "" false param.Param.ptype.Type.symbol)
+             (Symbol.to_string "" StandardClass param.Param.ptype.Type.symbol)
              param.Param.doc;
            if param.Param.default <> "" then begin
              Format.fprintf formatter "@ Defaults to: %s@\n"
@@ -646,7 +698,7 @@ let print_return_doc formatter return =
      return.Param.doc <> "" then begin
     Format.fprintf formatter "@\n{b Returns}:@\n{ul ";
     Format.fprintf formatter "{- [%s]@ {%% %s %%}@\n"
-      (Symbol.to_string "" false return.Param.ptype.Type.symbol)
+      (Symbol.to_string "" StandardClass return.Param.ptype.Type.symbol)
       return.Param.doc;
     if return.Param.default <> "" then begin
       Format.fprintf formatter "@ Defaults to: %s@\n" return.Param.default;
@@ -654,8 +706,8 @@ let print_return_doc formatter return =
     Format.fprintf formatter "}@\n}@\n";
   end
 
-let write_method_with_docs formatter current_module in_event_class m =
-  write_method formatter current_module in_event_class m;
+let write_method_with_docs formatter current_module class_cat m =
+  write_method formatter current_module class_cat m;
   if m.Method.doc <> "" then begin
     Format.fprintf formatter "@[<hov 2>(** {%% %s %%}@\n"
       m.Method.doc;
@@ -686,7 +738,7 @@ let write_function_declaration formatter current_module f =
       then String.capitalize f.Function.name
       else f.Function.name in
     let return_string =
-      get_return_string current_module false f.Function.return in
+      get_return_string current_module StandardClass f.Function.return in
     Format.fprintf formatter
       "@[<hov 2>val get_%s@ :@ unit@ ->@ %s@]@\n"
       name
@@ -706,9 +758,9 @@ let write_function_declaration formatter current_module f =
   end else begin
     let (param_strings, return_string) =
       get_param_and_return_strings
-          current_module false f.Function.params f.Function.return in
+          current_module StandardClass f.Function.params f.Function.return in
     let param_strings =
-      get_param_strings current_module false f.Function.params in
+      get_param_strings current_module StandardClass f.Function.params in
     Format.fprintf formatter "@[<hov 2>val %s@ :@ " f.Function.name;
     print_param_types formatter param_strings;
     Format.fprintf formatter "%s@]@\n" return_string;

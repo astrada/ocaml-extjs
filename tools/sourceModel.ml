@@ -82,6 +82,11 @@ struct
 end
 (* END OCaml names *)
 
+type class_cat =
+    StandardClass
+  | ConfigClass
+  | EventClass
+
 (* Symbol table *)
 module Symbol =
 struct
@@ -205,6 +210,9 @@ struct
        ("Ext_container_AbstractContainer",
         [("Ext_container_Container", self_type_variable);
         ]);
+       ("Ext_panel_AbstractPanel",
+        [("Ext_panel_Panel", self_type_variable);
+        ]);
       ]
 
     let type_table =
@@ -246,6 +254,15 @@ struct
         StringSet.empty
         ["Ext_Base";
          "Ext_dom_AbstractElement";
+         "Ext_util_AbstractMixedCollection";
+         "Ext_dd_DragDrop";
+         "Ext_AbstractComponent";
+         "Ext_Component";
+         "Ext_layout_container_Container";
+         "Ext_container_AbstractContainer";
+         "Ext_container_Container";
+         "Ext_panel_AbstractPanel";
+         "Ext_panel_Panel";
         ]
 
     let is_base_class symbol =
@@ -253,7 +270,7 @@ struct
 
   end
 
-  let map_symbols_to_strings current_module in_event_class symbols =
+  let map_symbols_to_strings current_module class_cat symbols =
     let get_param n =
       let start_code = Char.code 'a' in
       let param_code = start_code + n - 1 in
@@ -268,7 +285,8 @@ struct
         List.map
           (function
                TypeVariable -> incr i; get_param !i
-             | SelfTypeVariable -> if in_event_class then "t" else "'self"
+             | SelfTypeVariable ->
+                 begin match class_cat with EventClass -> "t" | _ -> "'self" end
              | Type t -> loop t)
           symbol.params
         |> String.concat ","
@@ -283,11 +301,15 @@ struct
                   symbol.symbol_name
               else if symbol.module_prefix = current_module &&
                       symbol.symbol_name = "t" &&
-                      not in_event_class then
+                      class_cat <> EventClass then
                 "'self"
               else symbol.symbol_name
           | [Type t] when symbol.module_prefix = "Js" &&
                           symbol.symbol_name = "t" &&
+                          (* Added to compile faster: lots of event handlers
+                           * have "this" as first parameter (of type t Js.t).
+                           * Using types #t Js.t slows OCaml compiler. *)
+                          params_string <> "t" &&
                           (not (String.starts_with params_string "'")) &&
                           BaseClasses.is_base_class t ->
                 Printf.sprintf "#%s %s.%s"
@@ -319,8 +341,8 @@ struct
     in
     List.map loop symbols
 
-  let to_string current_module in_event_class symbol =
-    map_symbols_to_strings current_module in_event_class [symbol] |> List.hd
+  let to_string current_module class_cat symbol =
+    map_symbols_to_strings current_module class_cat [symbol] |> List.hd
 
 end
 
@@ -388,6 +410,7 @@ struct
       Hashtbl.find table id
     with Not_found ->
       if String.ends_with id "_events" then
+        (* TODO: refactor *)
         let stripped_id = String.rchop ~n:7 id in
         try
           let symbol = lookup_type table stripped_id in
@@ -398,6 +421,18 @@ struct
           let prefix =
             OCamlName.get_ocaml_name ModuleName stripped_id in
           add_type table id prefix "events"
+      else if String.ends_with id "_configs" then
+        (* TODO: refactor *)
+        let stripped_id = String.rchop ~n:8 id in
+        try
+          let symbol = lookup_type table stripped_id in
+            if symbol.Symbol.symbol_name <> "" then
+              { symbol with Symbol.symbol_name = "configs" }
+            else symbol
+        with Not_found ->
+          let prefix =
+            OCamlName.get_ocaml_name ModuleName stripped_id in
+          add_type table id prefix "configs"
       else if String.starts_with id "Ext." then
         let prefix =
           OCamlName.get_ocaml_name ModuleName id in
@@ -687,7 +722,7 @@ struct
     doc : string;
     superclasses : string list;
     methods : Method.t list;
-    event_class : bool;
+    class_cat : class_cat;
   }
 
 	let id = {
@@ -710,9 +745,9 @@ struct
 		Lens.get = (fun x -> x.methods);
 		Lens.set = (fun v x -> { x with methods = v })
 	}
-	let event_class = {
-		Lens.get = (fun x -> x.event_class);
-		Lens.set = (fun v x -> { x with event_class = v })
+	let class_cat = {
+		Lens.get = (fun x -> x.class_cat);
+		Lens.set = (fun v x -> { x with class_cat = v })
 	}
 
   let create id = {
@@ -721,7 +756,7 @@ struct
     doc = "";
     superclasses = [];
     methods = [];
-    event_class = false;
+    class_cat = StandardClass;
   }
 
   let create_event_class id = {
@@ -730,7 +765,16 @@ struct
     doc = "";
     superclasses = [];
     methods = [];
-    event_class = true;
+    class_cat = EventClass;
+  }
+
+  let create_config_class id = {
+    id = id ^ "_configs";
+    name = "configs";
+    doc = "";
+    superclasses = [];
+    methods = [];
+    class_cat = ConfigClass;
   }
 
 end
