@@ -406,33 +406,26 @@ struct
     table
 
   let rec lookup_type table id =
+    let lookup_other_class_cat n symbol_name id =
+      (* TODO: refactor *)
+      let stripped_id = String.rchop ~n id in
+      try
+        let symbol = lookup_type table stripped_id in
+          if symbol.Symbol.symbol_name <> "" then
+            { symbol with Symbol.symbol_name }
+          else symbol
+      with Not_found ->
+        let prefix =
+          OCamlName.get_ocaml_name ModuleName stripped_id in
+        add_type table id prefix symbol_name
+    in
     try
       Hashtbl.find table id
     with Not_found ->
       if String.ends_with id "_events" then
-        (* TODO: refactor *)
-        let stripped_id = String.rchop ~n:7 id in
-        try
-          let symbol = lookup_type table stripped_id in
-            if symbol.Symbol.symbol_name <> "" then
-              { symbol with Symbol.symbol_name = "events" }
-            else symbol
-        with Not_found ->
-          let prefix =
-            OCamlName.get_ocaml_name ModuleName stripped_id in
-          add_type table id prefix "events"
+        lookup_other_class_cat 7 "events" id
       else if String.ends_with id "_configs" then
-        (* TODO: refactor *)
-        let stripped_id = String.rchop ~n:8 id in
-        try
-          let symbol = lookup_type table stripped_id in
-            if symbol.Symbol.symbol_name <> "" then
-              { symbol with Symbol.symbol_name = "configs" }
-            else symbol
-        with Not_found ->
-          let prefix =
-            OCamlName.get_ocaml_name ModuleName stripped_id in
-          add_type table id prefix "configs"
+        lookup_other_class_cat 8 "configs" id
       else if String.starts_with id "Ext." then
         let prefix =
           OCamlName.get_ocaml_name ModuleName id in
