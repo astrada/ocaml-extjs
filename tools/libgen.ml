@@ -118,18 +118,18 @@ type member_type =
   | Cfg
   | Event
 
-module MemberBlacklist =
+module Overrides =
 struct
-  module StringPairSet =
+  module OverrideSet =
     Set.Make(struct
                type t = string * string * member_type
                let compare = compare
              end)
 
-  let blacklist =
+  let overrides =
     List.fold_left
-      (fun set name -> StringPairSet.add name set)
-      StringPairSet.empty
+      (fun set name -> OverrideSet.add name set)
+      OverrideSet.empty
       [("Ext.util.Point", "equals", Method);
        ("Ext.dd.DDTarget", "addInvalidHandleClass", Method);
        ("Ext.dd.DDTarget", "addInvalidHandleId", Method);
@@ -190,8 +190,8 @@ struct
        ("Ext.window.MessageBox", "show", Method);
       ]
 
-  let is_blacklisted current_module name member_type =
-    StringPairSet.mem (current_module, name, member_type) blacklist
+  let is_overridden current_module name member_type =
+    OverrideSet.mem (current_module, name, member_type) overrides
 
 end
 
@@ -215,8 +215,6 @@ let create_and_add_members member_type
        if owner <> current_module.Module.id ||
           is_private es ||
           is_deprecated es ||
-          MemberBlacklist.is_blacklisted
-            current_module.Module.id name member_type ||
           name = "" then
          ContextM.return current
        else
@@ -226,23 +224,25 @@ let create_and_add_members member_type
          else
            let doc =
              get_json_element "doc" es |> get_json_string |> String.trim in
-           let member = create_member es table name doc in
+           let overridden =
+             Overrides.is_overridden
+               current_module.Module.id name member_type in
+           let member = create_member es table name doc overridden in
            let updated =
-             current
-               |> ClassType.methods ^%= (fun m -> m @ [member])
+             current |> ClassType.methods ^%= (fun m -> m @ [member])
            in
            ContextM.return updated)
     current_class_type
     json_array
 
-let create_property es table name doc =
+let create_property es table name doc overridden =
   let readonly = is_readonly es in
   let ext_type = get_json_element "type" es |> get_json_string in
   let default = get_json_element "default" es |> get_json_string in
   let return_type = SymbolTable.map_type table ext_type in
   let return = Type.create ext_type return_type in
   let return_param = Param.create "" return "" default false in
-  Method.create_property name doc readonly return_param
+  Method.create_property name doc readonly overridden return_param
 
 let add_properties =
   create_and_add_members Property create_property
@@ -252,21 +252,21 @@ let add_configs =
 
 let add_methods =
   create_and_add_members Method
-    (fun es table name doc ->
+    (fun es table name doc overridden ->
        let template = is_template es in
        let params =
          get_json_element "params" es |> get_json_array
            |> List.map (parse_param table) in
        let return = get_json_element "return" es |> parse_param table in
-       Method.create_method name doc template params return)
+       Method.create_method name doc template overridden params return)
 
 let add_events =
   create_and_add_members Event
-    (fun es table name doc ->
+    (fun es table name doc overridden ->
        let params =
          get_json_element "params" es |> get_json_array
            |> List.map (parse_param table) in
-       Method.create_event name doc params)
+       Method.create_event name doc overridden params)
 
 let add_members json_elements current_module current_class_type =
   ContextM.foldM

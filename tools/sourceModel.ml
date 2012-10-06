@@ -634,6 +634,7 @@ struct
     doc : string;
     readonly : bool;
     template : bool;
+    overridden : bool;
     method_type : method_type;
     params : Param.t list;
     return : Param.t
@@ -659,6 +660,10 @@ struct
 		Lens.get = (fun x -> x.template);
 		Lens.set = (fun v x -> { x with template = v })
 	}
+	let overridden = {
+		Lens.get = (fun x -> x.overridden);
+		Lens.set = (fun v x -> { x with overridden = v })
+	}
   let method_type = {
 		Lens.get = (fun x -> x.method_type);
 		Lens.set = (fun v x -> { x with method_type = v })
@@ -672,38 +677,54 @@ struct
 		Lens.set = (fun v x -> { x with return = v })
 	}
 
-  let create_property id doc readonly return = {
-    id;
-    name = OCamlName.get_ocaml_name ValueName id;
-    doc;
-    readonly;
-    template = false;
-    method_type = Property;
-    params = [];
-    return
-  }
+  let create
+        id doc readonly template overridden method_type params return =
+    let name =
+      OCamlName.get_ocaml_name ValueName id ^
+      (if overridden then "_2" else "") in
+    { id;
+      name;
+      doc;
+      readonly;
+      template;
+      overridden;
+      method_type;
+      params;
+      return
+    }
 
-  let create_method id doc template params return = {
-    id;
-    name = OCamlName.get_ocaml_name ValueName id;
-    doc;
-    readonly = false;
-    template;
-    method_type = Method;
-    params = if params = [] then [Param.unit_param] else params;
-    return
-  }
+  let create_property id doc readonly overridden return =
+    create
+      id
+      doc
+      readonly
+      false
+      overridden
+      Property
+      []
+      return
 
-  let create_event id doc params = {
-    id;
-    name = OCamlName.get_ocaml_name ValueName id;
-    doc;
-    readonly = false;
-    template = false;
-    method_type = Callback;
-    params;
-    return = Param.unit_param;
-  }
+  let create_method id doc template overridden params return =
+    create
+      id
+      doc
+      false
+      template
+      overridden
+      Method
+      (if params = [] then [Param.unit_param] else params)
+      return
+
+  let create_event id doc overridden params =
+    create
+      id
+      doc
+      false
+      false
+      overridden
+      Callback
+      params
+      Param.unit_param
 
 end
 
