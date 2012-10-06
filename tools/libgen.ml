@@ -120,78 +120,76 @@ type member_type =
 
 module Overrides =
 struct
-  module OverrideSet =
-    Set.Make(struct
-               type t = string * string * member_type
-               let compare = compare
-             end)
-
   let overrides =
-    List.fold_left
-      (fun set name -> OverrideSet.add name set)
-      OverrideSet.empty
-      [("Ext.util.Point", "equals", Method);
-       ("Ext.dd.DDTarget", "addInvalidHandleClass", Method);
-       ("Ext.dd.DDTarget", "addInvalidHandleId", Method);
-       ("Ext.dd.DDTarget", "addInvalidHandleType", Method);
-       ("Ext.dd.DDTarget", "clearConstraints", Method);
-       ("Ext.dd.DDTarget", "clearTicks", Method);
-       ("Ext.dd.DDTarget", "endDrag", Method);
-       ("Ext.dd.DDTarget", "getDragEl", Method);
-       ("Ext.dd.DDTarget", "isValidHandleChild", Method);
-       ("Ext.dd.DDTarget", "onDrag", Method);
-       ("Ext.dd.DDTarget", "onDragDrop", Method);
-       ("Ext.dd.DDTarget", "onDragEnter", Method);
-       ("Ext.dd.DDTarget", "onDragOut", Method);
-       ("Ext.dd.DDTarget", "onDragOver", Method);
-       ("Ext.dd.DDTarget", "onInvalidDrop", Method);
-       ("Ext.dd.DDTarget", "onMouseDown", Method);
-       ("Ext.dd.DDTarget", "onMouseUp", Method);
-       ("Ext.dd.DDTarget", "removeInvalidHandleClass", Method);
-       ("Ext.dd.DDTarget", "removeInvalidHandleId", Method);
-       ("Ext.dd.DDTarget", "removeInvalidHandleType", Method);
-       ("Ext.dd.DDTarget", "resetConstraints", Method);
-       ("Ext.dd.DDTarget", "setDragElId", Method);
-       ("Ext.dd.DDTarget", "setHandleElId", Method);
-       ("Ext.dd.DDTarget", "setInitPosition", Method);
-       ("Ext.dd.DDTarget", "setOuterHandleElId", Method);
-       ("Ext.dd.DDTarget", "setXConstraint", Method);
-       ("Ext.dd.DDTarget", "setYConstraint", Method);
-       ("Ext.dd.DDTarget", "startDrag", Method);
-       ("Ext.dom.Element", "getAlignToXY", Method);
-       ("Ext.dom.Element", "getAnchorXY", Method);
-       ("Ext.dom.Element", "getOffsetsTo", Method);
-       ("Ext.dom.Element", "getXY", Method);
-       ("Ext.dom.Element", "mask", Method);
-       ("Ext.dom.Element", "setXY", Method);
-       ("Ext.dom.Element", "update", Method);
-       ("Ext.ComponentLoader", "renderer", Cfg);
-       ("Ext.Component", "afterRender", Method);
-       ("Ext.Component", "draggable", Cfg);
-       ("Ext.layout.Layout", "getLayoutItems", Method);
-       ("Ext.layout.container.Container", "beginLayout", Method);
-       ("Ext.layout.container.Container", "configureItem", Method);
-       ("Ext.container.AbstractContainer", "disable", Method);
-       ("Ext.container.AbstractContainer", "enable", Method);
-       ("Ext.container.AbstractContainer", "renderTpl", Cfg);
-       ("Ext.panel.AbstractPanel", "componentLayout", Cfg);
-       ("Ext.dd.StatusProxy", "renderTpl", Cfg);
-       ("Ext.dd.StatusProxy", "hide", Method);
-       ("Ext.dd.StatusProxy", "update", Method);
-       ("Ext.util.ComponentDragger", "delegate", Cfg);
-       ("Ext.window.Window", "autoRender", Cfg);
-       ("Ext.window.Window", "dd", Property);
-       ("Ext.window.Window", "activate", Event);
-       ("Ext.window.Window", "deactivate", Event);
-       ("Ext.window.Window", "resize", Event);
-       ("Ext.window.MessageBox", "resizable", Cfg);
-       ("Ext.window.MessageBox", "hide", Method);
-       ("Ext.window.MessageBox", "setIcon", Method);
-       ("Ext.window.MessageBox", "show", Method);
-      ]
+    let tbl = Hashtbl.create 64 in
+    List.iter
+      (fun (module_name, name, member_type, override_suffix) ->
+         Hashtbl.add tbl (module_name, name, member_type) override_suffix)
+      [("Ext.util.Point", "equals", Method, "2");
+       ("Ext.dd.DDTarget", "addInvalidHandleClass", Method, "2");
+       ("Ext.dd.DDTarget", "addInvalidHandleId", Method, "2");
+       ("Ext.dd.DDTarget", "addInvalidHandleType", Method, "2");
+       ("Ext.dd.DDTarget", "clearConstraints", Method, "2");
+       ("Ext.dd.DDTarget", "clearTicks", Method, "2");
+       ("Ext.dd.DDTarget", "endDrag", Method, "2");
+       ("Ext.dd.DDTarget", "getDragEl", Method, "2");
+       ("Ext.dd.DDTarget", "isValidHandleChild", Method, "2");
+       ("Ext.dd.DDTarget", "onDrag", Method, "2");
+       ("Ext.dd.DDTarget", "onDragDrop", Method, "2");
+       ("Ext.dd.DDTarget", "onDragEnter", Method, "2");
+       ("Ext.dd.DDTarget", "onDragOut", Method, "2");
+       ("Ext.dd.DDTarget", "onDragOver", Method, "2");
+       ("Ext.dd.DDTarget", "onInvalidDrop", Method, "2");
+       ("Ext.dd.DDTarget", "onMouseDown", Method, "2");
+       ("Ext.dd.DDTarget", "onMouseUp", Method, "2");
+       ("Ext.dd.DDTarget", "removeInvalidHandleClass", Method, "2");
+       ("Ext.dd.DDTarget", "removeInvalidHandleId", Method, "2");
+       ("Ext.dd.DDTarget", "removeInvalidHandleType", Method, "2");
+       ("Ext.dd.DDTarget", "resetConstraints", Method, "2");
+       ("Ext.dd.DDTarget", "setDragElId", Method, "2");
+       ("Ext.dd.DDTarget", "setHandleElId", Method, "2");
+       ("Ext.dd.DDTarget", "setInitPosition", Method, "2");
+       ("Ext.dd.DDTarget", "setOuterHandleElId", Method, "2");
+       ("Ext.dd.DDTarget", "setXConstraint", Method, "2");
+       ("Ext.dd.DDTarget", "setYConstraint", Method, "2");
+       ("Ext.dd.DDTarget", "startDrag", Method, "2");
+       ("Ext.dom.Element", "getAlignToXY", Method, "2");
+       ("Ext.dom.Element", "getAnchorXY", Method, "2");
+       ("Ext.dom.Element", "getOffsetsTo", Method, "2");
+       ("Ext.dom.Element", "getXY", Method, "2");
+       ("Ext.dom.Element", "mask", Method, "2");
+       ("Ext.dom.Element", "setXY", Method, "2");
+       ("Ext.dom.Element", "update", Method, "2");
+       ("Ext.ComponentLoader", "renderer", Cfg, "2");
+       ("Ext.Component", "afterRender", Method, "2");
+       ("Ext.Component", "draggable", Cfg, "2");
+       ("Ext.layout.Layout", "getLayoutItems", Method, "2");
+       ("Ext.layout.container.Container", "beginLayout", Method, "2");
+       ("Ext.layout.container.Container", "configureItem", Method, "2");
+       ("Ext.container.AbstractContainer", "disable", Method, "2");
+       ("Ext.container.AbstractContainer", "enable", Method, "2");
+       ("Ext.container.AbstractContainer", "renderTpl", Cfg, "2");
+       ("Ext.panel.AbstractPanel", "componentLayout", Cfg, "2");
+       ("Ext.dd.StatusProxy", "renderTpl", Cfg, "2");
+       ("Ext.dd.StatusProxy", "hide", Method, "2");
+       ("Ext.dd.StatusProxy", "update", Method, "2");
+       ("Ext.util.ComponentDragger", "delegate", Cfg, "2");
+       ("Ext.window.Window", "autoRender", Cfg, "2");
+       ("Ext.window.Window", "dd", Property, "2");
+       ("Ext.window.Window", "activate", Event, "2");
+       ("Ext.window.Window", "deactivate", Event, "2");
+       ("Ext.window.Window", "resize", Event, "2");
+       ("Ext.window.MessageBox", "resizable", Cfg, "2");
+       ("Ext.window.MessageBox", "hide", Method, "2");
+       ("Ext.window.MessageBox", "setIcon", Method, "2");
+       ("Ext.window.MessageBox", "show", Method, "2");
+      ];
+    tbl
 
-  let is_overridden current_module name member_type =
-    OverrideSet.mem (current_module, name, member_type) overrides
+  let get_override_suffix current_module name member_type =
+    try
+      Hashtbl.find overrides (current_module, name, member_type)
+    with Not_found -> ""
 
 end
 
@@ -224,10 +222,10 @@ let create_and_add_members member_type
          else
            let doc =
              get_json_element "doc" es |> get_json_string |> String.trim in
-           let overridden =
-             Overrides.is_overridden
+           let suffix =
+             Overrides.get_override_suffix
                current_module.Module.id name member_type in
-           let member = create_member es table name doc overridden in
+           let member = create_member es table name doc suffix in
            let updated =
              current |> ClassType.methods ^%= (fun m -> m @ [member])
            in
@@ -235,14 +233,14 @@ let create_and_add_members member_type
     current_class_type
     json_array
 
-let create_property es table name doc overridden =
+let create_property es table name doc suffix =
   let readonly = is_readonly es in
   let ext_type = get_json_element "type" es |> get_json_string in
   let default = get_json_element "default" es |> get_json_string in
   let return_type = SymbolTable.map_type table ext_type in
   let return = Type.create ext_type return_type in
   let return_param = Param.create "" return "" default false in
-  Method.create_property name doc readonly overridden return_param
+  Method.create_property name doc readonly suffix return_param
 
 let add_properties =
   create_and_add_members Property create_property
@@ -252,21 +250,21 @@ let add_configs =
 
 let add_methods =
   create_and_add_members Method
-    (fun es table name doc overridden ->
+    (fun es table name doc suffix ->
        let template = is_template es in
        let params =
          get_json_element "params" es |> get_json_array
            |> List.map (parse_param table) in
        let return = get_json_element "return" es |> parse_param table in
-       Method.create_method name doc template overridden params return)
+       Method.create_method name doc template suffix params return)
 
 let add_events =
   create_and_add_members Event
-    (fun es table name doc overridden ->
+    (fun es table name doc suffix ->
        let params =
          get_json_element "params" es |> get_json_array
            |> List.map (parse_param table) in
-       Method.create_event name doc overridden params)
+       Method.create_event name doc suffix params)
 
 let add_members json_elements current_module current_class_type =
   ContextM.foldM

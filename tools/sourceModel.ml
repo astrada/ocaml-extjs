@@ -634,7 +634,7 @@ struct
     doc : string;
     readonly : bool;
     template : bool;
-    overridden : bool;
+    suffix : string;
     method_type : method_type;
     params : Param.t list;
     return : Param.t
@@ -660,9 +660,9 @@ struct
 		Lens.get = (fun x -> x.template);
 		Lens.set = (fun v x -> { x with template = v })
 	}
-	let overridden = {
-		Lens.get = (fun x -> x.overridden);
-		Lens.set = (fun v x -> { x with overridden = v })
+	let suffix = {
+		Lens.get = (fun x -> x.suffix);
+		Lens.set = (fun v x -> { x with suffix = v })
 	}
   let method_type = {
 		Lens.get = (fun x -> x.method_type);
@@ -678,50 +678,50 @@ struct
 	}
 
   let create
-        id doc readonly template overridden method_type params return =
+        id doc readonly template suffix method_type params return =
     let name =
       OCamlName.get_ocaml_name ValueName id ^
-      (if overridden then "_2" else "") in
+      (if suffix <> "" then ("_" ^ suffix) else "") in
     { id;
       name;
       doc;
       readonly;
       template;
-      overridden;
+      suffix;
       method_type;
       params;
       return
     }
 
-  let create_property id doc readonly overridden return =
+  let create_property id doc readonly suffix return =
     create
       id
       doc
       readonly
       false
-      overridden
+      suffix
       Property
       []
       return
 
-  let create_method id doc template overridden params return =
+  let create_method id doc template suffix params return =
     create
       id
       doc
       false
       template
-      overridden
+      suffix
       Method
       (if params = [] then [Param.unit_param] else params)
       return
 
-  let create_event id doc overridden params =
+  let create_event id doc suffix params =
     create
       id
       doc
       false
       false
-      overridden
+      suffix
       Callback
       params
       Param.unit_param
