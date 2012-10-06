@@ -86,6 +86,7 @@ type class_cat =
     StandardClass
   | ConfigClass
   | EventClass
+  | StaticClass
 
 (* Symbol table *)
 module Symbol =
@@ -426,6 +427,8 @@ struct
         lookup_other_class_cat 7 "events" id
       else if String.ends_with id "_configs" then
         lookup_other_class_cat 8 "configs" id
+      else if String.ends_with id "_statics" then
+        lookup_other_class_cat 8 "statics" id
       else if String.starts_with id "Ext." then
         let prefix =
           OCamlName.get_ocaml_name ModuleName id in
@@ -558,8 +561,6 @@ struct
     name : string;
     doc : string;
     owner : string;
-    property : bool;
-    readonly : bool;
     params : Param.t list;
     return : Param.t
   }
@@ -580,14 +581,6 @@ struct
 		Lens.get = (fun x -> x.owner);
 		Lens.set = (fun v x -> { x with owner = v })
 	}
-	let property = {
-		Lens.get = (fun x -> x.property);
-		Lens.set = (fun v x -> { x with property = v })
-	}
-	let readonly = {
-		Lens.get = (fun x -> x.readonly);
-		Lens.set = (fun v x -> { x with readonly = v })
-	}
 	let params = {
 		Lens.get = (fun x -> x.params);
 		Lens.set = (fun v x -> { x with params = v })
@@ -602,20 +595,7 @@ struct
     name = OCamlName.get_ocaml_name ValueName id;
     doc;
     owner;
-    property = false;
-    readonly = false;
     params = if params = [] then [Param.unit_param] else params;
-    return
-  }
-
-  let create_property id doc owner readonly return = {
-    id;
-    name = OCamlName.get_ocaml_name ValueName id;
-    doc;
-    owner;
-    property = true;
-    readonly;
-    params = [];
     return
   }
 
@@ -789,6 +769,15 @@ struct
     superclasses = [];
     methods = [];
     class_cat = ConfigClass;
+  }
+
+  let create_static_class id = {
+    id = id ^ "_statics";
+    name = "statics";
+    doc = "";
+    superclasses = [];
+    methods = [];
+    class_cat = StaticClass;
   }
 
 end

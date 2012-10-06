@@ -92,6 +92,8 @@ let add_superclasses json_elements current_class_type =
                  superclass_id ^ "_events"
              | ConfigClass ->
                  superclass_id ^ "_configs"
+             | StaticClass ->
+                 superclass_id ^ "_statics"
              | StandardClass ->
                  superclass_id
          in
@@ -303,7 +305,7 @@ let add_configs_to_class json_elements current_module current_class_type =
 (* END Members *)
 
 (* Class types *)
-let add_class_type json_elements current_module =
+let add_class_types json_elements current_module =
   let new_class_type =
     ClassType.create current_module.Module.id in
   let new_event_class_type =
@@ -393,16 +395,10 @@ let create_and_add_statics create_function json_array current_module =
     current_module
     json_array
 
-let add_static_properties =
+let add_static_configs =
   create_and_add_statics
     (fun es table name doc owner ->
-       let readonly = is_readonly es in
-       let ext_type = get_json_element "type" es |> get_json_string in
-       let return_type = SymbolTable.map_type table ext_type in
-       let return = Type.create ext_type return_type in
-       let default = get_json_element "default" es |> get_json_string in
-       let return_param = Param.create "" return "" default false in
-       Function.create_property name doc owner readonly return_param)
+       failwith ("Static configs are not supported: " ^ name))
 
 let add_static_methods =
   create_and_add_statics
@@ -420,20 +416,33 @@ let add_static_events =
        failwith ("Static events are not supported: " ^ name))
 
 let add_statics json_elements current_module =
+  let new_static_class_type =
+    ClassType.create_static_class current_module.Module.id in
   ContextM.foldM
-    (fun current -> function
-         ("property", `List xs)
-       | ("cfg", `List xs) ->
-           add_static_properties xs current
+    (fun (current_m, current_ct) -> function
+         ("cfg", `List xs) ->
+           add_static_configs xs current_m >>= fun current_m' ->
+           ContextM.return (current_m', current_ct)
+       | ("property", `List xs) ->
+           add_properties xs current_m current_ct >>= fun current_ct' ->
+           ContextM.return (current_m, current_ct')
        | ("method", `List xs) ->
-           add_static_methods xs current
+           add_methods xs current_m current_ct >>= fun current_ct' ->
+           add_static_methods xs current_m >>= fun current_m' ->
+           ContextM.return (current_m', current_ct')
        | ("event", `List xs) ->
-           add_static_events xs current
+           add_static_events xs current_m >>= fun current_m' ->
+           ContextM.return (current_m', current_ct)
        | _ ->
-           ContextM.return current
+           ContextM.return (current_m, current_ct)
     )
+    (current_module, new_static_class_type)
+    json_elements >>= fun (current_module, static_class_type) ->
+  let updated_module =
     current_module
-    json_elements
+      |> Module.class_types ^%= (fun cs -> cs @ [static_class_type])
+  in
+  ContextM.return updated_module
 (* END Statics *)
 
 let tag_regexp = Str.regexp "<[^>]+>"
@@ -445,7 +454,7 @@ let build_module json_elements toplevel =
   ContextM.foldM
     (fun current -> function
        | ("tagname", `String "class") ->
-           add_class_type json_elements current
+           add_class_types json_elements current
        | ("doc", `String s) ->
            let stripped =
              Str.global_replace tag_regexp "" (String.left s 200) in
@@ -592,7 +601,10 @@ let write_method formatter current_module class_cat m =
 let write_class_type formatter write_method current_module ct =
   Format.fprintf formatter "class type %s =@\n@[<v 2>object%s@\n"
     ct.ClassType.name
-    (match ct.ClassType.class_cat with EventClass -> "" | _ -> "('self)");
+    (match ct.ClassType.class_cat with
+         EventClass
+       | StaticClass -> ""
+       | _ -> "('self)");
   List.iter
     (Format.fprintf formatter "inherit %s@\n")
     ct.ClassType.superclasses;
@@ -603,41 +615,19 @@ let write_class_type formatter write_method current_module ct =
   Format.fprintf formatter "@]@\nend@\n@\n"
 
 let write_function formatter f =
-  if f.Function.property then begin
-    let name =
-      (* HACK: beautify case of all uppercase properties *)
-      if String.length f.Function.name = 1 ||
-         f.Function.name.[1] = Char.uppercase f.Function.name.[1]
-      then String.capitalize f.Function.name
-      else f.Function.name in
-    Format.fprintf formatter
-      "@[<hov 2>let get_%s@ ()@ =@,@[<hv 2>Js.Unsafe.get@ (Js.Unsafe.variable \"%s\")@ (Js.Unsafe.variable \"%s\")@]@]@\n@\n"
-      name
-      f.Function.owner
-      f.Function.id;
-    if not f.Function.readonly then begin
-      Format.fprintf formatter
-        "@[<hov 2>let set_%s@ v =@,@[<hv 2>Js.Unsafe.set@ (Js.Unsafe.variable \"%s\")@ (Js.Unsafe.variable \"%s\")@ v@]@]@\n@\n"
-        name
-        f.Function.owner
-        f.Function.id;
-    end;
-  end else begin
-    Format.fprintf formatter "@[<hv 2>@[<hov 2>let %s@ " f.Function.name;
-    List.iter
-      (fun param -> Format.fprintf formatter "%s@ " param.Param.name)
-      f.Function.params;
-    Format.fprintf formatter
-      "=@]@\n@[<hv 2>Js.Unsafe.meth_call@ (Js.Unsafe.variable \"%s\")@ (Js.Unsafe.variable \"%s\")@ @[<hv 2>[|"
-      f.Function.owner
-      f.Function.id;
-    List.iter
-      (fun param ->
-         if param.Param.name <> "()" then
-           Format.fprintf formatter "Js.Unsafe.inject@ %s;@ " param.Param.name)
-      f.Function.params;
-    Format.fprintf formatter "@]|]@]@]@\n@\n"
-  end
+  Format.fprintf formatter "@[<hv 2>@[<hov 2>let %s@ " f.Function.name;
+  List.iter
+    (fun param -> Format.fprintf formatter "%s@ " param.Param.name)
+    f.Function.params;
+  Format.fprintf formatter
+    "=@]@\n@[<hv 2>Js.Unsafe.meth_call@ static@ (Js.Unsafe.variable \"%s\")@ @[<hv 2>[|"
+    f.Function.id;
+  List.iter
+    (fun param ->
+       if param.Param.name <> "()" then
+         Format.fprintf formatter "Js.Unsafe.inject@ %s;@ " param.Param.name)
+    f.Function.params;
+  Format.fprintf formatter "@]|]@]@]@\n@\n"
 
 let write_module formatter m =
   if not m.Module.toplevel then begin
@@ -647,6 +637,8 @@ let write_module formatter m =
   List.iter
     (write_class_type formatter write_method m)
     m.Module.class_types;
+  Format.fprintf formatter "let static = Js.Unsafe.variable \"%s\"@\n@\n"
+    m.Module.id;
   List.iter
     (write_function formatter)
     m.Module.functions;
@@ -728,45 +720,18 @@ let write_class_type_with_docs formatter current_module ct =
   write_class_type formatter write_method_with_docs current_module ct
 
 let write_function_declaration formatter current_module f =
-  if f.Function.property then begin
-    (* HACK: beautify case of all uppercase properties *)
-    let name =
-      if String.length f.Function.name = 1 ||
-         f.Function.name.[1] = Char.uppercase f.Function.name.[1]
-      then String.capitalize f.Function.name
-      else f.Function.name in
-    let return_string =
-      get_return_string current_module StandardClass f.Function.return in
-    Format.fprintf formatter
-      "@[<hov 2>val get_%s@ :@ unit@ ->@ %s@]@\n"
-      name
-      return_string;
-    if not f.Function.readonly then begin
-      Format.fprintf formatter
-        "@[<hov 2>val set_%s@ :@ %s@ ->@ unit@]@\n"
-        name
-        return_string;
-    end;
-    Format.fprintf formatter "@[<hov 2>(**@ {%% %s %%}@\n" f.Function.doc;
-    if f.Function.return.Param.default <> "" then begin
-      Format.fprintf formatter "@\nDefaults to: [%s]@\n"
-        f.Function.return.Param.default;
-    end;
-    Format.fprintf formatter "*)@]\n@\n";
-  end else begin
-    let (param_strings, return_string) =
-      get_param_and_return_strings
-          current_module StandardClass f.Function.params f.Function.return in
-    let param_strings =
-      get_param_strings current_module StandardClass f.Function.params in
-    Format.fprintf formatter "@[<hov 2>val %s@ :@ " f.Function.name;
-    print_param_types formatter param_strings;
-    Format.fprintf formatter "%s@]@\n" return_string;
-    Format.fprintf formatter "@[<hov 2>(**@ {%% %s %%}@\n" f.Function.doc;
-    print_param_doc formatter f.Function.params;
-    print_return_doc formatter f.Function.return;
-    Format.fprintf formatter "*)@]\n@\n";
-  end
+  let (param_strings, return_string) =
+    get_param_and_return_strings
+        current_module StandardClass f.Function.params f.Function.return in
+  let param_strings =
+    get_param_strings current_module StandardClass f.Function.params in
+  Format.fprintf formatter "@[<hov 2>val %s@ :@ " f.Function.name;
+  print_param_types formatter param_strings;
+  Format.fprintf formatter "%s@]@\n" return_string;
+  Format.fprintf formatter "@[<hov 2>(**@ {%% %s %%}@\n" f.Function.doc;
+  print_param_doc formatter f.Function.params;
+  print_return_doc formatter f.Function.return;
+  Format.fprintf formatter "*)@]\n@\n"
 
 let write_module_interface formatter m =
   if m.Module.toplevel then begin
@@ -780,6 +745,13 @@ let write_module_interface formatter m =
   end;
   List.iter
     (write_class_type_with_docs formatter m)
+    m.Module.class_types;
+  List.iter
+    (fun ct ->
+       if ct.ClassType.class_cat = StaticClass then begin
+         Format.fprintf formatter "val static : %s@\n@\n"
+           ct.ClassType.name;
+       end)
     m.Module.class_types;
   List.iter
     (write_function_declaration formatter m)
