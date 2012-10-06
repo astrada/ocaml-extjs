@@ -557,7 +557,7 @@ let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 # 558 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
-Ocamlbuild_pack.Log.classic_display := true;;
+(* Ocamlbuild_pack.Log.classic_display := true;; *)
 
 (* build helloext client scripts if helloext_client dependency is specified in
  * _tags *)
