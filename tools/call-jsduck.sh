@@ -2,7 +2,7 @@
 
 . ../examples/setup-deploy.sh
 
-jsduck $EXTJS \
+jsduck $EXTJS/src \
   --verbose \
   --export=full \
   --output jsduck/ \
