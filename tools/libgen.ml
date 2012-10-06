@@ -77,6 +77,13 @@ let check_flag name json_elements =
 
 let is_optional =
   check_flag "optional"
+
+let is_overridden json_elements =
+  List.exists
+    (fun (n, e) ->
+       n = "overrides" &&
+       List.length (get_json_array e) > 0)
+    json_elements
 (* END JSON *)
 
 (* Superclasses *)
@@ -118,83 +125,6 @@ type member_type =
   | Cfg
   | Event
 
-module Overrides =
-struct
-  module OverrideSet =
-    Set.Make(struct
-               type t = string * string * member_type
-               let compare = compare
-             end)
-
-  let overrides =
-    List.fold_left
-      (fun set name -> OverrideSet.add name set)
-      OverrideSet.empty
-      [("Ext.util.Point", "equals", Method);
-       ("Ext.dd.DDTarget", "addInvalidHandleClass", Method);
-       ("Ext.dd.DDTarget", "addInvalidHandleId", Method);
-       ("Ext.dd.DDTarget", "addInvalidHandleType", Method);
-       ("Ext.dd.DDTarget", "clearConstraints", Method);
-       ("Ext.dd.DDTarget", "clearTicks", Method);
-       ("Ext.dd.DDTarget", "endDrag", Method);
-       ("Ext.dd.DDTarget", "getDragEl", Method);
-       ("Ext.dd.DDTarget", "isValidHandleChild", Method);
-       ("Ext.dd.DDTarget", "onDrag", Method);
-       ("Ext.dd.DDTarget", "onDragDrop", Method);
-       ("Ext.dd.DDTarget", "onDragEnter", Method);
-       ("Ext.dd.DDTarget", "onDragOut", Method);
-       ("Ext.dd.DDTarget", "onDragOver", Method);
-       ("Ext.dd.DDTarget", "onInvalidDrop", Method);
-       ("Ext.dd.DDTarget", "onMouseDown", Method);
-       ("Ext.dd.DDTarget", "onMouseUp", Method);
-       ("Ext.dd.DDTarget", "removeInvalidHandleClass", Method);
-       ("Ext.dd.DDTarget", "removeInvalidHandleId", Method);
-       ("Ext.dd.DDTarget", "removeInvalidHandleType", Method);
-       ("Ext.dd.DDTarget", "resetConstraints", Method);
-       ("Ext.dd.DDTarget", "setDragElId", Method);
-       ("Ext.dd.DDTarget", "setHandleElId", Method);
-       ("Ext.dd.DDTarget", "setInitPosition", Method);
-       ("Ext.dd.DDTarget", "setOuterHandleElId", Method);
-       ("Ext.dd.DDTarget", "setXConstraint", Method);
-       ("Ext.dd.DDTarget", "setYConstraint", Method);
-       ("Ext.dd.DDTarget", "startDrag", Method);
-       ("Ext.dom.Element", "getAlignToXY", Method);
-       ("Ext.dom.Element", "getAnchorXY", Method);
-       ("Ext.dom.Element", "getOffsetsTo", Method);
-       ("Ext.dom.Element", "getXY", Method);
-       ("Ext.dom.Element", "mask", Method);
-       ("Ext.dom.Element", "setXY", Method);
-       ("Ext.dom.Element", "update", Method);
-       ("Ext.ComponentLoader", "renderer", Cfg);
-       ("Ext.Component", "afterRender", Method);
-       ("Ext.Component", "draggable", Cfg);
-       ("Ext.layout.Layout", "getLayoutItems", Method);
-       ("Ext.layout.container.Container", "beginLayout", Method);
-       ("Ext.layout.container.Container", "configureItem", Method);
-       ("Ext.container.AbstractContainer", "disable", Method);
-       ("Ext.container.AbstractContainer", "enable", Method);
-       ("Ext.container.AbstractContainer", "renderTpl", Cfg);
-       ("Ext.panel.AbstractPanel", "componentLayout", Cfg);
-       ("Ext.dd.StatusProxy", "renderTpl", Cfg);
-       ("Ext.dd.StatusProxy", "hide", Method);
-       ("Ext.dd.StatusProxy", "update", Method);
-       ("Ext.util.ComponentDragger", "delegate", Cfg);
-       ("Ext.window.Window", "autoRender", Cfg);
-       ("Ext.window.Window", "dd", Property);
-       ("Ext.window.Window", "activate", Event);
-       ("Ext.window.Window", "deactivate", Event);
-       ("Ext.window.Window", "resize", Event);
-       ("Ext.window.MessageBox", "resizable", Cfg);
-       ("Ext.window.MessageBox", "hide", Method);
-       ("Ext.window.MessageBox", "setIcon", Method);
-       ("Ext.window.MessageBox", "show", Method);
-      ]
-
-  let is_overridden current_module name member_type =
-    OverrideSet.mem (current_module, name, member_type) overrides
-
-end
-
 let parse_param table json_object =
   let es = get_json_elements json_object in
   let name = get_json_element "name" es |> get_json_string in
@@ -224,13 +154,10 @@ let create_and_add_members member_type
          else
            let doc =
              get_json_element "doc" es |> get_json_string |> String.trim in
-           let overridden =
-             Overrides.is_overridden
-               current_module.Module.id name member_type in
+           let overridden = is_overridden es in
            let member = create_member es table name doc overridden in
            let updated =
-             current |> ClassType.methods ^%= (fun m -> m @ [member])
-           in
+             current |> ClassType.methods ^%= (fun m -> m @ [member]) in
            ContextM.return updated)
     current_class_type
     json_array
@@ -388,12 +315,15 @@ let create_and_add_statics create_function json_array current_module =
            get_json_element "doc" es |> get_json_string |> String.trim in
          let f = create_function es table name doc owner in
          let updated =
-           current
-             |> Module.functions ^%= (fun fs -> fs @ [f])
-         in
+           current |> Module.functions ^%= (fun fs -> fs @ [f]) in
          ContextM.return updated)
     current_module
     json_array
+
+let add_static_configs =
+  create_and_add_statics
+    (fun es table name doc owner ->
+       failwith ("Static configs are not supported: " ^ name))
 
 let add_static_properties =
   create_and_add_statics
@@ -424,8 +354,9 @@ let add_static_events =
 let add_statics json_elements current_module =
   ContextM.foldM
     (fun current -> function
-         ("property", `List xs)
-       | ("cfg", `List xs) ->
+         ("cfg", `List xs) ->
+           add_static_configs xs current
+       | ("property", `List xs) ->
            add_static_properties xs current
        | ("method", `List xs) ->
            add_static_methods xs current
