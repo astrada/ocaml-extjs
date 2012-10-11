@@ -171,6 +171,7 @@ struct
        ("Ext.container.AbstractContainer", "disable", Method, "2");
        ("Ext.container.AbstractContainer", "enable", Method, "2");
        ("Ext.container.AbstractContainer", "renderTpl", Cfg, "2");
+       ("Ext.container.Container", "onAdded", Method, "2");
        ("Ext.panel.AbstractPanel", "componentLayout", Cfg, "2");
        ("Ext.dd.StatusProxy", "renderTpl", Cfg, "2");
        ("Ext.dd.StatusProxy", "hide", Method, "2");
@@ -185,6 +186,27 @@ struct
        ("Ext.window.MessageBox", "hide", Method, "2");
        ("Ext.window.MessageBox", "setIcon", Method, "2");
        ("Ext.window.MessageBox", "show", Method, "2");
+       ("Ext.data.Store", "load", Method, "2");
+       ("Ext.data.Store", "removeAll", Method, "2");
+       ("Ext.view.AbstractView", "bindStore", Method, "2");
+       ("Ext.view.AbstractView", "getStore", Method, "2");
+       ("Ext.view.Table", "componentLayout", Cfg, "2");
+       ("Ext.panel.Table", "layout", Cfg, "2");
+       ("Ext.grid.plugin.Editing", "init", Method, "2");
+       ("Ext.menu.Menu", "getBubbleTarget", Method, "2");
+       ("Ext.menu.Menu", "hide", Method, "2");
+       ("Ext.menu.Menu", "show", Method, "2");
+       ("Ext.grid.header.Container", "border", Cfg, "2");
+       ("Ext.grid.column.Column", "componentLayout", Cfg, "2");
+       ("Ext.grid.column.Column", "renderTpl", Cfg, "2");
+       ("Ext.grid.column.Column", "resizable", Cfg, "2");
+       ("Ext.grid.column.Column", "hide", Method, "2");
+       ("Ext.grid.column.Column", "show", Method, "2");
+       ("Ext.button.Button", "border", Cfg, "2");
+       ("Ext.button.Button", "componentLayout", Cfg, "2");
+       ("Ext.button.Button", "renderTpl", Cfg, "2");
+       ("Ext.button.Button", "shrinkWrap", Cfg, "2");
+       ("Ext.app.Application", "getController", Method, "2");
       ];
     tbl
 
@@ -297,6 +319,8 @@ let add_configs_to_class json_elements current_module current_class_type =
     (fun current -> function
          ("cfg", `List xs) ->
            add_configs xs current_module current
+       | ("method", `List xs) ->
+           add_methods xs current_module current
        | _ ->
            ContextM.return current
     )
@@ -348,8 +372,8 @@ let add_class_types json_elements current_module =
     json_elements >>= fun (class_type, event_class_type, config_class_type) ->
   let updated_module =
     current_module
-      |> Module.class_types ^= [config_class_type;
-                                class_type;
+      |> Module.class_types ^= [class_type;
+                                config_class_type;
                                 event_class_type]
   in
   Lens.get_state Context.symbol_table >>= fun table ->
@@ -557,7 +581,11 @@ let get_param_and_return_strings current_module class_cat params return =
 
 (* .ml write *)
 let write_method formatter current_module class_cat m =
-  Format.fprintf formatter "@[<hov 2>method %s :@ " m.Method.name;
+  if class_cat <> ConfigClass ||
+     m.Method.method_type <> Method.Method ||
+     m.Method.template then begin
+    Format.fprintf formatter "@[<hov 2>method %s :@ " m.Method.name;
+  end;
   let (param_strings, return_string) =
     if m.Method.params <> [] then
       get_param_and_return_strings
@@ -572,23 +600,30 @@ let write_method formatter current_module class_cat m =
           (if m.Method.readonly then "Js.readonly_prop" else "Js.prop")
     | Method.Method ->
         if param_strings = [] then
-          if m.Method.template then
-            print_meth_callback_prop formatter
-              (fun () -> Format.fprintf formatter "%s" return_string)
-          else
-            Format.fprintf formatter "%s@ Js.meth" return_string
+          begin match class_cat with
+              ConfigClass when m.Method.template ->
+                print_meth_callback_prop formatter
+                  (fun () -> Format.fprintf formatter "%s" return_string)
+            | StandardClass
+            | StaticClass ->
+                Format.fprintf formatter "%s@ Js.meth" return_string
+            | _ -> ()
+          end
         else
-          if m.Method.template then begin
-            print_meth_callback_prop formatter
-              (fun () ->
-                 print_param_types formatter param_strings;
-                 Format.fprintf formatter "%s" return_string);
-          end else begin
-            print_meth formatter
-              (fun () ->
-                 if m.Method.params <> [Param.unit_param] then
-                   print_param_types formatter param_strings;
-                 Format.fprintf formatter "%s" return_string);
+          begin match class_cat with
+              ConfigClass when m.Method.template ->
+                print_meth_callback_prop formatter
+                  (fun () ->
+                     print_param_types formatter param_strings;
+                     Format.fprintf formatter "%s" return_string);
+            | StandardClass
+            | StaticClass ->
+                print_meth formatter
+                  (fun () ->
+                     if m.Method.params <> [Param.unit_param] then
+                       print_param_types formatter param_strings;
+                     Format.fprintf formatter "%s" return_string);
+            | _ -> ()
           end
     | Method.Callback ->
         print_callback_prop formatter
@@ -596,7 +631,11 @@ let write_method formatter current_module class_cat m =
              print_param_types formatter param_strings;
              Format.fprintf formatter "%s" return_string)
   end;
-  Format.fprintf formatter "@]@\n"
+  if class_cat <> ConfigClass ||
+     m.Method.method_type <> Method.Method ||
+     m.Method.template then begin
+    Format.fprintf formatter "@]@\n";
+  end
 
 let write_class_type formatter write_method current_module ct =
   Format.fprintf formatter "class type %s =@\n@[<v 2>object%s@\n"
@@ -604,7 +643,8 @@ let write_class_type formatter write_method current_module ct =
     (match ct.ClassType.class_cat with
          EventClass
        | StaticClass -> ""
-       | _ -> "('self)");
+       | ConfigClass
+       | StandardClass -> "('self)");
   List.iter
     (Format.fprintf formatter "inherit %s@\n")
     ct.ClassType.superclasses;
@@ -698,7 +738,10 @@ let print_return_doc formatter return =
 
 let write_method_with_docs formatter current_module class_cat m =
   write_method formatter current_module class_cat m;
-  if m.Method.doc <> "" then begin
+  if m.Method.doc <> "" &&
+     (class_cat <> ConfigClass ||
+      m.Method.method_type <> Method.Method ||
+      m.Method.template) then begin
     Format.fprintf formatter "@[<hov 2>(** {%% %s %%}@\n"
       m.Method.doc;
     begin match m.Method.method_type with
@@ -728,10 +771,8 @@ let write_function_declaration formatter current_module f =
   Format.fprintf formatter "@[<hov 2>val %s@ :@ " f.Function.name;
   print_param_types formatter param_strings;
   Format.fprintf formatter "%s@]@\n" return_string;
-  Format.fprintf formatter "@[<hov 2>(**@ {%% %s %%}@\n" f.Function.doc;
-  print_param_doc formatter f.Function.params;
-  print_return_doc formatter f.Function.return;
-  Format.fprintf formatter "*)@]\n@\n"
+  Format.fprintf formatter "(** See method [statics.%s] *)@\n@\n"
+    f.Function.name
 
 let write_module_interface formatter m =
   if m.Module.toplevel then begin
@@ -748,8 +789,10 @@ let write_module_interface formatter m =
     m.Module.class_types;
   List.iter
     (fun ct ->
-       if ct.ClassType.class_cat = StaticClass then begin
-         Format.fprintf formatter "val static : %s@\n@\n"
+       if ct.ClassType.class_cat = StaticClass &&
+          List.length ct.ClassType.methods > 0 then begin
+         Format.fprintf formatter
+           "val static : %s Js.t@\n(** Static instance. *)@\n@\n"
            ct.ClassType.name;
        end)
     m.Module.class_types;

@@ -23,6 +23,7 @@ struct
     "raise";
     "exception";
     "done";
+    "rec";
   ]
 
   let is_first_character_valid s =
@@ -161,6 +162,7 @@ struct
       Hashtbl.add tbl "Ext_core_Element" "Ext_dom_Element";
       Hashtbl.add tbl "Ext_CompositeElement" "Ext_dom_CompositeElement";
       Hashtbl.add tbl "Ext_Container" "Ext_container_Container";
+      Hashtbl.add tbl "Ext_data_Record" "Ext_data_Model";
       tbl
 
     let get_canonical alias =
@@ -187,7 +189,7 @@ struct
         ]);
        ("Ext_AbstractComponent",
         [("Ext_Component", self_type_variable);
-         ("Ext_container_Container", self_type_variable);
+         ("Ext_container_Container", type_variable);
         ]);
        ("Ext_util_Floating",
         [("Ext_Component", type_variable);
@@ -196,7 +198,7 @@ struct
         [("Ext_Component", type_variable);
         ]);
        ("Ext_Component",
-        [("Ext_container_Container", self_type_variable);
+        [("Ext_container_Container", type_variable);
          ("Ext_LoadMask", type_variable);
         ]);
        ("Ext_util_AbstractMixedCollection",
@@ -213,6 +215,29 @@ struct
         ]);
        ("Ext_panel_AbstractPanel",
         [("Ext_panel_Panel", self_type_variable);
+        ]);
+       ("Ext_data_Model",
+        [("Ext_data_Store", type_variable);
+         ("Ext_data_proxy_Proxy", type_variable);
+        ]);
+       ("Ext_grid_feature_Feature",
+        [("Ext_grid_Panel", type_variable);
+         ("Ext_view_Table", type_variable);
+        ]);
+       ("Ext_data_Operation",
+        [("Ext_data_Batch", type_variable);
+        ]);
+       ("Ext_data_AbstractStore",
+        [("Ext_data_Store", self_type_variable);
+        ]);
+       ("Ext_view_AbstractView",
+        [("Ext_view_View", self_type_variable);
+        ]);
+       ("Ext_grid_header_Container",
+        [("Ext_grid_column_Column", self_type_variable);
+        ]);
+       ("Ext_app_Controller",
+        [("Ext_app_Application", type_variable);
         ]);
       ]
 
@@ -239,8 +264,7 @@ struct
           Hashtbl.find type_table current_module in
         Hashtbl.find subtbl canonical_module
       with Not_found ->
-        { symbol with
-              module_prefix = canonical_module }
+        { symbol with module_prefix = canonical_module }
 
   end
 
@@ -264,6 +288,9 @@ struct
          "Ext_container_Container";
          "Ext_panel_AbstractPanel";
          "Ext_panel_Panel";
+         "Ext_data_proxy_Proxy";
+         "Ext_data_AbstractStore";
+         "Ext_selection_Model";
         ]
 
     let is_base_class symbol =
@@ -287,7 +314,9 @@ struct
           (function
                TypeVariable -> incr i; get_param !i
              | SelfTypeVariable ->
-                 begin match class_cat with EventClass -> "t" | _ -> "'self" end
+                 begin match class_cat with
+                     EventClass -> "t"
+                   | _ -> "'self" end
              | Type t -> loop t)
           symbol.params
         |> String.concat ","
@@ -306,11 +335,11 @@ struct
                 "'self"
               else symbol.symbol_name
           | [Type t] when symbol.module_prefix = "Js" &&
-                          symbol.symbol_name = "t" &&
                           (* Added to compile faster: lots of event handlers
                            * have "this" as first parameter (of type t Js.t).
                            * Using types #t Js.t slows OCaml compiler. *)
                           params_string <> "t" &&
+                          symbol.symbol_name = "t" &&
                           (not (String.starts_with params_string "'")) &&
                           BaseClasses.is_base_class t ->
                 Printf.sprintf "#%s %s.%s"
@@ -399,6 +428,22 @@ struct
           params = [];
           optional = false;
         })] table "Event" "Js" "t"
+      |> ignore;
+    add_type
+      ~params:[Symbol.Type (
+        { Symbol.module_prefix = "Regexp";
+          symbol_name = "regexp";
+          params = [];
+          optional = false;
+        })] table "RegExp" "Js" "t"
+      |> ignore;
+    add_type
+      ~params:[Symbol.Type (
+        { Symbol.module_prefix = "XmlHttpRequest";
+          symbol_name = "xmlHttpRequest";
+          params = [];
+          optional = false;
+        })] table "XMLHttpRequest" "Js" "t"
       |> ignore;
     add_symbol table "Ext" Symbol.js_object |> ignore;
     (* Undefined types *)
