@@ -4,11 +4,14 @@ object('self)
   inherit Ext_AbstractComponent.t
   inherit Ext_Component.t
   inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
   
-  method isViewport : bool Js.t Js.prop
-  method initComponent : unit Js.meth
-  method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
+  method afterHide : 'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> unit
+    Js.meth
+  method afterShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+    'c Js.t Js.optdef -> unit Js.meth
+  method getChildByElement : 'a Js.t -> bool Js.t -> #Ext_Component.t Js.t
+    Js.meth
+  method onAdded_2 : 'self Js.t -> Js.number Js.t -> unit Js.meth
   
 end
 
@@ -18,12 +21,15 @@ object('self)
   inherit Ext_AbstractComponent.configs
   inherit Ext_Component.configs
   inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+  method afterHide : ('self Js.t, 'a Js.callback Js.optdef ->
+    'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method afterShow : ('self Js.t, 'a Js.t Js.optdef ->
+    'b Js.callback Js.optdef -> 'c Js.t Js.optdef -> unit) Js.meth_callback
     Js.writeonly_prop
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
+  method onAdded_2 : ('self Js.t, 'self Js.t -> Js.number Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  method anchorSize : 'a Js.t Js.prop
   
 end
 
@@ -33,7 +39,6 @@ object
   inherit Ext_AbstractComponent.events
   inherit Ext_Component.events
   inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
   
   
 end
@@ -44,12 +49,11 @@ object
   inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
   
   
 end
 
-let static = Js.Unsafe.variable "Ext.container.Viewport"
+let static = Js.Unsafe.variable "Ext.container.Container"
 
 let of_configs c = Js.Unsafe.coerce c
 
