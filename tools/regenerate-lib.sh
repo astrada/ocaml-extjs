@@ -183,4 +183,8 @@ echo Ext.form.FieldAncestor
 ./libgen.byte tools/jsduck/Ext.form.FieldAncestor.json
 echo Ext.form.Panel
 ./libgen.byte tools/jsduck/Ext.form.Panel.json
+echo Ext.form.field.Base
+./libgen.byte tools/jsduck/Ext.form.field.Base.json
+echo Ext.form.field.Text
+./libgen.byte tools/jsduck/Ext.form.field.Text.json
 

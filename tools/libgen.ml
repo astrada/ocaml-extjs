@@ -79,6 +79,13 @@ let is_optional =
   check_flag "optional"
 (* END JSON *)
 
+(* Docs *)
+let at_regexp = Str.regexp "@"
+
+let clean_doc s =
+  String.trim s |> Str.global_replace at_regexp "\\\\\\0"
+(* END Docs *)
+
 (* Superclasses *)
 let add_superclasses json_elements current_class_type =
   Lens.get_state Context.symbol_table >>= fun table ->
@@ -209,6 +216,12 @@ struct
        ("Ext.button.Button", "shrinkWrap", Cfg, "2");
        ("Ext.app.Application", "getController", Method, "2");
        ("Ext.form.Panel", "layout", Cfg, "2");
+       ("Ext.form.field.Base", "doComponentLayout", Method, "2");
+       ("Ext.form.field.Base", "getInputId", Method, "2");
+       ("Ext.form.field.Base", "getSubTplMarkup", Method, "2");
+       ("Ext.form.field.Base", "setValue", Method, "2");
+       ("Ext.form.field.Base", "componentLayout", Cfg, "2");
+       ("Ext.form.field.Text", "processRawValue", Method, "2");
       ];
     tbl
 
@@ -222,7 +235,8 @@ end
 let parse_param table json_object =
   let es = get_json_elements json_object in
   let name = get_json_element "name" es |> get_json_string in
-  let doc = get_json_element "doc" es |> get_json_string |> String.trim in
+  let doc =
+    get_json_element "doc" es |> get_json_string |> clean_doc in
   let ext_type = get_json_element "type" es |> get_json_string in
   let default = get_json_element "default" es |> get_json_string in
   let optional = is_optional es in
@@ -247,7 +261,7 @@ let create_and_add_members member_type
            ContextM.return current
          else
            let doc =
-             get_json_element "doc" es |> get_json_string |> String.trim in
+             get_json_element "doc" es |> get_json_string |> clean_doc in
            let suffix =
              Overrides.get_override_suffix
                current_module.Module.id name member_type in
@@ -342,7 +356,7 @@ let add_class_types json_elements current_module =
     (fun (current, current_event, current_config) -> function
          ("doc", `String s) ->
            ContextM.return
-             (current |> ClassType.doc ^= String.trim s,
+             (current |> ClassType.doc ^= clean_doc s,
               current_event,
               current_config)
        | ("superclasses", `List xs)
@@ -411,7 +425,7 @@ let create_and_add_statics create_function json_array current_module =
          Lens.get_state Context.symbol_table >>= fun table ->
          let name = get_json_element "name" es |> get_json_string in
          let doc =
-           get_json_element "doc" es |> get_json_string |> String.trim in
+           get_json_element "doc" es |> get_json_string |> clean_doc in
          let f = create_function es table name doc owner in
          let updated =
            current
@@ -494,7 +508,7 @@ let build_module json_elements toplevel =
              Str.global_replace reserved_regexp "" stripped in
            let shortdoc = String.left without_reserved 50 |> String.trim in
            ContextM.return (current
-                              |> Module.doc ^= String.trim s
+                              |> Module.doc ^= clean_doc s
                               |> Module.shortdoc ^= shortdoc)
        | ("statics", `Assoc xs) ->
            add_statics xs current json_elements
@@ -712,6 +726,8 @@ let generate_ml file =
 (* END .ml write *)
 
 (* .mli write *)
+let regexp_dash = Str.regexp_string "- "
+
 let print_param_doc formatter params =
   if params <> [] &&
      (params |. Lens.head |. Param.ptype) <> Type.unit_type then begin
@@ -719,15 +735,18 @@ let print_param_doc formatter params =
     List.iter
       (fun param ->
          if param.Param.name <> "()" then begin
-           Format.fprintf formatter "{- %s: [%s]@ {%% %s %%}@\n"
+           Format.fprintf formatter "{- %s: [%s]"
              param.Param.name
-             (Symbol.to_string "" StandardClass param.Param.ptype.Type.symbol)
-             param.Param.doc;
+             (Symbol.to_string "" StandardClass param.Param.ptype.Type.symbol);
+           if param.Param.doc <> "" then begin
+             Format.fprintf formatter "@ {%% %s %%}"
+               (Str.global_replace regexp_dash "* " param.Param.doc);
+           end;
            if param.Param.default <> "" then begin
-             Format.fprintf formatter "@ Defaults to: %s@\n"
+             Format.fprintf formatter "@\n@ Defaults to: %s"
                param.Param.default;
            end;
-           Format.fprintf formatter "}@\n";
+           Format.fprintf formatter "@\n}@\n";
          end)
       params;
     Format.fprintf formatter "}@\n";
@@ -750,8 +769,7 @@ let write_method_with_docs formatter current_module class_cat m =
   write_method formatter current_module class_cat m;
   if m.Method.doc <> "" &&
      (class_cat <> ConfigClass ||
-      m.Method.method_type <> Method.Method ||
-      m.Method.template) then begin
+      m.Method.method_type <> Method.Method) then begin
     Format.fprintf formatter "@[<hov 2>(** {%% %s %%}@\n"
       m.Method.doc;
     begin match m.Method.method_type with
@@ -767,6 +785,9 @@ let write_method_with_docs formatter current_module class_cat m =
           print_param_doc formatter m.Method.params;
     end;
     Format.fprintf formatter "*)@]@\n";
+  end else if class_cat = ConfigClass && m.Method.template then begin
+    Format.fprintf formatter "(** See method [t.%s] *)@\n"
+      m.Method.name;
   end
 
 let write_class_type_with_docs formatter current_module ct =
