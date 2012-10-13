@@ -12,3 +12,9 @@ let new_config set_properties =
 let log message =
   Firebug.console##log(Js.string message)
 
+let undef =
+  Js.Unsafe.variable "undefined"
+
+let to_class_configs o =
+  Js.Unsafe.coerce o
+
