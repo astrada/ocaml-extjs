@@ -167,4 +167,20 @@ echo Ext.app.Controller
 ./libgen.byte tools/jsduck/Ext.app.Controller.json
 echo Ext.app.Application
 ./libgen.byte tools/jsduck/Ext.app.Application.json
+echo Ext.Version
+./libgen.byte tools/jsduck/Ext.Version.json
+echo Ext
+./libgen.byte tools/jsduck/Ext.json
+echo Ext.Loader
+./libgen.byte tools/jsduck/Ext.Loader.json
+echo Ext.form.action.Action
+./libgen.byte tools/jsduck/Ext.form.action.Action.json
+echo Ext.form.Basic
+./libgen.byte tools/jsduck/Ext.form.Basic.json
+echo Ext.form.Labelable
+./libgen.byte tools/jsduck/Ext.form.Labelable.json
+echo Ext.form.FieldAncestor
+./libgen.byte tools/jsduck/Ext.form.FieldAncestor.json
+echo Ext.form.Panel
+./libgen.byte tools/jsduck/Ext.form.Panel.json
 

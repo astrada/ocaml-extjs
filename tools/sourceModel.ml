@@ -24,6 +24,7 @@ struct
     "exception";
     "done";
     "rec";
+    "match";
   ]
 
   let is_first_character_valid s =
@@ -239,6 +240,9 @@ struct
        ("Ext_app_Controller",
         [("Ext_app_Application", type_variable);
         ]);
+       ("Ext_form_action_Action",
+        [("Ext_form_Basic", type_variable);
+        ]);
       ]
 
     let type_table =
@@ -452,9 +456,10 @@ struct
     table
 
   let rec lookup_type table id =
-    let lookup_other_class_cat n symbol_name id =
+    let trimmed_id = String.trim id in
+    let lookup_other_class_cat n symbol_name =
       (* TODO: refactor *)
-      let stripped_id = String.rchop ~n id in
+      let stripped_id = String.rchop ~n trimmed_id in
       try
         let symbol = lookup_type table stripped_id in
           if symbol.Symbol.symbol_name <> "" then
@@ -463,22 +468,22 @@ struct
       with Not_found ->
         let prefix =
           OCamlName.get_ocaml_name ModuleName stripped_id in
-        add_type table id prefix symbol_name
+        add_type table trimmed_id prefix symbol_name
     in
     try
-      Hashtbl.find table id
+      Hashtbl.find table trimmed_id
     with Not_found ->
-      if String.ends_with id "_events" then
-        lookup_other_class_cat 7 "events" id
-      else if String.ends_with id "_configs" then
-        lookup_other_class_cat 8 "configs" id
-      else if String.ends_with id "_statics" then
-        lookup_other_class_cat 8 "statics" id
-      else if String.starts_with id "Ext." then
+      if String.ends_with trimmed_id "_events" then
+        lookup_other_class_cat 7 "events"
+      else if String.ends_with trimmed_id "_configs" then
+        lookup_other_class_cat 8 "configs"
+      else if String.ends_with trimmed_id "_statics" then
+        lookup_other_class_cat 8 "statics"
+      else if String.starts_with trimmed_id "Ext." then
         let prefix =
-          OCamlName.get_ocaml_name ModuleName id in
-        add_type table id prefix "t"
-      else failwith ("Unsupported type: " ^ id)
+          OCamlName.get_ocaml_name ModuleName trimmed_id in
+        add_type table trimmed_id prefix "t"
+      else failwith ("Unsupported type: " ^ trimmed_id)
 
   let map_type table id =
     match id with

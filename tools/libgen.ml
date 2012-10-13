@@ -186,6 +186,7 @@ struct
        ("Ext.window.MessageBox", "hide", Method, "2");
        ("Ext.window.MessageBox", "setIcon", Method, "2");
        ("Ext.window.MessageBox", "show", Method, "2");
+       ("Ext.data.AbstractStore", "create", Method, "2");
        ("Ext.data.Store", "load", Method, "2");
        ("Ext.data.Store", "removeAll", Method, "2");
        ("Ext.view.AbstractView", "bindStore", Method, "2");
@@ -207,6 +208,7 @@ struct
        ("Ext.button.Button", "renderTpl", Cfg, "2");
        ("Ext.button.Button", "shrinkWrap", Cfg, "2");
        ("Ext.app.Application", "getController", Method, "2");
+       ("Ext.form.Panel", "layout", Cfg, "2");
       ];
     tbl
 
@@ -439,9 +441,15 @@ let add_static_events =
     (fun es table name doc owner ->
        failwith ("Static events are not supported: " ^ name))
 
-let add_statics json_elements current_module =
+let add_statics json_elements current_module parent_elements =
   let new_static_class_type =
     ClassType.create_static_class current_module.Module.id in
+  let superclasses =
+    get_json_element "superclasses" parent_elements |> get_json_array in
+  let mixins =
+    get_json_element "mixins" parent_elements |> get_json_array in
+  add_superclasses superclasses new_static_class_type >>= fun sct ->
+  add_superclasses mixins sct >>= fun sct' ->
   ContextM.foldM
     (fun (current_m, current_ct) -> function
          ("cfg", `List xs) ->
@@ -460,7 +468,7 @@ let add_statics json_elements current_module =
        | _ ->
            ContextM.return (current_m, current_ct)
     )
-    (current_module, new_static_class_type)
+    (current_module, sct')
     json_elements >>= fun (current_module, static_class_type) ->
   let updated_module =
     current_module
@@ -489,7 +497,7 @@ let build_module json_elements toplevel =
                               |> Module.doc ^= String.trim s
                               |> Module.shortdoc ^= shortdoc)
        | ("statics", `Assoc xs) ->
-           add_statics xs current
+           add_statics xs current json_elements
        | ("singleton", `Bool true) ->
            ContextM.return (current |> Module.singleton ^= true)
        | _ ->
@@ -687,6 +695,8 @@ let write_module formatter m =
       "let instance = Js.Unsafe.variable \"%s\"@\n@\n"
       m.Module.id;
   end;
+  Format.fprintf formatter "let of_configs c = Js.Unsafe.coerce c@\n@\n";
+  Format.fprintf formatter "let to_configs o = Js.Unsafe.coerce o@\n@\n";
   if not m.Module.toplevel then begin
     Format.fprintf formatter "@]@\nend@\n"
   end
@@ -803,6 +813,14 @@ let write_module_interface formatter m =
     Format.fprintf formatter
       "val instance : t Js.t@\n(** Singleton instance. *)@\n@\n";
   end;
+  Format.fprintf formatter "val of_configs : configs Js.t -> t Js.t@\n";
+  Format.fprintf formatter
+    "(** [of_configs c] casts a config object [c] to an instance of \
+     class [t] *)@\n@\n";
+  Format.fprintf formatter "val to_configs : t Js.t -> configs Js.t@\n";
+  Format.fprintf formatter
+    "(** [to_configs o] casts instance [o] of class [t] to a config object \
+     *)@\n@\n";
   if not m.Module.toplevel then begin
     Format.fprintf formatter "@]@\nend@\n";
     Format.fprintf formatter "@[<hov 2>(**@ {%% %s %%}@\n@\n"
