@@ -1,4 +1,4 @@
-(** Handles class creation throughout the framework. T...
+(** Handles class creation throughout the framework. T ...
   
   {% <p>Handles class creation throughout the framework. This is a low level factory that is used by <a href="#!/api/Ext.ClassManager" rel="Ext.ClassManager" class="docClass">Ext.ClassManager</a> and generally
 should not be used directly. If you choose to use <a href="#!/api/Ext.Class" rel="Ext.Class" class="docClass">Ext.Class</a> you will lose out on the namespace, aliasing and depency loading
@@ -8,11 +8,16 @@ features made available by <a href="#!/api/Ext.ClassManager" rel="Ext.ClassManag
 <a href="#!/api/Ext.ClassManager-method-create" rel="Ext.ClassManager-method-create" class="docClass">Ext.ClassManager.create</a> to enable namespacing and dynamic dependency resolution.</p>
 
 <p><a href="#!/api/Ext.Class" rel="Ext.Class" class="docClass">Ext.Class</a> is the factory and <strong>not</strong> the superclass of everything. For the base class that <strong>all</strong> Ext classes inherit
-from, see <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base</a>.</p>
- %}
+from, see <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base</a>.</p> %}
   *)
 
 class type t =
+object('self)
+  
+  
+end
+
+class type configs =
 object('self)
   
   method alias : Js.js_string Js.t Js.js_array Js.t Js.prop
@@ -36,8 +41,7 @@ object('self)
 });
 </code></pre>
 
-<p>Besides "widget" for xtype there are alias namespaces like "feature" for ftype and "plugin" for ptype.</p>
- %}
+<p>Besides "widget" for xtype there are alias namespaces like "feature" for ftype and "plugin" for ptype.</p> %}
     *)
   method alternateClassName : 'a Js.t Js.prop
   (** {% <p>Defines alternate names for this class.  For example:</p>
@@ -54,8 +58,7 @@ joe.code('stackoverflow');
 
 var rms = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('Hacker');
 rms.code('hack hack');
-</code></pre>
- %}
+</code></pre> %}
     *)
   method config : 'a Js.t Js.prop
   (** {% <p>List of configuration options with their default values, for which automatically
@@ -80,8 +83,7 @@ var iPhone = new SmartPhone({
 iPhone.getPrice(); // 500;
 iPhone.getOperatingSystem(); // 'iOS'
 iPhone.getHasTouchScreen(); // true;
-</code></pre>
- %}
+</code></pre> %}
     *)
   method extend : Js.js_string Js.t Js.prop
   (** {% <p>The parent class that this class extends. For example:</p>
@@ -94,13 +96,11 @@ iPhone.getHasTouchScreen(); // true;
     extend: 'Person',
     say: function(text) { this.callParent(["print "+text]); }
 });
-</code></pre>
- %}
+</code></pre> %}
     *)
   method inheritableStatics : 'a Js.t Js.prop
   (** {% <p>List of inheritable static methods for this class.
-Otherwise just like <a href="#!/api/Ext.Class-cfg-statics" rel="Ext.Class-cfg-statics" class="docClass">statics</a> but subclasses inherit these methods.</p>
- %}
+Otherwise just like <a href="#!/api/Ext.Class-cfg-statics" rel="Ext.Class-cfg-statics" class="docClass">statics</a> but subclasses inherit these methods.</p> %}
     *)
   method mixins : 'a Js.t Js.prop
   (** {% <p>List of classes to mix into this class. For example:</p>
@@ -136,8 +136,7 @@ to define mixins as an object, where you assign a name to each mixin:</p>
 
 <p>In this case the <code>sing</code> method of Musician will overwrite the
 mixed in <code>sing</code> method. But you can access the original mixed in method
-through special <code>mixins</code> property.</p>
- %}
+through special <code>mixins</code> property.</p> %}
     *)
   method requires : Js.js_string Js.t Js.js_array Js.t Js.prop
   (** {% <p>List of classes that have to be loaded before instantiating this class.
@@ -150,8 +149,7 @@ For example:</p>
         return new Child();
     }
 });
-</code></pre>
- %}
+</code></pre> %}
     *)
   method singleton : bool Js.t Js.prop
   (** {% <p>When set to true, the class will be instantiated as singleton.  For example:</p>
@@ -164,8 +162,7 @@ For example:</p>
 });
 
 Logger.log('Hello');
-</code></pre>
- %}
+</code></pre> %}
     *)
   method statics : 'a Js.t Js.prop
   (** {% <p>List of static methods for this class. For example:</p>
@@ -182,8 +179,7 @@ Logger.log('Hello');
 });
 
 var dellComputer = Computer.factory('Dell');
-</code></pre>
- %}
+</code></pre> %}
     *)
   method uses : Js.js_string Js.t Js.js_array Js.t Js.prop
   (** {% <p>List of optional classes to load together with this class. These aren't neccessarily loaded before
@@ -200,9 +196,26 @@ invoked. For example:</p>
         return <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('Child');
     }
 });
-</code></pre>
- %}
+</code></pre> %}
     *)
   
 end
+
+class type events =
+object
+  
+  
+end
+
+class type statics =
+object
+  
+  
+end
+
+val of_configs : configs Js.t -> t Js.t
+(** [of_configs c] casts a config object [c] to an instance of class [t] *)
+
+val to_configs : t Js.t -> configs Js.t
+(** [to_configs o] casts instance [o] of class [t] to a config object *)
 

@@ -1,4 +1,4 @@
-(** A wrapper class for the native JavaScript Error ob...
+(** A wrapper class for the native JavaScript Error ob ...
   
   {% <p>A wrapper class for the native JavaScript Error object that adds a few useful capabilities for handling
 errors in an Ext application. When you use <a href="#!/api/Ext.Error" rel="Ext.Error" class="docClass">Ext.Error</a> to <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">raise</a> an error from within any class that
@@ -69,8 +69,7 @@ and will not be thrown to the browser. If anything but true is returned then the
     }
     // any non-true return value (including none) will cause the error to be thrown
 }
-</code></pre>
- %}
+</code></pre> %}
   *)
 
 class type t =
@@ -83,23 +82,35 @@ be displayed with a useful message instead of <code>[object Object]</code>, the 
 
 <p>The default implementation will include the error message along with the raising class and method, if available,
 but this can be overridden with a custom implementation either at the prototype level (for all errors) or on
-a particular error instance, if you want to provide a custom description that will show up in the console.</p>
- %}
+a particular error instance, if you want to provide a custom description that will show up in the console.</p> %}
     
     {b Returns}:
-    - [Js.js_string Js.t]
+    {ul {- [Js.js_string Js.t]
     {% <p>The error message. If raised from within the Ext 4 class system, the error message will also
-include the raising class and method names, if available.</p>
- %}
-    
+include the raising class and method names, if available.</p> %}
+    }
+    }
     *)
   
 end
 
-val get_ignore : unit -> bool Js.t
-val set_ignore : bool Js.t -> unit
-(**
-  {% <p>Static flag that can be used to globally disable error reporting to the browser if set to true
+class type configs =
+object('self)
+  
+  
+end
+
+class type events =
+object
+  
+  
+end
+
+class type statics =
+object
+  
+  method ignore : bool Js.t Js.prop
+  (** {% <p>Static flag that can be used to globally disable error reporting to the browser if set to true
 (defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
 and throw a native JavaScript error thereafter, so use with caution. In most cases it will probably
 be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">handling</a> function instead.</p>
@@ -107,16 +118,12 @@ be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-h
 <p>Example usage:</p>
 
 <pre><code><a href="#!/api/Ext.Error-static-property-ignore" rel="Ext.Error-static-property-ignore" class="docClass">Ext.Error.ignore</a> = true;
-</code></pre>
- %}
-  
-  Defaults to: [false]
-  *)
-
-val get_notify : unit -> bool Js.t
-val set_notify : bool Js.t -> unit
-(**
-  {% <p>Static flag that can be used to globally control error notification to the user. Unlike
+</code></pre> %}
+    
+    Defaults to: [false]
+    *)
+  method notify : bool Js.t Js.prop
+  (** {% <p>Static flag that can be used to globally control error notification to the user. Unlike
 Ex.Error.ignore, this does not effect exceptions. They are still thrown. This value can be
 set to false to disable the alert notification (default is true for IE6 and IE7).</p>
 
@@ -128,13 +135,10 @@ first error occurs prior to displaying the alert.</p>
 <p>Example usage:</p>
 
 <pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
-</code></pre>
- %}
-  *)
-
-val handle : t Js.t -> unit
-(**
-  {% <p>Globally handle any Ext errors that may be raised, optionally providing custom logic to
+</code></pre> %}
+    *)
+  method handle : 'self Js.t -> unit Js.meth
+  (** {% <p>Globally handle any Ext errors that may be raised, optionally providing custom logic to
 handle different errors individually. Return true from the function to bypass throwing the
 error to the browser, otherwise the error will be thrown and execution will halt.</p>
 
@@ -147,21 +151,18 @@ error to the browser, otherwise the error will be thrown and execution will halt
     }
     // any non-true return value (including none) will cause the error to be thrown
 }
-</code></pre>
- %}
-  
-  {b Parameters}:
-  - err: [Ext_Error.t Js.t]
-  {% <p>The <a href="#!/api/Ext.Error" rel="Ext.Error" class="docClass">Ext.Error</a> object being raised. It will contain any attributes that were originally
+</code></pre> %}
+    
+    {b Parameters}:
+    {ul {- err: [Ext_Error.t Js.t]
+    {% <p>The <a href="#!/api/Ext.Error" rel="Ext.Error" class="docClass">Ext.Error</a> object being raised. It will contain any attributes that were originally
 raised with it, plus properties about the method and class from which the error originated (if raised from a
-class that uses the Ext 4 class system).</p>
- %}
-  
-  *)
-
-val _raise : 'a Js.t -> unit
-(**
-  {% <p>Raise an error that can include additional data and supports automatic console logging if available.
+class that uses the Ext 4 class system).</p> %}
+    }
+    }
+    *)
+  method raise_ : 'a Js.t -> unit Js.meth
+  (** {% <p>Raise an error that can include additional data and supports automatic console logging if available.
 You can pass a string error message or an object with the <code>msg</code> attribute which will be used as the
 error message. The object can contain any other name-value attributes (or objects) to be logged
 along with the error.</p>
@@ -186,15 +187,31 @@ execution will halt.</p>
         }
     }
 });
-</code></pre>
- %}
-  
-  {b Parameters}:
-  - err: ['a Js.t]
-  {% <p>The error message string, or an object containing the attribute "msg" that will be
+</code></pre> %}
+    
+    {b Parameters}:
+    {ul {- err: ['a Js.t]
+    {% <p>The error message string, or an object containing the attribute "msg" that will be
 used as the error message. Any other data included in the object will also be logged to the browser console,
-if available.</p>
- %}
+if available.</p> %}
+    }
+    }
+    *)
   
-  *)
+end
+
+val static : statics Js.t
+(** Static instance. *)
+
+val handle : 'self Js.t -> unit
+(** See method [statics.handle] *)
+
+val raise_ : 'a Js.t -> unit
+(** See method [statics.raise_] *)
+
+val of_configs : configs Js.t -> t Js.t
+(** [of_configs c] casts a config object [c] to an instance of class [t] *)
+
+val to_configs : t Js.t -> configs Js.t
+(** [to_configs o] casts instance [o] of class [t] to a config object *)
 

@@ -5,35 +5,43 @@ object('self)
   
 end
 
-let get_ignore () =
-  Js.Unsafe.get
-    (Js.Unsafe.variable "Ext.Error")
-    (Js.Unsafe.variable "ignore")
+class type configs =
+object('self)
+  
+  
+end
 
-let set_ignore v =
-  Js.Unsafe.set
-    (Js.Unsafe.variable "Ext.Error")
-    (Js.Unsafe.variable "ignore")
-    v
+class type events =
+object
+  
+  
+end
 
-let get_notify () =
-  Js.Unsafe.get
-    (Js.Unsafe.variable "Ext.Error")
-    (Js.Unsafe.variable "notify")
+class type statics =
+object
+  
+  method ignore : bool Js.t Js.prop
+  method notify : bool Js.t Js.prop
+  method handle : 'self Js.t -> unit Js.meth
+  method raise_ : 'a Js.t -> unit Js.meth
+  
+end
 
-let set_notify v =
-  Js.Unsafe.set
-    (Js.Unsafe.variable "Ext.Error")
-    (Js.Unsafe.variable "notify")
-    v
+let static = Js.Unsafe.variable "Ext.Error"
 
 let handle err =
-  Js.Unsafe.fun_call
-    (Js.Unsafe.variable "Ext.Error.handle")
+  Js.Unsafe.meth_call
+    static
+    (Js.Unsafe.variable "handle")
     [|Js.Unsafe.inject err; |]
 
-let _raise err =
-  Js.Unsafe.fun_call
-    (Js.Unsafe.variable "Ext.Error.raise")
+let raise_ err =
+  Js.Unsafe.meth_call
+    static
+    (Js.Unsafe.variable "raise")
     [|Js.Unsafe.inject err; |]
+
+let of_configs c = Js.Unsafe.coerce c
+
+let to_configs o = Js.Unsafe.coerce o
 

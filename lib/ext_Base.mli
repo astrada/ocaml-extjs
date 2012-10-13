@@ -1,10 +1,9 @@
-(** The root of all classes created with Ext.define....
+(** The root of all classes created with Ext.define.Ex ...
   
   {% <p>The root of all classes created with <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>.</p>
 
 <p><a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base</a> is the building block of all Ext classes. All classes in Ext inherit from <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base</a>.
-All prototype and static members of this class are inherited by all other classes.</p>
- %}
+All prototype and static members of this class are inherited by all other classes.</p> %}
   *)
 
 class type t =
@@ -42,10 +41,9 @@ var snowLeopard = new My.SnowLeopard();     // alerts 'Snow Leopard'
 
 var clone = snowLeopard.clone();
 alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">Ext.getClassName</a>(clone));             // alerts 'My.SnowLeopard'
-</code></pre>
- %}
+</code></pre> %}
     *)
-  method callParent : ('a Js.t -> 'b Js.t) Js.meth
+  method callParent : 'a Js.t -> 'b Js.t Js.meth
   (** {% <p>Call the "parent" method of the current method. That is the method previously
 overridden by derivation or by an override (see <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>).</p>
 
@@ -119,22 +117,24 @@ overridden by derivation or by an override (see <a href="#!/api/Ext-method-defin
 
  alert(My.Derived2.method(10); // now alerts 40
 </code></pre>
- %}
+
+<p>To override a method and replace it and also call the superclass method, use
+<a href="#!/api/Ext.Base-method-callSuper" rel="Ext.Base-method-callSuper" class="docClass">callSuper</a>. This is often done to patch a method to fix a bug.</p> %}
     
     {b Parameters}:
-    - args: ['a Js.t]
+    {ul {- args: ['a Js.t]
     {% <p>The arguments, either an array or the <code>arguments</code> object
-from the current method, for example: <code>this.callParent(arguments)</code></p>
- %}
-    
+from the current method, for example: <code>this.callParent(arguments)</code></p> %}
+    }
+    }
     
     {b Returns}:
-    - ['a Js.t]
-    {% <p>Returns the result of calling the parent method</p>
- %}
-    
+    {ul {- ['a Js.t]
+    {% <p>Returns the result of calling the parent method</p> %}
+    }
+    }
     *)
-  method callSuper : ('a Js.t -> 'b Js.t) Js.meth
+  method callSuper : 'a Js.t -> 'b Js.t Js.meth
   (** {% <p>This method is used by an override to call the superclass method but bypass any
 overridden method. This is often done to "patch" a method that contains a bug
 but for whatever reason cannot be fixed directly.</p>
@@ -177,41 +177,39 @@ override:</p>
 <p>The patch method cannot use <code>callParent</code> to call the superclass <code>method</code> since
 that would call the overridden method containing the bug. In other words, the
 above patch would only produce "Fixed" then "Good" in the console log, whereas,
-using <code>callParent</code> would produce "Fixed" then "Bad" then "Good".</p>
- %}
+using <code>callParent</code> would produce "Fixed" then "Bad" then "Good".</p> %}
     
     {b Parameters}:
-    - args: ['a Js.t]
+    {ul {- args: ['a Js.t]
     {% <p>The arguments, either an array or the <code>arguments</code> object
-from the current method, for example: <code>this.callSuper(arguments)</code></p>
- %}
-    
+from the current method, for example: <code>this.callSuper(arguments)</code></p> %}
+    }
+    }
     
     {b Returns}:
-    - ['a Js.t]
-    {% <p>Returns the result of calling the superclass method</p>
- %}
-    
+    {ul {- ['a Js.t]
+    {% <p>Returns the result of calling the superclass method</p> %}
+    }
+    }
     *)
-  method getInitialConfig : (Js.js_string Js.t -> 'a Js.t) Js.meth
+  method getInitialConfig : Js.js_string Js.t Js.optdef -> 'a Js.t Js.meth
   (** {% <p>Returns the initial configuration passed to constructor when instantiating
-this class.</p>
- %}
+this class.</p> %}
     
     {b Parameters}:
-    - name: [Js.js_string Js.t]
-    {% <p>Name of the config option to return.</p>
- %}
-    
+    {ul {- name: [Js.js_string Js.t]
+    {% <p>Name of the config option to return.</p> %}
+    }
+    }
     
     {b Returns}:
-    - ['a Js.t]
+    {ul {- ['a Js.t]
     {% <p>The full config object or a single config value
-when <code>name</code> parameter specified.</p>
- %}
-    
+when <code>name</code> parameter specified.</p> %}
+    }
+    }
     *)
-  method initConfig : ('a Js.t -> t Js.t) Js.meth
+  method initConfig : 'a Js.t -> 'self Js.t Js.meth
   (** {% <p>Initialize configuration for this class. a typical example:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.awesome.Class', {
@@ -231,18 +229,17 @@ var awesome = new My.awesome.Class({
 });
 
 alert(awesome.getName()); // 'Super Awesome'
-</code></pre>
- %}
+</code></pre> %}
     
     {b Parameters}:
-    - config: ['a Js.t] {% 
- %}
-    
+    {ul {- config: ['a Js.t]
+    }
+    }
     
     {b Returns}:
-    - [Ext_Base.t Js.t] {% <p>this</p>
- %}
-    
+    {ul {- [#Ext_Base.t Js.t] {% <p>this</p> %}
+    }
+    }
     *)
   method statics : Ext_Class.t Js.t Js.meth
   (** {% <p>Get the reference to the class from which this object was instantiated. Note that unlike <a href="#!/api/Ext.Base-property-self" rel="Ext.Base-property-self" class="docClass">self</a>,
@@ -297,15 +294,28 @@ alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" cla
 alert(clone.groupName);                 // alerts 'Cat'
 
 alert(My.Cat.totalCreated);             // alerts 3
-</code></pre>
- %}
+</code></pre> %}
     *)
   
 end
 
-val addMembers : 'a Js.t -> unit
-(**
-  {% <p>Add methods / properties to the prototype of this class.</p>
+class type configs =
+object('self)
+  
+  
+end
+
+class type events =
+object
+  
+  
+end
+
+class type statics =
+object
+  
+  method addMembers : 'a Js.t -> unit Js.meth
+  (** {% <p>Add methods / properties to the prototype of this class.</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.awesome.Cat', {
     constructor: function() {
@@ -321,18 +331,15 @@ val addMembers : 'a Js.t -> unit
 
  var kitty = new My.awesome.Cat;
  kitty.meow();
-</code></pre>
- %}
-  
-  {b Parameters}:
-  - members: ['a Js.t] {% 
- %}
-  
-  *)
-
-val addStatics : 'a Js.t -> t Js.t
-(**
-  {% <p>Add / override static properties of this class.</p>
+</code></pre> %}
+    
+    {b Parameters}:
+    {ul {- members: ['a Js.t]
+    }
+    }
+    *)
+  method addStatics : 'a Js.t -> 'self Js.t Js.meth
+  (** {% <p>Add / override static properties of this class.</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     ...
@@ -343,23 +350,20 @@ My.cool.Class.addStatics({
     method1: function() { ... },    // My.cool.Class.method1 = function() { ... };
     method2: function() { ... }     // My.cool.Class.method2 = function() { ... };
 });
-</code></pre>
- %}
-  
-  {b Parameters}:
-  - members: ['a Js.t] {% 
- %}
-  
-  
-  {b Returns}:
-  - [Ext_Base.t Js.t] {% <p>this</p>
- %}
-  
-  *)
-
-val create : unit -> 'a Js.t
-(**
-  {% <p>Create a new instance of this Class.</p>
+</code></pre> %}
+    
+    {b Parameters}:
+    {ul {- members: ['a Js.t]
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [#Ext_Base.t Js.t] {% <p>this</p> %}
+    }
+    }
+    *)
+  method create : 'a Js.t Js.meth
+  (** {% <p>Create a new instance of this Class.</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     ...
@@ -370,18 +374,15 @@ My.cool.Class.create({
 });
 </code></pre>
 
-<p>All parameters are passed to the constructor of the class.</p>
- %}
-  
-  {b Returns}:
-  - ['a Js.t] {% <p>the created instance.</p>
- %}
-  
-  *)
-
-val createAlias : 'a Js.t -> 'b Js.t -> unit
-(**
-  {% <p>Create aliases for existing prototype methods. Example:</p>
+<p>All parameters are passed to the constructor of the class.</p> %}
+    
+    {b Returns}:
+    {ul {- ['a Js.t] {% <p>the created instance.</p> %}
+    }
+    }
+    *)
+  method createAlias : 'a Js.t -> 'b Js.t -> unit Js.meth
+  (** {% <p>Create aliases for existing prototype methods. Example:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     method1: function() { ... },
@@ -400,22 +401,19 @@ test.method3(); // test.method1()
 My.cool.Class.createAlias('method5', 'method3');
 
 test.method5(); // test.method3() -&gt; test.method1()
-</code></pre>
- %}
-  
-  {b Parameters}:
-  - alias: ['a Js.t]
-  {% <p>The new method name, or an object to set multiple aliases. See
-<a href="#!/api/Ext.Function-method-flexSetter" rel="Ext.Function-method-flexSetter" class="docClass">flexSetter</a></p>
- %}
-  - origin: ['a Js.t] {% <p>The original method name</p>
- %}
-  
-  *)
-
-val getName : unit -> Js.js_string Js.t
-(**
-  {% <p>Get the current class' name in string format.</p>
+</code></pre> %}
+    
+    {b Parameters}:
+    {ul {- alias: ['a Js.t]
+    {% <p>The new method name, or an object to set multiple aliases. See
+<a href="#!/api/Ext.Function-method-flexSetter" rel="Ext.Function-method-flexSetter" class="docClass">flexSetter</a></p> %}
+    }
+    {- origin: ['a Js.t] {% <p>The original method name</p> %}
+    }
+    }
+    *)
+  method getName : Js.js_string Js.t Js.meth
+  (** {% <p>Get the current class' name in string format.</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.cool.Class', {
     constructor: function() {
@@ -424,12 +422,37 @@ val getName : unit -> Js.js_string Js.t
 });
 
 My.cool.Class.getName(); // 'My.cool.Class'
-</code></pre>
- %}
+</code></pre> %}
+    
+    {b Returns}:
+    {ul {- [Js.js_string Js.t] {% <p>className</p> %}
+    }
+    }
+    *)
   
-  {b Returns}:
-  - [Js.js_string Js.t] {% <p>className</p>
- %}
-  
-  *)
+end
+
+val static : statics Js.t
+(** Static instance. *)
+
+val addMembers : 'a Js.t -> unit
+(** See method [statics.addMembers] *)
+
+val addStatics : 'a Js.t -> 'self Js.t
+(** See method [statics.addStatics] *)
+
+val create : unit -> 'a Js.t
+(** See method [statics.create] *)
+
+val createAlias : 'a Js.t -> 'b Js.t -> unit
+(** See method [statics.createAlias] *)
+
+val getName : unit -> Js.js_string Js.t
+(** See method [statics.getName] *)
+
+val of_configs : configs Js.t -> t Js.t
+(** [of_configs c] casts a config object [c] to an instance of class [t] *)
+
+val to_configs : t Js.t -> configs Js.t
+(** [to_configs o] casts instance [o] of class [t] to a config object *)
 
