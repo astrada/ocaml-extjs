@@ -1,18 +1,11 @@
-class type t = object
-  inherit Ext_Class.t
-  inherit Ext_data_Model.t
-end
+let _ =
+  let model : Ext_data_Model.configs Js.t = {| |} in
+  (ExtUtils.to_class_configs model)##extend <- Js.string "Ext.data.Model";
+  model##fields <- Js.array [|Js.string "name";
+                              Js.string "email"|];
 
-let () =
-  let model : t Js.t =
-    {| extend = Js.string "Ext.data.Model";
-       fields = Js.array [|Js.string "name";
-                           Js.string "email"|];
-    |}
-  in
-
-  Ext.define
-    ~className:"AM.model.User"
-    ~data:model
-    ()
+  Ext.instance##define(
+    Js.string "AM.model.User",
+    model,
+    ExtUtils.undef)
 
