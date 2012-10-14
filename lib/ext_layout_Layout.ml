@@ -14,7 +14,7 @@ object('self)
   method finalizeLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth
   method finishedLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth
   method getItemSizePolicy : #Ext_Component.t Js.t -> 'a Js.t Js.meth
-  method getLayoutItems_2 : unit Js.meth
+  method getLayoutItems_empty : unit Js.meth
   method initLayout : unit Js.meth
   method isValidParent : 'a Js.t -> 'b Js.t -> 'c Js.t -> unit Js.meth
   method notifyOwner : Ext_layout_ContextItem.t Js.t -> unit Js.meth

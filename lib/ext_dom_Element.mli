@@ -839,7 +839,7 @@ el.frame("#C3DAF9", 1, {
     }
     }
     *)
-  method getAlignToXY_2 : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method getAlignToXY_number : 'a Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.meth
   (** {% <p>Gets the x,y coordinates to align this element with another element. See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">alignTo</a> for more info on the
@@ -863,8 +863,9 @@ supported position values.</p> %}
     }
     }
     *)
-  method getAnchorXY_2 : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef
-    -> 'a Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t Js.meth
+  method getAnchorXY_number : Js.js_string Js.t Js.optdef ->
+    bool Js.t Js.optdef -> 'a Js.t Js.optdef ->
+    Js.number Js.t Js.js_array Js.t Js.meth
   (** {% <p>Gets the x,y coordinates specified by the anchor position on the element.</p> %}
     
     {b Parameters}:
@@ -1006,7 +1007,8 @@ for more information about the sides.</p> %}
     }
     }
     *)
-  method getOffsetsTo_2 : 'a Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
+  method getOffsetsTo_number : 'a Js.t -> Js.number Js.t Js.js_array Js.t
+    Js.meth
   (** {% <p>Returns the offsets of this element from the passed element. Both element must be part
 of the DOM tree and not have display:none to have page coordinates.</p> %}
     
@@ -1098,7 +1100,7 @@ offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSiz
     }
     }
     *)
-  method getXY_2 : Js.number Js.t Js.js_array Js.t Js.meth
+  method getXY_number : Js.number Js.t Js.js_array Js.t Js.meth
   (** {% <p>Gets the current position of the element based on page coordinates.
 Element must be part of the DOM tree to have page coordinates
 (display:none or elements not appended return false).</p> %}
@@ -1324,8 +1326,8 @@ parameter as <a href="#!/api/Ext.ElementLoader-method-load" rel="Ext.ElementLoad
     }
     }
     *)
-  method mask_2 : Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.optdef
-    -> 'self Js.t Js.meth
+  method mask_element : Js.js_string Js.t Js.optdef ->
+    Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Puts a mask over this element to disable user interaction. Requires core.css.
 This method can only be applied to elements which accept child nodes.</p> %}
     
@@ -2035,8 +2037,8 @@ the display property to hide the element, otherwise it uses visibility. The defa
     }
     }
     *)
-  method setXY_2 : Js.number Js.t Js.js_array Js.t -> 'a Js.t Js.optdef ->
-    'self Js.t Js.meth
+  method setXY_number : Js.number Js.t Js.js_array Js.t -> 'a Js.t Js.optdef
+    -> 'self Js.t Js.meth
   (** {% <p>Sets the position of the element in page coordinates, regardless of how the element
 is positioned. The element must be part of the DOM tree to have page coordinates
 (<code>display:none</code> or elements not appended return false).</p> %}
@@ -2252,7 +2254,7 @@ refer to the same object.</p> %}
     }
     }
     *)
-  method update_2 : Js.js_string Js.t -> bool Js.t Js.optdef ->
+  method update_html : Js.js_string Js.t -> bool Js.t Js.optdef ->
     'a Js.callback Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Updates the innerHTML of this element, optionally searching for and processing scripts.</p> %}
     

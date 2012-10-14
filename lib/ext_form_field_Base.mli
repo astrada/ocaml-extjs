@@ -103,7 +103,8 @@ override this property to false since they want to implement custom disable logi
 if the value does not <em>pass</em> validation. So simply clearing a field's errors will not necessarily allow
 submission of forms submitted with the <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" rel="Ext.form.action.Submit-cfg-clientValidation" class="docClass">Ext.form.action.Submit.clientValidation</a> option set.</p> %}
     *)
-  method doComponentLayout_2 : #Ext_container_Container.t Js.t Js.meth
+  method doComponentLayout_container : #Ext_container_Container.t Js.t
+    Js.meth
   (** {% <p>This method needs to be called whenever you change something on this component that requires the Component's
 layout to be recalculated.</p> %}
     
@@ -116,10 +117,6 @@ layout to be recalculated.</p> %}
   (** {% <p>Only relevant if the instance's <a href="#!/api/Ext.form.field.Base-method-isFileUpload" rel="Ext.form.field.Base-method-isFileUpload" class="docClass">isFileUpload</a> method returns true. Returns a reference to the file input
 DOM element holding the user's selected file. The input will be appended into the submission form and will not be
 returned, so this method should also create a replacement.</p> %}
-    *)
-  method getInputId_2 : unit Js.meth
-  (** {% <p>Returns the input id for this field. If none was specified via the <a href="#!/api/Ext.form.field.Base-cfg-inputId" rel="Ext.form.field.Base-cfg-inputId" class="docClass">inputId</a> config, then an id will be
-automatically generated.</p> %}
     *)
   method getRawValue : Js.js_string Js.t Js.meth
   (** {% <p>Returns the raw value of the field, without performing any normalization, conversion, or validation. To get a
@@ -138,9 +135,6 @@ normalized and converted value see <a href="#!/api/Ext.form.field.Base-method-ge
     {ul {- ['a Js.t] {% <p>The template data</p> %}
     }
     }
-    *)
-  method getSubTplMarkup_2 : unit Js.meth
-  (** {% <p>Gets the markup to be inserted into the outer template's bodyEl. For fields this is the actual input element.</p> %}
     *)
   method getSubmitData : 'a Js.t Js.meth
   (** {% <p>private override to use getSubmitValue() as a convenience</p>
@@ -350,7 +344,7 @@ validation. To set the value with these additional inspections see <a href="#!/a
     }
     }
     *)
-  method setValue_2 : 'a Js.t -> Ext_form_field_Field.t Js.t Js.meth
+  method setValue : 'a Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets a data value into the field and runs the change detection and validation. To set the value directly
 without these inspections see <a href="#!/api/Ext.form.field.Base-method-setRawValue" rel="Ext.form.field.Base-method-setRawValue" class="docClass">setRawValue</a>.</p> %}
     
@@ -361,7 +355,7 @@ without these inspections see <a href="#!/api/Ext.form.field.Base-method-setRawV
     }
     
     {b Returns}:
-    {ul {- [Ext_form_field_Field.t Js.t] {% <p>this</p> %}
+    {ul {- [#Ext_form_field_Field.t Js.t] {% <p>this</p> %}
     }
     }
     *)
@@ -482,7 +476,7 @@ and textareas</li>
 a <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>, you can use the FormPanel's <a href="#!/api/Ext.form.Panel-cfg-pollForChanges" rel="Ext.form.Panel-cfg-pollForChanges" class="docClass">Ext.form.Panel.pollForChanges</a> configuration to set up
 such a task automatically.</p> %}
     *)
-  method componentLayout_2 : Js.js_string Js.t Js.prop
+  method componentLayout_str : Js.js_string Js.t Js.prop
   (** {% <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -613,7 +607,7 @@ pressed. For example:</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- this: [Ext_form_field_Base.t Js.t]
+    {ul {- this: [#Ext_form_field_Base.t Js.t]
     }
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The event object</p> %}
@@ -628,7 +622,7 @@ pressed. For example:</p>
   (** {% <p>Fires when this field changes its read-only status.</p> %}
     
     {b Parameters}:
-    {ul {- this: [Ext_form_field_Base.t Js.t]
+    {ul {- this: [#Ext_form_field_Base.t Js.t]
     }
     {- read: [bool Js.t] {% <p>only flag</p> %}
     }

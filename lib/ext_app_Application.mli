@@ -102,7 +102,7 @@ listeners, otherwise an object of selectors -> listeners is assumed</p> %}
     }
     }
     *)
-  method getController_2 : Js.js_string Js.t -> Ext_app_Controller.t Js.t
+  method getController_app : Js.js_string Js.t -> Ext_app_Controller.t Js.t
     Js.meth
   (** {% <p>Returns instance of a <a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">controller</a> with the given name.
 When controller doesn't exist yet, it's created.</p> %}

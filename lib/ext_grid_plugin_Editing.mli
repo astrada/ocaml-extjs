@@ -23,7 +23,7 @@ object('self)
   method completeEdit : unit Js.meth
   (** {% <p>Completes the edit if there is an active edit in progress.</p> %}
     *)
-  method init_2 : #Ext_Component.t Js.t -> unit Js.meth
+  method init_component : #Ext_Component.t Js.t -> unit Js.meth
   (** {% <p>private</p>
 
 <p>The init method is invoked after initComponent method has been run for the client Component.</p>

@@ -39,7 +39,7 @@ object('self)
   inherit Ext_panel_AbstractPanel.t
   inherit Ext_panel_Panel.t
   
-  method dd_2 : Ext_util_ComponentDragger.t Js.t Js.prop
+  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
   (** {% <p>If this Window is configured <a href="#!/api/Ext.window.Window-cfg-draggable" rel="Ext.window.Window-cfg-draggable" class="docClass">draggable</a>, this property will contain an instance of
 <a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of <a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles dragging
 the Window's DOM Element, and constraining according to the <a href="#!/api/Ext.window.Window-cfg-constrain" rel="Ext.window.Window-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.window.Window-cfg-constrainHeader" rel="Ext.window.Window-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
@@ -283,7 +283,7 @@ object('self)
     
     Defaults to: [null]
     *)
-  method autoRender_2 : bool Js.t Js.prop
+  method autoRender_bool : bool Js.t Js.prop
   (** {% <p>Windows render to the body on first show.</p>
 
 <p>This config is intended mainly for non-<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">floating</a> Components which may or may not be shown. Instead of using
@@ -486,7 +486,7 @@ object
   inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
-  method activate_2 : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method activate_window : (t Js.t -> 'a Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the window has been visually activated via <a href="#!/api/Ext.window.Window-method-setActive" rel="Ext.window.Window-method-setActive" class="docClass">setActive</a>.</p> %}
     
@@ -498,7 +498,7 @@ object
     }
     }
     *)
-  method deactivate_2 : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method deactivate_window : (t Js.t -> 'a Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the window has been visually deactivated via <a href="#!/api/Ext.window.Window-method-setActive" rel="Ext.window.Window-method-setActive" class="docClass">setActive</a>.</p> %}
     
@@ -532,8 +532,8 @@ object
     }
     }
     *)
-  method resize_2 : (t Js.t -> Js.number Js.t -> Js.number Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
+  method resize_window : (t Js.t -> Js.number Js.t -> Js.number Js.t ->
+    'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the window has been resized.</p> %}
     
     {b Parameters}:

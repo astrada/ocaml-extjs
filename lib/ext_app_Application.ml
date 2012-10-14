@@ -4,7 +4,7 @@ object('self)
   inherit Ext_app_Controller.t
   
   method control : 'a Js.t -> 'b Js.t -> unit Js.meth
-  method getController_2 : Js.js_string Js.t -> Ext_app_Controller.t Js.t
+  method getController_app : Js.js_string Js.t -> Ext_app_Controller.t Js.t
     Js.meth
   method getModel : Js.js_string Js.t -> Ext_data_Model.t Js.t Js.meth
   method getStore : Js.js_string Js.t -> Ext_data_Store.t Js.t Js.meth

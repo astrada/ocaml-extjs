@@ -40,7 +40,7 @@ object('self)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   method baseCls : Js.js_string Js.t Js.prop
-  method componentLayout_2 : Js.js_string Js.t Js.prop
+  method componentLayout_str : Js.js_string Js.t Js.prop
   method enableTextSelection : bool Js.t Js.prop
   method firstCls : Js.js_string Js.t Js.prop
   method itemSelector : Js.js_string Js.t Js.prop

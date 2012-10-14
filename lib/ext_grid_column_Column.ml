@@ -19,7 +19,7 @@ object('self)
   method getIndex : Js.number Js.t Js.meth
   method getSortParam : Js.js_string Js.t Js.meth
   method getVisibleIndex : Js.number Js.t Js.meth
-  method hide_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method hide_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   method initComponent : unit Js.meth
   method onAdd : #Ext_Component.t Js.t -> Js.number Js.t -> unit Js.meth
@@ -27,7 +27,7 @@ object('self)
   method onRemove : #Ext_Component.t Js.t -> bool Js.t -> unit Js.meth
   method setEditor : 'a Js.t -> unit Js.meth
   method setText : Js.js_string Js.t -> unit Js.meth
-  method show_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method show_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   
 end
@@ -59,7 +59,7 @@ object('self)
   method align : Js.js_string Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method columns : 'a Js.t Js.js_array Js.t Js.prop
-  method componentLayout_2 : Js.js_string Js.t Js.prop
+  method componentLayout_str : Js.js_string Js.t Js.prop
   method dataIndex : Js.js_string Js.t Js.prop
   method draggable : bool Js.t Js.prop
   method editRenderer : 'a Js.callback Js.prop
@@ -70,9 +70,9 @@ object('self)
   method locked : bool Js.t Js.prop
   method menuDisabled : bool Js.t Js.prop
   method menuText : Js.js_string Js.t Js.prop
-  method renderTpl_2 : Js.js_string Js.t Js.prop
+  method renderTpl_str : Js.js_string Js.t Js.prop
   method renderer : 'a Js.t Js.prop
-  method resizable_2 : bool Js.t Js.prop
+  method resizable_bool : bool Js.t Js.prop
   method scope : 'a Js.t Js.prop
   method sortable : bool Js.t Js.prop
   method stateId : Js.js_string Js.t Js.prop

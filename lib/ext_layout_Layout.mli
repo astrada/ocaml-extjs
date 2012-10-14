@@ -168,7 +168,7 @@ null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card'
     }
     }
     *)
-  method getLayoutItems_2 : unit Js.meth
+  method getLayoutItems_empty : unit Js.meth
   (** {% <p>Returns the set of items to layout (empty by default).</p> %}
     *)
   method initLayout : unit Js.meth

@@ -7,7 +7,7 @@ object('self)
   method editing : bool Js.t Js.prop
   method cancelEdit : unit Js.meth
   method completeEdit : unit Js.meth
-  method init_2 : #Ext_Component.t Js.t -> unit Js.meth
+  method init_component : #Ext_Component.t Js.t -> unit Js.meth
   method startEdit : 'a Js.t -> 'b Js.t -> unit Js.meth
   
 end

@@ -39,7 +39,7 @@ object('self)
     Js.writeonly_prop
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  method layout_2 : Js.js_string Js.t Js.prop
+  method layout_str : Js.js_string Js.t Js.prop
   method pollForChanges : bool Js.t Js.prop
   method pollInterval : Js.number Js.t Js.prop
   

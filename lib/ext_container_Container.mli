@@ -203,7 +203,7 @@ object('self)
     }
     }
     *)
-  method onAdded_2 : 'self Js.t -> Js.number Js.t -> unit Js.meth
+  method onAdded_container : 'self Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>Method to manage awareness of when components are added to their
 respective Container, firing an <a href="#!/api/Ext.container.Container-event-added" rel="Ext.container.Container-event-added" class="docClass">added</a> event. References are
 established at add time rather than at render time.</p>
@@ -240,9 +240,9 @@ object('self)
     'b Js.callback Js.optdef -> 'c Js.t Js.optdef -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.afterShow] *)
-  method onAdded_2 : ('self Js.t, 'self Js.t -> Js.number Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onAdded_2] *)
+  method onAdded_container : ('self Js.t, 'self Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onAdded_container] *)
   method anchorSize : 'a Js.t Js.prop
   (** {% <p>Defines the anchoring size of container.
 Either a number to define the width of the container or an object with <code>width</code> and <code>height</code> fields.</p> %}

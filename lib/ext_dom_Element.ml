@@ -44,11 +44,12 @@ object('self)
   method focusable : bool Js.t Js.meth
   method frame : Js.js_string Js.t Js.optdef -> Js.number Js.t Js.optdef ->
     'a Js.t Js.optdef -> 'self Js.t Js.meth
-  method getAlignToXY_2 : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method getAlignToXY_number : 'a Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.meth
-  method getAnchorXY_2 : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef
-    -> 'a Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t Js.meth
+  method getAnchorXY_number : Js.js_string Js.t Js.optdef ->
+    bool Js.t Js.optdef -> 'a Js.t Js.optdef ->
+    Js.number Js.t Js.js_array Js.t Js.meth
   method getAttributeNS : Js.js_string Js.t -> Js.js_string Js.t ->
     Js.js_string Js.t Js.meth
   method getCenterXY : Js.number Js.t Js.js_array Js.t Js.meth
@@ -62,7 +63,8 @@ object('self)
   method getLoader : Ext_ElementLoader.t Js.t Js.meth
   method getLocalX : Js.number Js.t Js.meth
   method getLocalY : Js.number Js.t Js.meth
-  method getOffsetsTo_2 : 'a Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
+  method getOffsetsTo_number : 'a Js.t -> Js.number Js.t Js.js_array Js.t
+    Js.meth
   method getPositioning : 'a Js.t Js.meth
   method getRegion : Ext_util_Region.t Js.t Js.meth
   method getScopeParent : Dom_html.element Js.t Js.meth
@@ -71,7 +73,7 @@ object('self)
   method getTextWidth : Js.js_string Js.t -> Js.number Js.t Js.optdef ->
     Js.number Js.t Js.optdef -> Js.number Js.t Js.meth
   method getViewRegion : Ext_util_Region.t Js.t Js.meth
-  method getXY_2 : Js.number Js.t Js.js_array Js.t Js.meth
+  method getXY_number : Js.number Js.t Js.js_array Js.t Js.meth
   method ghost : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
     'self Js.t Js.meth
   method hide : 'a Js.t Js.optdef -> 'self Js.t Js.meth
@@ -91,8 +93,8 @@ object('self)
   method isScrollable : bool Js.t Js.meth
   method isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth
   method load : 'a Js.t -> 'self Js.t Js.meth
-  method mask_2 : Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.optdef
-    -> 'self Js.t Js.meth
+  method mask_element : Js.js_string Js.t Js.optdef ->
+    Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   method monitorMouseLeave : Js.number Js.t -> 'a Js.callback ->
     'b Js.t Js.optdef -> 'c Js.t Js.meth
   method move : Js.js_string Js.t -> Js.number Js.t -> 'a Js.t Js.optdef ->
@@ -132,8 +134,8 @@ object('self)
   method setRegion : Ext_util_Region.t Js.t -> 'a Js.t Js.optdef ->
     #Ext_dom_AbstractElement.t Js.t Js.meth
   method setVisible : bool Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
-  method setXY_2 : Js.number Js.t Js.js_array Js.t -> 'a Js.t Js.optdef ->
-    'self Js.t Js.meth
+  method setXY_number : Js.number Js.t Js.js_array Js.t -> 'a Js.t Js.optdef
+    -> 'self Js.t Js.meth
   method show : 'a Js.t Js.optdef -> 'self Js.t Js.meth
   method slideIn : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
     'self Js.t Js.meth
@@ -147,7 +149,7 @@ object('self)
   method unclip : 'self Js.t Js.meth
   method unmask : unit Js.meth
   method unselectable : 'self Js.t Js.meth
-  method update_2 : Js.js_string Js.t -> bool Js.t Js.optdef ->
+  method update_html : Js.js_string Js.t -> bool Js.t Js.optdef ->
     'a Js.callback Js.optdef -> 'self Js.t Js.meth
   
 end

@@ -18,7 +18,7 @@ object('self)
     }
     }
     *)
-  method hide_2 : bool Js.t -> unit Js.meth
+  method hide_proxy : bool Js.t -> unit Js.meth
   (** {% <p>Hides the proxy</p> %}
     
     {b Parameters}:
@@ -71,7 +71,7 @@ over the current target element.</p> %}
   method sync : unit Js.meth
   (** {% <p>Force the Layer to sync its shadow and shim positions to the element</p> %}
     *)
-  method update_2 : 'a Js.t -> unit Js.meth
+  method update_html : 'a Js.t -> unit Js.meth
   (** {% <p>Updates the contents of the ghost element</p> %}
     
     {b Parameters}:
@@ -100,7 +100,7 @@ object('self)
     
     Defaults to: [Ext.baseCSSPrefix + 'dd-drop-nodrop']
     *)
-  method renderTpl_2 : 'a Js.js_array Js.t Js.prop
+  method renderTpl_arr : 'a Js.js_array Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a>.</p>
 

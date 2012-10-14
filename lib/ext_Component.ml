@@ -11,7 +11,7 @@ object('self)
     Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method afterHide : 'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> unit
     Js.meth
-  method afterRender_2 : unit Js.meth
+  method afterRender : unit Js.meth
   method afterSetPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method afterShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> unit Js.meth
@@ -68,7 +68,7 @@ object('self)
     Js.writeonly_prop
   method afterHide : ('self Js.t, 'a Js.callback Js.optdef ->
     'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  method afterRender_2 : ('self Js.t, unit -> unit) Js.meth_callback
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   method afterSetPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
@@ -91,7 +91,7 @@ object('self)
     'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method autoScroll : bool Js.t Js.prop
   method columnWidth : 'a Js.t Js.prop
-  method draggable_2 : 'a Js.t Js.prop
+  method draggable_obj : 'a Js.t Js.prop
   method floating : bool Js.t Js.prop
   method formBind : bool Js.t Js.prop
   method overflowX : Js.js_string Js.t Js.prop

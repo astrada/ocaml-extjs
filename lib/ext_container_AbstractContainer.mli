@@ -126,7 +126,7 @@ specified, the first child will be returned.</p> %}
     }
     }
     *)
-  method disable_2 : bool Js.t Js.optdef -> 'self Js.t Js.meth
+  method disable_chainable : bool Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Inherit docs
 Disable all immediate children that was previously disabled
 Override disable because onDisable only gets called when rendered</p>
@@ -638,7 +638,7 @@ layout: {
 }
 </code></pre> %}
     *)
-  method renderTpl_2 : Js.js_string Js.t Js.prop
+  method renderTpl_str : Js.js_string Js.t Js.prop
   (** {% <p>End Definitions</p>
 
 <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating

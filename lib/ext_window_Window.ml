@@ -8,7 +8,7 @@ object('self)
   inherit Ext_panel_AbstractPanel.t
   inherit Ext_panel_Panel.t
   
-  method dd_2 : Ext_util_ComponentDragger.t Js.t Js.prop
+  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
   method isWindow : bool Js.t Js.prop
   method afterCollapse : bool Js.t -> unit Js.meth
   method afterExpand : bool Js.t -> unit Js.meth
@@ -60,7 +60,7 @@ object('self)
   method onShow : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
     -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method animateTarget : 'a Js.t Js.prop
-  method autoRender_2 : bool Js.t Js.prop
+  method autoRender_bool : bool Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method closable : bool Js.t Js.prop
   method collapsed : bool Js.t Js.prop
@@ -98,14 +98,14 @@ object
   inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
-  method activate_2 : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method activate_window : (t Js.t -> 'a Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method deactivate_2 : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method deactivate_window : (t Js.t -> 'a Js.t -> unit) Js.callback
     Js.writeonly_prop
   method maximize : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   method minimize : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method resize_2 : (t Js.t -> Js.number Js.t -> Js.number Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
+  method resize_window : (t Js.t -> Js.number Js.t -> Js.number Js.t ->
+    'a Js.t -> unit) Js.callback Js.writeonly_prop
   method restore : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   
 end

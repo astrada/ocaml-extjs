@@ -15,7 +15,7 @@ object('self)
 will have been styled according to the configuration, will have had any configured CSS class
 names added, and will be in the configured visibility and the configured enable state.</p> %}
     *)
-  method bindStore_2 : Ext_data_Store.t Js.t -> unit Js.meth
+  method bindStore_view : Ext_data_Store.t Js.t -> unit Js.meth
   (** {% <p>Changes the data store bound to this view and refreshes it.</p> %}
     
     {b Parameters}:
@@ -168,7 +168,7 @@ the id of a template node or the record associated with the node.</p> %}
     }
     }
     *)
-  method getStore_2 : Ext_data_Store.t Js.t Js.meth
+  method getStore_view : Ext_data_Store.t Js.t Js.meth
   (** {% <p>Returns the store associated with this DataView.</p> %}
     
     {b Returns}:

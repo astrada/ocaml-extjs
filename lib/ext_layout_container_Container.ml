@@ -6,12 +6,12 @@ object('self)
   
   method getScrollRangeFlags : 'a Js.t Js.prop
   method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
-  method beginLayout_2 : 'a Js.t -> unit Js.meth
+  method beginLayout_obj : 'a Js.t -> unit Js.meth
   method beginLayoutCycle : Ext_layout_ContextItem.t Js.t -> unit Js.meth
   method calculateOverflow : Ext_layout_ContextItem.t Js.t -> 'a Js.t ->
     Js.number Js.t -> unit Js.meth
   method completeLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth
-  method configureItem_2 : 'a Js.t -> unit Js.meth
+  method configureItem_obj : 'a Js.t -> unit Js.meth
   method doRenderPadder : 'a Js.t -> 'b Js.t -> unit Js.meth
   method getContainerSize : Ext_layout_ContextItem.t Js.t ->
     bool Js.t Js.optdef -> 'a Js.t Js.meth

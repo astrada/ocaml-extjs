@@ -157,7 +157,7 @@ need to be overriden in most cases.</p> %}
   (** {% <p>Returns the index of this column in the list of <em>visible</em> columns only if this column is a base level Column. If it
 is a group column, it returns <code>false</code>.</p> %}
     *)
-  method hide_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method hide_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.grid.column.Column-cfg-hideMode" rel="Ext.grid.column.Column-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
     
@@ -263,7 +263,7 @@ assumed.</p> %}
     }
     }
     *)
-  method show_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method show_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.grid.column.Column-cfg-autoRender" rel="Ext.grid.column.Column-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 
@@ -346,7 +346,7 @@ componentCls to add specific styling for this component.</p> %}
 <p>Group columns may not be sortable. But they may be hideable and moveable. And you may move headers into and out
 of a group. Note that if all sub columns are dragged out of a group, the group is destroyed.</p> %}
     *)
-  method componentLayout_2 : Js.js_string Js.t Js.prop
+  method componentLayout_str : Js.js_string Js.t Js.prop
   (** {% <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -410,7 +410,7 @@ See also <a href="#!/api/Ext.grid.Panel-cfg-enableLocking" rel="Ext.grid.Panel-c
   (** {% <p>The text to render in the column visibility selection menu for this column.  If not
 specified, will default to the text value.</p> %}
     *)
-  method renderTpl_2 : Js.js_string Js.t Js.prop
+  method renderTpl_str : Js.js_string Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a>.</p>
 
@@ -450,7 +450,7 @@ before it is rendered. Example:</p>
     
     Defaults to: [false]
     *)
-  method resizable_2 : bool Js.t Js.prop
+  method resizable_bool : bool Js.t Js.prop
   (** {% <p>False to prevent the column from being resizable.</p> %}
     
     Defaults to: [true]

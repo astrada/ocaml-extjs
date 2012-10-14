@@ -11,7 +11,7 @@ object('self)
   method cascade : 'a Js.callback -> 'b Js.t Js.optdef ->
     'c Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
   method child : Js.js_string Js.t Js.optdef -> unit Js.meth
-  method disable_2 : bool Js.t Js.optdef -> 'self Js.t Js.meth
+  method disable_chainable : bool Js.t Js.optdef -> 'self Js.t Js.meth
   method doLayout : 'self Js.t Js.meth
   method down : Js.js_string Js.t Js.optdef -> unit Js.meth
   method getComponent : 'a Js.t -> #Ext_Component.t Js.t Js.meth
@@ -61,7 +61,7 @@ object('self)
   method detachOnRemove : bool Js.t Js.prop
   method items : 'a Js.t Js.prop
   method layout : 'a Js.t Js.prop
-  method renderTpl_2 : Js.js_string Js.t Js.prop
+  method renderTpl_str : Js.js_string Js.t Js.prop
   method suspendLayout : bool Js.t Js.prop
   
 end

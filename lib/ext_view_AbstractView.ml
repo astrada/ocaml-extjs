@@ -6,7 +6,7 @@ object('self)
   inherit Ext_util_Bindable.t
   
   method afterRender : unit Js.meth
-  method bindStore_2 : Ext_data_Store.t Js.t -> unit Js.meth
+  method bindStore_view : Ext_data_Store.t Js.t -> unit Js.meth
   method collectData : Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
     'a Js.t Js.js_array Js.t Js.meth
   method deselect : 'a Js.t -> bool Js.t -> unit Js.meth
@@ -21,7 +21,7 @@ object('self)
     Ext_data_Model.t Js.js_array Js.t Js.meth
   method getSelectedNodes : Dom_html.element Js.t Js.js_array Js.t Js.meth
   method getSelectionModel : #Ext_selection_Model.t Js.t Js.meth
-  method getStore_2 : Ext_data_Store.t Js.t Js.meth
+  method getStore_view : Ext_data_Store.t Js.t Js.meth
   method getStoreListeners : 'a Js.t Js.meth
   method indexOf : 'a Js.t -> Js.number Js.t Js.meth
   method initComponent : unit Js.meth

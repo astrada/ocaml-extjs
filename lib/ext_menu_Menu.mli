@@ -95,7 +95,7 @@ object('self)
     }
     }
     *)
-  method getBubbleTarget_2 : #Ext_container_Container.t Js.t Js.meth
+  method getBubbleTarget_container : #Ext_container_Container.t Js.t Js.meth
   (** {% <p>Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.</p> %}
     
     {b Returns}:
@@ -104,7 +104,7 @@ object('self)
     }
     }
     *)
-  method hide_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method hide_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>inherit docs</p>
 
@@ -135,7 +135,7 @@ Defaults to this Component.</p> %}
   (** {% <p>Allows addition of behavior to the destroy operation.
 After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
     *)
-  method show_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method show_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 

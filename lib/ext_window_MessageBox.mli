@@ -185,7 +185,7 @@ See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBo
     }
     }
     *)
-  method hide_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method hide_component : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.window.MessageBox-cfg-hideMode" rel="Ext.window.MessageBox-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
     
@@ -323,7 +323,7 @@ property, or the height in pixels to create the textbox/</p> %}
     }
     }
     *)
-  method setIcon_2 : Js.js_string Js.t -> 'self Js.t Js.meth
+  method setIcon_chainable : Js.js_string Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds the specified icon to the dialog.  By default, the class 'x-messagebox-icon' is applied for default
 styling, and the class passed in is expected to supply the background image url. Pass in empty string ('')
 to clear any existing icon. This method must be called before the MessageBox is shown.
@@ -346,7 +346,7 @@ The following built-in icon classes are supported, but you can also pass in a cu
     }
     }
     *)
-  method show_2 : 'a Js.t -> 'self Js.t Js.meth
+  method show_messagebox : 'a Js.t -> 'self Js.t Js.meth
   (** {% <p>Displays a new message box, or reinitializes an existing message box, based on the config options passed in. All
 display functions (e.g. prompt, alert, etc.) on MessageBox call this function internally, although those calls
 are basic shortcuts and do not support all of the config options allowed here.</p>
@@ -616,7 +616,7 @@ layout: {
     
     Defaults to: [250]
     *)
-  method resizable_2 : bool Js.t Js.prop
+  method resizable_bool : bool Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to allow user resizing at each edge and corner of the window, false to disable resizing.</p>
 
 <p>This may also be specified as a config object to <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Ext.resizer.Resizer</a></p> %}

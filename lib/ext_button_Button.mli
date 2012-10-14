@@ -490,7 +490,7 @@ values are allowed:</p>
   method baseParams : 'a Js.t Js.prop
   (** {% <p>An object literal of parameters to pass to the url when the <a href="#!/api/Ext.button.Button-cfg-href" rel="Ext.button.Button-cfg-href" class="docClass">href</a> property is specified.</p> %}
     *)
-  method border_2 : bool Js.t Js.prop
+  method border_bool : bool Js.t Js.prop
   (** {% <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
 be a CSS style specification for each style, for example: '10 5 3 10'.</p>
 
@@ -516,7 +516,7 @@ style: {
   method cls : Js.js_string Js.t Js.prop
   (** {% <p>A CSS class string to apply to the button's main element.</p> %}
     *)
-  method componentLayout_2 : Js.js_string Js.t Js.prop
+  method componentLayout_str : Js.js_string Js.t Js.prop
   (** {% <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -653,7 +653,7 @@ override <a href="#!/api/Ext.button.Button-cfg-baseParams" rel="Ext.button.Butto
     
     Defaults to: [true]
     *)
-  method renderTpl_2 : 'a Js.js_array Js.t Js.prop
+  method renderTpl_arr : 'a Js.js_array Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a>.</p>
 
@@ -691,7 +691,7 @@ internal structure.</p>
   (** {% <p>The scope (<strong>this</strong> reference) in which the <code><a href="#!/api/Ext.button.Button-cfg-handler" rel="Ext.button.Button-cfg-handler" class="docClass">handler</a></code> and <code><a href="#!/api/Ext.button.Button-cfg-toggleHandler" rel="Ext.button.Button-cfg-toggleHandler" class="docClass">toggleHandler</a></code> is executed.
 Defaults to this Button.</p> %}
     *)
-  method shrinkWrap_2 : Js.number Js.t Js.prop
+  method shrinkWrap_num : Js.number Js.t Js.prop
   (** {% <p>If this property is a number, it is interpreted as follows:</p>
 
 <ul>

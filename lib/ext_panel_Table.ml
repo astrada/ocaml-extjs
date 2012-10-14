@@ -50,7 +50,7 @@ object('self)
   method features : Ext_grid_feature_Feature.t Js.js_array Js.t Js.prop
   method forceFit : bool Js.t Js.prop
   method hideHeaders : bool Js.t Js.prop
-  method layout_2 : Js.js_string Js.t Js.prop
+  method layout_str : Js.js_string Js.t Js.prop
   method rowLines : bool Js.t Js.prop
   method scroll : 'a Js.t Js.prop
   method sealedColumns : bool Js.t Js.prop

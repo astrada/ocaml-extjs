@@ -68,7 +68,7 @@ object('self)
   method constrainDelegate : bool Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to constrain the drag handles within the <a href="#!/api/Ext.util.ComponentDragger-cfg-constrainTo" rel="Ext.util.ComponentDragger-cfg-constrainTo" class="docClass">constrainTo</a> region.</p> %}
     *)
-  method delegate_2 : 'a Js.t Js.prop
+  method delegate_element : 'a Js.t Js.prop
   (** {% <p>A <a href="#!/api/Ext.dom.Query" rel="Ext.dom.Query" class="docClass">DomQuery</a> selector which identifies child elements within the Component's encapsulating
 Element which are the drag handles. This limits dragging to only begin when the matching elements are
 mousedowned.</p>

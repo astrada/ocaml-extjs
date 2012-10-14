@@ -82,7 +82,7 @@ object
   inherit Ext_util_Sortable.statics
   inherit Ext_util_Observable.statics
   
-  method create_2 : 'a Js.t -> 'self Js.t Js.meth
+  method create_store : 'a Js.t -> 'self Js.t Js.meth
   
 end
 

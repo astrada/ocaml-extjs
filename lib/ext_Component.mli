@@ -149,7 +149,7 @@ Window as its <code>zIndexParent</code>, and will always show above that Window,
     }
     }
     *)
-  method afterRender_2 : unit Js.meth
+  method afterRender : unit Js.meth
   (** {% <p>private</p>
 
 <p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
@@ -658,9 +658,9 @@ object('self)
   method afterHide : ('self Js.t, 'a Js.callback Js.optdef ->
     'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterHide] *)
-  method afterRender_2 : ('self Js.t, unit -> unit) Js.meth_callback
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  (** See method [t.afterRender_2] *)
+  (** See method [t.afterRender] *)
   method afterSetPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterSetPosition] *)
@@ -703,7 +703,7 @@ This should not be combined with <a href="#!/api/Ext.Component-cfg-overflowX" re
     
     Defaults to: [undefined]
     *)
-  method draggable_2 : 'a Js.t Js.prop
+  method draggable_obj : 'a Js.t Js.prop
   (** {% <p>Specify as true to make a <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Component draggable using the Component's encapsulating element as
 the drag handle.</p>
 

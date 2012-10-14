@@ -28,7 +28,7 @@ object('self)
     'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
   method confirm : Js.js_string Js.t -> Js.js_string Js.t ->
     'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
-  method hide_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method hide_component : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   method initComponent : unit Js.meth
   method onShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
@@ -38,8 +38,8 @@ object('self)
   method prompt : Js.js_string Js.t -> Js.js_string Js.t ->
     'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> 'c Js.t Js.optdef ->
     Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
-  method setIcon_2 : Js.js_string Js.t -> 'self Js.t Js.meth
-  method show_2 : 'a Js.t -> 'self Js.t Js.meth
+  method setIcon_chainable : Js.js_string Js.t -> 'self Js.t Js.meth
+  method show_messagebox : 'a Js.t -> 'self Js.t Js.meth
   method updateProgress : Js.number Js.t Js.optdef ->
     Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> 'self Js.t
     Js.meth
@@ -73,7 +73,7 @@ object('self)
   method maxWidth : Js.number Js.t Js.prop
   method minHeight : Js.number Js.t Js.prop
   method minWidth : Js.number Js.t Js.prop
-  method resizable_2 : bool Js.t Js.prop
+  method resizable_bool : bool Js.t Js.prop
   method title : Js.js_string Js.t Js.prop
   method width : Js.number Js.t Js.prop
   

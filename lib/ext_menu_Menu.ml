@@ -14,11 +14,11 @@ object('self)
     Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method canActivateItem : 'a Js.t -> bool Js.t Js.meth
   method deactivateActiveItem : 'a Js.t -> unit Js.meth
-  method getBubbleTarget_2 : #Ext_container_Container.t Js.t Js.meth
-  method hide_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method getBubbleTarget_container : #Ext_container_Container.t Js.t Js.meth
+  method hide_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   method onDestroy : unit Js.meth
-  method show_2 : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
+  method show_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
     'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   method showBy : 'a Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth

@@ -12,7 +12,7 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Region.t
   
-  method equals_2 : 'a Js.t -> bool Js.t Js.meth
+  method equals_point : 'a Js.t -> bool Js.t Js.meth
   (** {% <p>Compare this point and another point</p> %}
     
     {b Parameters}:

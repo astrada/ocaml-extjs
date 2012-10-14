@@ -55,7 +55,7 @@ object('self)
   method isFiltered : bool Js.t Js.meth
   method isGrouped : bool Js.t Js.meth
   method last : bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method load_2 : 'a Js.t Js.optdef -> unit Js.meth
+  method load_store : 'a Js.t Js.optdef -> unit Js.meth
   method loadData : 'a Js.t -> bool Js.t Js.optdef -> unit Js.meth
   method loadPage : Js.number Js.t -> 'a Js.t -> unit Js.meth
   method loadRawData : 'a Js.t Js.js_array Js.t -> bool Js.t Js.optdef ->
@@ -77,7 +77,7 @@ object('self)
   method rejectChanges : unit Js.meth
   method reload : 'a Js.t -> unit Js.meth
   method remove : 'a Js.t -> unit Js.meth
-  method removeAll_2 : bool Js.t -> unit Js.meth
+  method removeAll_bool : bool Js.t -> unit Js.meth
   method removeAt : Js.number Js.t -> unit Js.meth
   method sort : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
     Ext_util_Sorter.t Js.js_array Js.t Js.meth

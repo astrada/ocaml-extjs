@@ -934,7 +934,7 @@ the store has a groupField.</p> %}
     }
     }
     *)
-  method load_2 : 'a Js.t Js.optdef -> unit Js.meth
+  method load_store : 'a Js.t Js.optdef -> unit Js.meth
   (** {% <p>Loads data into the Store via the configured <a href="#!/api/Ext.data.Store-cfg-proxy" rel="Ext.data.Store-cfg-proxy" class="docClass">proxy</a>. This uses the Proxy to make an
 asynchronous call to whatever storage backend the Proxy uses, automatically adding the retrieved
 instances into the Store and calling an optional callback if required. Example usage:</p>
@@ -1211,7 +1211,7 @@ plus a single 'datachanged' event after removal.</p> %}
     }
     }
     *)
-  method removeAll_2 : bool Js.t -> unit Js.meth
+  method removeAll_bool : bool Js.t -> unit Js.meth
   (** {% <p>Removes all items from the store.</p> %}
     
     {b Parameters}:

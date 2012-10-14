@@ -232,7 +232,7 @@ componentCls to add specific styling for this component.</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'grid-header-ct']
     *)
-  method border_2 : bool Js.t Js.prop
+  method border_bool : bool Js.t Js.prop
   (** {% <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
 be a CSS style specification for each style, for example: '10 5 3 10'.</p>
 

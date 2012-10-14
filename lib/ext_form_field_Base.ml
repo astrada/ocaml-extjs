@@ -9,12 +9,11 @@ object('self)
   method inputEl : Ext_dom_Element.t Js.t Js.prop
   method maskOnDisable : bool Js.t Js.prop
   method clearInvalid : unit Js.meth
-  method doComponentLayout_2 : #Ext_container_Container.t Js.t Js.meth
+  method doComponentLayout_container : #Ext_container_Container.t Js.t
+    Js.meth
   method extractFileInput : Dom_html.element Js.t Js.meth
-  method getInputId_2 : unit Js.meth
   method getRawValue : Js.js_string Js.t Js.meth
   method getSubTplData : 'a Js.t Js.meth
-  method getSubTplMarkup_2 : unit Js.meth
   method getSubmitData : 'a Js.t Js.meth
   method getSubmitValue : Js.js_string Js.t Js.meth
   method getValue : 'a Js.t Js.meth
@@ -30,7 +29,7 @@ object('self)
   method setFieldStyle : 'a Js.t -> unit Js.meth
   method setRawValue : 'a Js.t -> 'b Js.t Js.meth
   method setReadOnly : bool Js.t -> unit Js.meth
-  method setValue_2 : 'a Js.t -> Ext_form_field_Field.t Js.t Js.meth
+  method setValue : 'a Js.t -> 'self Js.t Js.meth
   method transformRawValue : 'a Js.t -> 'b Js.t Js.meth
   method validateValue : 'a Js.t -> bool Js.t Js.meth
   method valueToRaw : 'a Js.t -> 'b Js.t Js.meth
@@ -58,7 +57,7 @@ object('self)
   method baseCls : Js.js_string Js.t Js.prop
   method checkChangeBuffer : Js.number Js.t Js.prop
   method checkChangeEvents : Js.js_string Js.t Js.js_array Js.t Js.prop
-  method componentLayout_2 : Js.js_string Js.t Js.prop
+  method componentLayout_str : Js.js_string Js.t Js.prop
   method dirtyCls : Js.js_string Js.t Js.prop
   method fieldCls : Js.js_string Js.t Js.prop
   method fieldStyle : Js.js_string Js.t Js.prop

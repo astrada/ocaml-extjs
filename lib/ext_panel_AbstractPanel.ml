@@ -37,7 +37,7 @@ object('self)
   method bodyCls : 'a Js.t Js.prop
   method bodyPadding : 'a Js.t Js.prop
   method bodyStyle : 'a Js.t Js.prop
-  method componentLayout_2 : Js.js_string Js.t Js.prop
+  method componentLayout_str : Js.js_string Js.t Js.prop
   method dockedItems : 'a Js.t Js.prop
   method renderTpl : 'a Js.t Js.prop
   

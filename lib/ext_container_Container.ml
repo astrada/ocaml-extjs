@@ -11,7 +11,7 @@ object('self)
     'c Js.t Js.optdef -> unit Js.meth
   method getChildByElement : 'a Js.t -> bool Js.t -> #Ext_Component.t Js.t
     Js.meth
-  method onAdded_2 : 'self Js.t -> Js.number Js.t -> unit Js.meth
+  method onAdded_container : 'self Js.t -> Js.number Js.t -> unit Js.meth
   
 end
 
@@ -27,8 +27,8 @@ object('self)
   method afterShow : ('self Js.t, 'a Js.t Js.optdef ->
     'b Js.callback Js.optdef -> 'c Js.t Js.optdef -> unit) Js.meth_callback
     Js.writeonly_prop
-  method onAdded_2 : ('self Js.t, 'self Js.t -> Js.number Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
+  method onAdded_container : ('self Js.t, 'self Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
   method anchorSize : 'a Js.t Js.prop
   
 end

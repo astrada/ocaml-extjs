@@ -3,7 +3,7 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Region.t
   
-  method equals_2 : 'a Js.t -> bool Js.t Js.meth
+  method equals_point : 'a Js.t -> bool Js.t Js.meth
   method isWithin : 'a Js.t -> 'b Js.t -> bool Js.t Js.meth
   method roundedEquals : 'a Js.t -> bool Js.t Js.meth
   method toString : Js.js_string Js.t Js.meth

@@ -43,7 +43,7 @@ have a width that includes the right padding.</p> %}
   method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
   (** {% <p>The element used to correct body padding during overflow.</p> %}
     *)
-  method beginLayout_2 : 'a Js.t -> unit Js.meth
+  method beginLayout_obj : 'a Js.t -> unit Js.meth
   (** {% <p>In addition to work done by our base classes, containers benefit from some extra
 cached data. The following properties are added to the ownerContext:</p>
 
@@ -112,7 +112,7 @@ component.</p> %}
     }
     }
     *)
-  method configureItem_2 : 'a Js.t -> unit Js.meth
+  method configureItem_obj : 'a Js.t -> unit Js.meth
   (** {% <p>Adds layout's itemCls and owning Container's itemCls</p> %}
     
     {b Parameters}:

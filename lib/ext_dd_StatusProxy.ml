@@ -5,14 +5,14 @@ object('self)
   inherit Ext_Component.t
   
   method getGhost : Ext_dom_Element.t Js.t Js.meth
-  method hide_2 : bool Js.t -> unit Js.meth
+  method hide_proxy : bool Js.t -> unit Js.meth
   method repair : Js.number Js.t Js.js_array Js.t -> 'a Js.callback ->
     'b Js.t -> unit Js.meth
   method reset : bool Js.t -> unit Js.meth
   method setStatus : Js.js_string Js.t -> unit Js.meth
   method stop : unit Js.meth
   method sync : unit Js.meth
-  method update_2 : 'a Js.t -> unit Js.meth
+  method update_html : 'a Js.t -> unit Js.meth
   
 end
 
@@ -24,7 +24,7 @@ object('self)
   
   method dropAllowed : Js.js_string Js.t Js.prop
   method dropNotAllowed : Js.js_string Js.t Js.prop
-  method renderTpl_2 : 'a Js.js_array Js.t Js.prop
+  method renderTpl_arr : 'a Js.js_array Js.t Js.prop
   
 end
 

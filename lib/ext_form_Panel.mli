@@ -289,7 +289,7 @@ object('self)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
-  method layout_2 : Js.js_string Js.t Js.prop
+  method layout_str : Js.js_string Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.container.Container-cfg-layout" rel="Ext.container.Container-cfg-layout" class="docClass">Ext.container.Container.layout</a> for the form panel's immediate child items.
 Defaults to <code>'anchor'</code>.</p> %}
     
