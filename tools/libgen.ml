@@ -129,106 +129,107 @@ type member_type =
 
 module Overrides =
 struct
+  type override_type =
+      Suffix of string
+    | Disable
+    | NoOverride
+
   let overrides =
     let tbl = Hashtbl.create 64 in
     List.iter
       (fun (module_name, name, member_type, override_suffix) ->
          Hashtbl.add tbl (module_name, name, member_type) override_suffix)
-      [("Ext.util.Point", "equals", Method, "2");
-       ("Ext.dd.DDTarget", "addInvalidHandleClass", Method, "2");
-       ("Ext.dd.DDTarget", "addInvalidHandleId", Method, "2");
-       ("Ext.dd.DDTarget", "addInvalidHandleType", Method, "2");
-       ("Ext.dd.DDTarget", "clearConstraints", Method, "2");
-       ("Ext.dd.DDTarget", "clearTicks", Method, "2");
-       ("Ext.dd.DDTarget", "endDrag", Method, "2");
-       ("Ext.dd.DDTarget", "getDragEl", Method, "2");
-       ("Ext.dd.DDTarget", "isValidHandleChild", Method, "2");
-       ("Ext.dd.DDTarget", "onDrag", Method, "2");
-       ("Ext.dd.DDTarget", "onDragDrop", Method, "2");
-       ("Ext.dd.DDTarget", "onDragEnter", Method, "2");
-       ("Ext.dd.DDTarget", "onDragOut", Method, "2");
-       ("Ext.dd.DDTarget", "onDragOver", Method, "2");
-       ("Ext.dd.DDTarget", "onInvalidDrop", Method, "2");
-       ("Ext.dd.DDTarget", "onMouseDown", Method, "2");
-       ("Ext.dd.DDTarget", "onMouseUp", Method, "2");
-       ("Ext.dd.DDTarget", "removeInvalidHandleClass", Method, "2");
-       ("Ext.dd.DDTarget", "removeInvalidHandleId", Method, "2");
-       ("Ext.dd.DDTarget", "removeInvalidHandleType", Method, "2");
-       ("Ext.dd.DDTarget", "resetConstraints", Method, "2");
-       ("Ext.dd.DDTarget", "setDragElId", Method, "2");
-       ("Ext.dd.DDTarget", "setHandleElId", Method, "2");
-       ("Ext.dd.DDTarget", "setInitPosition", Method, "2");
-       ("Ext.dd.DDTarget", "setOuterHandleElId", Method, "2");
-       ("Ext.dd.DDTarget", "setXConstraint", Method, "2");
-       ("Ext.dd.DDTarget", "setYConstraint", Method, "2");
-       ("Ext.dd.DDTarget", "startDrag", Method, "2");
-       ("Ext.dom.Element", "getAlignToXY", Method, "2");
-       ("Ext.dom.Element", "getAnchorXY", Method, "2");
-       ("Ext.dom.Element", "getOffsetsTo", Method, "2");
-       ("Ext.dom.Element", "getXY", Method, "2");
-       ("Ext.dom.Element", "mask", Method, "2");
-       ("Ext.dom.Element", "setXY", Method, "2");
-       ("Ext.dom.Element", "update", Method, "2");
-       ("Ext.ComponentLoader", "renderer", Cfg, "2");
-       ("Ext.Component", "afterRender", Method, "2");
-       ("Ext.Component", "draggable", Cfg, "2");
-       ("Ext.layout.Layout", "getLayoutItems", Method, "2");
-       ("Ext.layout.container.Container", "beginLayout", Method, "2");
-       ("Ext.layout.container.Container", "configureItem", Method, "2");
-       ("Ext.container.AbstractContainer", "disable", Method, "2");
-       ("Ext.container.AbstractContainer", "enable", Method, "2");
-       ("Ext.container.AbstractContainer", "renderTpl", Cfg, "2");
-       ("Ext.container.Container", "onAdded", Method, "2");
-       ("Ext.panel.AbstractPanel", "componentLayout", Cfg, "2");
-       ("Ext.dd.StatusProxy", "renderTpl", Cfg, "2");
-       ("Ext.dd.StatusProxy", "hide", Method, "2");
-       ("Ext.dd.StatusProxy", "update", Method, "2");
-       ("Ext.util.ComponentDragger", "delegate", Cfg, "2");
-       ("Ext.window.Window", "autoRender", Cfg, "2");
-       ("Ext.window.Window", "dd", Property, "2");
-       ("Ext.window.Window", "activate", Event, "2");
-       ("Ext.window.Window", "deactivate", Event, "2");
-       ("Ext.window.Window", "resize", Event, "2");
-       ("Ext.window.MessageBox", "resizable", Cfg, "2");
-       ("Ext.window.MessageBox", "hide", Method, "2");
-       ("Ext.window.MessageBox", "setIcon", Method, "2");
-       ("Ext.window.MessageBox", "show", Method, "2");
-       ("Ext.data.AbstractStore", "create", Method, "2");
-       ("Ext.data.Store", "load", Method, "2");
-       ("Ext.data.Store", "removeAll", Method, "2");
-       ("Ext.view.AbstractView", "bindStore", Method, "2");
-       ("Ext.view.AbstractView", "getStore", Method, "2");
-       ("Ext.view.Table", "componentLayout", Cfg, "2");
-       ("Ext.panel.Table", "layout", Cfg, "2");
-       ("Ext.grid.plugin.Editing", "init", Method, "2");
-       ("Ext.menu.Menu", "getBubbleTarget", Method, "2");
-       ("Ext.menu.Menu", "hide", Method, "2");
-       ("Ext.menu.Menu", "show", Method, "2");
-       ("Ext.grid.header.Container", "border", Cfg, "2");
-       ("Ext.grid.column.Column", "componentLayout", Cfg, "2");
-       ("Ext.grid.column.Column", "renderTpl", Cfg, "2");
-       ("Ext.grid.column.Column", "resizable", Cfg, "2");
-       ("Ext.grid.column.Column", "hide", Method, "2");
-       ("Ext.grid.column.Column", "show", Method, "2");
-       ("Ext.button.Button", "border", Cfg, "2");
-       ("Ext.button.Button", "componentLayout", Cfg, "2");
-       ("Ext.button.Button", "renderTpl", Cfg, "2");
-       ("Ext.button.Button", "shrinkWrap", Cfg, "2");
-       ("Ext.app.Application", "getController", Method, "2");
-       ("Ext.form.Panel", "layout", Cfg, "2");
-       ("Ext.form.field.Base", "doComponentLayout", Method, "2");
-       ("Ext.form.field.Base", "getInputId", Method, "2");
-       ("Ext.form.field.Base", "getSubTplMarkup", Method, "2");
-       ("Ext.form.field.Base", "setValue", Method, "2");
-       ("Ext.form.field.Base", "componentLayout", Cfg, "2");
-       ("Ext.form.field.Text", "processRawValue", Method, "2");
+      [("Ext.util.Point", "equals", Method, Suffix "point");
+       ("Ext.dd.DDTarget", "addInvalidHandleClass", Method, Disable);
+       ("Ext.dd.DDTarget", "addInvalidHandleId", Method, Disable);
+       ("Ext.dd.DDTarget", "addInvalidHandleType", Method, Disable);
+       ("Ext.dd.DDTarget", "clearConstraints", Method, Disable);
+       ("Ext.dd.DDTarget", "clearTicks", Method, Disable);
+       ("Ext.dd.DDTarget", "endDrag", Method, Disable);
+       ("Ext.dd.DDTarget", "getDragEl", Method, Disable);
+       ("Ext.dd.DDTarget", "isValidHandleChild", Method, Disable);
+       ("Ext.dd.DDTarget", "onDrag", Method, Disable);
+       ("Ext.dd.DDTarget", "onDragDrop", Method, Disable);
+       ("Ext.dd.DDTarget", "onDragEnter", Method, Disable);
+       ("Ext.dd.DDTarget", "onDragOut", Method, Disable);
+       ("Ext.dd.DDTarget", "onDragOver", Method, Disable);
+       ("Ext.dd.DDTarget", "onInvalidDrop", Method, Disable);
+       ("Ext.dd.DDTarget", "onMouseDown", Method, Disable);
+       ("Ext.dd.DDTarget", "onMouseUp", Method, Disable);
+       ("Ext.dd.DDTarget", "removeInvalidHandleClass", Method, Disable);
+       ("Ext.dd.DDTarget", "removeInvalidHandleId", Method, Disable);
+       ("Ext.dd.DDTarget", "removeInvalidHandleType", Method, Disable);
+       ("Ext.dd.DDTarget", "resetConstraints", Method, Disable);
+       ("Ext.dd.DDTarget", "setDragElId", Method, Disable);
+       ("Ext.dd.DDTarget", "setHandleElId", Method, Disable);
+       ("Ext.dd.DDTarget", "setInitPosition", Method, Disable);
+       ("Ext.dd.DDTarget", "setOuterHandleElId", Method, Disable);
+       ("Ext.dd.DDTarget", "setXConstraint", Method, Disable);
+       ("Ext.dd.DDTarget", "setYConstraint", Method, Disable);
+       ("Ext.dd.DDTarget", "startDrag", Method, Disable);
+       ("Ext.dom.Element", "getAlignToXY", Method, Suffix "number");
+       ("Ext.dom.Element", "getAnchorXY", Method, Suffix "number");
+       ("Ext.dom.Element", "getOffsetsTo", Method, Suffix "number");
+       ("Ext.dom.Element", "getXY", Method, Suffix "number");
+       ("Ext.dom.Element", "mask", Method, Suffix "element");
+       ("Ext.dom.Element", "setXY", Method, Suffix "number");
+       ("Ext.dom.Element", "update", Method, Suffix "html");
+       ("Ext.ComponentLoader", "renderer", Cfg, Suffix "2");
+       ("Ext.Component", "draggable", Cfg, Suffix "obj");
+       ("Ext.layout.Layout", "getLayoutItems", Method, Suffix "empty");
+       ("Ext.layout.container.Container", "beginLayout", Method, Suffix "obj");
+       ("Ext.layout.container.Container", "configureItem", Method, Suffix "obj");
+       ("Ext.container.AbstractContainer", "disable", Method, Suffix "chainable");
+       ("Ext.container.AbstractContainer", "renderTpl", Cfg, Suffix "str");
+       ("Ext.container.Container", "onAdded", Method, Suffix "container");
+       ("Ext.panel.AbstractPanel", "componentLayout", Cfg, Suffix "str");
+       ("Ext.dd.StatusProxy", "renderTpl", Cfg, Suffix "arr");
+       ("Ext.dd.StatusProxy", "hide", Method, Suffix "proxy");
+       ("Ext.dd.StatusProxy", "update", Method, Suffix "html");
+       ("Ext.util.ComponentDragger", "delegate", Cfg, Suffix "element");
+       ("Ext.window.Window", "autoRender", Cfg, Suffix "bool");
+       ("Ext.window.Window", "dd", Property, Suffix "dragger");
+       ("Ext.window.Window", "activate", Event, Suffix "window");
+       ("Ext.window.Window", "deactivate", Event, Suffix "window");
+       ("Ext.window.Window", "resize", Event, Suffix "window");
+       ("Ext.window.MessageBox", "resizable", Cfg, Suffix "bool");
+       ("Ext.window.MessageBox", "hide", Method, Suffix "component");
+       ("Ext.window.MessageBox", "setIcon", Method, Suffix "chainable");
+       ("Ext.window.MessageBox", "show", Method, Suffix "messagebox");
+       ("Ext.data.AbstractStore", "create", Method, Suffix "store");
+       ("Ext.data.Store", "load", Method, Suffix "store");
+       ("Ext.data.Store", "removeAll", Method, Suffix "bool");
+       ("Ext.view.AbstractView", "bindStore", Method, Suffix "view");
+       ("Ext.view.AbstractView", "getStore", Method, Suffix "view");
+       ("Ext.view.Table", "componentLayout", Cfg, Suffix "str");
+       ("Ext.panel.Table", "layout", Cfg, Suffix "str");
+       ("Ext.grid.plugin.Editing", "init", Method, Suffix "component");
+       ("Ext.menu.Menu", "getBubbleTarget", Method, Suffix "container");
+       ("Ext.menu.Menu", "hide", Method, Suffix "menu");
+       ("Ext.menu.Menu", "show", Method, Suffix "menu");
+       ("Ext.grid.header.Container", "border", Cfg, Suffix "bool");
+       ("Ext.grid.column.Column", "componentLayout", Cfg, Suffix "str");
+       ("Ext.grid.column.Column", "renderTpl", Cfg, Suffix "str");
+       ("Ext.grid.column.Column", "resizable", Cfg, Suffix "bool");
+       ("Ext.grid.column.Column", "hide", Method, Suffix "column");
+       ("Ext.grid.column.Column", "show", Method, Suffix "column");
+       ("Ext.button.Button", "border", Cfg, Suffix "bool");
+       ("Ext.button.Button", "componentLayout", Cfg, Suffix "str");
+       ("Ext.button.Button", "renderTpl", Cfg, Suffix "arr");
+       ("Ext.button.Button", "shrinkWrap", Cfg, Suffix "num");
+       ("Ext.app.Application", "getController", Method, Suffix "app");
+       ("Ext.form.Panel", "layout", Cfg, Suffix "str");
+       ("Ext.form.field.Base", "doComponentLayout", Method, Suffix "container");
+       ("Ext.form.field.Base", "getInputId", Method, Disable);
+       ("Ext.form.field.Base", "getSubTplMarkup", Method, Disable);
+       ("Ext.form.field.Base", "componentLayout", Cfg, Suffix "str");
       ];
     tbl
 
-  let get_override_suffix current_module name member_type =
+  let get_override current_module name member_type =
     try
       Hashtbl.find overrides (current_module, name, member_type)
-    with Not_found -> ""
+    with Not_found -> NoOverride
 
 end
 
@@ -250,10 +251,13 @@ let create_and_add_members member_type
        let es = get_json_elements json_object in
        let owner = get_json_element "owner" es |> get_json_string in
        let name = get_json_element "name" es |> get_json_string in
+       let override =
+         Overrides.get_override current_module.Module.id name member_type in
        if owner <> current_module.Module.id ||
           is_private es ||
           is_deprecated es ||
-          name = "" then
+          name = "" ||
+          override = Overrides.Disable then
          ContextM.return current
        else
          Lens.get_state Context.symbol_table >>= fun table ->
@@ -263,8 +267,10 @@ let create_and_add_members member_type
            let doc =
              get_json_element "doc" es |> get_json_string |> clean_doc in
            let suffix =
-             Overrides.get_override_suffix
-               current_module.Module.id name member_type in
+             match override with
+                 Overrides.Suffix s -> s
+               | Overrides.NoOverride -> ""
+               | _ -> assert false in
            let member = create_member es table name doc suffix in
            let updated =
              current |> ClassType.methods ^%= (fun m -> m @ [member])

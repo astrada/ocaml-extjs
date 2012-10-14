@@ -243,6 +243,9 @@ struct
        ("Ext_form_action_Action",
         [("Ext_form_Basic", type_variable);
         ]);
+       ("Ext_form_field_Base",
+        [("Ext_form_field_Field", self_type_variable);
+        ]);
       ]
 
     let type_table =
@@ -295,6 +298,8 @@ struct
          "Ext_data_proxy_Proxy";
          "Ext_data_AbstractStore";
          "Ext_selection_Model";
+         "Ext_form_field_Field";
+         "Ext_form_field_Base";
         ]
 
     let is_base_class symbol =
