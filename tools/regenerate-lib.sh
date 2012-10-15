@@ -187,4 +187,18 @@ echo Ext.form.field.Base
 ./libgen.byte tools/jsduck/Ext.form.field.Base.json
 echo Ext.form.field.Text
 ./libgen.byte tools/jsduck/Ext.form.field.Text.json
+echo Ext.tip.Tip
+./libgen.byte tools/jsduck/Ext.tip.Tip.json
+echo Ext.tip.ToolTip
+./libgen.byte tools/jsduck/Ext.tip.ToolTip.json
+echo Ext.tip.QuickTip
+./libgen.byte tools/jsduck/Ext.tip.QuickTip.json
+echo Ext.tip.QuickTipManager
+./libgen.byte tools/jsduck/Ext.tip.QuickTipManager.json
+echo Ext.state.Provider
+./libgen.byte tools/jsduck/Ext.state.Provider.json
+echo Ext.state.Manager
+./libgen.byte tools/jsduck/Ext.state.Manager.json
+echo Ext.util.Format
+./libgen.byte tools/jsduck/Ext.util.Format.json
 

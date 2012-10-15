@@ -81,9 +81,13 @@ let is_optional =
 
 (* Docs *)
 let at_regexp = Str.regexp "@"
+(* HACK: Specific regexp to match an unbalanced quote *)
+let quote_regexp = Str.regexp (Str.quote "', and \"")
 
 let clean_doc s =
-  String.trim s |> Str.global_replace at_regexp "\\\\\\0"
+  String.trim s
+    |> Str.global_replace at_regexp "\\\\\\0"
+    |> Str.global_replace quote_regexp "', and &quot;"
 (* END Docs *)
 
 (* Superclasses *)
@@ -223,6 +227,16 @@ struct
        ("Ext.form.field.Base", "getInputId", Method, Disable);
        ("Ext.form.field.Base", "getSubTplMarkup", Method, Disable);
        ("Ext.form.field.Base", "componentLayout", Cfg, Suffix "str");
+       ("Ext.form.field.Text", "processRawValue", Method, Suffix "str");
+       ("Ext.tip.Tip", "showAt", Method, Suffix "arr");
+       ("Ext.tip.Tip", "autoRender", Cfg, Suffix "bool");
+       ("Ext.tip.Tip", "floating", Cfg, Suffix "obj");
+       ("Ext.tip.ToolTip", "hide", Method, Suffix "tooltip");
+       ("Ext.tip.ToolTip", "setPagePosition", Method, Disable);
+       ("Ext.tip.ToolTip", "show", Method, Suffix "tooltip");
+       ("Ext.tip.ToolTip", "showAt", Method, Suffix "arr");
+       ("Ext.tip.QuickTip", "hide", Method, Disable);
+       ("Ext.tip.QuickTip", "showAt", Method, Disable);
       ];
     tbl
 
@@ -705,15 +719,18 @@ let write_module formatter m =
   List.iter
     (write_class_type formatter write_method m)
     m.Module.class_types;
-  Format.fprintf formatter "let static = Js.Unsafe.variable \"%s\"@\n@\n"
+  Format.fprintf formatter
+    "@[<hov 2>let static = @ Js.Unsafe.variable \"%s\"@]@\n@\n"
     m.Module.id;
   List.iter
     (write_function formatter)
     m.Module.functions;
   if m.Module.singleton then begin
     Format.fprintf formatter
-      "let instance = Js.Unsafe.variable \"%s\"@\n@\n"
+      "@[<hov 2>let get_instance () =@ Js.Unsafe.variable \"%s\"@]@\n@\n"
       m.Module.id;
+    Format.fprintf formatter
+      "@[<hov 2>let instance =@ get_instance ()@]@\n@\n";
   end;
   Format.fprintf formatter "let of_configs c = Js.Unsafe.coerce c@\n@\n";
   Format.fprintf formatter "let to_configs o = Js.Unsafe.coerce o@\n@\n";
@@ -837,6 +854,9 @@ let write_module_interface formatter m =
     (write_function_declaration formatter m)
     m.Module.functions;
   if m.Module.singleton then begin
+    Format.fprintf formatter
+      "val get_instance : unit -> t Js.t@\n\
+       (** Singleton instance for lazy-loaded modules. *)@\n@\n";
     Format.fprintf formatter
       "val instance : t Js.t@\n(** Singleton instance. *)@\n@\n";
   end;
