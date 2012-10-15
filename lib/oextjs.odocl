@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 1236cc65a02bf31ce5699a104001368e)
+# DO NOT EDIT (digest: 6bd2e97f3d0ef02a76f45d2ddb6ca977)
 Ext
 Ext_AbstractComponent
 Ext_AbstractPlugin
@@ -66,8 +66,14 @@ Ext_panel_Table
 Ext_selection_DataViewModel
 Ext_selection_Model
 Ext_selection_RowModel
+Ext_state_Manager
+Ext_state_Provider
 Ext_state_Stateful
 Ext_Template
+Ext_tip_QuickTip
+Ext_tip_QuickTipManager
+Ext_tip_Tip
+Ext_tip_ToolTip
 Ext_util_AbstractMixedCollection
 Ext_util_Animate
 Ext_util_Bindable
@@ -75,6 +81,7 @@ Ext_util_ComponentDragger
 Ext_util_ElementContainer
 Ext_util_Filter
 Ext_util_Floating
+Ext_util_Format
 Ext_util_Grouper
 Ext_util_KeyMap
 Ext_util_MixedCollection
