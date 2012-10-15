@@ -18,3 +18,8 @@ let undef =
 let to_class_configs o =
   Js.Unsafe.coerce o
 
+let alert message =
+  Js.Unsafe.fun_call
+    (Js.Unsafe.variable "alert")
+    [|Js.Unsafe.inject message|]
+

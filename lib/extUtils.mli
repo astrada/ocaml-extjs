@@ -21,3 +21,6 @@ val undef : 'a
 val to_class_configs : < .. > Js.t -> Ext_Class.configs Js.t
 (** [to_class_configs o] converts instance [o] to an Ext.class config object *)
 
+val alert : Js.js_string Js.t -> unit
+(** [alert message] shows a message box *)
+
