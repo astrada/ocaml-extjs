@@ -99,8 +99,14 @@ Library oextjs
     Ext_selection_DataViewModel,
     Ext_selection_Model,
     Ext_selection_RowModel,
+    Ext_state_Manager,
+    Ext_state_Provider,
     Ext_state_Stateful,
     Ext_Template,
+    Ext_tip_QuickTip,
+    Ext_tip_QuickTipManager,
+    Ext_tip_Tip,
+    Ext_tip_ToolTip,
     Ext_util_AbstractMixedCollection,
     Ext_util_Animate,
     Ext_util_Bindable,
@@ -108,6 +114,7 @@ Library oextjs
     Ext_util_ElementContainer,
     Ext_util_Filter,
     Ext_util_Floating,
+    Ext_util_Format,
     Ext_util_Grouper,
     Ext_util_KeyMap,
     Ext_util_MixedCollection,
@@ -181,6 +188,14 @@ Library account_manager
     app/view/user/Edit,
     app/store/Users,
     app/model/User
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+
+Library basic_array_grid
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/grid/basic_array_grid
+  InternalModules: Array_grid
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 

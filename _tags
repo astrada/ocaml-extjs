@@ -2,7 +2,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 951b994642b93fb635b1ec2b51d7bf37)
+# DO NOT EDIT (digest: 9c5bd60585d8056c809825195425e9e0)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -58,6 +58,11 @@
 <examples/account_manager/app/view/user/*.ml{,i}>: use_oextjs
 <examples/account_manager/app/view/user/*.ml{,i}>: pkg_js_of_ocaml
 <examples/account_manager/app/view/user/*.ml{,i}>: pkg_js_of_ocaml.syntax
+# Library basic_array_grid
+"examples/grid/basic_array_grid/basic_array_grid.cmxs": use_basic_array_grid
+<examples/grid/basic_array_grid/*.ml{,i}>: use_oextjs
+<examples/grid/basic_array_grid/*.ml{,i}>: pkg_js_of_ocaml
+<examples/grid/basic_array_grid/*.ml{,i}>: pkg_js_of_ocaml.syntax
 # OASIS_STOP
 
 "examples/account_manager": -include
@@ -86,4 +91,9 @@
 "examples/account_manager/app/model/User.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 
 <examples/account_manager/account_manager.cm{a,xa}>: account_manager_client
+
+# Basic Array Grid
+# build grid/basic_array_grid/array_grid.js
+"examples/grid/basic_array_grid/array_grid.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+<examples/grid/basic_array_grid/basic_array_grid.cm{a,xa}>: basic_array_grid
 

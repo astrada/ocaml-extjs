@@ -1,0 +1,10 @@
+# OASIS_START
+# DO NOT EDIT (digest: 65b67e6e582e3f590307ac403e16b572)
+version = "0.1"
+description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
+requires = "oextjs js_of_ocaml js_of_ocaml.syntax"
+archive(byte) = "basic_array_grid.cma"
+archive(byte, plugin) = "basic_array_grid.cma"
+exists_if = "basic_array_grid.cma"
+# OASIS_STOP
+
