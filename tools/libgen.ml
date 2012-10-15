@@ -720,7 +720,7 @@ let write_module formatter m =
     (write_class_type formatter write_method m)
     m.Module.class_types;
   Format.fprintf formatter
-    "@[<hov 2>let static = @ Js.Unsafe.variable \"%s\"@]@\n@\n"
+    "@[<hov 2>let static =@ Js.Unsafe.variable \"%s\"@]@\n@\n"
     m.Module.id;
   List.iter
     (write_function formatter)
