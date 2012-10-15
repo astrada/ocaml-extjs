@@ -239,7 +239,7 @@ called by <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">
     }
     
     {b Returns}:
-    {ul {- [Ext_form_field_Field.t Js.t] {% <p>this</p> %}
+    {ul {- [#Ext_form_field_Field.t Js.t] {% <p>this</p> %}
     }
     }
     *)
@@ -325,7 +325,7 @@ object
   (** {% <p>Fires when the value of a field is changed via the <a href="#!/api/Ext.form.field.Field-method-setValue" rel="Ext.form.field.Field-method-setValue" class="docClass">setValue</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- this: [Ext_form_field_Field.t Js.t]
+    {ul {- this: [#Ext_form_field_Field.t Js.t]
     }
     {- newValue: ['a Js.t] {% <p>The new value</p> %}
     }
@@ -342,7 +342,7 @@ object
   (** {% <p>Fires when a change in the field's <a href="#!/api/Ext.form.field.Field-method-isDirty" rel="Ext.form.field.Field-method-isDirty" class="docClass">isDirty</a> state is detected.</p> %}
     
     {b Parameters}:
-    {ul {- this: [Ext_form_field_Field.t Js.t]
+    {ul {- this: [#Ext_form_field_Field.t Js.t]
     }
     {- isDirty: [bool Js.t]
     {% <p>Whether or not the field is now dirty</p> %}
@@ -357,7 +357,7 @@ object
   (** {% <p>Fires when a change in the field's validity is detected.</p> %}
     
     {b Parameters}:
-    {ul {- this: [Ext_form_field_Field.t Js.t]
+    {ul {- this: [#Ext_form_field_Field.t Js.t]
     }
     {- isValid: [bool Js.t]
     {% <p>Whether or not the field is now valid</p> %}

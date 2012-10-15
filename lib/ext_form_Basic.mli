@@ -143,7 +143,8 @@ config options):</p> %}
     }
     }
     *)
-  method findField : Js.js_string Js.t -> Ext_form_field_Field.t Js.t Js.meth
+  method findField : Js.js_string Js.t -> #Ext_form_field_Field.t Js.t
+    Js.meth
   (** {% <p>Find a specific <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Ext.form.field.Field</a> in this form by id or name.</p> %}
     
     {b Parameters}:
@@ -154,7 +155,7 @@ config options):</p> %}
     }
     
     {b Returns}:
-    {ul {- [Ext_form_field_Field.t Js.t]
+    {ul {- [#Ext_form_field_Field.t Js.t]
     {% <p>The first matching field, or <code>null</code> if none was found.</p> %}
     }
     }

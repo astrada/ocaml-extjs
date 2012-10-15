@@ -25,11 +25,11 @@ object('self)
   (** {% <p>Initializes the FieldAncestor's state; this must be called from the initComponent method of any components
 importing this mixin.</p> %}
     *)
-  method onFieldAdded : Ext_form_field_Field.t Js.t -> unit Js.meth
+  method onFieldAdded : #Ext_form_field_Field.t Js.t -> unit Js.meth
   (** {% <p>Called when a <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Ext.form.field.Field</a> instance is added to the container's subtree.</p> %}
     
     {b Parameters}:
-    {ul {- field: [Ext_form_field_Field.t Js.t]
+    {ul {- field: [#Ext_form_field_Field.t Js.t]
     {% <p>The field which was added</p> %}
     }
     }
@@ -47,21 +47,21 @@ importing this mixin.</p> %}
     }
     }
     *)
-  method onFieldRemoved : Ext_form_field_Field.t Js.t -> unit Js.meth
+  method onFieldRemoved : #Ext_form_field_Field.t Js.t -> unit Js.meth
   (** {% <p>Called when a <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Ext.form.field.Field</a> instance is removed from the container's subtree.</p> %}
     
     {b Parameters}:
-    {ul {- field: [Ext_form_field_Field.t Js.t]
+    {ul {- field: [#Ext_form_field_Field.t Js.t]
     {% <p>The field which was removed</p> %}
     }
     }
     *)
-  method onFieldValidityChange : Ext_form_field_Field.t Js.t -> bool Js.t ->
+  method onFieldValidityChange : #Ext_form_field_Field.t Js.t -> bool Js.t ->
     unit Js.meth
   (** {% <p>Fired when the validity of any field within the container changes.</p> %}
     
     {b Parameters}:
-    {ul {- field: [Ext_form_field_Field.t Js.t]
+    {ul {- field: [#Ext_form_field_Field.t Js.t]
     {% <p>The sub-field whose validity changed</p> %}
     }
     {- valid: [bool Js.t] {% <p>The new validity state</p> %}

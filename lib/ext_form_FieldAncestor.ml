@@ -3,11 +3,11 @@ object('self)
   inherit Ext_Base.t
   
   method initFieldAncestor : unit Js.meth
-  method onFieldAdded : Ext_form_field_Field.t Js.t -> unit Js.meth
+  method onFieldAdded : #Ext_form_field_Field.t Js.t -> unit Js.meth
   method onFieldErrorChange : Ext_form_Labelable.t Js.t -> Js.js_string Js.t
     -> unit Js.meth
-  method onFieldRemoved : Ext_form_field_Field.t Js.t -> unit Js.meth
-  method onFieldValidityChange : Ext_form_field_Field.t Js.t -> bool Js.t ->
+  method onFieldRemoved : #Ext_form_field_Field.t Js.t -> unit Js.meth
+  method onFieldValidityChange : #Ext_form_field_Field.t Js.t -> bool Js.t ->
     unit Js.meth
   method onLabelableAdded : Ext_form_Labelable.t Js.t -> unit Js.meth
   method onLabelableRemoved : Ext_form_Labelable.t Js.t -> unit Js.meth

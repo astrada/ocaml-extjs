@@ -168,7 +168,9 @@ end
 
 let static = Js.Unsafe.variable "Ext"
 
-let instance = Js.Unsafe.variable "Ext"
+let get_instance () = Js.Unsafe.variable "Ext"
+
+let instance = get_instance ()
 
 let of_configs c = Js.Unsafe.coerce c
 

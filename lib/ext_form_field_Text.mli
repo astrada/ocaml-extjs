@@ -246,7 +246,7 @@ After calling the superclass’s onDisable, the Component will be disabled.</p> 
 <p>Allows addition of behavior to the enable operation.
 After calling the superclass’s onEnable, the Component will be enabled.</p> %}
     *)
-  method processRawValue_2 : Js.js_string Js.t -> Js.js_string Js.t Js.meth
+  method processRawValue_str : Js.js_string Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Performs any necessary manipulation of a raw String value to prepare it for conversion and/or
 <a href="#!/api/Ext.form.field.Text-method-validate" rel="Ext.form.field.Text-method-validate" class="docClass">validation</a>. For text fields this applies the configured <a href="#!/api/Ext.form.field.Text-cfg-stripCharsRe" rel="Ext.form.field.Text-cfg-stripCharsRe" class="docClass">stripCharsRe</a>
 to the raw value.</p> %}

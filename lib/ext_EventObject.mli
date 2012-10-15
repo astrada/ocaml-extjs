@@ -714,6 +714,9 @@ object
   
 end
 
+val get_instance : unit -> t Js.t
+(** Singleton instance for lazy-loaded modules. *)
+
 val instance : t Js.t
 (** Singleton instance. *)
 

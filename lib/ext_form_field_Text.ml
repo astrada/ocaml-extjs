@@ -17,7 +17,7 @@ object('self)
   method initComponent : unit Js.meth
   method onDisable : unit Js.meth
   method onEnable : unit Js.meth
-  method processRawValue_2 : Js.js_string Js.t -> Js.js_string Js.t Js.meth
+  method processRawValue_str : Js.js_string Js.t -> Js.js_string Js.t Js.meth
   method reset : unit Js.meth
   method selectText : Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef ->
     unit Js.meth

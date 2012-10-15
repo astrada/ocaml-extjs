@@ -125,7 +125,7 @@ names added, and will be in the configured visibility and the configured enable 
   (** {% <p>When defined this will take precedence over the <a href="#!/api/Ext.grid.column.Column-cfg-renderer" rel="Ext.grid.column.Column-cfg-renderer" class="docClass">renderer</a> config.
 This is meant to be defined in subclasses that wish to supply their own renderer.</p> %}
     *)
-  method getEditor : 'a Js.t -> 'b Js.t -> Ext_form_field_Field.t Js.t
+  method getEditor : 'a Js.t -> 'b Js.t -> #Ext_form_field_Field.t Js.t
     Js.meth
   (** {% <p>Retrieves the editing field for editing associated with this header. Returns false if there is no field
 associated with the Header the method will return false. If the field has not been instantiated it will be
@@ -141,7 +141,7 @@ created. Note: These methods only has an implementation if a Editing plugin has 
     }
     
     {b Returns}:
-    {ul {- [Ext_form_field_Field.t Js.t] {% <p>field</p> %}
+    {ul {- [#Ext_form_field_Field.t Js.t] {% <p>field</p> %}
     }
     }
     *)

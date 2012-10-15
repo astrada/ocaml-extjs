@@ -14,7 +14,7 @@ object('self)
     Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method afterRender : unit Js.meth
   method defaultRenderer : unit Js.meth
-  method getEditor : 'a Js.t -> 'b Js.t -> Ext_form_field_Field.t Js.t
+  method getEditor : 'a Js.t -> 'b Js.t -> #Ext_form_field_Field.t Js.t
     Js.meth
   method getIndex : Js.number Js.t Js.meth
   method getSortParam : Js.js_string Js.t Js.meth

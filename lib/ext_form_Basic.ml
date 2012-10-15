@@ -11,7 +11,8 @@ object('self)
   method clearInvalid : 'self Js.t Js.meth
   method destroy : unit Js.meth
   method doAction : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
-  method findField : Js.js_string Js.t -> Ext_form_field_Field.t Js.t Js.meth
+  method findField : Js.js_string Js.t -> #Ext_form_field_Field.t Js.t
+    Js.meth
   method getFieldValues : bool Js.t Js.optdef -> 'a Js.t Js.meth
   method getFields : Ext_util_MixedCollection.t Js.t Js.meth
   method getRecord : Ext_data_Model.t Js.t Js.meth
