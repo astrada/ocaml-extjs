@@ -1,0 +1,826 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="css/style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Ext_util_AbstractMixedCollection.configs-c.html">
+<link rel="Up" href="Ext_util_AbstractMixedCollection.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of class methods" rel=Appendix href="index_methods.html">
+<link title="Index of class types" rel=Appendix href="index_class_types.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Ext" rel="Chapter" href="Ext.html">
+<link title="Ext_AbstractComponent" rel="Chapter" href="Ext_AbstractComponent.html">
+<link title="Ext_AbstractPlugin" rel="Chapter" href="Ext_AbstractPlugin.html">
+<link title="Ext_app_Application" rel="Chapter" href="Ext_app_Application.html">
+<link title="Ext_app_Controller" rel="Chapter" href="Ext_app_Controller.html">
+<link title="Ext_Base" rel="Chapter" href="Ext_Base.html">
+<link title="Ext_button_Button" rel="Chapter" href="Ext_button_Button.html">
+<link title="Ext_Class" rel="Chapter" href="Ext_Class.html">
+<link title="Ext_Component" rel="Chapter" href="Ext_Component.html">
+<link title="Ext_ComponentLoader" rel="Chapter" href="Ext_ComponentLoader.html">
+<link title="Ext_container_AbstractContainer" rel="Chapter" href="Ext_container_AbstractContainer.html">
+<link title="Ext_container_Container" rel="Chapter" href="Ext_container_Container.html">
+<link title="Ext_container_DockingContainer" rel="Chapter" href="Ext_container_DockingContainer.html">
+<link title="Ext_container_Viewport" rel="Chapter" href="Ext_container_Viewport.html">
+<link title="Ext_data_AbstractStore" rel="Chapter" href="Ext_data_AbstractStore.html">
+<link title="Ext_data_Batch" rel="Chapter" href="Ext_data_Batch.html">
+<link title="Ext_data_Errors" rel="Chapter" href="Ext_data_Errors.html">
+<link title="Ext_data_Field" rel="Chapter" href="Ext_data_Field.html">
+<link title="Ext_data_Model" rel="Chapter" href="Ext_data_Model.html">
+<link title="Ext_data_Operation" rel="Chapter" href="Ext_data_Operation.html">
+<link title="Ext_data_proxy_Ajax" rel="Chapter" href="Ext_data_proxy_Ajax.html">
+<link title="Ext_data_proxy_Proxy" rel="Chapter" href="Ext_data_proxy_Proxy.html">
+<link title="Ext_data_proxy_Server" rel="Chapter" href="Ext_data_proxy_Server.html">
+<link title="Ext_data_reader_Reader" rel="Chapter" href="Ext_data_reader_Reader.html">
+<link title="Ext_data_Request" rel="Chapter" href="Ext_data_Request.html">
+<link title="Ext_data_ResultSet" rel="Chapter" href="Ext_data_ResultSet.html">
+<link title="Ext_data_Store" rel="Chapter" href="Ext_data_Store.html">
+<link title="Ext_data_writer_Writer" rel="Chapter" href="Ext_data_writer_Writer.html">
+<link title="Ext_dd_DD" rel="Chapter" href="Ext_dd_DD.html">
+<link title="Ext_dd_DDProxy" rel="Chapter" href="Ext_dd_DDProxy.html">
+<link title="Ext_dd_DDTarget" rel="Chapter" href="Ext_dd_DDTarget.html">
+<link title="Ext_dd_DragDrop" rel="Chapter" href="Ext_dd_DragDrop.html">
+<link title="Ext_dd_DragSource" rel="Chapter" href="Ext_dd_DragSource.html">
+<link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
+<link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
+<link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
+<link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
+<link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
+<link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
+<link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
+<link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
+<link title="Ext_form_field_Base" rel="Chapter" href="Ext_form_field_Base.html">
+<link title="Ext_form_field_Field" rel="Chapter" href="Ext_form_field_Field.html">
+<link title="Ext_form_field_Text" rel="Chapter" href="Ext_form_field_Text.html">
+<link title="Ext_form_Labelable" rel="Chapter" href="Ext_form_Labelable.html">
+<link title="Ext_form_Panel" rel="Chapter" href="Ext_form_Panel.html">
+<link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
+<link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
+<link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
+<link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
+<link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
+<link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
+<link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
+<link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
+<link title="Ext_menu_Menu" rel="Chapter" href="Ext_menu_Menu.html">
+<link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
+<link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
+<link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
+<link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
+<link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
+<link title="Ext_state_Manager" rel="Chapter" href="Ext_state_Manager.html">
+<link title="Ext_state_Provider" rel="Chapter" href="Ext_state_Provider.html">
+<link title="Ext_state_Stateful" rel="Chapter" href="Ext_state_Stateful.html">
+<link title="Ext_Template" rel="Chapter" href="Ext_Template.html">
+<link title="Ext_tip_QuickTip" rel="Chapter" href="Ext_tip_QuickTip.html">
+<link title="Ext_tip_QuickTipManager" rel="Chapter" href="Ext_tip_QuickTipManager.html">
+<link title="Ext_tip_Tip" rel="Chapter" href="Ext_tip_Tip.html">
+<link title="Ext_tip_ToolTip" rel="Chapter" href="Ext_tip_ToolTip.html">
+<link title="Ext_util_AbstractMixedCollection" rel="Chapter" href="Ext_util_AbstractMixedCollection.html">
+<link title="Ext_util_Animate" rel="Chapter" href="Ext_util_Animate.html">
+<link title="Ext_util_Bindable" rel="Chapter" href="Ext_util_Bindable.html">
+<link title="Ext_util_ComponentDragger" rel="Chapter" href="Ext_util_ComponentDragger.html">
+<link title="Ext_util_ElementContainer" rel="Chapter" href="Ext_util_ElementContainer.html">
+<link title="Ext_util_Filter" rel="Chapter" href="Ext_util_Filter.html">
+<link title="Ext_util_Floating" rel="Chapter" href="Ext_util_Floating.html">
+<link title="Ext_util_Format" rel="Chapter" href="Ext_util_Format.html">
+<link title="Ext_util_Grouper" rel="Chapter" href="Ext_util_Grouper.html">
+<link title="Ext_util_KeyMap" rel="Chapter" href="Ext_util_KeyMap.html">
+<link title="Ext_util_MixedCollection" rel="Chapter" href="Ext_util_MixedCollection.html">
+<link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
+<link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
+<link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
+<link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
+<link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
+<link title="Ext_util_Sorter" rel="Chapter" href="Ext_util_Sorter.html">
+<link title="Ext_Version" rel="Chapter" href="Ext_Version.html">
+<link title="Ext_view_AbstractView" rel="Chapter" href="Ext_view_AbstractView.html">
+<link title="Ext_view_Table" rel="Chapter" href="Ext_view_Table.html">
+<link title="Ext_view_View" rel="Chapter" href="Ext_view_View.html">
+<link title="Ext_window_MessageBox" rel="Chapter" href="Ext_window_MessageBox.html">
+<link title="Ext_window_Window" rel="Chapter" href="Ext_window_Window.html">
+<link title="Ext_ZIndexManager" rel="Chapter" href="Ext_ZIndexManager.html">
+<link title="ExtUtils" rel="Chapter" href="ExtUtils.html"><title>Ext_util_AbstractMixedCollection.t</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a href="Ext_util_AbstractMixedCollection.html">Up</a>
+&nbsp;<a href="Ext_util_AbstractMixedCollection.configs-c.html">Next</a>
+</div>
+<center><h1>Class type <a href="type_Ext_util_AbstractMixedCollection.t.html">Ext_util_AbstractMixedCollection.t</a></h1></center>
+<br>
+<pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_util_AbstractMixedCollection.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
+<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
+</ul>
+<hr width="100%">
+<pre><span id="METHODisMixedCollection"><span class="keyword">method</span> isMixedCollection</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p><code>true</code> in this class to identify an object as an instantiated MixedCollection, or subclass thereof.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODadd"><span class="keyword">method</span> add</span> : <code class="type">'a 'b 'c. 'a Js.t -> 'b Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
+<p>Adds an item to the collection. Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-add" rel="Ext.util.AbstractMixedCollection-event-add" class="docClass">add</a> event when complete.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>key: <code class="code">'a Js.t</code>
+    <p>The key to associate with the item, or the new item.</p>
+
+<p>If a <a href="#!/api/Ext.util.AbstractMixedCollection-method-getKey" rel="Ext.util.AbstractMixedCollection-method-getKey" class="docClass">getKey</a> implementation was specified for this MixedCollection,
+or if the key of the stored items is in a property called <code>id</code>,
+the MixedCollection will be able to <em>derive</em> the key for the new item.
+In this case just pass the new item in this parameter.</p> 
+    </li>
+<li>o: <code class="code">'a Js.t</code>
+    <p>The item to add.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code> <p>The item added.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODaddAll"><span class="keyword">method</span> addAll</span> : <code class="type">'d. 'd Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Adds all elements of an Array or an Object to the collection.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>objs: <code class="code">'a Js.t</code>
+    <p>An Object containing properties which will be added
+to the collection, or an Array of values, each of which are added to the collection.
+Functions references will be added to the collection if <code><a href="#!/api/Ext.util.AbstractMixedCollection-cfg-allowFunctions" rel="Ext.util.AbstractMixedCollection-cfg-allowFunctions" class="docClass">allowFunctions</a></code>
+has been set to <code>true</code>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODclear"><span class="keyword">method</span> clear</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Removes all items from the collection.  Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-clear" rel="Ext.util.AbstractMixedCollection-event-clear" class="docClass">clear</a> event when complete.</p> <br>
+</div>
+<pre><span id="METHODclone"><span class="keyword">method</span> clone</span> : <code class="type">(< add : 'a 'b 'c. 'a Js.t -> 'b Js.t Js.optdef -> 'c Js.t Js.meth;<br>          addAll : 'd. 'd Js.t -> unit Js.meth;<br>          addEvents : 'g. 'g Js.t -> unit Js.meth;<br>          addListener : 'h 'i 'j 'k.<br>                          'h Js.t -><br>                          'i Js.callback Js.optdef -><br>                          'j Js.t Js.optdef -> 'k Js.t Js.optdef -> unit Js.meth;<br>          addManagedListener : 'l 'm 'n 'o 'p.<br>                                 'l Js.t -><br>                                 'm Js.t -><br>                                 'n Js.callback Js.optdef -><br>                                 'o Js.t Js.optdef -><br>                                 'p Js.t Js.optdef -> unit Js.meth;<br>          callParent : 'q 'r. 'q Js.t -> 'r Js.t Js.meth;<br>          callSuper : 's 't. 's Js.t -> 't Js.t Js.meth; clear : unit Js.meth;<br>          clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>          clone : 'e;<br>          collect : 'u.<br>                      Js.js_string Js.t -><br>                      Js.js_string Js.t Js.optdef -><br>                      bool Js.t Js.optdef -> 'u Js.js_array Js.t Js.meth;<br>          contains : 'v. 'v Js.t -> bool Js.t Js.meth;<br>          containsKey : Js.js_string Js.t -> bool Js.t Js.meth;<br>          each : 'w 'x. 'w Js.callback -> 'x Js.t Js.optdef -> unit Js.meth;<br>          eachKey : 'y 'z. 'y Js.callback -> 'z Js.t Js.optdef -> unit Js.meth;<br>          enableBubble : 'a1. 'a1 Js.t -> unit Js.meth;<br>          filter : 'b1 'c1.<br>                     'b1 Js.t -><br>                     'c1 Js.t -><br>                     bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'f Js.t Js.meth;<br>          filterBy : 'd1 'e1.<br>                       'd1 Js.callback -> 'e1 Js.t Js.optdef -> 'f Js.t Js.meth;<br>          findBy : 'f1 'g1 'h1.<br>                     'f1 Js.callback -> 'g1 Js.t Js.optdef -> 'h1 Js.t Js.meth;<br>          findIndex : 'i1.<br>                        Js.js_string Js.t -><br>                        'i1 Js.t -><br>                        Js.number Js.t Js.optdef -><br>                        bool Js.t Js.optdef -><br>                        bool Js.t Js.optdef -> Js.number Js.t Js.meth;<br>          findIndexBy : 'j1 'k1.<br>                          'j1 Js.callback -><br>                          'k1 Js.t Js.optdef -><br>                          Js.number Js.t Js.optdef -> Js.number Js.t Js.meth;<br>          fireEvent : 'l1. Js.js_string Js.t -> 'l1 Js.t -> bool Js.t Js.meth;<br>          first : 'm1. 'm1 Js.t Js.meth;<br>          get : 'n1 'o1. 'n1 Js.t -> 'o1 Js.t Js.meth;<br>          getAt : 'p1. Js.number Js.t -> 'p1 Js.t Js.meth;<br>          getByKey : 'q1 'r1. 'q1 Js.t -> 'r1 Js.t Js.meth;<br>          getCount : Js.number Js.t Js.meth;<br>          getInitialConfig : 's1. Js.js_string Js.t Js.optdef -> 's1 Js.t Js.meth;<br>          getKey : 't1 'u1. 't1 Js.t -> 'u1 Js.t Js.meth;<br>          getRange : 'v1.<br>                       Js.number Js.t Js.optdef -><br>                       Js.number Js.t Js.optdef -> 'v1 Js.js_array Js.t Js.meth;<br>          hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>          hasListeners : 'w1. 'w1 Js.t Js.readonly_prop;<br>          indexOf : 'x1. 'x1 Js.t -> Js.number Js.t Js.meth;<br>          indexOfKey : Js.js_string Js.t -> Js.number Js.t Js.meth;<br>          initConfig : 'y1. 'y1 Js.t -> 'f Js.t Js.meth;<br>          insert : 'z1 'a2.<br>                     Js.number Js.t -><br>                     Js.js_string Js.t -> 'z1 Js.t Js.optdef -> 'a2 Js.t Js.meth;<br>          isMixedCollection : bool Js.t Js.prop; isObservable : bool Js.t Js.prop;<br>          last : 'b2. 'b2 Js.t Js.meth;<br>          mon : 'c2 'd2 'e2 'f2 'g2.<br>                  'c2 Js.t -><br>                  'd2 Js.t -><br>                  'e2 Js.callback Js.optdef -><br>                  'f2 Js.t Js.optdef -> 'g2 Js.t Js.optdef -> unit Js.meth;<br>          mun : 'h2 'i2 'j2 'k2.<br>                  'h2 Js.t -><br>                  'i2 Js.t -><br>                  'j2 Js.callback Js.optdef -> 'k2 Js.t Js.optdef -> unit Js.meth;<br>          on : 'l2 'm2 'n2 'o2.<br>                 'l2 Js.t -><br>                 'm2 Js.callback Js.optdef -><br>                 'n2 Js.t Js.optdef -> 'o2 Js.t Js.optdef -> unit Js.meth;<br>          relayEvents : 'p2.<br>                          'p2 Js.t -><br>                          Js.js_string Js.t Js.js_array Js.t -><br>                          Js.js_string Js.t Js.optdef -> unit Js.meth;<br>          remove : 'q2 'r2. 'q2 Js.t -> 'r2 Js.t Js.meth;<br>          removeAll : 's2. 's2 Js.js_array Js.t -> 'f Js.t Js.meth;<br>          removeAt : 't2. Js.number Js.t -> 't2 Js.t Js.meth;<br>          removeAtKey : 'u2. Js.js_string Js.t -> 'u2 Js.t Js.meth;<br>          removeListener : 'v2 'w2.<br>                             Js.js_string Js.t -><br>                             'v2 Js.callback -> 'w2 Js.t Js.optdef -> unit Js.meth;<br>          removeManagedListener : 'x2 'y2 'z2 'a3.<br>                                    'x2 Js.t -><br>                                    'y2 Js.t -><br>                                    'z2 Js.callback Js.optdef -><br>                                    'a3 Js.t Js.optdef -> unit Js.meth;<br>          replace : 'b3 'c3. Js.js_string Js.t -> 'b3 Js.t -> 'c3 Js.t Js.meth;<br>          resumeEvents : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>          statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>          sum : Js.js_string Js.t -><br>                Js.js_string Js.t Js.optdef -><br>                Js.number Js.t Js.optdef -><br>                Js.number Js.t Js.optdef -> Js.number Js.t Js.meth;<br>          suspendEvents : bool Js.t -> unit Js.meth;<br>          un : 'd3 'e3.<br>                 Js.js_string Js.t -><br>                 'd3 Js.callback -> 'e3 Js.t Js.optdef -> unit Js.meth;<br>          .. ><br>        as 'f)<br>       Js.t Js.meth as 'e</code></pre><div class="info">
+<p>Creates a shallow copy of this collection</p> <br>
+</div>
+<pre><span id="METHODcollect"><span class="keyword">method</span> collect</span> : <code class="type">'u.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t Js.optdef -><br>         bool Js.t Js.optdef -> 'u Js.js_array Js.t Js.meth</code></pre><div class="info">
+<p>Collects unique values of a particular property in this MixedCollection</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>property: <code class="code">Js.js_string Js.t</code>
+    <p>The property to collect on</p> 
+    </li>
+<li>root: <code class="code">Js.js_string Js.t</code>
+    <p>'root' property to extract the first argument from. This is used mainly when
+summing fields in records, where the fields are all stored inside the 'data' object</p> 
+    </li>
+<li>allowBlank: <code class="code">bool Js.t</code>
+    <p>Pass true to allow null, undefined or empty string values</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.js_array Js.t</code> <p>The unique values</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcontains"><span class="keyword">method</span> contains</span> : <code class="type">'v. 'v Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the collection contains the passed Object as an item.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>o: <code class="code">'a Js.t</code>
+    <p>The Object to look for in the collection.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">bool Js.t</code>
+    <p>True if the collection contains the Object as an item.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcontainsKey"><span class="keyword">method</span> containsKey</span> : <code class="type">Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the collection contains the passed Object as a key.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>key: <code class="code">Js.js_string Js.t</code>
+    <p>The key to look for in the collection.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">bool Js.t</code>
+    <p>True if the collection contains the Object as a key.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODeach"><span class="keyword">method</span> each</span> : <code class="type">'w 'x. 'w Js.callback -> 'x Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Executes the specified function once for every item in the collection.
+The function should return a boolean value.
+Returning false from the function will stop the iteration.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">'a Js.callback</code>
+    <p>The function to execute for each item.</p> 
+    </li>
+<li>scope: <code class="code">'a Js.t</code>
+    <p>The scope (<code>this</code> reference)
+in which the function is executed. Defaults to the current item in the iteration.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODeachKey"><span class="keyword">method</span> eachKey</span> : <code class="type">'y 'z. 'y Js.callback -> 'z Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Executes the specified function once for every key in the collection, passing each
+key, and its associated item as the first two parameters.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">'a Js.callback</code>
+    <p>The function to execute for each item.</p> 
+    </li>
+<li>scope: <code class="code">'a Js.t</code>
+    <p>The scope (<code>this</code> reference) in which the
+function is executed. Defaults to the browser window.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfilter"><span class="keyword">method</span> filter</span> : <code class="type">'b1 'c1.<br>         'b1 Js.t -><br>         'c1 Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'f Js.t Js.meth</code></pre><div class="info">
+<p>Filters the objects in this collection by a set of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filter</a>s, or by a single
+property/value pair with optional parameters for substring matching and case sensitivity. See
+<a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filter</a> for an example of using Filter objects (preferred). Alternatively,
+MixedCollection can be easily filtered by property like this:</p>
+
+
+<pre><code>//create a simple store with a few people defined
+var people = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
+people.addAll([
+    {id: 1, age: 25, name: 'Ed'},
+    {id: 2, age: 24, name: 'Tommy'},
+    {id: 3, age: 24, name: 'Arne'},
+    {id: 4, age: 26, name: 'Aaron'}
+]);
+
+//a new MixedCollection containing only the items where age == 24
+var middleAged = people.filter('age', 24);
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>property: <code class="code">'a Js.t</code>
+    <p>A property on your objects, or an array of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filter</a> objects</p> 
+    </li>
+<li>value: <code class="code">'a Js.t</code>
+    <p>Either string that the property values
+should start with or a RegExp to test against the property</p> 
+    </li>
+<li>anyMatch: <code class="code">bool Js.t</code>
+    <p>True to match any part of the string, not just the beginning</p> 
+     Defaults to: false
+    </li>
+<li>caseSensitive: <code class="code">bool Js.t</code>
+    <p>True for case sensitive comparison.</p> 
+     Defaults to: false
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_MixedCollection.t Js.t</code>
+    <p>The new filtered collection</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfilterBy"><span class="keyword">method</span> filterBy</span> : <code class="type">'d1 'e1. 'd1 Js.callback -> 'e1 Js.t Js.optdef -> 'f Js.t Js.meth</code></pre><div class="info">
+<p>Filter by a function. Returns a <i>new</i> collection that has been filtered.
+The passed function will be called with each object in the collection.
+If the function returns true, the value is included otherwise it is filtered.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">'a Js.callback</code>
+    <p>The function to be called.</p> 
+    </li>
+<li>scope: <code class="code">'a Js.t</code>
+    <p>The scope (<code>this</code> reference) in
+which the function is executed. Defaults to this MixedCollection.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_MixedCollection.t Js.t</code>
+    <p>The new filtered collection</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfindBy"><span class="keyword">method</span> findBy</span> : <code class="type">'f1 'g1 'h1. 'f1 Js.callback -> 'g1 Js.t Js.optdef -> 'h1 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the first item in the collection which elicits a true return value from the
+passed selection function.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">'a Js.callback</code>
+    <p>The selection function to execute for each item.</p> 
+    </li>
+<li>scope: <code class="code">'a Js.t</code>
+    <p>The scope (<code>this</code> reference) in which the
+function is executed. Defaults to the browser window.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code>
+    <p>The first item in the collection which returned true from the selection
+function, or null if none was found.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfindIndex"><span class="keyword">method</span> findIndex</span> : <code class="type">'i1.<br>         Js.js_string Js.t -><br>         'i1 Js.t -><br>         Js.number Js.t Js.optdef -><br>         bool Js.t Js.optdef -> bool Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Finds the index of the first matching object in this collection by a specific property/value.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>property: <code class="code">Js.js_string Js.t</code>
+    <p>The name of a property on your objects.</p> 
+    </li>
+<li>value: <code class="code">'a Js.t</code>
+    <p>A string that the property values
+should start with or a RegExp to test against the property.</p> 
+    </li>
+<li>start: <code class="code">Js.number Js.t</code> <p>The index to start searching at.</p> 
+     Defaults to: 0
+    </li>
+<li>anyMatch: <code class="code">bool Js.t</code>
+    <p>True to match any part of the string, not just the beginning.</p> 
+     Defaults to: false
+    </li>
+<li>caseSensitive: <code class="code">bool Js.t</code>
+    <p>True for case sensitive comparison.</p> 
+     Defaults to: false
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The matched index or -1</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfindIndexBy"><span class="keyword">method</span> findIndexBy</span> : <code class="type">'j1 'k1.<br>         'j1 Js.callback -><br>         'k1 Js.t Js.optdef -> Js.number Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Find the index of the first matching object in this collection by a function.
+If the function returns <i>true</i> it is considered a match.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">'a Js.callback</code>
+    <p>The function to be called.</p> 
+    </li>
+<li>scope: <code class="code">'a Js.t</code>
+    <p>The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.</p> 
+    </li>
+<li>start: <code class="code">Js.number Js.t</code> <p>The index to start searching at.</p> 
+     Defaults to: 0
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The matched index or -1</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfirst"><span class="keyword">method</span> first</span> : <code class="type">'m1. 'm1 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the first item in the collection.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code> <p>the first item in the collection..</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODget"><span class="keyword">method</span> get</span> : <code class="type">'n1 'o1. 'n1 Js.t -> 'o1 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the item associated with the passed key OR index.
+Key has priority over index.  This is the equivalent
+of calling <a href="#!/api/Ext.util.AbstractMixedCollection-method-getByKey" rel="Ext.util.AbstractMixedCollection-method-getByKey" class="docClass">getByKey</a> first, then if nothing matched calling <a href="#!/api/Ext.util.AbstractMixedCollection-method-getAt" rel="Ext.util.AbstractMixedCollection-method-getAt" class="docClass">getAt</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>key: <code class="code">'a Js.t</code>
+    <p>The key or index of the item.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code>
+    <p>If the item is found, returns the item.  If the item was not found, returns <code>undefined</code>.
+If an item was found, but is a Class, returns <code>null</code>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetAt"><span class="keyword">method</span> getAt</span> : <code class="type">'p1. Js.number Js.t -> 'p1 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the item at the specified index.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>index: <code class="code">Js.number Js.t</code>
+    <p>The index of the item.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code> <p>The item at the specified index.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetByKey"><span class="keyword">method</span> getByKey</span> : <code class="type">'q1 'r1. 'q1 Js.t -> 'r1 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the item associated with the passed key.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>key: <code class="code">'a Js.t</code>
+    <p>The key of the item.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code>
+    <p>The item associated with the passed key.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetCount"><span class="keyword">method</span> getCount</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Returns the number of items in the collection.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code>
+    <p>the number of items in the collection.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetKey"><span class="keyword">method</span> getKey</span> : <code class="type">'t1 'u1. 't1 Js.t -> 'u1 Js.t Js.meth</code></pre><div class="info">
+<p>MixedCollection has a generic way to fetch keys if you implement getKey.  The default implementation
+simply returns <b><code>item.id</code></b> but you can provide your own implementation
+to return a different value as in the following examples:</p>
+
+<pre><code>// normal way
+var mc = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
+mc.add(someEl.dom.id, someEl);
+mc.add(otherEl.dom.id, otherEl);
+//and so on
+
+// using getKey
+var mc = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
+mc.getKey = function(el){
+   return el.dom.id;
+};
+mc.add(someEl);
+mc.add(otherEl);
+
+// or via the constructor
+var mc = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>(false, function(el){
+   return el.dom.id;
+});
+mc.add(someEl);
+mc.add(otherEl);
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>item: <code class="code">'a Js.t</code>
+    <p>The item for which to find the key.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code> <p>The key for the passed item.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetRange"><span class="keyword">method</span> getRange</span> : <code class="type">'v1.<br>         Js.number Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -> 'v1 Js.js_array Js.t Js.meth</code></pre><div class="info">
+<p>Returns a range of items in this collection</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>startIndex: <code class="code">Js.number Js.t</code>
+    <p>The starting index. Defaults to 0.</p> 
+    </li>
+<li>endIndex: <code class="code">Js.number Js.t</code>
+    <p>The ending index. Defaults to the last item.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.js_array Js.t</code> <p>An array of items</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODindexOf"><span class="keyword">method</span> indexOf</span> : <code class="type">'x1. 'x1 Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Returns index within the collection of the passed Object.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>o: <code class="code">'a Js.t</code>
+    <p>The item to find the index of.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code>
+    <p>index of the item. Returns -1 if not found.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODindexOfKey"><span class="keyword">method</span> indexOfKey</span> : <code class="type">Js.js_string Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Returns index within the collection of the passed key.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>key: <code class="code">Js.js_string Js.t</code>
+    <p>The key to find the index of.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>index of the key.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODinsert"><span class="keyword">method</span> insert</span> : <code class="type">'z1 'a2.<br>         Js.number Js.t -><br>         Js.js_string Js.t -> 'z1 Js.t Js.optdef -> 'a2 Js.t Js.meth</code></pre><div class="info">
+<p>Inserts an item at the specified index in the collection. Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-add" rel="Ext.util.AbstractMixedCollection-event-add" class="docClass">add</a> event when complete.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>index: <code class="code">Js.number Js.t</code>
+    <p>The index to insert the item at.</p> 
+    </li>
+<li>key: <code class="code">Js.js_string Js.t</code>
+    <p>The key to associate with the new item, or the item itself.</p> 
+    </li>
+<li>o: <code class="code">'a Js.t</code>
+    <p>If the second parameter was a key, the new item.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code> <p>The item inserted.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODlast"><span class="keyword">method</span> last</span> : <code class="type">'b2. 'b2 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the last item in the collection.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code> <p>the last item in the collection..</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODremove"><span class="keyword">method</span> remove</span> : <code class="type">'q2 'r2. 'q2 Js.t -> 'r2 Js.t Js.meth</code></pre><div class="info">
+<p>Remove an item from the collection.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>o: <code class="code">'a Js.t</code>
+    <p>The item to remove.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code>
+    <p>The item removed or false if no item was removed.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODremoveAll"><span class="keyword">method</span> removeAll</span> : <code class="type">'s2. 's2 Js.js_array Js.t -> 'f Js.t Js.meth</code></pre><div class="info">
+<p>Remove all items in the passed array from the collection.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>items: <code class="code">'a Js.js_array Js.t</code>
+    <p>An array of items to be removed.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_MixedCollection.t Js.t</code> <p>this object</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODremoveAt"><span class="keyword">method</span> removeAt</span> : <code class="type">'t2. Js.number Js.t -> 't2 Js.t Js.meth</code></pre><div class="info">
+<p>Remove an item from a specified index in the collection. Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-remove" rel="Ext.util.AbstractMixedCollection-event-remove" class="docClass">remove</a> event when complete.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>index: <code class="code">Js.number Js.t</code>
+    <p>The index within the collection of the item to remove.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code>
+    <p>The item removed or false if no item was removed.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODremoveAtKey"><span class="keyword">method</span> removeAtKey</span> : <code class="type">'u2. Js.js_string Js.t -> 'u2 Js.t Js.meth</code></pre><div class="info">
+<p>Removed an item associated with the passed key fom the collection.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>key: <code class="code">Js.js_string Js.t</code>
+    <p>The key of the item to remove.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code>
+    <p>The item removed or false if no item was removed.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODreplace"><span class="keyword">method</span> replace</span> : <code class="type">'b3 'c3. Js.js_string Js.t -> 'b3 Js.t -> 'c3 Js.t Js.meth</code></pre><div class="info">
+<p>Replaces an item in the collection. Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-replace" rel="Ext.util.AbstractMixedCollection-event-replace" class="docClass">replace</a> event when complete.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>key: <code class="code">Js.js_string Js.t</code>
+    <p>The key associated with the item to replace, or the replacement item.</p>
+
+
+<p>If you supplied a <a href="#!/api/Ext.util.AbstractMixedCollection-method-getKey" rel="Ext.util.AbstractMixedCollection-method-getKey" class="docClass">getKey</a> implementation for this MixedCollection, or if the key
+of your stored items is in a property called <code><b>id</b></code>, then the MixedCollection
+will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
+with one having the same key value, then just pass the replacement item in this parameter.</p> 
+    </li>
+<li>o: <code class="code">'a Js.t</code>
+    <p>{Object} o (optional) If the first parameter passed was a key, the item to associate
+with that key.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">'a Js.t</code> <p>The new item.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsum"><span class="keyword">method</span> sum</span> : <code class="type">Js.js_string Js.t -><br>       Js.js_string Js.t Js.optdef -><br>       Js.number Js.t Js.optdef -><br>       Js.number Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Collects all of the values of the given property and returns their sum</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>property: <code class="code">Js.js_string Js.t</code>
+    <p>The property to sum by</p> 
+    </li>
+<li>root: <code class="code">Js.js_string Js.t</code>
+    <p>'root' property to extract the first argument from. This is used mainly when
+summing fields in records, where the fields are all stored inside the 'data' object</p> 
+    </li>
+<li>start: <code class="code">Js.number Js.t</code> <p>The record index to start at</p> 
+     Defaults to: 0
+    </li>
+<li>end_: <code class="code">Js.number Js.t</code> <p>The record index to end at</p> 
+     Defaults to: -1
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The total</p> 
+    </li>
+</ul>
+<br>
+</div>
+</body></html>
