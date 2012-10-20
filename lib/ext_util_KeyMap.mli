@@ -90,7 +90,7 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method addBinding : 'a Js.t -> unit Js.meth
+  method addBinding : _ Js.t -> unit Js.meth
   (** {% <p>Add a new binding to this KeyMap.</p>
 
 <p>Usage:</p>
@@ -112,7 +112,7 @@ map.addBinding({
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- binding: ['a Js.t]
+    {ul {- binding: [_ Js.t]
     {% <p>A single KeyMap config or an array of configs.
 The following config object properties are supported:</p> %}
     }
@@ -136,18 +136,18 @@ The following config object properties are supported:</p> %}
   method isEnabled : bool Js.t Js.meth
   (** {% <p>Returns true if this KeyMap is enabled</p> %}
     *)
-  method on : 'a Js.t -> 'b Js.callback -> 'c Js.t Js.optdef -> unit Js.meth
+  method on : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Shorthand for adding a single key listener.</p> %}
     
     {b Parameters}:
-    {ul {- key: ['a Js.t]
+    {ul {- key: [_ Js.t]
     {% <p>Either the numeric key code, array of key codes or an object with the
 following options: <code>{key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)}</code></p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The function to call</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the function is executed.
 Defaults to the browser window.</p> %}
     }
@@ -168,7 +168,7 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method binding : 'a Js.t Js.prop
+  method binding : _ Js.t Js.prop
   (** {% <p>Either a single object describing a handling function for s specified key (or set of keys), or
 an array of such objects.</p> %}
     *)
@@ -183,7 +183,7 @@ should not process events from input fields, (<code>&amp;lt;input&gt;, &amp;lt;t
     
     Defaults to: [false]
     *)
-  method processEvent : 'a Js.callback Js.prop
+  method processEvent : _ Js.callback Js.prop
   (** {% <p>An optional event processor function which accepts the argument list provided by the
 <a href="#!/api/Ext.util.KeyMap-cfg-eventName" rel="Ext.util.KeyMap-cfg-eventName" class="docClass">configured event</a> of the <a href="#!/api/Ext.util.KeyMap-cfg-target" rel="Ext.util.KeyMap-cfg-target" class="docClass">target</a>, and returns a keyEvent for processing by the KeyMap.</p>
 
@@ -191,12 +191,12 @@ should not process events from input fields, (<code>&amp;lt;input&gt;, &amp;lt;t
 the first parameter. Extra information from the event arguments may be injected into the event for use by the handler
 functions before returning it.</p> %}
     *)
-  method processEventScope : 'a Js.t Js.prop
+  method processEventScope : _ Js.t Js.prop
   (** {% <p>The scope (<code>this</code> context) in which the <a href="#!/api/Ext.util.KeyMap-cfg-processEvent" rel="Ext.util.KeyMap-cfg-processEvent" class="docClass">processEvent</a> method is executed.</p> %}
     
     Defaults to: [this]
     *)
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   (** {% <p>The object on which to listen for the event specified by the <a href="#!/api/Ext.util.KeyMap-cfg-eventName" rel="Ext.util.KeyMap-cfg-eventName" class="docClass">eventName</a> config option.</p> %}
     *)
   

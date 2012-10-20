@@ -5,11 +5,11 @@ object('self)
   method defaultSortDirection : Js.js_string Js.t Js.prop
   method isSortable : bool Js.t Js.prop
   method sortRoot : Js.js_string Js.t Js.prop
-  method sorters : 'a Js.t Js.prop
+  method sorters : _ Js.t Js.prop
   method generateComparator : unit Js.meth
   method getFirstSorter : Ext_util_Sorter.t Js.t Js.meth
   method initSortable : unit Js.meth
-  method sort : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
+  method sort : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
     Ext_util_Sorter.t Js.js_array Js.t Js.meth
   
 end

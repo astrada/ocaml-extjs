@@ -36,14 +36,14 @@ if we want a different behavior.</p> %}
 <a href="#!/api/Ext.dd.DragDrop" rel="Ext.dd.DragDrop" class="docClass">Ext.dd.DragDrop</a>, but all versions of this method through the
 inheritance chain are called</p> %}
     *)
-  method b4MouseDown : 'a Js.t -> unit Js.meth
+  method b4MouseDown : _ Js.t -> unit Js.meth
   (** {% <p>overrides <a href="#!/api/Ext.dd.DragDrop" rel="Ext.dd.DragDrop" class="docClass">Ext.dd.DragDrop</a></p>
 
 <p>Event that fires prior to the onMouseDown event.  Overrides
 <a href="#!/api/Ext.dd.DragDrop" rel="Ext.dd.DragDrop" class="docClass">Ext.dd.DragDrop</a>.</p> %}
     
     {b Parameters}:
-    {ul {- e: ['a Js.t]
+    {ul {- e: [_ Js.t]
     }
     }
     *)

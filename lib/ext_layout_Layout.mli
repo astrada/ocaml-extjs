@@ -17,12 +17,12 @@ layout has finished its calculations. This flag is set to true prior to the call
     
     Defaults to: [true]
     *)
-  method afterRemove : 'a Js.t -> unit Js.meth
+  method afterRemove : _ Js.t -> unit Js.meth
   (** {% <p>Removes layout's itemCls and owning Container's itemCls.
 Clears the managed dimensions flags</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     }
     }
     *)
@@ -152,7 +152,7 @@ component.</p> %}
     }
     }
     *)
-  method getItemSizePolicy : #Ext_Component.t Js.t -> 'a Js.t Js.meth
+  method getItemSizePolicy : #Ext_Component.t Js.t -> _ Js.t Js.meth
   (** {% <p>Returns an object describing how this layout manages the size of the given component.
 This method must be implemented by any layout that manages components.</p> %}
     
@@ -162,7 +162,7 @@ This method must be implemented by any layout that manages components.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object describing the sizing done by the layout for this item or
 null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card').</p> %}
     }
@@ -174,15 +174,15 @@ null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card'
   method initLayout : unit Js.meth
   (** {% <p>A one-time initialization method called just before rendering.</p> %}
     *)
-  method isValidParent : 'a Js.t -> 'b Js.t -> 'c Js.t -> unit Js.meth
+  method isValidParent : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Validates item is in the proper place in the dom.</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     }
-    {- target: ['a Js.t]
+    {- target: [_ Js.t]
     }
-    {- position: ['a Js.t]
+    {- position: [_ Js.t]
     }
     }
     *)
@@ -223,14 +223,14 @@ component.</p> %}
     }
     }
     *)
-  method renderItems : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method renderItems : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Iterates over all passed items, ensuring they are rendered.  If the items are already rendered,
 also determines if the items are in the proper place in the dom.</p> %}
     
     {b Parameters}:
-    {ul {- items: ['a Js.t]
+    {ul {- items: [_ Js.t]
     }
-    {- target: ['a Js.t]
+    {- target: [_ Js.t]
     }
     }
     *)

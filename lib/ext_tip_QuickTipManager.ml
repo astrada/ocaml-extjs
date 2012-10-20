@@ -6,11 +6,11 @@ object('self)
   method disable : unit Js.meth
   method enable : unit Js.meth
   method getQuickTip : Ext_tip_QuickTip.t Js.t Js.meth
-  method init : bool Js.t Js.optdef -> 'a Js.t Js.optdef -> unit Js.meth
+  method init : bool Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
   method isEnabled : bool Js.t Js.meth
-  method register : 'a Js.t -> unit Js.meth
-  method tips : 'a Js.t -> unit Js.meth
-  method unregister : 'a Js.t -> unit Js.meth
+  method register : _ Js.t -> unit Js.meth
+  method tips : _ Js.t -> unit Js.meth
+  method unregister : _ Js.t -> unit Js.meth
   
 end
 

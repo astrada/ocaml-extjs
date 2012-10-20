@@ -106,23 +106,23 @@ append the currency sign to the formatted value.</p>
     }
     }
     *)
-  method currency : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method currency : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.optdef -> bool Js.t Js.optdef -> Js.js_string Js.t
     Js.meth
   (** {% <p>Format a number as a currency.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The numeric value to format</p> %}
     }
-    {- sign: [Js.js_string Js.t]
+    {- sign: [Js.js_string Js.t] (optional)
     {% <p>The currency sign to use (defaults to <a href="#!/api/Ext.util.Format-property-currencySign" rel="Ext.util.Format-property-currencySign" class="docClass">currencySign</a>)</p> %}
     }
-    {- decimals: [Js.number Js.t]
+    {- decimals: [Js.number Js.t] (optional)
     {% <p>The number of decimals to use for the currency
 (defaults to <a href="#!/api/Ext.util.Format-property-currencyPrecision" rel="Ext.util.Format-property-currencyPrecision" class="docClass">currencyPrecision</a>)</p> %}
     }
-    {- _end: [bool Js.t]
+    {- _end: [bool Js.t] (optional)
     {% <p>True if the currency sign should be at the end of the string
 (defaults to <a href="#!/api/Ext.util.Format-property-currencyAtEnd" rel="Ext.util.Format-property-currencyAtEnd" class="docClass">currencyAtEnd</a>)</p> %}
     }
@@ -133,16 +133,16 @@ append the currency sign to the formatted value.</p>
     }
     }
     *)
-  method date : 'a Js.t -> Js.js_string Js.t Js.optdef -> Js.js_string Js.t
+  method date : _ Js.t -> Js.js_string Js.t Js.optdef -> Js.js_string Js.t
     Js.meth
   (** {% <p>Formats the passed date using the specified format pattern.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to format. If a string is passed, it is converted to a Date
 by the Javascript's built-in Date#parse method.</p> %}
     }
-    {- format: [Js.js_string Js.t]
+    {- format: [Js.js_string Js.t] (optional)
     {% <p>Any valid date format string. Defaults to <a href="#!/api/Ext.Date-property-defaultFormat" rel="Ext.Date-property-defaultFormat" class="docClass">Ext.Date.defaultFormat</a>.</p> %}
     }
     }
@@ -152,7 +152,7 @@ by the Javascript's built-in Date#parse method.</p> %}
     }
     }
     *)
-  method dateRenderer : Js.js_string Js.t -> 'a Js.callback Js.meth
+  method dateRenderer : Js.js_string Js.t -> _ Js.callback Js.meth
   (** {% <p>Returns a date rendering function that can be reused to apply a date format multiple times efficiently.</p> %}
     
     {b Parameters}:
@@ -162,19 +162,19 @@ by the Javascript's built-in Date#parse method.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.callback] {% <p>The date formatting function</p> %}
+    {ul {- [_ Js.callback] {% <p>The date formatting function</p> %}
     }
     }
     *)
-  method defaultValue : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method defaultValue : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Js.js_string Js.t Js.meth
   (** {% <p>Checks a reference and converts it to the default value if it's empty.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>Reference to check</p> %}
     }
-    {- defaultValue: [Js.js_string Js.t]
+    {- defaultValue: [Js.js_string Js.t] (optional)
     {% <p>The value to insert of it's undefined.</p> %}
      Defaults to: ""
     }
@@ -211,11 +211,11 @@ by the Javascript's built-in Date#parse method.</p> %}
     }
     }
     *)
-  method fileSize : 'a Js.t -> Js.js_string Js.t Js.meth
+  method fileSize : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Simple format for a file size (xxx bytes, xxx KB, xxx MB).</p> %}
     
     {b Parameters}:
-    {ul {- size: ['a Js.t]
+    {ul {- size: [_ Js.t]
     {% <p>The numeric value to format</p> %}
     }
     }
@@ -304,7 +304,7 @@ for normalizing number and date strings.  Example usage:</p>
     {- size: [Js.number Js.t]
     {% <p>The total length of the output string</p> %}
     }
-    {- character: [Js.js_string Js.t]
+    {- character: [Js.js_string Js.t] (optional)
     {% <p>The character with which to pad the original string (defaults to empty string " ")</p> %}
     }
     }
@@ -328,14 +328,14 @@ for normalizing number and date strings.  Example usage:</p>
     }
     }
     *)
-  method math : 'a Js.callback Js.meth
+  method math : _ Js.callback Js.meth
   (** {% <p>It does simple math for use in a template, for example:</p>
 
 <pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('{value} * 10 = {value:math("* 10")}');
 </code></pre> %}
     
     {b Returns}:
-    {ul {- ['a Js.callback]
+    {ul {- [_ Js.callback]
     {% <p>A function that operates on the passed value.</p> %}
     }
     }
@@ -408,7 +408,7 @@ decimal (.) for international numbers, add /i to the end. For example: 0.000,00/
     }
     }
     *)
-  method numberRenderer : Js.js_string Js.t -> 'a Js.callback Js.meth
+  method numberRenderer : Js.js_string Js.t -> _ Js.callback Js.meth
   (** {% <p>Returns a number rendering function that can be reused to apply a number format multiple
 times efficiently.</p> %}
     
@@ -419,23 +419,23 @@ times efficiently.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.callback] {% <p>The number formatting function</p> %}
+    {ul {- [_ Js.callback] {% <p>The number formatting function</p> %}
     }
     }
     *)
-  method parseBox : 'a Js.t -> 'b Js.t Js.meth
+  method parseBox : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Parses a number or string representing margin sizes into an object.
 Supports CSS-style margin declarations (e.g. 10, "10", "10 10", "10 10 10" and
 "10 10 10 10" are all valid options and would return the same result).</p> %}
     
     {b Parameters}:
-    {ul {- v: ['a Js.t]
+    {ul {- v: [_ Js.t]
     {% <p>The encoded margins</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object with margin sizes for top, right, bottom and left</p> %}
     }
     }
@@ -453,16 +453,16 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p> %}
     {- singular: [Js.js_string Js.t]
     {% <p>The singular form of the word</p> %}
     }
-    {- plural: [Js.js_string Js.t]
+    {- plural: [Js.js_string Js.t] (optional)
     {% <p>The plural form of the word (defaults to the singular with an "s")</p> %}
     }
     }
     *)
-  method round : 'a Js.t -> Js.number Js.t -> Js.number Js.t Js.meth
+  method round : _ Js.t -> Js.number Js.t -> Js.number Js.t Js.meth
   (** {% <p>Rounds the passed number to the required decimal precision.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The numeric value to round.</p> %}
     }
     {- precision: [Js.number Js.t]
@@ -475,11 +475,11 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p> %}
     }
     }
     *)
-  method stripScripts : 'a Js.t -> Js.js_string Js.t Js.meth
+  method stripScripts : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Strips all script tags.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The text from which to strip script tags</p> %}
     }
     }
@@ -489,11 +489,11 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p> %}
     }
     }
     *)
-  method stripTags : 'a Js.t -> Js.js_string Js.t Js.meth
+  method stripTags : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Strips all HTML tags.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The text from which to strip tags</p> %}
     }
     }
@@ -546,17 +546,17 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
     }
     }
     *)
-  method undef : 'a Js.t -> 'b Js.t Js.meth
+  method undef : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Checks a reference and converts it to empty string if it is undefined.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>Reference to check</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>Empty string if converted, otherwise the original value</p> %}
     }
     }
@@ -575,11 +575,11 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
     }
     }
     *)
-  method usMoney : 'a Js.t -> Js.js_string Js.t Js.meth
+  method usMoney : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Format a number as US currency.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The numeric value to format</p> %}
     }
     }

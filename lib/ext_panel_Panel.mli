@@ -153,7 +153,7 @@ the collapse takes place will remain visible. Fires the <a href="#!/api/Ext.pane
 collapse action if it returns false.</p> %}
     
     {b Parameters}:
-    {ul {- direction: [Js.js_string Js.t]
+    {ul {- direction: [Js.js_string Js.t] (optional)
     {% <p>The direction to collapse towards. Must be one of</p>
 
 <ul>
@@ -166,7 +166,7 @@ collapse action if it returns false.</p> %}
 
 <p>Defaults to <a href="#!/api/Ext.panel.Panel-cfg-collapseDirection" rel="Ext.panel.Panel-cfg-collapseDirection" class="docClass">collapseDirection</a>.</p> %}
     }
-    {- animate: [bool Js.t]
+    {- animate: [bool Js.t] (optional)
     {% <p>True to animate the transition, else false (defaults to the value of the
 <a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config)</p> %}
     }
@@ -182,7 +182,7 @@ collapse action if it returns false.</p> %}
 cancel the expand action if it returns false.</p> %}
     
     {b Parameters}:
-    {ul {- animate: [bool Js.t]
+    {ul {- animate: [bool Js.t] (optional)
     {% <p>True to animate the transition, else false (defaults to the value of the
 <a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config)</p> %}
     }
@@ -193,11 +193,11 @@ cancel the expand action if it returns false.</p> %}
     }
     }
     *)
-  method getCollapsed : 'a Js.t Js.meth
+  method getCollapsed : _ Js.t Js.meth
   (** {% <p>Returns the current collapsed state of the panel.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>False when not collapsed, otherwise the value of <a href="#!/api/Ext.panel.Panel-cfg-collapseDirection" rel="Ext.panel.Panel-cfg-collapseDirection" class="docClass">collapseDirection</a>.</p> %}
     }
     }
@@ -205,7 +205,7 @@ cancel the expand action if it returns false.</p> %}
   method getHeader : unit Js.meth
   (** {% <p>Gets the <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">Header</a> for this panel.</p> %}
     *)
-  method getState : 'a Js.t Js.meth
+  method getState : _ Js.t Js.meth
   (** {% <p>The supplied default state gathering method for the AbstractComponent class.</p>
 
 <p>This method returns dimension settings such as <code>flex</code>, <code>anchor</code>, <code>width</code> and <code>height</code> along with <code>collapsed</code>
@@ -234,7 +234,7 @@ topmost participant in the layout run.</p> %}
 <p>Returns true if this component is visible.</p> %}
     
     {b Parameters}:
-    {ul {- deep: [bool Js.t]
+    {ul {- deep: [bool Js.t] (optional)
     {% <p>Pass <code>true</code> to interrogate the visibility status of all parent Containers to
 determine whether this Component is truly visible to the user.</p>
 
@@ -250,8 +250,8 @@ dynamically laid out UIs in a hidden Container before showing them.</p> %}
     }
     }
     *)
-  method onHide : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>inherit docs</p>
 
 <p>Possibly animates down to a target element.</p>
@@ -262,11 +262,11 @@ calling the superclass’s onHide, the Component will be hidden.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-event-hide" rel="Ext.panel.Panel-event-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
@@ -291,8 +291,8 @@ Component upon remove.</p> %}
     }
     }
     *)
-  method onShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>inherit docs</p>
 
 <p>Allows addition of behavior to the show operation. After
@@ -303,19 +303,19 @@ calling the superclass's onShow, the Component will be visible.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-event-show" rel="Ext.panel.Panel-event-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
-  method setBorder : 'a Js.t -> unit Js.meth
+  method setBorder : _ Js.t -> unit Js.meth
   (** {% <p>inherit docs</p> %}
     
     {b Parameters}:
-    {ul {- border: ['a Js.t]
+    {ul {- border: [_ Js.t]
     {% <p>The border, see <a href="#!/api/Ext.panel.Panel-cfg-border" rel="Ext.panel.Panel-cfg-border" class="docClass">border</a>. If a falsey value is passed
 the border will be removed.</p> %}
     }
@@ -389,21 +389,21 @@ object('self)
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.beforeDestroy] *)
-  method onHide : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onHide] *)
   method onRemoved : ('self Js.t, bool Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onRemoved] *)
-  method onShow : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
   method animCollapse : bool Js.t Js.prop
   (** {% <p><code>true</code> to animate the transition when the panel is collapsed, <code>false</code> to skip the animation (defaults to <code>true</code>
 if the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> class is available, otherwise <code>false</code>). May also be specified as the animation
 duration in milliseconds.</p> %}
     *)
-  method bbar : 'a Js.t Js.prop
+  method bbar : _ Js.t Js.prop
   (** {% <p>Convenience config. Short for 'Bottom Bar'.</p>
 
 <pre><code>bbar: [
@@ -429,7 +429,7 @@ duration in milliseconds.</p> %}
 <p><strong>NOTE:</strong> The prefered way to specify toolbars is to use the dockedItems config. Instead of buttonAlign you
 would add the layout: { pack: 'start' | 'center' | 'end' } option to the dockedItem config.</p> %}
     *)
-  method buttons : 'a Js.t Js.prop
+  method buttons : _ Js.t Js.prop
   (** {% <p>Convenience config used for adding buttons docked to the bottom of the panel. This is a
 synonym for the <a href="#!/api/Ext.panel.Panel-cfg-fbar" rel="Ext.panel.Panel-cfg-fbar" class="docClass">fbar</a> config.</p>
 
@@ -539,7 +539,7 @@ area. False to keep the panel sized either statically, or by an owning layout ma
     
     Defaults to: [false]
     *)
-  method dockedItems : 'a Js.t Js.prop
+  method dockedItems : _ Js.t Js.prop
   (** {% <p>A component or series of components to be added as docked items to this panel. The docked items can be docked to
 either the top, right, left or bottom of a panel. This is typically used for things like toolbars or tab bars:</p>
 
@@ -554,7 +554,7 @@ either the top, right, left or bottom of a panel. This is typically used for thi
 });
 </code></pre> %}
     *)
-  method fbar : 'a Js.t Js.prop
+  method fbar : _ Js.t Js.prop
   (** {% <p>Convenience config used for adding items to the bottom of the panel. Short for Footer Bar.</p>
 
 <pre><code>fbar: [
@@ -598,7 +598,7 @@ false to force the user to fully expand a collapsed region by clicking the expan
     
     Defaults to: [true]
     *)
-  method header : 'a Js.t Js.prop
+  method header : _ Js.t Js.prop
   (** {% <p>Pass as <code>false</code> to prevent a Header from being created and shown.</p>
 
 <p>Pass as a config object (optionally containing an <code>xtype</code>) to custom-configure this Panel's header.</p> %}
@@ -619,7 +619,7 @@ false to force the user to fully expand a collapsed region by clicking the expan
   method iconCls : Js.js_string Js.t Js.prop
   (** {% <p>CSS class for an icon in the header. Used for displaying an icon to the left of a title.</p> %}
     *)
-  method lbar : 'a Js.t Js.prop
+  method lbar : _ Js.t Js.prop
   (** {% <p>Convenience config. Short for 'Left Bar' (left-docked, vertical toolbar).</p>
 
 <pre><code>lbar: [
@@ -663,7 +663,7 @@ their parent container.</p> %}
 is done automatically for you). Otherwise it is undefined. If you manually add rounded corners to a panel header
 which does not have frame:true, this will need to be set to true.</p> %}
     *)
-  method placeholder : 'a Js.t Js.prop
+  method placeholder : _ Js.t Js.prop
   (** {% <p><strong>Important: This config is only effective for <a href="#!/api/Ext.panel.Panel-cfg-collapsible" rel="Ext.panel.Panel-cfg-collapsible" class="docClass">collapsible</a> Panels which are direct child items of a
 <a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">border layout</a> when not using the <code>'header'</code> <a href="#!/api/Ext.panel.Panel-cfg-collapseMode" rel="Ext.panel.Panel-cfg-collapseMode" class="docClass">collapseMode</a>.</strong></p>
 
@@ -674,7 +674,7 @@ collapsed by a <a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.cont
   (** {% <p>The <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">mode</a> for hiding collapsed panels when
 using <a href="#!/api/Ext.panel.Panel-cfg-collapseMode" rel="Ext.panel.Panel-cfg-collapseMode" class="docClass">collapseMode</a> "placeholder".</p> %}
     *)
-  method rbar : 'a Js.t Js.prop
+  method rbar : _ Js.t Js.prop
   (** {% <p>Convenience config. Short for 'Right Bar' (right-docked, vertical toolbar).</p>
 
 <pre><code>rbar: [
@@ -693,7 +693,7 @@ using <a href="#!/api/Ext.panel.Panel-cfg-collapseMode" rel="Ext.panel.Panel-cfg
 }]
 </code></pre> %}
     *)
-  method tbar : 'a Js.t Js.prop
+  method tbar : _ Js.t Js.prop
   (** {% <p>Convenience config. Short for 'Top Bar'.</p>
 
 <pre><code>tbar: [
@@ -732,7 +732,7 @@ the header bar, <code>false</code>) to allow it only by clicking to tool button)
     
     Defaults to: [false]
     *)
-  method tools : 'a Js.t Js.prop
+  method tools : _ Js.t Js.prop
   (** {% <p>An array of <a href="#!/api/Ext.panel.Tool" rel="Ext.panel.Tool" class="docClass">Ext.panel.Tool</a> configs/instances to be added to the header tool area. The tools are stored as
 child components of the header container. They can be accessed using <a href="#!/api/Ext.panel.Panel-method-down" rel="Ext.panel.Panel-method-down" class="docClass">down</a> and {<a href="#!/api/Ext.panel.Panel-method-query" rel="Ext.panel.Panel-method-query" class="docClass">query</a>}, as well as the
 other component methods. The toggle tool is automatically created if <a href="#!/api/Ext.panel.Panel-cfg-collapsible" rel="Ext.panel.Panel-cfg-collapsible" class="docClass">collapsible</a> is set to true.</p>
@@ -772,7 +772,7 @@ object
   inherit Ext_container_Container.events
   inherit Ext_panel_AbstractPanel.events
   
-  method beforeclose : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforeclose : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before the user closes the panel. Return false from any listener to stop the close event being
 fired</p> %}
@@ -781,13 +781,13 @@ fired</p> %}
     {ul {- panel: [#Ext_panel_Panel.t Js.t]
     {% <p>The Panel object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforecollapse : (t Js.t -> Js.js_string Js.t -> bool Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecollapse : (t Js.t -> Js.js_string Js.t -> bool Js.t -> _ Js.t
+    -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before this panel is collapsed. Return false to prevent the collapse.</p> %}
     
     {b Parameters}:
@@ -807,12 +807,12 @@ fired</p> %}
     {- animate: [bool Js.t]
     {% <p>True if the collapse is animated, else false.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforeexpand : (t Js.t -> bool Js.t -> 'a Js.t -> unit) Js.callback
+  method beforeexpand : (t Js.t -> bool Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before this panel is expanded. Return false to prevent the expand.</p> %}
     
@@ -823,49 +823,49 @@ fired</p> %}
     {- animate: [bool Js.t]
     {% <p>True if the expand is animated, else false.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method close : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method close : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the user closes the panel.</p> %}
     
     {b Parameters}:
     {ul {- panel: [#Ext_panel_Panel.t Js.t]
     {% <p>The Panel object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method collapse : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method collapse : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after this Panel hass collapsed.</p> %}
     
     {b Parameters}:
     {ul {- p: [#Ext_panel_Panel.t Js.t]
     {% <p>The Panel that has been collapsed.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method expand : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method expand : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after this Panel has expanded.</p> %}
     
     {b Parameters}:
     {ul {- p: [#Ext_panel_Panel.t Js.t]
     {% <p>The Panel that has been expanded.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method iconchange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the Panel icon has been set or changed.</p> %}
     
     {b Parameters}:
@@ -878,13 +878,13 @@ fired</p> %}
     {- oldIcon: [Js.js_string Js.t]
     {% <p>The path to the previous panel icon image.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method iconclschange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the Panel iconCls has been set or changed.</p> %}
     
     {b Parameters}:
@@ -897,13 +897,13 @@ fired</p> %}
     {- oldIconCls: [Js.js_string Js.t]
     {% <p>The previous panel iconCls.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method titlechange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the Panel title has been set or changed.</p> %}
     
     {b Parameters}:
@@ -916,7 +916,7 @@ fired</p> %}
     {- oldTitle: [Js.js_string Js.t]
     {% <p>The previous panel title.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

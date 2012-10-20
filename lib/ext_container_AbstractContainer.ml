@@ -5,16 +5,16 @@ object('self)
   inherit Ext_Component.t
   
   method items : #Ext_util_AbstractMixedCollection.t Js.t Js.prop
-  method add : 'a Js.t -> 'b Js.t Js.meth
+  method add : _ Js.t -> _ Js.t Js.meth
   method afterLayout : #Ext_layout_container_Container.t Js.t -> unit Js.meth
   method beforeLayout : unit Js.meth
-  method cascade : 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
+  method cascade : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
   method child : Js.js_string Js.t Js.optdef -> unit Js.meth
   method disable_chainable : bool Js.t Js.optdef -> 'self Js.t Js.meth
   method doLayout : 'self Js.t Js.meth
   method down : Js.js_string Js.t Js.optdef -> unit Js.meth
-  method getComponent : 'a Js.t -> #Ext_Component.t Js.t Js.meth
+  method getComponent : _ Js.t -> #Ext_Component.t Js.t Js.meth
   method getLayout : #Ext_layout_container_Container.t Js.t Js.meth
   method insert : Js.number Js.t -> #Ext_Component.t Js.t ->
     #Ext_Component.t Js.t Js.meth
@@ -26,10 +26,10 @@ object('self)
   method onRemove : #Ext_Component.t Js.t -> bool Js.t -> unit Js.meth
   method query : Js.js_string Js.t Js.optdef ->
     Ext_Component.t Js.js_array Js.t Js.meth
-  method queryBy : 'a Js.callback -> 'b Js.t Js.optdef ->
+  method queryBy : _ Js.callback -> _ Js.t Js.optdef ->
     Ext_Component.t Js.js_array Js.t Js.meth
   method queryById : Js.js_string Js.t -> #Ext_Component.t Js.t Js.meth
-  method remove : 'a Js.t -> bool Js.t Js.optdef -> #Ext_Component.t Js.t
+  method remove : _ Js.t -> bool Js.t Js.optdef -> #Ext_Component.t Js.t
     Js.meth
   method removeAll : bool Js.t Js.optdef -> Ext_Component.t Js.js_array Js.t
     Js.meth
@@ -52,15 +52,15 @@ object('self)
     Js.meth_callback Js.writeonly_prop
   method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
-  method activeItem : 'a Js.t Js.prop
+  method activeItem : _ Js.t Js.prop
   method autoDestroy : bool Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method bubbleEvents : Js.js_string Js.t Js.js_array Js.t Js.prop
   method defaultType : Js.js_string Js.t Js.prop
-  method defaults : 'a Js.t Js.prop
+  method defaults : _ Js.t Js.prop
   method detachOnRemove : bool Js.t Js.prop
-  method items : 'a Js.t Js.prop
-  method layout : 'a Js.t Js.prop
+  method items : _ Js.t Js.prop
+  method layout : _ Js.t Js.prop
   method renderTpl_str : Js.js_string Js.t Js.prop
   method suspendLayout : bool Js.t Js.prop
   
@@ -72,15 +72,15 @@ object
   inherit Ext_AbstractComponent.events
   inherit Ext_Component.events
   
-  method add : (t Js.t -> #Ext_Component.t Js.t -> Js.number Js.t -> 'a Js.t
+  method add : (t Js.t -> #Ext_Component.t Js.t -> Js.number Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   method afterlayout : (t Js.t -> #Ext_layout_container_Container.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeadd : (t Js.t -> #Ext_Component.t Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method beforeremove : (t Js.t -> #Ext_Component.t Js.t -> 'a Js.t -> unit)
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforeremove : (t Js.t -> #Ext_Component.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method remove : (t Js.t -> #Ext_Component.t Js.t -> 'a Js.t -> unit)
+  method remove : (t Js.t -> #Ext_Component.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   
 end

@@ -57,7 +57,7 @@ cache-buster param to the end of the url. Subclasses may need to perform additio
     }
     }
     *)
-  method create : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
+  method create : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t ->
     unit Js.meth
   (** {% <p>in a ServerProxy all four CRUD operations are executed in the same manner, so we delegate to doRequest in each case</p>
 
@@ -67,16 +67,16 @@ cache-buster param to the end of the url. Subclasses may need to perform additio
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
     *)
-  method destroy : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
+  method destroy : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t ->
     unit Js.meth
   (** {% <p>Performs the given destroy operation.</p> %}
     
@@ -84,17 +84,17 @@ successful or not)</p> %}
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
     *)
-  method doRequest : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t
-    -> unit Js.meth
+  method doRequest : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t ->
+    unit Js.meth
   (** {% <p>In ServerProxy subclasses, the <a href="#!/api/Ext.data.proxy.Server-method-create" rel="Ext.data.proxy.Server-method-create" class="docClass">create</a>, <a href="#!/api/Ext.data.proxy.Server-method-read" rel="Ext.data.proxy.Server-method-read" class="docClass">read</a>, <a href="#!/api/Ext.data.proxy.Server-method-update" rel="Ext.data.proxy.Server-method-update" class="docClass">update</a> and <a href="#!/api/Ext.data.proxy.Server-method-destroy" rel="Ext.data.proxy.Server-method-destroy" class="docClass">destroy</a> methods all
 pass through to doRequest. Each ServerProxy subclass must implement the doRequest method - see <a href="#!/api/Ext.data.proxy.JsonP" rel="Ext.data.proxy.JsonP" class="docClass">Ext.data.proxy.JsonP</a> and <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a> for examples. This method carries the same signature as
 each of the methods that delegate to it.</p> %}
@@ -103,10 +103,10 @@ each of the methods that delegate to it.</p> %}
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>The callback function to call when the Operation has completed</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>The scope in which to execute the callback</p> %}
     }
     }
@@ -143,35 +143,35 @@ this simply JSON-encodes the sorter data</p> %}
     }
     }
     *)
-  method read : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
-    unit Js.meth
+  method read : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t -> unit
+    Js.meth
   (** {% <p>Performs the given read operation.</p> %}
     
     {b Parameters}:
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
     *)
-  method setExtraParam : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method setExtraParam : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Sets a value in the underlying <a href="#!/api/Ext.data.proxy.Server-cfg-extraParams" rel="Ext.data.proxy.Server-cfg-extraParams" class="docClass">extraParams</a>.</p> %}
     
     {b Parameters}:
     {ul {- name: [Js.js_string Js.t]
     {% <p>The key for the new value</p> %}
     }
-    {- value: ['a Js.t] {% <p>The value</p> %}
+    {- value: [_ Js.t] {% <p>The value</p> %}
     }
     }
     *)
-  method update : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
+  method update : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t ->
     unit Js.meth
   (** {% <p>Performs the given update operation.</p> %}
     
@@ -179,11 +179,11 @@ successful or not)</p> %}
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
@@ -199,7 +199,7 @@ object('self)
   method afterRequest : ('self Js.t, Ext_data_Request.t Js.t -> bool Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterRequest] *)
-  method api : 'a Js.t Js.prop
+  method api : _ Js.t Js.prop
   (** {% <p>Specific urls to call on CRUD action methods "create", "read", "update" and "destroy". Defaults to:</p>
 
 <pre><code>api: {
@@ -238,7 +238,7 @@ true.</strong> Defaults to 'dir'.</p> %}
     
     Defaults to: ['dir']
     *)
-  method extraParams : 'a Js.t Js.prop
+  method extraParams : _ Js.t Js.prop
   (** {% <p>Extra parameters that will be included on every request. Individual requests with params of the same name
 will override these params when they are in conflict.</p> %}
     *)
@@ -319,21 +319,21 @@ object
   inherit Ext_Base.events
   inherit Ext_data_proxy_Proxy.events
   
-  method _exception : (#Ext_data_proxy_Proxy.t Js.t -> 'a Js.t ->
-    Ext_data_Operation.t Js.t -> 'b Js.t -> unit) Js.callback
+  method _exception : (#Ext_data_proxy_Proxy.t Js.t -> _ Js.t ->
+    Ext_data_Operation.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the server returns an exception</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_data_proxy_Proxy.t Js.t]
     }
-    {- response: ['a Js.t]
+    {- response: [_ Js.t]
     {% <p>The response from the AJAX request</p> %}
     }
     {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The operation that triggered request</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

@@ -3,7 +3,7 @@ object('self)
   inherit Ext_Base.t
   
   method getRecordData : Ext_data_Model.t Js.t ->
-    Ext_data_Operation.t Js.t Js.optdef -> 'a Js.t Js.meth
+    Ext_data_Operation.t Js.t Js.optdef -> _ Js.t Js.meth
   method write : Ext_data_Request.t Js.t -> Ext_data_Request.t Js.t Js.meth
   
 end

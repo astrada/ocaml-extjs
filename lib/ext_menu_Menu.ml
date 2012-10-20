@@ -12,15 +12,15 @@ object('self)
   method parentMenu : 'self Js.t Js.prop
   method afterComponentLayout : Js.number Js.t -> Js.number Js.t ->
     Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  method canActivateItem : 'a Js.t -> bool Js.t Js.meth
-  method deactivateActiveItem : 'a Js.t -> unit Js.meth
+  method canActivateItem : _ Js.t -> bool Js.t Js.meth
+  method deactivateActiveItem : _ Js.t -> unit Js.meth
   method getBubbleTarget_container : #Ext_container_Container.t Js.t Js.meth
-  method hide_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method hide_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   method onDestroy : unit Js.meth
-  method show_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
-  method showBy : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method show_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method showBy : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
   
 end
@@ -64,13 +64,13 @@ object
   inherit Ext_panel_Panel.events
   
   method click : (t Js.t -> #Ext_Component.t Js.t -> Ext_EventObject.t Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method mouseenter : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method mouseenter : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method mouseleave : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method mouseleave : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   method mouseover : (t Js.t -> #Ext_Component.t Js.t ->
-    Ext_EventObject.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

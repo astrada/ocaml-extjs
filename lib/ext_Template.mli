@@ -62,34 +62,32 @@ object('self)
     
     Defaults to: [true]
     *)
-  method append : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
-    Js.meth
+  method append : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Applies the supplied <code>values</code> to the template and appends the new node(s) to the specified <code>el</code>.</p>
 
 <p>For example usage see <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template class docs</a>.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
-    {% <p>The context element</p> %}
+    {ul {- el: [_ Js.t] {% <p>The context element</p> %}
     }
-    {- values: ['a Js.t]
+    {- values: [_ Js.t]
     {% <p>The template values. See <a href="#!/api/Ext.Template-method-applyTemplate" rel="Ext.Template-method-applyTemplate" class="docClass">applyTemplate</a> for details.</p> %}
     }
-    {- returnElement: [bool Js.t]
+    {- returnElement: [bool Js.t] (optional)
     {% <p>true to return an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The new node or Element</p> %}
+    {ul {- [_ Js.t] {% <p>The new node or Element</p> %}
     }
     }
     *)
-  method apply : 'a Js.t -> Js.js_string Js.t Js.meth
+  method apply : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Returns an HTML fragment of this template with the specified values applied.</p> %}
     
     {b Parameters}:
-    {ul {- values: ['a Js.t]
+    {ul {- values: [_ Js.t]
     {% <p>The template values. Can be an array if your params are numeric:</p>
 
 
@@ -118,31 +116,31 @@ tpl.apply({name: 'John', age: 25});
     }
     }
     *)
-  method applyOut : 'a Js.t -> 'b Js.js_array Js.t -> 'c Js.js_array Js.t
+  method applyOut : _ Js.t -> _ Js.js_array Js.t -> _ Js.js_array Js.t
     Js.meth
   (** {% <p>Appends the result of this template to the provided output array.</p> %}
     
     {b Parameters}:
-    {ul {- values: ['a Js.t]
+    {ul {- values: [_ Js.t]
     {% <p>The template values. See <a href="#!/api/Ext.Template-method-apply" rel="Ext.Template-method-apply" class="docClass">apply</a>.</p> %}
     }
-    {- out: ['a Js.js_array Js.t]
+    {- out: [_ Js.js_array Js.t]
     {% <p>The array to which output is pushed.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t] {% <p>The given out array.</p> %}
+    {ul {- [_ Js.js_array Js.t] {% <p>The given out array.</p> %}
     }
     }
     *)
-  method applyTemplate : 'a Js.t -> Js.js_string Js.t Js.meth
+  method applyTemplate : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.Template-method-apply" rel="Ext.Template-method-apply" class="docClass">apply</a>.</p>
 
 <p>Returns an HTML fragment of this template with the specified values applied.</p> %}
     
     {b Parameters}:
-    {ul {- values: ['a Js.t]
+    {ul {- values: [_ Js.t]
     {% <p>The template values. Can be an array if your params are numeric:</p>
 
 
@@ -179,87 +177,83 @@ tpl.apply({name: 'John', age: 25});
     }
     }
     *)
-  method insertAfter : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method insertAfter : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Applies the supplied values to the template and inserts the new node(s) after el.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
-    {% <p>The context element</p> %}
+    {ul {- el: [_ Js.t] {% <p>The context element</p> %}
     }
-    {- values: ['a Js.t]
+    {- values: [_ Js.t]
     {% <p>The template values. See <a href="#!/api/Ext.Template-method-applyTemplate" rel="Ext.Template-method-applyTemplate" class="docClass">applyTemplate</a> for details.</p> %}
     }
-    {- returnElement: [bool Js.t]
+    {- returnElement: [bool Js.t] (optional)
     {% <p>true to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The new node or Element</p> %}
+    {ul {- [_ Js.t] {% <p>The new node or Element</p> %}
     }
     }
     *)
-  method insertBefore : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method insertBefore : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Applies the supplied values to the template and inserts the new node(s) before el.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
-    {% <p>The context element</p> %}
+    {ul {- el: [_ Js.t] {% <p>The context element</p> %}
     }
-    {- values: ['a Js.t]
+    {- values: [_ Js.t]
     {% <p>The template values. See <a href="#!/api/Ext.Template-method-applyTemplate" rel="Ext.Template-method-applyTemplate" class="docClass">applyTemplate</a> for details.</p> %}
     }
-    {- returnElement: [bool Js.t]
+    {- returnElement: [bool Js.t] (optional)
     {% <p>true to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The new node or Element</p> %}
+    {ul {- [_ Js.t] {% <p>The new node or Element</p> %}
     }
     }
     *)
-  method insertFirst : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method insertFirst : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Applies the supplied values to the template and inserts the new node(s) as the first child of el.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
-    {% <p>The context element</p> %}
+    {ul {- el: [_ Js.t] {% <p>The context element</p> %}
     }
-    {- values: ['a Js.t]
+    {- values: [_ Js.t]
     {% <p>The template values. See <a href="#!/api/Ext.Template-method-applyTemplate" rel="Ext.Template-method-applyTemplate" class="docClass">applyTemplate</a> for details.</p> %}
     }
-    {- returnElement: [bool Js.t]
+    {- returnElement: [bool Js.t] (optional)
     {% <p>true to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The new node or Element</p> %}
+    {ul {- [_ Js.t] {% <p>The new node or Element</p> %}
     }
     }
     *)
-  method overwrite : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method overwrite : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Applies the supplied values to the template and overwrites the content of el with the new node(s).</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
-    {% <p>The context element</p> %}
+    {ul {- el: [_ Js.t] {% <p>The context element</p> %}
     }
-    {- values: ['a Js.t]
+    {- values: [_ Js.t]
     {% <p>The template values. See <a href="#!/api/Ext.Template-method-applyTemplate" rel="Ext.Template-method-applyTemplate" class="docClass">applyTemplate</a> for details.</p> %}
     }
-    {- returnElement: [bool Js.t]
+    {- returnElement: [bool Js.t] (optional)
     {% <p>true to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The new node or Element</p> %}
+    {ul {- [_ Js.t] {% <p>The new node or Element</p> %}
     }
     }
     *)
@@ -269,7 +263,7 @@ tpl.apply({name: 'John', age: 25});
     {b Parameters}:
     {ul {- html: [Js.js_string Js.t]
     }
-    {- compile: [bool Js.t]
+    {- compile: [bool Js.t] (optional)
     {% <p>True to compile the template.</p> %}
     }
     }
@@ -309,14 +303,14 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method from : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method from : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Creates a template from the passed element's value (<em>display:none</em> textarea, preferred) or innerHTML.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>A DOM element or its id</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t] (optional)
     {% <p>Config object</p> %}
     }
     }
@@ -332,7 +326,7 @@ end
 val static : statics Js.t
 (** Static instance. *)
 
-val from : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t
+val from : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t
 (** See method [statics.from] *)
 
 val of_configs : configs Js.t -> t Js.t

@@ -7,7 +7,7 @@ object('self)
   method centerFrame : bool Js.t Js.prop
   method resizeFrame : bool Js.t Js.prop
   method applyConfig : unit Js.meth
-  method b4MouseDown : 'a Js.t -> unit Js.meth
+  method b4MouseDown : _ Js.t -> unit Js.meth
   method createFrame : unit Js.meth
   method endDrag : Dom_html.event Js.t -> unit Js.meth
   method initFrame : unit Js.meth

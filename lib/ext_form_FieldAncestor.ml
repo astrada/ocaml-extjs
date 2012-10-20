@@ -18,7 +18,7 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method fieldDefaults : 'a Js.t Js.prop
+  method fieldDefaults : _ Js.t Js.prop
   
 end
 
@@ -27,9 +27,9 @@ object
   inherit Ext_Base.events
   
   method fielderrorchange : (t Js.t -> Ext_form_Labelable.t Js.t ->
-    Js.js_string Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Js.js_string Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method fieldvaliditychange : (t Js.t -> Ext_form_Labelable.t Js.t ->
-    Js.js_string Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Js.js_string Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

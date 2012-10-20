@@ -46,11 +46,11 @@ the server.</p> %}
     }
     }
     *)
-  method getError : 'a Js.t Js.meth
+  method getError : _ Js.t Js.meth
   (** {% <p>Returns the error string or object that was set using <a href="#!/api/Ext.data.Operation-method-setException" rel="Ext.data.Operation-method-setException" class="docClass">setException</a></p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The error object</p> %}
+    {ul {- [_ Js.t] {% <p>The error object</p> %}
     }
     }
     *)
@@ -104,11 +104,11 @@ instances as well as meta data such as number of instances fetched, number avail
   method setCompleted : unit Js.meth
   (** {% <p>Marks the Operation as completed.</p> %}
     *)
-  method setException : 'a Js.t Js.optdef -> unit Js.meth
+  method setException : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Marks the Operation as having experienced an exception. Can be supplied with an option error message/object.</p> %}
     
     {b Parameters}:
-    {ul {- error: ['a Js.t] {% <p>error string/object</p> %}
+    {ul {- error: [_ Js.t] (optional) {% <p>error string/object</p> %}
     }
     }
     *)
@@ -136,10 +136,10 @@ object('self)
   method action : Js.js_string Js.t Js.prop
   (** {% <p>The action being performed by this Operation. Should be one of 'create', 'read', 'update' or 'destroy'.</p> %}
     *)
-  method batch : 'a Js.t Js.prop
+  method batch : _ Js.t Js.prop
   (** {% <p>The batch that this Operation is a part of.</p> %}
     *)
-  method callback : 'a Js.callback Js.prop
+  method callback : _ Js.callback Js.prop
   (** {% <p>Function to execute when operation completed.</p> %}
     *)
   method filters : Ext_util_Filter.t Js.js_array Js.t Js.prop
@@ -151,10 +151,10 @@ object('self)
   method limit : Js.number Js.t Js.prop
   (** {% <p>The number of records to load. Used on 'read' actions when paging is being used.</p> %}
     *)
-  method params : 'a Js.t Js.prop
+  method params : _ Js.t Js.prop
   (** {% <p>Parameters to pass along with the request when performing the operation.</p> %}
     *)
-  method scope : 'a Js.t Js.prop
+  method scope : _ Js.t Js.prop
   (** {% <p>Scope for the <a href="#!/api/Ext.data.Operation-cfg-callback" rel="Ext.data.Operation-cfg-callback" class="docClass">callback</a> function.</p> %}
     *)
   method sorters : Ext_util_Sorter.t Js.js_array Js.t Js.prop

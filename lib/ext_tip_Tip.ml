@@ -10,7 +10,7 @@ object('self)
   
   method initComponent : unit Js.meth
   method showAt_arr : Js.number Js.t Js.js_array Js.t -> unit Js.meth
-  method showBy : 'a Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
+  method showBy : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
   
 end
 
@@ -32,13 +32,13 @@ object('self)
   method closeAction : Js.js_string Js.t Js.prop
   method constrainPosition : bool Js.t Js.prop
   method defaultAlign : Js.js_string Js.t Js.prop
-  method floating_obj : 'a Js.t Js.prop
+  method floating_obj : _ Js.t Js.prop
   method focusOnToFront : bool Js.t Js.prop
   method frameHeader : bool Js.t Js.prop
   method hidden : bool Js.t Js.prop
   method maxWidth : Js.number Js.t Js.prop
   method minWidth : Js.number Js.t Js.prop
-  method shadow : 'a Js.t Js.prop
+  method shadow : _ Js.t Js.prop
   method width : Js.number Js.t Js.prop
   
 end

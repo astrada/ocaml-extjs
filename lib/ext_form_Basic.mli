@@ -71,11 +71,11 @@ object('self)
   method owner : #Ext_container_Container.t Js.t Js.prop
   (** {% <p>The container component to which this BasicForm is attached.</p> %}
     *)
-  method applyIfToFields : 'a Js.t -> 'self Js.t Js.meth
+  method applyIfToFields : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Calls <a href="#!/api/Ext-method-applyIf" rel="Ext-method-applyIf" class="docClass">Ext.applyIf</a> for all field in this form with the passed object.</p> %}
     
     {b Parameters}:
-    {ul {- obj: ['a Js.t]
+    {ul {- obj: [_ Js.t]
     {% <p>The object to be applied</p> %}
     }
     }
@@ -85,11 +85,11 @@ object('self)
     }
     }
     *)
-  method applyToFields : 'a Js.t -> 'self Js.t Js.meth
+  method applyToFields : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Calls <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a> for all fields in this form with the passed object.</p> %}
     
     {b Parameters}:
-    {ul {- obj: ['a Js.t]
+    {ul {- obj: [_ Js.t]
     {% <p>The object to be applied</p> %}
     }
     }
@@ -120,15 +120,15 @@ when an individual field's validity changes.</p> %}
   method destroy : unit Js.meth
   (** {% <p>Destroys this object.</p> %}
     *)
-  method doAction : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method doAction : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Performs a predefined action (an implementation of <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>) to perform application-
 specific processing.</p> %}
     
     {b Parameters}:
-    {ul {- action: ['a Js.t]
+    {ul {- action: [_ Js.t]
     {% <p>The name of the predefined action type, or instance of <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> to perform.</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>The options to pass to the <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> that will get created,
 if the action argument is a String.</p>
 
@@ -160,7 +160,7 @@ config options):</p> %}
     }
     }
     *)
-  method getFieldValues : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method getFieldValues : bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Retrieves the fields in the form as a set of key/value pairs, using their
 <a href="#!/api/Ext.form.field.Field-method-getModelData" rel="Ext.form.field.Field-method-getModelData" class="docClass">getModelData()</a> method to collect the values.
 If multiple fields return values under the same name those values will be combined into an Array.
@@ -168,7 +168,7 @@ This is similar to <a href="#!/api/Ext.form.Basic-method-getValues" rel="Ext.for
 (e.g. Date objects for date fields) while getValues returns only String values for submission.</p> %}
     
     {b Parameters}:
-    {ul {- dirtyOnly: [bool Js.t]
+    {ul {- dirtyOnly: [bool Js.t] (optional)
     {% <p>If true, only fields that are dirty will be included in the result.</p> %}
      Defaults to: false
     }
@@ -192,7 +192,7 @@ This is similar to <a href="#!/api/Ext.form.Basic-method-getValues" rel="Ext.for
     }
     *)
   method getValues : bool Js.t Js.optdef -> bool Js.t Js.optdef ->
-    bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+    bool Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Retrieves the fields in the form as a set of key/value pairs, using their
 <a href="#!/api/Ext.form.field.Field-method-getSubmitData" rel="Ext.form.field.Field-method-getSubmitData" class="docClass">getSubmitData()</a> method to collect the values.
 If multiple fields return values under the same name those values will be combined into an Array.
@@ -201,20 +201,20 @@ collects only String values for submission, while getFieldValues collects type-s
 values (e.g. Date objects for date fields.)</p> %}
     
     {b Parameters}:
-    {ul {- asString: [bool Js.t]
+    {ul {- asString: [bool Js.t] (optional)
     {% <p>If true, will return the key/value collection as a single
 URL-encoded param string.</p> %}
      Defaults to: false
     }
-    {- dirtyOnly: [bool Js.t]
+    {- dirtyOnly: [bool Js.t] (optional)
     {% <p>If true, only fields that are dirty will be included in the result.</p> %}
      Defaults to: false
     }
-    {- includeEmptyText: [bool Js.t]
+    {- includeEmptyText: [bool Js.t] (optional)
     {% <p>If true, the configured emptyText of empty fields will be used.</p> %}
      Defaults to: false
     }
-    {- useDataValues: [bool Js.t]
+    {- useDataValues: [bool Js.t] (optional)
     {% <p>If true, the <a href="#!/api/Ext.form.field.Field-method-getModelData" rel="Ext.form.field.Field-method-getModelData" class="docClass">getModelData</a>
 method is used to retrieve values from fields, otherwise the <a href="#!/api/Ext.form.field.Field-method-getSubmitData" rel="Ext.form.field.Field-method-getSubmitData" class="docClass">getSubmitData</a>
 method is used.</p> %}
@@ -274,11 +274,11 @@ use <a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-m
     }
     }
     *)
-  method load : 'a Js.t -> 'self Js.t Js.meth
+  method load : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Shortcut to <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">do</a> a <a href="#!/api/Ext.form.action.Load" rel="Ext.form.action.Load" class="docClass">load action</a>.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">doAction</a> for details)</p> %}
     }
     }
@@ -304,11 +304,11 @@ See also <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basi
     }
     }
     *)
-  method markInvalid : 'a Js.t -> 'self Js.t Js.meth
+  method markInvalid : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Mark fields in this form invalid in bulk.</p> %}
     
     {b Parameters}:
-    {ul {- errors: ['a Js.t]
+    {ul {- errors: [_ Js.t]
     {% <p>Either an array in the form <code>[{id:'fieldId', msg:'The message'}, ...]</code>,
 an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.data.Errors" rel="Ext.data.Errors" class="docClass">Ext.data.Errors</a> object.</p> %}
     }
@@ -327,11 +327,11 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
     }
     }
     *)
-  method setValues : 'a Js.t -> 'self Js.t Js.meth
+  method setValues : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Set values for fields in this form in bulk.</p> %}
     
     {b Parameters}:
-    {ul {- values: ['a Js.t]
+    {ul {- values: [_ Js.t]
     {% <p>Either an array in the form:</p>
 
 <pre><code>[{id:'clientName', value:'Fred. Olsen Lines'},
@@ -355,7 +355,7 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
     }
     }
     *)
-  method submit : 'a Js.t -> 'self Js.t Js.meth
+  method submit : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Shortcut to <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">do</a> a <a href="#!/api/Ext.form.action.Submit" rel="Ext.form.action.Submit" class="docClass">submit action</a>. This will use the
 <a href="#!/api/Ext.form.action.Submit" rel="Ext.form.action.Submit" class="docClass">AJAX submit action</a> by default. If the <a href="#!/api/Ext.form.Basic-cfg-standardSubmit" rel="Ext.form.Basic-cfg-standardSubmit" class="docClass">standardSubmit</a> config
 is enabled it will use a standard form element to submit, or if the <a href="#!/api/Ext.form.Basic-cfg-api" rel="Ext.form.Basic-cfg-api" class="docClass">api</a> config is present
@@ -404,7 +404,7 @@ it will use the <a href="#!/api/Ext.form.action.DirectLoad" rel="Ext.form.action
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">doAction</a> for details).</p> %}
     }
     }
@@ -419,7 +419,7 @@ it will use the <a href="#!/api/Ext.form.action.DirectLoad" rel="Ext.form.action
 If the record is not specified, it will attempt to update (if it exists) the record provided to loadRecord.</p> %}
     
     {b Parameters}:
-    {ul {- record: [Ext_data_Model.t Js.t]
+    {ul {- record: [Ext_data_Model.t Js.t] (optional)
     {% <p>The record to edit</p> %}
     }
     }
@@ -437,7 +437,7 @@ object('self)
   inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   
-  method api : 'a Js.t Js.prop
+  method api : _ Js.t Js.prop
   (** {% <p>If specified, load and submit actions will be handled with <a href="#!/api/Ext.form.action.DirectLoad" rel="Ext.form.action.DirectLoad" class="docClass">DirectLoad</a>
 and <a href="#!/api/Ext.form.action.DirectSubmit" rel="Ext.form.action.DirectSubmit" class="docClass">DirectSubmit</a>.  Methods which have been imported by
 <a href="#!/api/Ext.direct.Manager" rel="Ext.direct.Manager" class="docClass">Ext.direct.Manager</a> can be specified here to load and submit forms. API methods may also be
@@ -454,7 +454,7 @@ is invoked.  Submit actions will always use a standard form submit. The <code>fo
 (see Ext.direct.RemotingProvider#action) must be set on the associated server-side method which has
 been imported by <a href="#!/api/Ext.direct.Manager" rel="Ext.direct.Manager" class="docClass">Ext.direct.Manager</a>.</p> %}
     *)
-  method baseParams : 'a Js.t Js.prop
+  method baseParams : _ Js.t Js.prop
   (** {% <p>Parameters to pass with all requests. e.g. baseParams: <code>{id: '123', foo: 'bar'}</code>.</p>
 
 <p>Parameters are encoded as standard HTTP parameters using <a href="#!/api/Ext.Object-method-toQueryString" rel="Ext.Object-method-toQueryString" class="docClass">Ext.Object.toQueryString</a>.</p> %}
@@ -481,7 +481,7 @@ structure:</p>
   method _method : Js.js_string Js.t Js.prop
   (** {% <p>The request method to use (GET or POST) for form actions if one isn't supplied in the action options.</p> %}
     *)
-  method paramOrder : 'a Js.t Js.prop
+  method paramOrder : _ Js.t Js.prop
   (** {% <p>A list of params to be executed server side. Only used for the <a href="#!/api/Ext.form.Basic-cfg-api" rel="Ext.form.Basic-cfg-api" class="docClass">api</a> <code>load</code>
 configuration.</p>
 
@@ -528,7 +528,7 @@ when the form was first created.</p> %}
   (** {% <p>The URL to use for form actions if one isn't supplied in the
 <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">doAction</a> options.</p> %}
     *)
-  method waitMsgTarget : 'a Js.t Js.prop
+  method waitMsgTarget : _ Js.t Js.prop
   (** {% <p>By default wait messages are displayed with <a href="#!/api/Ext.MessageBox-method-wait" rel="Ext.MessageBox-method-wait" class="docClass">Ext.MessageBox.wait</a>. You can target a specific
 element by passing it or its id or mask the form itself by passing in true.</p> %}
     *)
@@ -545,7 +545,7 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method actioncomplete : (t Js.t -> Ext_form_action_Action.t Js.t -> 'a Js.t
+  method actioncomplete : (t Js.t -> Ext_form_action_Action.t Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an action is completed.</p> %}
     
@@ -555,13 +555,13 @@ object
     {- action: [Ext_form_action_Action.t Js.t]
     {% <p>The <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> that completed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method actionfailed : (t Js.t -> Ext_form_action_Action.t Js.t -> 'a Js.t
-    -> unit) Js.callback Js.writeonly_prop
+  method actionfailed : (t Js.t -> Ext_form_action_Action.t Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an action fails.</p> %}
     
     {b Parameters}:
@@ -570,13 +570,13 @@ object
     {- action: [Ext_form_action_Action.t Js.t]
     {% <p>The <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> that failed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforeaction : (t Js.t -> Ext_form_action_Action.t Js.t -> 'a Js.t
-    -> unit) Js.callback Js.writeonly_prop
+  method beforeaction : (t Js.t -> Ext_form_action_Action.t Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before any action is performed. Return false to cancel the action.</p> %}
     
     {b Parameters}:
@@ -585,12 +585,12 @@ object
     {- action: [Ext_form_action_Action.t Js.t]
     {% <p>The <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> to be performed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method dirtychange : (t Js.t -> bool Js.t -> 'a Js.t -> unit) Js.callback
+  method dirtychange : (t Js.t -> bool Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the dirty state of the entire form changes.</p> %}
     
@@ -600,13 +600,13 @@ object
     {- dirty: [bool Js.t]
     {% <p><code>true</code> if the form is now dirty, <code>false</code> if it is no longer dirty.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method validitychange : (t Js.t -> bool Js.t -> 'a Js.t -> unit)
-    Js.callback Js.writeonly_prop
+  method validitychange : (t Js.t -> bool Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   (** {% <p>Fires when the validity of the entire form changes.</p> %}
     
     {b Parameters}:
@@ -615,7 +615,7 @@ object
     {- valid: [bool Js.t]
     {% <p><code>true</code> if the form is now valid, <code>false</code> if it is now invalid.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

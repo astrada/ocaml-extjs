@@ -10,10 +10,10 @@ object('self)
   inherit Ext_tip_Tip.t
   inherit Ext_tip_ToolTip.t
   
-  method cancelShow : 'a Js.t -> unit Js.meth
+  method cancelShow : _ Js.t -> unit Js.meth
   method initComponent : unit Js.meth
-  method register : 'a Js.t -> unit Js.meth
-  method unregister : 'a Js.t -> unit Js.meth
+  method register : _ Js.t -> unit Js.meth
+  method unregister : _ Js.t -> unit Js.meth
   
 end
 
@@ -32,7 +32,7 @@ object('self)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   method interceptTitles : bool Js.t Js.prop
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   method title : Js.js_string Js.t Js.prop
   
 end

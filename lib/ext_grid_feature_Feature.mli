@@ -49,7 +49,7 @@ For example a prefix of group would expose "groupclick", "groupcontextmenu", "gr
   method eventSelector : Js.js_string Js.t Js.prop
   (** {% <p>Selector used to determine when to fire the event with the eventPrefix.</p> %}
     *)
-  method grid : 'a Js.t Js.prop
+  method grid : _ Js.t Js.prop
   (** {% <p>Reference to the grid panel</p> %}
     *)
   method hasFeatureEvent : bool Js.t Js.prop
@@ -58,7 +58,7 @@ need to change this to false.</p> %}
     
     Defaults to: [true]
     *)
-  method view : 'a Js.t Js.prop
+  method view : _ Js.t Js.prop
   (** {% <p>Reference to the TableView.</p> %}
     *)
   method attachEvents : unit Js.meth
@@ -70,12 +70,12 @@ need to change this to false.</p> %}
   method enable : unit Js.meth
   (** {% <p>Enables the feature.</p> %}
     *)
-  method getAdditionalData : 'a Js.t -> Js.number Js.t ->
-    Ext_data_Model.t Js.t -> 'b Js.t -> unit Js.meth
+  method getAdditionalData : _ Js.t -> Js.number Js.t ->
+    Ext_data_Model.t Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Provide additional data to the prepareData call within the grid view.</p> %}
     
     {b Parameters}:
-    {ul {- data: ['a Js.t]
+    {ul {- data: [_ Js.t]
     {% <p>The data for this particular record.</p> %}
     }
     {- idx: [Js.number Js.t]
@@ -84,12 +84,12 @@ need to change this to false.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The record instance</p> %}
     }
-    {- orig: ['a Js.t]
+    {- orig: [_ Js.t]
     {% <p>The original result from the prepareData call to massage.</p> %}
     }
     }
     *)
-  method getFireEventArgs : 'a Js.t -> 'b Js.t -> 'c Js.t -> 'd Js.t -> unit
+  method getFireEventArgs : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
     Js.meth
   (** {% <p>Abstract method to be overriden when a feature should add additional
 arguments to its event signature. By default the event will fire:</p>
@@ -104,13 +104,13 @@ arguments to its event signature. By default the event will fire:</p>
 to be passed to fireEvent.</p> %}
     
     {b Parameters}:
-    {ul {- eventName: ['a Js.t]
+    {ul {- eventName: [_ Js.t]
     }
-    {- view: ['a Js.t]
+    {- view: [_ Js.t]
     }
-    {- featureTarget: ['a Js.t]
+    {- featureTarget: [_ Js.t]
     }
-    {- e: ['a Js.t]
+    {- e: [_ Js.t]
     }
     }
     *)
@@ -119,13 +119,13 @@ to be passed to fireEvent.</p> %}
 important for embedding functionality which will become part of the proper
 row tpl.</p> %}
     *)
-  method mutateMetaRowTpl : 'a Js.js_array Js.t -> unit Js.meth
+  method mutateMetaRowTpl : _ Js.js_array Js.t -> unit Js.meth
   (** {% <p>Allows a feature to mutate the metaRowTpl.
 The array received as a single argument can be manipulated to add things
 on the end/begining of a particular row.</p> %}
     
     {b Parameters}:
-    {ul {- metaRowTplArray: ['a Js.js_array Js.t]
+    {ul {- metaRowTplArray: [_ Js.js_array Js.t]
     {% <p>A String array to be used constructing an <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a>
 to render the rows. This Array may be changed to provide extra DOM structure.</p> %}
     }
@@ -142,17 +142,17 @@ object('self)
   method attachEvents : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.attachEvents] *)
-  method getAdditionalData : ('self Js.t, 'a Js.t -> Js.number Js.t ->
-    Ext_data_Model.t Js.t -> 'b Js.t -> unit) Js.meth_callback
+  method getAdditionalData : ('self Js.t, _ Js.t -> Js.number Js.t ->
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.getAdditionalData] *)
-  method getFireEventArgs : ('self Js.t, 'a Js.t -> 'b Js.t -> 'c Js.t ->
-    'd Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  method getFireEventArgs : ('self Js.t, _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t
+    -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.getFireEventArgs] *)
   method getMetaRowTplFragments : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.getMetaRowTplFragments] *)
-  method mutateMetaRowTpl : ('self Js.t, 'a Js.js_array Js.t -> unit)
+  method mutateMetaRowTpl : ('self Js.t, _ Js.js_array Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   (** See method [t.mutateMetaRowTpl] *)
   

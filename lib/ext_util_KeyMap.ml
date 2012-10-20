@@ -2,12 +2,12 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method addBinding : 'a Js.t -> unit Js.meth
+  method addBinding : _ Js.t -> unit Js.meth
   method destroy : bool Js.t -> unit Js.meth
   method disable : unit Js.meth
   method enable : unit Js.meth
   method isEnabled : bool Js.t Js.meth
-  method on : 'a Js.t -> 'b Js.callback -> 'c Js.t Js.optdef -> unit Js.meth
+  method on : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   method setDisabled : bool Js.t -> unit Js.meth
   
 end
@@ -16,12 +16,12 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method binding : 'a Js.t Js.prop
+  method binding : _ Js.t Js.prop
   method eventName : Js.js_string Js.t Js.prop
   method ignoreInputFields : bool Js.t Js.prop
-  method processEvent : 'a Js.callback Js.prop
-  method processEventScope : 'a Js.t Js.prop
-  method target : 'a Js.t Js.prop
+  method processEvent : _ Js.callback Js.prop
+  method processEventScope : _ Js.t Js.prop
+  method target : _ Js.t Js.prop
   
 end
 

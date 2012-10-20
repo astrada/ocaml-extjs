@@ -5,11 +5,11 @@ object('self)
   inherit Ext_Component.t
   inherit Ext_container_AbstractContainer.t
   
-  method afterHide : 'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> unit
+  method afterHide : _ Js.callback Js.optdef -> _ Js.t Js.optdef -> unit
     Js.meth
-  method afterShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
-  method getChildByElement : 'a Js.t -> bool Js.t -> #Ext_Component.t Js.t
+  method afterShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
+  method getChildByElement : _ Js.t -> bool Js.t -> #Ext_Component.t Js.t
     Js.meth
   method onAdded_container : 'self Js.t -> Js.number Js.t -> unit Js.meth
   
@@ -22,14 +22,13 @@ object('self)
   inherit Ext_Component.configs
   inherit Ext_container_AbstractContainer.configs
   
-  method afterHide : ('self Js.t, 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  method afterShow : ('self Js.t, 'a Js.t Js.optdef ->
-    'b Js.callback Js.optdef -> 'c Js.t Js.optdef -> unit) Js.meth_callback
-    Js.writeonly_prop
+  method afterHide : ('self Js.t, _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> unit) Js.meth_callback Js.writeonly_prop
+  method afterShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef
+    -> _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method onAdded_container : ('self Js.t, 'self Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
-  method anchorSize : 'a Js.t Js.prop
+  method anchorSize : _ Js.t Js.prop
   
 end
 

@@ -43,7 +43,7 @@ object('self)
 
 <p>Besides "widget" for xtype there are alias namespaces like "feature" for ftype and "plugin" for ptype.</p> %}
     *)
-  method alternateClassName : 'a Js.t Js.prop
+  method alternateClassName : _ Js.t Js.prop
   (** {% <p>Defines alternate names for this class.  For example:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Developer', {
@@ -60,7 +60,7 @@ var rms = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docC
 rms.code('hack hack');
 </code></pre> %}
     *)
-  method config : 'a Js.t Js.prop
+  method config : _ Js.t Js.prop
   (** {% <p>List of configuration options with their default values, for which automatically
 accessor methods are generated.  For example:</p>
 
@@ -98,11 +98,11 @@ iPhone.getHasTouchScreen(); // true;
 });
 </code></pre> %}
     *)
-  method inheritableStatics : 'a Js.t Js.prop
+  method inheritableStatics : _ Js.t Js.prop
   (** {% <p>List of inheritable static methods for this class.
 Otherwise just like <a href="#!/api/Ext.Class-cfg-statics" rel="Ext.Class-cfg-statics" class="docClass">statics</a> but subclasses inherit these methods.</p> %}
     *)
-  method mixins : 'a Js.t Js.prop
+  method mixins : _ Js.t Js.prop
   (** {% <p>List of classes to mix into this class. For example:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('CanSing', {
@@ -164,7 +164,7 @@ For example:</p>
 Logger.log('Hello');
 </code></pre> %}
     *)
-  method statics : 'a Js.t Js.prop
+  method statics : _ Js.t Js.prop
   (** {% <p>List of static methods for this class. For example:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Computer', {

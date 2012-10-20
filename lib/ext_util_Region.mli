@@ -82,13 +82,13 @@ object('self)
     }
     *)
   method getOutOfBoundOffset : Js.js_string Js.t Js.optdef ->
-    'a Js.t Js.optdef -> Ext_util_Offset.t Js.t Js.meth
+    _ Js.t Js.optdef -> Ext_util_Offset.t Js.t Js.meth
   (** {% <p>Get the offset amount of a point outside the region</p> %}
     
     {b Parameters}:
-    {ul {- axis: [Js.js_string Js.t]
+    {ul {- axis: [Js.js_string Js.t] (optional)
     }
-    {- p: [Ext_util_Point.t Js.t] {% <p>the point</p> %}
+    {- p: [Ext_util_Point.t Js.t] (optional) {% <p>the point</p> %}
     }
     }
     *)
@@ -108,7 +108,7 @@ object('self)
     }
     }
     *)
-  method intersect : 'self Js.t -> 'a Js.t Js.meth
+  method intersect : 'self Js.t -> _ Js.t Js.meth
   (** {% <p>Checks if this region intersects the region passed in.</p> %}
     
     {b Parameters}:
@@ -117,19 +117,19 @@ object('self)
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>Returns the intersected region or false if there is no intersection.</p> %}
     }
     }
     *)
-  method isOutOfBound : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method isOutOfBound : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     bool Js.t Js.meth
   (** {% <p>Check whether the point / offset is out of bound</p> %}
     
     {b Parameters}:
-    {ul {- axis: [Js.js_string Js.t]
+    {ul {- axis: [Js.js_string Js.t] (optional)
     }
-    {- p: ['a Js.t] {% <p>the point / offset</p> %}
+    {- p: [_ Js.t] (optional) {% <p>the point / offset</p> %}
     }
     }
     *)
@@ -157,11 +157,11 @@ object('self)
     }
     }
     *)
-  method translateBy : 'a Js.t -> Js.number Js.t -> 'self Js.t Js.meth
+  method translateBy : _ Js.t -> Js.number Js.t -> 'self Js.t Js.meth
   (** {% <p>Translate this region by the given offset amount</p> %}
     
     {b Parameters}:
-    {ul {- x: ['a Js.t]
+    {ul {- x: [_ Js.t]
     {% <p>Object containing the <code>x</code> and <code>y</code> properties.
 Or the x value is using the two argument form.</p> %}
     }
@@ -209,11 +209,11 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method from : 'a Js.t -> 'self Js.t Js.meth
+  method from : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Creates a Region from a "box" Object which contains four numeric properties <code>top</code>, <code>right</code>, <code>bottom</code> and <code>left</code>.</p> %}
     
     {b Parameters}:
-    {ul {- o: ['a Js.t]
+    {ul {- o: [_ Js.t]
     {% <p>An object with <code>top</code>, <code>right</code>, <code>bottom</code> and <code>left</code> properties.</p> %}
     }
     }
@@ -224,11 +224,11 @@ object
     }
     }
     *)
-  method getRegion : 'a Js.t -> 'self Js.t Js.meth
+  method getRegion : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Retrieves an <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Ext.util.Region</a> for a particular element.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>An element ID, htmlElement or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> representing an element in the document.</p> %}
     }
     }
@@ -244,10 +244,10 @@ end
 val static : statics Js.t
 (** Static instance. *)
 
-val from : 'a Js.t -> 'self Js.t
+val from : _ Js.t -> 'self Js.t
 (** See method [statics.from] *)
 
-val getRegion : 'a Js.t -> 'self Js.t
+val getRegion : _ Js.t -> 'self Js.t
 (** See method [statics.getRegion] *)
 
 val of_configs : configs Js.t -> t Js.t

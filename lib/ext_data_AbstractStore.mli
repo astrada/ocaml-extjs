@@ -109,11 +109,11 @@ yet been saved on this Store (this happens when adding a non-phantom record from
     }
     }
     *)
-  method load : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method load : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Loads the Store using its configured <a href="#!/api/Ext.data.AbstractStore-cfg-proxy" rel="Ext.data.AbstractStore-cfg-proxy" class="docClass">proxy</a>.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>config object. This is passed into the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Operation</a>
 object that is created and then sent to the proxy's <a href="#!/api/Ext.data.proxy.Proxy-method-read" rel="Ext.data.proxy.Proxy-method-read" class="docClass">Ext.data.proxy.Proxy.read</a> function</p> %}
     }
@@ -124,11 +124,11 @@ object that is created and then sent to the proxy's <a href="#!/api/Ext.data.pro
     }
     }
     *)
-  method reload : 'a Js.t -> unit Js.meth
+  method reload : _ Js.t -> unit Js.meth
   (** {% <p>Reloads the store using the last options passed to the <a href="#!/api/Ext.data.AbstractStore-method-load" rel="Ext.data.AbstractStore-method-load" class="docClass">load</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>A config object which contains options which may override the options passed to the previous load call.</p> %}
     }
     }
@@ -141,11 +141,11 @@ fired upon completion.</p> %}
   method resumeAutoSync : unit Js.meth
   (** {% <p>Resumes automatically syncing the Store with its Proxy.  Only applicable if <a href="#!/api/Ext.data.AbstractStore-cfg-autoSync" rel="Ext.data.AbstractStore-cfg-autoSync" class="docClass">autoSync</a> is <code>true</code></p> %}
     *)
-  method setProxy : 'a Js.t -> #Ext_data_proxy_Proxy.t Js.t Js.meth
+  method setProxy : _ Js.t -> #Ext_data_proxy_Proxy.t Js.t Js.meth
   (** {% <p>Sets the Store's Proxy by string, config object or Proxy instance</p> %}
     
     {b Parameters}:
-    {ul {- proxy: ['a Js.t]
+    {ul {- proxy: [_ Js.t]
     {% <p>The new Proxy, which can be either a type string, a configuration object
 or an <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">Ext.data.proxy.Proxy</a> instance</p> %}
     }
@@ -160,13 +160,13 @@ or an <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="do
   method suspendAutoSync : unit Js.meth
   (** {% <p>Suspends automatically syncing the Store with its Proxy.  Only applicable if <a href="#!/api/Ext.data.AbstractStore-cfg-autoSync" rel="Ext.data.AbstractStore-cfg-autoSync" class="docClass">autoSync</a> is <code>true</code></p> %}
     *)
-  method sync : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method sync : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Synchronizes the store with its <a href="#!/api/Ext.data.AbstractStore-cfg-proxy" rel="Ext.data.AbstractStore-cfg-proxy" class="docClass">proxy</a>. This asks the proxy to batch together any new, updated
 and deleted records in the store, updating the store's internal representation of the records
 as each operation completes.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>Object containing one or more properties supported by the sync method (these get
 passed along to the underlying proxy's <a href="#!/api/Ext.data.proxy.Proxy-method-batch" rel="Ext.data.proxy.Proxy-method-batch" class="docClass">batch</a> method):</p> %}
     }
@@ -186,7 +186,7 @@ object('self)
   inherit Ext_util_Sortable.configs
   inherit Ext_util_Observable.configs
   
-  method autoLoad : 'a Js.t Js.prop
+  method autoLoad : _ Js.t Js.prop
   (** {% <p>If data is not specified, and if autoLoad is true or an Object, this store's load method is automatically called
 after creation. If the value of autoLoad is an Object, this Object will be passed to the store's load method.
 Defaults to false.</p> %}
@@ -204,7 +204,7 @@ storage proxies, 'operation' is better for remote proxies, where there is a comp
     
     Defaults to: ['operation']
     *)
-  method fields : 'a Js.t Js.js_array Js.t Js.prop
+  method fields : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>This may be used in place of specifying a <a href="#!/api/Ext.data.AbstractStore-cfg-model" rel="Ext.data.AbstractStore-cfg-model" class="docClass">model</a> configuration. The fields should be a
 set of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Ext.data.Field</a> configuration objects. The store will automatically create a <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>
 with these fields. In general this configuration option should only be used for simple stores like
@@ -218,7 +218,7 @@ Defaults to true, ignored if <a href="#!/api/Ext.data.Store-cfg-remoteFilter" re
     
     Defaults to: [true]
     *)
-  method filters : 'a Js.t Js.prop
+  method filters : _ Js.t Js.prop
   (** {% <p>Array of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filters</a> for this store. Can also be passed array of
 functions which will be used as the <a href="#!/api/Ext.util.Filter-cfg-filterFn" rel="Ext.util.Filter-cfg-filterFn" class="docClass">filterFn</a> config
 for filters:</p>
@@ -236,7 +236,7 @@ for filters:</p>
   (** {% <p>Name of the <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a> associated with this store.
 The string is used as an argument for <a href="#!/api/Ext.ModelManager-method-getModel" rel="Ext.ModelManager-method-getModel" class="docClass">Ext.ModelManager.getModel</a>.</p> %}
     *)
-  method proxy : 'a Js.t Js.prop
+  method proxy : _ Js.t Js.prop
   (** {% <p>The Proxy to use for this Store. This can be either a string, a config object or a Proxy instance -
 see <a href="#!/api/Ext.data.AbstractStore-method-setProxy" rel="Ext.data.AbstractStore-method-setProxy" class="docClass">setProxy</a> for details.</p> %}
     *)
@@ -272,7 +272,7 @@ object
   inherit Ext_util_Observable.events
   
   method add : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired when a Model instance has been added to this Store</p> %}
     
     {b Parameters}:
@@ -285,13 +285,13 @@ object
     {- index: [Js.number Js.t]
     {% <p>The index at which the instances were inserted</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforeload : (t Js.t -> Ext_data_Operation.t Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
+  method beforeload : (t Js.t -> Ext_data_Operation.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   (** {% <p>Fires before a request is made for a new data object. If the beforeload handler returns false the load
 action will be canceled.</p> %}
     
@@ -303,36 +303,36 @@ action will be canceled.</p> %}
     {% <p>The <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object that will be passed to the Proxy to
 load the Store</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforesync : ('a Js.t -> 'b Js.t -> unit) Js.callback
+  method beforesync : (_ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fired before a call to <a href="#!/api/Ext.data.AbstractStore-method-sync" rel="Ext.data.AbstractStore-method-sync" class="docClass">sync</a> is executed. Return false from any listener to cancel the sync</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>Hash of all records to be synchronized, broken down into create, update and destroy</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method clear : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method clear : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired after the <a href="#!/api/Ext.data.AbstractStore-method-removeAll" rel="Ext.data.AbstractStore-method-removeAll" class="docClass">removeAll</a> method is called.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_data_Store.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method datachanged : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method datachanged : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires whenever the records in the Store have changed in some way - this could include adding or removing
 records, or updating the data in existing records</p> %}
@@ -341,13 +341,13 @@ records, or updating the data in existing records</p> %}
     {ul {- this: [Ext_data_Store.t Js.t]
     {% <p>The data store</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method load : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> bool Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires whenever the store reads data from a remote data source.</p> %}
     
     {b Parameters}:
@@ -359,12 +359,12 @@ records, or updating the data in existing records</p> %}
     {- successful: [bool Js.t]
     {% <p>True if the operation was successful.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method metachange : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method metachange : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when this store's underlying reader (available via the proxy) provides new metadata.
 Metadata usually consists of new field definitions, but can include any configuration data
@@ -374,14 +374,14 @@ This event is currently only fired for JsonReaders.</p> %}
     {b Parameters}:
     {ul {- this: [Ext_data_Store.t Js.t]
     }
-    {- meta: ['a Js.t] {% <p>The JSON metadata</p> %}
+    {- meta: [_ Js.t] {% <p>The JSON metadata</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method refresh : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method refresh : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the data cache has changed in a bulk manner (e.g., it has been sorted, filtered, etc.) and a
 widget that is using this Store as a Record cache should refresh its view.</p> %}
     
@@ -389,13 +389,13 @@ widget that is using this Store as a Record cache should refresh its view.</p> %
     {ul {- this: [Ext_data_Store.t Js.t]
     {% <p>The data store</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method remove : (t Js.t -> Ext_data_Model.t Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired when a Model instance has been removed from this Store</p> %}
     
     {b Parameters}:
@@ -408,13 +408,13 @@ widget that is using this Store as a Record cache should refresh its view.</p> %
     {- index: [Js.number Js.t]
     {% <p>The index of the record that was removed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method update : (t Js.t -> Ext_data_Model.t Js.t -> Js.js_string Js.t ->
-    Js.js_string Js.t Js.js_array Js.t -> 'a Js.t -> unit) Js.callback
+    Js.js_string Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when a Model instance has been updated</p> %}
     
@@ -435,12 +435,12 @@ widget that is using this Store as a Record cache should refresh its view.</p> %
     {- modifiedFieldNames: [Js.js_string Js.t Js.js_array Js.t]
     {% <p>Array of field names changed during edit.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method write : (t Js.t -> Ext_data_Operation.t Js.t -> 'a Js.t -> unit)
+  method write : (t Js.t -> Ext_data_Operation.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires whenever a successful write has been made via the configured <a href="#!/api/Ext.data.AbstractStore-cfg-proxy" rel="Ext.data.AbstractStore-cfg-proxy" class="docClass">Proxy</a></p> %}
     
@@ -452,7 +452,7 @@ widget that is using this Store as a Record cache should refresh its view.</p> %
     {% <p>The <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Operation</a> object that was used in
 the write</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
@@ -466,11 +466,11 @@ object
   inherit Ext_util_Sortable.statics
   inherit Ext_util_Observable.statics
   
-  method create_store : 'a Js.t -> 'self Js.t Js.meth
+  method create_store : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Creates a store from config object.</p> %}
     
     {b Parameters}:
-    {ul {- store: ['a Js.t]
+    {ul {- store: [_ Js.t]
     {% <p>A config for
 the store to be created.  It may contain a <code>type</code> field
 which defines the particular type of store to create.</p>
@@ -492,7 +492,7 @@ end
 val static : statics Js.t
 (** Static instance. *)
 
-val create : 'a Js.t -> 'self Js.t
+val create : _ Js.t -> 'self Js.t
 (** See method [statics.create] *)
 
 val of_configs : configs Js.t -> t Js.t

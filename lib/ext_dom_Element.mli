@@ -89,19 +89,19 @@ object('self)
     
     Defaults to: [""]
     *)
-  method addClsOnClick : Js.js_string Js.t -> 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method addClsOnClick : Js.js_string Js.t -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets up event handlers to add and remove a css class when the mouse is down and then up on this element (a click effect)</p> %}
     
     {b Parameters}:
     {ul {- className: [Js.js_string Js.t]
     {% <p>The class to add</p> %}
     }
-    {- testFn: ['a Js.callback]
+    {- testFn: [_ Js.callback] (optional)
     {% <p>A test function to execute before adding the class. The passed parameter
 will be the Element instance. If this functions returns false, the class will not be added.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope to execute the testFn in.</p> %}
     }
     }
@@ -111,19 +111,19 @@ will be the Element instance. If this functions returns false, the class will no
     }
     }
     *)
-  method addClsOnFocus : Js.js_string Js.t -> 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method addClsOnFocus : Js.js_string Js.t -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets up event handlers to add and remove a css class when this element has the focus</p> %}
     
     {b Parameters}:
     {ul {- className: [Js.js_string Js.t]
     {% <p>The class to add</p> %}
     }
-    {- testFn: ['a Js.callback]
+    {- testFn: [_ Js.callback] (optional)
     {% <p>A test function to execute before adding the class. The passed parameter
 will be the Element instance. If this functions returns false, the class will not be added.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope to execute the testFn in.</p> %}
     }
     }
@@ -133,19 +133,19 @@ will be the Element instance. If this functions returns false, the class will no
     }
     }
     *)
-  method addClsOnOver : Js.js_string Js.t -> 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method addClsOnOver : Js.js_string Js.t -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets up event handlers to add and remove a css class when the mouse is over this element</p> %}
     
     {b Parameters}:
     {ul {- className: [Js.js_string Js.t]
     {% <p>The class to add</p> %}
     }
-    {- testFn: ['a Js.callback]
+    {- testFn: [_ Js.callback] (optional)
     {% <p>A test function to execute before adding the class. The passed parameter
 will be the Element instance. If this functions returns false, the class will not be added.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope to execute the testFn in.</p> %}
     }
     }
@@ -155,19 +155,19 @@ will be the Element instance. If this functions returns false, the class will no
     }
     }
     *)
-  method addKeyListener : 'a Js.t -> 'b Js.callback -> 'c Js.t Js.optdef ->
+  method addKeyListener : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef ->
     Ext_util_KeyMap.t Js.t Js.meth
   (** {% <p>Convenience method for constructing a KeyMap</p> %}
     
     {b Parameters}:
-    {ul {- key: ['a Js.t]
+    {ul {- key: [_ Js.t]
     {% <p>Either a string with the keys to listen for, the numeric key code,
 array of key codes or an object with the following options:</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The function to call</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the specified function is executed. Defaults to this Element.</p> %}
     }
     }
@@ -177,11 +177,11 @@ array of key codes or an object with the following options:</p> %}
     }
     }
     *)
-  method addKeyMap : 'a Js.t -> Ext_util_KeyMap.t Js.t Js.meth
+  method addKeyMap : _ Js.t -> Ext_util_KeyMap.t Js.t Js.meth
   (** {% <p>Creates a KeyMap for this element</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>The KeyMap config. See <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a> for more details</p> %}
     }
     }
@@ -191,8 +191,8 @@ array of key codes or an object with the following options:</p> %}
     }
     }
     *)
-  method addListener : Js.js_string Js.t -> 'a Js.callback ->
-    'b Js.t Js.optdef -> 'c Js.t Js.optdef -> 'self Js.t Js.meth
+  method addListener : Js.js_string Js.t -> _ Js.callback -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.dom.Element-method-on" rel="Ext.dom.Element-method-on" class="docClass">on</a>.</p>
 
 <p>Appends an event handler to this element.</p> %}
@@ -201,7 +201,7 @@ array of key codes or an object with the following options:</p> %}
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The name of event to handle.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The handler function the event invokes. This function is passed the following parameters:</p>
 
 
@@ -219,11 +219,11 @@ array of key codes or an object with the following options:</p> %}
 <p>The options object from the call that setup the listener.</p></li>
 </ul> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<strong>this</strong> reference) in which the handler function is executed. <strong>If
 omitted, defaults to this Element.</strong></p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>An object containing handler configuration properties. This may contain any of
 the following properties:</p>
 
@@ -403,8 +403,8 @@ el.on(
     }
     }
     *)
-  method alignTo : 'a Js.t -> Js.js_string Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.optdef -> 'b Js.t Js.optdef ->
+  method alignTo : _ Js.t -> Js.js_string Js.t Js.optdef ->
+    Js.number Js.t Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
   (** {% <p>Aligns this element with another element relative to the specified anchor points. If the other element is the
 document it aligns it to the viewport. The position parameter is optional, and can be specified in any one of
@@ -457,16 +457,18 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- element: ['a Js.t]
+    {ul {- element: [_ Js.t]
     {% <p>The element to align to.</p> %}
     }
-    {- position: [Js.js_string Js.t] {% <p>The position to align to</p> %}
-     Defaults to: "tl-bl?"
+    {- position: [Js.js_string Js.t] (optional)
+    {% <p>The position to align to</p> %}
+    
+    Defaults to: "tl-bl?"
     }
-    {- offsets: [Js.number Js.t Js.js_array Js.t]
+    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
     {% <p>Offset the positioning by [x, y]</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -476,29 +478,29 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
     }
     }
     *)
-  method anchorTo : 'a Js.t -> Js.js_string Js.t ->
-    Js.number Js.t Js.js_array Js.t Js.optdef -> 'b Js.t Js.optdef ->
-    'c Js.t Js.optdef -> 'd Js.callback Js.optdef -> 'self Js.t Js.meth
+  method anchorTo : _ Js.t -> Js.js_string Js.t ->
+    Js.number Js.t Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> _ Js.callback Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Anchors an element to another element and realigns it when the window is resized.</p> %}
     
     {b Parameters}:
-    {ul {- element: ['a Js.t]
+    {ul {- element: [_ Js.t]
     {% <p>The element to align to.</p> %}
     }
     {- position: [Js.js_string Js.t]
     {% <p>The position to align to.</p> %}
     }
-    {- offsets: [Js.number Js.t Js.js_array Js.t]
+    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
     {% <p>Offset the positioning by [x, y]</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation or a standard Element animation config object</p> %}
     }
-    {- monitorScroll: ['a Js.t]
+    {- monitorScroll: [_ Js.t] (optional)
     {% <p>True to monitor body scroll and reposition. If this parameter
 is a number, it is used as the buffer delay (defaults to 50ms).</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>The function to call after the animation finishes</p> %}
     }
     }
@@ -508,7 +510,7 @@ is a number, it is used as the buffer delay (defaults to 50ms).</p> %}
     }
     }
     *)
-  method animate : 'a Js.t -> 'self Js.t Js.meth
+  method animate : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Performs custom animation on this Element.</p>
 
 <p>The following properties may be specified in <code>from</code>, <code>to</code>, and <code>keyframe</code> objects:</p>
@@ -532,7 +534,7 @@ Component will be using the old state of the element. To avoid this problem, it 
 animate certain properties of Components.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>Configuration for <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a>.
 Note that the <a href="#!/api/Ext.fx.Anim-cfg-to" rel="Ext.fx.Anim-cfg-to" class="docClass">to</a> config is required.</p> %}
     }
@@ -577,7 +579,7 @@ The markup is of this form:</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- class: [Js.js_string Js.t]
+    {ul {- class: [Js.js_string Js.t] (optional)
     {% <p>A base CSS class to apply to the containing wrapper element.
 Note that there are a number of CSS rules that are dependent on this name to make the overall effect work,
 so if you supply an alternate base class, make sure you also supply all of the necessary rules.</p> %}
@@ -591,7 +593,7 @@ so if you supply an alternate base class, make sure you also supply all of the n
     }
     }
     *)
-  method cacheScrollValues : 'a Js.callback Js.meth
+  method cacheScrollValues : _ Js.callback Js.meth
   (** {% <p>When an element is moved around in the DOM, or is hidden using <code>display:none</code>, it loses layout, and therefore
 all scroll positions of all descendant elements are lost.</p>
 
@@ -604,7 +606,7 @@ restoreScroll();
 </code></pre> %}
     
     {b Returns}:
-    {ul {- ['a Js.callback]
+    {ul {- [_ Js.callback]
     {% <p>A function which will restore all descentant elements of this Element to their scroll
 positions recorded when this function was executed. Be aware that the returned function is a closure which has
 captured the scope of <code>cacheScrollValues</code>, so take care to derefence it as soon as not needed - if is it is a <code>var</code>
@@ -612,11 +614,11 @@ it will drop out of scope, and the reference will be freed.</p> %}
     }
     }
     *)
-  method center : 'a Js.t Js.optdef -> unit Js.meth
+  method center : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Centers the Element in either the viewport, or another Element.</p> %}
     
     {b Parameters}:
-    {ul {- centerIn: ['a Js.t]
+    {ul {- centerIn: [_ Js.t] (optional)
     {% <p>The element in which to center the element.</p> %}
     }
     }
@@ -625,7 +627,7 @@ it will drop out of scope, and the reference will be freed.</p> %}
   (** {% <p>Removes Empty, or whitespace filled text nodes. Combines adjacent text nodes.</p> %}
     
     {b Parameters}:
-    {ul {- forceReclean: [bool Js.t]
+    {ul {- forceReclean: [bool Js.t] (optional)
     {% <p>By default the element keeps track if it has been cleaned already
 so you can call this over and over. However, if you update the element and need to force a reclean, you
 can pass true.</p> %}
@@ -656,7 +658,7 @@ can pass true.</p> %}
   (** {% <p>Clears positioning back to the default when the document was loaded.</p> %}
     
     {b Parameters}:
-    {ul {- value: [Js.js_string Js.t]
+    {ul {- value: [Js.js_string Js.t] (optional)
     {% <p>The value to use for the left, right, top, bottom. You could use 'auto'.</p> %}
      Defaults to: ''
     }
@@ -675,18 +677,18 @@ can pass true.</p> %}
     }
     }
     *)
-  method createProxy : 'a Js.t -> 'b Js.t Js.optdef -> bool Js.t Js.optdef ->
+  method createProxy : _ Js.t -> _ Js.t Js.optdef -> bool Js.t Js.optdef ->
     'self Js.t Js.meth
   (** {% <p>Creates a proxy element of this element</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>The class name of the proxy element or a DomHelper config object</p> %}
     }
-    {- renderTo: ['a Js.t]
+    {- renderTo: [_ Js.t] (optional)
     {% <p>The element or element id to render the proxy to. Defaults to: document.body.</p> %}
     }
-    {- matchBox: [bool Js.t]
+    {- matchBox: [bool Js.t] (optional)
     {% <p>True to align and size the proxy to this element now.</p> %}
      Defaults to: false
     }
@@ -711,7 +713,7 @@ showing through.</p> %}
   (** {% <p>Convenience method for setVisibilityMode(Element.DISPLAY)</p> %}
     
     {b Parameters}:
-    {ul {- display: [Js.js_string Js.t]
+    {ul {- display: [Js.js_string Js.t] (optional)
     {% <p>What to set display to when visible</p> %}
     }
     }
@@ -721,7 +723,7 @@ showing through.</p> %}
     }
     }
     *)
-  method fadeIn : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method fadeIn : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Fade an element in (from transparent to opaque). The ending opacity can be specified using the <code>opacity</code>
 config option. Usage:</p>
 
@@ -740,7 +742,7 @@ el.fadeIn({
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -750,7 +752,7 @@ el.fadeIn({
     }
     }
     *)
-  method fadeOut : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method fadeOut : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Fade an element out (from opaque to transparent). The ending opacity can be specified using the <code>opacity</code>
 config option. Note that IE may require <code>useDisplay:true</code> in order to redisplay correctly.
 Usage:</p>
@@ -772,7 +774,7 @@ el.fadeOut({
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -786,7 +788,7 @@ el.fadeOut({
   (** {% <p>Tries to focus the element. Any exceptions are caught and ignored.</p> %}
     
     {b Parameters}:
-    {ul {- defer: [Js.number Js.t]
+    {ul {- defer: [Js.number Js.t] (optional)
     {% <p>Milliseconds to defer the focus</p> %}
     }
     }
@@ -805,7 +807,7 @@ el.fadeOut({
     }
     *)
   method frame : Js.js_string Js.t Js.optdef -> Js.number Js.t Js.optdef ->
-    'a Js.t Js.optdef -> 'self Js.t Js.meth
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Shows a ripple of exploding, attenuating borders to draw attention to an Element. Usage:</p>
 
 <pre><code>// default: a single light blue ripple
@@ -822,14 +824,15 @@ el.frame("#C3DAF9", 1, {
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- color: [Js.js_string Js.t]
+    {ul {- color: [Js.js_string Js.t] (optional)
     {% <p>The hex color value for the border.</p> %}
      Defaults to: '#C3DAF9'
     }
-    {- count: [Js.number Js.t] {% <p>The number of ripples to display.</p> %}
+    {- count: [Js.number Js.t] (optional)
+    {% <p>The number of ripples to display.</p> %}
      Defaults to: 1
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -839,21 +842,22 @@ el.frame("#C3DAF9", 1, {
     }
     }
     *)
-  method getAlignToXY_number : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method getAlignToXY_number : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.meth
   (** {% <p>Gets the x,y coordinates to align this element with another element. See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">alignTo</a> for more info on the
 supported position values.</p> %}
     
     {b Parameters}:
-    {ul {- element: ['a Js.t]
+    {ul {- element: [_ Js.t]
     {% <p>The element to align to.</p> %}
     }
-    {- position: [Js.js_string Js.t]
+    {- position: [Js.js_string Js.t] (optional)
     {% <p>The position to align to (defaults to )</p> %}
-     Defaults to: "tl-bl?"
+    
+    Defaults to: "tl-bl?"
     }
-    {- offsets: [Js.number Js.t Js.js_array Js.t]
+    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
     {% <p>Offset the positioning by [x, y]</p> %}
     }
     }
@@ -864,21 +868,21 @@ supported position values.</p> %}
     }
     *)
   method getAnchorXY_number : Js.js_string Js.t Js.optdef ->
-    bool Js.t Js.optdef -> 'a Js.t Js.optdef ->
+    bool Js.t Js.optdef -> _ Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.meth
   (** {% <p>Gets the x,y coordinates specified by the anchor position on the element.</p> %}
     
     {b Parameters}:
-    {ul {- anchor: [Js.js_string Js.t]
+    {ul {- anchor: [Js.js_string Js.t] (optional)
     {% <p>The specified anchor position.  See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">alignTo</a>
 for details on supported anchor positions.</p> %}
      Defaults to: 'c'
     }
-    {- local: [bool Js.t]
+    {- local: [bool Js.t] (optional)
     {% <p>True to get the local (element top/left-relative) anchor position instead
 of page coordinates</p> %}
     }
-    {- size: ['a Js.t]
+    {- size: [_ Js.t] (optional)
     {% <p>An object containing the size to use for calculating anchor position
 {width: (target width), height: (target height)} (defaults to the element's current size)</p> %}
     }
@@ -929,7 +933,7 @@ are convert to standard 6 digit hex color.</p> %}
     {- defaultValue: [Js.js_string Js.t]
     {% <p>The default value to use when a valid color isn't found</p> %}
     }
-    {- prefix: [Js.js_string Js.t]
+    {- prefix: [Js.js_string Js.t] (optional)
     {% <p>defaults to #. Use an empty string when working with
 color anims.</p> %}
     }
@@ -945,8 +949,8 @@ if a height has not been set using CSS.</p> %}
 when needed to simulate offsetWidth when offsets aren't available. This may not work on display:none elements
 if a width has not been set using CSS.</p> %}
     *)
-  method getConstrainVector : 'a Js.t -> Js.number Js.t Js.js_array Js.t ->
-    'b Js.t Js.meth
+  method getConstrainVector : _ Js.t -> Js.number Js.t Js.js_array Js.t ->
+    _ Js.t Js.meth
   (** {% <p>Returns the <code>[X, Y]</code> vector by which this element must be translated to make a best attempt
 to constrain within the passed constraint. Returns <code>false</code> is this element does not need to be moved.</p>
 
@@ -956,7 +960,7 @@ to constrain within the passed constraint. Returns <code>false</code> is this el
 an <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> into which this element is to be constrained.</p> %}
     
     {b Parameters}:
-    {ul {- constrainTo: ['a Js.t]
+    {ul {- constrainTo: [_ Js.t]
     {% <p>The Element or Region into which this element is to be constrained.</p> %}
     }
     {- proposedPosition: [Js.number Js.t Js.js_array Js.t]
@@ -966,7 +970,7 @@ of using this Element's current position;</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p><strong>If</strong> this element <em>needs</em> to be translated, an <code>[X, Y]</code>
 vector by which this element must be translated. Otherwise, <code>false</code>.</p> %}
     }
@@ -1007,13 +1011,13 @@ for more information about the sides.</p> %}
     }
     }
     *)
-  method getOffsetsTo_number : 'a Js.t -> Js.number Js.t Js.js_array Js.t
+  method getOffsetsTo_number : _ Js.t -> Js.number Js.t Js.js_array Js.t
     Js.meth
   (** {% <p>Returns the offsets of this element from the passed element. Both element must be part
 of the DOM tree and not have display:none to have page coordinates.</p> %}
     
     {b Parameters}:
-    {ul {- element: ['a Js.t]
+    {ul {- element: [_ Js.t]
     {% <p>The element to get the offsets from.</p> %}
     }
     }
@@ -1024,7 +1028,7 @@ of the DOM tree and not have display:none to have page coordinates.</p> %}
     }
     }
     *)
-  method getPositioning : 'a Js.t Js.meth
+  method getPositioning : _ Js.t Js.meth
   (** {% <p>Gets an object with all CSS positioning properties. Useful along with #setPostioning to get
 snapshot before performing an update and then restoring the element.</p> %}
     *)
@@ -1047,17 +1051,17 @@ The element must be part of the DOM tree to have a region
     }
     }
     *)
-  method getScroll : 'a Js.t Js.meth
+  method getScroll : _ Js.t Js.meth
   (** {% <p>Returns the current scroll position of the element.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object containing the scroll position in the format
 <code>{left: (scrollLeft), top: (scrollTop)}</code></p> %}
     }
     }
     *)
-  method getStyleSize : 'a Js.t Js.meth
+  method getStyleSize : _ Js.t Js.meth
   (** {% <p>Returns the dimensions of the element available to lay content out in.</p>
 
 <p>getStyleSize utilizes prefers style sizing if present, otherwise it chooses the larger of offsetHeight/clientHeight and
@@ -1066,7 +1070,7 @@ offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSiz
 <p>Sizing of the document body is handled at the adapter level which handles special cases for IE and strict modes, etc.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>Object describing width and height.</p> %}
+    {ul {- [_ Js.t] {% <p>Object describing width and height.</p> %}
     }
     }
     *)
@@ -1078,10 +1082,10 @@ offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSiz
     {ul {- text: [Js.js_string Js.t]
     {% <p>The text to measure. Defaults to the innerHTML of the element.</p> %}
     }
-    {- min: [Js.number Js.t]
+    {- min: [Js.number Js.t] (optional)
     {% <p>The minumum value to return.</p> %}
     }
-    {- max: [Js.number Js.t]
+    {- max: [Js.number Js.t] (optional)
     {% <p>The maximum value to return.</p> %}
     }
     }
@@ -1111,7 +1115,7 @@ Element must be part of the DOM tree to have page coordinates
     }
     }
     *)
-  method ghost : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method ghost : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
   (** {% <p>Slides the element while fading it out of view. An anchor point can be optionally passed to set the ending point
 of the effect. Usage:</p>
@@ -1130,10 +1134,10 @@ el.ghost('b', {
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- anchor: [Js.js_string Js.t]
+    {ul {- anchor: [Js.js_string Js.t] (optional)
     {% <p>One of the valid Fx anchor positions (defaults to bottom: 'b')</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -1143,11 +1147,11 @@ el.ghost('b', {
     }
     }
     *)
-  method hide : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method hide : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Hide this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.Element-method-setVisible" rel="Ext.dom.Element-method-setVisible" class="docClass">setVisible</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animate: ['a Js.t]
+    {ul {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -1157,7 +1161,7 @@ el.ghost('b', {
     }
     }
     *)
-  method highlight : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method highlight : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
   (** {% <p>Highlights the Element by setting a color (applies to the background-color by default, but can be changed using
 the "attr" config option) and then fading back to the original color. If no original color is available, you
@@ -1179,11 +1183,11 @@ el.highlight("ffff9c", {
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- color: [Js.js_string Js.t]
+    {ul {- color: [Js.js_string Js.t] (optional)
     {% <p>The highlight color. Should be a 6 char hex color without the leading #
 (defaults to yellow: 'ffff9c')</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -1193,22 +1197,22 @@ el.highlight("ffff9c", {
     }
     }
     *)
-  method hover : 'a Js.callback -> 'b Js.callback -> 'c Js.t Js.optdef ->
-    'd Js.t Js.optdef -> 'self Js.t Js.meth
+  method hover : _ Js.callback -> _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets up event handlers to call the passed functions when the mouse is moved into and out of the Element.</p> %}
     
     {b Parameters}:
-    {ul {- overFn: ['a Js.callback]
+    {ul {- overFn: [_ Js.callback]
     {% <p>The function to call when the mouse enters the Element.</p> %}
     }
-    {- outFn: ['a Js.callback]
+    {- outFn: [_ Js.callback]
     {% <p>The function to call when the mouse leaves the Element.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the functions are executed. Defaults
 to the Element's DOM element.</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>Options for the listener. See <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">the
 options parameter</a>.</p> %}
     }
@@ -1219,7 +1223,7 @@ options parameter</a>.</p> %}
     }
     }
     *)
-  method initDD : Js.js_string Js.t -> 'a Js.t -> 'b Js.t -> Ext_dd_DD.t Js.t
+  method initDD : Js.js_string Js.t -> _ Js.t -> _ Js.t -> Ext_dd_DD.t Js.t
     Js.meth
   (** {% <p>Initializes a <a href="#!/api/Ext.dd.DD" rel="Ext.dd.DD" class="docClass">Ext.dd.DD</a> drag drop object for this element.</p> %}
     
@@ -1227,10 +1231,10 @@ options parameter</a>.</p> %}
     {ul {- group: [Js.js_string Js.t]
     {% <p>The group the DD object is member of</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t]
     {% <p>The DD config object</p> %}
     }
-    {- overrides: ['a Js.t]
+    {- overrides: [_ Js.t]
     {% <p>An object containing methods to override/implement on the DD object</p> %}
     }
     }
@@ -1240,7 +1244,7 @@ options parameter</a>.</p> %}
     }
     }
     *)
-  method initDDProxy : Js.js_string Js.t -> 'a Js.t -> 'b Js.t ->
+  method initDDProxy : Js.js_string Js.t -> _ Js.t -> _ Js.t ->
     Ext_dd_DDProxy.t Js.t Js.meth
   (** {% <p>Initializes a <a href="#!/api/Ext.dd.DDProxy" rel="Ext.dd.DDProxy" class="docClass">Ext.dd.DDProxy</a> object for this element.</p> %}
     
@@ -1248,10 +1252,10 @@ options parameter</a>.</p> %}
     {ul {- group: [Js.js_string Js.t]
     {% <p>The group the DDProxy object is member of</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t]
     {% <p>The DDProxy config object</p> %}
     }
-    {- overrides: ['a Js.t]
+    {- overrides: [_ Js.t]
     {% <p>An object containing methods to override/implement on the DDProxy object</p> %}
     }
     }
@@ -1261,7 +1265,7 @@ options parameter</a>.</p> %}
     }
     }
     *)
-  method initDDTarget : Js.js_string Js.t -> 'a Js.t -> 'b Js.t ->
+  method initDDTarget : Js.js_string Js.t -> _ Js.t -> _ Js.t ->
     Ext_dd_DDTarget.t Js.t Js.meth
   (** {% <p>Initializes a <a href="#!/api/Ext.dd.DDTarget" rel="Ext.dd.DDTarget" class="docClass">Ext.dd.DDTarget</a> object for this element.</p> %}
     
@@ -1269,10 +1273,10 @@ options parameter</a>.</p> %}
     {ul {- group: [Js.js_string Js.t]
     {% <p>The group the DDTarget object is member of</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t]
     {% <p>The DDTarget config object</p> %}
     }
-    {- overrides: ['a Js.t]
+    {- overrides: [_ Js.t]
     {% <p>An object containing methods to override/implement on the DDTarget object</p> %}
     }
     }
@@ -1298,7 +1302,7 @@ options parameter</a>.</p> %}
   (** {% <p>Checks whether the element is currently visible using both visibility and display properties.</p> %}
     
     {b Parameters}:
-    {ul {- deep: [bool Js.t]
+    {ul {- deep: [bool Js.t] (optional)
     {% <p>True to walk the dom and see if parent elements are hidden.
 If false, the function only checks the visibility of the element itself and it may return
 <code>true</code> even though a parent is not visible.</p> %}
@@ -1312,12 +1316,12 @@ If false, the function only checks the visibility of the element itself and it m
     }
     }
     *)
-  method load : 'a Js.t -> 'self Js.t Js.meth
+  method load : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Direct access to the <a href="#!/api/Ext.ElementLoader" rel="Ext.ElementLoader" class="docClass">Ext.ElementLoader</a> <a href="#!/api/Ext.ElementLoader-method-load" rel="Ext.ElementLoader-method-load" class="docClass">Ext.ElementLoader.load</a> method. The method takes the same object
 parameter as <a href="#!/api/Ext.ElementLoader-method-load" rel="Ext.ElementLoader-method-load" class="docClass">Ext.ElementLoader.load</a></p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     }
     }
     
@@ -1332,10 +1336,10 @@ parameter as <a href="#!/api/Ext.ElementLoader-method-load" rel="Ext.ElementLoad
 This method can only be applied to elements which accept child nodes.</p> %}
     
     {b Parameters}:
-    {ul {- msg: [Js.js_string Js.t]
+    {ul {- msg: [Js.js_string Js.t] (optional)
     {% <p>A message to display in the mask</p> %}
     }
-    {- msgCls: [Js.js_string Js.t]
+    {- msgCls: [Js.js_string Js.t] (optional)
     {% <p>A css class to apply to the msg element</p> %}
     }
     }
@@ -1345,8 +1349,8 @@ This method can only be applied to elements which accept child nodes.</p> %}
     }
     }
     *)
-  method monitorMouseLeave : Js.number Js.t -> 'a Js.callback ->
-    'b Js.t Js.optdef -> 'c Js.t Js.meth
+  method monitorMouseLeave : Js.number Js.t -> _ Js.callback ->
+    _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Monitors this Element for the mouse leaving. Calls the function after the specified delay only if
 the mouse was not moved back into the Element within the delay. If the mouse <em>was</em> moved
 back in, the function is not called.</p> %}
@@ -1355,16 +1359,16 @@ back in, the function is not called.</p> %}
     {ul {- delay: [Js.number Js.t]
     {% <p>The delay <strong>in milliseconds</strong> to wait for possible mouse re-entry before calling the handler function.</p> %}
     }
-    {- handler: ['a Js.callback]
+    {- handler: [_ Js.callback]
     {% <p>The function to call if the mouse remains outside of this Element for the specified time.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the handler function executes. Defaults to this Element.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The listeners object which was added to this element so that monitoring can be stopped. Example usage:</p>
 
 <pre><code>// Hide the menu if the mouse moves out for 250ms or more
@@ -1377,7 +1381,7 @@ this.menuEl.un(this.mouseLeaveMonitor);
     }
     }
     *)
-  method move : Js.js_string Js.t -> Js.number Js.t -> 'a Js.t Js.optdef ->
+  method move : Js.js_string Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
     unit Js.meth
   (** {% <p>Move this element relative to its current position.</p> %}
     
@@ -1395,13 +1399,13 @@ this.menuEl.un(this.mouseLeaveMonitor);
     {- distance: [Js.number Js.t]
     {% <p>How far to move the element in pixels</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element
 animation config object</p> %}
     }
     }
     *)
-  method moveTo : Js.number Js.t -> Js.number Js.t -> 'a Js.t Js.optdef ->
+  method moveTo : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
     #Ext_dom_AbstractElement.t Js.t Js.meth
   (** {% <p>Sets the position of the element in page coordinates, regardless of how the element
 is positioned. The element must be part of the DOM tree to have page coordinates
@@ -1414,7 +1418,7 @@ is positioned. The element must be part of the DOM tree to have page coordinates
     {- y: [Js.number Js.t]
     {% <p>Y value for new position (coordinates are page-based)</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element
 animation config object</p> %}
     }
@@ -1429,15 +1433,15 @@ animation config object</p> %}
   (** {% <p>Returns true if this element needs an explicit tabIndex to make it focusable. Input fields, text areas, buttons
 anchors elements <strong>with an href</strong> etc do not need a tabIndex, but structural elements do.</p> %}
     *)
-  method on : Js.js_string Js.t -> 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.t Js.optdef -> 'self Js.t Js.meth
+  method on : Js.js_string Js.t -> _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Appends an event handler to this element.</p> %}
     
     {b Parameters}:
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The name of event to handle.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The handler function the event invokes. This function is passed the following parameters:</p>
 
 
@@ -1455,11 +1459,11 @@ anchors elements <strong>with an href</strong> etc do not need a tabIndex, but s
 <p>The options object from the call that setup the listener.</p></li>
 </ul> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<strong>this</strong> reference) in which the handler function is executed. <strong>If
 omitted, defaults to this Element.</strong></p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>An object containing handler configuration properties. This may contain any of
 the following properties:</p>
 
@@ -1645,20 +1649,21 @@ el.on(
 the element positioned relative IF it is not already positioned.</p> %}
     
     {b Parameters}:
-    {ul {- pos: [Js.js_string Js.t]
+    {ul {- pos: [Js.js_string Js.t] (optional)
     {% <p>Positioning to use "relative", "absolute" or "fixed"</p> %}
     }
-    {- zIndex: [Js.number Js.t]
+    {- zIndex: [Js.number Js.t] (optional)
     {% <p>The zIndex to apply</p> %}
     }
-    {- x: [Js.number Js.t]
+    {- x: [Js.number Js.t] (optional)
     {% <p>Set the page X position</p> %}
     }
-    {- y: [Js.number Js.t] {% <p>Set the page Y position</p> %}
+    {- y: [Js.number Js.t] (optional)
+    {% <p>Set the page Y position</p> %}
     }
     }
     *)
-  method puff : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method puff : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Fades the element out while slowly expanding it in all directions. When the effect is completed, the element will
 be hidden (visibility = 'hidden') but block elements will still take up space in the document. Usage:</p>
 
@@ -1674,7 +1679,7 @@ el.puff({
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -1692,7 +1697,7 @@ el.puff({
     }
     }
     *)
-  method relayEvent : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method relayEvent : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Create an event handler on this element such that when the event fires and is handled by this element,
 it will be relayed to another object (i.e., fired again as if it originated from that object instead).</p> %}
     
@@ -1700,7 +1705,7 @@ it will be relayed to another object (i.e., fired again as if it originated from
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The type of event to relay</p> %}
     }
-    {- observable: ['a Js.t]
+    {- observable: [_ Js.t]
     {% <p>Any object that extends <a href="#!/api/Ext.util.Observable" rel="Ext.util.Observable" class="docClass">Ext.util.Observable</a> that will provide the context
 for firing the relayed event</p> %}
     }
@@ -1722,7 +1727,7 @@ for firing the relayed event</p> %}
     }
     }
     *)
-  method removeListener : Js.js_string Js.t -> 'a Js.callback -> 'b Js.t ->
+  method removeListener : Js.js_string Js.t -> _ Js.callback -> _ Js.t ->
     'self Js.t Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.dom.Element-method-un" rel="Ext.dom.Element-method-un" class="docClass">un</a>.</p>
 
@@ -1742,11 +1747,11 @@ el.removeListener('click', this.handlerFn);
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The name of the event from which to remove the handler.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The handler function to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.dom.Element-method-on" rel="Ext.dom.Element-method-on" class="docClass">on</a> call.</strong></p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>If a scope (<strong>this</strong> reference) was specified when the listener was added, then this must
 refer to the same object.</p> %}
     }
@@ -1757,7 +1762,7 @@ refer to the same object.</p> %}
     }
     }
     *)
-  method scroll : Js.js_string Js.t -> Js.number Js.t -> 'a Js.t Js.optdef ->
+  method scroll : Js.js_string Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
     bool Js.t Js.meth
   (** {% <p>Scrolls this element the specified direction. Does bounds checking to make sure the scroll is
 within this element's scrollable range.</p> %}
@@ -1776,7 +1781,7 @@ within this element's scrollable range.</p> %}
     {- distance: [Js.number Js.t]
     {% <p>How far to scroll the element in pixels</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element
 animation config object</p> %}
     }
@@ -1789,7 +1794,7 @@ was scrolled as far as it could go.</p> %}
     }
     }
     *)
-  method scrollBy : 'a Js.t -> 'b Js.t -> 'c Js.t -> 'self Js.t Js.meth
+  method scrollBy : _ Js.t -> _ Js.t -> _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Scrolls this element by the passed delta values, optionally animating.</p>
 
 <p>All of the following are equivalent:</p>
@@ -1800,14 +1805,14 @@ was scrolled as far as it could go.</p> %}
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- deltaX: ['a Js.t]
+    {ul {- deltaX: [_ Js.t]
     {% <p>Either the x delta, an Array specifying x and y deltas or
 an object with "x" and "y" properties.</p> %}
     }
-    {- deltaY: ['a Js.t]
+    {- deltaY: [_ Js.t]
     {% <p>Either the y delta, or an animate flag or config object.</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t]
     {% <p>Animate flag/config object if the delta values were passed separately.</p> %}
     }
     }
@@ -1817,20 +1822,21 @@ an object with "x" and "y" properties.</p> %}
     }
     }
     *)
-  method scrollIntoView : 'a Js.t Js.optdef -> bool Js.t Js.optdef ->
-    'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method scrollIntoView : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Scrolls this element into view within the passed container.</p> %}
     
     {b Parameters}:
-    {ul {- container: ['a Js.t]
+    {ul {- container: [_ Js.t] (optional)
     {% <p>The container element
 to scroll.  Should be a string (id), dom node, or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
      Defaults to: document.body
     }
-    {- hscroll: [bool Js.t] {% <p>False to disable horizontal scroll.</p> %}
+    {- hscroll: [bool Js.t] (optional)
+    {% <p>False to disable horizontal scroll.</p> %}
      Defaults to: true
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element
 animation config object</p> %}
     }
@@ -1841,7 +1847,7 @@ animation config object</p> %}
     }
     }
     *)
-  method scrollTo : Js.js_string Js.t -> Js.number Js.t -> 'a Js.t Js.optdef
+  method scrollTo : Js.js_string Js.t -> Js.number Js.t -> _ Js.t Js.optdef
     -> 'self Js.t Js.meth
   (** {% <p>Scrolls this element the specified scroll point. It does NOT do bounds checking so
 if you scroll to a weird value it will try to do it. For auto bounds checking, use <a href="#!/api/Ext.dom.Element-method-scroll" rel="Ext.dom.Element-method-scroll" class="docClass">scroll</a>.</p> %}
@@ -1853,7 +1859,7 @@ if you scroll to a weird value it will try to do it. For auto bounds checking, u
     {- value: [Js.number Js.t]
     {% <p>The new scroll value</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element
 animation config object</p> %}
     }
@@ -1872,8 +1878,8 @@ animation config object</p> %}
     }
     }
     *)
-  method setBounds : Js.number Js.t -> Js.number Js.t -> 'a Js.t -> 'b Js.t
-    -> 'c Js.t Js.optdef -> #Ext_dom_AbstractElement.t Js.t Js.meth
+  method setBounds : Js.number Js.t -> Js.number Js.t -> _ Js.t -> _ Js.t ->
+    _ Js.t Js.optdef -> #Ext_dom_AbstractElement.t Js.t Js.meth
   (** {% <p>Sets the element's position and size in one shot. If animation is true then width, height,
 x and y will be animated concurrently.</p> %}
     
@@ -1884,7 +1890,7 @@ x and y will be animated concurrently.</p> %}
     {- y: [Js.number Js.t]
     {% <p>Y value for new position (coordinates are page-based)</p> %}
     }
-    {- width: ['a Js.t]
+    {- width: [_ Js.t]
     {% <p>The new width. This may be one of:</p>
 
 <ul>
@@ -1892,7 +1898,7 @@ x and y will be animated concurrently.</p> %}
 <li>A String used to set the CSS width style. Animation may <strong>not</strong> be used.</li>
 </ul> %}
     }
-    {- height: ['a Js.t]
+    {- height: [_ Js.t]
     {% <p>The new height. This may be one of:</p>
 
 <ul>
@@ -1900,7 +1906,7 @@ x and y will be animated concurrently.</p> %}
 <li>A String used to set the CSS height style. Animation may <strong>not</strong> be used.</li>
 </ul> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element
 animation config object</p> %}
     }
@@ -1911,11 +1917,11 @@ animation config object</p> %}
     }
     }
     *)
-  method setDisplayed : 'a Js.t -> 'self Js.t Js.meth
+  method setDisplayed : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets the CSS display property. Uses originalDisplay if the specified value is a boolean true.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>Boolean value to display the element using its default display, or a string to set the display directly.</p> %}
     }
     }
@@ -1943,7 +1949,7 @@ animation config object</p> %}
     }
     }
     *)
-  method setLocation : Js.number Js.t -> Js.number Js.t -> 'a Js.t Js.optdef
+  method setLocation : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef
     -> #Ext_dom_AbstractElement.t Js.t Js.meth
   (** {% <p>Sets the position of the element in page coordinates, regardless of how the element
 is positioned. The element must be part of the DOM tree to have page coordinates
@@ -1956,7 +1962,7 @@ is positioned. The element must be part of the DOM tree to have page coordinates
     {- y: [Js.number Js.t]
     {% <p>Y value for new position (coordinates are page-based)</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element
 animation config object</p> %}
     }
@@ -1967,7 +1973,7 @@ animation config object</p> %}
     }
     }
     *)
-  method setOpacity : Js.number Js.t -> 'a Js.t Js.optdef -> 'self Js.t
+  method setOpacity : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t
     Js.meth
   (** {% <p>Set the opacity of the element</p> %}
     
@@ -1975,7 +1981,7 @@ animation config object</p> %}
     {ul {- opacity: [Js.number Js.t]
     {% <p>The new opacity. 0 = transparent, .5 = 50% visibile, 1 = fully visible, etc</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>a standard Element animation config object or <code>true</code> for
 the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p> %}
     }
@@ -1986,11 +1992,11 @@ the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p> %}
     }
     }
     *)
-  method setPositioning : 'a Js.t -> #Ext_dom_AbstractElement.t Js.t Js.meth
+  method setPositioning : _ Js.t -> #Ext_dom_AbstractElement.t Js.t Js.meth
   (** {% <p>Set positioning with an object returned by <a href="#!/api/Ext.dom.Element-method-getPositioning" rel="Ext.dom.Element-method-getPositioning" class="docClass">getPositioning</a>.</p> %}
     
     {b Parameters}:
-    {ul {- posCfg: ['a Js.t]
+    {ul {- posCfg: [_ Js.t]
     }
     }
     
@@ -1999,7 +2005,7 @@ the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p> %}
     }
     }
     *)
-  method setRegion : Ext_util_Region.t Js.t -> 'a Js.t Js.optdef ->
+  method setRegion : Ext_util_Region.t Js.t -> _ Js.t Js.optdef ->
     #Ext_dom_AbstractElement.t Js.t Js.meth
   (** {% <p>Sets the element's position and size the specified region. If animation is true then width, height,
 x and y will be animated concurrently.</p> %}
@@ -2008,7 +2014,7 @@ x and y will be animated concurrently.</p> %}
     {ul {- region: [Ext_util_Region.t Js.t]
     {% <p>The region to fill</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element
 animation config object</p> %}
     }
@@ -2019,7 +2025,7 @@ animation config object</p> %}
     }
     }
     *)
-  method setVisible : bool Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method setVisible : bool Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the visibility of the element (see details). If the visibilityMode is set to Element.DISPLAY, it will use
 the display property to hide the element, otherwise it uses visibility. The default is to hide and show using the visibility property.</p> %}
     
@@ -2027,7 +2033,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
     {ul {- visible: [bool Js.t]
     {% <p>Whether the element is visible</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element animation config object</p> %}
     }
     }
@@ -2037,7 +2043,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
     }
     }
     *)
-  method setXY_number : Js.number Js.t Js.js_array Js.t -> 'a Js.t Js.optdef
+  method setXY_number : Js.number Js.t Js.js_array Js.t -> _ Js.t Js.optdef
     -> 'self Js.t Js.meth
   (** {% <p>Sets the position of the element in page coordinates, regardless of how the element
 is positioned. The element must be part of the DOM tree to have page coordinates
@@ -2047,7 +2053,7 @@ is positioned. The element must be part of the DOM tree to have page coordinates
     {ul {- pos: [Js.number Js.t Js.js_array Js.t]
     {% <p>Contains X &amp; Y [x, y] values for new position (coordinates are page-based)</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element
 animation config object</p> %}
     }
@@ -2058,11 +2064,11 @@ animation config object</p> %}
     }
     }
     *)
-  method show : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method show : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Show this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.Element-method-setVisible" rel="Ext.dom.Element-method-setVisible" class="docClass">setVisible</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animate: ['a Js.t]
+    {ul {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -2072,7 +2078,7 @@ animation config object</p> %}
     }
     }
     *)
-  method slideIn : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method slideIn : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
   (** {% <p>Slides the element into view. An anchor point can be optionally passed to set the point of origin for the slide
 effect. This function automatically handles wrapping the element with a fixed-size container if needed. See the
@@ -2092,10 +2098,10 @@ el.slideIn('t', {
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- anchor: [Js.js_string Js.t]
+    {ul {- anchor: [Js.js_string Js.t] (optional)
     {% <p>One of the valid Fx anchor positions (defaults to top: 't')</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -2105,7 +2111,7 @@ el.slideIn('t', {
     }
     }
     *)
-  method slideOut : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method slideOut : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
   (** {% <p>Slides the element out of view. An anchor point can be optionally passed to set the end point for the slide
 effect. When the effect is completed, the element will be hidden (visibility = 'hidden') but block elements will
@@ -2129,10 +2135,10 @@ el.slideOut('t', {
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- anchor: [Js.js_string Js.t]
+    {ul {- anchor: [Js.js_string Js.t] (optional)
     {% <p>One of the valid Fx anchor positions (defaults to top: 't')</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -2142,14 +2148,14 @@ el.slideOut('t', {
     }
     }
     *)
-  method swallowEvent : 'a Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
+  method swallowEvent : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Stops the specified event(s) from bubbling and optionally prevents the default action</p> %}
     
     {b Parameters}:
-    {ul {- eventName: ['a Js.t]
+    {ul {- eventName: [_ Js.t]
     {% <p>an event / array of events to stop from bubbling</p> %}
     }
-    {- preventDefault: [bool Js.t]
+    {- preventDefault: [bool Js.t] (optional)
     {% <p>true to prevent the default action too</p> %}
     }
     }
@@ -2159,7 +2165,7 @@ el.slideOut('t', {
     }
     }
     *)
-  method switchOff : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method switchOff : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Blinks the element as if it was clicked and then collapses on its center (similar to switching off a television).
 When the effect is completed, the element will be hidden (visibility = 'hidden') but block elements will still
 take up space in the document. The element must be removed from the DOM using the 'remove' config option if
@@ -2178,7 +2184,7 @@ el.switchOff({
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>Object literal with any of the Fx config options</p> %}
     }
     }
@@ -2188,11 +2194,11 @@ el.switchOff({
     }
     }
     *)
-  method toggle : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method toggle : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Toggles the element's visibility or display, depending on visibility mode.</p> %}
     
     {b Parameters}:
-    {ul {- animate: ['a Js.t]
+    {ul {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element animation config object</p> %}
     }
     }
@@ -2202,7 +2208,7 @@ el.switchOff({
     }
     }
     *)
-  method un : Js.js_string Js.t -> 'a Js.callback -> 'b Js.t -> 'self Js.t
+  method un : Js.js_string Js.t -> _ Js.callback -> _ Js.t -> 'self Js.t
     Js.meth
   (** {% <p>Removes an event handler from this element.</p>
 
@@ -2220,11 +2226,11 @@ el.removeListener('click', this.handlerFn);
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The name of the event from which to remove the handler.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The handler function to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.dom.Element-method-on" rel="Ext.dom.Element-method-on" class="docClass">on</a> call.</strong></p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>If a scope (<strong>this</strong> reference) was specified when the listener was added, then this must
 refer to the same object.</p> %}
     }
@@ -2255,17 +2261,17 @@ refer to the same object.</p> %}
     }
     *)
   method update_html : Js.js_string Js.t -> bool Js.t Js.optdef ->
-    'a Js.callback Js.optdef -> 'self Js.t Js.meth
+    _ Js.callback Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Updates the innerHTML of this element, optionally searching for and processing scripts.</p> %}
     
     {b Parameters}:
     {ul {- html: [Js.js_string Js.t]
     {% <p>The new HTML</p> %}
     }
-    {- loadScripts: [bool Js.t]
+    {- loadScripts: [bool Js.t] (optional)
     {% <p>True to look for and process scripts (defaults to false)</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>For async script loading you can be notified when the update completes</p> %}
     }
     }
@@ -2292,7 +2298,7 @@ object
   inherit Ext_dom_AbstractElement.events
   
   method _DOMActivate : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when an element is activated, for instance, through a mouse click or a keypress.</p> %}
     
     {b Parameters}:
@@ -2302,13 +2308,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMAttrModified : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when an attribute has been modified.</p> %}
     
     {b Parameters}:
@@ -2318,13 +2324,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMCharacterDataModified : (Ext_EventObject.t Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when the character data has been modified.</p> %}
     
     {b Parameters}:
@@ -2334,13 +2340,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMFocusIn : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Similar to HTML focus event, but can be applied to any focusable element.</p> %}
     
     {b Parameters}:
@@ -2350,13 +2356,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMFocusOut : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Similar to HTML blur event, but can be applied to any focusable element.</p> %}
     
     {b Parameters}:
@@ -2366,13 +2372,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMNodeInserted : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a node has been added as a child of another node.</p> %}
     
     {b Parameters}:
@@ -2382,13 +2388,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMNodeInsertedIntoDocument : (Ext_EventObject.t Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a node is being inserted into a document.</p> %}
     
     {b Parameters}:
@@ -2398,13 +2404,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMNodeRemoved : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a descendant node of the element is removed.</p> %}
     
     {b Parameters}:
@@ -2414,13 +2420,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMNodeRemovedFromDocument : (Ext_EventObject.t Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a node is being removed from a document.</p> %}
     
     {b Parameters}:
@@ -2430,13 +2436,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method _DOMSubtreeModified : (Ext_EventObject.t Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when the subtree is modified.</p> %}
     
     {b Parameters}:
@@ -2446,12 +2452,12 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method abort : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method abort : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an object/image is stopped from loading before completely loaded.</p> %}
     
@@ -2462,13 +2468,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method blur : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
-    -> unit) Js.callback Js.writeonly_prop
+  method blur : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an element loses focus either via the pointing device or by tabbing navigation.</p> %}
     
     {b Parameters}:
@@ -2478,12 +2484,12 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method change : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method change : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a control loses the input focus and its value has been modified since gaining focus.</p> %}
     
@@ -2494,12 +2500,12 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method click : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method click : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a mouse click is detected within the element.</p> %}
     
@@ -2510,13 +2516,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method contextmenu : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a right click is detected within the element.</p> %}
     
     {b Parameters}:
@@ -2526,13 +2532,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method dblclick : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a mouse double click is detected within the element.</p> %}
     
     {b Parameters}:
@@ -2542,12 +2548,12 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method error : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method error : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an object/image/frame cannot be loaded properly.</p> %}
     
@@ -2558,12 +2564,12 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method focus : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method focus : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an element receives focus either via the pointing device or by tab navigation.</p> %}
     
@@ -2574,13 +2580,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method keydown : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method keydown : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
+    -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a keydown is detected within the element.</p> %}
     
     {b Parameters}:
@@ -2590,13 +2596,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method keypress : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a keypress is detected within the element.</p> %}
     
     {b Parameters}:
@@ -2606,12 +2612,12 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method keyup : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method keyup : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a keyup is detected within the element.</p> %}
     
@@ -2622,13 +2628,13 @@ object
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method load : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
-    -> unit) Js.callback Js.writeonly_prop
+  method load : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the user agent finishes loading all content within the element. Only supported by window, frames,
 objects and images.</p> %}
     
@@ -2639,13 +2645,13 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method mousedown : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a mousedown is detected within the element.</p> %}
     
     {b Parameters}:
@@ -2655,13 +2661,13 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method mouseenter : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse enters the element.</p> %}
     
     {b Parameters}:
@@ -2671,13 +2677,13 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method mouseleave : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse leaves the element.</p> %}
     
     {b Parameters}:
@@ -2687,13 +2693,13 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method mousemove : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a mousemove is detected with the element.</p> %}
     
     {b Parameters}:
@@ -2703,13 +2709,13 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method mouseout : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a mouseout is detected with the element.</p> %}
     
     {b Parameters}:
@@ -2719,13 +2725,13 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method mouseover : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a mouseover is detected within the element.</p> %}
     
     {b Parameters}:
@@ -2735,13 +2741,13 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method mouseup : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method mouseup : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
+    -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a mouseup is detected within the element.</p> %}
     
     {b Parameters}:
@@ -2751,12 +2757,12 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method reset : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method reset : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a form is reset.</p> %}
     
@@ -2767,12 +2773,12 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method resize : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method resize : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a document view is resized.</p> %}
     
@@ -2783,12 +2789,12 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method scroll : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method scroll : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a document view is scrolled.</p> %}
     
@@ -2799,12 +2805,12 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method select : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method select : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a user selects some text in a text field, including input and textarea.</p> %}
     
@@ -2815,12 +2821,12 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method submit : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method submit : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a form is submitted.</p> %}
     
@@ -2831,12 +2837,12 @@ objects and images.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method unload : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
+  method unload : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the user agent removes all content from a window or frame. For elements, it fires when the target
 element or any of its content has been removed.</p> %}
@@ -2848,7 +2854,7 @@ element or any of its content has been removed.</p> %}
     {- t: [Dom_html.element Js.t]
     {% <p>The target of the event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
@@ -2861,20 +2867,20 @@ object
   inherit Ext_Base.statics
   inherit Ext_dom_AbstractElement.statics
   
-  method select : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.optdef ->
-    'c Js.t Js.meth
+  method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
+    Js.meth
   (** {% <p>Selects elements based on the passed CSS selector to enable <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> methods
 to be applied to many related elements in one statement through the returned <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">CompositeElement</a> or
 <a href="#!/api/Ext.dom.CompositeElementLite" rel="Ext.dom.CompositeElementLite" class="docClass">CompositeElementLite</a> object.</p> %}
     
     {b Parameters}:
-    {ul {- selector: ['a Js.t]
+    {ul {- selector: [_ Js.t]
     {% <p>The CSS selector or an array of elements</p> %}
     }
-    {- unique: [bool Js.t]
+    {- unique: [bool Js.t] (optional)
     {% <p>true to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element (defaults to a shared flyweight object)</p> %}
     }
-    {- root: ['a Js.t]
+    {- root: [_ Js.t] (optional)
     {% <p>The root element of the query or id of the root</p> %}
     }
     }
@@ -2885,7 +2891,7 @@ end
 val static : statics Js.t
 (** Static instance. *)
 
-val select : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.optdef -> 'c Js.t
+val select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
 (** See method [statics.select] *)
 
 val of_configs : configs Js.t -> t Js.t

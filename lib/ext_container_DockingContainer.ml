@@ -2,12 +2,12 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method addDocked : 'a Js.t -> Js.number Js.t Js.optdef ->
+  method addDocked : _ Js.t -> Js.number Js.t Js.optdef ->
     Ext_Component.t Js.js_array Js.t Js.meth
-  method getDockedComponent : 'a Js.t -> #Ext_Component.t Js.t Js.meth
+  method getDockedComponent : _ Js.t -> #Ext_Component.t Js.t Js.meth
   method getDockedItems : Js.js_string Js.t -> bool Js.t ->
     Ext_Component.t Js.js_array Js.t Js.meth
-  method insertDocked : Js.number Js.t -> 'a Js.t -> unit Js.meth
+  method insertDocked : Js.number Js.t -> _ Js.t -> unit Js.meth
   method onDockedAdd : #Ext_Component.t Js.t -> unit Js.meth
   method onDockedRemove : #Ext_Component.t Js.t -> unit Js.meth
   method removeDocked : #Ext_Component.t Js.t -> bool Js.t Js.optdef -> unit
@@ -23,7 +23,7 @@ object('self)
     Js.meth_callback Js.writeonly_prop
   method onDockedRemove : ('self Js.t, #Ext_Component.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
-  method defaultDockWeights : 'a Js.t Js.prop
+  method defaultDockWeights : _ Js.t Js.prop
   
 end
 

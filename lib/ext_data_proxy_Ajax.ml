@@ -4,7 +4,7 @@ object('self)
   inherit Ext_data_proxy_Proxy.t
   inherit Ext_data_proxy_Server.t
   
-  method actionMethods : 'a Js.t Js.prop
+  method actionMethods : _ Js.t Js.prop
   method getMethod : Ext_data_Request.t Js.t -> Js.js_string Js.t Js.meth
   
 end
@@ -15,7 +15,7 @@ object('self)
   inherit Ext_data_proxy_Proxy.configs
   inherit Ext_data_proxy_Server.configs
   
-  method headers : 'a Js.t Js.prop
+  method headers : _ Js.t Js.prop
   
 end
 

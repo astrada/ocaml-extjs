@@ -17,11 +17,11 @@ object('self)
   method id : Js.js_string Js.t Js.prop
   (** {% <p>The DOM element ID</p> %}
     *)
-  method addCls : 'a Js.t -> 'self Js.t Js.meth
+  method addCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds one or more CSS classes to the element. Duplicate classes are automatically filtered out.</p> %}
     
     {b Parameters}:
-    {ul {- className: ['a Js.t]
+    {ul {- className: [_ Js.t]
     {% <p>The CSS classes to add separated by space, or an array of classes</p> %}
     }
     }
@@ -31,11 +31,11 @@ object('self)
     }
     }
     *)
-  method appendChild : 'a Js.t -> 'self Js.t Js.meth
+  method appendChild : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Appends the passed element(s) to this element</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The id of the node, a DOM Node or an existing Element.</p> %}
     }
     }
@@ -45,11 +45,11 @@ object('self)
     }
     }
     *)
-  method appendTo : 'a Js.t -> 'self Js.t Js.meth
+  method appendTo : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Appends this element to the passed element</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The new parent element.
 The id of the node, a DOM Node or an existing Element.</p> %}
     }
@@ -60,11 +60,11 @@ The id of the node, a DOM Node or an existing Element.</p> %}
     }
     }
     *)
-  method applyStyles : 'a Js.t -> 'self Js.t Js.meth
+  method applyStyles : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>More flexible version of <a href="#!/api/Ext.dom.AbstractElement-method-setStyle" rel="Ext.dom.AbstractElement-method-setStyle" class="docClass">setStyle</a> for setting style properties.</p> %}
     
     {b Parameters}:
-    {ul {- styles: ['a Js.t]
+    {ul {- styles: [_ Js.t]
     {% <p>A style specification string, e.g. "width:100px", or object in the form {width:"100px"}, or
 a function which returns such a specification.</p> %}
     }
@@ -75,30 +75,30 @@ a function which returns such a specification.</p> %}
     }
     }
     *)
-  method child : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method child : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Selects a single <em>direct</em> child based on the passed CSS selector (the selector should not contain an id).</p> %}
     
     {b Parameters}:
     {ul {- selector: [Js.js_string Js.t]
     {% <p>The CSS selector</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return the DOM node instead of <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>.</p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The child <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> (or DOM node if returnDom = true)</p> %}
     }
     }
     *)
-  method contains : 'a Js.t -> bool Js.t Js.meth
+  method contains : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if this element is an ancestor of the passed element</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element to check</p> %}
     }
     }
@@ -109,19 +109,19 @@ a function which returns such a specification.</p> %}
     }
     }
     *)
-  method createChild : 'a Js.t -> Dom_html.element Js.t Js.optdef ->
+  method createChild : _ Js.t -> Dom_html.element Js.t Js.optdef ->
     bool Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Creates the passed DomHelper config and appends it to this element or optionally inserts it before the passed child element.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>DomHelper element config object.  If no tag is specified (e.g., {tag:'input'}) then a div will be
 automatically generated with the specified attributes.</p> %}
     }
-    {- insertBefore: [Dom_html.element Js.t]
+    {- insertBefore: [Dom_html.element Js.t] (optional)
     {% <p>a child element of this element</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>true to return the dom node instead of creating an Element</p> %}
      Defaults to: false
     }
@@ -138,26 +138,26 @@ automatically generated with the specified attributes.</p> %}
 
 <p>Removes this element's dom reference. Note that event and cache removal is handled at <a href="#!/api/Ext-method-removeNode" rel="Ext-method-removeNode" class="docClass">Ext.removeNode</a></p> %}
     *)
-  method down : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method down : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Selects a single child at any depth below this element based on the passed CSS selector (the selector should not contain an id).</p> %}
     
     {b Parameters}:
     {ul {- selector: [Js.js_string Js.t]
     {% <p>The CSS selector</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return the DOM node instead of <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The child <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> (or DOM node if returnDom = true)</p> %}
     }
     }
     *)
-  method findParent : Js.js_string Js.t -> 'a Js.t Js.optdef ->
+  method findParent : Js.js_string Js.t -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
   (** {% <p>Looks at this node and then at parent nodes for a match of the passed simple selector (e.g. div.some-class or span:first-child)</p> %}
     
@@ -165,11 +165,11 @@ automatically generated with the specified attributes.</p> %}
     {ul {- selector: [Js.js_string Js.t]
     {% <p>The simple selector to test</p> %}
     }
-    {- limit: ['a Js.t]
+    {- limit: [_ Js.t] (optional)
     {% <p>The max depth to search as a number or an element which causes the upward traversal to stop
 and is <b>not</b> considered for inclusion as the result. (defaults to 50 || document.documentElement)</p> %}
     }
-    {- returnEl: [bool Js.t]
+    {- returnEl: [bool Js.t] (optional)
     {% <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> %}
      Defaults to: false
     }
@@ -181,7 +181,7 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
     }
     }
     *)
-  method findParentNode : Js.js_string Js.t -> 'a Js.t Js.optdef ->
+  method findParentNode : Js.js_string Js.t -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
   (** {% <p>Looks at parent nodes for a match of the passed simple selector (e.g. div.some-class or span:first-child)</p> %}
     
@@ -189,11 +189,11 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
     {ul {- selector: [Js.js_string Js.t]
     {% <p>The simple selector to test</p> %}
     }
-    {- limit: ['a Js.t]
+    {- limit: [_ Js.t] (optional)
     {% <p>The max depth to search as a number or an element which causes the upward traversal to stop
 and is <b>not</b> considered for inclusion as the result. (defaults to 50 || document.documentElement)</p> %}
     }
-    {- returnEl: [bool Js.t]
+    {- returnEl: [bool Js.t] (optional)
     {% <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> %}
      Defaults to: false
     }
@@ -205,22 +205,22 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
     }
     }
     *)
-  method first : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
-    'a Js.t Js.meth
+  method first : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
+    Js.meth
   (** {% <p>Gets the first child, skipping text nodes</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>Find the next sibling that matches the passed simple selector</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The first child or null</p> %}
+    {ul {- [_ Js.t] {% <p>The first child or null</p> %}
     }
     }
     *)
@@ -235,50 +235,51 @@ element is maintained internally.</p> %}
     }
     }
     *)
-  method getAlignToXY : 'a Js.t -> Js.js_string Js.t Js.optdef ->
-    'b Js.js_array Js.t Js.optdef -> 'c Js.js_array Js.t Js.meth
+  method getAlignToXY : _ Js.t -> Js.js_string Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
   (** {% <p>Gets the x,y coordinates to align this element with another element. See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.dom.Element.alignTo</a> for more info on the
 supported position values.</p> %}
     
     {b Parameters}:
-    {ul {- element: ['a Js.t]
+    {ul {- element: [_ Js.t]
     {% <p>The element to align to.</p> %}
     }
-    {- position: [Js.js_string Js.t] {% <p>The position to align to.</p> %}
+    {- position: [Js.js_string Js.t] (optional)
+    {% <p>The position to align to.</p> %}
      Defaults to: "tl-bl?"
     }
-    {- offsets: ['a Js.js_array Js.t]
+    {- offsets: [_ Js.js_array Js.t] (optional)
     {% <p>Offset the positioning by [x, y]</p> %}
      Defaults to: [0,0]
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t] {% <p>[x, y]</p> %}
+    {ul {- [_ Js.js_array Js.t] {% <p>[x, y]</p> %}
     }
     }
     *)
   method getAnchorXY : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
-    'a Js.t Js.optdef -> 'b Js.js_array Js.t Js.meth
+    _ Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
   (** {% <p>Gets the x,y coordinates specified by the anchor position on the element.</p> %}
     
     {b Parameters}:
-    {ul {- anchor: [Js.js_string Js.t]
+    {ul {- anchor: [Js.js_string Js.t] (optional)
     {% <p>The specified anchor position (defaults to "c").  See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.dom.Element.alignTo</a>
 for details on supported anchor positions.</p> %}
     }
-    {- local: [bool Js.t]
+    {- local: [bool Js.t] (optional)
     {% <p>True to get the local (element top/left-relative) anchor position instead
 of page coordinates</p> %}
     }
-    {- size: ['a Js.t]
+    {- size: [_ Js.t] (optional)
     {% <p>An object containing the size to use for calculating anchor position
 {width: (target width), height: (target height)} (defaults to the element's current size)</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t]
+    {ul {- [_ Js.js_array Js.t]
     {% <p>[x, y] An array containing the element's x and y coordinates</p> %}
     }
     }
@@ -291,7 +292,7 @@ of page coordinates</p> %}
     {ul {- name: [Js.js_string Js.t]
     {% <p>The attribute name</p> %}
     }
-    {- namespace: [Js.js_string Js.t]
+    {- namespace: [Js.js_string Js.t] (optional)
     {% <p>The namespace in which to look for the attribute</p> %}
     }
     }
@@ -326,22 +327,22 @@ passing <code>'lr'</code> would get the border <strong>l</strong>eft width + the
     }
     }
     *)
-  method getBox : bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+  method getBox : bool Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Return an object defining the area of this Element which can be passed to <a href="#!/api/Ext.dom.AbstractElement-method-setBox" rel="Ext.dom.AbstractElement-method-setBox" class="docClass">setBox</a> to
 set another Element's size/location to match this element.</p> %}
     
     {b Parameters}:
-    {ul {- contentBox: [bool Js.t]
+    {ul {- contentBox: [bool Js.t] (optional)
     {% <p>If true a box for the content of the element is returned.</p> %}
     }
-    {- local: [bool Js.t]
+    {- local: [bool Js.t] (optional)
     {% <p>If true the element's left and top are returned instead of page x/y.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>box An object in the format:</p>
 
 <pre><code>{
@@ -366,7 +367,7 @@ and index 1 contains the Y position. So the result may also be used for <a href=
     {ul {- id: [Js.js_string Js.t]
     {% <p>The id of the desired child element.</p> %}
     }
-    {- asDom: [bool Js.t]
+    {- asDom: [bool Js.t] (optional)
     {% <p>True to return the DOM element, false to return a
 wrapped Element object.</p> %}
      Defaults to: false
@@ -381,7 +382,7 @@ dom no longer exists.</p> %}
   (** {% <p>Returns the offset height of the element</p> %}
     
     {b Parameters}:
-    {ul {- contentHeight: [bool Js.t]
+    {ul {- contentHeight: [bool Js.t] (optional)
     {% <p>true to get the height minus borders and padding</p> %}
     }
     }
@@ -400,28 +401,28 @@ dom no longer exists.</p> %}
     }
     }
     *)
-  method getMargin : Js.js_string Js.t Js.optdef -> 'a Js.t Js.meth
+  method getMargin : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Returns an object with properties top, left, right and bottom representing the margins of this element unless sides is passed,
 then it returns the calculated width of the sides (see getPadding)</p> %}
     
     {b Parameters}:
-    {ul {- sides: [Js.js_string Js.t]
+    {ul {- sides: [Js.js_string Js.t] (optional)
     {% <p>Any combination of l, r, t, b to get the sum of those sides</p> %}
     }
     }
     *)
-  method getOffsetsTo : 'a Js.t -> 'b Js.js_array Js.t Js.meth
+  method getOffsetsTo : _ Js.t -> _ Js.js_array Js.t Js.meth
   (** {% <p>Returns the offsets of this element from the passed element. Both element must be part of the DOM
 tree and not have display:none to have page coordinates.</p> %}
     
     {b Parameters}:
-    {ul {- element: ['a Js.t]
+    {ul {- element: [_ Js.t]
     {% <p>The element to get the offsets from.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t]
+    {ul {- [_ Js.js_array Js.t]
     {% <p>The XY page offsets (e.g. [100, -200])</p> %}
     }
     }
@@ -442,18 +443,18 @@ passing <code>'lr'</code> would get the padding <strong>l</strong>eft + the padd
     }
     }
     *)
-  method getPageBox : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method getPageBox : bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Return an object defining the area of this Element which can be passed to <a href="#!/api/Ext.dom.AbstractElement-method-setBox" rel="Ext.dom.AbstractElement-method-setBox" class="docClass">setBox</a> to
 set another Element's size/location to match this element.</p> %}
     
     {b Parameters}:
-    {ul {- asRegion: [bool Js.t]
+    {ul {- asRegion: [bool Js.t] (optional)
     {% <p>If true an <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Ext.util.Region</a> will be returned</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>box An object in the format</p>
 
 <pre><code>{
@@ -480,38 +481,37 @@ and index 1 contains the Y position. So the result may also be used for <a href=
     }
     }
     *)
-  method getSize : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method getSize : bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Returns the size of the element.</p> %}
     
     {b Parameters}:
-    {ul {- contentSize: [bool Js.t]
+    {ul {- contentSize: [bool Js.t] (optional)
     {% <p>true to get the width/size minus borders and padding</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
-    {% <p>An object containing the element's size:</p> %}
+    {ul {- [_ Js.t] {% <p>An object containing the element's size:</p> %}
     }
     }
     *)
-  method getStyle : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.meth
+  method getStyle : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Returns a named style property based on computed/currentStyle (primary) and
 inline-style if primary is not available.</p> %}
     
     {b Parameters}:
-    {ul {- property: ['a Js.t]
+    {ul {- property: [_ Js.t]
     {% <p>The style property (or multiple property names
 in an array) whose value is returned.</p> %}
     }
-    {- inline: [bool Js.t]
+    {- inline: [bool Js.t] (optional)
     {% <p>if <code>true</code> only inline styles will be returned.</p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The current value of the style property for this element
 (or a hash of named style values if multiple property arguments are requested).</p> %}
     }
@@ -526,7 +526,7 @@ in an array) whose value is returned.</p> %}
     }
     }
     *)
-  method getValue : bool Js.t -> 'a Js.t Js.meth
+  method getValue : bool Js.t -> _ Js.t Js.meth
   (** {% <p>Returns the value of the "value" attribute</p> %}
     
     {b Parameters}:
@@ -535,7 +535,7 @@ in an array) whose value is returned.</p> %}
     }
     }
     *)
-  method getViewSize : 'a Js.t Js.meth
+  method getViewSize : _ Js.t Js.meth
   (** {% <p>Returns the dimensions of the element available to lay content out in.</p>
 
 <p>If the element (or any ancestor element) has CSS style <code>display: none</code>, the dimensions will be zero.</p>
@@ -558,7 +558,7 @@ To obtain the size including scrollbars, use getStyleSize</p>
 <p>Sizing of the document body is handled at the adapter level which handles special cases for IE and strict modes, etc.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>Object describing width and height.</p> %}
+    {ul {- [_ Js.t] {% <p>Object describing width and height.</p> %}
     }
     }
     *)
@@ -566,7 +566,7 @@ To obtain the size including scrollbars, use getStyleSize</p>
   (** {% <p>Returns the offset width of the element</p> %}
     
     {b Parameters}:
-    {ul {- contentWidth: [bool Js.t]
+    {ul {- contentWidth: [bool Js.t] (optional)
     {% <p>true to get the width minus borders and padding</p> %}
     }
     }
@@ -576,12 +576,12 @@ To obtain the size including scrollbars, use getStyleSize</p>
     }
     }
     *)
-  method getX : 'a Js.t -> Js.number Js.t Js.meth
+  method getX : _ Js.t -> Js.number Js.t Js.meth
   (** {% <p>Gets the current X position of the element based on page coordinates.  Element must be part of the DOM
 tree to have page coordinates (display:none or elements not appended return false).</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     }
     }
     
@@ -590,22 +590,22 @@ tree to have page coordinates (display:none or elements not appended return fals
     }
     }
     *)
-  method getXY : 'a Js.js_array Js.t Js.meth
+  method getXY : _ Js.js_array Js.t Js.meth
   (** {% <p>Gets the current position of the element based on page coordinates.  Element must be part of the DOM
 tree to have page coordinates (display:none or elements not appended return false).</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t]
+    {ul {- [_ Js.js_array Js.t]
     {% <p>The XY position of the element</p> %}
     }
     }
     *)
-  method getY : 'a Js.t -> Js.number Js.t Js.meth
+  method getY : _ Js.t -> Js.number Js.t Js.meth
   (** {% <p>Gets the current Y position of the element based on page coordinates.  Element must be part of the DOM
 tree to have page coordinates (display:none or elements not appended return false).</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     }
     }
     
@@ -628,11 +628,11 @@ tree to have page coordinates (display:none or elements not appended return fals
     }
     }
     *)
-  method hide : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method hide : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Hide this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.AbstractElement-method-setVisible" rel="Ext.dom.AbstractElement-method-setVisible" class="docClass">setVisible</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animate: ['a Js.t]
+    {ul {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -642,11 +642,11 @@ tree to have page coordinates (display:none or elements not appended return fals
     }
     }
     *)
-  method insertAfter : 'a Js.t -> 'self Js.t Js.meth
+  method insertAfter : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Inserts this element after the passed element in the DOM</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element to insert after.
 The id of the node, a DOM Node or an existing Element.</p> %}
     }
@@ -657,11 +657,11 @@ The id of the node, a DOM Node or an existing Element.</p> %}
     }
     }
     *)
-  method insertBefore : 'a Js.t -> 'self Js.t Js.meth
+  method insertBefore : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Inserts this element before the passed element in the DOM</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element before which this element will be inserted.
 The id of the node, a DOM Node or an existing Element.</p> %}
     }
@@ -672,11 +672,11 @@ The id of the node, a DOM Node or an existing Element.</p> %}
     }
     }
     *)
-  method insertFirst : 'a Js.t -> 'self Js.t Js.meth
+  method insertFirst : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Inserts (or creates) an element (or DomHelper config) as the first child of this element</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The id or element to insert or a DomHelper config
 to create and insert</p> %}
     }
@@ -688,7 +688,7 @@ to create and insert</p> %}
     }
     *)
   method insertHtml : Js.js_string Js.t -> Js.js_string Js.t ->
-    bool Js.t Js.optdef -> 'a Js.t Js.meth
+    bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Inserts an html fragment into this element</p> %}
     
     {b Parameters}:
@@ -699,31 +699,31 @@ See <a href="#!/api/Ext.dom.Helper-method-insertHtml" rel="Ext.dom.Helper-method
     {- html: [Js.js_string Js.t]
     {% <p>The HTML fragment</p> %}
     }
-    {- returnEl: [bool Js.t]
+    {- returnEl: [bool Js.t] (optional)
     {% <p>True to return an <a href="#!/api/Ext.dom.AbstractElement" rel="Ext.dom.AbstractElement" class="docClass">Ext.dom.AbstractElement</a></p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The inserted node (or nearest related if more than 1 inserted)</p> %}
     }
     }
     *)
-  method insertSibling : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method insertSibling : _ Js.t -> Js.js_string Js.t Js.optdef ->
     bool Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Inserts (or creates) the passed element (or DomHelper config) as a sibling of this element</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The id, element to insert or a DomHelper config
 to create and insert <em>or</em> an array of any of those.</p> %}
     }
-    {- where: [Js.js_string Js.t] {% <p>'before' or 'after'</p> %}
+    {- where: [Js.js_string Js.t] (optional) {% <p>'before' or 'after'</p> %}
      Defaults to: 'before'
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return the .;ll;l,raw DOM element instead of <a href="#!/api/Ext.dom.AbstractElement" rel="Ext.dom.AbstractElement" class="docClass">Ext.dom.AbstractElement</a></p> %}
      Defaults to: false
     }
@@ -786,22 +786,22 @@ component.</p> %}
     }
     }
     *)
-  method last : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+  method last : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Gets the last child, skipping text nodes</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>Find the previous sibling that matches the passed simple selector</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The last child or null</p> %}
+    {ul {- [_ Js.t] {% <p>The last child or null</p> %}
     }
     }
     *)
@@ -811,80 +811,80 @@ component.</p> %}
 This method can only be applied to elements which accept child nodes.</p> %}
     
     {b Parameters}:
-    {ul {- msg: [Js.js_string Js.t]
+    {ul {- msg: [Js.js_string Js.t] (optional)
     {% <p>A message to display in the mask</p> %}
     }
-    {- msgCls: [Js.js_string Js.t]
+    {- msgCls: [Js.js_string Js.t] (optional)
     {% <p>A css class to apply to the msg element</p> %}
     }
     }
     *)
-  method next : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+  method next : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Gets the next sibling, skipping text nodes</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>Find the next sibling that matches the passed simple selector</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The next sibling or null</p> %}
+    {ul {- [_ Js.t] {% <p>The next sibling or null</p> %}
     }
     }
     *)
   method parent : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
-    'a Js.t Js.meth
+    _ Js.t Js.meth
   (** {% <p>Gets the parent node for this element, optionally chaining up trying to match a selector</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>Find a parent node that matches the passed simple selector</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The parent node or null</p> %}
+    {ul {- [_ Js.t] {% <p>The parent node or null</p> %}
     }
     }
     *)
-  method populateStyleMap : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method populateStyleMap : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Creates mappings for 'margin-before' to 'marginLeft' (etc.) given the output
 map and an ordering pair (e.g., ['left', 'right']). The ordering pair is in
 before/after order.</p> %}
     
     {b Parameters}:
-    {ul {- map: ['a Js.t]
+    {ul {- map: [_ Js.t]
     }
-    {- order: ['a Js.t]
+    {- order: [_ Js.t]
     }
     }
     *)
-  method prev : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+  method prev : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Gets the previous sibling, skipping text nodes</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>Find the previous sibling that matches the passed simple selector</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The previous sibling or null</p> %}
+    {ul {- [_ Js.t] {% <p>The previous sibling or null</p> %}
     }
     }
     *)
@@ -904,11 +904,11 @@ before/after order.</p> %}
     }
     }
     *)
-  method radioCls : 'a Js.t -> 'self Js.t Js.meth
+  method radioCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds one or more CSS classes to this element and removes the same class(es) from all siblings.</p> %}
     
     {b Parameters}:
-    {ul {- className: ['a Js.t]
+    {ul {- className: [_ Js.t]
     {% <p>The CSS class to add, or an array of classes</p> %}
     }
     }
@@ -921,11 +921,11 @@ before/after order.</p> %}
   method remove : unit Js.meth
   (** {% <p>Removes this element's dom reference. Note that event and cache removal is handled at <a href="#!/api/Ext-method-removeNode" rel="Ext-method-removeNode" class="docClass">Ext.removeNode</a></p> %}
     *)
-  method removeCls : 'a Js.t -> 'self Js.t Js.meth
+  method removeCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Removes one or more CSS classes from the element.</p> %}
     
     {b Parameters}:
-    {ul {- className: ['a Js.t]
+    {ul {- className: [_ Js.t]
     {% <p>The CSS classes to remove separated by space, or an array of classes</p> %}
     }
     }
@@ -943,11 +943,11 @@ before/after order.</p> %}
     }
     }
     *)
-  method replace : 'a Js.t -> 'self Js.t Js.meth
+  method replace : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Replaces the passed element with this element</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element to replace.
 The id of the node, a DOM Node or an existing Element.</p> %}
     }
@@ -976,11 +976,11 @@ The id of the node, a DOM Node or an existing Element.</p> %}
     }
     }
     *)
-  method replaceWith : 'a Js.t -> 'self Js.t Js.meth
+  method replaceWith : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Replaces this element with the passed element</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The new element (id of the node, a DOM Node
 or an existing Element) or a DomHelper config of an element to create</p> %}
     }
@@ -991,14 +991,14 @@ or an existing Element) or a DomHelper config of an element to create</p> %}
     }
     }
     *)
-  method select : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method select : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Creates a <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a> for child nodes based on the passed CSS selector (the selector should not contain an id).</p> %}
     
     {b Parameters}:
     {ul {- selector: [Js.js_string Js.t]
     {% <p>The CSS selector</p> %}
     }
-    {- unique: [bool Js.t]
+    {- unique: [bool Js.t] (optional)
     {% <p>True to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element. Defaults to a shared flyweight object.</p> %}
     }
     }
@@ -1009,11 +1009,11 @@ or an existing Element) or a DomHelper config of an element to create</p> %}
     }
     }
     *)
-  method serializeForm : 'a Js.t -> Js.js_string Js.t Js.meth
+  method serializeForm : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Serializes a DOM form into a url encoded string</p> %}
     
     {b Parameters}:
-    {ul {- form: ['a Js.t]
+    {ul {- form: [_ Js.t]
     {% <p>The form</p> %}
     }
     }
@@ -1023,14 +1023,14 @@ or an existing Element) or a DomHelper config of an element to create</p> %}
     }
     }
     *)
-  method set : 'a Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
+  method set : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the passed attributes as attributes of this element (a style attribute can be a string, object or function)</p> %}
     
     {b Parameters}:
-    {ul {- o: ['a Js.t]
+    {ul {- o: [_ Js.t]
     {% <p>The object with the attributes</p> %}
     }
-    {- useSet: [bool Js.t]
+    {- useSet: [bool Js.t] (optional)
     {% <p>false to override the default setAttribute to use expandos.</p> %}
      Defaults to: true
     }
@@ -1055,19 +1055,19 @@ or an existing Element) or a DomHelper config of an element to create</p> %}
     }
     }
     *)
-  method setBox : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.optdef ->
+  method setBox : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
   (** {% <p>Sets the element's box. Use getBox() on another element to get a box obj.
 If animate is true then width, height, x and y will be animated concurrently.</p> %}
     
     {b Parameters}:
-    {ul {- box: ['a Js.t]
+    {ul {- box: [_ Js.t]
     {% <p>The box to fill {x, y, width, height}</p> %}
     }
-    {- adjust: [bool Js.t]
+    {- adjust: [bool Js.t] (optional)
     {% <p>Whether to adjust for box-model issues automatically</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard
 Element animation config object</p> %}
     }
@@ -1092,7 +1092,7 @@ Element animation config object</p> %}
     }
     }
     *)
-  method setHeight : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method setHeight : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Set the height of this Element.</p>
 
 <pre><code>// change the height to 200px and animate with default configuration
@@ -1107,7 +1107,7 @@ Element animation config object</p> %}
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- height: ['a Js.t]
+    {ul {- height: [_ Js.t]
     {% <p>The new height. This may be one of:</p>
 
 <ul>
@@ -1115,7 +1115,7 @@ Element animation config object</p> %}
 <li>A String used to set the CSS height style. Animation may <strong>not</strong> be used.</li>
 </ul> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -1153,12 +1153,11 @@ Element animation config object</p> %}
     }
     }
     *)
-  method setSize : 'a Js.t -> 'b Js.t -> 'c Js.t Js.optdef -> 'self Js.t
-    Js.meth
+  method setSize : _ Js.t -> _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Set the size of this Element. If animation is true, both width and height will be animated concurrently.</p> %}
     
     {b Parameters}:
-    {ul {- width: ['a Js.t]
+    {ul {- width: [_ Js.t]
     {% <p>The new width. This may be one of:</p>
 
 <ul>
@@ -1167,7 +1166,7 @@ Element animation config object</p> %}
 <li>A size object in the format <code>{width: widthValue, height: heightValue}</code>.</li>
 </ul> %}
     }
-    {- height: ['a Js.t]
+    {- height: [_ Js.t]
     {% <p>The new height. This may be one of:</p>
 
 <ul>
@@ -1175,7 +1174,7 @@ Element animation config object</p> %}
 <li>A String used to set the CSS height style. Animation may <strong>not</strong> be used.</li>
 </ul> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -1185,15 +1184,15 @@ Element animation config object</p> %}
     }
     }
     *)
-  method setStyle : 'a Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
+  method setStyle : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
     Js.meth
   (** {% <p>Wrapper for setting style properties, also takes single object parameter of multiple styles.</p> %}
     
     {b Parameters}:
-    {ul {- property: ['a Js.t]
+    {ul {- property: [_ Js.t]
     {% <p>The style property to be set, or an object of multiple styles.</p> %}
     }
-    {- value: [Js.js_string Js.t]
+    {- value: [Js.js_string Js.t] (optional)
     {% <p>The value to apply to the given property, or null if an object was passed.</p> %}
     }
     }
@@ -1217,11 +1216,11 @@ Element animation config object</p> %}
     }
     }
     *)
-  method setVisibilityMode : 'a Js.t -> 'self Js.t Js.meth
+  method setVisibilityMode : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Use this to change the visibility mode between <a href="#!/api/Ext.dom.AbstractElement-static-property-VISIBILITY" rel="Ext.dom.AbstractElement-static-property-VISIBILITY" class="docClass">VISIBILITY</a>, <a href="#!/api/Ext.dom.AbstractElement-static-property-DISPLAY" rel="Ext.dom.AbstractElement-static-property-DISPLAY" class="docClass">DISPLAY</a>, <a href="#!/api/Ext.dom.AbstractElement-static-property-OFFSETS" rel="Ext.dom.AbstractElement-static-property-OFFSETS" class="docClass">OFFSETS</a> or <a href="#!/api/Ext.dom.AbstractElement-static-property-ASCLASS" rel="Ext.dom.AbstractElement-static-property-ASCLASS" class="docClass">ASCLASS</a>.</p> %}
     
     {b Parameters}:
-    {ul {- mode: ['a Js.t]
+    {ul {- mode: [_ Js.t]
     }
     }
     
@@ -1230,7 +1229,7 @@ Element animation config object</p> %}
     }
     }
     *)
-  method setVisible : bool Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method setVisible : bool Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the visibility of the element (see details). If the visibilityMode is set to Element.DISPLAY, it will use
 the display property to hide the element, otherwise it uses visibility. The default is to hide and show using the visibility property.</p> %}
     
@@ -1238,7 +1237,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
     {ul {- visible: [bool Js.t]
     {% <p>Whether the element is visible</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element animation config object</p> %}
     }
     }
@@ -1248,11 +1247,11 @@ the display property to hide the element, otherwise it uses visibility. The defa
     }
     }
     *)
-  method setWidth : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method setWidth : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Set the width of this Element.</p> %}
     
     {b Parameters}:
-    {ul {- width: ['a Js.t]
+    {ul {- width: [_ Js.t]
     {% <p>The new width. This may be one of:</p>
 
 <ul>
@@ -1260,7 +1259,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
 <li>A String used to set the CSS width style. Animation may <strong>not</strong> be used.</li>
 </ul> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -1270,7 +1269,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
     }
     }
     *)
-  method setX : Js.number Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method setX : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the X position of the element based on page coordinates.  Element must be part of the DOM tree
 to have page coordinates (display:none or elements not appended return false).</p> %}
     
@@ -1278,7 +1277,7 @@ to have page coordinates (display:none or elements not appended return false).</
     {ul {- the: [Js.number Js.t]
     {% <p>X position of the element</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element
 animation config object</p> %}
     }
@@ -1289,16 +1288,15 @@ animation config object</p> %}
     }
     }
     *)
-  method setXY : 'a Js.js_array Js.t -> 'b Js.t Js.optdef -> 'self Js.t
-    Js.meth
+  method setXY : _ Js.js_array Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the position of the element in page coordinates, regardless of how the element is positioned.
 The element must be part of the DOM tree to have page coordinates (display:none or elements not appended return false).</p> %}
     
     {b Parameters}:
-    {ul {- pos: ['a Js.js_array Js.t]
+    {ul {- pos: [_ Js.js_array Js.t]
     {% <p>Contains X &amp; Y [x, y] values for new position (coordinates are page-based)</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element animation config object</p> %}
     }
     }
@@ -1308,7 +1306,7 @@ The element must be part of the DOM tree to have page coordinates (display:none 
     }
     }
     *)
-  method setY : Js.number Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method setY : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the Y position of the element based on page coordinates.  Element must be part of the DOM tree
 to have page coordinates (display:none or elements not appended return false).</p> %}
     
@@ -1316,7 +1314,7 @@ to have page coordinates (display:none or elements not appended return false).</
     {ul {- the: [Js.number Js.t]
     {% <p>Y position of the element</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True for the default animation, or a standard Element
 animation config object</p> %}
     }
@@ -1327,11 +1325,11 @@ animation config object</p> %}
     }
     }
     *)
-  method show : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method show : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Show this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.AbstractElement-method-setVisible" rel="Ext.dom.AbstractElement-method-setVisible" class="docClass">setVisible</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animate: ['a Js.t]
+    {ul {- animate: [_ Js.t] (optional)
     {% <p>true for the default animation or a standard Element animation config object</p> %}
     }
     }
@@ -1355,21 +1353,21 @@ animation config object</p> %}
     }
     }
     *)
-  method translatePoints : 'a Js.t -> Js.number Js.t Js.optdef -> 'b Js.t
+  method translatePoints : _ Js.t -> Js.number Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Translates the passed page coordinates into left/top css values for this element</p> %}
     
     {b Parameters}:
-    {ul {- x: ['a Js.t]
+    {ul {- x: [_ Js.t]
     {% <p>The page x or an array containing [x, y]</p> %}
     }
-    {- y: [Js.number Js.t]
+    {- y: [Js.number Js.t] (optional)
     {% <p>The page y, required if x is not an array</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object with left and top properties. e.g. {left: (value), top: (value)}</p> %}
     }
     }
@@ -1377,7 +1375,7 @@ animation config object</p> %}
   method unmask : unit Js.meth
   (** {% <p>Removes a previously applied mask.</p> %}
     *)
-  method up : Js.js_string Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method up : Js.js_string Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Walks up the dom looking for a parent node that matches the passed simple selector (e.g. div.some-class or span:first-child).
 This is a shortcut for findParentNode() that always returns an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>.</p> %}
     
@@ -1385,7 +1383,7 @@ This is a shortcut for findParentNode() that always returns an <a href="#!/api/E
     {ul {- selector: [Js.js_string Js.t]
     {% <p>The simple selector to test</p> %}
     }
-    {- limit: ['a Js.t]
+    {- limit: [_ Js.t] (optional)
     {% <p>The max depth to search as a number or an element which causes the upward traversal to stop
 and is <b>not</b> considered for inclusion as the result. (defaults to 50 || document.documentElement)</p> %}
     }
@@ -1411,25 +1409,25 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
     }
     }
     *)
-  method wrap : 'a Js.t Js.optdef -> bool Js.t Js.optdef ->
-    Js.js_string Js.t Js.optdef -> 'b Js.t Js.meth
+  method wrap : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
+    Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Creates and wraps this element with another element</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t] (optional)
     {% <p>DomHelper element config object for the wrapper element or null for an empty div</p> %}
     }
-    {- returnDom: [bool Js.t]
+    {- returnDom: [bool Js.t] (optional)
     {% <p>True to return the raw DOM element instead of <a href="#!/api/Ext.dom.AbstractElement" rel="Ext.dom.AbstractElement" class="docClass">Ext.dom.AbstractElement</a></p> %}
      Defaults to: false
     }
-    {- selector: [Js.js_string Js.t]
+    {- selector: [Js.js_string Js.t] (optional)
     {% <p>A <a href="#!/api/Ext.dom.Query" rel="Ext.dom.Query" class="docClass">DomQuery</a> selector to select a descendant node within the created element to use as the wrapping element.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The newly created wrapper element</p> %}
+    {ul {- [_ Js.t] {% <p>The newly created wrapper element</p> %}
     }
     }
     *)
@@ -1482,7 +1480,7 @@ reason, and in most cases, using the <a href="#!/api/Ext.dom.AbstractElement-sta
     
     Defaults to: [1]
     *)
-  method fly : 'a Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
+  method fly : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Gets the singleton <a href="#!/api/Ext.dom.AbstractElement.Fly" rel="Ext.dom.AbstractElement.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
 
 <p>Because it is a singleton, this Flyweight does not have an ID, and must be used and discarded in a single line.
@@ -1496,10 +1494,10 @@ application code, or by Ext's classes. If accessing an element which will be pro
 class.</p> %}
     
     {b Parameters}:
-    {ul {- dom: ['a Js.t]
+    {ul {- dom: [_ Js.t]
     {% <p>The dom node or id</p> %}
     }
-    {- named: [Js.js_string Js.t]
+    {- named: [Js.js_string Js.t] (optional)
     {% <p>Allows for creation of named reusable flyweights to prevent conflicts (e.g.
 internally Ext uses "_global")</p> %}
     }
@@ -1529,7 +1527,7 @@ internally Ext uses "_global")</p> %}
     }
     }
     *)
-  method get : 'a Js.t -> 'self Js.t Js.meth
+  method get : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> objects. <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a> is alias for <a href="#!/api/Ext.dom.Element-static-method-get" rel="Ext.dom.Element-static-method-get" class="docClass">Ext.dom.Element.get</a>.</p>
 
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
@@ -1539,7 +1537,7 @@ objects which encapsulate DOM elements. To retrieve a Component by its ID, use <
 the same id via AJAX or DOM.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The id of the node, a DOM Node or an existing Element.</p> %}
     }
     }
@@ -1576,11 +1574,11 @@ determing if the height is greater than the width.</p> %}
     }
     }
     *)
-  method getViewSize : 'a Js.t Js.meth
+  method getViewSize : _ Js.t Js.meth
   (** {% <p>Retrieves the viewport size of the window.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>object containing width and height properties</p> %}
     }
     }
@@ -1601,7 +1599,7 @@ determing if the height is greater than the width.</p> %}
     }
     }
     *)
-  method mergeClsList : 'a Js.t -> 'b Js.t -> 'c Js.js_array Js.t Js.meth
+  method mergeClsList : _ Js.t -> _ Js.t -> _ Js.js_array Js.t Js.meth
   (** {% <p>Returns an array of unique class names based upon the input strings, or string arrays.</p>
 
 
@@ -1621,16 +1619,16 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-static-method-mergeCls
 <p></code></p> %}
     
     {b Parameters}:
-    {ul {- clsList1: ['a Js.t]
+    {ul {- clsList1: [_ Js.t]
     {% <p>A string of class names, or an array of class names.</p> %}
     }
-    {- clsList2: ['a Js.t]
+    {- clsList2: [_ Js.t]
     {% <p>A string of class names, or an array of class names.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t]
+    {ul {- [_ Js.js_array Js.t]
     {% <p>An array of strings representing remaining unique, merged class names. If class names were added to the first list, the <code>changed</code> property will be <code>true</code>.</p> %}
     }
     }
@@ -1655,23 +1653,23 @@ For example:</p>
     }
     }
     *)
-  method parseBox : 'a Js.t -> 'b Js.t Js.meth
+  method parseBox : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Parses a number or string representing margin sizes into an object. Supports CSS-style margin declarations
 (e.g. 10, "10", "10 10", "10 10 10" and "10 10 10 10" are all valid options and would return the same result)</p> %}
     
     {b Parameters}:
-    {ul {- box: ['a Js.t]
+    {ul {- box: [_ Js.t]
     {% <p>The encoded margins</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object with margin sizes for top, right, bottom and left</p> %}
     }
     }
     *)
-  method parseStyles : Js.js_string Js.t -> 'a Js.t Js.meth
+  method parseStyles : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Converts a CSS string into an object with a property for each style.</p>
 
 <p>The sample code below would return an object with 2 properties, one
@@ -1688,11 +1686,11 @@ console.log(Ext.dom.Element.parseStyles(css));
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>styles</p> %}
+    {ul {- [_ Js.t] {% <p>styles</p> %}
     }
     }
     *)
-  method removeCls : 'a Js.t -> 'b Js.t -> 'c Js.js_array Js.t Js.meth
+  method removeCls : _ Js.t -> _ Js.t -> _ Js.js_array Js.t Js.meth
   (** {% <p>Returns an array of unique class names deom the first parameter with all class names
 from the second parameter removed.</p>
 
@@ -1710,27 +1708,27 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel=
 <p></code></p> %}
     
     {b Parameters}:
-    {ul {- existingClsList: ['a Js.t]
+    {ul {- existingClsList: [_ Js.t]
     {% <p>A string of class names, or an array of class names.</p> %}
     }
-    {- removeClsList: ['a Js.t]
+    {- removeClsList: [_ Js.t]
     {% <p>A string of class names, or an array of class names to remove from <code>existingClsList</code>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t]
+    {ul {- [_ Js.js_array Js.t]
     {% <p>An array of strings representing remaining class names. If class names were removed, the <code>changed</code> property will be <code>true</code>.</p> %}
     }
     }
     *)
-  method unitizeBox : 'a Js.t -> Js.js_string Js.t -> Js.js_string Js.t
+  method unitizeBox : _ Js.t -> Js.js_string Js.t -> Js.js_string Js.t
     Js.meth
   (** {% <p>Parses a number or string representing margin sizes into an object. Supports CSS-style margin declarations
 (e.g. 10, "10", "10 10", "10 10 10" and "10 10 10 10" are all valid options and would return the same result)</p> %}
     
     {b Parameters}:
-    {ul {- box: ['a Js.t]
+    {ul {- box: [_ Js.t]
     {% <p>The encoded margins</p> %}
     }
     {- units: [Js.js_string Js.t]
@@ -1750,13 +1748,13 @@ end
 val static : statics Js.t
 (** Static instance. *)
 
-val fly : 'a Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
+val fly : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
 (** See method [statics.fly] *)
 
 val fromPoint : Js.number Js.t -> Js.number Js.t -> Js.js_string Js.t
 (** See method [statics.fromPoint] *)
 
-val get : 'a Js.t -> 'self Js.t
+val get : _ Js.t -> 'self Js.t
 (** See method [statics.get] *)
 
 val getDocumentHeight : unit -> Js.number Js.t
@@ -1768,7 +1766,7 @@ val getDocumentWidth : unit -> Js.number Js.t
 val getOrientation : unit -> Js.js_string Js.t
 (** See method [statics.getOrientation] *)
 
-val getViewSize : unit -> 'a Js.t
+val getViewSize : unit -> _ Js.t
 (** See method [statics.getViewSize] *)
 
 val getViewportHeight : unit -> Js.number Js.t
@@ -1777,22 +1775,22 @@ val getViewportHeight : unit -> Js.number Js.t
 val getViewportWidth : unit -> Js.number Js.t
 (** See method [statics.getViewportWidth] *)
 
-val mergeClsList : 'a Js.t -> 'b Js.t -> 'c Js.js_array Js.t
+val mergeClsList : _ Js.t -> _ Js.t -> _ Js.js_array Js.t
 (** See method [statics.mergeClsList] *)
 
 val normalize : Js.js_string Js.t -> Js.js_string Js.t
 (** See method [statics.normalize] *)
 
-val parseBox : 'a Js.t -> 'b Js.t
+val parseBox : _ Js.t -> _ Js.t
 (** See method [statics.parseBox] *)
 
-val parseStyles : Js.js_string Js.t -> 'a Js.t
+val parseStyles : Js.js_string Js.t -> _ Js.t
 (** See method [statics.parseStyles] *)
 
-val removeCls : 'a Js.t -> 'b Js.t -> 'c Js.js_array Js.t
+val removeCls : _ Js.t -> _ Js.t -> _ Js.js_array Js.t
 (** See method [statics.removeCls] *)
 
-val unitizeBox : 'a Js.t -> Js.js_string Js.t -> Js.js_string Js.t
+val unitizeBox : _ Js.t -> Js.js_string Js.t -> Js.js_string Js.t
 (** See method [statics.unitizeBox] *)
 
 val of_configs : configs Js.t -> t Js.t

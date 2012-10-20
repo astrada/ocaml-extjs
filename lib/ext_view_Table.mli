@@ -21,11 +21,11 @@ object('self)
   inherit Ext_view_AbstractView.t
   inherit Ext_view_View.t
   
-  method addRowCls : 'a Js.t -> Js.js_string Js.t -> unit Js.meth
+  method addRowCls : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   (** {% <p>Adds a CSS Class to a specific row.</p> %}
     
     {b Parameters}:
-    {ul {- rowInfo: ['a Js.t]
+    {ul {- rowInfo: [_ Js.t]
     {% <p>An HTMLElement, index or instance of a model
 representing this row</p> %}
     }
@@ -42,7 +42,7 @@ names added, and will be in the configured visibility and the configured enable 
   (** {% <p>Invoked before the Component is destroyed.</p> %}
     *)
   method collectData : Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
-    'a Js.t Js.js_array Js.t Js.meth
+    _ Js.t Js.js_array Js.t Js.meth
   (** {% <p>TODO: Refactor headerCt dependency here to colModel</p>
 
 <p>Function which can be overridden which returns the data object passed to this
@@ -64,17 +64,17 @@ provide non-repeating data such as headings, totals etc.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t Js.js_array Js.t]
+    {ul {- [_ Js.t Js.js_array Js.t]
     {% <p>An Array of data objects to be processed by a repeating XTemplate. May also
 contain <i>named</i> properties.</p> %}
     }
     }
     *)
-  method focusRow : 'a Js.t -> unit Js.meth
+  method focusRow : _ Js.t -> unit Js.meth
   (** {% <p>Focuses a particular row and brings it into view. Will fire the rowfocus event.</p> %}
     
     {b Parameters}:
-    {ul {- rowIdx: ['a Js.t]
+    {ul {- rowIdx: [_ Js.t]
     {% <p>An HTMLElement template node, index of a template node, the id of a template node or the
 record associated with the node.</p> %}
     }
@@ -103,7 +103,7 @@ record associated with the node.</p> %}
 <p>Gets the current XY position of the component's underlying element.</p> %}
     
     {b Parameters}:
-    {ul {- local: [bool Js.t]
+    {ul {- local: [bool Js.t] (optional)
     {% <p>If true the element's left and top are returned instead of page XY.</p> %}
      Defaults to: false
     }
@@ -115,7 +115,7 @@ record associated with the node.</p> %}
     }
     }
     *)
-  method getRowClass : Ext_data_Model.t Js.t -> Js.number Js.t -> 'a Js.t ->
+  method getRowClass : Ext_data_Model.t Js.t -> Js.number Js.t -> _ Js.t ->
     Ext_data_Store.t Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Override this function to apply custom CSS classes to rows during rendering. This function should return the
 CSS class name (or empty string '' for none) that will be added to the row's wrapping div. To apply multiple
@@ -136,7 +136,7 @@ Example usage:</p>
     {- index: [Js.number Js.t]
     {% <p>The row index.</p> %}
     }
-    {- rowParams: ['a Js.t]
+    {- rowParams: [_ Js.t]
     {% <p><strong>DEPRECATED.</strong> For row body use the
 <a href="#!/api/Ext.grid.feature.RowBody-method-getAdditionalData" rel="Ext.grid.feature.RowBody-method-getAdditionalData" class="docClass">getAdditionalData</a> method of the rowbody feature.</p> %}
     }
@@ -189,11 +189,11 @@ instantiation of the class.</p>
   (** {% <p>Refreshes the grid view. Saves and restores the scroll state, generates a new template, stripes rows and
 invalidates the scrollers.</p> %}
     *)
-  method removeRowCls : 'a Js.t -> Js.js_string Js.t -> unit Js.meth
+  method removeRowCls : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   (** {% <p>Removes a CSS Class from a specific row.</p> %}
     
     {b Parameters}:
-    {ul {- rowInfo: ['a Js.t]
+    {ul {- rowInfo: [_ Js.t]
     {% <p>An HTMLElement, index or instance of a model
 representing this row</p> %}
     }

@@ -17,11 +17,11 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method bringToFront : 'a Js.t -> bool Js.t Js.meth
+  method bringToFront : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Brings the specified Component to the front of any other active Components in this ZIndexManager.</p> %}
     
     {b Parameters}:
-    {ul {- comp: ['a Js.t]
+    {ul {- comp: [_ Js.t]
     {% <p>The id of the Component or a <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> instance</p> %}
     }
     }
@@ -33,60 +33,60 @@ if it was already in front</p> %}
     }
     }
     *)
-  method each : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
+  method each : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Executes the specified function once for every Component in this ZIndexManager, passing each
 Component as the only parameter. Returning false from the function will stop the iteration.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to execute for each item</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function
 is executed. Defaults to the current Component in the iteration.</p> %}
     }
     }
     *)
-  method eachBottomUp : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
+  method eachBottomUp : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Executes the specified function once for every Component in this ZIndexManager, passing each
 Component as the only parameter. Returning false from the function will stop the iteration.
 The components are passed to the function starting at the bottom and proceeding to the top.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to execute for each item</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function
 is executed. Defaults to the current Component in the iteration.</p> %}
     }
     }
     *)
-  method eachTopDown : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
+  method eachTopDown : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Executes the specified function once for every Component in this ZIndexManager, passing each
 Component as the only parameter. Returning false from the function will stop the iteration.
 The components are passed to the function starting at the top and proceeding to the bottom.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to execute for each item</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function
 is executed. Defaults to the current Component in the iteration.</p> %}
     }
     }
     *)
-  method get : 'a Js.t -> 'b Js.t Js.meth
+  method get : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Gets a registered Component by id.</p> %}
     
     {b Parameters}:
-    {ul {- id: ['a Js.t]
+    {ul {- id: [_ Js.t]
     {% <p>The id of the Component or a <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> instance</p> %}
     }
     }
     *)
-  method getActive : 'a Js.t Js.meth
+  method getActive : _ Js.t Js.meth
   (** {% <p>Gets the currently-active Component in this ZIndexManager.</p> %}
     
     {b Returns}:
@@ -94,24 +94,24 @@ is executed. Defaults to the current Component in the iteration.</p> %}
     }
     }
     *)
-  method getBy : 'a Js.callback -> 'b Js.t Js.optdef -> 'c Js.js_array Js.t
+  method getBy : _ Js.callback -> _ Js.t Js.optdef -> _ Js.js_array Js.t
     Js.meth
   (** {% <p>Returns zero or more Components in this ZIndexManager using the custom search function passed to this method.
 The function should accept a single <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> reference as its only argument and should
 return true if the Component matches the search criteria, otherwise it should return false.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The search function</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function is executed.
 Defaults to the Component being tested. That gets passed to the function if not specified.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t]
+    {ul {- [_ Js.js_array Js.t]
     {% <p>An array of zero or more matching windows</p> %}
     }
     }
@@ -119,7 +119,7 @@ Defaults to the Component being tested. That gets passed to the function if not 
   method hideAll : unit Js.meth
   (** {% <p>Hides all Components managed by this ZIndexManager.</p> %}
     *)
-  method register : 'a Js.t -> unit Js.meth
+  method register : _ Js.t -> unit Js.meth
   (** {% <p>Registers a floating <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> with this ZIndexManager. This should not
 need to be called under normal circumstances. Floating Components (such as Windows,
 BoundLists and Menus) are automatically registered with a
@@ -138,11 +138,11 @@ ZIndexManager in the desktop sample app:</p>
     }
     }
     *)
-  method sendToBack : 'a Js.t -> 'b Js.t Js.meth
+  method sendToBack : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Sends the specified Component to the back of other active Components in this ZIndexManager.</p> %}
     
     {b Parameters}:
-    {ul {- comp: ['a Js.t]
+    {ul {- comp: [_ Js.t]
     {% <p>The id of the Component or a <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> instance</p> %}
     }
     }
@@ -152,7 +152,7 @@ ZIndexManager in the desktop sample app:</p>
     }
     }
     *)
-  method unregister : 'a Js.t -> unit Js.meth
+  method unregister : _ Js.t -> unit Js.meth
   (** {% <p>Unregisters a <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> from this ZIndexManager. This should not
 need to be called. Components are automatically unregistered upon destruction.
 See <a href="#!/api/Ext.ZIndexManager-method-register" rel="Ext.ZIndexManager-method-register" class="docClass">register</a>.</p> %}

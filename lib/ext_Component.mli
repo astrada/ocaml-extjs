@@ -67,7 +67,7 @@ object('self)
   inherit Ext_AbstractComponent.t
   inherit Ext_util_Floating.t
   
-  method floatParent : 'a Js.t Js.readonly_prop
+  method floatParent : _ Js.t Js.readonly_prop
   (** {% <p>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which were inserted as child items of Containers.</p>
 
 <p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will not have a <code>floatParent</code>
@@ -100,7 +100,7 @@ used.</p>
 
 <p>See <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> and <a href="#!/api/Ext.Component-property-zIndexParent" rel="Ext.Component-property-zIndexParent" class="docClass">zIndexParent</a></p> %}
     *)
-  method zIndexParent : 'a Js.t Js.readonly_prop
+  method zIndexParent : _ Js.t Js.readonly_prop
   (** {% <p>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which were inserted as child items of Containers, and which have a floating
 Container in their containment ancestry.</p>
 
@@ -136,16 +136,16 @@ Window as its <code>zIndexParent</code>, and will always show above that Window,
     }
     }
     *)
-  method afterHide : 'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> unit
+  method afterHide : _ Js.callback Js.optdef -> _ Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>Invoked after the Component has been hidden.</p>
 
 <p>Gets passed the same <code>callback</code> and <code>scope</code> parameters that <a href="#!/api/Ext.Component-method-onHide" rel="Ext.Component-method-onHide" class="docClass">onHide</a> received.</p> %}
     
     {b Parameters}:
-    {ul {- callback: ['a Js.callback]
+    {ul {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
@@ -166,38 +166,38 @@ names added, and will be in the configured visibility and the configured enable 
     }
     }
     *)
-  method afterShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method afterShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Invoked after the Component is shown (after <a href="#!/api/Ext.Component-method-onShow" rel="Ext.Component-method-onShow" class="docClass">onShow</a> is called).</p>
 
 <p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
   method beforeShow : unit Js.meth
   (** {% <p>Invoked before the Component is shown.</p> %}
     *)
-  method bubble : 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
+  method bubble : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Bubbles up the component/container heirarchy, calling the specified function with each component. The scope
 (<em>this</em>) of function call will be the scope provided or the current component. The arguments to the function will
 be the args provided or the current component. If the function returns false at any point, the bubble is stopped.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to call</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope of the function. Defaults to current node.</p> %}
     }
-    {- args: ['a Js.js_array Js.t]
+    {- args: [_ Js.js_array Js.t] (optional)
     {% <p>The args to call the function with. Defaults to passing the current component.</p> %}
     }
     }
@@ -210,11 +210,11 @@ be the args provided or the current component. If the function returns false at 
   method cancelFocus : unit Js.meth
   (** {% <p>Cancel any deferred focus on this component</p> %}
     *)
-  method cloneConfig : 'a Js.t -> 'self Js.t Js.meth
+  method cloneConfig : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Clone the current component using the original config values passed into this instance by default.</p> %}
     
     {b Parameters}:
-    {ul {- overrides: ['a Js.t]
+    {ul {- overrides: [_ Js.t]
     {% <p>A new config containing any properties to override in the cloned version.
 An id property can be passed on this object, otherwise one will be generated to avoid duplicates.</p> %}
     }
@@ -226,14 +226,14 @@ An id property can be passed on this object, otherwise one will be generated to 
     }
     }
     *)
-  method findParentBy : 'a Js.callback -> 'b Js.t Js.meth
+  method findParentBy : _ Js.callback -> _ Js.t Js.meth
   (** {% <p>Find a container above this component at any level by a custom function. If the passed function returns true, the
 container will be returned.</p>
 
 <p>See also the <a href="#!/api/Ext.Component-method-up" rel="Ext.Component-method-up" class="docClass">up</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The custom function to call with the arguments (container, this component).</p> %}
     }
     }
@@ -244,13 +244,13 @@ container will be returned.</p>
     }
     }
     *)
-  method findParentByType : 'a Js.t -> 'b Js.t Js.meth
+  method findParentByType : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Find a container above this component at any level by xtype or class</p>
 
 <p>See also the <a href="#!/api/Ext.Component-method-up" rel="Ext.Component-method-up" class="docClass">up</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- xtype: ['a Js.t]
+    {ul {- xtype: [_ Js.t]
     {% <p>The xtype string for a component, or the class of the component directly</p> %}
     }
     }
@@ -261,15 +261,15 @@ container will be returned.</p>
     }
     }
     *)
-  method focus : bool Js.t Js.optdef -> 'a Js.t Js.optdef -> 'self Js.t
+  method focus : bool Js.t Js.optdef -> _ Js.t Js.optdef -> 'self Js.t
     Js.meth
   (** {% <p>Try to focus this component.</p> %}
     
     {b Parameters}:
-    {ul {- selectText: [bool Js.t]
+    {ul {- selectText: [bool Js.t] (optional)
     {% <p>If applicable, true to also select the text in this component</p> %}
     }
-    {- delay: ['a Js.t]
+    {- delay: [_ Js.t] (optional)
     {% <p>Delay the focus this number of milliseconds (true for 10 milliseconds).</p> %}
     }
     }
@@ -282,23 +282,23 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
     }
     }
     *)
-  method getBox : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method getBox : bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Gets the current box measurements of the component's underlying element.</p> %}
     
     {b Parameters}:
-    {ul {- local: [bool Js.t]
+    {ul {- local: [bool Js.t] (optional)
     {% <p>If true the element's left and top are returned instead of page XY.</p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>box An object in the format {x, y, width, height}</p> %}
     }
     }
     *)
-  method getBubbleTarget : 'a Js.t Js.meth
+  method getBubbleTarget : _ Js.t Js.meth
   (** {% <p>The up() method uses this to find the immediate owner.</p>
 
 <p>Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.</p> %}
@@ -320,7 +320,7 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
   (** {% <p>Gets the current XY position of the component's underlying element.</p> %}
     
     {b Parameters}:
-    {ul {- local: [bool Js.t]
+    {ul {- local: [bool Js.t] (optional)
     {% <p>If true the element's left and top are returned instead of page XY.</p> %}
      Defaults to: false
     }
@@ -345,21 +345,21 @@ alert(t.getXType());  // alerts 'textfield'
     }
     }
     *)
-  method hide : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> 'self Js.t Js.meth
+  method hide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.Component-cfg-hideMode" rel="Ext.Component-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>A callback function to call after the Component is hidden.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> %}
     }
@@ -405,8 +405,8 @@ instantiation of the class.</p>
   (** {% <p>Allows addition of behavior to the destroy operation.
 After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
     *)
-  method onHide : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Possibly animates down to a target element.</p>
 
 <p>Allows addition of behavior to the hide operation. After
@@ -415,11 +415,11 @@ calling the superclass’s onHide, the Component will be hidden.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-hide" rel="Ext.Component-event-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
@@ -430,8 +430,8 @@ calling the superclass’s onHide, the Component will be hidden.</p>
 
 <p>Called when Ext.resizer.Resizer#drag event is fired.</p> %}
     *)
-  method onShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Allows addition of behavior to the show operation. After
 calling the superclass's onShow, the Component will be visible.</p>
 
@@ -440,28 +440,28 @@ calling the superclass's onShow, the Component will be visible.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
-  method onShowComplete : 'a Js.callback Js.optdef -> 'b Js.t Js.optdef ->
-    unit Js.meth
+  method onShowComplete : _ Js.callback Js.optdef -> _ Js.t Js.optdef -> unit
+    Js.meth
   (** {% <p>Invoked after the <a href="#!/api/Ext.Component-method-afterShow" rel="Ext.Component-method-afterShow" class="docClass">afterShow</a> method is complete.</p>
 
 <p>Gets passed the same <code>callback</code> and <code>scope</code> parameters that <a href="#!/api/Ext.Component-method-afterShow" rel="Ext.Component-method-afterShow" class="docClass">afterShow</a> received.</p> %}
     
     {b Parameters}:
-    {ul {- callback: ['a Js.callback]
+    {ul {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
-  method scrollBy : 'a Js.t -> 'b Js.t -> 'c Js.t -> unit Js.meth
+  method scrollBy : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Scrolls this Component's <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">target element</a> by the passed delta values, optionally animating.</p>
 
 <p>All of the following are equivalent:</p>
@@ -472,14 +472,14 @@ calling the superclass's onShow, the Component will be visible.</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- deltaX: ['a Js.t]
+    {ul {- deltaX: [_ Js.t]
     {% <p>Either the x delta, an Array specifying x and y deltas or
 an object with "x" and "y" properties.</p> %}
     }
-    {- deltaY: ['a Js.t]
+    {- deltaY: [_ Js.t]
     {% <p>Either the y delta, or an animate flag or config object.</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t]
     {% <p>Animate flag/config object if the delta values were passed separately.</p> %}
     }
     }
@@ -498,15 +498,15 @@ an object with "x" and "y" properties.</p> %}
     }
     }
     *)
-  method setLoading : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.meth
+  method setLoading : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>This method allows you to show or hide a LoadMask on top of this component.</p> %}
     
     {b Parameters}:
-    {ul {- load: ['a Js.t]
+    {ul {- load: [_ Js.t]
     {% <p>True to show the default LoadMask, a config object that will be passed to the
 LoadMask constructor, or a message String to show. False to hide the current LoadMask.</p> %}
     }
-    {- targetEl: [bool Js.t]
+    {- targetEl: [bool Js.t] (optional)
     {% <p>True to mask the targetEl of this Component instead of the <code>this.el</code>. For example,
 setting this to true on a Panel will cause only the body to be masked.</p> %}
      Defaults to: false
@@ -541,7 +541,7 @@ Passing <code>undefined</code> will preserve the current value.</p> %}
     }
     *)
   method setPagePosition : Js.number Js.t -> Js.number Js.t ->
-    'a Js.t Js.optdef -> 'self Js.t Js.meth
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the page XY position of the component. To set the left and top instead, use <a href="#!/api/Ext.Component-method-setPosition" rel="Ext.Component-method-setPosition" class="docClass">setPosition</a>.
 This method fires the <a href="#!/api/Ext.Component-event-move" rel="Ext.Component-event-move" class="docClass">move</a> event.</p> %}
     
@@ -552,7 +552,7 @@ This method fires the <a href="#!/api/Ext.Component-event-move" rel="Ext.Compone
     {- y: [Js.number Js.t]
     {% <p>The new y position</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True to animate the Component into its new position. You may also pass an
 animation configuration.</p> %}
     }
@@ -563,24 +563,24 @@ animation configuration.</p> %}
     }
     }
     *)
-  method show : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> 'self Js.t Js.meth
+  method show : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.Component-cfg-autoRender" rel="Ext.Component-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 
 <p>After being shown, a <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
 brought to the front of its <a href="#!/api/Ext.Component-property-zIndexManager" rel="Ext.Component-property-zIndexManager" class="docClass">z-index stack</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
      Defaults to: null
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>A callback function to call after the Component is displayed.
 Only necessary if animation was specified.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> %}
     }
@@ -591,7 +591,7 @@ Defaults to this Component.</p> %}
     }
     }
     *)
-  method showAt : Js.number Js.t -> Js.number Js.t -> 'a Js.t Js.optdef ->
+  method showAt : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
     unit Js.meth
   (** {% <p>Displays component at specific xy position.
 A floating component (like a menu) is positioned relative to its ownerCt if any.
@@ -622,17 +622,17 @@ Useful for popping up a context menu:</p>
     {- y: [Js.number Js.t]
     {% <p>The new y position</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>True to animate the Component into its new position. You may also pass an
 animation configuration.</p> %}
     }
     }
     *)
-  method updateBox : 'a Js.t -> 'self Js.t Js.meth
+  method updateBox : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets the current box measurements of the component's underlying element.</p> %}
     
     {b Parameters}:
-    {ul {- box: ['a Js.t]
+    {ul {- box: [_ Js.t]
     {% <p>An object in the format {x, y, width, height}</p> %}
     }
     }
@@ -655,8 +655,8 @@ object('self)
     -> Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.afterComponentLayout] *)
-  method afterHide : ('self Js.t, 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method afterHide : ('self Js.t, _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterHide] *)
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -664,9 +664,8 @@ object('self)
   method afterSetPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterSetPosition] *)
-  method afterShow : ('self Js.t, 'a Js.t Js.optdef ->
-    'b Js.callback Js.optdef -> 'c Js.t Js.optdef -> unit) Js.meth_callback
-    Js.writeonly_prop
+  method afterShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef
+    -> _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterShow] *)
   method beforeShow : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -677,17 +676,17 @@ object('self)
   method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onDestroy] *)
-  method onHide : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onHide] *)
   method onResize : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onResize] *)
-  method onShow : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
-  method onShowComplete : ('self Js.t, 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onShowComplete : ('self Js.t, _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShowComplete] *)
   method autoScroll : bool Js.t Js.prop
   (** {% <p><code>true</code> to use overflow:'auto' on the components layout element and show scroll bars automatically when necessary,
@@ -696,14 +695,14 @@ This should not be combined with <a href="#!/api/Ext.Component-cfg-overflowX" re
     
     Defaults to: [false]
     *)
-  method columnWidth : 'a Js.t Js.prop
+  method columnWidth : _ Js.t Js.prop
   (** {% <p>Defines the column width inside <a href="#!/api/Ext.layout.container.Column" rel="Ext.layout.container.Column" class="docClass">column layout</a>.</p>
 
 <p>Can be specified as a number or as a percentage.</p> %}
     
     Defaults to: [undefined]
     *)
-  method draggable_obj : 'a Js.t Js.prop
+  method draggable_obj : _ Js.t Js.prop
   (** {% <p>Specify as true to make a <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Component draggable using the Component's encapsulating element as
 the drag handle.</p>
 
@@ -796,7 +795,7 @@ The default is overflow-y: 'hidden'. This should not be combined with <a href="#
     
     Defaults to: [undefined]
     *)
-  method resizable : 'a Js.t Js.prop
+  method resizable : _ Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to apply a <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Resizer</a> to this Component after rendering.</p>
 
 <p>May also be specified as a config object to be passed to the constructor of <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Resizer</a>

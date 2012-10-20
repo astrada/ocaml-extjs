@@ -92,13 +92,13 @@ object('self)
 will have been styled according to the configuration, will have had any configured CSS class
 names added, and will be in the configured visibility and the configured enable state.</p> %}
     *)
-  method applyState : 'a Js.t -> unit Js.meth
+  method applyState : _ Js.t -> unit Js.meth
   (** {% <p>Applies the state to the object. This should be overridden in subclasses to do
 more complex state operations. By default it applies the state properties onto
 the current object.</p> %}
     
     {b Parameters}:
-    {ul {- state: ['a Js.t] {% <p>The state</p> %}
+    {ul {- state: [_ Js.t] {% <p>The state</p> %}
     }
     }
     *)
@@ -106,7 +106,7 @@ the current object.</p> %}
   (** {% <p>Automatically grows the field to accomodate the width of the text up to the maximum field width allowed. This
 only takes effect if <a href="#!/api/Ext.form.field.Text-cfg-grow" rel="Ext.form.field.Text-cfg-grow" class="docClass">grow</a> = true, and fires the <a href="#!/api/Ext.form.field.Text-event-autosize" rel="Ext.form.field.Text-event-autosize" class="docClass">autosize</a> event if the width changes.</p> %}
     *)
-  method getErrors : 'a Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
+  method getErrors : _ Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
   (** {% <p>Validates a value according to the field's validation rules and returns an array of errors
 for any failing validations. Validation rules are processed in the following order:</p>
 
@@ -161,7 +161,7 @@ for any failing validations. Validation rules are processed in the following ord
 </ol> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to validate. The processed raw value will be used if nothing is passed.</p> %}
     }
     }
@@ -183,7 +183,7 @@ the current value of the input element if the field has been rendered, ignoring 
     }
     }
     *)
-  method getState : 'a Js.t Js.meth
+  method getState : _ Js.t Js.meth
   (** {% <p>The supplied default state gathering method for the AbstractComponent class.</p>
 
 <p>This method returns dimension settings such as <code>flex</code>, <code>anchor</code>, <code>width</code> and <code>height</code> along with <code>collapsed</code>
@@ -195,11 +195,11 @@ to the result if this basic state is to be saved.</p>
 <p>Note that Component state will only be saved if the Component has a <a href="#!/api/Ext.form.field.Text-cfg-stateId" rel="Ext.form.field.Text-cfg-stateId" class="docClass">stateId</a> and there as a StateProvider
 configured for the document.</p> %}
     *)
-  method getSubTplData : 'a Js.t Js.meth
+  method getSubTplData : _ Js.t Js.meth
   (** {% <p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Text" rel="Ext.form.field.Text" class="docClass">fieldSubTpl</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The template data</p> %}
+    {ul {- [_ Js.t] {% <p>The template data</p> %}
     }
     }
     *)
@@ -271,21 +271,21 @@ Also adds <strong><a href="#!/api/Ext.form.field.Text-cfg-emptyText" rel="Ext.fo
   (** {% <p>Selects text in this field</p> %}
     
     {b Parameters}:
-    {ul {- start: [Js.number Js.t]
+    {ul {- start: [Js.number Js.t] (optional)
     {% <p>The index where the selection should start</p> %}
      Defaults to: 0
     }
-    {- _end: [Js.number Js.t]
+    {- _end: [Js.number Js.t] (optional)
     {% <p>The index where the selection should end (defaults to the text length)</p> %}
     }
     }
     *)
-  method setValue : 'a Js.t -> 'self Js.t Js.meth
+  method setValue : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets a data value into the field and runs the change detection and validation. Also applies any configured
 <a href="#!/api/Ext.form.field.Text-cfg-emptyText" rel="Ext.form.field.Text-cfg-emptyText" class="docClass">emptyText</a> for text fields. To set the value directly without these inspections see <a href="#!/api/Ext.form.field.Text-method-setRawValue" rel="Ext.form.field.Text-method-setRawValue" class="docClass">setRawValue</a>.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to set</p> %}
     }
     }
@@ -312,7 +312,7 @@ object('self)
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.afterRender] *)
-  method getSubTplData : ('self Js.t, unit -> 'a Js.t) Js.meth_callback
+  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.getSubTplData] *)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
@@ -448,7 +448,7 @@ configured <a href="#!/api/Ext.form.field.Text-cfg-width" rel="Ext.form.field.Te
 during input. If <code>stripCharsRe</code> is specified,
 every <em>character sequence</em> matching <code>stripCharsRe</code> will be removed.</p> %}
     *)
-  method validator : 'a Js.callback Js.prop
+  method validator : _ Js.callback Js.prop
   (** {% <p>A custom validation function to be called during field validation (<a href="#!/api/Ext.form.field.Text-method-getErrors" rel="Ext.form.field.Text-method-getErrors" class="docClass">getErrors</a>).
 If specified, this function will be called first, allowing the developer to override the default validation
 process.</p>
@@ -472,7 +472,7 @@ object
   inherit Ext_Component.events
   inherit Ext_form_field_Base.events
   
-  method autosize : (t Js.t -> Js.number Js.t -> 'a Js.t -> unit) Js.callback
+  method autosize : (t Js.t -> Js.number Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the <strong><a href="#!/api/Ext.form.field.Text-method-autoSize" rel="Ext.form.field.Text-method-autoSize" class="docClass">autoSize</a></strong> function is triggered and the field is resized according to the
 <a href="#!/api/Ext.form.field.Text-cfg-grow" rel="Ext.form.field.Text-cfg-grow" class="docClass">grow</a>/<a href="#!/api/Ext.form.field.Text-cfg-growMin" rel="Ext.form.field.Text-cfg-growMin" class="docClass">growMin</a>/<a href="#!/api/Ext.form.field.Text-cfg-growMax" rel="Ext.form.field.Text-cfg-growMax" class="docClass">growMax</a> configs as a result. This event provides a hook for the
@@ -485,12 +485,12 @@ developer to apply additional logic at runtime to resize the field if needed.</p
     {- width: [Js.number Js.t]
     {% <p>The new field width</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method keydown : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method keydown : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Keydown input field event. This event only fires if <strong><a href="#!/api/Ext.form.field.Text-cfg-enableKeyEvents" rel="Ext.form.field.Text-cfg-enableKeyEvents" class="docClass">enableKeyEvents</a></strong> is set to true.</p> %}
     
@@ -500,12 +500,12 @@ developer to apply additional logic at runtime to resize the field if needed.</p
     }
     {- e: [Ext_EventObject.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method keypress : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method keypress : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Keypress input field event. This event only fires if <strong><a href="#!/api/Ext.form.field.Text-cfg-enableKeyEvents" rel="Ext.form.field.Text-cfg-enableKeyEvents" class="docClass">enableKeyEvents</a></strong> is set to true.</p> %}
     
@@ -515,12 +515,12 @@ developer to apply additional logic at runtime to resize the field if needed.</p
     }
     {- e: [Ext_EventObject.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method keyup : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method keyup : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Keyup input field event. This event only fires if <strong><a href="#!/api/Ext.form.field.Text-cfg-enableKeyEvents" rel="Ext.form.field.Text-cfg-enableKeyEvents" class="docClass">enableKeyEvents</a></strong> is set to true.</p> %}
     
@@ -530,7 +530,7 @@ developer to apply additional logic at runtime to resize the field if needed.</p
     }
     {- e: [Ext_EventObject.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

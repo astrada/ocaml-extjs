@@ -30,18 +30,18 @@ object('self)
     
     Defaults to: [true]
     *)
-  method originalValue : 'a Js.t Js.prop
+  method originalValue : _ Js.t Js.prop
   (** {% <p>The original value of the field as configured in the <a href="#!/api/Ext.form.field.Field-cfg-value" rel="Ext.form.field.Field-cfg-value" class="docClass">value</a> configuration, or as loaded by the last
 form load operation if the form's <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> setting is <code>true</code>.</p> %}
     *)
-  method batchChanges : 'a Js.t -> unit Js.meth
+  method batchChanges : _ Js.t -> unit Js.meth
   (** {% <p>A utility for grouping a set of modifications which may trigger value changes into a single transaction, to
 prevent excessive firing of <a href="#!/api/Ext.form.field.Field-event-change" rel="Ext.form.field.Field-event-change" class="docClass">change</a> events. This is useful for instance if the field has sub-fields which
 are being updated as a group; you don't want the container field to check its own changed state for each subfield
 change.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.t]
+    {ul {- fn: [_ Js.t]
     {% <p>A function containing the transaction code</p> %}
     }
     }
@@ -78,14 +78,14 @@ submission of forms submitted with the <a href="#!/api/Ext.form.action.Submit-cf
 DOM element holding the user's selected file. The input will be appended into the submission form and will not be
 returned, so this method should also create a replacement.</p> %}
     *)
-  method getErrors : 'a Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
+  method getErrors : _ Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
   (** {% <p>Runs this field's validators and returns an array of error messages for any validation failures. This is called
 internally during validation and would not usually need to be used manually.</p>
 
 <p>Each subclass should override or augment the return value to provide their own errors.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to get errors for (defaults to the current field value)</p> %}
     }
     }
@@ -96,7 +96,7 @@ internally during validation and would not usually need to be used manually.</p>
     }
     }
     *)
-  method getModelData : 'a Js.t Js.meth
+  method getModelData : _ Js.t Js.meth
   (** {% <p>Returns the value(s) that should be saved to the <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> instance for this field, when <a href="#!/api/Ext.form.Basic-method-updateRecord" rel="Ext.form.Basic-method-updateRecord" class="docClass">Ext.form.Basic.updateRecord</a> is called. Typically this will be an object with a single name-value pair, the name
 being this field's <a href="#!/api/Ext.form.field.Field-method-getName" rel="Ext.form.field.Field-method-getName" class="docClass">name</a> and the value being its current data value. More advanced field
 implementations may return more than one name-value pair. The returned values will be saved to the corresponding
@@ -105,7 +105,7 @@ field names in the Model.</p>
 <p>Note that the values returned from this method are not guaranteed to have been successfully <a href="#!/api/Ext.form.field.Field-method-validate" rel="Ext.form.field.Field-method-validate" class="docClass">validated</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>A mapping of submit parameter names to values; each value should be a string, or an array of
 strings if that particular name has multiple values. It can also return null if there are no parameters to be
 submitted.</p> %}
@@ -122,7 +122,7 @@ when including the field value in a <a href="#!/api/Ext.form.Basic-method-submit
     }
     }
     *)
-  method getSubmitData : 'a Js.t Js.meth
+  method getSubmitData : _ Js.t Js.meth
   (** {% <p>Returns the parameter(s) that would be included in a standard form submit for this field. Typically this will be
 an object with a single name-value pair, the name being this field's <a href="#!/api/Ext.form.field.Field-method-getName" rel="Ext.form.field.Field-method-getName" class="docClass">name</a> and the value being
 its current stringified value. More advanced field implementations may return more than one name-value pair.</p>
@@ -130,19 +130,19 @@ its current stringified value. More advanced field implementations may return mo
 <p>Note that the values returned from this method are not guaranteed to have been successfully <a href="#!/api/Ext.form.field.Field-method-validate" rel="Ext.form.field.Field-method-validate" class="docClass">validated</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>A mapping of submit parameter names to values; each value should be a string, or an array of
 strings if that particular name has multiple values. It can also return null if there are no parameters to be
 submitted.</p> %}
     }
     }
     *)
-  method getValue : 'a Js.t Js.meth
+  method getValue : _ Js.t Js.meth
   (** {% <p>Returns the current data value of the field. The type of value returned is particular to the type of the
 particular field (e.g. a Date object for <a href="#!/api/Ext.form.field.Date" rel="Ext.form.field.Date" class="docClass">Ext.form.field.Date</a>).</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>value The field value</p> %}
+    {ul {- [_ Js.t] {% <p>value The field value</p> %}
     }
     }
     *)
@@ -168,15 +168,15 @@ false otherwise.</p> %}
     }
     }
     *)
-  method isEqual : 'a Js.t -> 'b Js.t -> bool Js.t Js.meth
+  method isEqual : _ Js.t -> _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether two field <a href="#!/api/Ext.form.field.Field-method-getValue" rel="Ext.form.field.Field-method-getValue" class="docClass">values</a> are logically equal. Field implementations may override this
 to provide custom comparison logic appropriate for the particular field's data type.</p> %}
     
     {b Parameters}:
-    {ul {- value1: ['a Js.t]
+    {ul {- value1: [_ Js.t]
     {% <p>The first value to compare</p> %}
     }
-    {- value2: ['a Js.t]
+    {- value2: [_ Js.t]
     {% <p>The second value to compare</p> %}
     }
     }
@@ -207,7 +207,7 @@ message display.</p> %}
     }
     }
     *)
-  method markInvalid : 'a Js.t -> unit Js.meth
+  method markInvalid : _ Js.t -> unit Js.meth
   (** {% <p>Associate one or more error messages with this field. Components using this mixin should implement this method to
 update the component's rendering to display the messages.</p>
 
@@ -216,7 +216,7 @@ if the value does <em>pass</em> validation. So simply marking a Field as invalid
 submitted with the <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" rel="Ext.form.action.Submit-cfg-clientValidation" class="docClass">Ext.form.action.Submit.clientValidation</a> option set.</p> %}
     
     {b Parameters}:
-    {ul {- errors: ['a Js.t]
+    {ul {- errors: [_ Js.t]
     {% <p>The error message(s) for the field.</p> %}
     }
     }
@@ -229,11 +229,11 @@ submitted with the <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" 
 called by <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">Ext.form.Basic</a>.<a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a> if the form's
 <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> property is set to true.</p> %}
     *)
-  method setValue : 'a Js.t -> 'self Js.t Js.meth
+  method setValue : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets a data value into the field and runs the change detection and validation.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to set</p> %}
     }
     }
@@ -243,18 +243,18 @@ called by <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">
     }
     }
     *)
-  method transformOriginalValue : 'a Js.t -> 'b Js.t Js.meth
+  method transformOriginalValue : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Allows for any necessary modifications before the original
 value is set</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The initial value</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The modified initial value</p> %}
+    {ul {- [_ Js.t] {% <p>The modified initial value</p> %}
     }
     }
     *)
@@ -310,7 +310,7 @@ detected.</p> %}
     
     Defaults to: [true]
     *)
-  method value : 'a Js.t Js.prop
+  method value : _ Js.t Js.prop
   (** {% <p>A value to initialize this field with.</p> %}
     *)
   
@@ -320,24 +320,23 @@ class type events =
 object
   inherit Ext_Base.events
   
-  method change : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit)
-    Js.callback Js.writeonly_prop
+  method change : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   (** {% <p>Fires when the value of a field is changed via the <a href="#!/api/Ext.form.field.Field-method-setValue" rel="Ext.form.field.Field-method-setValue" class="docClass">setValue</a> method.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_form_field_Field.t Js.t]
     }
-    {- newValue: ['a Js.t] {% <p>The new value</p> %}
+    {- newValue: [_ Js.t] {% <p>The new value</p> %}
     }
-    {- oldValue: ['a Js.t]
-    {% <p>The original value</p> %}
+    {- oldValue: [_ Js.t] {% <p>The original value</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method dirtychange : (t Js.t -> bool Js.t -> 'a Js.t -> unit) Js.callback
+  method dirtychange : (t Js.t -> bool Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when a change in the field's <a href="#!/api/Ext.form.field.Field-method-isDirty" rel="Ext.form.field.Field-method-isDirty" class="docClass">isDirty</a> state is detected.</p> %}
     
@@ -347,13 +346,13 @@ object
     {- isDirty: [bool Js.t]
     {% <p>Whether or not the field is now dirty</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method validitychange : (t Js.t -> bool Js.t -> 'a Js.t -> unit)
-    Js.callback Js.writeonly_prop
+  method validitychange : (t Js.t -> bool Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   (** {% <p>Fires when a change in the field's validity is detected.</p> %}
     
     {b Parameters}:
@@ -362,7 +361,7 @@ object
     {- isValid: [bool Js.t]
     {% <p>Whether or not the field is now valid</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

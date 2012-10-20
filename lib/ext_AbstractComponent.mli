@@ -25,7 +25,7 @@ object('self)
     
     Defaults to: [false]
     *)
-  method frameSize : 'a Js.t Js.readonly_prop
+  method frameSize : _ Js.t Js.readonly_prop
   (** {% <p>Indicates the width of any framing elements which were added within the encapsulating element
 to provide graphical, rounded borders. See the <a href="#!/api/Ext.AbstractComponent-cfg-frame" rel="Ext.AbstractComponent-cfg-frame" class="docClass">frame</a> config.</p>
 
@@ -46,7 +46,7 @@ override this property to false since they want to implement custom disable logi
     
     Defaults to: [true]
     *)
-  method ownerCt : 'a Js.t Js.readonly_prop
+  method ownerCt : _ Js.t Js.readonly_prop
   (** {% <p>This Component's owner <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> (is set automatically
 when this Component is added to a Container).</p>
 
@@ -57,11 +57,11 @@ when this Component is added to a Container).</p>
     
     Defaults to: [false]
     *)
-  method addCls : 'a Js.t -> 'self Js.t Js.meth
+  method addCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds a CSS class to the top level element representing this component.</p> %}
     
     {b Parameters}:
-    {ul {- cls: ['a Js.t]
+    {ul {- cls: [_ Js.t]
     {% <p>The CSS class name to add</p> %}
     }
     }
@@ -72,21 +72,21 @@ when this Component is added to a Container).</p>
     }
     }
     *)
-  method addClsWithUI : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method addClsWithUI : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Adds a cls to the uiCls array, which will also call <a href="#!/api/Ext.AbstractComponent-method-addUIClsToElement" rel="Ext.AbstractComponent-method-addUIClsToElement" class="docClass">addUIClsToElement</a> and adds to all elements of this
 component.</p> %}
     
     {b Parameters}:
-    {ul {- classes: ['a Js.t]
+    {ul {- classes: [_ Js.t]
     {% <p>A string or an array of strings to add to the uiCls</p> %}
     }
-    {- skip: ['a Js.t]
+    {- skip: [_ Js.t]
     {% <p>(Boolean) skip True to skip adding it to the class and do it later (via the return)</p> %}
     }
     }
     *)
-  method addListener : 'a Js.t -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> 'd Js.t Js.optdef -> unit Js.meth
+  method addListener : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Appends an event handler to this object.  For example:</p>
 
 <pre><code>myGridPanel.on("mouseover", this.onMouseOver, this);
@@ -121,20 +121,20 @@ containing properties which specify multiple events. For example:</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- eventName: ['a Js.t]
+    {ul {- eventName: [_ Js.t]
     {% <p>The name of the event to listen for.
 May also be an object who's property names are event names.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
 the specified <code>scope</code>.  Will be called with arguments
 given to <a href="#!/api/Ext.AbstractComponent-method-fireEvent" rel="Ext.AbstractComponent-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the handler function is
 executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>An object containing handler configuration.</p>
 
 <p><strong>Note:</strong> Unlike in ExtJS 3.x, the options object will also be passed as the last
@@ -144,19 +144,19 @@ argument to every event handler.</p>
     }
     }
     *)
-  method addPropertyToState : 'a Js.t -> Js.js_string Js.t ->
+  method addPropertyToState : _ Js.t -> Js.js_string Js.t ->
     Js.js_string Js.t Js.optdef -> bool Js.t Js.meth
   (** {% <p>Save a property to the given state object if it is not its default or configured
 value.</p> %}
     
     {b Parameters}:
-    {ul {- state: ['a Js.t]
+    {ul {- state: [_ Js.t]
     {% <p>The state object</p> %}
     }
     {- propName: [Js.js_string Js.t]
     {% <p>The name of the property on this object to save.</p> %}
     }
-    {- value: [Js.js_string Js.t]
+    {- value: [Js.js_string Js.t] (optional)
     {% <p>The value of the state property (defaults to <code>this[propName]</code>).</p> %}
     }
     }
@@ -207,7 +207,7 @@ than just the components element.</p> %}
     }
     }
     *)
-  method animate : 'a Js.t -> 'b Js.t Js.meth
+  method animate : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Performs custom animation on this object.</p>
 
 <p>This method is applicable to both the <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> class and the <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Sprite</a>
@@ -265,14 +265,14 @@ size. If dynamic updating of the Window's child Components is required, then con
 <code>dynamic: true</code> and the two child items will maintain their proportions during the animation.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>Configuration for <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a>.
 Note that the <a href="#!/api/Ext.fx.Anim-cfg-to" rel="Ext.fx.Anim-cfg-to" class="docClass">to</a> config is required.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>this</p> %}
+    {ul {- [_ Js.t] {% <p>this</p> %}
     }
     }
     *)
@@ -300,13 +300,13 @@ being executed.</p> %}
   (** {% <p>Disable the component.</p> %}
     
     {b Parameters}:
-    {ul {- silent: [bool Js.t]
+    {ul {- silent: [bool Js.t] (optional)
     {% <p>Passing true will supress the 'disable' event from being fired.</p> %}
      Defaults to: false
     }
     }
     *)
-  method doComponentLayout : 'a Js.t Js.meth
+  method doComponentLayout : _ Js.t Js.meth
   (** {% <p>This method needs to be called whenever you change something on this component that requires the Component's
 layout to be recalculated.</p> %}
     
@@ -319,13 +319,13 @@ layout to be recalculated.</p> %}
   (** {% <p>Enable the component</p> %}
     
     {b Parameters}:
-    {ul {- silent: [bool Js.t]
+    {ul {- silent: [bool Js.t] (optional)
     {% <p>Passing true will supress the 'enable' event from being fired.</p> %}
      Defaults to: false
     }
     }
     *)
-  method getBubbleTarget : 'a Js.t Js.meth
+  method getBubbleTarget : _ Js.t Js.meth
   (** {% <p>Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.</p> %}
     
     {b Returns}:
@@ -369,30 +369,30 @@ is not set, returns the value of <a href="#!/api/Ext.AbstractComponent-cfg-id" r
     }
     }
     *)
-  method getSize : 'a Js.t Js.meth
+  method getSize : _ Js.t Js.meth
   (** {% <p>Gets the current size of the component's underlying element.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object containing the element's size {width: (element width), height: (element height)}</p> %}
     }
     }
     *)
-  method getSizeModel : 'a Js.t -> 'b Js.t Js.meth
+  method getSizeModel : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Returns an object that describes how this component's width and height are managed.
 All of these objects are shared and should not be modified.</p> %}
     
     {b Parameters}:
-    {ul {- ownerCtSizeModel: ['a Js.t]
+    {ul {- ownerCtSizeModel: [_ Js.t]
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The size model for this component.</p> %}
+    {ul {- [_ Js.t] {% <p>The size model for this component.</p> %}
     }
     }
     *)
-  method getState : 'a Js.t Js.meth
+  method getState : _ Js.t Js.meth
   (** {% <p>The supplied default state gathering method for the AbstractComponent class.</p>
 
 <p>This method returns dimension settings such as <code>flex</code>, <code>anchor</code>, <code>width</code> and <code>height</code> along with <code>collapsed</code>
@@ -462,7 +462,7 @@ alert(t.getXTypes());  // alerts 'component/field/textfield'
     }
     }
     *)
-  method isDescendantOf : 'a Js.t -> bool Js.t Js.meth
+  method isDescendantOf : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Determines whether this component is the descendant of a particular container.</p> %}
     
     {b Parameters}:
@@ -543,7 +543,7 @@ of this component's containers is suspended.</p> %}
   (** {% <p>Returns true if this component is visible.</p> %}
     
     {b Parameters}:
-    {ul {- deep: [bool Js.t]
+    {ul {- deep: [bool Js.t] (optional)
     {% <p>Pass <code>true</code> to interrogate the visibility status of all parent Containers to
 determine whether this Component is truly visible to the user.</p>
 
@@ -581,7 +581,7 @@ var isBoxInstance = t.isXType('field', true); // false, not a direct <a href="#!
     {ul {- xtype: [Js.js_string Js.t]
     {% <p>The xtype to check for this Component</p> %}
     }
-    {- shallow: [bool Js.t]
+    {- shallow: [bool Js.t] (optional)
     {% <p>True to check whether this Component is directly of the specified xtype, false to
 check whether this Component is descended from the xtype.</p> %}
      Defaults to: false
@@ -601,7 +601,7 @@ check whether this Component is descended from the xtype.</p> %}
 tree to attempt to find a match. Contrast with <a href="#!/api/Ext.AbstractComponent-method-nextSibling" rel="Ext.AbstractComponent-method-nextSibling" class="docClass">nextSibling</a>.</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the following nodes.</p> %}
     }
     }
@@ -624,7 +624,7 @@ Returns null if there is no matching node.</p> %}
 <a href="#!/api/Ext.AbstractComponent-method-nextNode" rel="Ext.AbstractComponent-method-nextNode" class="docClass">nextNode</a></p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the following items.</p> %}
     }
     }
@@ -636,7 +636,7 @@ Returns null if there is no matching sibling.</p> %}
     }
     }
     *)
-  method onAdded : 'a Js.t -> Js.number Js.t -> unit Js.meth
+  method onAdded : _ Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>Method to manage awareness of when components are added to their
 respective Container, firing an <a href="#!/api/Ext.AbstractComponent-event-added" rel="Ext.AbstractComponent-event-added" class="docClass">added</a> event. References are
 established at add time rather than at render time.</p>
@@ -709,7 +709,7 @@ Component upon remove.</p> %}
 tree in reverse order to attempt to find a match. Contrast with <a href="#!/api/Ext.AbstractComponent-method-previousSibling" rel="Ext.AbstractComponent-method-previousSibling" class="docClass">previousSibling</a>.</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the preceding nodes.</p> %}
     }
     }
@@ -733,7 +733,7 @@ selector.</p>
 <a href="#!/api/Ext.AbstractComponent-method-previousNode" rel="Ext.AbstractComponent-method-previousNode" class="docClass">previousNode</a></p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the preceding items.</p> %}
     }
     }
@@ -745,7 +745,7 @@ Returns null if there is no matching sibling.</p> %}
     }
     }
     *)
-  method registerFloatingItem : 'a Js.t -> unit Js.meth
+  method registerFloatingItem : _ Js.t -> unit Js.meth
   (** {% <p>Called by Component#doAutoRender</p>
 
 <p>Register a Container configured <code>floating: true</code> with this Component's <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a>.</p>
@@ -754,15 +754,15 @@ Returns null if there is no matching sibling.</p> %}
 upon first show in the way that <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s are.</p> %}
     
     {b Parameters}:
-    {ul {- cmp: ['a Js.t]
+    {ul {- cmp: [_ Js.t]
     }
     }
     *)
-  method removeCls : 'a Js.t -> 'self Js.t Js.meth
+  method removeCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Removes a CSS class from the top level element representing this component.</p> %}
     
     {b Parameters}:
-    {ul {- cls: ['a Js.t]
+    {ul {- cls: [_ Js.t]
     {% <p>The CSS class name to remove</p> %}
     }
     }
@@ -773,12 +773,12 @@ upon first show in the way that <a href="#!/api/Ext.window.Window" rel="Ext.wind
     }
     }
     *)
-  method removeClsWithUI : 'a Js.t -> unit Js.meth
+  method removeClsWithUI : _ Js.t -> unit Js.meth
   (** {% <p>Removes a cls to the uiCls array, which will also call <a href="#!/api/Ext.AbstractComponent-method-removeUIClsFromElement" rel="Ext.AbstractComponent-method-removeUIClsFromElement" class="docClass">removeUIClsFromElement</a> and removes it from all
 elements of this component.</p> %}
     
     {b Parameters}:
-    {ul {- cls: ['a Js.t]
+    {ul {- cls: [_ Js.t]
     {% <p>A string or an array of strings to remove to the uiCls</p> %}
     }
     }
@@ -793,7 +793,7 @@ will be: <code>this.baseCls + '-' + ui</code></p> %}
     }
     }
     *)
-  method setBorder : 'a Js.t -> unit Js.meth
+  method setBorder : _ Js.t -> unit Js.meth
   method setDisabled : bool Js.t -> unit Js.meth
   (** {% <p>Enable or disable the component.</p> %}
     
@@ -802,15 +802,16 @@ will be: <code>this.baseCls + '-' + ui</code></p> %}
     }
     }
     *)
-  method setDocked : 'a Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
+  method setDocked : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the dock position of this component in its parent panel. Note that this only has effect if this item is part
 of the dockedItems collection of a parent that has a DockLayout (note that any Panel has a DockLayout by default)</p> %}
     
     {b Parameters}:
-    {ul {- dock: ['a Js.t]
+    {ul {- dock: [_ Js.t]
     {% <p>The dock position.</p> %}
     }
-    {- layoutParent: [bool Js.t] {% <p>True to re-layout parent.</p> %}
+    {- layoutParent: [bool Js.t] (optional)
+    {% <p>True to re-layout parent.</p> %}
      Defaults to: false
     }
     }
@@ -840,7 +841,7 @@ of the dockedItems collection of a parent that has a DockLayout (note that any P
     }
     }
     *)
-  method setPosition : Js.number Js.t -> Js.number Js.t -> 'a Js.t Js.optdef
+  method setPosition : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef
     -> 'self Js.t Js.meth
   (** {% <p>Sets the left and top of the component. To set the page XY position instead, use <a href="#!/api/Ext.Component-method-setPagePosition" rel="Ext.Component-method-setPagePosition" class="docClass">setPagePosition</a>. This
 method fires the <a href="#!/api/Ext.AbstractComponent-event-move" rel="Ext.AbstractComponent-event-move" class="docClass">move</a> event.</p> %}
@@ -849,9 +850,10 @@ method fires the <a href="#!/api/Ext.AbstractComponent-event-move" rel="Ext.Abst
     {ul {- left: [Js.number Js.t]
     {% <p>The new left</p> %}
     }
-    {- top: [Js.number Js.t] {% <p>The new top</p> %}
+    {- top: [Js.number Js.t]
+    {% <p>The new top</p> %}
     }
-    {- animate: ['a Js.t]
+    {- animate: [_ Js.t] (optional)
     {% <p>If true, the Component is <em>animated</em> into its new position. You may also pass an
 animation configuration.</p> %}
     }
@@ -862,12 +864,12 @@ animation configuration.</p> %}
     }
     }
     *)
-  method setSize : 'a Js.t -> 'b Js.t -> 'self Js.t Js.meth
+  method setSize : _ Js.t -> _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets the width and height of this Component. This method fires the <a href="#!/api/Ext.AbstractComponent-event-resize" rel="Ext.AbstractComponent-event-resize" class="docClass">resize</a> event. This method can accept
 either width and height as separate arguments, or you can pass a size object like <code>{width:10, height:20}</code>.</p> %}
     
     {b Parameters}:
-    {ul {- width: ['a Js.t]
+    {ul {- width: [_ Js.t]
     {% <p>The new width to set. This may be one of:</p>
 
 <ul>
@@ -877,7 +879,7 @@ either width and height as separate arguments, or you can pass a size object lik
 <li><code>undefined</code> to leave the width unchanged.</li>
 </ul> %}
     }
-    {- height: ['a Js.t]
+    {- height: [_ Js.t]
     {% <p>The new height to set (not required if a size object is passed as the first arg).
 This may be one of:</p>
 
@@ -937,7 +939,7 @@ uiCls set on the component and rename them so they include the new UI</p> %}
     }
     }
     *)
-  method up : Js.js_string Js.t Js.optdef -> 'a Js.t Js.meth
+  method up : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Walks up the <code>ownerCt</code> axis looking for an ancestor Container which matches the passed simple selector.</p>
 
 <p>Example:</p>
@@ -946,7 +948,7 @@ uiCls set on the component and rename them so they include the new UI</p> %}
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>The simple selector to test.</p> %}
     }
     }
@@ -957,33 +959,33 @@ uiCls set on the component and rename them so they include the new UI</p> %}
     }
     }
     *)
-  method update : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> unit Js.meth
+  method update : _ Js.t -> bool Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    unit Js.meth
   (** {% <p>Update the content area of a component.</p> %}
     
     {b Parameters}:
-    {ul {- htmlOrData: ['a Js.t]
+    {ul {- htmlOrData: [_ Js.t]
     {% <p>If this component has been configured with a template via the tpl config then
 it will use this argument as data to populate the template. If this component was not configured with a template,
 the components content area will be updated via <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> update</p> %}
     }
-    {- loadScripts: [bool Js.t]
+    {- loadScripts: [bool Js.t] (optional)
     {% <p>Only legitimate when using the html configuration.</p> %}
      Defaults to: false
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>Only legitimate when using the html configuration. Callback to execute when
 scripts have finished loading</p> %}
     }
     }
     *)
-  method updateLayout : 'a Js.t -> unit Js.meth
+  method updateLayout : _ Js.t -> unit Js.meth
   (** {% <p>Updates this component's layout. If this update effects this components <a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.AbstractComponent-property-ownerCt" class="docClass">ownerCt</a>,
 that component's <code>updateLayout</code> method will be called to perform the layout instead.
 Otherwise, just this component (and its child items) will layout.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t] {% <p>An object with layout options.</p> %}
+    {ul {- options: [_ Js.t] {% <p>An object with layout options.</p> %}
     }
     }
     *)
@@ -1012,7 +1014,7 @@ object('self)
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.beforeDestroy] *)
-  method onAdded : ('self Js.t, 'a Js.t -> Js.number Js.t -> unit)
+  method onAdded : ('self Js.t, _ Js.t -> Js.number Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   (** See method [t.onAdded] *)
   method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
@@ -1030,7 +1032,7 @@ object('self)
   method onResize : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onResize] *)
-  method autoEl : 'a Js.t Js.prop
+  method autoEl : _ Js.t Js.prop
   (** {% <p>A tag name or <a href="#!/api/Ext.DomHelper" rel="Ext.DomHelper" class="docClass">DomHelper</a> spec used to create the <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a> which will
 encapsulate this Component.</p>
 
@@ -1065,7 +1067,7 @@ different DOM elements. Example usage:</p>
 }
 </code></pre> %}
     *)
-  method autoRender : 'a Js.t Js.prop
+  method autoRender : _ Js.t Js.prop
   (** {% <p>This config is intended mainly for non-<a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
 <a href="#!/api/Ext.AbstractComponent-cfg-renderTo" rel="Ext.AbstractComponent-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
 upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
@@ -1091,7 +1093,7 @@ componentCls to add specific styling for this component.</p> %}
     
     Defaults to: ['x-component']
     *)
-  method border : 'a Js.t Js.prop
+  method border : _ Js.t Js.prop
   (** {% <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
 be a CSS style specification for each style, for example: '10 5 3 10'.</p>
 
@@ -1107,7 +1109,7 @@ style: {
 
 <p>To turn off the border, use <code>border: false</code>.</p> %}
     *)
-  method childEls : 'a Js.t Js.js_array Js.t Js.prop
+  method childEls : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>An array describing the child elements of the Component. Each member of the array
 is an object with these properties:</p>
 
@@ -1153,7 +1155,7 @@ for adding customized styles to the component or any of its children using stand
   method componentCls : Js.js_string Js.t Js.prop
   (** {% <p>CSS Class to be added to a components root level element to give distinction to it via styling.</p> %}
     *)
-  method componentLayout : 'a Js.t Js.prop
+  method componentLayout : _ Js.t Js.prop
   (** {% <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -1183,7 +1185,7 @@ scheme that the Component may use. It is just HTML. Layouts operate on child
 <p>Add either the <code>x-hidden</code> or the <code>x-hide-display</code> CSS class to prevent a brief flicker of the content before it
 is rendered to the panel.</p> %}
     *)
-  method data : 'a Js.t Js.prop
+  method data : _ Js.t Js.prop
   (** {% <p>The initial set of data to apply to the <code><a href="#!/api/Ext.AbstractComponent-cfg-tpl" rel="Ext.AbstractComponent-cfg-tpl" class="docClass">tpl</a></code> to update the content area of the Component.</p> %}
     *)
   method disabled : bool Js.t Js.prop
@@ -1244,7 +1246,7 @@ Component having zero dimensions.</li>
     
     Defaults to: ['display']
     *)
-  method html : 'a Js.t Js.prop
+  method html : _ Js.t Js.prop
   (** {% <p>An HTML fragment, or a <a href="#!/api/Ext.DomHelper" rel="Ext.DomHelper" class="docClass">DomHelper</a> specification to use as the layout element content.
 The HTML content is added after the component is rendered, so the document will not contain this HTML at the time
 the <a href="#!/api/Ext.AbstractComponent-event-render" rel="Ext.AbstractComponent-event-render" class="docClass">render</a> event is fired. This content is inserted into the body <em>before</em> any configured <a href="#!/api/Ext.AbstractComponent-cfg-contentEl" rel="Ext.AbstractComponent-cfg-contentEl" class="docClass">contentEl</a>
@@ -1306,7 +1308,7 @@ p2 = p1.<a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.Abstrac
 
 <p><strong>Note</strong>: to access the container of an item see <a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.AbstractComponent-property-ownerCt" class="docClass">ownerCt</a>.</p> %}
     *)
-  method loader : 'a Js.t Js.prop
+  method loader : _ Js.t Js.prop
   (** {% <p>A configuration object or an instance of a <a href="#!/api/Ext.ComponentLoader" rel="Ext.ComponentLoader" class="docClass">Ext.ComponentLoader</a> to load remote content
 for this Component.</p>
 
@@ -1319,7 +1321,7 @@ for this Component.</p>
 });
 </code></pre> %}
     *)
-  method margin : 'a Js.t Js.prop
+  method margin : _ Js.t Js.prop
   (** {% <p>Specifies the margin for this component. The margin can be a single numeric value to apply to all sides or it can
 be a CSS style specification for each style, for example: '10 5 3 10'.</p> %}
     *)
@@ -1350,18 +1352,18 @@ component or any of its children using standard CSS rules.</p> %}
     
     Defaults to: ['']
     *)
-  method padding : 'a Js.t Js.prop
+  method padding : _ Js.t Js.prop
   (** {% <p>Specifies the padding for this component. The padding can be a single numeric value to apply to all sides or it
 can be a CSS style specification for each style, for example: '10 5 3 10'.</p> %}
     *)
-  method plugins : 'a Js.t Js.prop
+  method plugins : _ Js.t Js.prop
   (** {% <p>An object or array of objects that will provide custom functionality for this component. The only requirement for
 a valid plugin is that it contain an init method that accepts a reference of type <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>. When a component
 is created, if any plugins are available, the component will call the init method on each plugin, passing a
 reference to itself. Each plugin can then call methods or respond to events on the component as needed to provide
 its functionality.</p> %}
     *)
-  method renderData : 'a Js.t Js.prop
+  method renderData : _ Js.t Js.prop
   (** {% <p>The data used by <a href="#!/api/Ext.AbstractComponent-cfg-renderTpl" rel="Ext.AbstractComponent-cfg-renderTpl" class="docClass">renderTpl</a> in addition to the following property values of the component:</p>
 
 <ul>
@@ -1376,7 +1378,7 @@ its functionality.</p> %}
 
 <p>See <a href="#!/api/Ext.AbstractComponent-cfg-renderSelectors" rel="Ext.AbstractComponent-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.AbstractComponent-cfg-childEls" rel="Ext.AbstractComponent-cfg-childEls" class="docClass">childEls</a> for usage examples.</p> %}
     *)
-  method renderSelectors : 'a Js.t Js.prop
+  method renderSelectors : _ Js.t Js.prop
   (** {% <p>An object containing properties specifying <a href="#!/api/Ext.dom.Query" rel="Ext.dom.Query" class="docClass">DomQuery</a> selectors which identify child elements
 created by the render process.</p>
 
@@ -1411,7 +1413,7 @@ and the found Elements are added as properties to the Component using the <code>
 <p>For a faster, but less flexible, alternative that achieves the same end result (properties for child elements on the
 Component after render), see <a href="#!/api/Ext.AbstractComponent-cfg-childEls" rel="Ext.AbstractComponent-cfg-childEls" class="docClass">childEls</a> and <a href="#!/api/Ext.AbstractComponent-method-addChildEls" rel="Ext.AbstractComponent-method-addChildEls" class="docClass">addChildEls</a>.</p> %}
     *)
-  method renderTo : 'a Js.t Js.prop
+  method renderTo : _ Js.t Js.prop
   (** {% <p>Specify the id of the element, a DOM element or an existing Element that this component will be rendered into.</p>
 
 <p><strong>Notes:</strong></p>
@@ -1424,7 +1426,7 @@ It is the responsibility of the <a href="#!/api/Ext.container.Container" rel="Ex
 
 <p>See also: <a href="#!/api/Ext.AbstractComponent-method-render" rel="Ext.AbstractComponent-method-render" class="docClass">render</a>.</p> %}
     *)
-  method renderTpl : 'a Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a>.</p>
 
@@ -1441,7 +1443,7 @@ internal structure.</p>
     
     Defaults to: ['{%this.renderContent(out,values)%}']
     *)
-  method shrinkWrap : 'a Js.t Js.prop
+  method shrinkWrap : _ Js.t Js.prop
   (** {% <p>If this property is a number, it is interpreted as follows:</p>
 
 <ul>
@@ -1459,7 +1461,7 @@ effectively ignoring this property (e.g., <a href="#!/api/Ext.layout.container.H
     
     Defaults to: [2]
     *)
-  method style : 'a Js.t Js.prop
+  method style : _ Js.t Js.prop
   (** {% <p>A custom style specification to be applied to this component's Element. Should be a valid argument to
 <a href="#!/api/Ext.dom.Element-method-applyStyles" rel="Ext.dom.Element-method-applyStyles" class="docClass">Ext.Element.applyStyles</a>.</p>
 
@@ -1496,7 +1498,7 @@ effectively ignoring this property (e.g., <a href="#!/api/Ext.layout.container.H
     
     Defaults to: [false]
     *)
-  method tpl : 'a Js.t Js.prop
+  method tpl : _ Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>, <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a> or an array of strings to form an <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a>. Used in
 conjunction with the <code><a href="#!/api/Ext.AbstractComponent-cfg-data" rel="Ext.AbstractComponent-cfg-data" class="docClass">data</a></code> and <code><a href="#!/api/Ext.AbstractComponent-cfg-tplWriteMode" rel="Ext.AbstractComponent-cfg-tplWriteMode" class="docClass">tplWriteMode</a></code> configurations.</p> %}
     *)
@@ -1616,18 +1618,18 @@ object
   inherit Ext_util_ElementContainer.events
   inherit Ext_util_Animate.events
   
-  method activate : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method activate : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after a Component has been visually activated.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method added : (t Js.t -> 'a Js.t -> Js.number Js.t -> 'b Js.t -> unit)
+  method added : (t Js.t -> _ Js.t -> Js.number Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires after a Component had been added to a Container.</p> %}
     
@@ -1640,12 +1642,12 @@ object
     {- pos: [Js.number Js.t]
     {% <p>position of Component</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method afterrender : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method afterrender : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the component rendering is finished.</p>
 
@@ -1655,12 +1657,12 @@ afterRender method defined for the Component.</p> %}
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforeactivate : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforeactivate : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before a Component has been visually activated. Returning false from an event listener can prevent
 the activate from occurring.</p> %}
@@ -1668,12 +1670,12 @@ the activate from occurring.</p> %}
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforedeactivate : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforedeactivate : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before a Component has been visually deactivated. Returning false from an event listener can
 prevent the deactivate from occurring.</p> %}
@@ -1681,12 +1683,12 @@ prevent the deactivate from occurring.</p> %}
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforedestroy : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforedestroy : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before the component is <a href="#!/api/Ext.AbstractComponent-method-destroy" rel="Ext.AbstractComponent-method-destroy" class="docClass">destroy</a>ed. Return false from an event handler to stop the
 <a href="#!/api/Ext.AbstractComponent-method-destroy" rel="Ext.AbstractComponent-method-destroy" class="docClass">destroy</a>.</p> %}
@@ -1694,12 +1696,12 @@ prevent the deactivate from occurring.</p> %}
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforehide : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforehide : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before the component is hidden when calling the <a href="#!/api/Ext.Component-method-hide" rel="Ext.Component-method-hide" class="docClass">hide</a> method. Return false from an event
 handler to stop the hide.</p> %}
@@ -1707,12 +1709,12 @@ handler to stop the hide.</p> %}
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforerender : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforerender : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before the component is <a href="#!/api/Ext.AbstractComponent-property-rendered" rel="Ext.AbstractComponent-property-rendered" class="docClass">rendered</a>. Return false from an event handler to stop the
 <a href="#!/api/Ext.AbstractComponent-method-render" rel="Ext.AbstractComponent-method-render" class="docClass">render</a>.</p> %}
@@ -1720,12 +1722,12 @@ handler to stop the hide.</p> %}
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforeshow : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforeshow : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before the component is shown when calling the <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a> method. Return false from an event
 handler to stop the show.</p> %}
@@ -1733,12 +1735,12 @@ handler to stop the show.</p> %}
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method blur : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method blur : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires when this Component loses focus.</p> %}
     
@@ -1748,12 +1750,12 @@ handler to stop the show.</p> %}
     {- the: [Ext_EventObject.t Js.t]
     {% <p>blur event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method boxready : (t Js.t -> Js.number Js.t -> Js.number Js.t -> 'a Js.t ->
+  method boxready : (t Js.t -> Js.number Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires <em>one time</em> - after the component has been layed out for the first time at its initial size.</p> %}
     
@@ -1766,57 +1768,57 @@ handler to stop the show.</p> %}
     {- height: [Js.number Js.t]
     {% <p>The initial height</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method deactivate : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method deactivate : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after a Component has been visually deactivated.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method destroy : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method destroy : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the component is <a href="#!/api/Ext.AbstractComponent-method-destroy" rel="Ext.AbstractComponent-method-destroy" class="docClass">destroy</a>ed.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method disable : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method disable : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the component is disabled.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method enable : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method enable : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the component is enabled.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method focus : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method focus : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires when this Component receives focus.</p> %}
     
@@ -1826,24 +1828,24 @@ handler to stop the show.</p> %}
     {- the: [Ext_EventObject.t Js.t]
     {% <p>focus event.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method hide : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method hide : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the component is hidden. Fires after the component is hidden when calling the <a href="#!/api/Ext.Component-method-hide" rel="Ext.Component-method-hide" class="docClass">hide</a>
 method.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method move : (t Js.t -> Js.number Js.t -> Js.number Js.t -> 'a Js.t ->
+  method move : (t Js.t -> Js.number Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the component is moved.</p> %}
     
@@ -1853,15 +1855,14 @@ method.</p> %}
     {- x: [Js.number Js.t]
     {% <p>The new x position</p> %}
     }
-    {- y: [Js.number Js.t]
-    {% <p>The new y position</p> %}
+    {- y: [Js.number Js.t] {% <p>The new y position</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method removed : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method removed : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when a component is removed from an <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a></p> %}
     
@@ -1871,24 +1872,24 @@ method.</p> %}
     {- ownerCt: [#Ext_container_Container.t Js.t]
     {% <p>Container which holds the component</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method render : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method render : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the component markup is <a href="#!/api/Ext.AbstractComponent-property-rendered" rel="Ext.AbstractComponent-property-rendered" class="docClass">rendered</a>.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method resize : (t Js.t -> Js.number Js.t -> Js.number Js.t ->
-    Js.number Js.t -> Js.number Js.t -> 'a Js.t -> unit) Js.callback
+    Js.number Js.t -> Js.number Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the component is resized. Note that this does <em>not</em> fire when the component is first layed out at its initial
 size. To hook that point in the lifecycle, use the <a href="#!/api/Ext.AbstractComponent-event-boxready" rel="Ext.AbstractComponent-event-boxready" class="docClass">boxready</a> event.</p> %}
@@ -1908,18 +1909,18 @@ size. To hook that point in the lifecycle, use the <a href="#!/api/Ext.AbstractC
     {- oldHeight: [Js.number Js.t]
     {% <p>The previous height</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method show : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method show : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the component is shown when calling the <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a> method.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_Component.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
@@ -1954,7 +1955,7 @@ object
 <p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p> %}
     
     {b Parameters}:
-    {ul {- flush: [bool Js.t]
+    {ul {- flush: [bool Js.t] (optional)
     {% <p>True to perform all the pending layouts. This can also be
 achieved by calling <a href="#!/api/Ext.AbstractComponent-static-method-flushLayouts" rel="Ext.AbstractComponent-static-method-flushLayouts" class="docClass">flushLayouts</a> directly.</p> %}
      Defaults to: false
@@ -1983,7 +1984,7 @@ containers:</p>
     {ul {- comp: [#Ext_Component.t Js.t]
     {% <p>The component to update.</p> %}
     }
-    {- defer: [bool Js.t]
+    {- defer: [bool Js.t] (optional)
     {% <p>True to just queue the layout if this component.</p> %}
      Defaults to: false
     }

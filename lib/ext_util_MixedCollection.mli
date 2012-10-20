@@ -36,15 +36,15 @@ object('self)
   inherit Ext_util_AbstractMixedCollection.t
   inherit Ext_util_Sortable.t
   
-  method findInsertionIndex : 'a Js.t -> 'b Js.callback Js.optdef ->
+  method findInsertionIndex : _ Js.t -> _ Js.callback Js.optdef ->
     Js.number Js.t Js.meth
   (** {% <p>Calculates the insertion index of the new item based upon the comparison function passed, or the current sort order.</p> %}
     
     {b Parameters}:
-    {ul {- newItem: ['a Js.t]
+    {ul {- newItem: [_ Js.t]
     {% <p>The new object to find the insertion position of.</p> %}
     }
-    {- sorterFn: ['a Js.callback]
+    {- sorterFn: [_ Js.callback] (optional)
     {% <p>The function to sort by. This is the same as the sorting function
 passed to <a href="#!/api/Ext.util.MixedCollection-method-sortBy" rel="Ext.util.MixedCollection-method-sortBy" class="docClass">sortBy</a>. It accepts 2 items from this MixedCollection, and returns -1 0, or 1
 depending on the relative sort positions of the 2 compared items.</p>
@@ -60,34 +60,33 @@ depending on the relative sort positions of the 2 compared items.</p>
     }
     }
     *)
-  method reorder : 'a Js.t -> unit Js.meth
+  method reorder : _ Js.t -> unit Js.meth
   (** {% <p>Reorders each of the items based on a mapping from old index to new index. Internally this
 just translates into a sort. The 'sort' event is fired whenever reordering has occured.</p> %}
     
     {b Parameters}:
-    {ul {- mapping: ['a Js.t]
+    {ul {- mapping: [_ Js.t]
     {% <p>Mapping from old item index to new item index</p> %}
     }
     }
     *)
-  method sortBy : 'a Js.callback -> unit Js.meth
+  method sortBy : _ Js.callback -> unit Js.meth
   (** {% <p>Sorts the collection by a single sorter function</p> %}
     
     {b Parameters}:
-    {ul {- sorterFn: ['a Js.callback]
-    {% <p>The function to sort by</p> %}
+    {ul {- sorterFn: [_ Js.callback] {% <p>The function to sort by</p> %}
     }
     }
     *)
-  method sortByKey : Js.js_string Js.t Js.optdef -> 'a Js.callback Js.optdef
+  method sortByKey : Js.js_string Js.t Js.optdef -> _ Js.callback Js.optdef
     -> unit Js.meth
   (** {% <p>Sorts this collection by <b>key</b>s.</p> %}
     
     {b Parameters}:
-    {ul {- direction: [Js.js_string Js.t]
+    {ul {- direction: [Js.js_string Js.t] (optional)
     {% <p>'ASC' or 'DESC'. Defaults to 'ASC'.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>Comparison function that defines the sort order.
 Defaults to sorting by case insensitive string.</p> %}
     }

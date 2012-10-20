@@ -27,7 +27,7 @@ object('self)
     }
     }
     *)
-  method decodeValue : Js.js_string Js.t -> 'a Js.t Js.meth
+  method decodeValue : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Decodes a string previously encoded with <a href="#!/api/Ext.state.Provider-method-encodeValue" rel="Ext.state.Provider-method-encodeValue" class="docClass">encodeValue</a>.</p> %}
     
     {b Parameters}:
@@ -37,15 +37,15 @@ object('self)
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The decoded value</p> %}
+    {ul {- [_ Js.t] {% <p>The decoded value</p> %}
     }
     }
     *)
-  method encodeValue : 'a Js.t -> Js.js_string Js.t Js.meth
+  method encodeValue : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Encodes a value including type information.  Decode with <a href="#!/api/Ext.state.Provider-method-decodeValue" rel="Ext.state.Provider-method-decodeValue" class="docClass">decodeValue</a>.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to encode</p> %}
     }
     }
@@ -55,31 +55,31 @@ object('self)
     }
     }
     *)
-  method get : Js.js_string Js.t -> 'a Js.t -> 'b Js.t Js.meth
+  method get : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   (** {% <p>Returns the current value for a key</p> %}
     
     {b Parameters}:
     {ul {- name: [Js.js_string Js.t]
     {% <p>The key name</p> %}
     }
-    {- defaultValue: ['a Js.t]
+    {- defaultValue: [_ Js.t]
     {% <p>A default value to return if the key's value is not found</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The state data</p> %}
+    {ul {- [_ Js.t] {% <p>The state data</p> %}
     }
     }
     *)
-  method set : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method set : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Sets the value for a key</p> %}
     
     {b Parameters}:
     {ul {- name: [Js.js_string Js.t]
     {% <p>The key name</p> %}
     }
-    {- value: ['a Js.t] {% <p>The value to set</p> %}
+    {- value: [_ Js.t] {% <p>The value to set</p> %}
     }
     }
     *)
@@ -106,7 +106,7 @@ object
   inherit Ext_util_Observable.events
   
   method statechange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a state change occurs.</p> %}
     
     {b Parameters}:
@@ -119,7 +119,7 @@ object
     {- value: [Js.js_string Js.t]
     {% <p>The encoded value for the state</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

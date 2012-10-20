@@ -11,11 +11,11 @@ object('self)
   method addBodyCls : Js.js_string Js.t -> 'self Js.t Js.meth
   method addUIClsToElement : Js.js_string Js.t -> unit Js.meth
   method beforeDestroy : unit Js.meth
-  method getComponent : 'a Js.t -> #Ext_Component.t Js.t Js.meth
+  method getComponent : _ Js.t -> #Ext_Component.t Js.t Js.meth
   method initComponent : unit Js.meth
   method removeBodyCls : Js.js_string Js.t -> 'self Js.t Js.meth
   method removeUIClsFromElement : Js.js_string Js.t -> unit Js.meth
-  method setBodyStyle : 'a Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
+  method setBodyStyle : _ Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
   
 end
 
@@ -34,12 +34,12 @@ object('self)
     Js.writeonly_prop
   method baseCls : Js.js_string Js.t Js.prop
   method bodyBorder : bool Js.t Js.prop
-  method bodyCls : 'a Js.t Js.prop
-  method bodyPadding : 'a Js.t Js.prop
-  method bodyStyle : 'a Js.t Js.prop
+  method bodyCls : _ Js.t Js.prop
+  method bodyPadding : _ Js.t Js.prop
+  method bodyStyle : _ Js.t Js.prop
   method componentLayout_str : Js.js_string Js.t Js.prop
-  method dockedItems : 'a Js.t Js.prop
-  method renderTpl : 'a Js.t Js.prop
+  method dockedItems : _ Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   
 end
 

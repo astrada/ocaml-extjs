@@ -93,7 +93,7 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method fieldDefaults : 'a Js.t Js.prop
+  method fieldDefaults : _ Js.t Js.prop
   (** {% <p>If specified, the properties in this object are used as default config values for each <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" class="docClass">Ext.form.Labelable</a>
 instance (e.g. <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a> or <a href="#!/api/Ext.form.FieldContainer" rel="Ext.form.FieldContainer" class="docClass">Ext.form.FieldContainer</a>) that is added as a descendant of
 this container. Corresponding values specified in an individual field's own configuration, or from the <a href="#!/api/Ext.container.Container-cfg-defaults" rel="Ext.container.Container-cfg-defaults" class="docClass">defaults config</a> of its parent container, will take precedence. See the
@@ -140,7 +140,7 @@ object
   inherit Ext_Base.events
   
   method fielderrorchange : (t Js.t -> Ext_form_Labelable.t Js.t ->
-    Js.js_string Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Js.js_string Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the active error message is changed for any one of the <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" class="docClass">Ext.form.Labelable</a> instances
 within this container.</p> %}
     
@@ -153,13 +153,13 @@ within this container.</p> %}
     {- error: [Js.js_string Js.t]
     {% <p>The active error message</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method fieldvaliditychange : (t Js.t -> Ext_form_Labelable.t Js.t ->
-    Js.js_string Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Js.js_string Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the validity state of any one of the <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Ext.form.field.Field</a> instances within this
 container changes.</p> %}
     
@@ -172,7 +172,7 @@ container changes.</p> %}
     {- isValid: [Js.js_string Js.t]
     {% <p>The field's new validity state</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

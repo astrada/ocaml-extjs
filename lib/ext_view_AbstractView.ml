@@ -8,32 +8,32 @@ object('self)
   method afterRender : unit Js.meth
   method bindStore_view : Ext_data_Store.t Js.t -> unit Js.meth
   method collectData : Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
-    'a Js.t Js.js_array Js.t Js.meth
-  method deselect : 'a Js.t -> bool Js.t -> unit Js.meth
+    _ Js.t Js.js_array Js.t Js.meth
+  method deselect : _ Js.t -> bool Js.t -> unit Js.meth
   method findItemByChild : Dom_html.element Js.t -> Dom_html.element Js.t
     Js.meth
   method findTargetByEvent : Ext_EventObject.t Js.t -> unit Js.meth
-  method getNode : 'a Js.t -> Dom_html.element Js.t Js.meth
+  method getNode : _ Js.t -> Dom_html.element Js.t Js.meth
   method getNodes : Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef ->
     Dom_html.element Js.t Js.js_array Js.t Js.meth
-  method getRecord : 'a Js.t -> Ext_data_Model.t Js.t Js.meth
+  method getRecord : _ Js.t -> Ext_data_Model.t Js.t Js.meth
   method getRecords : Dom_html.element Js.t Js.js_array Js.t ->
     Ext_data_Model.t Js.js_array Js.t Js.meth
   method getSelectedNodes : Dom_html.element Js.t Js.js_array Js.t Js.meth
   method getSelectionModel : #Ext_selection_Model.t Js.t Js.meth
   method getStore_view : Ext_data_Store.t Js.t Js.meth
-  method getStoreListeners : 'a Js.t Js.meth
-  method indexOf : 'a Js.t -> Js.number Js.t Js.meth
+  method getStoreListeners : _ Js.t Js.meth
+  method indexOf : _ Js.t -> Js.number Js.t Js.meth
   method initComponent : unit Js.meth
-  method isSelected : 'a Js.t -> bool Js.t Js.meth
+  method isSelected : _ Js.t -> bool Js.t Js.meth
   method onBindStore : #Ext_data_AbstractStore.t Js.t -> bool Js.t -> unit
     Js.meth
   method onDestroy : unit Js.meth
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
   method onUnbindStore : #Ext_data_AbstractStore.t Js.t -> bool Js.t -> unit
     Js.meth
-  method prepareData : 'a Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
-    'b Js.t Js.meth
+  method prepareData : _ Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
+    _ Js.t Js.meth
   method refresh : unit Js.meth
   method refreshNode : Js.number Js.t -> unit Js.meth
   
@@ -61,8 +61,8 @@ object('self)
   method emptyText : Js.js_string Js.t Js.prop
   method itemCls : Js.js_string Js.t Js.prop
   method itemSelector : Js.js_string Js.t Js.prop
-  method itemTpl : 'a Js.t Js.prop
-  method loadMask : 'a Js.t Js.prop
+  method itemTpl : _ Js.t Js.prop
+  method loadMask : _ Js.t Js.prop
   method loadingCls : Js.js_string Js.t Js.prop
   method loadingHeight : Js.number Js.t Js.prop
   method loadingText : Js.js_string Js.t Js.prop
@@ -71,7 +71,7 @@ object('self)
   method selectedItemCls : Js.js_string Js.t Js.prop
   method singleSelect : bool Js.t Js.prop
   method store : Ext_data_Store.t Js.t Js.prop
-  method tpl : 'a Js.t Js.prop
+  method tpl : _ Js.t Js.prop
   method trackOver : bool Js.t Js.prop
   
 end
@@ -83,18 +83,17 @@ object
   inherit Ext_Component.events
   inherit Ext_util_Bindable.events
   
-  method beforerefresh : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   method itemadd : (Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
-    Dom_html.element Js.t Js.js_array Js.t -> 'a Js.t -> unit) Js.callback
+    Dom_html.element Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method itemremove : (Ext_data_Model.t Js.t -> Js.number Js.t -> 'a Js.t ->
+  method itemremove : (Ext_data_Model.t Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   method itemupdate : (Ext_data_Model.t Js.t -> Js.number Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method refresh : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method viewready : (t Js.t -> 'a Js.t -> unit) Js.callback
-    Js.writeonly_prop
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method refresh : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method viewready : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

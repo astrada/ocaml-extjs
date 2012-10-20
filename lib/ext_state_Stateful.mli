@@ -9,40 +9,40 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Observable.t
   
-  method addStateEvents : 'a Js.t -> unit Js.meth
+  method addStateEvents : _ Js.t -> unit Js.meth
   (** {% <p>Add events that will trigger the state to be saved. If the first argument is an
 array, each element of that array is the name of a state event. Otherwise, each
 argument passed to this method is the name of a state event.</p> %}
     
     {b Parameters}:
-    {ul {- events: ['a Js.t]
+    {ul {- events: [_ Js.t]
     {% <p>The event name or an array of event names.</p> %}
     }
     }
     *)
-  method applyState : 'a Js.t -> unit Js.meth
+  method applyState : _ Js.t -> unit Js.meth
   (** {% <p>Applies the state to the object. This should be overridden in subclasses to do
 more complex state operations. By default it applies the state properties onto
 the current object.</p> %}
     
     {b Parameters}:
-    {ul {- state: ['a Js.t] {% <p>The state</p> %}
+    {ul {- state: [_ Js.t] {% <p>The state</p> %}
     }
     }
     *)
   method destroy : unit Js.meth
   (** {% <p>Destroys this stateful object.</p> %}
     *)
-  method getState : 'a Js.t Js.meth
+  method getState : _ Js.t Js.meth
   (** {% <p>Gets the current state of the object. By default this function returns null,
 it should be overridden in subclasses to implement methods for getting the state.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The current state</p> %}
+    {ul {- [_ Js.t] {% <p>The current state</p> %}
     }
     }
     *)
-  method savePropToState : Js.js_string Js.t -> 'a Js.t ->
+  method savePropToState : Js.js_string Js.t -> _ Js.t ->
     Js.js_string Js.t Js.optdef -> bool Js.t Js.meth
   (** {% <p>Conditionally saves a single property from this object to the given state object.
 The idea is to only save state which has changed from the initial state so that
@@ -53,10 +53,10 @@ values that are user-changed state should be saved.</p> %}
     {ul {- propName: [Js.js_string Js.t]
     {% <p>The name of the property to save.</p> %}
     }
-    {- state: ['a Js.t]
+    {- state: [_ Js.t]
     {% <p>The state object in to which to save the property.</p> %}
     }
-    {- stateName: [Js.js_string Js.t]
+    {- stateName: [Js.js_string Js.t] (optional)
     {% <p>The name to use for the property in state.</p> %}
     }
     }
@@ -67,21 +67,21 @@ values that are user-changed state should be saved.</p> %}
     }
     }
     *)
-  method savePropsToState : 'a Js.t -> 'b Js.t -> 'c Js.t Js.meth
+  method savePropsToState : _ Js.t -> _ Js.t -> _ Js.t Js.meth
   (** {% <p>Gathers additional named properties of the instance and adds their current values
 to the passed state object.</p> %}
     
     {b Parameters}:
-    {ul {- propNames: ['a Js.t]
+    {ul {- propNames: [_ Js.t]
     {% <p>The name (or array of names) of the property to save.</p> %}
     }
-    {- state: ['a Js.t]
+    {- state: [_ Js.t]
     {% <p>The state object in to which to save the property values.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>state</p> %}
+    {ul {- [_ Js.t] {% <p>state</p> %}
     }
     }
     *)
@@ -181,73 +181,73 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method beforestaterestore : (t Js.t -> 'a Js.t -> 'b Js.t -> unit)
+  method beforestaterestore : (t Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires before the state of the object is restored. Return false from an event handler to stop the restore.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_state_Stateful.t Js.t]
     }
-    {- state: ['a Js.t]
+    {- state: [_ Js.t]
     {% <p>The hash of state values returned from the StateProvider. If this
 event is not vetoed, then the state object is passed to <b><tt>applyState</tt></b>. By default,
 that simply copies property values into this object. The method maybe overriden to
 provide custom state restoration.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforestatesave : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method beforestatesave : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before the state of the object is saved to the configured state provider. Return false to stop the save.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_state_Stateful.t Js.t]
     }
-    {- state: ['a Js.t]
+    {- state: [_ Js.t]
     {% <p>The hash of state values. This is determined by calling
 <b><tt>getState()</tt></b> on the object. This method must be provided by the
 developer to return whetever representation of state is required, by default, <a href="#!/api/Ext.state.Stateful" rel="Ext.state.Stateful" class="docClass">Ext.state.Stateful</a>
 has a null implementation.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method staterestore : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method staterestore : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the state of the object is restored.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_state_Stateful.t Js.t]
     }
-    {- state: ['a Js.t]
+    {- state: [_ Js.t]
     {% <p>The hash of state values returned from the StateProvider. This is passed
 to <b><tt>applyState</tt></b>. By default, that simply copies property values into this
 object. The method maybe overriden to provide custom state restoration.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method statesave : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method statesave : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the state of the object is saved to the configured state provider.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_state_Stateful.t Js.t]
     }
-    {- state: ['a Js.t]
+    {- state: [_ Js.t]
     {% <p>The hash of state values. This is determined by calling
 <b><tt>getState()</tt></b> on the object. This method must be provided by the
 developer to return whetever representation of state is required, by default, <a href="#!/api/Ext.state.Stateful" rel="Ext.state.Stateful" class="docClass">Ext.state.Stateful</a>
 has a null implementation.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

@@ -31,7 +31,7 @@ object('self)
   method destroy : unit Js.meth
   (** {% <p>Destroys the loader. Any active requests will be aborted.</p> %}
     *)
-  method getTarget : 'a Js.t Js.meth
+  method getTarget : _ Js.t Js.meth
   (** {% <p>Returns the target of this loader.</p> %}
     
     {b Returns}:
@@ -49,27 +49,27 @@ object('self)
     }
     }
     *)
-  method load : 'a Js.t -> unit Js.meth
+  method load : _ Js.t -> unit Js.meth
   (** {% <p>Loads new data from the server.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>The options for the request. They can be any configuration option that can be specified for
 the class, with the exception of the target option. Note that any options passed to the method will override any
 class defaults.</p> %}
     }
     }
     *)
-  method setTarget : 'a Js.t -> unit Js.meth
+  method setTarget : _ Js.t -> unit Js.meth
   (** {% <p>Sets an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> as the target of this loader.
 Note that if the target is changed, any active requests will be aborted.</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t] {% <p>The element or its ID.</p> %}
+    {ul {- target: [_ Js.t] {% <p>The element or its ID.</p> %}
     }
     }
     *)
-  method startAutoRefresh : Js.number Js.t -> 'a Js.t Js.optdef -> unit
+  method startAutoRefresh : Js.number Js.t -> _ Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>Automatically refreshes the content over a specified period.</p> %}
     
@@ -77,7 +77,7 @@ Note that if the target is changed, any active requests will be aborted.</p> %}
     {ul {- interval: [Js.number Js.t]
     {% <p>The interval to refresh in ms.</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>The options to pass to the load method. See <a href="#!/api/Ext.ElementLoader-method-load" rel="Ext.ElementLoader-method-load" class="docClass">load</a></p> %}
     }
     }
@@ -93,20 +93,20 @@ object('self)
   inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   
-  method ajaxOptions : 'a Js.t Js.prop
+  method ajaxOptions : _ Js.t Js.prop
   (** {% <p>Any additional options to be passed to the request, for example timeout or headers.</p> %}
     *)
-  method autoLoad : 'a Js.t Js.prop
+  method autoLoad : _ Js.t Js.prop
   (** {% <p>True to have the loader make a request as soon as it is created.
 This argument can also be a set of options that will be passed to <a href="#!/api/Ext.ElementLoader-method-load" rel="Ext.ElementLoader-method-load" class="docClass">load</a> is called.</p> %}
     
     Defaults to: [false]
     *)
-  method baseParams : 'a Js.t Js.prop
+  method baseParams : _ Js.t Js.prop
   (** {% <p>Params that will be attached to every request. These parameters
 will not be overridden by any params in the load options.</p> %}
     *)
-  method callback : 'a Js.callback Js.prop
+  method callback : _ Js.callback Js.prop
   (** {% <p>A function to be called when a load request finishes.
 Will be called with the following config parameters:</p>
 
@@ -117,7 +117,7 @@ Will be called with the following config parameters:</p>
 <li>options - Ajax options.</li>
 </ul> %}
     *)
-  method failure : 'a Js.callback Js.prop
+  method failure : _ Js.callback Js.prop
   (** {% <p>A function to be called when a load request fails.
 Will be called with the following config parameters:</p>
 
@@ -127,16 +127,16 @@ Will be called with the following config parameters:</p>
 <li>options - Ajax options.</li>
 </ul> %}
     *)
-  method loadMask : 'a Js.t Js.prop
+  method loadMask : _ Js.t Js.prop
   (** {% <p>True or a string to show when the element is loading.</p> %}
     
     Defaults to: [false]
     *)
-  method params : 'a Js.t Js.prop
+  method params : _ Js.t Js.prop
   (** {% <p>Any params to be attached to the Ajax request. These parameters will
 be overridden by any params in the load options.</p> %}
     *)
-  method renderer : 'a Js.callback Js.prop
+  method renderer : _ Js.callback Js.prop
   (** {% <p>A custom function to render the content to the element. The function should
 return false if the renderer could not be applied. The passed parameters are:</p>
 
@@ -146,7 +146,7 @@ return false if the renderer could not be applied. The passed parameters are:</p
 <li>The active request</li>
 </ul> %}
     *)
-  method scope : 'a Js.t Js.prop
+  method scope : _ Js.t Js.prop
   (** {% <p>The scope to execute the <a href="#!/api/Ext.ElementLoader-cfg-success" rel="Ext.ElementLoader-cfg-success" class="docClass">success</a> and <a href="#!/api/Ext.ElementLoader-cfg-failure" rel="Ext.ElementLoader-cfg-failure" class="docClass">failure</a> functions in.</p> %}
     *)
   method scripts : bool Js.t Js.prop
@@ -154,7 +154,7 @@ return false if the renderer could not be applied. The passed parameters are:</p
     
     Defaults to: [false]
     *)
-  method success : 'a Js.callback Js.prop
+  method success : _ Js.callback Js.prop
   (** {% <p>A function to be called when a load request is successful.
 Will be called with the following config parameters:</p>
 
@@ -164,7 +164,7 @@ Will be called with the following config parameters:</p>
 <li>options - Ajax options.</li>
 </ul> %}
     *)
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   (** {% <p>The target element for the loader. It can be the DOM element, the id or an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
     *)
   method url : Js.js_string Js.t Js.prop
@@ -178,7 +178,7 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method beforeload : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method beforeload : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before a load request is made to the server.
 Returning false from an event listener can prevent the load
@@ -187,46 +187,46 @@ from occurring.</p> %}
     {b Parameters}:
     {ul {- this: [Ext_ElementLoader.t Js.t]
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t]
     {% <p>The options passed to the request</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method _exception : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit)
+  method _exception : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires after an unsuccessful load.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_ElementLoader.t Js.t]
     }
-    {- response: ['a Js.t]
+    {- response: [_ Js.t]
     {% <p>The response from the server</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t]
     {% <p>The options passed to the request</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method load : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method load : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after a successful load.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_ElementLoader.t Js.t]
     }
-    {- response: ['a Js.t]
+    {- response: [_ Js.t]
     {% <p>The response from the server</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t]
     {% <p>The options passed to the request</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

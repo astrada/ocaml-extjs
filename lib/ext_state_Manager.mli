@@ -28,20 +28,20 @@ object('self)
     }
     }
     *)
-  method get : Js.js_string Js.t -> 'a Js.t -> 'b Js.t Js.meth
+  method get : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   (** {% <p>Returns the current value for a key</p> %}
     
     {b Parameters}:
     {ul {- name: [Js.js_string Js.t]
     {% <p>The key name</p> %}
     }
-    {- defaultValue: ['a Js.t]
+    {- defaultValue: [_ Js.t]
     {% <p>The default value to return if the key lookup does not match</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The state data</p> %}
+    {ul {- [_ Js.t] {% <p>The state data</p> %}
     }
     }
     *)
@@ -53,14 +53,14 @@ object('self)
     }
     }
     *)
-  method set : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method set : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Sets the value for a key</p> %}
     
     {b Parameters}:
     {ul {- name: [Js.js_string Js.t]
     {% <p>The key name</p> %}
     }
-    {- value: ['a Js.t] {% <p>The state data</p> %}
+    {- value: [_ Js.t] {% <p>The state data</p> %}
     }
     }
     *)

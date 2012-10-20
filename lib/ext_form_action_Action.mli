@@ -58,10 +58,10 @@ buttons: [{
 }]
 </code></pre> %}
     *)
-  method response : 'a Js.t Js.prop
+  method response : _ Js.t Js.prop
   (** {% <p>The raw XMLHttpRequest object used to perform the action.</p> %}
     *)
-  method result : 'a Js.t Js.prop
+  method result : _ Js.t Js.prop
   (** {% <p>The decoded response object containing a boolean <code>success</code> property and other, action-specific properties.</p> %}
     *)
   method _type : Js.js_string Js.t Js.prop
@@ -77,13 +77,13 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method failure : 'a Js.callback Js.prop
+  method failure : _ Js.callback Js.prop
   (** {% <p>The function to call when a failure packet was received, or when an error ocurred in the Ajax communication.</p> %}
     *)
-  method form : 'a Js.t Js.prop
+  method form : _ Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">BasicForm</a> instance that is invoking this Action. Required.</p> %}
     *)
-  method headers : 'a Js.t Js.prop
+  method headers : _ Js.t Js.prop
   (** {% <p>Extra headers to be sent in the AJAX request for submit and load actions.
 See <a href="#!/api/Ext.data.proxy.Ajax-cfg-headers" rel="Ext.data.proxy.Ajax-cfg-headers" class="docClass">Ext.data.proxy.Ajax.headers</a>.</p> %}
     *)
@@ -91,7 +91,7 @@ See <a href="#!/api/Ext.data.proxy.Ajax-cfg-headers" rel="Ext.data.proxy.Ajax-cf
   (** {% <p>The HTTP method to use to access the requested URL.
 Defaults to the <a href="#!/api/Ext.form.Basic-cfg-method" rel="Ext.form.Basic-cfg-method" class="docClass">BasicForm's method</a>, or 'POST' if not specified.</p> %}
     *)
-  method params : 'a Js.t Js.prop
+  method params : _ Js.t Js.prop
   (** {% <p>Extra parameter values to pass. These are added to the Form's <a href="#!/api/Ext.form.Basic-cfg-baseParams" rel="Ext.form.Basic-cfg-baseParams" class="docClass">Ext.form.Basic.baseParams</a> and passed to the
 specified URL along with the Form's input fields.</p>
 
@@ -102,7 +102,7 @@ specified URL along with the Form's input fields.</p>
 this happens before the <a href="#!/api/Ext.form.action.Action-cfg-success" rel="Ext.form.action.Action-cfg-success" class="docClass">success</a> callback is called and before the Form's
 <a href="#!/api/Ext.form.Basic-event-actioncomplete" rel="Ext.form.Basic-event-actioncomplete" class="docClass">actioncomplete</a> event fires.</p> %}
     *)
-  method scope : 'a Js.t Js.prop
+  method scope : _ Js.t Js.prop
   (** {% <p>The scope in which to call the configured <a href="#!/api/Ext.form.action.Action-cfg-success" rel="Ext.form.action.Action-cfg-success" class="docClass">success</a> and <a href="#!/api/Ext.form.action.Action-cfg-failure" rel="Ext.form.action.Action-cfg-failure" class="docClass">failure</a> callback functions
 (the <code>this</code> reference for the callback functions).</p> %}
     *)
@@ -111,7 +111,7 @@ this happens before the <a href="#!/api/Ext.form.action.Action-cfg-success" rel=
     
     Defaults to: [true]
     *)
-  method success : 'a Js.callback Js.prop
+  method success : _ Js.callback Js.prop
   (** {% <p>The function to call when a valid success return packet is received.</p> %}
     *)
   method timeout : Js.number Js.t Js.prop

@@ -31,7 +31,7 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method state : 'a Js.t Js.prop
+  method state : _ Js.t Js.prop
   (** {% <p>State variables that are cleared when invalidated. Only applies to component items.</p> %}
     *)
   method wrapsComponent : bool Js.t Js.readonly_prop
@@ -39,15 +39,15 @@ object('self)
     
     Defaults to: [false]
     *)
-  method addCls : 'a Js.t -> unit Js.meth
+  method addCls : _ Js.t -> unit Js.meth
   (** {% <p>Queue the addition of a class name (or array of class names) to this ContextItem's target when next flushed.</p> %}
     
     {b Parameters}:
-    {ul {- newCls: ['a Js.t]
+    {ul {- newCls: [_ Js.t]
     }
     }
     *)
-  method block : 'a Js.t -> Js.js_string Js.t -> unit Js.meth
+  method block : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   (** {% <p>Registers a layout in the block list for the given property. Once the property is
 set in the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a>, the layout is unblocked.</p> %}
     
@@ -64,7 +64,7 @@ set in the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="d
 This is needed in some special cases where the margins have changed since the last layout, making the cached
 values invalid.  For example collapsed window headers have different margin than expanded ones.</p> %}
     *)
-  method domBlock : 'a Js.t -> Js.js_string Js.t -> unit Js.meth
+  method domBlock : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   (** {% <p>Registers a layout in the DOM block list for the given property. Once the property
 flushed to the DOM by the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a>, the layout is unblocked.</p> %}
     
@@ -81,7 +81,7 @@ flushed to the DOM by the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Co
 are dirty entries because this object is only added to the flushQueue of the
 <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a> when entries become dirty.</p> %}
     *)
-  method getBorderInfo : 'a Js.t Js.meth
+  method getBorderInfo : _ Js.t Js.meth
   (** {% <p>Gets the border information for the element as an object with left, top, right and
 bottom properties holding border size in pixels. This object is only read from the
 DOM on first request and is cached.</p> %}
@@ -89,7 +89,7 @@ DOM on first request and is cached.</p> %}
   method getClassList : unit Js.meth
   (** {% <p>Returns a ClassList-like object to buffer access to this item's element's classes.</p> %}
     *)
-  method getDomProp : Js.js_string Js.t -> 'a Js.t Js.meth
+  method getDomProp : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Gets a property of this object if it is correct in the DOM. Also tracks the current
 layout as dependent on this property so that DOM writes of it will trigger the
 layout to be recalculated.</p> %}
@@ -101,12 +101,12 @@ layout to be recalculated.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The property value or undefined if not yet set or is dirty.</p> %}
     }
     }
     *)
-  method getEl : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method getEl : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Returns the context item for an owned element. This should only be called on a
 component's item. The list of child items is used to manage invalidating calculated
 results.</p>
@@ -114,28 +114,28 @@ results.</p>
 <p><strong>Overridden in Ext.diag.layout.ContextItem.</strong></p> %}
     
     {b Parameters}:
-    {ul {- nameOrEl: ['a Js.t]
+    {ul {- nameOrEl: [_ Js.t]
     }
-    {- owner: ['a Js.t]
+    {- owner: [_ Js.t]
     }
     }
     *)
-  method getFrameInfo : 'a Js.t Js.meth
+  method getFrameInfo : _ Js.t Js.meth
   (** {% <p>Gets the "frame" information for the element as an object with left, top, right and
 bottom properties holding border+framing size in pixels. This object is calculated
 on first request and is cached.</p> %}
     *)
-  method getMarginInfo : 'a Js.t Js.meth
+  method getMarginInfo : _ Js.t Js.meth
   (** {% <p>Gets the margin information for the element as an object with left, top, right and
 bottom properties holding margin size in pixels. This object is only read from the
 DOM on first request and is cached.</p> %}
     *)
-  method getPaddingInfo : 'a Js.t Js.meth
+  method getPaddingInfo : _ Js.t Js.meth
   (** {% <p>Gets the padding information for the element as an object with left, top, right and
 bottom properties holding padding size in pixels. This object is only read from the
 DOM on first request and is cached.</p> %}
     *)
-  method getProp : Js.js_string Js.t -> 'a Js.t Js.meth
+  method getProp : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Gets a property of this object. Also tracks the current layout as dependent on this
 property so that changes to it will trigger the layout to be recalculated.</p> %}
     
@@ -146,12 +146,12 @@ property so that changes to it will trigger the layout to be recalculated.</p> %
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The property value or undefined if not yet set.</p> %}
     }
     }
     *)
-  method getStyle : Js.js_string Js.t -> 'a Js.t Js.meth
+  method getStyle : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Returns a style for this item. Each style is read from the DOM only once on first
 request and is then cached. If the value is an integer, it is parsed automatically
 (so '5px' is not returned, but rather 5).</p> %}
@@ -163,13 +163,13 @@ request and is then cached. If the value is an integer, it is parsed automatical
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The value of the DOM style (parsed as necessary).</p> %}
     }
     }
     *)
   method getStyles : Js.js_string Js.t Js.js_array Js.t ->
-    Js.js_string Js.t Js.js_array Js.t Js.optdef -> 'a Js.t Js.meth
+    Js.js_string Js.t Js.js_array Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Returns styles for this item. Each style is read from the DOM only once on first
 request and is then cached. If the value is an integer, it is parsed automatically
 (so '5px' is not returned, but rather 5).</p> %}
@@ -178,14 +178,14 @@ request and is then cached. If the value is an integer, it is parsed automatical
     {ul {- styleNames: [Js.js_string Js.t Js.js_array Js.t]
     {% <p>The CSS style names.</p> %}
     }
-    {- altNames: [Js.js_string Js.t Js.js_array Js.t]
+    {- altNames: [Js.js_string Js.t Js.js_array Js.t] (optional)
     {% <p>The alternate names for the returned styles. If given,
 these names must correspond one-for-one to the <code>styleNames</code>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The values of the DOM styles (parsed as necessary).</p> %}
     }
     }
@@ -212,7 +212,7 @@ registers the current layout to be triggered by changes to this property.</p> %}
     }
     }
     *)
-  method invalidate : 'a Js.t -> unit Js.meth
+  method invalidate : _ Js.t -> unit Js.meth
   (** {% <p>Invalidates the component associated with this item. The layouts for this component
 and all of its contained items will be re-run after first clearing any computed
 values.</p>
@@ -223,13 +223,12 @@ can be used.</p>
 <p><strong>Overridden in Ext.diag.layout.ContextItem.</strong></p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>An object describing how to handle the invalidation.</p> %}
     }
     }
     *)
-  method recoverProp : Js.js_string Js.t -> 'a Js.t -> 'b Js.t -> unit
-    Js.meth
+  method recoverProp : Js.js_string Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Recovers a property value from the last computation and restores its value and
 dirty state.</p> %}
     
@@ -237,33 +236,33 @@ dirty state.</p> %}
     {ul {- propName: [Js.js_string Js.t]
     {% <p>The name of the property to recover.</p> %}
     }
-    {- oldProps: ['a Js.t]
+    {- oldProps: [_ Js.t]
     {% <p>The old "props" object from which to recover values.</p> %}
     }
-    {- oldDirty: ['a Js.t]
+    {- oldDirty: [_ Js.t]
     {% <p>The old "dirty" object from which to recover state.</p> %}
     }
     }
     *)
-  method removeCls : 'a Js.t -> unit Js.meth
+  method removeCls : _ Js.t -> unit Js.meth
   (** {% <p>Queue the removal of a class name (or array of class names) from this ContextItem's target when next flushed.</p> %}
     
     {b Parameters}:
-    {ul {- removeCls: ['a Js.t]
+    {ul {- removeCls: [_ Js.t]
     }
     }
     *)
-  method setAttribute : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method setAttribute : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Queue the setting of a DOM attribute on this ContextItem's target when next flushed.</p> %}
     
     {b Parameters}:
-    {ul {- name: ['a Js.t]
+    {ul {- name: [_ Js.t]
     }
-    {- value: ['a Js.t]
+    {- value: [_ Js.t]
     }
     }
     *)
-  method setContentHeight : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method setContentHeight : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Sets the contentHeight property. If the component uses raw content, then only the
 measured height is acceptable.</p>
 
@@ -275,13 +274,13 @@ Otherwise, 1 is returned.</p>
 content, 1 is returned indicating that the caller is done.</p> %}
     
     {b Parameters}:
-    {ul {- height: ['a Js.t]
+    {ul {- height: [_ Js.t]
     }
-    {- measured: ['a Js.t]
+    {- measured: [_ Js.t]
     }
     }
     *)
-  method setContentSize : 'a Js.t -> 'b Js.t -> 'c Js.t -> unit Js.meth
+  method setContentSize : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Sets the contentWidth and contentHeight properties. If the component uses raw content,
 then only the measured values are acceptable.</p>
 
@@ -293,15 +292,15 @@ returned. Otherwise, true is returned.</p>
 content, true is returned indicating that the caller is done.</p> %}
     
     {b Parameters}:
-    {ul {- width: ['a Js.t]
+    {ul {- width: [_ Js.t]
     }
-    {- height: ['a Js.t]
+    {- height: [_ Js.t]
     }
-    {- measured: ['a Js.t]
+    {- measured: [_ Js.t]
     }
     }
     *)
-  method setContentWidth : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method setContentWidth : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Sets the contentWidth property. If the component uses raw content, then only the
 measured width is acceptable.</p>
 
@@ -313,9 +312,9 @@ Otherwise, 1 is returned.</p>
 content, 1 is returned indicating that the caller is done.</p> %}
     
     {b Parameters}:
-    {ul {- width: ['a Js.t]
+    {ul {- width: [_ Js.t]
     }
-    {- measured: ['a Js.t]
+    {- measured: [_ Js.t]
     }
     }
     *)
@@ -329,7 +328,7 @@ content, 1 is returned indicating that the caller is done.</p> %}
     {ul {- height: [Js.number Js.t]
     {% <p>The height.</p> %}
     }
-    {- dirty: [bool Js.t]
+    {- dirty: [bool Js.t] (optional)
     {% <p>Specifies if the value is currently in the DOM. A
 value of <code>false</code> indicates that the value is already in the DOM.</p> %}
      Defaults to: true
@@ -342,8 +341,8 @@ value of <code>false</code> indicates that the value is already in the DOM.</p> 
     }
     }
     *)
-  method setProp : Js.js_string Js.t -> 'a Js.t -> bool Js.t ->
-    Js.number Js.t Js.meth
+  method setProp : Js.js_string Js.t -> _ Js.t -> bool Js.t -> Js.number Js.t
+    Js.meth
   (** {% <p>Sets a property value. This will unblock and/or trigger dependent layouts if the
 property value is being changed. Values of NaN and undefined are not accepted by
 this method.</p>
@@ -354,7 +353,7 @@ this method.</p>
     {ul {- propName: [Js.js_string Js.t]
     {% <p>The property name (e.g., 'width').</p> %}
     }
-    {- value: ['a Js.t]
+    {- value: [_ Js.t]
     {% <p>The new value of the property.</p> %}
     }
     {- dirty: [bool Js.t]
@@ -380,7 +379,7 @@ this method.</p>
     {ul {- width: [Js.number Js.t]
     {% <p>The width.</p> %}
     }
-    {- dirty: [bool Js.t]
+    {- dirty: [bool Js.t] (optional)
     {% <p>Specifies if the value is currently in the DOM. A
 value of <code>false</code> indicates that the value is already in the DOM.</p> %}
      Defaults to: true

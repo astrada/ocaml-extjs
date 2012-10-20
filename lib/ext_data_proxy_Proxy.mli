@@ -48,7 +48,7 @@ object('self)
     
     Defaults to: [true]
     *)
-  method batch : 'a Js.t -> Ext_data_Batch.t Js.t Js.meth
+  method batch : _ Js.t -> Ext_data_Batch.t Js.t Js.meth
   (** {% <p>Performs a batch of <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Operations</a>, in the order specified by <a href="#!/api/Ext.data.proxy.Proxy-cfg-batchOrder" rel="Ext.data.proxy.Proxy-cfg-batchOrder" class="docClass">batchOrder</a>. Used
 internally by <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>'s <a href="#!/api/Ext.data.Store-method-sync" rel="Ext.data.Store-method-sync" class="docClass">sync</a> method. Example usage:</p>
 
@@ -68,7 +68,7 @@ supported for now, the current signature is now a single <code>options</code> ar
 listeners, in addition to other options. The multi-argument signature will likely be deprecated in a future release.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>Object containing one or more properties supported by the batch method:</p> %}
     }
     }
@@ -78,7 +78,7 @@ listeners, in addition to other options. The multi-argument signature will likel
     }
     }
     *)
-  method create : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
+  method create : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t ->
     unit Js.meth
   (** {% <p>Performs the given create operation.</p> %}
     
@@ -86,16 +86,16 @@ listeners, in addition to other options. The multi-argument signature will likel
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
     *)
-  method destroy : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
+  method destroy : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t ->
     unit Js.meth
   (** {% <p>Performs the given destroy operation.</p> %}
     
@@ -103,11 +103,11 @@ successful or not)</p> %}
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
@@ -138,28 +138,28 @@ successful or not)</p> %}
     }
     }
     *)
-  method read : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
-    unit Js.meth
+  method read : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t -> unit
+    Js.meth
   (** {% <p>Performs the given read operation.</p> %}
     
     {b Parameters}:
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
     *)
-  method setModel : 'a Js.t -> bool Js.t -> unit Js.meth
+  method setModel : _ Js.t -> bool Js.t -> unit Js.meth
   (** {% <p>Sets the model associated with this proxy. This will only usually be called by a Store</p> %}
     
     {b Parameters}:
-    {ul {- model: ['a Js.t]
+    {ul {- model: [_ Js.t]
     {% <p>The new model. Can be either the model name string,
 or a reference to the model's constructor</p> %}
     }
@@ -168,11 +168,11 @@ or a reference to the model's constructor</p> %}
     }
     }
     *)
-  method setReader : 'a Js.t -> Ext_data_reader_Reader.t Js.t Js.meth
+  method setReader : _ Js.t -> Ext_data_reader_Reader.t Js.t Js.meth
   (** {% <p>Sets the Proxy's Reader by string, config object or Reader instance</p> %}
     
     {b Parameters}:
-    {ul {- reader: ['a Js.t]
+    {ul {- reader: [_ Js.t]
     {% <p>The new Reader, which can be either a type string,
 a configuration object or an <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> instance</p> %}
     }
@@ -184,11 +184,11 @@ a configuration object or an <a href="#!/api/Ext.data.reader.Reader" rel="Ext.da
     }
     }
     *)
-  method setWriter : 'a Js.t -> Ext_data_writer_Writer.t Js.t Js.meth
+  method setWriter : _ Js.t -> Ext_data_writer_Writer.t Js.t Js.meth
   (** {% <p>Sets the Proxy's Writer by string, config object or Writer instance</p> %}
     
     {b Parameters}:
-    {ul {- writer: ['a Js.t]
+    {ul {- writer: [_ Js.t]
     {% <p>The new Writer, which can be either a type string,
 a configuration object or an <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a> instance</p> %}
     }
@@ -200,7 +200,7 @@ a configuration object or an <a href="#!/api/Ext.data.writer.Writer" rel="Ext.da
     }
     }
     *)
-  method update : Ext_data_Operation.t Js.t -> 'a Js.callback -> 'b Js.t ->
+  method update : Ext_data_Operation.t Js.t -> _ Js.callback -> _ Js.t ->
     unit Js.meth
   (** {% <p>Performs the given update operation.</p> %}
     
@@ -208,11 +208,11 @@ a configuration object or an <a href="#!/api/Ext.data.writer.Writer" rel="Ext.da
     {ul {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The Operation to perform</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>Callback function to be called when the Operation has completed (whether
 successful or not)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>Scope to execute the callback function in</p> %}
     }
     }
@@ -236,15 +236,15 @@ order for the batched CRUD actions to be executed in. Defaults to 'create,update
     
     Defaults to: ['create,update,destroy']
     *)
-  method model : 'a Js.t Js.prop
+  method model : _ Js.t Js.prop
   (** {% <p>The name of the Model to tie to this Proxy. Can be either the string name of the Model, or a reference to the
 Model constructor. Required.</p> %}
     *)
-  method reader : 'a Js.t Js.prop
+  method reader : _ Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> to use to decode the server's response or data read from client. This can either be a
 Reader instance, a config object or just a valid Reader type name (e.g. 'json', 'xml').</p> %}
     *)
-  method writer : 'a Js.t Js.prop
+  method writer : _ Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a> to use to encode any request sent to the server or saved to client. This can either be
 a Writer instance, a config object or just a valid Writer type name (e.g. 'json', 'xml').</p> %}
     *)
@@ -256,7 +256,7 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method metachange : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method metachange : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when this proxy's reader provides new metadata. Metadata usually consists
 of new field definitions, but can include any configuration data required by an
@@ -267,9 +267,9 @@ propagated by <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docCla
     {b Parameters}:
     {ul {- this: [#Ext_data_proxy_Proxy.t Js.t]
     }
-    {- meta: ['a Js.t] {% <p>The JSON metadata</p> %}
+    {- meta: [_ Js.t] {% <p>The JSON metadata</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

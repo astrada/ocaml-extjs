@@ -97,23 +97,23 @@ object('self)
   method getCharCode : Js.number Js.t Js.meth
   method getKey : Js.number Js.t Js.meth
   method getPoint : Ext_util_Point.t Js.t Js.meth
-  method getRelatedTarget : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef
+  method getRelatedTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef
     -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
-  method getTarget : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method getTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
   method getWheelDelta : Js.number Js.t Js.meth
-  method getWheelDeltas : 'a Js.t Js.meth
+  method getWheelDeltas : _ Js.t Js.meth
   method getX : Js.number Js.t Js.meth
   method getXY : Js.number Js.t Js.js_array Js.t Js.meth
   method getY : Js.number Js.t Js.meth
   method hasModifier : bool Js.t Js.meth
-  method injectEvent : 'a Js.t Js.optdef -> unit Js.meth
+  method injectEvent : _ Js.t Js.optdef -> unit Js.meth
   method isNavKeyPress : bool Js.t Js.meth
   method isSpecialKey : bool Js.t Js.meth
   method preventDefault : unit Js.meth
   method stopEvent : unit Js.meth
   method stopPropagation : unit Js.meth
-  method within : 'a Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
+  method within : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
     bool Js.t Js.meth
   
 end

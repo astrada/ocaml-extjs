@@ -138,15 +138,15 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Observable.t
   
-  method addRef : 'a Js.t -> unit Js.meth
+  method addRef : _ Js.t -> unit Js.meth
   (** {% <p>Registers a <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">reference</a>.</p> %}
     
     {b Parameters}:
-    {ul {- _ref: ['a Js.t]
+    {ul {- _ref: [_ Js.t]
     }
     }
     *)
-  method control : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method control : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Adds listeners to components selected via <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a>. Accepts an
 object containing component paths mapped to a hash of listener functions.</p>
 
@@ -171,11 +171,11 @@ event on a button component, which is a child of the <code>useredit</code> compo
 <p>See <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> for more information on component selectors.</p> %}
     
     {b Parameters}:
-    {ul {- selectors: ['a Js.t]
+    {ul {- selectors: [_ Js.t]
     {% <p>If a String, the second argument is used as the
 listeners, otherwise an object of selectors -> listeners is assumed</p> %}
     }
-    {- listeners: ['a Js.t]
+    {- listeners: [_ Js.t]
     }
     }
     *)
@@ -239,15 +239,15 @@ you can use it like it's used by Application to create the Viewport:</p>
     }
     }
     *)
-  method hasRef : 'a Js.t -> bool Js.t Js.meth
+  method hasRef : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if a <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">reference</a> is registered.</p> %}
     
     {b Parameters}:
-    {ul {- _ref: ['a Js.t]
+    {ul {- _ref: [_ Js.t]
     }
     }
     *)
-  method init : 'a Js.t -> unit Js.meth
+  method init : _ Js.t -> unit Js.meth
   (** {% <p>A template method that is called when your application boots. It is called before the
 <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Application</a>'s launch function is executed so gives a hook point to run any code before
 your Viewport is created.</p> %}
@@ -257,7 +257,7 @@ your Viewport is created.</p> %}
     }
     }
     *)
-  method onLaunch : 'a Js.t -> unit Js.meth
+  method onLaunch : _ Js.t -> unit Js.meth
   (** {% <p>A template method like <a href="#!/api/Ext.app.Controller-method-init" rel="Ext.app.Controller-method-init" class="docClass">init</a>, but called after the viewport is created.
 This is called after the <a href="#!/api/Ext.app.Application-method-launch" rel="Ext.app.Application-method-launch" class="docClass">launch</a> method of Application is executed.</p> %}
     
@@ -274,10 +274,10 @@ object('self)
   inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   
-  method init : ('self Js.t, 'a Js.t -> unit) Js.meth_callback
+  method init : ('self Js.t, _ Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.init] *)
-  method onLaunch : ('self Js.t, 'a Js.t -> unit) Js.meth_callback
+  method onLaunch : ('self Js.t, _ Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onLaunch] *)
   method id : Js.js_string Js.t Js.prop
@@ -306,7 +306,7 @@ object('self)
 });
 </code></pre> %}
     *)
-  method refs : 'a Js.t Js.js_array Js.t Js.prop
+  method refs : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>Array of configs to build up references to views on page. For example:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("MyApp.controller.Foo", {

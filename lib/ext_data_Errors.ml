@@ -4,7 +4,7 @@ object('self)
   inherit Ext_util_AbstractMixedCollection.t
   inherit Ext_util_MixedCollection.t
   
-  method getByField : Js.js_string Js.t -> 'a Js.t Js.js_array Js.t Js.meth
+  method getByField : Js.js_string Js.t -> _ Js.t Js.js_array Js.t Js.meth
   method isValid : bool Js.t Js.meth
   
 end

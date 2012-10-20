@@ -29,7 +29,7 @@ object('self)
   inherit Ext_util_AbstractMixedCollection.t
   inherit Ext_util_MixedCollection.t
   
-  method getByField : Js.js_string Js.t -> 'a Js.t Js.js_array Js.t Js.meth
+  method getByField : Js.js_string Js.t -> _ Js.t Js.js_array Js.t Js.meth
   (** {% <p>Returns all of the errors for the given field</p> %}
     
     {b Parameters}:
@@ -39,7 +39,7 @@ object('self)
     }
     
     {b Returns}:
-    {ul {- ['a Js.t Js.js_array Js.t]
+    {ul {- [_ Js.t Js.js_array Js.t]
     {% <p>All errors for the given field</p> %}
     }
     }

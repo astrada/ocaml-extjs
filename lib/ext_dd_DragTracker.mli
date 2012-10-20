@@ -38,7 +38,7 @@ object('self)
     }
     }
     *)
-  method getOffset : 'a Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
+  method getOffset : _ Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
   (** {% <p>Returns the X, Y offset of the current mouse position from the mousedown point.</p>
 
 <p>This method may optionally constrain the real offset values, and returns a point coerced in one
@@ -54,7 +54,7 @@ mouse position is then adjusted by the same delta as was used to coerce the regi
 </ul> %}
     
     {b Parameters}:
-    {ul {- constrainMode: ['a Js.t]
+    {ul {- constrainMode: [_ Js.t]
     {% <p>{String} (Optional) If omitted the true mouse position is returned. May be passed
 as <code>point</code> or <code>dragTarget</code>. See above.</p> %}
     }
@@ -66,11 +66,11 @@ as <code>point</code> or <code>dragTarget</code>. See above.</p> %}
     }
     }
     *)
-  method initEl : 'a Js.t -> unit Js.meth
+  method initEl : _ Js.t -> unit Js.meth
   (** {% <p>Initializes the DragTracker on a given element.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t] {% <p>The element</p> %}
+    {ul {- el: [_ Js.t] {% <p>The element</p> %}
     }
     }
     *)
@@ -129,13 +129,13 @@ object('self)
   method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   (** See method [t.onStart] *)
-  method autoStart : 'a Js.t Js.prop
+  method autoStart : _ Js.t Js.prop
   (** {% <p>Specify <code>true</code> to defer trigger start by 1000 ms.
 Specify a Number for the number of milliseconds to defer trigger start.</p> %}
     
     Defaults to: [false]
     *)
-  method constrainTo : 'a Js.t Js.prop
+  method constrainTo : _ Js.t Js.prop
   (** {% <p>A <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> (Or an element from which a Region measurement will be read)
 which is used to constrain the result of the <a href="#!/api/Ext.dd.DragTracker-method-getOffset" rel="Ext.dd.DragTracker-method-getOffset" class="docClass">getOffset</a> call.</p>
 
@@ -186,15 +186,15 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method beforestart : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method beforestart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method drag : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method drag : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method dragend : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method dragend : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method dragstart : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method dragstart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method mousedown : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mousedown : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the mouse button is pressed down, but before a drag operation begins. The
 drag operation begins after either the mouse has been moved by <a href="#!/api/Ext.dd.DragTracker-cfg-tolerance" rel="Ext.dd.DragTracker-cfg-tolerance" class="docClass">tolerance</a> pixels,
@@ -203,30 +203,30 @@ or after the <a href="#!/api/Ext.dd.DragTracker-cfg-autoStart" rel="Ext.dd.DragT
 <p>Return false to veto the drag operation.</p> %}
     
     {b Parameters}:
-    {ul {- this: ['a Js.t]
+    {ul {- this: [_ Js.t]
     }
-    {- e: ['a Js.t] {% <p>event object</p> %}
+    {- e: [_ Js.t] {% <p>event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method mousemove : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mousemove : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fired when the mouse is moved. Returning false cancels the drag operation.</p> %}
     
     {b Parameters}:
-    {ul {- this: ['a Js.t]
+    {ul {- this: [_ Js.t]
     }
-    {- e: ['a Js.t] {% <p>event object</p> %}
+    {- e: [_ Js.t] {% <p>event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method mouseout : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mouseout : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the mouse exits the DragTracker's target element (or if <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> is
 used, when the mouse exits a delegate element).</p>
@@ -234,37 +234,37 @@ used, when the mouse exits a delegate element).</p>
 <p><strong>Only available when <a href="#!/api/Ext.dd.DragTracker-cfg-trackOver" rel="Ext.dd.DragTracker-cfg-trackOver" class="docClass">trackOver</a> is <code>true</code></strong></p> %}
     
     {b Parameters}:
-    {ul {- this: ['a Js.t]
+    {ul {- this: [_ Js.t]
     }
-    {- e: ['a Js.t] {% <p>event object</p> %}
+    {- e: [_ Js.t] {% <p>event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method mouseover : ('a Js.t -> 'b Js.t -> Dom_html.element Js.t -> 'c Js.t
-    -> unit) Js.callback Js.writeonly_prop
+  method mouseover : (_ Js.t -> _ Js.t -> Dom_html.element Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse enters the DragTracker's target element (or if <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> is
 used, when the mouse enters a delegate element).</p>
 
 <p><strong>Only available when <a href="#!/api/Ext.dd.DragTracker-cfg-trackOver" rel="Ext.dd.DragTracker-cfg-trackOver" class="docClass">trackOver</a> is <code>true</code></strong></p> %}
     
     {b Parameters}:
-    {ul {- this: ['a Js.t]
+    {ul {- this: [_ Js.t]
     }
-    {- e: ['a Js.t]
+    {- e: [_ Js.t]
     {% <p>event object</p> %}
     }
     {- target: [Dom_html.element Js.t]
     {% <p>The element mouseovered.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method mouseup : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mouseup : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   
 end

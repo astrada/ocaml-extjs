@@ -9,20 +9,20 @@ object('self)
   method isGroupHeader : bool Js.t Js.prop
   method afterRender : unit Js.meth
   method getColumnCount : unit Js.meth
-  method getColumnMenu : 'a Js.t -> unit Js.meth
-  method getFullWidth : 'a Js.t -> unit Js.meth
-  method getGridColumns : bool Js.t -> 'a Js.js_array Js.t Js.meth
+  method getColumnMenu : _ Js.t -> unit Js.meth
+  method getFullWidth : _ Js.t -> unit Js.meth
+  method getGridColumns : bool Js.t -> _ Js.js_array Js.t Js.meth
   method getHeaderAtIndex : Js.number Js.t -> unit Js.meth
   method getHeaderIndex : 'self Js.t -> Js.number Js.t Js.meth
-  method getMenuItems : 'a Js.js_array Js.t Js.meth
-  method getVisibleGridColumns : bool Js.t -> 'a Js.js_array Js.t Js.meth
+  method getMenuItems : _ Js.js_array Js.t Js.meth
+  method getVisibleGridColumns : bool Js.t -> _ Js.js_array Js.t Js.meth
   method getVisibleHeaderClosestToIndex : Js.number Js.t -> unit Js.meth
   method initComponent : unit Js.meth
   method onAdd : #Ext_Component.t Js.t -> Js.number Js.t -> unit Js.meth
   method onDestroy : unit Js.meth
   method onRemove : #Ext_Component.t Js.t -> bool Js.t -> unit Js.meth
-  method prepareData : 'a Js.t -> 'b Js.t -> 'c Js.t -> 'd Js.t -> 'e Js.t ->
-    unit Js.meth
+  method prepareData : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
+    Js.meth
   
 end
 
@@ -63,21 +63,21 @@ object
   inherit Ext_container_AbstractContainer.events
   inherit Ext_container_Container.events
   
-  method columnhide : (t Js.t -> t Js.t -> 'a Js.t -> unit) Js.callback
+  method columnhide : (t Js.t -> t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   method columnmove : (t Js.t -> t Js.t -> Js.number Js.t -> Js.number Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method columnresize : (t Js.t -> t Js.t -> Js.number Js.t -> 'a Js.t ->
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method columnresize : (t Js.t -> t Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method columnshow : (t Js.t -> t Js.t -> 'a Js.t -> unit) Js.callback
+  method columnshow : (t Js.t -> t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   method headerclick : (t Js.t -> t Js.t -> Ext_EventObject.t Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method headertriggerclick : (t Js.t -> t Js.t -> Ext_EventObject.t Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method menucreate : (t Js.t -> Ext_menu_Menu.t Js.t -> 'a Js.t -> unit)
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method menucreate : (t Js.t -> Ext_menu_Menu.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method sortchange : (t Js.t -> t Js.t -> Js.js_string Js.t -> 'a Js.t ->
+  method sortchange : (t Js.t -> t Js.t -> Js.js_string Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   
 end

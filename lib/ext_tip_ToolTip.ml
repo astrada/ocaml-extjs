@@ -15,12 +15,12 @@ object('self)
   method initComponent : unit Js.meth
   method onDestroy : unit Js.meth
   method onDisable : unit Js.meth
-  method onHide : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
-  method onShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
-  method setTarget : 'a Js.t -> unit Js.meth
+  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
+  method setTarget : _ Js.t -> unit Js.meth
   method show_tooltip : unit Js.meth
   method showAt_arr : Js.number Js.t Js.js_array Js.t -> unit Js.meth
   
@@ -45,12 +45,12 @@ object('self)
     Js.writeonly_prop
   method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  method onHide : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
-  method onShow : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method anchor : Js.js_string Js.t Js.prop
   method anchorOffset : Js.number Js.t Js.prop
   method anchorToTarget : bool Js.t Js.prop
@@ -60,7 +60,7 @@ object('self)
   method hideDelay : Js.number Js.t Js.prop
   method mouseOffset : Js.number Js.t Js.js_array Js.t Js.prop
   method showDelay : Js.number Js.t Js.prop
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   method trackMouse : bool Js.t Js.prop
   
 end

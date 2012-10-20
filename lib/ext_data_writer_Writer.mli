@@ -16,7 +16,7 @@ object('self)
   inherit Ext_Base.t
   
   method getRecordData : Ext_data_Model.t Js.t ->
-    Ext_data_Operation.t Js.t Js.optdef -> 'a Js.t Js.meth
+    Ext_data_Operation.t Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Formats the data for each record before sending it to the server. This
 method should be overridden to format the data in a way that differs from the default.</p> %}
     
@@ -24,13 +24,13 @@ method should be overridden to format the data in a way that differs from the de
     {ul {- record: [Ext_data_Model.t Js.t]
     {% <p>The record that we are writing to the server.</p> %}
     }
-    {- operation: [Ext_data_Operation.t Js.t]
+    {- operation: [Ext_data_Operation.t Js.t] (optional)
     {% <p>An operation object.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object literal of name/value keys to be written to the server.
 By default this method returns the data property on the record.</p> %}
     }

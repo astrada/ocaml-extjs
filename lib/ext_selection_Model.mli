@@ -21,30 +21,30 @@ object('self)
     
     Defaults to: [undefined]
     *)
-  method bindStore : 'a Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth
+  method bindStore : _ Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth
   (** {% <p>binds the store to the selModel.</p>
 
 <p>Binds a store to this instance.</p> %}
     
     {b Parameters}:
-    {ul {- store: ['a Js.t]
+    {ul {- store: [_ Js.t] (optional)
     {% <p>The store to bind or ID of the store.
 When no store given (or when <code>null</code> or <code>undefined</code> passed), unbinds the existing store.</p> %}
     }
-    {- initial: [bool Js.t]
+    {- initial: [bool Js.t] (optional)
     {% <p>True to not remove listeners from existing store.</p> %}
      Defaults to: false
     }
     }
     *)
-  method deselect : 'a Js.t -> bool Js.t Js.optdef -> unit Js.meth
+  method deselect : _ Js.t -> bool Js.t Js.optdef -> unit Js.meth
   (** {% <p>Deselects a record instance by record instance or index.</p> %}
     
     {b Parameters}:
-    {ul {- records: ['a Js.t]
+    {ul {- records: [_ Js.t]
     {% <p>An array of records or an index</p> %}
     }
-    {- suppressEvent: [bool Js.t]
+    {- suppressEvent: [bool Js.t] (optional)
     {% <p>True to not fire a deselect event</p> %}
      Defaults to: false
     }
@@ -88,11 +88,11 @@ When no store given (or when <code>null</code> or <code>undefined</code> passed)
     }
     }
     *)
-  method getStoreListeners : 'a Js.t Js.meth
+  method getStoreListeners : _ Js.t Js.meth
   (** {% <p>Gets the listeners to bind to a new store.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The listeners to be bound to the store in object literal form. The scope
 may be omitted, it is assumed to be the current instance.</p> %}
     }
@@ -112,28 +112,28 @@ may be omitted, it is assumed to be the current instance.</p> %}
   method isLocked : bool Js.t Js.meth
   (** {% <p>Returns true if the selections are locked.</p> %}
     *)
-  method isSelected : 'a Js.t -> bool Js.t Js.meth
+  method isSelected : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the specified row is selected.</p> %}
     
     {b Parameters}:
-    {ul {- record: ['a Js.t]
+    {ul {- record: [_ Js.t]
     {% <p>The record or index of the record to check</p> %}
     }
     }
     *)
-  method select : 'a Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
+  method select : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
     unit Js.meth
   (** {% <p>Selects a record instance by record instance or index.</p> %}
     
     {b Parameters}:
-    {ul {- records: ['a Js.t]
+    {ul {- records: [_ Js.t]
     {% <p>An array of records or an index</p> %}
     }
-    {- keepExisting: [bool Js.t]
+    {- keepExisting: [bool Js.t] (optional)
     {% <p>True to retain existing selections</p> %}
      Defaults to: false
     }
-    {- suppressEvent: [bool Js.t]
+    {- suppressEvent: [bool Js.t] (optional)
     {% <p>True to not fire a select event</p> %}
      Defaults to: false
     }
@@ -148,19 +148,19 @@ may be omitted, it is assumed to be the current instance.</p> %}
     }
     }
     *)
-  method selectRange : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> unit
+  method selectRange : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>Selects a range of rows if the selection model <a href="#!/api/Ext.selection.Model-method-isLocked" rel="Ext.selection.Model-method-isLocked" class="docClass">is not locked</a>.
 All rows in between startRow and endRow are also selected.</p> %}
     
     {b Parameters}:
-    {ul {- startRow: ['a Js.t]
+    {ul {- startRow: [_ Js.t]
     {% <p>The record or index of the first row in the range</p> %}
     }
-    {- endRow: ['a Js.t]
+    {- endRow: [_ Js.t]
     {% <p>The record or index of the last row in the range</p> %}
     }
-    {- keepExisting: [bool Js.t]
+    {- keepExisting: [bool Js.t] (optional)
     {% <p>True to retain existing selections</p> %}
     }
     }
@@ -235,7 +235,7 @@ object
   inherit Ext_util_Bindable.events
   
   method focuschange : (t Js.t -> Ext_data_Model.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired when a row is focused</p> %}
     
     {b Parameters}:
@@ -247,13 +247,13 @@ object
     {- newFocused: [Ext_data_Model.t Js.t]
     {% <p>The newly focused record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method selectionchange : (t Js.t -> Ext_data_Model.t Js.js_array Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired after a selection change has occurred</p> %}
     
     {b Parameters}:
@@ -262,7 +262,7 @@ object
     {- selected: [Ext_data_Model.t Js.js_array Js.t]
     {% <p>The selected records</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

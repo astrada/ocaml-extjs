@@ -128,15 +128,15 @@ normalized and converted value see <a href="#!/api/Ext.form.field.Base-method-ge
     }
     }
     *)
-  method getSubTplData : 'a Js.t Js.meth
+  method getSubTplData : _ Js.t Js.meth
   (** {% <p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">fieldSubTpl</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The template data</p> %}
+    {ul {- [_ Js.t] {% <p>The template data</p> %}
     }
     }
     *)
-  method getSubmitData : 'a Js.t Js.meth
+  method getSubmitData : _ Js.t Js.meth
   (** {% <p>private override to use getSubmitValue() as a convenience</p>
 
 <p>Returns the parameter(s) that would be included in a standard form submit for this field. Typically this will be
@@ -146,7 +146,7 @@ its current stringified value. More advanced field implementations may return mo
 <p>Note that the values returned from this method are not guaranteed to have been successfully <a href="#!/api/Ext.form.field.Base-method-validate" rel="Ext.form.field.Base-method-validate" class="docClass">validated</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>A mapping of submit parameter names to values; each value should be a string, or an array of
 strings if that particular name has multiple values. It can also return null if there are no parameters to be
 submitted.</p> %}
@@ -167,13 +167,13 @@ successfully <a href="#!/api/Ext.form.field.Base-method-validate" rel="Ext.form.
     }
     }
     *)
-  method getValue : 'a Js.t Js.meth
+  method getValue : _ Js.t Js.meth
   (** {% <p>Returns the current data value of the field. The type of value returned is particular to the type of the
 particular field (e.g. a Date object for <a href="#!/api/Ext.form.field.Date" rel="Ext.form.field.Date" class="docClass">Ext.form.field.Date</a>), as the result of calling <a href="#!/api/Ext.form.field.Base-method-rawToValue" rel="Ext.form.field.Base-method-rawToValue" class="docClass">rawToValue</a> on
 the field's <a href="#!/api/Ext.form.field.Base-method-processRawValue" rel="Ext.form.field.Base-method-processRawValue" class="docClass">processed</a> String value. To return the raw String value, see <a href="#!/api/Ext.form.field.Base-method-getRawValue" rel="Ext.form.field.Base-method-getRawValue" class="docClass">getRawValue</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>value The field value</p> %}
+    {ul {- [_ Js.t] {% <p>value The field value</p> %}
     }
     }
     *)
@@ -227,7 +227,7 @@ always treated as valid.</p> %}
     }
     }
     *)
-  method markInvalid : 'a Js.t -> unit Js.meth
+  method markInvalid : _ Js.t -> unit Js.meth
   (** {% <p>Display one or more error messages associated with this field, using <a href="#!/api/Ext.form.field.Base-cfg-msgTarget" rel="Ext.form.field.Base-cfg-msgTarget" class="docClass">msgTarget</a> to determine how to
 display the messages and applying <a href="#!/api/Ext.form.field.Base-cfg-invalidCls" rel="Ext.form.field.Base-cfg-invalidCls" class="docClass">invalidCls</a> to the field's UI element.</p>
 
@@ -236,7 +236,7 @@ if the value does <em>pass</em> validation. So simply marking a Field as invalid
 submitted with the <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" rel="Ext.form.action.Submit-cfg-clientValidation" class="docClass">Ext.form.action.Submit.clientValidation</a> option set.</p> %}
     
     {b Parameters}:
-    {ul {- errors: ['a Js.t]
+    {ul {- errors: [_ Js.t]
     {% <p>The validation message(s) to display.</p> %}
     }
     }
@@ -273,23 +273,23 @@ call the parent class's method before attempting to access any child elements of
     }
     }
     *)
-  method processRawValue : 'a Js.t -> 'b Js.t Js.meth
+  method processRawValue : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Performs any necessary manipulation of a raw field value to prepare it for <a href="#!/api/Ext.form.field.Base-method-rawToValue" rel="Ext.form.field.Base-method-rawToValue" class="docClass">conversion</a> and/or
 <a href="#!/api/Ext.form.field.Base-method-validate" rel="Ext.form.field.Base-method-validate" class="docClass">validation</a>, for instance stripping out ignored characters. In the base implementation it does
 nothing; individual subclasses may override this as needed.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The unprocessed string value</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The processed string value</p> %}
+    {ul {- [_ Js.t] {% <p>The processed string value</p> %}
     }
     }
     *)
-  method rawToValue : 'a Js.t -> 'b Js.t Js.meth
+  method rawToValue : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Converts a raw input field value into a mixed-type value that is suitable for this particular field type. This
 allows controlling the normalization and conversion of user-entered values into field-type-appropriate values,
 e.g. a Date object for <a href="#!/api/Ext.form.field.Date" rel="Ext.form.field.Date" class="docClass">Ext.form.field.Date</a>, and is invoked by <a href="#!/api/Ext.form.field.Base-method-getValue" rel="Ext.form.field.Base-method-getValue" class="docClass">getValue</a>.</p>
@@ -302,36 +302,36 @@ to the desired object type.</p>
 <p>The base implementation does no conversion, returning the raw value untouched.</p> %}
     
     {b Parameters}:
-    {ul {- rawValue: ['a Js.t]
+    {ul {- rawValue: [_ Js.t]
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The converted value.</p> %}
+    {ul {- [_ Js.t] {% <p>The converted value.</p> %}
     }
     }
     *)
-  method setFieldStyle : 'a Js.t -> unit Js.meth
+  method setFieldStyle : _ Js.t -> unit Js.meth
   (** {% <p>Set the <a href="#!/api/Ext.form.field.Base-cfg-fieldStyle" rel="Ext.form.field.Base-cfg-fieldStyle" class="docClass">CSS style</a> of the <a href="#!/api/Ext.form.field.Base-property-inputEl" rel="Ext.form.field.Base-property-inputEl" class="docClass">field input element</a>.</p> %}
     
     {b Parameters}:
-    {ul {- style: ['a Js.t]
+    {ul {- style: [_ Js.t]
     {% <p>The style(s) to apply. Should be a valid argument to <a href="#!/api/Ext.dom.Element-method-applyStyles" rel="Ext.dom.Element-method-applyStyles" class="docClass">Ext.Element.applyStyles</a>.</p> %}
     }
     }
     *)
-  method setRawValue : 'a Js.t -> 'b Js.t Js.meth
+  method setRawValue : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Sets the field's raw value directly, bypassing <a href="#!/api/Ext.form.field.Base-method-valueToRaw" rel="Ext.form.field.Base-method-valueToRaw" class="docClass">value conversion</a>, change detection, and
 validation. To set the value with these additional inspections see <a href="#!/api/Ext.form.field.Base-method-setValue" rel="Ext.form.field.Base-method-setValue" class="docClass">setValue</a>.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to set</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>value The field value that is set</p> %}
+    {ul {- [_ Js.t] {% <p>value The field value that is set</p> %}
     }
     }
     *)
@@ -344,12 +344,12 @@ validation. To set the value with these additional inspections see <a href="#!/a
     }
     }
     *)
-  method setValue : 'a Js.t -> 'self Js.t Js.meth
+  method setValue : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets a data value into the field and runs the change detection and validation. To set the value directly
 without these inspections see <a href="#!/api/Ext.form.field.Base-method-setRawValue" rel="Ext.form.field.Base-method-setRawValue" class="docClass">setRawValue</a>.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to set</p> %}
     }
     }
@@ -359,21 +359,21 @@ without these inspections see <a href="#!/api/Ext.form.field.Base-method-setRawV
     }
     }
     *)
-  method transformRawValue : 'a Js.t -> 'b Js.t Js.meth
+  method transformRawValue : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Transform the raw value before it is set</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The value to set</p> %}
+    {ul {- [_ Js.t] {% <p>The value to set</p> %}
     }
     }
     *)
-  method validateValue : 'a Js.t -> bool Js.t Js.meth
+  method validateValue : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Uses <a href="#!/api/Ext.form.field.Base-method-getErrors" rel="Ext.form.field.Base-method-getErrors" class="docClass">getErrors</a> to build an array of validation errors. If any errors are found, they are passed to
 <a href="#!/api/Ext.form.field.Base-method-markInvalid" rel="Ext.form.field.Base-method-markInvalid" class="docClass">markInvalid</a> and false is returned, otherwise true is returned.</p>
 
@@ -381,7 +381,7 @@ without these inspections see <a href="#!/api/Ext.form.field.Base-method-setRawV
 onwards <a href="#!/api/Ext.form.field.Base-method-getErrors" rel="Ext.form.field.Base-method-getErrors" class="docClass">getErrors</a> should be overridden instead.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to validate</p> %}
     }
     }
@@ -392,7 +392,7 @@ onwards <a href="#!/api/Ext.form.field.Base-method-getErrors" rel="Ext.form.fiel
     }
     }
     *)
-  method valueToRaw : 'a Js.t -> 'b Js.t Js.meth
+  method valueToRaw : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Converts a mixed-type value to a raw representation suitable for displaying in the field. This allows controlling
 how value objects passed to <a href="#!/api/Ext.form.field.Base-method-setValue" rel="Ext.form.field.Base-method-setValue" class="docClass">setValue</a> are shown to the user, including localization. For instance, for a
 <a href="#!/api/Ext.form.field.Date" rel="Ext.form.field.Date" class="docClass">Ext.form.field.Date</a>, this would control how a Date object passed to <a href="#!/api/Ext.form.field.Base-method-setValue" rel="Ext.form.field.Base-method-setValue" class="docClass">setValue</a> would be converted
@@ -404,13 +404,13 @@ to a String for display in the field.</p>
 to an empty string.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The mixed-type value to convert to the raw representation.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The converted raw value.</p> %}
+    {ul {- [_ Js.t] {% <p>The converted raw value.</p> %}
     }
     }
     *)
@@ -425,7 +425,7 @@ object('self)
   inherit Ext_form_Labelable.configs
   inherit Ext_form_field_Field.configs
   
-  method getSubTplData : ('self Js.t, unit -> 'a Js.t) Js.meth_callback
+  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.getSubTplData] *)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
@@ -509,7 +509,7 @@ the style after initialization.</p> %}
     
     Defaults to: ['x-form-focus']
     *)
-  method inputAttrTpl : 'a Js.t Js.prop
+  method inputAttrTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 inside the input element (as attributes). If an <code>XTemplate</code> is used, the component's
 <a href="#!/api/Ext.form.field.Base-method-getSubTplData" rel="Ext.form.field.Base-method-getSubTplData" class="docClass">subTpl data</a> serves as the context.</p> %}
@@ -575,7 +575,7 @@ object
   inherit Ext_form_Labelable.events
   inherit Ext_form_field_Field.events
   
-  method specialkey : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method specialkey : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires when any key related to navigation (arrows, tab, enter, esc, etc.) is pressed. To handle other keys
 see <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>. You can check <a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">Ext.EventObject.getKey</a> to determine which key was
@@ -612,12 +612,12 @@ pressed. For example:</p>
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method writeablechange : (t Js.t -> bool Js.t -> 'a Js.t -> unit)
+  method writeablechange : (t Js.t -> bool Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires when this field changes its read-only status.</p> %}
     
@@ -626,7 +626,7 @@ pressed. For example:</p>
     }
     {- read: [bool Js.t] {% <p>only flag</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

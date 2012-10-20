@@ -5,116 +5,114 @@ object('self)
   method defaultUnit : Js.js_string Js.t Js.prop
   method dom : Dom_html.element Js.t Js.prop
   method id : Js.js_string Js.t Js.prop
-  method addCls : 'a Js.t -> 'self Js.t Js.meth
-  method appendChild : 'a Js.t -> 'self Js.t Js.meth
-  method appendTo : 'a Js.t -> 'self Js.t Js.meth
-  method applyStyles : 'a Js.t -> 'self Js.t Js.meth
-  method child : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method contains : 'a Js.t -> bool Js.t Js.meth
-  method createChild : 'a Js.t -> Dom_html.element Js.t Js.optdef ->
+  method addCls : _ Js.t -> 'self Js.t Js.meth
+  method appendChild : _ Js.t -> 'self Js.t Js.meth
+  method appendTo : _ Js.t -> 'self Js.t Js.meth
+  method applyStyles : _ Js.t -> 'self Js.t Js.meth
+  method child : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
+  method contains : _ Js.t -> bool Js.t Js.meth
+  method createChild : _ Js.t -> Dom_html.element Js.t Js.optdef ->
     bool Js.t Js.optdef -> 'self Js.t Js.meth
   method destroy : unit Js.meth
-  method down : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method findParent : Js.js_string Js.t -> 'a Js.t Js.optdef ->
+  method down : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
+  method findParent : Js.js_string Js.t -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
-  method findParentNode : Js.js_string Js.t -> 'a Js.t Js.optdef ->
+  method findParentNode : Js.js_string Js.t -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
-  method first : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
-    'a Js.t Js.meth
+  method first : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
+    Js.meth
   method getActiveElement : Dom_html.element Js.t Js.meth
-  method getAlignToXY : 'a Js.t -> Js.js_string Js.t Js.optdef ->
-    'b Js.js_array Js.t Js.optdef -> 'c Js.js_array Js.t Js.meth
+  method getAlignToXY : _ Js.t -> Js.js_string Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
   method getAnchorXY : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
-    'a Js.t Js.optdef -> 'b Js.js_array Js.t Js.meth
+    _ Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
   method getAttribute : Js.js_string Js.t -> Js.js_string Js.t Js.optdef ->
     Js.js_string Js.t Js.meth
   method getBorderWidth : Js.js_string Js.t -> Js.number Js.t Js.meth
   method getBottom : bool Js.t -> Js.number Js.t Js.meth
-  method getBox : bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+  method getBox : bool Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method getById : Js.js_string Js.t -> bool Js.t Js.optdef -> unit Js.meth
   method getHTML : unit Js.meth
   method getHeight : bool Js.t Js.optdef -> Js.number Js.t Js.meth
   method getLeft : bool Js.t -> Js.number Js.t Js.meth
-  method getMargin : Js.js_string Js.t Js.optdef -> 'a Js.t Js.meth
-  method getOffsetsTo : 'a Js.t -> 'b Js.js_array Js.t Js.meth
+  method getMargin : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
+  method getOffsetsTo : _ Js.t -> _ Js.js_array Js.t Js.meth
   method getPadding : Js.js_string Js.t -> Js.number Js.t Js.meth
-  method getPageBox : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method getPageBox : bool Js.t Js.optdef -> _ Js.t Js.meth
   method getRight : bool Js.t -> Js.number Js.t Js.meth
-  method getSize : bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method getStyle : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.meth
+  method getSize : bool Js.t Js.optdef -> _ Js.t Js.meth
+  method getStyle : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   method getTop : bool Js.t -> Js.number Js.t Js.meth
-  method getValue : bool Js.t -> 'a Js.t Js.meth
-  method getViewSize : 'a Js.t Js.meth
+  method getValue : bool Js.t -> _ Js.t Js.meth
+  method getViewSize : _ Js.t Js.meth
   method getWidth : bool Js.t Js.optdef -> Js.number Js.t Js.meth
-  method getX : 'a Js.t -> Js.number Js.t Js.meth
-  method getXY : 'a Js.js_array Js.t Js.meth
-  method getY : 'a Js.t -> Js.number Js.t Js.meth
+  method getX : _ Js.t -> Js.number Js.t Js.meth
+  method getXY : _ Js.js_array Js.t Js.meth
+  method getY : _ Js.t -> Js.number Js.t Js.meth
   method hasCls : Js.js_string Js.t -> bool Js.t Js.meth
-  method hide : 'a Js.t Js.optdef -> 'self Js.t Js.meth
-  method insertAfter : 'a Js.t -> 'self Js.t Js.meth
-  method insertBefore : 'a Js.t -> 'self Js.t Js.meth
-  method insertFirst : 'a Js.t -> 'self Js.t Js.meth
+  method hide : _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method insertAfter : _ Js.t -> 'self Js.t Js.meth
+  method insertBefore : _ Js.t -> 'self Js.t Js.meth
+  method insertFirst : _ Js.t -> 'self Js.t Js.meth
   method insertHtml : Js.js_string Js.t -> Js.js_string Js.t ->
-    bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method insertSibling : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+    bool Js.t Js.optdef -> _ Js.t Js.meth
+  method insertSibling : _ Js.t -> Js.js_string Js.t Js.optdef ->
     bool Js.t Js.optdef -> 'self Js.t Js.meth
   method is : Js.js_string Js.t -> bool Js.t Js.meth
   method isStyle : Js.js_string Js.t -> Js.js_string Js.t -> bool Js.t
     Js.meth
   method isTransparent : Js.js_string Js.t -> bool Js.t Js.meth
-  method last : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+  method last : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method mask : Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
     unit Js.meth
-  method next : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+  method next : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method parent : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
-    'a Js.t Js.meth
-  method populateStyleMap : 'a Js.t -> 'b Js.t -> unit Js.meth
-  method prev : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t
+    _ Js.t Js.meth
+  method populateStyleMap : _ Js.t -> _ Js.t -> unit Js.meth
+  method prev : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method query : Js.js_string Js.t -> Dom_html.element Js.t Js.js_array Js.t
     Js.meth
-  method radioCls : 'a Js.t -> 'self Js.t Js.meth
+  method radioCls : _ Js.t -> 'self Js.t Js.meth
   method remove : unit Js.meth
-  method removeCls : 'a Js.t -> 'self Js.t Js.meth
+  method removeCls : _ Js.t -> 'self Js.t Js.meth
   method repaint : 'self Js.t Js.meth
-  method replace : 'a Js.t -> 'self Js.t Js.meth
+  method replace : _ Js.t -> 'self Js.t Js.meth
   method replaceCls : Js.js_string Js.t -> Js.js_string Js.t -> 'self Js.t
     Js.meth
-  method replaceWith : 'a Js.t -> 'self Js.t Js.meth
-  method select : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method serializeForm : 'a Js.t -> Js.js_string Js.t Js.meth
-  method set : 'a Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
+  method replaceWith : _ Js.t -> 'self Js.t Js.meth
+  method select : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
+  method serializeForm : _ Js.t -> Js.js_string Js.t Js.meth
+  method set : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   method setBottom : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setBox : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.optdef ->
+  method setBox : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
   method setHTML : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setHeight : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method setHeight : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   method setLeft : Js.js_string Js.t -> 'self Js.t Js.meth
   method setRight : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setSize : 'a Js.t -> 'b Js.t -> 'c Js.t Js.optdef -> 'self Js.t
-    Js.meth
-  method setStyle : 'a Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
+  method setSize : _ Js.t -> _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method setStyle : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
     Js.meth
   method setTop : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setVisibilityMode : 'a Js.t -> 'self Js.t Js.meth
-  method setVisible : bool Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
-  method setWidth : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
-  method setX : Js.number Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
-  method setXY : 'a Js.js_array Js.t -> 'b Js.t Js.optdef -> 'self Js.t
-    Js.meth
-  method setY : Js.number Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
-  method show : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method setVisibilityMode : _ Js.t -> 'self Js.t Js.meth
+  method setVisible : bool Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method setWidth : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method setX : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method setXY : _ Js.js_array Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method setY : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method show : _ Js.t Js.optdef -> 'self Js.t Js.meth
   method toggleCls : Js.js_string Js.t -> 'self Js.t Js.meth
-  method translatePoints : 'a Js.t -> Js.number Js.t Js.optdef -> 'b Js.t
+  method translatePoints : _ Js.t -> Js.number Js.t Js.optdef -> _ Js.t
     Js.meth
   method unmask : unit Js.meth
-  method up : Js.js_string Js.t -> 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method up : Js.js_string Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   method update : Js.js_string Js.t -> 'self Js.t Js.meth
-  method wrap : 'a Js.t Js.optdef -> bool Js.t Js.optdef ->
-    Js.js_string Js.t Js.optdef -> 'b Js.t Js.meth
+  method wrap : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
+    Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   
 end
 
@@ -140,22 +138,22 @@ object
   method _DISPLAY : Js.number Js.t Js.prop
   method _OFFSETS : Js.number Js.t Js.prop
   method _VISIBILITY : Js.number Js.t Js.prop
-  method fly : 'a Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
+  method fly : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   method fromPoint : Js.number Js.t -> Js.number Js.t -> Js.js_string Js.t
     Js.meth
-  method get : 'a Js.t -> 'self Js.t Js.meth
+  method get : _ Js.t -> 'self Js.t Js.meth
   method getDocumentHeight : Js.number Js.t Js.meth
   method getDocumentWidth : Js.number Js.t Js.meth
   method getOrientation : Js.js_string Js.t Js.meth
-  method getViewSize : 'a Js.t Js.meth
+  method getViewSize : _ Js.t Js.meth
   method getViewportHeight : Js.number Js.t Js.meth
   method getViewportWidth : Js.number Js.t Js.meth
-  method mergeClsList : 'a Js.t -> 'b Js.t -> 'c Js.js_array Js.t Js.meth
+  method mergeClsList : _ Js.t -> _ Js.t -> _ Js.js_array Js.t Js.meth
   method normalize : Js.js_string Js.t -> Js.js_string Js.t Js.meth
-  method parseBox : 'a Js.t -> 'b Js.t Js.meth
-  method parseStyles : Js.js_string Js.t -> 'a Js.t Js.meth
-  method removeCls : 'a Js.t -> 'b Js.t -> 'c Js.js_array Js.t Js.meth
-  method unitizeBox : 'a Js.t -> Js.js_string Js.t -> Js.js_string Js.t
+  method parseBox : _ Js.t -> _ Js.t Js.meth
+  method parseStyles : Js.js_string Js.t -> _ Js.t Js.meth
+  method removeCls : _ Js.t -> _ Js.t -> _ Js.js_array Js.t Js.meth
+  method unitizeBox : _ Js.t -> Js.js_string Js.t -> Js.js_string Js.t
     Js.meth
   
 end

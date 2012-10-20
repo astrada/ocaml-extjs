@@ -9,45 +9,45 @@ object('self)
   
   method _isLayoutRoot : bool Js.t Js.prop
   method draggable : bool Js.t Js.readonly_prop
-  method frameSize : 'a Js.t Js.readonly_prop
+  method frameSize : _ Js.t Js.readonly_prop
   method isComponent : bool Js.t Js.prop
   method maskOnDisable : bool Js.t Js.prop
-  method ownerCt : 'a Js.t Js.readonly_prop
+  method ownerCt : _ Js.t Js.readonly_prop
   method rendered : bool Js.t Js.readonly_prop
-  method addCls : 'a Js.t -> 'self Js.t Js.meth
-  method addClsWithUI : 'a Js.t -> 'b Js.t -> unit Js.meth
-  method addListener : 'a Js.t -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> 'd Js.t Js.optdef -> unit Js.meth
-  method addPropertyToState : 'a Js.t -> Js.js_string Js.t ->
+  method addCls : _ Js.t -> 'self Js.t Js.meth
+  method addClsWithUI : _ Js.t -> _ Js.t -> unit Js.meth
+  method addListener : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
+  method addPropertyToState : _ Js.t -> Js.js_string Js.t ->
     Js.js_string Js.t Js.optdef -> bool Js.t Js.meth
   method addUIClsToElement : Js.js_string Js.t -> unit Js.meth
   method afterComponentLayout : Js.number Js.t -> Js.number Js.t ->
     Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method afterSetPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  method animate : 'a Js.t -> 'b Js.t Js.meth
+  method animate : _ Js.t -> _ Js.t Js.meth
   method beforeComponentLayout : Js.number Js.t -> Js.number Js.t -> unit
     Js.meth
   method beforeDestroy : unit Js.meth
   method destroy : unit Js.meth
   method disable : bool Js.t Js.optdef -> unit Js.meth
-  method doComponentLayout : 'a Js.t Js.meth
+  method doComponentLayout : _ Js.t Js.meth
   method enable : bool Js.t Js.optdef -> unit Js.meth
-  method getBubbleTarget : 'a Js.t Js.meth
+  method getBubbleTarget : _ Js.t Js.meth
   method getEl : Ext_dom_Element.t Js.t Js.meth
   method getHeight : Js.number Js.t Js.meth
   method getId : Js.js_string Js.t Js.meth
   method getItemId : Js.js_string Js.t Js.meth
   method getLoader : Ext_ComponentLoader.t Js.t Js.meth
   method getPlugin : Js.js_string Js.t -> Ext_AbstractPlugin.t Js.t Js.meth
-  method getSize : 'a Js.t Js.meth
-  method getSizeModel : 'a Js.t -> 'b Js.t Js.meth
-  method getState : 'a Js.t Js.meth
+  method getSize : _ Js.t Js.meth
+  method getSizeModel : _ Js.t -> _ Js.t Js.meth
+  method getState : _ Js.t Js.meth
   method getWidth : Js.number Js.t Js.meth
   method getXTypes : Js.js_string Js.t Js.meth
   method hasCls : Js.js_string Js.t -> bool Js.t Js.meth
   method hasUICls : Js.js_string Js.t -> unit Js.meth
   method is : Js.js_string Js.t -> bool Js.t Js.meth
-  method isDescendantOf : 'a Js.t -> bool Js.t Js.meth
+  method isDescendantOf : _ Js.t -> bool Js.t Js.meth
   method isDisabled : bool Js.t Js.meth
   method isDraggable : bool Js.t Js.meth
   method isDroppable : bool Js.t Js.meth
@@ -60,7 +60,7 @@ object('self)
     Js.meth
   method nextNode : Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   method nextSibling : Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
-  method onAdded : 'a Js.t -> Js.number Js.t -> unit Js.meth
+  method onAdded : _ Js.t -> Js.number Js.t -> unit Js.meth
   method onDisable : unit Js.meth
   method onEnable : unit Js.meth
   method onPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth
@@ -68,24 +68,24 @@ object('self)
   method onResize : unit Js.meth
   method previousNode : Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   method previousSibling : Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
-  method registerFloatingItem : 'a Js.t -> unit Js.meth
-  method removeCls : 'a Js.t -> 'self Js.t Js.meth
-  method removeClsWithUI : 'a Js.t -> unit Js.meth
+  method registerFloatingItem : _ Js.t -> unit Js.meth
+  method removeCls : _ Js.t -> 'self Js.t Js.meth
+  method removeClsWithUI : _ Js.t -> unit Js.meth
   method removeUIClsFromElement : Js.js_string Js.t -> unit Js.meth
-  method setBorder : 'a Js.t -> unit Js.meth
+  method setBorder : _ Js.t -> unit Js.meth
   method setDisabled : bool Js.t -> unit Js.meth
-  method setDocked : 'a Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
+  method setDocked : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   method setHeight : Js.number Js.t -> 'self Js.t Js.meth
-  method setPosition : Js.number Js.t -> Js.number Js.t -> 'a Js.t Js.optdef
+  method setPosition : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef
     -> 'self Js.t Js.meth
-  method setSize : 'a Js.t -> 'b Js.t -> 'self Js.t Js.meth
+  method setSize : _ Js.t -> _ Js.t -> 'self Js.t Js.meth
   method setUI : Js.js_string Js.t -> unit Js.meth
   method setVisible : bool Js.t -> 'self Js.t Js.meth
   method setWidth : Js.number Js.t -> 'self Js.t Js.meth
-  method up : Js.js_string Js.t Js.optdef -> 'a Js.t Js.meth
-  method update : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> unit Js.meth
-  method updateLayout : 'a Js.t -> unit Js.meth
+  method up : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
+  method update : _ Js.t -> bool Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    unit Js.meth
+  method updateLayout : _ Js.t -> unit Js.meth
   
 end
 
@@ -107,7 +107,7 @@ object('self)
     Js.number Js.t -> unit) Js.meth_callback Js.writeonly_prop
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  method onAdded : ('self Js.t, 'a Js.t -> Js.number Js.t -> unit)
+  method onAdded : ('self Js.t, _ Js.t -> Js.number Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -119,17 +119,17 @@ object('self)
     Js.writeonly_prop
   method onResize : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  method autoEl : 'a Js.t Js.prop
-  method autoRender : 'a Js.t Js.prop
+  method autoEl : _ Js.t Js.prop
+  method autoRender : _ Js.t Js.prop
   method autoShow : bool Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
-  method border : 'a Js.t Js.prop
-  method childEls : 'a Js.t Js.js_array Js.t Js.prop
+  method border : _ Js.t Js.prop
+  method childEls : _ Js.t Js.js_array Js.t Js.prop
   method cls : Js.js_string Js.t Js.prop
   method componentCls : Js.js_string Js.t Js.prop
-  method componentLayout : 'a Js.t Js.prop
+  method componentLayout : _ Js.t Js.prop
   method contentEl : Js.js_string Js.t Js.prop
-  method data : 'a Js.t Js.prop
+  method data : _ Js.t Js.prop
   method disabled : bool Js.t Js.prop
   method disabledCls : Js.js_string Js.t Js.prop
   method draggable : bool Js.t Js.prop
@@ -138,27 +138,27 @@ object('self)
   method height : Js.number Js.t Js.prop
   method hidden : bool Js.t Js.prop
   method hideMode : Js.js_string Js.t Js.prop
-  method html : 'a Js.t Js.prop
+  method html : _ Js.t Js.prop
   method id : Js.js_string Js.t Js.prop
   method itemId : Js.js_string Js.t Js.prop
-  method loader : 'a Js.t Js.prop
-  method margin : 'a Js.t Js.prop
+  method loader : _ Js.t Js.prop
+  method margin : _ Js.t Js.prop
   method maxHeight : Js.number Js.t Js.prop
   method maxWidth : Js.number Js.t Js.prop
   method minHeight : Js.number Js.t Js.prop
   method minWidth : Js.number Js.t Js.prop
   method overCls : Js.js_string Js.t Js.prop
-  method padding : 'a Js.t Js.prop
-  method plugins : 'a Js.t Js.prop
-  method renderData : 'a Js.t Js.prop
-  method renderSelectors : 'a Js.t Js.prop
-  method renderTo : 'a Js.t Js.prop
-  method renderTpl : 'a Js.t Js.prop
-  method shrinkWrap : 'a Js.t Js.prop
-  method style : 'a Js.t Js.prop
+  method padding : _ Js.t Js.prop
+  method plugins : _ Js.t Js.prop
+  method renderData : _ Js.t Js.prop
+  method renderSelectors : _ Js.t Js.prop
+  method renderTo : _ Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
+  method shrinkWrap : _ Js.t Js.prop
+  method style : _ Js.t Js.prop
   method styleHtmlCls : Js.js_string Js.t Js.prop
   method styleHtmlContent : bool Js.t Js.prop
-  method tpl : 'a Js.t Js.prop
+  method tpl : _ Js.t Js.prop
   method tplWriteMode : Js.js_string Js.t Js.prop
   method ui : Js.js_string Js.t Js.prop
   method width : Js.number Js.t Js.prop
@@ -175,44 +175,44 @@ object
   inherit Ext_util_ElementContainer.events
   inherit Ext_util_Animate.events
   
-  method activate : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method added : (t Js.t -> 'a Js.t -> Js.number Js.t -> 'b Js.t -> unit)
+  method activate : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method added : (t Js.t -> _ Js.t -> Js.number Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method afterrender : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method afterrender : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method beforeactivate : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforeactivate : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method beforedeactivate : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforedeactivate : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method beforedestroy : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforedestroy : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method beforehide : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforehide : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method beforerender : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforerender : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method beforeshow : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforeshow : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method blur : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method blur : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method boxready : (t Js.t -> Js.number Js.t -> Js.number Js.t -> 'a Js.t ->
+  method boxready : (t Js.t -> Js.number Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method deactivate : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method deactivate : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method destroy : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method disable : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method enable : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method focus : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method destroy : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method disable : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method enable : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method focus : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method hide : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method move : (t Js.t -> Js.number Js.t -> Js.number Js.t -> 'a Js.t ->
+  method hide : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method move : (t Js.t -> Js.number Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method removed : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method removed : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method render : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method render : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method resize : (t Js.t -> Js.number Js.t -> Js.number Js.t ->
-    Js.number Js.t -> Js.number Js.t -> 'a Js.t -> unit) Js.callback
+    Js.number Js.t -> Js.number Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method show : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method show : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

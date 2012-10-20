@@ -5,9 +5,9 @@ object('self)
   method afterRender : unit Js.meth
   method doAutoRender : unit Js.meth
   method ensureAttachedToBody : bool Js.t Js.optdef -> unit Js.meth
-  method getInsertPosition : 'a Js.t -> Dom_html.element Js.t Js.meth
+  method getInsertPosition : _ Js.t -> Dom_html.element Js.t Js.meth
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
-  method render : 'a Js.t Js.optdef -> 'b Js.t Js.optdef -> unit Js.meth
+  method render : _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
   
 end
 

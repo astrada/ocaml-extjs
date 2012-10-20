@@ -6,7 +6,7 @@ object('self)
   method actionSkipSyncRe : Regexp.regexp Js.t Js.prop
   method allowWrite : bool Js.t Js.meth
   method commitRecords : Ext_data_Model.t Js.js_array Js.t -> unit Js.meth
-  method getError : 'a Js.t Js.meth
+  method getError : _ Js.t Js.meth
   method getRecords : Ext_data_Model.t Js.js_array Js.t Js.meth
   method getResultSet : Ext_data_ResultSet.t Js.t Js.meth
   method hasException : bool Js.t Js.meth
@@ -14,7 +14,7 @@ object('self)
   method isRunning : bool Js.t Js.meth
   method isStarted : bool Js.t Js.meth
   method setCompleted : unit Js.meth
-  method setException : 'a Js.t Js.optdef -> unit Js.meth
+  method setException : _ Js.t Js.optdef -> unit Js.meth
   method setStarted : unit Js.meth
   method setSuccessful : unit Js.meth
   method wasSuccessful : bool Js.t Js.meth
@@ -26,13 +26,13 @@ object('self)
   inherit Ext_Base.configs
   
   method action : Js.js_string Js.t Js.prop
-  method batch : 'a Js.t Js.prop
-  method callback : 'a Js.callback Js.prop
+  method batch : _ Js.t Js.prop
+  method callback : _ Js.callback Js.prop
   method filters : Ext_util_Filter.t Js.js_array Js.t Js.prop
   method groupers : Ext_util_Grouper.t Js.js_array Js.t Js.prop
   method limit : Js.number Js.t Js.prop
-  method params : 'a Js.t Js.prop
-  method scope : 'a Js.t Js.prop
+  method params : _ Js.t Js.prop
+  method scope : _ Js.t Js.prop
   method sorters : Ext_util_Sorter.t Js.js_array Js.t Js.prop
   method start : Js.number Js.t Js.prop
   method synchronous : bool Js.t Js.prop

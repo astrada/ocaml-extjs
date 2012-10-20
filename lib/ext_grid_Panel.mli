@@ -183,15 +183,15 @@ object('self)
   inherit Ext_panel_Table.t
   
   method reconfigure : Ext_data_Store.t Js.t Js.optdef ->
-    'a Js.t Js.js_array Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.js_array Js.t Js.optdef -> unit Js.meth
   (** {% <p>Reconfigures the grid with a new store/columns. Either the store or the columns can be omitted if you don't wish
 to change them.</p> %}
     
     {b Parameters}:
-    {ul {- store: [Ext_data_Store.t Js.t]
+    {ul {- store: [Ext_data_Store.t Js.t] (optional)
     {% <p>The new store.</p> %}
     }
-    {- columns: ['a Js.t Js.js_array Js.t]
+    {- columns: [_ Js.t Js.js_array Js.t] (optional)
     {% <p>An array of column configs</p> %}
     }
     }
@@ -210,7 +210,7 @@ object('self)
   inherit Ext_panel_Panel.configs
   inherit Ext_panel_Table.configs
   
-  method columns : 'a Js.t Js.prop
+  method columns : _ Js.t Js.prop
   (** {% <p>An array of <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">column</a> definition objects which define all columns that appear in this
 grid. Each column definition provides the header text for the column, and a definition of where the data for that
 column comes from.</p>
@@ -262,8 +262,7 @@ object
   inherit Ext_panel_Table.events
   
   method reconfigure : (t Js.t -> Ext_data_Store.t Js.t ->
-    'a Js.t Js.js_array Js.t -> 'b Js.t -> unit) Js.callback
-    Js.writeonly_prop
+    _ Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after a reconfigure.</p> %}
     
     {b Parameters}:
@@ -272,10 +271,10 @@ object
     {- store: [Ext_data_Store.t Js.t]
     {% <p>The store that was passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> %}
     }
-    {- columns: ['a Js.t Js.js_array Js.t]
+    {- columns: [_ Js.t Js.js_array Js.t]
     {% <p>The column configs that were passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

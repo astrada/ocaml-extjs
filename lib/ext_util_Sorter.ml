@@ -4,7 +4,7 @@ object('self)
   
   method setDirection : Js.js_string Js.t -> unit Js.meth
   method toggle : unit Js.meth
-  method updateSortFunction : 'a Js.callback Js.optdef -> unit Js.meth
+  method updateSortFunction : _ Js.callback Js.optdef -> unit Js.meth
   
 end
 
@@ -15,8 +15,8 @@ object('self)
   method direction : Js.js_string Js.t Js.prop
   method property : Js.js_string Js.t Js.prop
   method root : Js.js_string Js.t Js.prop
-  method sorterFn : 'a Js.callback Js.prop
-  method transform : 'a Js.callback Js.prop
+  method sorterFn : _ Js.callback Js.prop
+  method transform : _ Js.callback Js.prop
   
 end
 

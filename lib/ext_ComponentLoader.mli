@@ -56,12 +56,12 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_ElementLoader.t
   
-  method setTarget : 'a Js.t -> unit Js.meth
+  method setTarget : _ Js.t -> unit Js.meth
   (** {% <p>Set a {<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>} as the target of this loader. Note that if the target is changed,
 any active requests will be aborted.</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The component to be the target of this loader. If a string is passed
 it will be looked up via its id.</p> %}
     }
@@ -75,12 +75,12 @@ object('self)
   inherit Ext_Base.configs
   inherit Ext_ElementLoader.configs
   
-  method loadMask : 'a Js.t Js.prop
+  method loadMask : _ Js.t Js.prop
   (** {% <p>True or a <a href="#!/api/Ext.LoadMask" rel="Ext.LoadMask" class="docClass">Ext.LoadMask</a> configuration to enable masking during loading.</p> %}
     
     Defaults to: [false]
     *)
-  method renderer_2 : 'a Js.t Js.prop
+  method renderer_2 : _ Js.t Js.prop
   (** {% <p>The type of content that is to be loaded into, which can be one of 3 types:</p>
 
 <ul>
@@ -119,7 +119,7 @@ object('self)
   (** {% <p>True to parse any inline script tags in the response. This only used when using the html
 <a href="#!/api/Ext.ComponentLoader-cfg-renderer" rel="Ext.ComponentLoader-cfg-renderer" class="docClass">renderer</a>.</p> %}
     *)
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   (** {% <p>The target <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> for the loader.
 If a string is passed it will be looked up via the id.</p> %}
     *)

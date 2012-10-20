@@ -223,7 +223,7 @@ object('self)
   (** {% <p>A pristine (unfiltered) collection of the records in this store. This is used to reinstate
 records when a filter is removed or changed</p> %}
     *)
-  method add : 'a Js.t -> Ext_data_Model.t Js.js_array Js.t Js.meth
+  method add : _ Js.t -> Ext_data_Model.t Js.js_array Js.t Js.meth
   (** {% <p>Adds Model instance to the Store. This method accepts either:</p>
 
 <ul>
@@ -243,7 +243,7 @@ records when a filter is removed or changed</p> %}
 at the correct point in the Store to maintain the sort order.</p> %}
     
     {b Parameters}:
-    {ul {- model: ['a Js.t]
+    {ul {- model: [_ Js.t]
     {% <p>An array of Model instances
 or Model configuration objects, or variable number of Model instance or config arguments.</p> %}
     }
@@ -264,39 +264,38 @@ should go based on the current sort information.</p> %}
     }
     }
     *)
-  method aggregate : 'a Js.callback -> 'b Js.t Js.optdef ->
-    bool Js.t Js.optdef -> 'c Js.js_array Js.t Js.optdef -> 'd Js.t Js.meth
+  method aggregate : _ Js.callback -> _ Js.t Js.optdef -> bool Js.t Js.optdef
+    -> _ Js.js_array Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Runs the aggregate function for all the records in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to execute. The function is called with a single parameter,
 an array of records for that group.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope to execute the function in. Defaults to the store.</p> %}
     }
-    {- grouped: [bool Js.t]
+    {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the group average being the value. The grouped parameter is only honored if
 the store has a groupField.</p> %}
     }
-    {- args: ['a Js.js_array Js.t]
+    {- args: [_ Js.js_array Js.t] (optional)
     {% <p>Any arguments to append to the function call</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object literal with the group names and their appropriate values.</p> %}
     }
     }
     *)
-  method average : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t
-    Js.meth
+  method average : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Gets the average value in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> %}
@@ -305,7 +304,7 @@ the store has a groupField.</p> %}
     {ul {- field: [Js.js_string Js.t]
     {% <p>The field in each record</p> %}
     }
-    {- grouped: [bool Js.t]
+    {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the group average being the value. The grouped parameter is only honored if
@@ -314,8 +313,7 @@ the store has a groupField.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
-    {% <p>The average value, if no items exist, 0.</p> %}
+    {ul {- [_ Js.t] {% <p>The average value, if no items exist, 0.</p> %}
     }
     }
     *)
@@ -338,23 +336,23 @@ is not reloaded from the server.</p> %}
   (** {% <p>Clear any groupers in the store</p> %}
     *)
   method collect : Js.js_string Js.t -> bool Js.t Js.optdef ->
-    bool Js.t Js.optdef -> 'a Js.t Js.js_array Js.t Js.meth
+    bool Js.t Js.optdef -> _ Js.t Js.js_array Js.t Js.meth
   (** {% <p>Collects unique values for a particular dataIndex from this store.</p> %}
     
     {b Parameters}:
     {ul {- dataIndex: [Js.js_string Js.t]
     {% <p>The property to collect</p> %}
     }
-    {- allowNull: [bool Js.t]
+    {- allowNull: [bool Js.t] (optional)
     {% <p>Pass true to allow null, undefined or empty string values</p> %}
     }
-    {- bypassFilter: [bool Js.t]
+    {- bypassFilter: [bool Js.t] (optional)
     {% <p>Pass true to collect from all records, even ones which are filtered.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t Js.js_array Js.t]
+    {ul {- [_ Js.t Js.js_array Js.t]
     {% <p>An array of the unique values</p> %}
     }
     }
@@ -370,7 +368,7 @@ subscribe to the Store's <a href="#!/api/Ext.data.Store-event-update" rel="Ext.d
 <p>When store is filtered, only items within the filter are counted.</p> %}
     
     {b Parameters}:
-    {ul {- grouped: [bool Js.t]
+    {ul {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the count for each group being the value. The grouped parameter is only honored if
@@ -383,23 +381,23 @@ the store has a groupField.</p> %}
     }
     }
     *)
-  method each : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
+  method each : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Calls the specified function for each <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">record</a> in the store.</p>
 
 <p>When store is filtered, only loops over the filtered records.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to call. The <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Record</a> is passed as the first parameter.
 Returning <code>false</code> aborts and exits the iteration.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function is executed.
 Defaults to the current <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">record</a> in the iteration.</p> %}
     }
     }
     *)
-  method filter : 'a Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
+  method filter : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
   (** {% <p>Filters the loaded set of records by a given set of filters.</p>
 
 <p>By default, the passed filter(s) are <em>added</em> to the collection of filters being used to filter this Store.</p>
@@ -442,19 +440,19 @@ within the set of filtered records. Two notable exceptions are <a href="#!/api/E
 <a href="#!/api/Ext.data.Store-method-getById" rel="Ext.data.Store-method-getById" class="docClass">getById</a>.</p> %}
     
     {b Parameters}:
-    {ul {- filters: ['a Js.t]
+    {ul {- filters: [_ Js.t]
     {% <p>The set of filters to apply to the data.
 These are stored internally on the store, but the filtering itself is done on the Store's
 <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">MixedCollection</a>. See MixedCollection's
 <a href="#!/api/Ext.util.MixedCollection-method-filter" rel="Ext.util.MixedCollection-method-filter" class="docClass">filter</a> method for filter syntax.
 Alternatively, pass in a property string</p> %}
     }
-    {- value: [Js.js_string Js.t]
+    {- value: [Js.js_string Js.t] (optional)
     {% <p>value to filter by (only if using a property string as the first argument)</p> %}
     }
     }
     *)
-  method filterBy : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
+  method filterBy : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Filters by a function. The specified function will be called for each
 Record in this Store. If the function returns <code>true</code> the Record is included,
 otherwise it is filtered out.</p>
@@ -464,16 +462,16 @@ within the set of filtered records. Two notable exceptions are <a href="#!/api/E
 <a href="#!/api/Ext.data.Store-method-getById" rel="Ext.data.Store-method-getById" class="docClass">getById</a>.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to be called. It will be passed the following parameters:</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function is executed.
 Defaults to this Store.</p> %}
     }
     }
     *)
-  method find : Js.js_string Js.t -> 'a Js.t -> Js.number Js.t Js.optdef ->
+  method find : Js.js_string Js.t -> _ Js.t -> Js.number Js.t Js.optdef ->
     bool Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
     Js.number Js.t Js.meth
   (** {% <p>Finds the index of the first matching Record in this store by a specific field value.</p>
@@ -484,23 +482,23 @@ Defaults to this Store.</p> %}
     {ul {- fieldName: [Js.js_string Js.t]
     {% <p>The name of the Record field to test.</p> %}
     }
-    {- value: ['a Js.t]
+    {- value: [_ Js.t]
     {% <p>Either a string that the field value
 should begin with, or a RegExp to test against the field.</p> %}
     }
-    {- startIndex: [Js.number Js.t]
+    {- startIndex: [Js.number Js.t] (optional)
     {% <p>The index to start searching at</p> %}
      Defaults to: 0
     }
-    {- anyMatch: [bool Js.t]
+    {- anyMatch: [bool Js.t] (optional)
     {% <p>True to match any part of the string, not just the beginning</p> %}
      Defaults to: false
     }
-    {- caseSensitive: [bool Js.t]
+    {- caseSensitive: [bool Js.t] (optional)
     {% <p>True for case sensitive comparison</p> %}
      Defaults to: false
     }
-    {- exactMatch: [bool Js.t]
+    {- exactMatch: [bool Js.t] (optional)
     {% <p>True to force exact match (^ and $ characters added to the regex).</p> %}
      Defaults to: false
     }
@@ -511,7 +509,7 @@ should begin with, or a RegExp to test against the field.</p> %}
     }
     }
     *)
-  method findBy : 'a Js.callback -> 'b Js.t Js.optdef ->
+  method findBy : _ Js.callback -> _ Js.t Js.optdef ->
     Js.number Js.t Js.optdef -> Js.number Js.t Js.meth
   (** {% <p>Find the index of the first matching Record in this Store by a function.
 If the function returns <code>true</code> it is considered a match.</p>
@@ -519,14 +517,14 @@ If the function returns <code>true</code> it is considered a match.</p>
 <p>When store is filtered, finds records only within filter.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to be called. It will be passed the following parameters:</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function is executed.
 Defaults to this Store.</p> %}
     }
-    {- startIndex: [Js.number Js.t]
+    {- startIndex: [Js.number Js.t] (optional)
     {% <p>The index to start searching at</p> %}
      Defaults to: 0
     }
@@ -537,7 +535,7 @@ Defaults to this Store.</p> %}
     }
     }
     *)
-  method findExact : Js.js_string Js.t -> 'a Js.t -> Js.number Js.t Js.optdef
+  method findExact : Js.js_string Js.t -> _ Js.t -> Js.number Js.t Js.optdef
     -> Js.number Js.t Js.meth
   (** {% <p>Finds the index of the first matching Record in this store by a specific field value.</p>
 
@@ -547,10 +545,10 @@ Defaults to this Store.</p> %}
     {ul {- fieldName: [Js.js_string Js.t]
     {% <p>The name of the Record field to test.</p> %}
     }
-    {- value: ['a Js.t]
+    {- value: [_ Js.t]
     {% <p>The value to match the field against.</p> %}
     }
-    {- startIndex: [Js.number Js.t]
+    {- startIndex: [Js.number Js.t] (optional)
     {% <p>The index to start searching at</p> %}
      Defaults to: 0
     }
@@ -561,9 +559,9 @@ Defaults to this Store.</p> %}
     }
     }
     *)
-  method findRecord : Js.js_string Js.t -> 'a Js.t ->
-    Js.number Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
-    bool Js.t Js.optdef -> Ext_data_Model.t Js.t Js.meth
+  method findRecord : Js.js_string Js.t -> _ Js.t -> Js.number Js.t Js.optdef
+    -> bool Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
+    Ext_data_Model.t Js.t Js.meth
   (** {% <p>Finds the first matching Record in this store by a specific field value.</p>
 
 <p>When store is filtered, finds records only within filter.</p> %}
@@ -572,23 +570,23 @@ Defaults to this Store.</p> %}
     {ul {- fieldName: [Js.js_string Js.t]
     {% <p>The name of the Record field to test.</p> %}
     }
-    {- value: ['a Js.t]
+    {- value: [_ Js.t]
     {% <p>Either a string that the field value
 should begin with, or a RegExp to test against the field.</p> %}
     }
-    {- startIndex: [Js.number Js.t]
+    {- startIndex: [Js.number Js.t] (optional)
     {% <p>The index to start searching at</p> %}
      Defaults to: 0
     }
-    {- anyMatch: [bool Js.t]
+    {- anyMatch: [bool Js.t] (optional)
     {% <p>True to match any part of the string, not just the beginning</p> %}
      Defaults to: false
     }
-    {- caseSensitive: [bool Js.t]
+    {- caseSensitive: [bool Js.t] (optional)
     {% <p>True for case sensitive comparison</p> %}
      Defaults to: false
     }
-    {- exactMatch: [bool Js.t]
+    {- exactMatch: [bool Js.t] (optional)
     {% <p>True to force exact match (^ and $ characters added to the regex).</p> %}
      Defaults to: false
     }
@@ -600,13 +598,13 @@ should begin with, or a RegExp to test against the field.</p> %}
     }
     }
     *)
-  method first : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method first : bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Convenience function for getting the first model instance in the store.</p>
 
 <p>When store is filtered, will return first item within the filter.</p> %}
     
     {b Parameters}:
-    {ul {- grouped: [bool Js.t]
+    {ul {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the first record being the value. The grouped parameter is only honored if
@@ -615,7 +613,7 @@ the store has a groupField.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The first model instance in the store, or undefined</p> %}
     }
     }
@@ -637,14 +635,14 @@ the store has a groupField.</p> %}
     }
     }
     *)
-  method getById : 'a Js.t -> Ext_data_Model.t Js.t Js.meth
+  method getById : _ Js.t -> Ext_data_Model.t Js.t Js.meth
   (** {% <p>Get the Record with the specified id.</p>
 
 <p>This method is not effected by filtering, lookup will be performed from all records
 inside the store, filtered or not.</p> %}
     
     {b Parameters}:
-    {ul {- id: ['a Js.t]
+    {ul {- id: [_ Js.t]
     {% <p>The id of the Record to find.</p> %}
     }
     }
@@ -695,7 +693,7 @@ group by the first letter of a model's 'name' field, use the following code:</p>
     }
     }
     *)
-  method getGroups : Js.js_string Js.t Js.optdef -> 'a Js.t Js.meth
+  method getGroups : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Returns an array containing the result of applying grouping to the records in this store.
 See <a href="#!/api/Ext.data.Store-cfg-groupField" rel="Ext.data.Store-cfg-groupField" class="docClass">groupField</a>, <a href="#!/api/Ext.data.Store-cfg-groupDir" rel="Ext.data.Store-cfg-groupDir" class="docClass">groupDir</a> and <a href="#!/api/Ext.data.Store-method-getGroupString" rel="Ext.data.Store-method-getGroupString" class="docClass">getGroupString</a>. Example for a store
 containing records with a color field:</p>
@@ -725,14 +723,14 @@ myStore.getGroups(); // returns:
 <p>Group contents are effected by filtering.</p> %}
     
     {b Parameters}:
-    {ul {- groupName: [Js.js_string Js.t]
+    {ul {- groupName: [Js.js_string Js.t] (optional)
     {% <p>Pass in an optional groupName argument to access a specific
 group as defined by <a href="#!/api/Ext.data.Store-method-getGroupString" rel="Ext.data.Store-method-getGroupString" class="docClass">getGroupString</a>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The grouped data</p> %}
+    {ul {- [_ Js.t] {% <p>The grouped data</p> %}
     }
     }
     *)
@@ -769,10 +767,11 @@ yet been saved on this Store (this happens when adding a non-phantom record from
 <p>This method is effected by filtering.</p> %}
     
     {b Parameters}:
-    {ul {- startIndex: [Js.number Js.t] {% <p>The starting index</p> %}
+    {ul {- startIndex: [Js.number Js.t] (optional)
+    {% <p>The starting index</p> %}
      Defaults to: 0
     }
-    {- endIndex: [Js.number Js.t]
+    {- endIndex: [Js.number Js.t] (optional)
     {% <p>The ending index. Defaults to the last Record in the Store.</p> %}
     }
     }
@@ -807,34 +806,34 @@ no value has been set via the reader.</p> %}
     }
     }
     *)
-  method group : 'a Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
+  method group : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
   (** {% <p>Groups data inside the store.</p> %}
     
     {b Parameters}:
-    {ul {- groupers: ['a Js.t]
+    {ul {- groupers: [_ Js.t]
     {% <p>Either a string name of one of the fields in this Store's
 configured <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a>, or an Array of grouper configurations.</p> %}
     }
-    {- direction: [Js.js_string Js.t]
+    {- direction: [Js.js_string Js.t] (optional)
     {% <p>The overall direction to group the data by.</p> %}
      Defaults to: "ASC"
     }
     }
     *)
-  method guaranteeRange : 'a Js.t -> 'b Js.t -> 'c Js.t -> 'd Js.t -> unit
+  method guaranteeRange : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
     Js.meth
   (** {% <p>Guarantee a specific range, this will load the store with a range (that
 must be the pageSize or smaller) and take care of any loading that may
 be necessary.</p> %}
     
     {b Parameters}:
-    {ul {- start: ['a Js.t]
+    {ul {- start: [_ Js.t]
     }
-    {- _end: ['a Js.t]
+    {- _end: [_ Js.t]
     }
-    {- cb: ['a Js.t]
+    {- cb: [_ Js.t]
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     }
     }
     *)
@@ -914,13 +913,13 @@ See also <a href="#!/api/Ext.data.Store-method-add" rel="Ext.data.Store-method-a
     }
     }
     *)
-  method last : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method last : bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Convenience function for getting the last model instance in the store.</p>
 
 <p>When store is filtered, will return last item within the filter.</p> %}
     
     {b Parameters}:
-    {ul {- grouped: [bool Js.t]
+    {ul {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the last record being the value. The grouped parameter is only honored if
@@ -929,12 +928,12 @@ the store has a groupField.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The last model instance in the store, or undefined</p> %}
     }
     }
     *)
-  method load_store : 'a Js.t Js.optdef -> unit Js.meth
+  method load_store : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Loads data into the Store via the configured <a href="#!/api/Ext.data.Store-cfg-proxy" rel="Ext.data.Store-cfg-proxy" class="docClass">proxy</a>. This uses the Proxy to make an
 asynchronous call to whatever storage backend the Proxy uses, automatically adding the retrieved
 instances into the Store and calling an optional callback if required. Example usage:</p>
@@ -957,14 +956,14 @@ instances into the Store and calling an optional callback if required. Example u
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>config object, passed into the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object before loading.
 Additionally <code>addRecords: true</code> can be specified to add these records to the existing records, default is
 to remove the Store's existing records first.</p> %}
     }
     }
     *)
-  method loadData : 'a Js.t -> bool Js.t Js.optdef -> unit Js.meth
+  method loadData : _ Js.t -> bool Js.t Js.optdef -> unit Js.meth
   (** {% <p>Loads an array of data straight into the Store.</p>
 
 <p>Using this method is great if the data is in the correct format already (e.g. it doesn't need to be
@@ -972,18 +971,18 @@ processed by a reader). If your data requires processing to decode the data stru
 <a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">MemoryProxy</a> instead.</p> %}
     
     {b Parameters}:
-    {ul {- data: ['a Js.t]
+    {ul {- data: [_ Js.t]
     {% <p>Array of data to load. Any non-model instances will be cast
 into model instances first.</p> %}
     }
-    {- append: [bool Js.t]
+    {- append: [bool Js.t] (optional)
     {% <p>True to add the records to the existing records in the store, false
 to remove the old ones first.</p> %}
      Defaults to: false
     }
     }
     *)
-  method loadPage : Js.number Js.t -> 'a Js.t -> unit Js.meth
+  method loadPage : Js.number Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just causes a normal
 load operation, passing in calculated 'start' and 'limit' params</p> %}
     
@@ -991,29 +990,29 @@ load operation, passing in calculated 'start' and 'limit' params</p> %}
     {ul {- page: [Js.number Js.t]
     {% <p>The number of the page to load</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t]
     {% <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> %}
     }
     }
     *)
-  method loadRawData : 'a Js.t Js.js_array Js.t -> bool Js.t Js.optdef ->
-    unit Js.meth
+  method loadRawData : _ Js.t Js.js_array Js.t -> bool Js.t Js.optdef -> unit
+    Js.meth
   (** {% <p>Loads data via the bound Proxy's reader</p>
 
 <p>Use this method if you are attempting to load data and want to utilize the configured data reader.</p> %}
     
     {b Parameters}:
-    {ul {- data: ['a Js.t Js.js_array Js.t]
+    {ul {- data: [_ Js.t Js.js_array Js.t]
     {% <p>The full JSON object you'd like to load into the Data store.</p> %}
     }
-    {- append: [bool Js.t]
+    {- append: [bool Js.t] (optional)
     {% <p>True to add the records to the existing records in the store, false
 to remove the old ones first.</p> %}
      Defaults to: false
     }
     }
     *)
-  method loadRecords : Ext_data_Model.t Js.js_array Js.t -> 'a Js.t -> unit
+  method loadRecords : Ext_data_Model.t Js.js_array Js.t -> _ Js.t -> unit
     Js.meth
   (** {% <p>Loads an array of <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">model</a> instances into the store, fires the datachanged event. This should only usually
 be called internally when loading from the <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">Proxy</a>, when adding records manually use <a href="#!/api/Ext.data.Store-method-add" rel="Ext.data.Store-method-add" class="docClass">add</a> instead</p> %}
@@ -1022,11 +1021,11 @@ be called internally when loading from the <a href="#!/api/Ext.data.proxy.Proxy"
     {ul {- records: [Ext_data_Model.t Js.js_array Js.t]
     {% <p>The array of records to load</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t]
     }
     }
     *)
-  method max : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method max : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Gets the maximum value in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> %}
@@ -1035,7 +1034,7 @@ be called internally when loading from the <a href="#!/api/Ext.data.proxy.Proxy"
     {ul {- field: [Js.js_string Js.t]
     {% <p>The field in each record</p> %}
     }
-    {- grouped: [bool Js.t]
+    {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the maximum in the group being the value. The grouped parameter is only honored if
@@ -1044,12 +1043,12 @@ the store has a groupField.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The maximum value, if no items exist, undefined.</p> %}
     }
     }
     *)
-  method min : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method min : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Gets the minimum value in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> %}
@@ -1058,7 +1057,7 @@ the store has a groupField.</p> %}
     {ul {- field: [Js.js_string Js.t]
     {% <p>The field in each record</p> %}
     }
-    {- grouped: [bool Js.t]
+    {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the minimum in the group being the value. The grouped parameter is only honored if
@@ -1067,66 +1066,66 @@ the store has a groupField.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The minimum value, if no items exist, undefined.</p> %}
     }
     }
     *)
-  method nextPage : 'a Js.t -> unit Js.meth
+  method nextPage : _ Js.t -> unit Js.meth
   (** {% <p>Loads the next 'page' in the current data set</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> %}
     }
     }
     *)
-  method prefetch : 'a Js.t Js.optdef -> unit Js.meth
+  method prefetch : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Prefetches data into the store using its configured <a href="#!/api/Ext.data.Store-cfg-proxy" rel="Ext.data.Store-cfg-proxy" class="docClass">proxy</a>.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>config object, passed into the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object before loading.
 See <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> %}
     }
     }
     *)
-  method prefetchPage : Js.number Js.t -> 'a Js.t Js.optdef -> unit Js.meth
+  method prefetchPage : Js.number Js.t -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Prefetches a page of data.</p> %}
     
     {b Parameters}:
     {ul {- page: [Js.number Js.t]
     {% <p>The page to prefetch</p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>config object, passed into the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object before loading.
 See <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> %}
     }
     }
     *)
-  method prefetchRange : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method prefetchRange : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Ensures that the specified range of rows is present in the cache.</p>
 
 <p>Converts the row range to a page range and then only load pages which are not already
 present in the page cache.</p> %}
     
     {b Parameters}:
-    {ul {- start: ['a Js.t]
+    {ul {- start: [_ Js.t]
     }
-    {- _end: ['a Js.t]
+    {- _end: [_ Js.t]
     }
     }
     *)
-  method previousPage : 'a Js.t -> unit Js.meth
+  method previousPage : _ Js.t -> unit Js.meth
   (** {% <p>Loads the previous 'page' in the current data set</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> %}
     }
     }
     *)
-  method query : Js.js_string Js.t -> 'a Js.t -> bool Js.t Js.optdef ->
+  method query : Js.js_string Js.t -> _ Js.t -> bool Js.t Js.optdef ->
     bool Js.t Js.optdef -> bool Js.t Js.optdef ->
     Ext_util_MixedCollection.t Js.t Js.meth
   (** {% <p>Query all the cached records in this Store by name/value pair.
@@ -1139,18 +1138,18 @@ to the queryBy method.</p>
     {ul {- property: [Js.js_string Js.t]
     {% <p>The property to create the filter function for</p> %}
     }
-    {- value: ['a Js.t]
+    {- value: [_ Js.t]
     {% <p>The string/regex to compare the property value to</p> %}
     }
-    {- anyMatch: [bool Js.t]
+    {- anyMatch: [bool Js.t] (optional)
     {% <p>True if we don't care if the filter value is not the full value.</p> %}
      Defaults to: false
     }
-    {- caseSensitive: [bool Js.t]
+    {- caseSensitive: [bool Js.t] (optional)
     {% <p>True to create a case-sensitive regex.</p> %}
      Defaults to: false
     }
-    {- exactMatch: [bool Js.t]
+    {- exactMatch: [bool Js.t] (optional)
     {% <p>True to force exact match (^ and $ characters added to the regex).
 Ignored if anyMatch is true.</p> %}
      Defaults to: false
@@ -1163,7 +1162,7 @@ Ignored if anyMatch is true.</p> %}
     }
     }
     *)
-  method queryBy : 'a Js.callback -> 'b Js.t Js.optdef ->
+  method queryBy : _ Js.callback -> _ Js.t Js.optdef ->
     Ext_util_MixedCollection.t Js.t Js.meth
   (** {% <p>Query all the cached records in this Store using a filtering function. The specified function
 will be called with each record in this Store. If the function returns <code>true</code> the record is
@@ -1173,10 +1172,10 @@ included in the results.</p>
 no matter if filter is applied or not.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to be called. It will be passed the following parameters:</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (this reference) in which the function is executed
 Defaults to this Store.</p> %}
     }
@@ -1192,21 +1191,21 @@ Defaults to this Store.</p> %}
   (** {% <p><a href="#!/api/Ext.data.Model-method-reject" rel="Ext.data.Model-method-reject" class="docClass">Rejects</a> outstanding changes on all <a href="#!/api/Ext.data.Store-method-getModifiedRecords" rel="Ext.data.Store-method-getModifiedRecords" class="docClass">modified records</a>
 and re-insert any records that were removed locally. Any phantom records will be removed.</p> %}
     *)
-  method reload : 'a Js.t -> unit Js.meth
+  method reload : _ Js.t -> unit Js.meth
   (** {% <p>Reloads the store using the last options passed to the <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>A config object which contains options which may override the options passed to the previous load call.</p> %}
     }
     }
     *)
-  method remove : 'a Js.t -> unit Js.meth
+  method remove : _ Js.t -> unit Js.meth
   (** {% <p>Removes the given record from the Store, firing the 'remove' event for each instance that is removed,
 plus a single 'datachanged' event after removal.</p> %}
     
     {b Parameters}:
-    {ul {- records: ['a Js.t]
+    {ul {- records: [_ Js.t]
     {% <p>Model instance or array of instances to remove.</p> %}
     }
     }
@@ -1228,7 +1227,7 @@ plus a single 'datachanged' event after removal.</p> %}
     }
     }
     *)
-  method sort : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
+  method sort : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
     Ext_util_Sorter.t Js.js_array Js.t Js.meth
   (** {% <p>because prefetchData is stored by index
 this invalidates all of the prefetchedData</p>
@@ -1267,11 +1266,11 @@ store.sort('myField', 'DESC');
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- sorters: ['a Js.t]
+    {ul {- sorters: [_ Js.t] (optional)
     {% <p>Either a string name of one of the fields in this Store's configured
 <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a>, or an array of sorter configurations.</p> %}
     }
-    {- direction: [Js.js_string Js.t]
+    {- direction: [Js.js_string Js.t] (optional)
     {% <p>The overall direction to sort the data by.</p> %}
      Defaults to: "ASC"
     }
@@ -1288,7 +1287,7 @@ and <code>end</code> and returns the result.</p>
     {ul {- field: [Js.js_string Js.t]
     {% <p>A field in each record</p> %}
     }
-    {- grouped: [bool Js.t]
+    {- grouped: [bool Js.t] (optional)
     {% <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the sum for that group being the value. The grouped parameter is only honored if
@@ -1362,7 +1361,7 @@ large data sets to be loaded one page at a time but rendered all together.</p> %
     
     Defaults to: [true]
     *)
-  method data : 'a Js.t Js.prop
+  method data : _ Js.t Js.prop
   (** {% <p>Array of Model instances or data objects to load locally. See "Inline data" above for details.</p> %}
     *)
   method groupDir : Js.js_string Js.t Js.prop
@@ -1400,7 +1399,7 @@ in advance may be requested depending on various parameters.</p>
 <p>The provided SDK example <code>examples/grid/infinite-scroll-grid-tuner.html</code> can be used to experiment with
 different settings including simulating Ajax latency.</p> %}
     *)
-  method proxy : 'a Js.t Js.prop
+  method proxy : _ Js.t Js.prop
   (** {% <p>The Proxy to use for this Store. This can be either a string, a config object or a Proxy instance -
 see <a href="#!/api/Ext.data.Store-method-setProxy" rel="Ext.data.Store-method-setProxy" class="docClass">setProxy</a> for details.</p> %}
     *)
@@ -1453,7 +1452,7 @@ object
   inherit Ext_Base.events
   inherit Ext_data_AbstractStore.events
   
-  method beforeprefetch : (t Js.t -> Ext_data_Operation.t Js.t -> 'a Js.t ->
+  method beforeprefetch : (t Js.t -> Ext_data_Operation.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before a prefetch occurs. Return false to cancel.</p> %}
     
@@ -1463,13 +1462,13 @@ object
     {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The associated operation</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method groupchange : (t Js.t -> Ext_util_Grouper.t Js.js_array Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired whenever the grouping in the grid changes</p> %}
     
     {b Parameters}:
@@ -1479,13 +1478,13 @@ object
     {- groupers: [Ext_util_Grouper.t Js.js_array Js.t]
     {% <p>The array of grouper objects</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method prefetch : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> bool Js.t
-    -> Ext_data_Operation.t Js.t -> 'a Js.t -> unit) Js.callback
+    -> Ext_data_Operation.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires whenever records have been prefetched</p> %}
     
@@ -1501,7 +1500,7 @@ object
     {- operation: [Ext_data_Operation.t Js.t]
     {% <p>The associated operation</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

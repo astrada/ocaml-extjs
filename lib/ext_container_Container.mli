@@ -154,7 +154,7 @@ object('self)
   inherit Ext_Component.t
   inherit Ext_container_AbstractContainer.t
   
-  method afterHide : 'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> unit
+  method afterHide : _ Js.callback Js.optdef -> _ Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>note that the collapse and expand events are fired explicitly from Panel.js</p>
 
@@ -163,33 +163,33 @@ object('self)
 <p>Gets passed the same <code>callback</code> and <code>scope</code> parameters that <a href="#!/api/Ext.container.Container-method-onHide" rel="Ext.container.Container-method-onHide" class="docClass">onHide</a> received.</p> %}
     
     {b Parameters}:
-    {ul {- callback: ['a Js.callback]
+    {ul {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
-  method afterShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method afterShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Invoked after the Component is shown (after <a href="#!/api/Ext.container.Container-method-onShow" rel="Ext.container.Container-method-onShow" class="docClass">onShow</a> is called).</p>
 
 <p>Gets passed the same parameters as <a href="#!/api/Ext.container.Container-event-show" rel="Ext.container.Container-event-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
-  method getChildByElement : 'a Js.t -> bool Js.t -> #Ext_Component.t Js.t
+  method getChildByElement : _ Js.t -> bool Js.t -> #Ext_Component.t Js.t
     Js.meth
   (** {% <p>Return the immediate child Component in which the passed element is located.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element to test (or ID of element).</p> %}
     }
     {- deep: [bool Js.t]
@@ -233,17 +233,16 @@ object('self)
   inherit Ext_Component.configs
   inherit Ext_container_AbstractContainer.configs
   
-  method afterHide : ('self Js.t, 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method afterHide : ('self Js.t, _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterHide] *)
-  method afterShow : ('self Js.t, 'a Js.t Js.optdef ->
-    'b Js.callback Js.optdef -> 'c Js.t Js.optdef -> unit) Js.meth_callback
-    Js.writeonly_prop
+  method afterShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef
+    -> _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterShow] *)
   method onAdded_container : ('self Js.t, 'self Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onAdded_container] *)
-  method anchorSize : 'a Js.t Js.prop
+  method anchorSize : _ Js.t Js.prop
   (** {% <p>Defines the anchoring size of container.
 Either a number to define the width of the container or an object with <code>width</code> and <code>height</code> fields.</p> %}
     *)

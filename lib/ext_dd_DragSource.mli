@@ -87,13 +87,13 @@ after an invalid drop has occurred by providing an implementation.</p> %}
     }
     }
     *)
-  method afterValidDrop : 'a Js.t -> Dom_html.event Js.t -> Js.js_string Js.t
+  method afterValidDrop : _ Js.t -> Dom_html.event Js.t -> Js.js_string Js.t
     -> unit Js.meth
   (** {% <p>An empty function by default, but provided so that you can perform a custom action
 after a valid drop has occurred by providing an implementation.</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The target DD</p> %}
     }
     {- e: [Dom_html.event Js.t]
@@ -262,17 +262,16 @@ drop has occurred.</p> %}
     }
     }
     *)
-  method getDragData : 'a Js.t -> 'b Js.t Js.meth
+  method getDragData : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Returns the data object associated with this drag source</p> %}
     
     {b Parameters}:
-    {ul {- e: ['a Js.t]
+    {ul {- e: [_ Js.t]
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
-    {% <p>data An object containing arbitrary data</p> %}
+    {ul {- [_ Js.t] {% <p>data An object containing arbitrary data</p> %}
     }
     }
     *)
@@ -287,12 +286,12 @@ drop has occurred.</p> %}
   method hideProxy : unit Js.meth
   (** {% <p>Hides the drag source's <a href="#!/api/Ext.dd.StatusProxy" rel="Ext.dd.StatusProxy" class="docClass">Ext.dd.StatusProxy</a></p> %}
     *)
-  method onBeforeDrag : 'a Js.t -> Dom_html.event Js.t -> bool Js.t Js.meth
+  method onBeforeDrag : _ Js.t -> Dom_html.event Js.t -> bool Js.t Js.meth
   (** {% <p>An empty function by default, but provided so that you can perform a custom action before the initial
 drag event begins and optionally cancel it.</p> %}
     
     {b Parameters}:
-    {ul {- data: ['a Js.t]
+    {ul {- data: [_ Js.t]
     {% <p>An object containing arbitrary data to be shared with drop targets</p> %}
     }
     {- e: [Dom_html.event Js.t]
@@ -306,7 +305,7 @@ drag event begins and optionally cancel it.</p> %}
     }
     }
     *)
-  method onDragDrop : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragDrop : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>private</p>
 
 <p>Abstract method called when this item is dropped on another DragDrop
@@ -316,14 +315,14 @@ obj</p> %}
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mouseup event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this was dropped on.  In INTERSECT mode, an array of dd items this
 was dropped on.</p> %}
     }
     }
     *)
-  method onDragEnter : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragEnter : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>private</p>
 
 <p>Abstract method called when this element fist begins hovering over
@@ -333,14 +332,14 @@ another DragDrop obj</p> %}
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mousemove event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of one or more
 dragdrop items being hovered over.</p> %}
     }
     }
     *)
-  method onDragOut : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragOut : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>private</p>
 
 <p>Abstract method called when we are no longer hovering over an element</p> %}
@@ -349,14 +348,14 @@ dragdrop items being hovered over.</p> %}
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mousemove event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this was hovering over.  In INTERSECT mode, an array of dd items
 that the mouse is no longer over.</p> %}
     }
     }
     *)
-  method onDragOver : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragOver : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>private</p>
 
 <p>Abstract method called when this element is hovering over another
@@ -366,7 +365,7 @@ DragDrop obj</p> %}
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mousemove event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of dd items
 being hovered over.</p> %}
@@ -441,7 +440,7 @@ object('self)
     Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.beforeInvalidDrop] *)
-  method onBeforeDrag : ('self Js.t, 'a Js.t -> Dom_html.event Js.t ->
+  method onBeforeDrag : ('self Js.t, _ Js.t -> Dom_html.event Js.t ->
     bool Js.t) Js.meth_callback Js.writeonly_prop
   (** See method [t.onBeforeDrag] *)
   method onStartDrag : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)

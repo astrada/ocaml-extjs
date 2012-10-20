@@ -52,21 +52,21 @@ left corner and the location the element was clicked.</p> %}
     }
     }
     *)
-  method b4Drag : 'a Js.t -> unit Js.meth
+  method b4Drag : _ Js.t -> unit Js.meth
   (** {% <p>Event that fires prior to the onDrag event.  Overrides
 <a href="#!/api/Ext.dd.DragDrop" rel="Ext.dd.DragDrop" class="docClass">Ext.dd.DragDrop</a>.</p> %}
     
     {b Parameters}:
-    {ul {- e: ['a Js.t]
+    {ul {- e: [_ Js.t]
     }
     }
     *)
-  method b4MouseDown : 'a Js.t -> unit Js.meth
+  method b4MouseDown : _ Js.t -> unit Js.meth
   (** {% <p>Event that fires prior to the onMouseDown event.  Overrides
 <a href="#!/api/Ext.dd.DragDrop" rel="Ext.dd.DragDrop" class="docClass">Ext.dd.DragDrop</a>.</p> %}
     
     {b Parameters}:
-    {ul {- e: ['a Js.t]
+    {ul {- e: [_ Js.t]
     }
     }
     *)
@@ -77,11 +77,11 @@ tick marks on-demand.  We need to know this so that we can calculate the
 number of pixels the element is offset from its original position.</p> %}
     
     {b Parameters}:
-    {ul {- iPageX: [Js.number Js.t]
+    {ul {- iPageX: [Js.number Js.t] (optional)
     {% <p>the current x position (this just makes it so we
 don't have to look it up again)</p> %}
     }
-    {- iPageY: [Js.number Js.t]
+    {- iPageY: [Js.number Js.t] (optional)
     {% <p>the current y position (this just makes it so we
 don't have to look it up again)</p> %}
     }

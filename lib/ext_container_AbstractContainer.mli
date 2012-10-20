@@ -14,7 +14,7 @@ object('self)
   method items : #Ext_util_AbstractMixedCollection.t Js.t Js.prop
   (** {% <p>The MixedCollection containing all the child items of this container.</p> %}
     *)
-  method add : 'a Js.t -> 'b Js.t Js.meth
+  method add : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Adds <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>(s) to this Container.</p>
 
 <h2>Description:</h2>
@@ -58,14 +58,14 @@ or added.  See the Notes for <a href="#!/api/Ext.layout.container.Border" rel="E
 more details.</p> %}
     
     {b Parameters}:
-    {ul {- component: ['a Js.t]
+    {ul {- component: [_ Js.t]
     {% <p>Either one or more Components to add or an Array of Components to add.
 See <code><a href="#!/api/Ext.container.AbstractContainer-cfg-items" rel="Ext.container.AbstractContainer-cfg-items" class="docClass">items</a></code> for additional information.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The Components that were added.</p> %}
+    {ul {- [_ Js.t] {% <p>The Components that were added.</p> %}
     }
     }
     *)
@@ -82,8 +82,8 @@ its child Components.</p> %}
   (** {% <p>Occurs before componentLayout is run. Returning false from this method
 will prevent the containerLayout from being executed.</p> %}
     *)
-  method cascade : 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
+  method cascade : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Cascades down the component/container heirarchy from this component (passed in
 the first call), calling the specified function with each component. The scope
 (this reference) of the function call will be the scope provided or the current
@@ -92,13 +92,13 @@ component. If the function returns false at any point, the cascade is stopped on
 that branch.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to call</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope of the function (defaults to current component)</p> %}
     }
-    {- args: ['a Js.js_array Js.t]
+    {- args: [_ Js.js_array Js.t] (optional)
     {% <p>The args to call the function with. The current component
 always passed as the last argument.</p> %}
     }
@@ -114,7 +114,7 @@ always passed as the last argument.</p> %}
 The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector.</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>An <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector. If no selector is
 specified, the first child will be returned.</p> %}
     }
@@ -134,7 +134,7 @@ Override disable because onDisable only gets called when rendered</p>
 <p>Disable the component.</p> %}
     
     {b Parameters}:
-    {ul {- silent: [bool Js.t]
+    {ul {- silent: [bool Js.t] (optional)
     {% <p>Passing true will supress the 'disable' event from being fired.</p> %}
     
     Defaults to: false
@@ -160,7 +160,7 @@ form most cases.</p> %}
 The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector.</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>An <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector. If no selector is
 specified, the first child will be returned.</p> %}
     }
@@ -172,12 +172,12 @@ specified, the first child will be returned.</p> %}
     }
     }
     *)
-  method getComponent : 'a Js.t -> #Ext_Component.t Js.t Js.meth
+  method getComponent : _ Js.t -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Examines this container's <a href="#!/api/Ext.container.AbstractContainer-property-items" rel="Ext.container.AbstractContainer-property-items" class="docClass">items</a> <strong>property</strong> and gets a direct child
 component of this container.</p> %}
     
     {b Parameters}:
-    {ul {- comp: ['a Js.t]
+    {ul {- comp: [_ Js.t]
     {% <p>This parameter may be any of the following:</p>
 
 <ul>
@@ -315,7 +315,7 @@ structure which may depend upon the state of the child items.</p> %}
 Executes an <a href="#!/api/Ext.ComponentQuery-method-query" rel="Ext.ComponentQuery-method-query" class="docClass">Ext.ComponentQuery.query</a> using this container as its root.</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>Selector complying to an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector.
 If no selector is specified all items will be returned.</p> %}
     }
@@ -327,18 +327,18 @@ If no selector is specified all items will be returned.</p> %}
     }
     }
     *)
-  method queryBy : 'a Js.callback -> 'b Js.t Js.optdef ->
+  method queryBy : _ Js.callback -> _ Js.t Js.optdef ->
     Ext_Component.t Js.js_array Js.t Js.meth
   (** {% <p>Retrieves all descendant components which match the passed function.
 The function should return false for components that are to be
 excluded from the selection.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The matcher function. It will be called with a single argument,
 the component being tested.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope in which to run the function. If not specified,
 it will default to the active component.</p> %}
     }
@@ -366,17 +366,17 @@ This is a shorthand for calling ct.down('#' + id);</p> %}
     }
     }
     *)
-  method remove : 'a Js.t -> bool Js.t Js.optdef -> #Ext_Component.t Js.t
+  method remove : _ Js.t -> bool Js.t Js.optdef -> #Ext_Component.t Js.t
     Js.meth
   (** {% <p>Removes a component from this container.  Fires the <a href="#!/api/Ext.container.AbstractContainer-event-beforeremove" rel="Ext.container.AbstractContainer-event-beforeremove" class="docClass">beforeremove</a> event
 before removing, then fires the <a href="#!/api/Ext.container.AbstractContainer-event-remove" rel="Ext.container.AbstractContainer-event-remove" class="docClass">remove</a> event after the component has
 been removed.</p> %}
     
     {b Parameters}:
-    {ul {- component: ['a Js.t]
+    {ul {- component: [_ Js.t]
     {% <p>The component reference or id to remove.</p> %}
     }
-    {- autoDestroy: [bool Js.t]
+    {- autoDestroy: [bool Js.t] (optional)
     {% <p>True to automatically invoke the removed Component's
 <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component.destroy</a> function.</p>
 
@@ -395,7 +395,7 @@ been removed.</p> %}
   (** {% <p>Removes all components from this container.</p> %}
     
     {b Parameters}:
-    {ul {- autoDestroy: [bool Js.t]
+    {ul {- autoDestroy: [bool Js.t] (optional)
     {% <p>True to automatically invoke the removed
 Component's <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component.destroy</a> function.
 Defaults to the value of this Container's <a href="#!/api/Ext.container.AbstractContainer-cfg-autoDestroy" rel="Ext.container.AbstractContainer-cfg-autoDestroy" class="docClass">autoDestroy</a> config.</p> %}
@@ -432,7 +432,7 @@ object('self)
   method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   (** See method [t.onRemove] *)
-  method activeItem : 'a Js.t Js.prop
+  method activeItem : _ Js.t Js.prop
   (** {% <p>A string component id or the numeric index of the component that should be
 initially activated within the container's layout on render.  For example,
 activeItem: 'item-1' or activeItem: 0 (index 0 = the first item in the
@@ -466,7 +466,7 @@ a child item is specified as a raw configuration object, rather than as an insta
     
     Defaults to: ["panel"]
     *)
-  method defaults : 'a Js.t Js.prop
+  method defaults : _ Js.t Js.prop
   (** {% <p>This option is a means of applying default settings to all added items whether added
 through the <a href="#!/api/Ext.container.AbstractContainer-cfg-items" rel="Ext.container.AbstractContainer-cfg-items" class="docClass">items</a> config or via the <a href="#!/api/Ext.container.AbstractContainer-method-add" rel="Ext.container.AbstractContainer-method-add" class="docClass">add</a> or <a href="#!/api/Ext.container.AbstractContainer-method-insert" rel="Ext.container.AbstractContainer-method-insert" class="docClass">insert</a> methods.</p>
 
@@ -509,7 +509,7 @@ of the component will remain in the current place until it is explicitly moved.<
     
     Defaults to: [true]
     *)
-  method items : 'a Js.t Js.prop
+  method items : _ Js.t Js.prop
   (** {% <p>A single item, or an array of child Components to be added to this container</p>
 
 <p><strong>Unless configured with a <a href="#!/api/Ext.container.AbstractContainer-cfg-layout" rel="Ext.container.AbstractContainer-cfg-layout" class="docClass">layout</a>, a Container simply renders child
@@ -552,7 +552,7 @@ shown (no sizing is done while hidden), or in response to a <a href="#!/api/Ext.
 <p>Do not specify <a href="#!/api/Ext.panel.Panel-cfg-contentEl" rel="Ext.panel.Panel-cfg-contentEl" class="docClass">contentEl</a> or
 <a href="#!/api/Ext.panel.Panel-cfg-html" rel="Ext.panel.Panel-cfg-html" class="docClass">html</a> with <code>items</code>.</p> %}
     *)
-  method layout : 'a Js.t Js.prop
+  method layout : _ Js.t Js.prop
   (** {% <p><strong>Important</strong>: In order for child items to be correctly sized and
 positioned, typically a layout manager <strong>must</strong> be specified through
 the <code>layout</code> configuration option.</p>
@@ -672,7 +672,7 @@ object
   inherit Ext_AbstractComponent.events
   inherit Ext_Component.events
   
-  method add : (t Js.t -> #Ext_Component.t Js.t -> Js.number Js.t -> 'a Js.t
+  method add : (t Js.t -> #Ext_Component.t Js.t -> Js.number Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after any <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> is added or inserted into the container.</p>
 
@@ -688,13 +688,13 @@ the child containers or their childern or ...</p> %}
     {- index: [Js.number Js.t]
     {% <p>The index at which the component was added to the container's items collection</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method afterlayout : (t Js.t -> #Ext_layout_container_Container.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the components in this container are arranged by the associated layout manager.</p> %}
     
     {b Parameters}:
@@ -703,13 +703,13 @@ the child containers or their childern or ...</p> %}
     {- layout: [#Ext_layout_container_Container.t Js.t]
     {% <p>The ContainerLayout implementation for this container</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeadd : (t Js.t -> #Ext_Component.t Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before any <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> is added or inserted into the container.
 A handler can return false to cancel the add.</p> %}
     
@@ -722,12 +722,12 @@ A handler can return false to cancel the add.</p> %}
     {- index: [Js.number Js.t]
     {% <p>The index at which the component will be added to the container's items collection</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforeremove : (t Js.t -> #Ext_Component.t Js.t -> 'a Js.t -> unit)
+  method beforeremove : (t Js.t -> #Ext_Component.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires before any <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> is removed from the container.  A handler can return
 false to cancel the remove.</p> %}
@@ -738,12 +738,12 @@ false to cancel the remove.</p> %}
     {- component: [#Ext_Component.t Js.t]
     {% <p>The component being removed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method remove : (t Js.t -> #Ext_Component.t Js.t -> 'a Js.t -> unit)
+  method remove : (t Js.t -> #Ext_Component.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires after any <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> is removed from the container.</p>
 
@@ -756,7 +756,7 @@ the child containers or their children or ...</p> %}
     {- component: [#Ext_Component.t Js.t]
     {% <p>The component that was removed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

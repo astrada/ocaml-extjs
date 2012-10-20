@@ -99,7 +99,7 @@ object('self)
     
     Defaults to: [14]
     *)
-  method buttonText : 'a Js.t Js.prop
+  method buttonText : _ Js.t Js.prop
   (** {% <p>An object containing the default button text strings that can be overriden for localized language support.
 Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
 resource file for handling language support across the framework.
@@ -128,7 +128,7 @@ for setting a different minimum width than text-only dialogs may need.</p> %}
     Defaults to: [250]
     *)
   method alert : Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+    _ Js.callback Js.optdef -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt).
 If a callback function is passed it will be called after the user clicks the button, and the
 id of the button that was clicked will be passed as the only parameter to the callback
@@ -141,11 +141,11 @@ id of the button that was clicked will be passed as the only parameter to the ca
     {- msg: [Js.js_string Js.t]
     {% <p>The message box body text</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The callback function invoked after the message box is closed.
 See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.</p> %}
      Defaults to: window
     }
@@ -157,7 +157,7 @@ See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBo
     }
     *)
   method confirm : Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+    _ Js.callback Js.optdef -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Displays a confirmation message box with Yes and No buttons (comparable to JavaScript's confirm).
 If a callback function is passed it will be called after the user clicks either button,
 and the id of the button that was clicked will be passed as the only parameter to the callback
@@ -170,11 +170,11 @@ and the id of the button that was clicked will be passed as the only parameter t
     {- msg: [Js.js_string Js.t]
     {% <p>The message box body text</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The callback function invoked after the message box is closed.
 See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.</p> %}
      Defaults to: window
     }
@@ -185,21 +185,21 @@ See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBo
     }
     }
     *)
-  method hide_component : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method hide_component : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.window.MessageBox-cfg-hideMode" rel="Ext.window.MessageBox-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox" rel="Ext.window.MessageBox" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>A callback function to call after the Component is hidden.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> %}
     }
@@ -241,8 +241,8 @@ instantiation of the class.</p>
 });
 </code></pre> %}
     *)
-  method onShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Allows addition of behavior to the show operation. After
 calling the superclass's onShow, the Component will be visible.</p>
 
@@ -251,11 +251,11 @@ calling the superclass's onShow, the Component will be visible.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.window.MessageBox-event-show" rel="Ext.window.MessageBox-event-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
@@ -273,7 +273,7 @@ and closing the message box when the process is complete.</p> %}
     {- msg: [Js.js_string Js.t]
     {% <p>The message box body text</p> %}
     }
-    {- progressText: [Js.js_string Js.t]
+    {- progressText: [Js.js_string Js.t] (optional)
     {% <p>The text to display inside the progress bar</p> %}
      Defaults to: ''
     }
@@ -285,7 +285,7 @@ and closing the message box when the process is complete.</p> %}
     }
     *)
   method prompt : Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> 'c Js.t Js.optdef ->
+    _ Js.callback Js.optdef -> _ Js.t Js.optdef -> _ Js.t Js.optdef ->
     Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Displays a message box with OK and Cancel buttons prompting the user to enter some text (comparable to JavaScript's prompt).
 The prompt can be a single-line or multi-line textbox.  If a callback function is passed it will be called after the user
@@ -299,20 +299,20 @@ close button, which will always report as "cancel") and the text that was entere
     {- msg: [Js.js_string Js.t]
     {% <p>The message box body text</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The callback function invoked after the message box is closed.
 See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.</p> %}
      Defaults to: window
     }
-    {- multiline: ['a Js.t]
+    {- multiline: [_ Js.t] (optional)
     {% <p>True to create a multiline textbox using the defaultTextHeight
 property, or the height in pixels to create the textbox/</p> %}
      Defaults to: false
     }
-    {- value: [Js.js_string Js.t]
+    {- value: [Js.js_string Js.t] (optional)
     {% <p>Default value of the text input element</p> %}
      Defaults to: ''
     }
@@ -346,7 +346,7 @@ The following built-in icon classes are supported, but you can also pass in a cu
     }
     }
     *)
-  method show_messagebox : 'a Js.t -> 'self Js.t Js.meth
+  method show_messagebox : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Displays a new message box, or reinitializes an existing message box, based on the config options passed in. All
 display functions (e.g. prompt, alert, etc.) on MessageBox call this function internally, although those calls
 are basic shortcuts and do not support all of the config options allowed here.</p>
@@ -366,7 +366,7 @@ are basic shortcuts and do not support all of the config options allowed here.</
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>The following config options are supported:</p> %}
     }
     }
@@ -384,15 +384,15 @@ initiated via <a href="#!/api/Ext.window.MessageBox-method-progress" rel="Ext.wi
 or by calling <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> with progress: true.</p> %}
     
     {b Parameters}:
-    {ul {- value: [Js.number Js.t]
+    {ul {- value: [Js.number Js.t] (optional)
     {% <p>Any number between 0 and 1 (e.g., .5)</p> %}
      Defaults to: 0
     }
-    {- progressText: [Js.js_string Js.t]
+    {- progressText: [Js.js_string Js.t] (optional)
     {% <p>The progress text to display inside the progress bar.</p> %}
      Defaults to: ''
     }
-    {- msg: [Js.js_string Js.t]
+    {- msg: [Js.js_string Js.t] (optional)
     {% <p>The message box's body text is replaced with the specified string (defaults to undefined
 so that any existing body text will not get overwritten by default unless a new value is passed in)</p> %}
     }
@@ -404,7 +404,7 @@ so that any existing body text will not get overwritten by default unless a new 
     }
     *)
   method wait : Js.js_string Js.t -> Js.js_string Js.t Js.optdef ->
-    'a Js.t Js.optdef -> 'self Js.t Js.meth
+    _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Displays a message box with an infinitely auto-updating progress bar.  This can be used to block user
 interaction while waiting for a long-running process to complete that does not have defined intervals.
 You are responsible for closing the message box when the process is complete.</p> %}
@@ -413,10 +413,10 @@ You are responsible for closing the message box when the process is complete.</p
     {ul {- msg: [Js.js_string Js.t]
     {% <p>The message box body text</p> %}
     }
-    {- title: [Js.js_string Js.t]
+    {- title: [Js.js_string Js.t] (optional)
     {% <p>The title bar text</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t] (optional)
     {% <p>A <a href="#!/api/Ext.ProgressBar-method-wait" rel="Ext.ProgressBar-method-wait" class="docClass">Ext.ProgressBar.wait</a> config object</p> %}
     }
     }
@@ -443,8 +443,8 @@ object('self)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
-  method onShow : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
   method closeAction : Js.js_string Js.t Js.prop
   (** {% <p>The action to take when the close header tool is clicked:</p>
@@ -500,7 +500,7 @@ Component having zero dimensions.</li>
     
     Defaults to: ['offsets']
     *)
-  method layout : 'a Js.t Js.prop
+  method layout : _ Js.t Js.prop
   (** {% <p><strong>Important</strong>: In order for child items to be correctly sized and
 positioned, typically a layout manager <strong>must</strong> be specified through
 the <code>layout</code> configuration option.</p>

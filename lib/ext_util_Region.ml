@@ -10,16 +10,16 @@ object('self)
   method copyFrom : 'self Js.t -> 'self Js.t Js.meth
   method equals : 'self Js.t -> bool Js.t Js.meth
   method getOutOfBoundOffset : Js.js_string Js.t Js.optdef ->
-    'a Js.t Js.optdef -> Ext_util_Offset.t Js.t Js.meth
+    _ Js.t Js.optdef -> Ext_util_Offset.t Js.t Js.meth
   method getOutOfBoundOffsetX : Js.number Js.t -> Js.number Js.t Js.meth
   method getOutOfBoundOffsetY : Js.number Js.t -> Js.number Js.t Js.meth
-  method intersect : 'self Js.t -> 'a Js.t Js.meth
-  method isOutOfBound : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method intersect : 'self Js.t -> _ Js.t Js.meth
+  method isOutOfBound : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     bool Js.t Js.meth
   method isOutOfBoundX : Js.number Js.t -> bool Js.t Js.meth
   method isOutOfBoundY : Js.number Js.t -> bool Js.t Js.meth
   method round : 'self Js.t Js.meth
-  method translateBy : 'a Js.t -> Js.number Js.t -> 'self Js.t Js.meth
+  method translateBy : _ Js.t -> Js.number Js.t -> 'self Js.t Js.meth
   method union : 'self Js.t -> 'self Js.t Js.meth
   
 end
@@ -42,8 +42,8 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method from : 'a Js.t -> 'self Js.t Js.meth
-  method getRegion : 'a Js.t -> 'self Js.t Js.meth
+  method from : _ Js.t -> 'self Js.t Js.meth
+  method getRegion : _ Js.t -> 'self Js.t Js.meth
   
 end
 

@@ -8,12 +8,12 @@ object('self)
   method afterComponentLayout : Js.number Js.t -> Js.number Js.t ->
     Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method afterRender : unit Js.meth
-  method applyState : 'a Js.t -> unit Js.meth
+  method applyState : _ Js.t -> unit Js.meth
   method autoSize : unit Js.meth
-  method getErrors : 'a Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
+  method getErrors : _ Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
   method getRawValue : Js.js_string Js.t Js.meth
-  method getState : 'a Js.t Js.meth
-  method getSubTplData : 'a Js.t Js.meth
+  method getState : _ Js.t Js.meth
+  method getSubTplData : _ Js.t Js.meth
   method initComponent : unit Js.meth
   method onDisable : unit Js.meth
   method onEnable : unit Js.meth
@@ -21,7 +21,7 @@ object('self)
   method reset : unit Js.meth
   method selectText : Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef ->
     unit Js.meth
-  method setValue : 'a Js.t -> 'self Js.t Js.meth
+  method setValue : _ Js.t -> 'self Js.t Js.meth
   
 end
 
@@ -37,7 +37,7 @@ object('self)
     Js.writeonly_prop
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  method getSubTplData : ('self Js.t, unit -> 'a Js.t) Js.meth_callback
+  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
     Js.writeonly_prop
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -67,7 +67,7 @@ object('self)
   method selectOnFocus : bool Js.t Js.prop
   method size : Js.number Js.t Js.prop
   method stripCharsRe : Regexp.regexp Js.t Js.prop
-  method validator : 'a Js.callback Js.prop
+  method validator : _ Js.callback Js.prop
   method vtype : Js.js_string Js.t Js.prop
   method vtypeText : Js.js_string Js.t Js.prop
   
@@ -80,13 +80,13 @@ object
   inherit Ext_Component.events
   inherit Ext_form_field_Base.events
   
-  method autosize : (t Js.t -> Js.number Js.t -> 'a Js.t -> unit) Js.callback
+  method autosize : (t Js.t -> Js.number Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method keydown : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method keydown : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method keypress : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method keypress : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method keyup : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method keyup : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   
 end

@@ -6,17 +6,17 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method addDocked : 'a Js.t -> Js.number Js.t Js.optdef ->
+  method addDocked : _ Js.t -> Js.number Js.t Js.optdef ->
     Ext_Component.t Js.js_array Js.t Js.meth
   (** {% <p>Adds docked item(s) to the container.</p> %}
     
     {b Parameters}:
-    {ul {- component: ['a Js.t]
+    {ul {- component: [_ Js.t]
     {% <p>The Component or array of components to add. The components
 must include a 'dock' parameter on each component to indicate where it should be docked
 ('top', 'right', 'bottom', 'left').</p> %}
     }
-    {- pos: [Js.number Js.t]
+    {- pos: [Js.number Js.t] (optional)
     {% <p>The index at which the Component will be added</p> %}
     }
     }
@@ -27,11 +27,11 @@ must include a 'dock' parameter on each component to indicate where it should be
     }
     }
     *)
-  method getDockedComponent : 'a Js.t -> #Ext_Component.t Js.t Js.meth
+  method getDockedComponent : _ Js.t -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Finds a docked component by id, itemId or position. Also see <a href="#!/api/Ext.container.DockingContainer-method-getDockedItems" rel="Ext.container.DockingContainer-method-getDockedItems" class="docClass">getDockedItems</a></p> %}
     
     {b Parameters}:
-    {ul {- comp: ['a Js.t]
+    {ul {- comp: [_ Js.t]
     {% <p>The id, itemId or position of the docked component (see <a href="#!/api/Ext.panel.AbstractPanel-method-getComponent" rel="Ext.panel.AbstractPanel-method-getComponent" class="docClass">getComponent</a> for details)</p> %}
     }
     }
@@ -68,14 +68,14 @@ must include a 'dock' parameter on each component to indicate where it should be
     }
     }
     *)
-  method insertDocked : Js.number Js.t -> 'a Js.t -> unit Js.meth
+  method insertDocked : Js.number Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Inserts docked item(s) to the panel at the indicated position.</p> %}
     
     {b Parameters}:
     {ul {- pos: [Js.number Js.t]
     {% <p>The index at which the Component will be inserted</p> %}
     }
-    {- component: ['a Js.t]
+    {- component: [_ Js.t]
     {% <p>. The Component or array of components to add. The components
 must include a 'dock' paramater on each component to indicate where it should be docked ('top', 'right',
 'bottom', 'left').</p> %}
@@ -106,7 +106,7 @@ must include a 'dock' paramater on each component to indicate where it should be
     {ul {- item: [#Ext_Component.t Js.t]
     {% <p>. The Component to remove.</p> %}
     }
-    {- autoDestroy: [bool Js.t]
+    {- autoDestroy: [bool Js.t] (optional)
     {% <p>Destroy the component after removal.</p> %}
     }
     }
@@ -124,7 +124,7 @@ object('self)
   method onDockedRemove : ('self Js.t, #Ext_Component.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   (** See method [t.onDockedRemove] *)
-  method defaultDockWeights : 'a Js.t Js.prop
+  method defaultDockWeights : _ Js.t Js.prop
   (** {% <p>This object holds the default weights applied to dockedItems that have no weight. These start with a
 weight of 1, to allow negative weights to insert before top items and are odd numbers
 so that even weights can be used to get between different dock orders.</p>

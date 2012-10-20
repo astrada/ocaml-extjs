@@ -3,7 +3,7 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_app_Controller.t
   
-  method control : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method control : _ Js.t -> _ Js.t -> unit Js.meth
   method getController_app : Js.js_string Js.t -> Ext_app_Controller.t Js.t
     Js.meth
   method getModel : Js.js_string Js.t -> Ext_data_Model.t Js.t Js.meth
@@ -25,8 +25,8 @@ object('self)
   method controllers : Js.js_string Js.t Js.js_array Js.t Js.prop
   method enableQuickTips : bool Js.t Js.prop
   method name : Js.js_string Js.t Js.prop
-  method paths : 'a Js.t Js.prop
-  method scope : 'a Js.t Js.prop
+  method paths : _ Js.t Js.prop
+  method scope : _ Js.t Js.prop
   
 end
 

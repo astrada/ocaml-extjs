@@ -28,8 +28,8 @@ false to preserve them</p> %}
     }
     }
     *)
-  method repair : Js.number Js.t Js.js_array Js.t -> 'a Js.callback ->
-    'b Js.t -> unit Js.meth
+  method repair : Js.number Js.t Js.js_array Js.t -> _ Js.callback -> _ Js.t
+    -> unit Js.meth
   (** {% <p>Causes the proxy to return to its position of origin via an animation.
 Should be called after an invalid drop operation by the item being dragged.</p> %}
     
@@ -37,10 +37,10 @@ Should be called after an invalid drop operation by the item being dragged.</p> 
     {ul {- xy: [Js.number Js.t Js.js_array Js.t]
     {% <p>The XY position of the element ([x, y])</p> %}
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback]
     {% <p>The function to call after the repair is complete.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>The scope (<code>this</code> reference) in which the callback function is executed.
 Defaults to the browser window.</p> %}
     }
@@ -71,11 +71,11 @@ over the current target element.</p> %}
   method sync : unit Js.meth
   (** {% <p>Force the Layer to sync its shadow and shim positions to the element</p> %}
     *)
-  method update_html : 'a Js.t -> unit Js.meth
+  method update_html : _ Js.t -> unit Js.meth
   (** {% <p>Updates the contents of the ghost element</p> %}
     
     {b Parameters}:
-    {ul {- html: ['a Js.t]
+    {ul {- html: [_ Js.t]
     {% <p>The html that will replace the current innerHTML of the ghost element, or a
 DOM node to append as the child of the ghost element (in which case the innerHTML will be cleared first).</p> %}
     }
@@ -100,7 +100,7 @@ object('self)
     
     Defaults to: [Ext.baseCSSPrefix + 'dd-drop-nodrop']
     *)
-  method renderTpl_arr : 'a Js.js_array Js.t Js.prop
+  method renderTpl_arr : _ Js.js_array Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a>.</p>
 

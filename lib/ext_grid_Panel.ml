@@ -10,7 +10,7 @@ object('self)
   inherit Ext_panel_Table.t
   
   method reconfigure : Ext_data_Store.t Js.t Js.optdef ->
-    'a Js.t Js.js_array Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.js_array Js.t Js.optdef -> unit Js.meth
   
 end
 
@@ -25,7 +25,7 @@ object('self)
   inherit Ext_panel_Panel.configs
   inherit Ext_panel_Table.configs
   
-  method columns : 'a Js.t Js.prop
+  method columns : _ Js.t Js.prop
   method rowLines : bool Js.t Js.prop
   method viewType : Js.js_string Js.t Js.prop
   
@@ -43,8 +43,7 @@ object
   inherit Ext_panel_Table.events
   
   method reconfigure : (t Js.t -> Ext_data_Store.t Js.t ->
-    'a Js.t Js.js_array Js.t -> 'b Js.t -> unit) Js.callback
-    Js.writeonly_prop
+    _ Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

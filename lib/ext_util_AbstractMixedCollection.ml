@@ -4,42 +4,42 @@ object('self)
   inherit Ext_util_Observable.t
   
   method isMixedCollection : bool Js.t Js.prop
-  method add : 'a Js.t -> 'b Js.t Js.optdef -> 'c Js.t Js.meth
-  method addAll : 'a Js.t -> unit Js.meth
+  method add : _ Js.t -> _ Js.t Js.optdef -> _ Js.t Js.meth
+  method addAll : _ Js.t -> unit Js.meth
   method clear : unit Js.meth
   method clone : 'self Js.t Js.meth
   method collect : Js.js_string Js.t -> Js.js_string Js.t Js.optdef ->
-    bool Js.t Js.optdef -> 'a Js.js_array Js.t Js.meth
-  method contains : 'a Js.t -> bool Js.t Js.meth
+    bool Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
+  method contains : _ Js.t -> bool Js.t Js.meth
   method containsKey : Js.js_string Js.t -> bool Js.t Js.meth
-  method each : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
-  method eachKey : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
-  method filter : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef ->
+  method each : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  method eachKey : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  method filter : _ Js.t -> _ Js.t -> bool Js.t Js.optdef ->
     bool Js.t Js.optdef -> 'self Js.t Js.meth
-  method filterBy : 'a Js.callback -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
-  method findBy : 'a Js.callback -> 'b Js.t Js.optdef -> 'c Js.t Js.meth
-  method findIndex : Js.js_string Js.t -> 'a Js.t -> Js.number Js.t Js.optdef
+  method filterBy : _ Js.callback -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method findBy : _ Js.callback -> _ Js.t Js.optdef -> _ Js.t Js.meth
+  method findIndex : Js.js_string Js.t -> _ Js.t -> Js.number Js.t Js.optdef
     -> bool Js.t Js.optdef -> bool Js.t Js.optdef -> Js.number Js.t Js.meth
-  method findIndexBy : 'a Js.callback -> 'b Js.t Js.optdef ->
+  method findIndexBy : _ Js.callback -> _ Js.t Js.optdef ->
     Js.number Js.t Js.optdef -> Js.number Js.t Js.meth
-  method first : 'a Js.t Js.meth
-  method get : 'a Js.t -> 'b Js.t Js.meth
-  method getAt : Js.number Js.t -> 'a Js.t Js.meth
-  method getByKey : 'a Js.t -> 'b Js.t Js.meth
+  method first : _ Js.t Js.meth
+  method get : _ Js.t -> _ Js.t Js.meth
+  method getAt : Js.number Js.t -> _ Js.t Js.meth
+  method getByKey : _ Js.t -> _ Js.t Js.meth
   method getCount : Js.number Js.t Js.meth
-  method getKey : 'a Js.t -> 'b Js.t Js.meth
+  method getKey : _ Js.t -> _ Js.t Js.meth
   method getRange : Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef ->
-    'a Js.js_array Js.t Js.meth
-  method indexOf : 'a Js.t -> Js.number Js.t Js.meth
+    _ Js.js_array Js.t Js.meth
+  method indexOf : _ Js.t -> Js.number Js.t Js.meth
   method indexOfKey : Js.js_string Js.t -> Js.number Js.t Js.meth
-  method insert : Js.number Js.t -> Js.js_string Js.t -> 'a Js.t Js.optdef ->
-    'b Js.t Js.meth
-  method last : 'a Js.t Js.meth
-  method remove : 'a Js.t -> 'b Js.t Js.meth
-  method removeAll : 'a Js.js_array Js.t -> 'self Js.t Js.meth
-  method removeAt : Js.number Js.t -> 'a Js.t Js.meth
-  method removeAtKey : Js.js_string Js.t -> 'a Js.t Js.meth
-  method replace : Js.js_string Js.t -> 'a Js.t -> 'b Js.t Js.meth
+  method insert : Js.number Js.t -> Js.js_string Js.t -> _ Js.t Js.optdef ->
+    _ Js.t Js.meth
+  method last : _ Js.t Js.meth
+  method remove : _ Js.t -> _ Js.t Js.meth
+  method removeAll : _ Js.js_array Js.t -> 'self Js.t Js.meth
+  method removeAt : Js.number Js.t -> _ Js.t Js.meth
+  method removeAtKey : Js.js_string Js.t -> _ Js.t Js.meth
+  method replace : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   method sum : Js.js_string Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef -> Js.number Js.t
     Js.meth
@@ -60,13 +60,13 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method add : (Js.number Js.t -> 'a Js.t -> Js.js_string Js.t -> 'b Js.t ->
+  method add : (Js.number Js.t -> _ Js.t -> Js.js_string Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method clear : ('a Js.t -> unit) Js.callback Js.writeonly_prop
-  method remove : ('a Js.t -> Js.js_string Js.t Js.optdef -> 'b Js.t -> unit)
+  method clear : (_ Js.t -> unit) Js.callback Js.writeonly_prop
+  method remove : (_ Js.t -> Js.js_string Js.t Js.optdef -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method replace : (Js.js_string Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t ->
-    unit) Js.callback Js.writeonly_prop
+  method replace : (Js.js_string Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   
 end
 

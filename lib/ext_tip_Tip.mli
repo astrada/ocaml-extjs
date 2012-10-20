@@ -59,7 +59,7 @@ tip.showAt([50,100]);
     }
     }
     *)
-  method showBy : 'a Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
+  method showBy : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
   (** {% <p><strong>Experimental</strong>. Shows this tip at a position relative to another element using
 a standard <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> anchor position value.  Example usage:</p>
 
@@ -70,11 +70,11 @@ a standard <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-
    tip.showBy('my-el', 'tl-tr');</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>An HTMLElement, <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> or string
 id of the target element to align to.</p> %}
     }
-    {- position: [Js.js_string Js.t]
+    {- position: [Js.js_string Js.t] (optional)
     {% <p>A valid <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> anchor position.</p>
 
 <p>Defaults to 'tl-br?' or <a href="#!/api/Ext.tip.Tip-cfg-defaultAlign" rel="Ext.tip.Tip-cfg-defaultAlign" class="docClass">defaultAlign</a> if specified.</p> %}
@@ -151,7 +151,7 @@ for this tip relative to its element of origin.</p> %}
     
     Defaults to: ["tl-bl?"]
     *)
-  method floating_obj : 'a Js.t Js.prop
+  method floating_obj : _ Js.t Js.prop
   (** {% <p>Specify as true to float the Component outside of the document flow using CSS absolute positioning.</p>
 
 <p>Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s and <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a>s are floating by default.</p>
@@ -210,7 +210,7 @@ it is <a href="#!/api/Ext.tip.Tip-method-toFront" rel="Ext.tip.Tip-method-toFron
     
     Defaults to: [40]
     *)
-  method shadow : 'a Js.t Js.prop
+  method shadow : _ Js.t Js.prop
   (** {% <p>True or "sides" for the default effect, "frame" for 4-way shadow, and "drop"
 for bottom-right shadow.</p> %}
     

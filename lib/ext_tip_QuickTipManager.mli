@@ -117,16 +117,16 @@ object('self)
   (** {% <p>Gets the single <a href="#!/api/Ext.tip.QuickTip" rel="Ext.tip.QuickTip" class="docClass">QuickTip</a> instance used to show tips
 from all registered elements.</p> %}
     *)
-  method init : bool Js.t Js.optdef -> 'a Js.t Js.optdef -> unit Js.meth
+  method init : bool Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Initializes the global QuickTips instance and prepare any quick tips.</p> %}
     
     {b Parameters}:
-    {ul {- autoRender: [bool Js.t]
+    {ul {- autoRender: [bool Js.t] (optional)
     {% <p>True to render the QuickTips container
 immediately to preload images.</p> %}
      Defaults to: true
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t] (optional)
     {% <p>config object for the created QuickTip. By
 default, the <a href="#!/api/Ext.tip.QuickTip" rel="Ext.tip.QuickTip" class="docClass">QuickTip</a> class is instantiated, but this can
 be changed by supplying an xtype property or a className property in this object.
@@ -137,31 +137,31 @@ All other properties on this object are configuration for the created component.
   method isEnabled : bool Js.t Js.meth
   (** {% <p>Returns true if quick tips are enabled, else false.</p> %}
     *)
-  method register : 'a Js.t -> unit Js.meth
+  method register : _ Js.t -> unit Js.meth
   (** {% <p>Configures a new quick tip instance and assigns it to a target element.  See
 <a href="#!/api/Ext.tip.QuickTip-method-register" rel="Ext.tip.QuickTip-method-register" class="docClass">Ext.tip.QuickTip.register</a> for details.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t] {% <p>The config object</p> %}
+    {ul {- config: [_ Js.t] {% <p>The config object</p> %}
     }
     }
     *)
-  method tips : 'a Js.t -> unit Js.meth
+  method tips : _ Js.t -> unit Js.meth
   (** {% <p>Alias of <a href="#!/api/Ext.tip.QuickTipManager-method-register" rel="Ext.tip.QuickTipManager-method-register" class="docClass">register</a>.</p>
 
 <p>Configures a new quick tip instance and assigns it to a target element.  See
 <a href="#!/api/Ext.tip.QuickTip-method-register" rel="Ext.tip.QuickTip-method-register" class="docClass">Ext.tip.QuickTip.register</a> for details.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t] {% <p>The config object</p> %}
+    {ul {- config: [_ Js.t] {% <p>The config object</p> %}
     }
     }
     *)
-  method unregister : 'a Js.t -> unit Js.meth
+  method unregister : _ Js.t -> unit Js.meth
   (** {% <p>Removes any registered quick tip from the target element and destroys it.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element from which the quick tip
 is to be removed or ID of the element.</p> %}
     }

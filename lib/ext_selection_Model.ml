@@ -5,22 +5,22 @@ object('self)
   inherit Ext_util_Bindable.t
   
   method selected : Ext_util_MixedCollection.t Js.t Js.readonly_prop
-  method bindStore : 'a Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth
-  method deselect : 'a Js.t -> bool Js.t Js.optdef -> unit Js.meth
+  method bindStore : _ Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth
+  method deselect : _ Js.t -> bool Js.t Js.optdef -> unit Js.meth
   method deselectAll : bool Js.t -> unit Js.meth
   method getCount : Js.number Js.t Js.meth
   method getLastSelected : unit Js.meth
   method getSelection : Ext_data_Model.t Js.js_array Js.t Js.meth
   method getSelectionMode : Js.js_string Js.t Js.meth
-  method getStoreListeners : 'a Js.t Js.meth
+  method getStoreListeners : _ Js.t Js.meth
   method hasSelection : bool Js.t Js.meth
   method isFocused : Ext_data_Model.t Js.t -> unit Js.meth
   method isLocked : bool Js.t Js.meth
-  method isSelected : 'a Js.t -> bool Js.t Js.meth
-  method select : 'a Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
+  method isSelected : _ Js.t -> bool Js.t Js.meth
+  method select : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
     unit Js.meth
   method selectAll : bool Js.t -> unit Js.meth
-  method selectRange : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> unit
+  method selectRange : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> unit
     Js.meth
   method setLastFocused : Ext_data_Model.t Js.t -> unit Js.meth
   method setLocked : bool Js.t -> unit Js.meth
@@ -47,9 +47,9 @@ object
   inherit Ext_util_Bindable.events
   
   method focuschange : (t Js.t -> Ext_data_Model.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method selectionchange : (t Js.t -> Ext_data_Model.t Js.js_array Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

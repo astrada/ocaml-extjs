@@ -37,14 +37,14 @@ links between the plugin and its client Component in their own implementation of
     }
     }
     *)
-  method startEdit : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method startEdit : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Starts editing the specified record, using the specified Column definition to define which field is being edited.</p> %}
     
     {b Parameters}:
-    {ul {- record: ['a Js.t]
+    {ul {- record: [_ Js.t]
     {% <p>The Store data record which backs the row to be edited, or index of the record in Store.</p> %}
     }
-    {- columnHeader: ['a Js.t]
+    {- columnHeader: [_ Js.t]
     {% <p>The Column object defining the column to be edited, or index of the column.</p> %}
     }
     }
@@ -83,14 +83,14 @@ object
   inherit Ext_AbstractPlugin.events
   inherit Ext_util_Observable.events
   
-  method beforeedit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method beforeedit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before editing is triggered. Return false from event handler to stop the editing.</p> %}
     
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: ['a Js.t]
+    {- e: [_ Js.t]
     {% <p>An edit event with the following properties:</p>
 
 <ul>
@@ -106,19 +106,19 @@ object
 <li>originalValue * Alias for value (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>).</li>
 </ul> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method canceledit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method canceledit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the user started editing but then cancelled the edit.</p> %}
     
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: ['a Js.t]
+    {- e: [_ Js.t]
     {% <p>An edit event with the following properties:</p>
 
 <ul>
@@ -134,12 +134,12 @@ object
 <li>store * The grid store</li>
 </ul> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method edit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method edit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after a editing. Usage example:</p>
 
@@ -152,7 +152,7 @@ object
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: ['a Js.t]
+    {- e: [_ Js.t]
     {% <p>An edit event with the following properties:</p>
 
 <ul>
@@ -171,12 +171,12 @@ object
 <li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
 </ul> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method validateedit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method validateedit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after editing, but before the value is set in the record. Return false from event handler to
 cancel the change.</p>
@@ -198,7 +198,7 @@ and then setting the field's new value in the Record directly:</p>
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: ['a Js.t]
+    {- e: [_ Js.t]
     {% <p>An edit event with the following properties:</p>
 
 <ul>
@@ -218,7 +218,7 @@ and then setting the field's new value in the Record directly:</p>
 <li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
 </ul> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

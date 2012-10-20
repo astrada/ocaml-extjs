@@ -156,7 +156,7 @@ object('self)
     }
     *)
   method getValues : bool Js.t Js.optdef -> bool Js.t Js.optdef ->
-    bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+    bool Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Convenience function for fetching the current value of each field in the form. This is the same as calling
 <a href="#!/api/Ext.form.Basic-method-getValues" rel="Ext.form.Basic-method-getValues" class="docClass">this.getForm().getValues()</a>.</p>
 
@@ -168,20 +168,20 @@ collects only String values for submission, while getFieldValues collects type-s
 values (e.g. Date objects for date fields.)</p> %}
     
     {b Parameters}:
-    {ul {- asString: [bool Js.t]
+    {ul {- asString: [bool Js.t] (optional)
     {% <p>If true, will return the key/value collection as a single
 URL-encoded param string.</p> %}
      Defaults to: false
     }
-    {- dirtyOnly: [bool Js.t]
+    {- dirtyOnly: [bool Js.t] (optional)
     {% <p>If true, only fields that are dirty will be included in the result.</p> %}
      Defaults to: false
     }
-    {- includeEmptyText: [bool Js.t]
+    {- includeEmptyText: [bool Js.t] (optional)
     {% <p>If true, the configured emptyText of empty fields will be used.</p> %}
      Defaults to: false
     }
-    {- useDataValues: [bool Js.t]
+    {- useDataValues: [bool Js.t] (optional)
     {% <p>If true, the <a href="#!/api/Ext.form.field.Field-method-getModelData" rel="Ext.form.field.Field-method-getModelData" class="docClass">getModelData</a>
 method is used to retrieve values from fields, otherwise the <a href="#!/api/Ext.form.field.Field-method-getSubmitData" rel="Ext.form.field.Field-method-getSubmitData" class="docClass">getSubmitData</a>
 method is used.</p> %}
@@ -220,11 +220,11 @@ instantiation of the class.</p>
 });
 </code></pre> %}
     *)
-  method load : 'a Js.t -> unit Js.meth
+  method load : _ Js.t -> unit Js.meth
   (** {% <p>This is a proxy for the underlying BasicForm's <a href="#!/api/Ext.form.Basic-method-load" rel="Ext.form.Basic-method-load" class="docClass">Ext.form.Basic.load</a> call.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-load" rel="Ext.form.Basic-method-load" class="docClass">Ext.form.Basic.load</a> and
 <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">Ext.form.Basic.doAction</a> for details)</p> %}
     }
@@ -259,11 +259,11 @@ values. This is normally started automatically by setting the <a href="#!/api/Ex
   method stopPolling : unit Js.meth
   (** {% <p>Stop a running interval task that was started by <a href="#!/api/Ext.form.Panel-method-startPolling" rel="Ext.form.Panel-method-startPolling" class="docClass">startPolling</a>.</p> %}
     *)
-  method submit : 'a Js.t -> unit Js.meth
+  method submit : _ Js.t -> unit Js.meth
   (** {% <p>This is a proxy for the underlying BasicForm's <a href="#!/api/Ext.form.Basic-method-submit" rel="Ext.form.Basic-method-submit" class="docClass">Ext.form.Basic.submit</a> call.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-submit" rel="Ext.form.Basic-method-submit" class="docClass">Ext.form.Basic.submit</a> and
 <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">Ext.form.Basic.doAction</a> for details)</p> %}
     }
@@ -321,7 +321,7 @@ object
   inherit Ext_form_FieldAncestor.events
   
   method actioncomplete : (Ext_form_Basic.t Js.t ->
-    Ext_form_action_Action.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when an action is completed.</p> %}
     
@@ -331,13 +331,13 @@ object
     {- action: [Ext_form_action_Action.t Js.t]
     {% <p>The <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> that completed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method actionfailed : (Ext_form_Basic.t Js.t ->
-    Ext_form_action_Action.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when an action fails.</p> %}
     
@@ -347,13 +347,13 @@ object
     {- action: [Ext_form_action_Action.t Js.t]
     {% <p>The <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> that failed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeaction : (Ext_form_Basic.t Js.t ->
-    Ext_form_action_Action.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before any action is performed. Return false to cancel the action.</p> %}
     
@@ -363,13 +363,13 @@ object
     {- action: [Ext_form_action_Action.t Js.t]
     {% <p>The <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> to be performed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method dirtychange : (Ext_form_Basic.t Js.t -> bool Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
+  method dirtychange : (Ext_form_Basic.t Js.t -> bool Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   (** {% <p>Fires when the dirty state of the entire form changes.</p> %}
     
     {b Parameters}:
@@ -378,12 +378,12 @@ object
     {- dirty: [bool Js.t]
     {% <p><code>true</code> if the form is now dirty, <code>false</code> if it is no longer dirty.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method validitychange : (Ext_form_Basic.t Js.t -> bool Js.t -> 'a Js.t ->
+  method validitychange : (Ext_form_Basic.t Js.t -> bool Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the validity of the entire form changes.</p> %}
     
@@ -393,7 +393,7 @@ object
     {- valid: [bool Js.t]
     {% <p><code>true</code> if the form is now valid, <code>false</code> if it is now invalid.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

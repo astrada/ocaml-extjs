@@ -38,7 +38,7 @@ this method.</p> %}
 
 <p>Plugin subclasses which need more complex processing may implement an overriding implementation.</p> %}
     *)
-  method init : 'a Js.t -> unit Js.meth
+  method init : _ Js.t -> unit Js.meth
   (** {% <p>The init method is invoked after initComponent method has been run for the client Component.</p>
 
 <p>The supplied implementation is empty. Subclasses should perform plugin initialization, and set up bidirectional

@@ -15,13 +15,13 @@ object('self)
   method getRemovedRecords : Ext_data_Model.t Js.js_array Js.t Js.meth
   method getUpdatedRecords : Ext_data_Model.t Js.js_array Js.t Js.meth
   method isLoading : bool Js.t Js.meth
-  method load : 'a Js.t Js.optdef -> 'self Js.t Js.meth
-  method reload : 'a Js.t -> unit Js.meth
+  method load : _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method reload : _ Js.t -> unit Js.meth
   method removeAll : unit Js.meth
   method resumeAutoSync : unit Js.meth
-  method setProxy : 'a Js.t -> #Ext_data_proxy_Proxy.t Js.t Js.meth
+  method setProxy : _ Js.t -> #Ext_data_proxy_Proxy.t Js.t Js.meth
   method suspendAutoSync : unit Js.meth
-  method sync : 'a Js.t Js.optdef -> 'self Js.t Js.meth
+  method sync : _ Js.t Js.optdef -> 'self Js.t Js.meth
   
 end
 
@@ -31,14 +31,14 @@ object('self)
   inherit Ext_util_Sortable.configs
   inherit Ext_util_Observable.configs
   
-  method autoLoad : 'a Js.t Js.prop
+  method autoLoad : _ Js.t Js.prop
   method autoSync : bool Js.t Js.prop
   method batchUpdateMode : Js.js_string Js.t Js.prop
-  method fields : 'a Js.t Js.js_array Js.t Js.prop
+  method fields : _ Js.t Js.js_array Js.t Js.prop
   method filterOnLoad : bool Js.t Js.prop
-  method filters : 'a Js.t Js.prop
+  method filters : _ Js.t Js.prop
   method model : Js.js_string Js.t Js.prop
-  method proxy : 'a Js.t Js.prop
+  method proxy : _ Js.t Js.prop
   method remoteFilter : bool Js.t Js.prop
   method remoteSort : bool Js.t Js.prop
   method sortOnLoad : bool Js.t Js.prop
@@ -53,25 +53,25 @@ object
   inherit Ext_util_Observable.events
   
   method add : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method beforeload : (t Js.t -> Ext_data_Operation.t Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
-  method beforesync : ('a Js.t -> 'b Js.t -> unit) Js.callback
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforeload : (t Js.t -> Ext_data_Operation.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
+  method beforesync : (_ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method clear : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method datachanged : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method clear : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method datachanged : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   method load : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> bool Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method metachange : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method metachange : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method refresh : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method refresh : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method remove : (t Js.t -> Ext_data_Model.t Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method update : (t Js.t -> Ext_data_Model.t Js.t -> Js.js_string Js.t ->
-    Js.js_string Js.t Js.js_array Js.t -> 'a Js.t -> unit) Js.callback
+    Js.js_string Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method write : (t Js.t -> Ext_data_Operation.t Js.t -> 'a Js.t -> unit)
+  method write : (t Js.t -> Ext_data_Operation.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   
 end
@@ -82,7 +82,7 @@ object
   inherit Ext_util_Sortable.statics
   inherit Ext_util_Observable.statics
   
-  method create_store : 'a Js.t -> 'self Js.t Js.meth
+  method create_store : _ Js.t -> 'self Js.t Js.meth
   
 end
 

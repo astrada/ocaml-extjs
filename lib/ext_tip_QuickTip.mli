@@ -17,11 +17,11 @@ object('self)
   inherit Ext_tip_Tip.t
   inherit Ext_tip_ToolTip.t
   
-  method cancelShow : 'a Js.t -> unit Js.meth
+  method cancelShow : _ Js.t -> unit Js.meth
   (** {% <p>Hides a visible tip or cancels an impending show for a particular element.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element that is the target of
 the tip or ID of the element.</p> %}
     }
@@ -60,22 +60,22 @@ instantiation of the class.</p>
 });
 </code></pre> %}
     *)
-  method register : 'a Js.t -> unit Js.meth
+  method register : _ Js.t -> unit Js.meth
   (** {% <p>Configures a new quick tip instance and assigns it to a target element.</p>
 
 <p>For example usage, see the <a href="#!/api/Ext.tip.QuickTipManager" rel="Ext.tip.QuickTipManager" class="docClass">Ext.tip.QuickTipManager</a> class header.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>The config object with the following properties:</p> %}
     }
     }
     *)
-  method unregister : 'a Js.t -> unit Js.meth
+  method unregister : _ Js.t -> unit Js.meth
   (** {% <p>Removes this quick tip from its element and destroys it.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The element from which the quick tip
 is to be removed or ID of the element.</p> %}
     }
@@ -104,7 +104,7 @@ object('self)
     
     Defaults to: [false]
     *)
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   (** {% <p>The target HTMLElement, <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> or id to associate with this Quicktip.</p>
 
 <p>Defaults to the document.</p> %}

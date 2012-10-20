@@ -8,7 +8,7 @@ object('self)
   method cancelEdit : unit Js.meth
   method completeEdit : unit Js.meth
   method init_component : #Ext_Component.t Js.t -> unit Js.meth
-  method startEdit : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method startEdit : _ Js.t -> _ Js.t -> unit Js.meth
   
 end
 
@@ -29,13 +29,13 @@ object
   inherit Ext_AbstractPlugin.events
   inherit Ext_util_Observable.events
   
-  method beforeedit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method beforeedit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method canceledit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method canceledit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method edit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method edit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method validateedit : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method validateedit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   
 end

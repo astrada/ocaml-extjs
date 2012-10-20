@@ -3,7 +3,7 @@ object('self)
   inherit Ext_Base.t
   
   method addChildEls : unit Js.meth
-  method removeChildEls : 'a Js.callback -> unit Js.meth
+  method removeChildEls : _ Js.callback -> unit Js.meth
   
 end
 

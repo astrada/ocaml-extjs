@@ -23,13 +23,13 @@ object
   inherit Ext_util_Observable.events
   inherit Ext_selection_Model.events
   
-  method beforedeselect : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
-  method beforeselect : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t -> unit)
+  method beforedeselect : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method deselect : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t -> unit)
+  method beforeselect : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method select : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t -> unit)
+  method deselect : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
+  method select : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   
 end

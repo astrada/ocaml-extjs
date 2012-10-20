@@ -2,10 +2,10 @@ class type t =
 object('self)
   
   method self : Ext_Class.t Js.t Js.prop
-  method callParent : 'a Js.t -> 'b Js.t Js.meth
-  method callSuper : 'a Js.t -> 'b Js.t Js.meth
-  method getInitialConfig : Js.js_string Js.t Js.optdef -> 'a Js.t Js.meth
-  method initConfig : 'a Js.t -> 'self Js.t Js.meth
+  method callParent : _ Js.t -> _ Js.t Js.meth
+  method callSuper : _ Js.t -> _ Js.t Js.meth
+  method getInitialConfig : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
+  method initConfig : _ Js.t -> 'self Js.t Js.meth
   method statics : Ext_Class.t Js.t Js.meth
   
 end
@@ -25,10 +25,10 @@ end
 class type statics =
 object
   
-  method addMembers : 'a Js.t -> unit Js.meth
-  method addStatics : 'a Js.t -> 'self Js.t Js.meth
-  method create : 'a Js.t Js.meth
-  method createAlias : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method addMembers : _ Js.t -> unit Js.meth
+  method addStatics : _ Js.t -> 'self Js.t Js.meth
+  method create : _ Js.t Js.meth
+  method createAlias : _ Js.t -> _ Js.t -> unit Js.meth
   method getName : Js.js_string Js.t Js.meth
   
 end

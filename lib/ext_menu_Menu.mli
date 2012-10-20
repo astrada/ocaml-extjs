@@ -79,19 +79,19 @@ object('self)
     }
     }
     *)
-  method canActivateItem : 'a Js.t -> bool Js.t Js.meth
+  method canActivateItem : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether a menu item can be activated or not.</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     }
     }
     *)
-  method deactivateActiveItem : 'a Js.t -> unit Js.meth
+  method deactivateActiveItem : _ Js.t -> unit Js.meth
   (** {% <p>Deactivates the current active item on the menu, if one exists.</p> %}
     
     {b Parameters}:
-    {ul {- andBlurFocusedItem: ['a Js.t]
+    {ul {- andBlurFocusedItem: [_ Js.t]
     }
     }
     *)
@@ -104,23 +104,23 @@ object('self)
     }
     }
     *)
-  method hide_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method hide_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>inherit docs</p>
 
 <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.menu.Menu-cfg-hideMode" rel="Ext.menu.Menu-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>A callback function to call after the Component is hidden.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> %}
     }
@@ -135,24 +135,24 @@ Defaults to this Component.</p> %}
   (** {% <p>Allows addition of behavior to the destroy operation.
 After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
     *)
-  method show_menu : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method show_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 
 <p>After being shown, a <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
 brought to the front of its <a href="#!/api/Ext.menu.Menu-property-zIndexManager" rel="Ext.menu.Menu-property-zIndexManager" class="docClass">z-index stack</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
      Defaults to: null
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>A callback function to call after the Component is displayed.
 Only necessary if animation was specified.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> %}
     }
@@ -163,19 +163,19 @@ Defaults to this Component.</p> %}
     }
     }
     *)
-  method showBy : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method showBy : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Shows the floating menu by the specified <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a>.</p> %}
     
     {b Parameters}:
-    {ul {- component: ['a Js.t]
+    {ul {- component: [_ Js.t]
     {% <p>The <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to show the menu by.</p> %}
     }
-    {- position: [Js.js_string Js.t]
+    {- position: [Js.js_string Js.t] (optional)
     {% <p>Alignment position as used by <a href="#!/api/Ext.dom.Element-method-getAlignToXY" rel="Ext.dom.Element-method-getAlignToXY" class="docClass">Ext.Element.getAlignToXY</a>.
 Defaults to <code><a href="#!/api/Ext.menu.Menu-cfg-defaultAlign" rel="Ext.menu.Menu-cfg-defaultAlign" class="docClass">defaultAlign</a></code>.</p> %}
     }
-    {- offsets: [Js.number Js.t Js.js_array Js.t]
+    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
     {% <p>Alignment offsets as used by <a href="#!/api/Ext.dom.Element-method-getAlignToXY" rel="Ext.dom.Element-method-getAlignToXY" class="docClass">Ext.Element.getAlignToXY</a>.</p> %}
     }
     }
@@ -285,7 +285,7 @@ object
   inherit Ext_panel_Panel.events
   
   method click : (t Js.t -> #Ext_Component.t Js.t -> Ext_EventObject.t Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when this menu is clicked</p> %}
     
     {b Parameters}:
@@ -298,12 +298,12 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The underlying <a href="#!/api/Ext.EventObject" rel="Ext.EventObject" class="docClass">Ext.EventObject</a>.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method mouseenter : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method mouseenter : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse enters this menu</p> %}
     
@@ -314,12 +314,12 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The underlying <a href="#!/api/Ext.EventObject" rel="Ext.EventObject" class="docClass">Ext.EventObject</a></p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method mouseleave : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t -> unit)
+  method mouseleave : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse leaves this menu</p> %}
     
@@ -330,13 +330,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The underlying <a href="#!/api/Ext.EventObject" rel="Ext.EventObject" class="docClass">Ext.EventObject</a></p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method mouseover : (t Js.t -> #Ext_Component.t Js.t ->
-    Ext_EventObject.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse is hovering over this menu</p> %}
     
     {b Parameters}:
@@ -349,7 +349,7 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The underlying <a href="#!/api/Ext.EventObject" rel="Ext.EventObject" class="docClass">Ext.EventObject</a></p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

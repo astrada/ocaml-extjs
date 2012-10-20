@@ -3,7 +3,7 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_ElementLoader.t
   
-  method setTarget : 'a Js.t -> unit Js.meth
+  method setTarget : _ Js.t -> unit Js.meth
   
 end
 
@@ -12,10 +12,10 @@ object('self)
   inherit Ext_Base.configs
   inherit Ext_ElementLoader.configs
   
-  method loadMask : 'a Js.t Js.prop
-  method renderer_2 : 'a Js.t Js.prop
+  method loadMask : _ Js.t Js.prop
+  method renderer_2 : _ Js.t Js.prop
   method scripts : bool Js.t Js.prop
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   
 end
 

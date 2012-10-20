@@ -3,20 +3,19 @@ object('self)
   inherit Ext_Base.t
   
   method isTemplate : bool Js.t Js.prop
-  method append : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method append : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
+  method apply : _ Js.t -> Js.js_string Js.t Js.meth
+  method applyOut : _ Js.t -> _ Js.js_array Js.t -> _ Js.js_array Js.t
     Js.meth
-  method apply : 'a Js.t -> Js.js_string Js.t Js.meth
-  method applyOut : 'a Js.t -> 'b Js.js_array Js.t -> 'c Js.js_array Js.t
-    Js.meth
-  method applyTemplate : 'a Js.t -> Js.js_string Js.t Js.meth
+  method applyTemplate : _ Js.t -> Js.js_string Js.t Js.meth
   method compile : 'self Js.t Js.meth
-  method insertAfter : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method insertAfter : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
-  method insertBefore : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method insertBefore : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
-  method insertFirst : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method insertFirst : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
-  method overwrite : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method overwrite : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method set : Js.js_string Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   
@@ -42,7 +41,7 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method from : 'a Js.t -> 'b Js.t Js.optdef -> 'self Js.t Js.meth
+  method from : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   
 end
 

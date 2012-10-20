@@ -69,7 +69,7 @@ extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-c
     }
     }
     *)
-  method afterHide : 'a Js.callback Js.optdef -> 'b Js.t Js.optdef -> unit
+  method afterHide : _ Js.callback Js.optdef -> _ Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>private</p>
 
@@ -78,9 +78,9 @@ extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-c
 <p>Gets passed the same <code>callback</code> and <code>scope</code> parameters that <a href="#!/api/Ext.window.Window-method-onHide" rel="Ext.window.Window-method-onHide" class="docClass">onHide</a> received.</p> %}
     
     {b Parameters}:
-    {ul {- callback: ['a Js.callback]
+    {ul {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
@@ -91,13 +91,13 @@ extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-c
 will have been styled according to the configuration, will have had any configured CSS class
 names added, and will be in the configured visibility and the configured enable state.</p> %}
     *)
-  method applyState : 'a Js.t -> unit Js.meth
+  method applyState : _ Js.t -> unit Js.meth
   (** {% <p>Applies the state to the object. This should be overridden in subclasses to do
 more complex state operations. By default it applies the state properties onto
 the current object.</p> %}
     
     {b Parameters}:
-    {ul {- state: ['a Js.t] {% <p>The state</p> %}
+    {ul {- state: [_ Js.t] {% <p>The state</p> %}
     }
     }
     *)
@@ -115,7 +115,7 @@ will prevent the containerLayout from being executed.</p> %}
 receive focus when the Window's <code>focus</code> method is called, otherwise the
 Window itself will receive focus.</p> %}
     *)
-  method getState : 'a Js.t Js.meth
+  method getState : _ Js.t Js.meth
   (** {% <p>State Management
 private</p>
 
@@ -202,8 +202,8 @@ call the parent class's method before attempting to access any child elements of
     }
     }
     *)
-  method onShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Allows addition of behavior to the show operation. After
 calling the superclass's onShow, the Component will be visible.</p>
 
@@ -212,11 +212,11 @@ calling the superclass's onShow, the Component will be visible.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.window.Window-event-show" rel="Ext.window.Window-event-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
@@ -257,8 +257,8 @@ object('self)
   method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.afterExpand] *)
-  method afterHide : ('self Js.t, 'a Js.callback Js.optdef ->
-    'b Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method afterHide : ('self Js.t, _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterHide] *)
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -275,10 +275,10 @@ object('self)
   method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onRender] *)
-  method onShow : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
-  method animateTarget : 'a Js.t Js.prop
+  method animateTarget : _ Js.t Js.prop
   (** {% <p>Id or element from which the window should animate while opening.</p> %}
     
     Defaults to: [null]
@@ -346,11 +346,11 @@ Optionally the entire window can be constrained using <a href="#!/api/Ext.window
     
     Defaults to: [false]
     *)
-  method constrainTo : 'a Js.t Js.prop
+  method constrainTo : _ Js.t Js.prop
   (** {% <p>A <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> (or an element from which a Region measurement will be read) which is used
 to constrain the window.</p> %}
     *)
-  method defaultFocus : 'a Js.t Js.prop
+  method defaultFocus : _ Js.t Js.prop
   (** {% <p>Specifies a Component to receive focus when this Window is focused.</p>
 
 <p>This may be one of:</p>
@@ -439,7 +439,7 @@ restricting access to other UI elements.</p> %}
     
     Defaults to: [false]
     *)
-  method onEsc : 'a Js.callback Js.prop
+  method onEsc : _ Js.callback Js.prop
   (** {% <p>Allows override of the built-in processing for the escape key. Default action is to close the Window (performing
 whatever action is specified in <a href="#!/api/Ext.window.Window-cfg-closeAction" rel="Ext.window.Window-cfg-closeAction" class="docClass">closeAction</a>. To prevent the Window closing when the escape key is
 pressed, specify this as <a href="#!/api/Ext-property-emptyFn" rel="Ext-property-emptyFn" class="docClass">Ext.emptyFn</a>.</p> %}
@@ -458,7 +458,7 @@ from the surrounding frame.</p> %}
     
     Defaults to: [false]
     *)
-  method resizable : 'a Js.t Js.prop
+  method resizable : _ Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to allow user resizing at each edge and corner of the window, false to disable resizing.</p>
 
 <p>This may also be specified as a config object to <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Ext.resizer.Resizer</a></p> %}
@@ -486,54 +486,54 @@ object
   inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
-  method activate_window : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method activate_window : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the window has been visually activated via <a href="#!/api/Ext.window.Window-method-setActive" rel="Ext.window.Window-method-setActive" class="docClass">setActive</a>.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_window_Window.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method deactivate_window : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method deactivate_window : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires after the window has been visually deactivated via <a href="#!/api/Ext.window.Window-method-setActive" rel="Ext.window.Window-method-setActive" class="docClass">setActive</a>.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_window_Window.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method maximize : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method maximize : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the window has been maximized.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_window_Window.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method minimize : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method minimize : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the window has been minimized.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_window_Window.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method resize_window : (t Js.t -> Js.number Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the window has been resized.</p> %}
     
     {b Parameters}:
@@ -545,18 +545,18 @@ object
     {- height: [Js.number Js.t]
     {% <p>The window's new height</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method restore : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method restore : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after the window has been restored to its original size after being maximized.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_window_Window.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

@@ -217,7 +217,7 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method animate : 'a Js.t -> 'b Js.t Js.meth
+  method animate : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Performs custom animation on this object.</p>
 
 <p>This method is applicable to both the <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> class and the <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Sprite</a>
@@ -275,32 +275,32 @@ size. If dynamic updating of the Window's child Components is required, then con
 <code>dynamic: true</code> and the two child items will maintain their proportions during the animation.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>Configuration for <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a>.
 Note that the <a href="#!/api/Ext.fx.Anim-cfg-to" rel="Ext.fx.Anim-cfg-to" class="docClass">to</a> config is required.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>this</p> %}
+    {ul {- [_ Js.t] {% <p>this</p> %}
     }
     }
     *)
-  method getActiveAnimation : 'a Js.t Js.meth
+  method getActiveAnimation : _ Js.t Js.meth
   (** {% <p>Returns the current animation if this object has any effects actively running or queued, else returns false.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>Anim if element has active effects, else false</p> %}
     }
     }
     *)
-  method sequenceFx : 'a Js.t Js.meth
+  method sequenceFx : _ Js.t Js.meth
   (** {% <p>Ensures that all effects queued after sequenceFx is called on this object are run in sequence. This is the
 opposite of <a href="#!/api/Ext.util.Animate-method-syncFx" rel="Ext.util.Animate-method-syncFx" class="docClass">syncFx</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>this</p> %}
+    {ul {- [_ Js.t] {% <p>this</p> %}
     }
     }
     *)
@@ -313,12 +313,12 @@ that haven't started yet.</p> %}
     }
     }
     *)
-  method syncFx : 'a Js.t Js.meth
+  method syncFx : _ Js.t Js.meth
   (** {% <p>Ensures that all effects queued after syncFx is called on this object are run concurrently. This is the opposite
 of <a href="#!/api/Ext.util.Animate-method-sequenceFx" rel="Ext.util.Animate-method-sequenceFx" class="docClass">sequenceFx</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>this</p> %}
+    {ul {- [_ Js.t] {% <p>this</p> %}
     }
     }
     *)

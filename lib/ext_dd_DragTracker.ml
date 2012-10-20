@@ -6,8 +6,8 @@ object('self)
   method active : bool Js.t Js.readonly_prop
   method dragTarget : Dom_html.element Js.t Js.readonly_prop
   method getDragTarget : Ext_dom_Element.t Js.t Js.meth
-  method getOffset : 'a Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
-  method initEl : 'a Js.t -> unit Js.meth
+  method getOffset : _ Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
+  method initEl : _ Js.t -> unit Js.meth
   method onBeforeStart : Ext_EventObject.t Js.t -> unit Js.meth
   method onDrag : Ext_EventObject.t Js.t -> unit Js.meth
   method onEnd : Ext_EventObject.t Js.t -> unit Js.meth
@@ -28,8 +28,8 @@ object('self)
     Js.meth_callback Js.writeonly_prop
   method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
-  method autoStart : 'a Js.t Js.prop
-  method constrainTo : 'a Js.t Js.prop
+  method autoStart : _ Js.t Js.prop
+  method constrainTo : _ Js.t Js.prop
   method delegate : Js.js_string Js.t Js.prop
   method overCls : Js.js_string Js.t Js.prop
   method preventDefault : bool Js.t Js.prop
@@ -44,23 +44,23 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method beforestart : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method beforestart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method drag : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method drag : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method dragend : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method dragend : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method dragstart : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method dragstart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method mousedown : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mousedown : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method mousemove : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mousemove : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method mouseout : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mouseout : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method mouseover : ('a Js.t -> 'b Js.t -> Dom_html.element Js.t -> 'c Js.t
-    -> unit) Js.callback Js.writeonly_prop
-  method mouseup : ('a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method mouseover : (_ Js.t -> _ Js.t -> Dom_html.element Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
+  method mouseup : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   
 end

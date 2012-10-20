@@ -3,9 +3,9 @@ object('self)
   inherit Ext_Base.t
   
   method clear : Js.js_string Js.t -> unit Js.meth
-  method get : Js.js_string Js.t -> 'a Js.t -> 'b Js.t Js.meth
+  method get : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   method getProvider : Ext_state_Provider.t Js.t Js.meth
-  method set : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method set : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   method setProvider : Ext_state_Provider.t Js.t -> unit Js.meth
   
 end

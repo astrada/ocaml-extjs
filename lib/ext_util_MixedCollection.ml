@@ -4,11 +4,11 @@ object('self)
   inherit Ext_util_AbstractMixedCollection.t
   inherit Ext_util_Sortable.t
   
-  method findInsertionIndex : 'a Js.t -> 'b Js.callback Js.optdef ->
+  method findInsertionIndex : _ Js.t -> _ Js.callback Js.optdef ->
     Js.number Js.t Js.meth
-  method reorder : 'a Js.t -> unit Js.meth
-  method sortBy : 'a Js.callback -> unit Js.meth
-  method sortByKey : Js.js_string Js.t Js.optdef -> 'a Js.callback Js.optdef
+  method reorder : _ Js.t -> unit Js.meth
+  method sortBy : _ Js.callback -> unit Js.meth
+  method sortByKey : Js.js_string Js.t Js.optdef -> _ Js.callback Js.optdef
     -> unit Js.meth
   
 end

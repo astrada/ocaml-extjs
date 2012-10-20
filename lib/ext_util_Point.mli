@@ -12,11 +12,11 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Region.t
   
-  method equals_point : 'a Js.t -> bool Js.t Js.meth
+  method equals_point : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Compare this point and another point</p> %}
     
     {b Parameters}:
-    {ul {- the: ['a Js.t]
+    {ul {- the: [_ Js.t]
     {% <p>point to compare with, either an instance
 of <a href="#!/api/Ext.util.Point" rel="Ext.util.Point" class="docClass">Ext.util.Point</a> or an object with left and top properties</p> %}
     }
@@ -27,25 +27,25 @@ of <a href="#!/api/Ext.util.Point" rel="Ext.util.Point" class="docClass">Ext.uti
     }
     }
     *)
-  method isWithin : 'a Js.t -> 'b Js.t -> bool Js.t Js.meth
+  method isWithin : _ Js.t -> _ Js.t -> bool Js.t Js.meth
   (** {% <p>Whether the given point is not away from this point within the given threshold amount.</p> %}
     
     {b Parameters}:
-    {ul {- p: ['a Js.t]
+    {ul {- p: [_ Js.t]
     {% <p>The point to check with, either an instance
 of <a href="#!/api/Ext.util.Point" rel="Ext.util.Point" class="docClass">Ext.util.Point</a> or an object with left and top properties</p> %}
     }
-    {- threshold: ['a Js.t]
+    {- threshold: [_ Js.t]
     {% <p>Can be either an object with x and y properties or a number</p> %}
     }
     }
     *)
-  method roundedEquals : 'a Js.t -> bool Js.t Js.meth
+  method roundedEquals : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Compare this point with another point when the x and y values of both points are rounded. E.g:
 [100.3,199.8] will equals to [100, 200]</p> %}
     
     {b Parameters}:
-    {ul {- p: ['a Js.t]
+    {ul {- p: [_ Js.t]
     {% <p>The point to compare with, either an instance
 of <a href="#!/api/Ext.util.Point" rel="Ext.util.Point" class="docClass">Ext.util.Point</a> or an object with x and y properties</p> %}
     }
@@ -55,14 +55,14 @@ of <a href="#!/api/Ext.util.Point" rel="Ext.util.Point" class="docClass">Ext.uti
   (** {% <p>Returns a human-eye-friendly string that represents this point,
 useful for debugging</p> %}
     *)
-  method translate : 'a Js.t -> Js.number Js.t -> Ext_util_Region.t Js.t
+  method translate : _ Js.t -> Js.number Js.t -> Ext_util_Region.t Js.t
     Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.util.Point-method-translateBy" rel="Ext.util.Point-method-translateBy" class="docClass">translateBy</a></p>
 
 <p>Translate this region by the given offset amount</p> %}
     
     {b Parameters}:
-    {ul {- x: ['a Js.t]
+    {ul {- x: [_ Js.t]
     {% <p>Object containing the <code>x</code> and <code>y</code> properties.
 Or the x value is using the two argument form.</p> %}
     }

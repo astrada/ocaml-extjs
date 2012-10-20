@@ -4,23 +4,23 @@ object('self)
   inherit Ext_layout_Layout.t
   inherit Ext_util_ElementContainer.t
   
-  method getScrollRangeFlags : 'a Js.t Js.prop
+  method getScrollRangeFlags : _ Js.t Js.prop
   method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
-  method beginLayout_obj : 'a Js.t -> unit Js.meth
+  method beginLayout_obj : _ Js.t -> unit Js.meth
   method beginLayoutCycle : Ext_layout_ContextItem.t Js.t -> unit Js.meth
-  method calculateOverflow : Ext_layout_ContextItem.t Js.t -> 'a Js.t ->
+  method calculateOverflow : Ext_layout_ContextItem.t Js.t -> _ Js.t ->
     Js.number Js.t -> unit Js.meth
   method completeLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth
-  method configureItem_obj : 'a Js.t -> unit Js.meth
-  method doRenderPadder : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method configureItem_obj : _ Js.t -> unit Js.meth
+  method doRenderPadder : _ Js.t -> _ Js.t -> unit Js.meth
   method getContainerSize : Ext_layout_ContextItem.t Js.t ->
-    bool Js.t Js.optdef -> 'a Js.t Js.meth
+    bool Js.t Js.optdef -> _ Js.t Js.meth
   method getElementTarget : Ext_dom_Element.t Js.t Js.meth
   method getLayoutItems : Ext_Component.t Js.js_array Js.t Js.meth
   method getRenderTarget : Ext_dom_Element.t Js.t Js.meth
-  method getRenderedItems : 'a Js.js_array Js.t Js.meth
+  method getRenderedItems : _ Js.js_array Js.t Js.meth
   method getTarget : Ext_dom_Element.t Js.t Js.meth
-  method getVisibleItems : 'a Js.js_array Js.t Js.meth
+  method getVisibleItems : _ Js.js_array Js.t Js.meth
   method initLayout : unit Js.meth
   
 end

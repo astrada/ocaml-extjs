@@ -106,13 +106,13 @@ object('self)
   method addChildEls : unit Js.meth
   (** {% <p>Adds each argument passed to this method to the <a href="#!/api/Ext.AbstractComponent-cfg-childEls" rel="Ext.AbstractComponent-cfg-childEls" class="docClass">childEls</a> array.</p> %}
     *)
-  method removeChildEls : 'a Js.callback -> unit Js.meth
+  method removeChildEls : _ Js.callback -> unit Js.meth
   (** {% <p>Removes items in the childEls array based on the return value of a supplied test
 function. The function is called with a entry in childEls and if the test function
 return true, that entry is removed. If false, that entry is kept.</p> %}
     
     {b Parameters}:
-    {ul {- testFn: ['a Js.callback] {% <p>The test function.</p> %}
+    {ul {- testFn: [_ Js.callback] {% <p>The test function.</p> %}
     }
     }
     *)

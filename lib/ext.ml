@@ -5,8 +5,8 @@ object('self)
   method _SSL_SECURE_URL : Js.js_string Js.t Js.prop
   method _USE_NATIVE_JSON : bool Js.t Js.prop
   method chromeVersion : Js.number Js.t Js.prop
-  method emptyFn : 'a Js.t Js.prop
-  method emptyString : 'a Js.t Js.prop
+  method emptyFn : _ Js.t Js.prop
+  method emptyString : _ Js.t Js.prop
   method enableFx : bool Js.t Js.prop
   method enableGarbageCollector : bool Js.t Js.prop
   method enableListenerCollection : bool Js.t Js.prop
@@ -52,98 +52,97 @@ object('self)
   method scopeResetCSS : bool Js.t Js.prop
   method useShims : bool Js.t Js.prop
   method webKitVersion : Js.number Js.t Js.prop
-  method addBehaviors : 'a Js.t -> unit Js.meth
-  method application : 'a Js.t -> unit Js.meth
-  method apply : 'a Js.t -> 'b Js.t -> 'c Js.t Js.optdef -> 'd Js.t Js.meth
-  method applyIf : 'a Js.t -> 'b Js.t -> 'c Js.t Js.meth
-  method batchLayouts : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
-  method bind : 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> 'd Js.t Js.optdef -> 'e Js.callback
+  method addBehaviors : _ Js.t -> unit Js.meth
+  method application : _ Js.t -> unit Js.meth
+  method apply : _ Js.t -> _ Js.t -> _ Js.t Js.optdef -> _ Js.t Js.meth
+  method applyIf : _ Js.t -> _ Js.t -> _ Js.t Js.meth
+  method batchLayouts : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  method bind : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.callback Js.meth
+  method callback : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth
+  method clone : _ Js.t -> _ Js.t Js.meth
+  method copyTo : _ Js.t -> _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
-  method callback : 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth
-  method clone : 'a Js.t -> 'b Js.t Js.meth
-  method copyTo : 'a Js.t -> 'b Js.t -> 'c Js.t -> bool Js.t Js.optdef ->
-    'd Js.t Js.meth
-  method create : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef -> 'b Js.t
+  method create : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
   method createByAlias : unit Js.meth
-  method decode : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method defer : 'a Js.callback -> Js.number Js.t -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> 'd Js.t Js.optdef -> Js.number Js.t
+  method decode : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
+  method defer : _ Js.callback -> Js.number Js.t -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef -> Js.number Js.t
     Js.meth
-  method define : Js.js_string Js.t -> 'a Js.t -> 'b Js.callback ->
+  method define : Js.js_string Js.t -> _ Js.t -> _ Js.callback ->
     #Ext_Base.t Js.t Js.meth
-  method deprecate : Js.js_string Js.t -> Js.js_string Js.t -> 'a Js.callback
-    -> 'b Js.t -> unit Js.meth
-  method destroy : 'a Js.t -> unit Js.meth
-  method destroyMembers : 'a Js.t -> Js.js_string Js.t -> unit Js.meth
-  method each : 'a Js.t -> 'b Js.callback -> 'c Js.t Js.optdef ->
+  method deprecate : Js.js_string Js.t -> Js.js_string Js.t -> _ Js.callback
+    -> _ Js.t -> unit Js.meth
+  method destroy : _ Js.t -> unit Js.meth
+  method destroyMembers : _ Js.t -> Js.js_string Js.t -> unit Js.meth
+  method each : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> bool Js.t Js.meth
-  method encode : 'a Js.t -> Js.js_string Js.t Js.meth
+  method encode : _ Js.t -> Js.js_string Js.t Js.meth
   method exclude : unit Js.meth
-  method fly : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method fly : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Ext_dom_AbstractElement_Fly.t Js.t Js.meth
-  method get : 'a Js.t -> Ext_dom_Element.t Js.t Js.meth
+  method get : _ Js.t -> Ext_dom_Element.t Js.t Js.meth
   method getBody : unit Js.meth
   method getClass : unit Js.meth
   method getClassName : unit Js.meth
   method getCmp : Js.js_string Js.t -> unit Js.meth
   method getDoc : unit Js.meth
-  method getDom : 'a Js.t -> unit Js.meth
+  method getDom : _ Js.t -> unit Js.meth
   method getHead : unit Js.meth
   method getOrientation : Js.js_string Js.t Js.meth
-  method getScrollbarSize : bool Js.t Js.optdef -> 'a Js.t Js.meth
-  method getStore : 'a Js.t -> Ext_data_Store.t Js.t Js.meth
+  method getScrollbarSize : bool Js.t Js.optdef -> _ Js.t Js.meth
+  method getStore : _ Js.t -> Ext_data_Store.t Js.t Js.meth
   method getVersion : Js.js_string Js.t Js.optdef -> Ext_Version.t Js.t
     Js.meth
-  method id : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
+  method id : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
     Js.js_string Js.t Js.meth
-  method isArray : 'a Js.t -> bool Js.t Js.meth
-  method isBoolean : 'a Js.t -> bool Js.t Js.meth
-  method isDate : 'a Js.t -> bool Js.t Js.meth
-  method isDefined : 'a Js.t -> bool Js.t Js.meth
-  method isElement : 'a Js.t -> bool Js.t Js.meth
-  method isEmpty : 'a Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth
-  method isFunction : 'a Js.t -> bool Js.t Js.meth
-  method isIterable : 'a Js.t -> bool Js.t Js.meth
-  method isNumber : 'a Js.t -> bool Js.t Js.meth
-  method isNumeric : 'a Js.t -> bool Js.t Js.meth
-  method isObject : 'a Js.t -> bool Js.t Js.meth
-  method isPrimitive : 'a Js.t -> bool Js.t Js.meth
-  method isString : 'a Js.t -> bool Js.t Js.meth
-  method isTextNode : 'a Js.t -> bool Js.t Js.meth
-  method iterate : 'a Js.t -> 'b Js.callback -> 'c Js.t Js.optdef -> unit
+  method isArray : _ Js.t -> bool Js.t Js.meth
+  method isBoolean : _ Js.t -> bool Js.t Js.meth
+  method isDate : _ Js.t -> bool Js.t Js.meth
+  method isDefined : _ Js.t -> bool Js.t Js.meth
+  method isElement : _ Js.t -> bool Js.t Js.meth
+  method isEmpty : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth
+  method isFunction : _ Js.t -> bool Js.t Js.meth
+  method isIterable : _ Js.t -> bool Js.t Js.meth
+  method isNumber : _ Js.t -> bool Js.t Js.meth
+  method isNumeric : _ Js.t -> bool Js.t Js.meth
+  method isObject : _ Js.t -> bool Js.t Js.meth
+  method isPrimitive : _ Js.t -> bool Js.t Js.meth
+  method isString : _ Js.t -> bool Js.t Js.meth
+  method isTextNode : _ Js.t -> bool Js.t Js.meth
+  method iterate : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit
     Js.meth
-  method log : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit
+  method log : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit
     Js.meth
-  method merge : 'a Js.t -> 'b Js.t -> 'c Js.t Js.meth
-  method namespace : Js.js_string Js.t -> 'a Js.t Js.meth
-  method ns : Js.js_string Js.t -> 'a Js.t Js.meth
+  method merge : _ Js.t -> _ Js.t -> _ Js.t Js.meth
+  method namespace : Js.js_string Js.t -> _ Js.t Js.meth
+  method ns : Js.js_string Js.t -> _ Js.t Js.meth
   method onDocumentReady : unit Js.meth
   method onReady : unit Js.meth
-  method override : 'a Js.t -> 'b Js.t -> unit Js.meth
-  method pass : 'a Js.callback -> 'b Js.js_array Js.t -> 'c Js.t Js.optdef ->
-    'd Js.callback Js.meth
-  method preg : Js.js_string Js.t -> 'a Js.callback -> unit Js.meth
+  method override : _ Js.t -> _ Js.t -> unit Js.meth
+  method pass : _ Js.callback -> _ Js.js_array Js.t -> _ Js.t Js.optdef ->
+    _ Js.callback Js.meth
+  method preg : Js.js_string Js.t -> _ Js.callback -> unit Js.meth
   method query : Js.js_string Js.t -> Dom_html.element Js.t Js.optdef ->
     Js.js_string Js.t Js.optdef -> Dom_html.element Js.t Js.js_array Js.t
     Js.meth
-  method regStore : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method regStore : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   method removeNode : Dom_html.element Js.t -> unit Js.meth
   method require : unit Js.meth
   method resumeLayouts : bool Js.t Js.optdef -> unit Js.meth
-  method select : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.optdef ->
-    'c Js.t Js.meth
-  method setVersion : Js.js_string Js.t -> 'a Js.t -> 'b Js.t Js.meth
+  method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
+    Js.meth
+  method setVersion : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   method suspendLayouts : unit Js.meth
   method syncRequire : unit Js.meth
-  method toArray : 'a Js.t -> Js.number Js.t Js.optdef ->
-    Js.number Js.t Js.optdef -> 'b Js.js_array Js.t Js.meth
-  method typeOf : 'a Js.t -> Js.js_string Js.t Js.meth
-  method valueFrom : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method toArray : _ Js.t -> Js.number Js.t Js.optdef ->
+    Js.number Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
+  method typeOf : _ Js.t -> Js.js_string Js.t Js.meth
+  method valueFrom : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
-  method widget : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef -> 'b Js.t
+  method widget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
   
 end

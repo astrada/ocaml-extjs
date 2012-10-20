@@ -137,7 +137,7 @@ object
   inherit Ext_Component.events
   inherit Ext_view_AbstractView.events
   
-  method beforecontainerclick : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t
+  method beforecontainerclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the click event on the container is processed. Returns false to cancel the default action.</p> %}
     
@@ -147,13 +147,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforecontainercontextmenu : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the contextmenu event on the container is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -162,13 +162,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforecontainerdblclick : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the dblclick event on the container is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -177,13 +177,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforecontainerkeydown : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecontainerkeydown : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
+    -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the keydown event on the container is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -192,13 +192,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object. Use <a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">getKey()</a> to retrieve the key that was pressed.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforecontainermousedown : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mousedown event on the container is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -207,13 +207,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforecontainermouseout : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mouseout event on the container is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -222,13 +222,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforecontainermouseover : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mouseover event on the container is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -237,13 +237,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforecontainermouseup : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecontainermouseup : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
+    -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mouseup event on the container is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -252,13 +252,13 @@ object
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforedeselect : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired before a record is deselected. If any listener returns false, the
 deselection is cancelled.</p> %}
     
@@ -268,14 +268,14 @@ deselection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The deselected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the click event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -293,14 +293,14 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemcontextmenu : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the contextmenu event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -318,14 +318,14 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemdblclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the dblclick event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -343,14 +343,14 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemkeydown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the keydown event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -368,14 +368,14 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object. Use <a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">getKey()</a> to retrieve the key that was pressed.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemmousedown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mousedown event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -393,14 +393,14 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemmouseenter : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mouseenter event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -418,14 +418,14 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemmouseleave : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mouseleave event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -443,14 +443,14 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeitemmouseup : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the mouseup event on an item is processed. Returns false to cancel the default action.</p> %}
     
     {b Parameters}:
@@ -468,13 +468,13 @@ deselection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method beforeselect : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired before a record is selected. If any listener returns false, the
 selection is cancelled.</p> %}
     
@@ -484,12 +484,12 @@ selection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The selected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method containerclick : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containerclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the container is clicked.</p> %}
     
@@ -499,12 +499,12 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method containercontextmenu : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t
+  method containercontextmenu : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the container is right clicked.</p> %}
     
@@ -514,12 +514,12 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method containerdblclick : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containerdblclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the container is double clicked.</p> %}
     
@@ -529,12 +529,12 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method containerkeydown : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containerkeydown : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a key is pressed while the container is focused, and no item is currently selected.</p> %}
     
@@ -544,12 +544,12 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object. Use <a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">getKey()</a> to retrieve the key that was pressed.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method containermouseout : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containermouseout : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when you move the mouse out of the container.</p> %}
     
@@ -559,12 +559,12 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method containermouseover : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containermouseover : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when you move the mouse over the container.</p> %}
     
@@ -574,12 +574,12 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method containermouseup : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containermouseup : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when there is a mouse up on the container</p> %}
     
@@ -589,13 +589,13 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method deselect : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired after a record is deselected</p> %}
     
     {b Parameters}:
@@ -604,14 +604,13 @@ selection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The deselected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method focuschange : (#Ext_selection_Model.t Js.t -> Ext_data_Model.t Js.t
-    -> Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback
-    Js.writeonly_prop
+    -> Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired when a row is focused</p> %}
     
     {b Parameters}:
@@ -623,13 +622,13 @@ selection is cancelled.</p> %}
     {- newFocused: [Ext_data_Model.t Js.t]
     {% <p>The newly focused record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method highlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
+  method highlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   (** {% <p>Fires when a node is highlighted using keyboard navigation, or mouseover.</p> %}
     
     {b Parameters}:
@@ -639,14 +638,14 @@ selection is cancelled.</p> %}
     {- node: [Ext_dom_Element.t Js.t]
     {% <p>The highlighted node.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an item is clicked.</p> %}
     
     {b Parameters}:
@@ -664,14 +663,14 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemcontextmenu : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an item is right clicked.</p> %}
     
     {b Parameters}:
@@ -689,14 +688,14 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemdblclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when an item is double clicked.</p> %}
     
     {b Parameters}:
@@ -714,14 +713,14 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemkeydown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a key is pressed while an item is currently selected.</p> %}
     
     {b Parameters}:
@@ -739,14 +738,14 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object. Use <a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">getKey()</a> to retrieve the key that was pressed.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemmousedown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when there is a mouse down on an item</p> %}
     
     {b Parameters}:
@@ -764,14 +763,14 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemmouseenter : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse enters an item.</p> %}
     
     {b Parameters}:
@@ -789,14 +788,14 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemmouseleave : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the mouse leaves an item.</p> %}
     
     {b Parameters}:
@@ -814,14 +813,14 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemmouseup : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when there is a mouse up on an item</p> %}
     
     {b Parameters}:
@@ -839,13 +838,13 @@ selection is cancelled.</p> %}
     {- e: [Ext_EventObject.t Js.t]
     {% <p>The raw event object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method select : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fired after a record is selected</p> %}
     
     {b Parameters}:
@@ -854,13 +853,13 @@ selection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The selected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method selectionchange : (#Ext_selection_Model.t Js.t ->
-    Ext_data_Model.t Js.js_array Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_data_Model.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fired after a selection change has occurred</p> %}
     
@@ -870,12 +869,12 @@ selection is cancelled.</p> %}
     {- selected: [Ext_data_Model.t Js.js_array Js.t]
     {% <p>The selected records</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method unhighlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> 'a Js.t ->
+  method unhighlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when a node is unhighlighted using keyboard navigation, or mouseout.</p> %}
     
@@ -886,7 +885,7 @@ selection is cancelled.</p> %}
     {- node: [Ext_dom_Element.t Js.t]
     {% <p>The previously highlighted node.</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

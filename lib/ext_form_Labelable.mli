@@ -83,11 +83,11 @@ Implementing subclasses may also use this as e.g. the id for their own input ele
     }
     }
     *)
-  method getLabelableRenderData : 'a Js.t Js.meth
+  method getLabelableRenderData : _ Js.t Js.meth
   (** {% <p>Generates the arguments for the field decorations <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" class="docClass">rendering template</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The template arguments</p> %}
+    {ul {- [_ Js.t] {% <p>The template arguments</p> %}
     }
     }
     *)
@@ -140,13 +140,13 @@ you'll have to call doComponentLayout to actually update the field's layout to m
     }
     }
     *)
-  method setFieldDefaults : 'a Js.t -> unit Js.meth
+  method setFieldDefaults : _ Js.t -> unit Js.meth
   (** {% <p>Applies a set of default configuration values to this Labelable instance. For each of the properties in the given
 object, check if this component hasOwnProperty that config; if not then it's inheriting a default value from its
 prototype and we should apply the default value.</p> %}
     
     {b Parameters}:
-    {ul {- defaults: ['a Js.t]
+    {ul {- defaults: [_ Js.t]
     {% <p>The defaults to apply to the object.</p> %}
     }
     }
@@ -188,28 +188,28 @@ object('self)
   (** {% <p>If specified, then the component will be displayed with this value as its active error when first rendered. Use
 <a href="#!/api/Ext.form.Labelable-method-setActiveError" rel="Ext.form.Labelable-method-setActiveError" class="docClass">setActiveError</a> or <a href="#!/api/Ext.form.Labelable-method-unsetActiveError" rel="Ext.form.Labelable-method-unsetActiveError" class="docClass">unsetActiveError</a> to change it after component creation.</p> %}
     *)
-  method activeErrorsTpl : 'a Js.t Js.prop
+  method activeErrorsTpl : _ Js.t Js.prop
   (** {% <p>The template used to format the Array of error messages passed to <a href="#!/api/Ext.form.Labelable-method-setActiveErrors" rel="Ext.form.Labelable-method-setActiveErrors" class="docClass">setActiveErrors</a> into a single HTML
 string. By default this renders each message as an item in an unordered list.</p> %}
     
     Defaults to: [['<tpl if="errors && errors.length">', '<ul><tpl for="errors"><li>{.}</li></tpl></ul>', '</tpl>']]
     *)
-  method afterBodyEl : 'a Js.t Js.prop
+  method afterBodyEl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 at the end of the input containing element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> %}
     *)
-  method afterLabelTextTpl : 'a Js.t Js.prop
+  method afterLabelTextTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 after the label text. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> %}
     *)
-  method afterLabelTpl : 'a Js.t Js.prop
+  method afterLabelTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 after the label element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> %}
     *)
-  method afterSubTpl : 'a Js.t Js.prop
+  method afterSubTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 after the <a href="#!/api/Ext.form.Labelable-method-getSubTplMarkup" rel="Ext.form.Labelable-method-getSubTplMarkup" class="docClass">subTpl markup</a>. If an <code>XTemplate</code> is used, the
 component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a> serves as the context.</p> %}
@@ -224,22 +224,22 @@ component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.Abstr
     
     Defaults to: [Ext.baseCSSPrefix + 'form-item-body']
     *)
-  method beforeBodyEl : 'a Js.t Js.prop
+  method beforeBodyEl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 at the beginning of the input containing element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> %}
     *)
-  method beforeLabelTextTpl : 'a Js.t Js.prop
+  method beforeLabelTextTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 before the label text. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> %}
     *)
-  method beforeLabelTpl : 'a Js.t Js.prop
+  method beforeLabelTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 before the label element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> %}
     *)
-  method beforeSubTpl : 'a Js.t Js.prop
+  method beforeSubTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 before the <a href="#!/api/Ext.form.Labelable-method-getSubTplMarkup" rel="Ext.form.Labelable-method-getSubTplMarkup" class="docClass">subTpl markup</a>. If an <code>XTemplate</code> is used, the
 component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a> serves as the context.</p> %}
@@ -304,7 +304,7 @@ Its width is determined by the <a href="#!/api/Ext.form.Labelable-cfg-labelWidth
     
     Defaults to: ['left']
     *)
-  method labelAttrTpl : 'a Js.t Js.prop
+  method labelAttrTpl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 inside the label element (as attributes). If an <code>XTemplate</code> is used, the component's
 <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a> serves as the context.</p> %}
@@ -369,7 +369,7 @@ class type events =
 object
   inherit Ext_Base.events
   
-  method errorchange : (t Js.t -> Js.js_string Js.t -> 'a Js.t -> unit)
+  method errorchange : (t Js.t -> Js.js_string Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fires when the active error message is changed via <a href="#!/api/Ext.form.Labelable-method-setActiveError" rel="Ext.form.Labelable-method-setActiveError" class="docClass">setActiveError</a>.</p> %}
     
@@ -379,7 +379,7 @@ object
     {- error: [Js.js_string Js.t]
     {% <p>The active error message</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

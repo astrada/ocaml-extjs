@@ -12,7 +12,7 @@ object('self)
   method anyMatch : bool Js.t Js.prop
   method caseSensitive : bool Js.t Js.prop
   method exactMatch : bool Js.t Js.prop
-  method filterFn : 'a Js.callback Js.prop
+  method filterFn : _ Js.callback Js.prop
   method property : Js.js_string Js.t Js.prop
   method root : Js.js_string Js.t Js.prop
   

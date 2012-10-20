@@ -31,8 +31,8 @@ object
   inherit Ext_util_Observable.events
   inherit Ext_selection_Model.events
   
-  method beforedeselect : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
+  method beforedeselect : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   (** {% <p>Fired before a record is deselected. If any listener returns false, the
 deselection is cancelled.</p> %}
     
@@ -42,12 +42,12 @@ deselection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The deselected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method beforeselect : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t -> unit)
+  method beforeselect : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fired before a record is selected. If any listener returns false, the
 selection is cancelled.</p> %}
@@ -58,12 +58,12 @@ selection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The selected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method deselect : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t -> unit)
+  method deselect : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fired after a record is deselected</p> %}
     
@@ -73,12 +73,12 @@ selection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The deselected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method select : (t Js.t -> Ext_data_Model.t Js.t -> 'a Js.t -> unit)
+  method select : (t Js.t -> Ext_data_Model.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fired after a record is selected</p> %}
     
@@ -88,7 +88,7 @@ selection is cancelled.</p> %}
     {- record: [Ext_data_Model.t Js.t]
     {% <p>The selected record</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

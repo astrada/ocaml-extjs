@@ -15,7 +15,7 @@ object('self)
     Js.js_string Js.t -> unit Js.meth
   method afterInvalidDrop : Dom_html.event Js.t -> Js.js_string Js.t -> unit
     Js.meth
-  method afterValidDrop : 'a Js.t -> Dom_html.event Js.t -> Js.js_string Js.t
+  method afterValidDrop : _ Js.t -> Dom_html.event Js.t -> Js.js_string Js.t
     -> unit Js.meth
   method alignElWithMouse : Dom_html.element Js.t -> Js.number Js.t ->
     Js.number Js.t -> unit Js.meth
@@ -31,14 +31,14 @@ object('self)
   method beforeInvalidDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t
     -> Js.js_string Js.t -> bool Js.t Js.meth
   method endDrag : Dom_html.event Js.t -> unit Js.meth
-  method getDragData : 'a Js.t -> 'b Js.t Js.meth
+  method getDragData : _ Js.t -> _ Js.t Js.meth
   method getProxy : Ext_dd_StatusProxy.t Js.t Js.meth
   method hideProxy : unit Js.meth
-  method onBeforeDrag : 'a Js.t -> Dom_html.event Js.t -> bool Js.t Js.meth
-  method onDragDrop : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
-  method onDragEnter : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
-  method onDragOut : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
-  method onDragOver : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onBeforeDrag : _ Js.t -> Dom_html.event Js.t -> bool Js.t Js.meth
+  method onDragDrop : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
+  method onDragEnter : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
+  method onDragOut : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
+  method onDragOver : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   method onInvalidDrop : Dom_html.event Js.t -> unit Js.meth
   method onStartDrag : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method startDrag : Js.number Js.t -> Js.number Js.t -> unit Js.meth
@@ -67,7 +67,7 @@ object('self)
   method beforeInvalidDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
     Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
     Js.writeonly_prop
-  method onBeforeDrag : ('self Js.t, 'a Js.t -> Dom_html.event Js.t ->
+  method onBeforeDrag : ('self Js.t, _ Js.t -> Dom_html.event Js.t ->
     bool Js.t) Js.meth_callback Js.writeonly_prop
   method onStartDrag : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
     Js.meth_callback Js.writeonly_prop

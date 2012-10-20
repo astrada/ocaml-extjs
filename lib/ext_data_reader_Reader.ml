@@ -3,11 +3,11 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Observable.t
   
-  method metaData : 'a Js.t Js.readonly_prop
-  method rawData : 'a Js.t Js.prop
-  method getResponseData : 'a Js.t -> Ext_data_ResultSet.t Js.t Js.meth
-  method read : 'a Js.t -> Ext_data_ResultSet.t Js.t Js.meth
-  method readRecords : 'a Js.t -> Ext_data_ResultSet.t Js.t Js.meth
+  method metaData : _ Js.t Js.readonly_prop
+  method rawData : _ Js.t Js.prop
+  method getResponseData : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
+  method read : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
+  method readRecords : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   
 end
 
@@ -32,7 +32,7 @@ object
   inherit Ext_util_Observable.events
   
   method _exception : (t Js.t -> XmlHttpRequest.xmlHttpRequest Js.t ->
-    Ext_data_ResultSet.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_data_ResultSet.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   
 end

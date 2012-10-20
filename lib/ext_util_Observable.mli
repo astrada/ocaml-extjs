@@ -43,7 +43,7 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method hasListeners : 'a Js.t Js.readonly_prop
+  method hasListeners : _ Js.t Js.readonly_prop
   (** {% <p>This object holds a key for any event that has a listener. The listener may be set
 directly on the instance, or on its class or a super class (via <a href="#!/api/Ext.util.Observable-static-method-observe" rel="Ext.util.Observable-static-method-observe" class="docClass">observe</a>) or
 on the <a href="#!/api/Ext.app.EventBus" rel="Ext.app.EventBus" class="docClass">MVC EventBus</a>. The values of this object are truthy
@@ -65,11 +65,11 @@ have to call fireEvent hundreds or thousands of times. It is used like this:</p>
     
     Defaults to: [true]
     *)
-  method addEvents : 'a Js.t -> unit Js.meth
+  method addEvents : _ Js.t -> unit Js.meth
   (** {% <p>Adds the specified events to the list of events which this Observable may fire.</p> %}
     
     {b Parameters}:
-    {ul {- eventNames: ['a Js.t]
+    {ul {- eventNames: [_ Js.t]
     {% <p>Either an object with event names as properties with
 a value of <code>true</code>. For example:</p>
 
@@ -86,8 +86,8 @@ a value of <code>true</code>. For example:</p>
     }
     }
     *)
-  method addListener : 'a Js.t -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> 'd Js.t Js.optdef -> unit Js.meth
+  method addListener : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Appends an event handler to this object.  For example:</p>
 
 <pre><code>myGridPanel.on("mouseover", this.onMouseOver, this);
@@ -122,20 +122,20 @@ containing properties which specify multiple events. For example:</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- eventName: ['a Js.t]
+    {ul {- eventName: [_ Js.t]
     {% <p>The name of the event to listen for.
 May also be an object who's property names are event names.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
 the specified <code>scope</code>.  Will be called with arguments
 given to <a href="#!/api/Ext.util.Observable-method-fireEvent" rel="Ext.util.Observable-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the handler function is
 executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>An object containing handler configuration.</p>
 
 
@@ -151,26 +151,26 @@ argument to every event handler.</p>
     }
     }
     *)
-  method addManagedListener : 'a Js.t -> 'b Js.t -> 'c Js.callback Js.optdef
-    -> 'd Js.t Js.optdef -> 'e Js.t Js.optdef -> unit Js.meth
+  method addManagedListener : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Adds listeners to any Observable object (or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>) which are automatically removed when this Component is
 destroyed.</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     {% <p>The item to which to add a listener/listeners.</p> %}
     }
-    {- ename: ['a Js.t]
+    {- ename: [_ Js.t]
     {% <p>The event name, or an object containing event name properties.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> %}
     }
-    {- opt: ['a Js.t]
+    {- opt: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> options.</p> %}
     }
@@ -182,7 +182,7 @@ in which the handler function is executed.</p> %}
   method clearManagedListeners : unit Js.meth
   (** {% <p>Removes all managed listeners for this object.</p> %}
     *)
-  method enableBubble : 'a Js.t -> unit Js.meth
+  method enableBubble : _ Js.t -> unit Js.meth
   (** {% <p>Enables events fired by this Observable to bubble up an owner hierarchy by calling <code>this.getBubbleTarget()</code> if
 present. There is no implementation in the Observable base class.</p>
 
@@ -223,12 +223,12 @@ var myForm = new Ext.formPanel({
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- eventNames: ['a Js.t]
+    {ul {- eventNames: [_ Js.t]
     {% <p>The event name to bubble, or an Array of event names.</p> %}
     }
     }
     *)
-  method fireEvent : Js.js_string Js.t -> 'a Js.t -> bool Js.t Js.meth
+  method fireEvent : Js.js_string Js.t -> _ Js.t -> bool Js.t Js.meth
   (** {% <p>Fires the specified event with the passed parameters (minus the event name, plus the <code>options</code> object passed
 to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a>).</p>
 
@@ -239,7 +239,7 @@ calling <a href="#!/api/Ext.util.Observable-method-enableBubble" rel="Ext.util.O
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The name of the event to fire.</p> %}
     }
-    {- args: ['a Js.t]
+    {- args: [_ Js.t]
     {% <p>Variable number of parameters are passed to handlers.</p> %}
     }
     }
@@ -266,57 +266,57 @@ indicates whether the event needs firing or not.</p> %}
     }
     }
     *)
-  method mon : 'a Js.t -> 'b Js.t -> 'c Js.callback Js.optdef ->
-    'd Js.t Js.optdef -> 'e Js.t Js.optdef -> unit Js.meth
+  method mon : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.util.Observable-method-addManagedListener" rel="Ext.util.Observable-method-addManagedListener" class="docClass">addManagedListener</a>.</p>
 
 <p>Adds listeners to any Observable object (or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>) which are automatically removed when this Component is
 destroyed.</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     {% <p>The item to which to add a listener/listeners.</p> %}
     }
-    {- ename: ['a Js.t]
+    {- ename: [_ Js.t]
     {% <p>The event name, or an object containing event name properties.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> %}
     }
-    {- opt: ['a Js.t]
+    {- opt: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> options.</p> %}
     }
     }
     *)
-  method mun : 'a Js.t -> 'b Js.t -> 'c Js.callback Js.optdef ->
-    'd Js.t Js.optdef -> unit Js.meth
+  method mun : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.util.Observable-method-removeManagedListener" rel="Ext.util.Observable-method-removeManagedListener" class="docClass">removeManagedListener</a>.</p>
 
 <p>Removes listeners that were added by the <a href="#!/api/Ext.util.Observable-method-mon" rel="Ext.util.Observable-method-mon" class="docClass">mon</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     {% <p>The item from which to remove a listener/listeners.</p> %}
     }
-    {- ename: ['a Js.t]
+    {- ename: [_ Js.t]
     {% <p>The event name, or an object containing event name properties.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> %}
     }
     }
     *)
-  method on : 'a Js.t -> 'b Js.callback Js.optdef -> 'c Js.t Js.optdef ->
-    'd Js.t Js.optdef -> unit Js.meth
+  method on : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a>.</p>
 
 <p>Appends an event handler to this object.  For example:</p>
@@ -353,20 +353,20 @@ containing properties which specify multiple events. For example:</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- eventName: ['a Js.t]
+    {ul {- eventName: [_ Js.t]
     {% <p>The name of the event to listen for.
 May also be an object who's property names are event names.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
 the specified <code>scope</code>.  Will be called with arguments
 given to <a href="#!/api/Ext.util.Observable-method-fireEvent" rel="Ext.util.Observable-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the handler function is
 executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> %}
     }
-    {- options: ['a Js.t]
+    {- options: [_ Js.t] (optional)
     {% <p>An object containing handler configuration.</p>
 
 
@@ -382,7 +382,7 @@ argument to every event handler.</p>
     }
     }
     *)
-  method relayEvents : 'a Js.t -> Js.js_string Js.t Js.js_array Js.t ->
+  method relayEvents : _ Js.t -> Js.js_string Js.t Js.js_array Js.t ->
     Js.js_string Js.t Js.optdef -> unit Js.meth
   (** {% <p>Relays selected events from the specified Observable as if the events were fired by <code>this</code>.</p>
 
@@ -397,13 +397,13 @@ parameters of the store's load event and any function fired with the grid's load
 would have access to the grid using the <code>this</code> keyword.</p> %}
     
     {b Parameters}:
-    {ul {- origin: ['a Js.t]
+    {ul {- origin: [_ Js.t]
     {% <p>The Observable whose events this object is to relay.</p> %}
     }
     {- events: [Js.js_string Js.t Js.js_array Js.t]
     {% <p>Array of event names to relay.</p> %}
     }
-    {- prefix: [Js.js_string Js.t]
+    {- prefix: [Js.js_string Js.t] (optional)
     {% <p>A common prefix to prepend to the event names. For example:</p>
 
 <pre><code>this.relayEvents(this.getStore(), ['load', 'clear'], 'store');
@@ -413,39 +413,39 @@ would have access to the grid using the <code>this</code> keyword.</p> %}
     }
     }
     *)
-  method removeListener : Js.js_string Js.t -> 'a Js.callback ->
-    'b Js.t Js.optdef -> unit Js.meth
+  method removeListener : Js.js_string Js.t -> _ Js.callback ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Removes an event handler.</p> %}
     
     {b Parameters}:
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The type of event the handler was associated with.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The handler to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> call.</strong></p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope originally specified for the handler. It must be the same as the
 scope argument specified in the original call to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> or the listener will not be removed.</p> %}
     }
     }
     *)
-  method removeManagedListener : 'a Js.t -> 'b Js.t ->
-    'c Js.callback Js.optdef -> 'd Js.t Js.optdef -> unit Js.meth
+  method removeManagedListener : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Removes listeners that were added by the <a href="#!/api/Ext.util.Observable-method-mon" rel="Ext.util.Observable-method-mon" class="docClass">mon</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     {% <p>The item from which to remove a listener/listeners.</p> %}
     }
-    {- ename: ['a Js.t]
+    {- ename: [_ Js.t]
     {% <p>The event name, or an object containing event name properties.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> %}
     }
@@ -467,8 +467,8 @@ after the <a href="#!/api/Ext.util.Observable-method-resumeEvents" rel="Ext.util
     }
     }
     *)
-  method un : Js.js_string Js.t -> 'a Js.callback -> 'b Js.t Js.optdef ->
-    unit Js.meth
+  method un : Js.js_string Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit
+    Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.util.Observable-method-removeListener" rel="Ext.util.Observable-method-removeListener" class="docClass">removeListener</a>.</p>
 
 <p>Removes an event handler.</p> %}
@@ -477,11 +477,11 @@ after the <a href="#!/api/Ext.util.Observable-method-resumeEvents" rel="Ext.util
     {ul {- eventName: [Js.js_string Js.t]
     {% <p>The type of event the handler was associated with.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The handler to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> call.</strong></p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope originally specified for the handler. It must be the same as the
 scope argument specified in the original call to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> or the listener will not be removed.</p> %}
     }
@@ -494,7 +494,7 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method listeners : 'a Js.t Js.prop
+  method listeners : _ Js.t Js.prop
   (** {% <p>A config object containing one or more event handlers to be added to this object during initialization. This
 should be a valid listeners config object as specified in the <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> example for attaching multiple
 handlers at once.</p>
@@ -539,7 +539,7 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method capture : 'self Js.t -> 'a Js.callback -> 'b Js.t Js.optdef -> unit
+  method capture : 'self Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>Starts capture on the specified Observable. All events will be passed to the supplied function with the event
 name + standard signature of the event <strong>before</strong> the event is fired. If the supplied function returns false,
@@ -549,16 +549,16 @@ the event will not fire.</p> %}
     {ul {- o: [Ext_util_Observable.t Js.t]
     {% <p>The Observable to capture events from.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The function to call when an event is fired.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the function is executed. Defaults to
 the Observable firing the event.</p> %}
     }
     }
     *)
-  method observe : 'a Js.callback -> 'b Js.t -> unit Js.meth
+  method observe : _ Js.callback -> _ Js.t -> unit Js.meth
   (** {% <p>Sets observability on the passed class constructor.</p>
 
 <p>This makes any event fired on any instance of the passed class also fire a single event through
@@ -573,10 +573,10 @@ the <strong>class</strong> allowing for central handling of events on many insta
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- c: ['a Js.callback]
+    {ul {- c: [_ Js.callback]
     {% <p>The class constructor to make observable.</p> %}
     }
-    {- listeners: ['a Js.t]
+    {- listeners: [_ Js.t]
     {% <p>An object containing a series of listeners to add. See <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a>.</p> %}
     }
     }
@@ -596,10 +596,10 @@ end
 val static : statics Js.t
 (** Static instance. *)
 
-val capture : 'self Js.t -> 'a Js.callback -> 'b Js.t Js.optdef -> unit
+val capture : 'self Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit
 (** See method [statics.capture] *)
 
-val observe : 'a Js.callback -> 'b Js.t -> unit
+val observe : _ Js.callback -> _ Js.t -> unit
 (** See method [statics.observe] *)
 
 val releaseCapture : 'self Js.t -> unit

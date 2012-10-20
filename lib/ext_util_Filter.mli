@@ -60,7 +60,7 @@ object('self)
     
     Defaults to: [false]
     *)
-  method filterFn : 'a Js.callback Js.prop
+  method filterFn : _ Js.callback Js.prop
   (** {% <p>A custom filter function which is passed each item in the <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a> in turn. Should return
 true to accept each item or false to reject it</p> %}
     *)

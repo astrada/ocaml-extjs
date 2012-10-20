@@ -3,13 +3,13 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Observable.t
   
-  method addStateEvents : 'a Js.t -> unit Js.meth
-  method applyState : 'a Js.t -> unit Js.meth
+  method addStateEvents : _ Js.t -> unit Js.meth
+  method applyState : _ Js.t -> unit Js.meth
   method destroy : unit Js.meth
-  method getState : 'a Js.t Js.meth
-  method savePropToState : Js.js_string Js.t -> 'a Js.t ->
+  method getState : _ Js.t Js.meth
+  method savePropToState : Js.js_string Js.t -> _ Js.t ->
     Js.js_string Js.t Js.optdef -> bool Js.t Js.meth
-  method savePropsToState : 'a Js.t -> 'b Js.t -> 'c Js.t Js.meth
+  method savePropsToState : _ Js.t -> _ Js.t -> _ Js.t Js.meth
   method saveState : unit Js.meth
   
 end
@@ -31,13 +31,13 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method beforestaterestore : (t Js.t -> 'a Js.t -> 'b Js.t -> unit)
+  method beforestaterestore : (t Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method beforestatesave : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method beforestatesave : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method staterestore : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method staterestore : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method statesave : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method statesave : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   
 end

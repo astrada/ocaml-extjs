@@ -11,7 +11,7 @@ object('self)
   
   method action : Js.js_string Js.t Js.prop
   method _method : Js.js_string Js.t Js.prop
-  method params : 'a Js.t Js.prop
+  method params : _ Js.t Js.prop
   method url : Js.js_string Js.t Js.prop
   
 end

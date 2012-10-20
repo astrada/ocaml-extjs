@@ -25,7 +25,7 @@ names added, and will be in the configured visibility and the configured enable 
     }
     *)
   method collectData : Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
-    'a Js.t Js.js_array Js.t Js.meth
+    _ Js.t Js.js_array Js.t Js.meth
   (** {% <p>Function which can be overridden which returns the data object passed to this
 DataView's <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.AbstractView-cfg-tpl" class="docClass">template</a> to render the whole DataView.</p>
 
@@ -45,17 +45,17 @@ provide non-repeating data such as headings, totals etc.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t Js.js_array Js.t]
+    {ul {- [_ Js.t Js.js_array Js.t]
     {% <p>An Array of data objects to be processed by a repeating XTemplate. May also
 contain <i>named</i> properties.</p> %}
     }
     }
     *)
-  method deselect : 'a Js.t -> bool Js.t -> unit Js.meth
+  method deselect : _ Js.t -> bool Js.t -> unit Js.meth
   (** {% <p>Deselects a record instance by record instance or index.</p> %}
     
     {b Parameters}:
-    {ul {- records: ['a Js.t]
+    {ul {- records: [_ Js.t]
     {% <p>An array of records or an index</p> %}
     }
     {- suppressEvent: [bool Js.t]
@@ -85,11 +85,11 @@ contain <i>named</i> properties.</p> %}
     }
     }
     *)
-  method getNode : 'a Js.t -> Dom_html.element Js.t Js.meth
+  method getNode : _ Js.t -> Dom_html.element Js.t Js.meth
   (** {% <p>Gets a template node.</p> %}
     
     {b Parameters}:
-    {ul {- nodeInfo: ['a Js.t]
+    {ul {- nodeInfo: [_ Js.t]
     {% <p>An HTMLElement template node, index of a template node,
 the id of a template node or the record associated with the node.</p> %}
     }
@@ -106,10 +106,10 @@ the id of a template node or the record associated with the node.</p> %}
   (** {% <p>Gets a range nodes.</p> %}
     
     {b Parameters}:
-    {ul {- start: [Js.number Js.t]
+    {ul {- start: [Js.number Js.t] (optional)
     {% <p>The index of the first node in the range</p> %}
     }
-    {- _end: [Js.number Js.t]
+    {- _end: [Js.number Js.t] (optional)
     {% <p>The index of the last node in the range</p> %}
     }
     }
@@ -120,11 +120,11 @@ the id of a template node or the record associated with the node.</p> %}
     }
     }
     *)
-  method getRecord : 'a Js.t -> Ext_data_Model.t Js.t Js.meth
+  method getRecord : _ Js.t -> Ext_data_Model.t Js.t Js.meth
   (** {% <p>Gets a record from a node</p> %}
     
     {b Parameters}:
-    {ul {- node: ['a Js.t]
+    {ul {- node: [_ Js.t]
     {% <p>The node to evaluate</p> %}
     }
     }
@@ -176,21 +176,21 @@ the id of a template node or the record associated with the node.</p> %}
     }
     }
     *)
-  method getStoreListeners : 'a Js.t Js.meth
+  method getStoreListeners : _ Js.t Js.meth
   (** {% <p>Gets the listeners to bind to a new store.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The listeners to be bound to the store in object literal form. The scope
 may be omitted, it is assumed to be the current instance.</p> %}
     }
     }
     *)
-  method indexOf : 'a Js.t -> Js.number Js.t Js.meth
+  method indexOf : _ Js.t -> Js.number Js.t Js.meth
   (** {% <p>Finds the index of the passed node.</p> %}
     
     {b Parameters}:
-    {ul {- nodeInfo: ['a Js.t]
+    {ul {- nodeInfo: [_ Js.t]
     {% <p>An HTMLElement template node, index of a template node, the id of a template node
 or a record associated with a node.</p> %}
     }
@@ -234,11 +234,11 @@ instantiation of the class.</p>
 });
 </code></pre> %}
     *)
-  method isSelected : 'a Js.t -> bool Js.t Js.meth
+  method isSelected : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed node is selected, else false.</p> %}
     
     {b Parameters}:
-    {ul {- node: ['a Js.t]
+    {ul {- node: [_ Js.t]
     {% <p>The node, node index or record to check</p> %}
     }
     }
@@ -298,13 +298,13 @@ from the current instance.</p> %}
     }
     }
     *)
-  method prepareData : 'a Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
-    'b Js.t Js.meth
+  method prepareData : _ Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
+    _ Js.t Js.meth
   (** {% <p>Function which can be overridden to provide custom formatting for each Record that is used by this
 DataView's <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.AbstractView-cfg-tpl" class="docClass">template</a> to render each node.</p> %}
     
     {b Parameters}:
-    {ul {- data: ['a Js.t]
+    {ul {- data: [_ Js.t]
     {% <p>The raw data object that was used to create the Record.</p> %}
     }
     {- recordIndex: [Js.number Js.t]
@@ -316,7 +316,7 @@ DataView's <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.Abstract
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The formatted data in a format expected by the internal <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.AbstractView-cfg-tpl" class="docClass">template</a>'s overwrite() method.
 (either an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'}))</p> %}
     }
@@ -404,11 +404,11 @@ the <a href="#!/api/Ext.view.AbstractView-cfg-deferEmptyText" rel="Ext.view.Abst
 working with. The itemSelector is used to map DOM nodes to records. As such, there should
 only be one root level element that matches the selector for each record.</p> %}
     *)
-  method itemTpl : 'a Js.t Js.prop
+  method itemTpl : _ Js.t Js.prop
   (** {% <p>The inner portion of the item template to be rendered. Follows an XTemplate
 structure and will be placed inside of a tpl.</p> %}
     *)
-  method loadMask : 'a Js.t Js.prop
+  method loadMask : _ Js.t Js.prop
   (** {% <p>False to disable a load mask from displaying while the view is loading. This can also be a
 <a href="#!/api/Ext.LoadMask" rel="Ext.LoadMask" class="docClass">Ext.LoadMask</a> configuration object.</p> %}
     
@@ -451,7 +451,7 @@ is completely ignored.</p> %}
   method store : Ext_data_Store.t Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a> to bind this DataView to.</p> %}
     *)
-  method tpl : 'a Js.t Js.prop
+  method tpl : _ Js.t Js.prop
   (** {% <p>The HTML fragment or an array of fragments that will make up the template used by this DataView.  This should
 be specified in the same format expected by the constructor of <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a>.</p> %}
     *)
@@ -474,7 +474,7 @@ object
   inherit Ext_Component.events
   inherit Ext_util_Bindable.events
   
-  method beforerefresh : (t Js.t -> 'a Js.t -> unit) Js.callback
+  method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires before the view is refreshed</p> %}
     
@@ -482,13 +482,13 @@ object
     {ul {- this: [Ext_view_View.t Js.t]
     {% <p>The DataView object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemadd : (Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
-    Dom_html.element Js.t Js.js_array Js.t -> 'a Js.t -> unit) Js.callback
+    Dom_html.element Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the nodes associated with an recordset have been added to the underlying store</p> %}
     
@@ -502,12 +502,12 @@ object
     {- node: [Dom_html.element Js.t Js.js_array Js.t]
     {% <p>The node that has just been updated</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method itemremove : (Ext_data_Model.t Js.t -> Js.number Js.t -> 'a Js.t ->
+  method itemremove : (Ext_data_Model.t Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the node associated with an individual record is removed</p> %}
     
@@ -518,13 +518,13 @@ object
     {- index: [Js.number Js.t]
     {% <p>The index of the record/node</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
   method itemupdate : (Ext_data_Model.t Js.t -> Js.number Js.t ->
-    Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the node associated with an individual record is updated</p> %}
     
     {b Parameters}:
@@ -537,25 +537,24 @@ object
     {- node: [Dom_html.element Js.t]
     {% <p>The node that has just been updated</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method refresh : (t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method refresh : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the view is refreshed</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_view_View.t Js.t]
     {% <p>The DataView object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method viewready : (t Js.t -> 'a Js.t -> unit) Js.callback
-    Js.writeonly_prop
+  method viewready : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the View's item elements representing Store items has been rendered. If the <a href="#!/api/Ext.view.AbstractView-cfg-deferInitialRefresh" rel="Ext.view.AbstractView-cfg-deferInitialRefresh" class="docClass">deferInitialRefresh</a> flag
 was set (and it is <code>true</code> by default), this will be <b>after</b> initial render, and no items will be available
 for selection until this event fires.</p> %}
@@ -563,7 +562,7 @@ for selection until this event fires.</p> %}
     {b Parameters}:
     {ul {- this: [Ext_view_View.t Js.t]
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

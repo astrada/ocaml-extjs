@@ -9,16 +9,16 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method convert : 'a Js.callback Js.prop
+  method convert : _ Js.callback Js.prop
   method dateFormat : Js.js_string Js.t Js.prop
-  method defaultValue : 'a Js.t Js.prop
-  method mapping : 'a Js.t Js.prop
+  method defaultValue : _ Js.t Js.prop
+  method mapping : _ Js.t Js.prop
   method name : Js.js_string Js.t Js.prop
   method persist : bool Js.t Js.prop
-  method serialize : 'a Js.callback Js.prop
+  method serialize : _ Js.callback Js.prop
   method sortDir : Js.js_string Js.t Js.prop
-  method sortType : 'a Js.callback Js.prop
-  method _type : 'a Js.t Js.prop
+  method sortType : _ Js.callback Js.prop
+  method _type : _ Js.t Js.prop
   method useNull : bool Js.t Js.prop
   
 end

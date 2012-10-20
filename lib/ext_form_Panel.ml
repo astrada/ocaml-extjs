@@ -14,13 +14,13 @@ object('self)
   method getForm : Ext_form_Basic.t Js.t Js.meth
   method getRecord : Ext_data_Model.t Js.t Js.meth
   method getValues : bool Js.t Js.optdef -> bool Js.t Js.optdef ->
-    bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+    bool Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t Js.meth
   method initComponent : unit Js.meth
-  method load : 'a Js.t -> unit Js.meth
+  method load : _ Js.t -> unit Js.meth
   method loadRecord : Ext_data_Model.t Js.t -> Ext_form_Basic.t Js.t Js.meth
   method startPolling : Js.number Js.t -> unit Js.meth
   method stopPolling : unit Js.meth
-  method submit : 'a Js.t -> unit Js.meth
+  method submit : _ Js.t -> unit Js.meth
   
 end
 
@@ -57,17 +57,17 @@ object
   inherit Ext_form_FieldAncestor.events
   
   method actioncomplete : (Ext_form_Basic.t Js.t ->
-    Ext_form_action_Action.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   method actionfailed : (Ext_form_Basic.t Js.t ->
-    Ext_form_action_Action.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   method beforeaction : (Ext_form_Basic.t Js.t ->
-    Ext_form_action_Action.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method dirtychange : (Ext_form_Basic.t Js.t -> bool Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
-  method validitychange : (Ext_form_Basic.t Js.t -> bool Js.t -> 'a Js.t ->
+  method dirtychange : (Ext_form_Basic.t Js.t -> bool Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
+  method validitychange : (Ext_form_Basic.t Js.t -> bool Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   
 end

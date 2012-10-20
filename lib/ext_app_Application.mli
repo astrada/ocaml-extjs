@@ -69,7 +69,7 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_app_Controller.t
   
-  method control : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method control : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Adds listeners to components selected via <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a>. Accepts an
 object containing component paths mapped to a hash of listener functions.</p>
 
@@ -94,11 +94,11 @@ event on a button component, which is a child of the <code>useredit</code> compo
 <p>See <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> for more information on component selectors.</p> %}
     
     {b Parameters}:
-    {ul {- selectors: ['a Js.t]
+    {ul {- selectors: [_ Js.t]
     {% <p>If a String, the second argument is used as the
 listeners, otherwise an object of selectors -> listeners is assumed</p> %}
     }
-    {- listeners: ['a Js.t]
+    {- listeners: [_ Js.t]
     }
     }
     *)
@@ -215,11 +215,11 @@ in the <a href="#!/api/Ext.app.Application-cfg-name" rel="Ext.app.Application-cf
   (** {% <p>The name of your application. This will also be the namespace for your views, controllers
 models and stores. Don't use spaces or special characters in the name.</p> %}
     *)
-  method paths : 'a Js.t Js.prop
+  method paths : _ Js.t Js.prop
   (** {% <p>Additional load paths to add to <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a>.
 See <a href="#!/api/Ext.Loader-cfg-paths" rel="Ext.Loader-cfg-paths" class="docClass">Ext.Loader.paths</a> config for more details.</p> %}
     *)
-  method scope : 'a Js.t Js.prop
+  method scope : _ Js.t Js.prop
   (** {% <p>The scope to execute the <a href="#!/api/Ext.app.Application-method-launch" rel="Ext.app.Application-method-launch" class="docClass">launch</a> function in. Defaults to the Application instance.</p> %}
     *)
   

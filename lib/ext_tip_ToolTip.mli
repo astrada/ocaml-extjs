@@ -176,8 +176,8 @@ After calling the superclass’s onDestroy, the Component will be destroyed.</p>
 <p>Allows addition of behavior to the disable operation.
 After calling the superclass’s onDisable, the Component will be disabled.</p> %}
     *)
-  method onHide : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>private</p>
 
 <p>Possibly animates down to a target element.</p>
@@ -188,11 +188,11 @@ calling the superclass’s onHide, the Component will be hidden.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-event-hide" rel="Ext.tip.ToolTip-event-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
@@ -216,8 +216,8 @@ call the parent class's method before attempting to access any child elements of
     }
     }
     *)
-  method onShow : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> unit Js.meth
+  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>private</p>
 
 <p>Allows addition of behavior to the show operation. After
@@ -228,19 +228,19 @@ calling the superclass's onShow, the Component will be visible.</p>
 <p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-event-show" rel="Ext.tip.ToolTip-event-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
     *)
-  method setTarget : 'a Js.t -> unit Js.meth
+  method setTarget : _ Js.t -> unit Js.meth
   (** {% <p>Binds this ToolTip to the specified element. The tooltip will be displayed when the mouse moves over the element.</p> %}
     
     {b Parameters}:
-    {ul {- t: ['a Js.t]
+    {ul {- t: [_ Js.t]
     {% <p>The Element, HtmlElement, or ID of an element to bind to</p> %}
     }
     }
@@ -289,14 +289,14 @@ object('self)
   method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onDisable] *)
-  method onHide : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onHide] *)
   method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onRender] *)
-  method onShow : ('self Js.t, 'a Js.t Js.optdef -> 'b Js.callback Js.optdef
-    -> 'c Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
   method anchor : Js.js_string Js.t Js.prop
   (** {% <p>If specified, indicates that the tip should be anchored to a
@@ -363,7 +363,7 @@ Set to 0 for the tooltip to hide immediately.</p> %}
     
     Defaults to: [500]
     *)
-  method target : 'a Js.t Js.prop
+  method target : _ Js.t Js.prop
   (** {% <p>The target element or string id to monitor for mouseover events to trigger
 showing this ToolTip.</p> %}
     *)

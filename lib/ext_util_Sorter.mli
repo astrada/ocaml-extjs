@@ -72,11 +72,11 @@ object('self)
   method toggle : unit Js.meth
   (** {% <p>Toggles the sorting direction for this sorter.</p> %}
     *)
-  method updateSortFunction : 'a Js.callback Js.optdef -> unit Js.meth
+  method updateSortFunction : _ Js.callback Js.optdef -> unit Js.meth
   (** {% <p>Update the sort function for this sorter.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback] (optional)
     {% <p>A new sorter function for this sorter. If not specified it will use the default
 sorting function.</p> %}
     }
@@ -102,7 +102,7 @@ directly and compared for sorting using the built in comparison operators.</p> %
   (** {% <p>Optional root property. This is mostly useful when sorting a Store, in which case we set the root to 'data' to
 make the filter pull the <a href="#!/api/Ext.util.Sorter-cfg-property" rel="Ext.util.Sorter-cfg-property" class="docClass">property</a> out of the data object of each item</p> %}
     *)
-  method sorterFn : 'a Js.callback Js.prop
+  method sorterFn : _ Js.callback Js.prop
   (** {% <p>A specific sorter function to execute. Can be passed instead of <a href="#!/api/Ext.util.Sorter-cfg-property" rel="Ext.util.Sorter-cfg-property" class="docClass">property</a>. This sorter function allows
 for any kind of custom/complex comparisons. The sorterFn receives two arguments, the objects being compared. The
 function should return:</p>
@@ -113,7 +113,7 @@ function should return:</p>
 <li>1 if o1 is "greater than" o2</li>
 </ul> %}
     *)
-  method transform : 'a Js.callback Js.prop
+  method transform : _ Js.callback Js.prop
   (** {% <p>A function that will be run on each value before it is compared in the sorter. The function will receive a single
 argument, the value.</p> %}
     *)

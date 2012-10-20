@@ -510,34 +510,34 @@ In Mac this will also be true when meta key was down.</p> %}
     }
     }
     *)
-  method getRelatedTarget : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef
+  method getRelatedTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef
     -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
   (** {% <p>Gets the related target.</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>A simple selector to filter the target or look for an ancestor of the target</p> %}
     }
-    {- maxDepth: ['a Js.t]
+    {- maxDepth: [_ Js.t] (optional)
     {% <p>The max depth to search as a number or element (defaults to 10 || document.body)</p> %}
     }
-    {- returnEl: [bool Js.t]
+    {- returnEl: [bool Js.t] (optional)
     {% <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> %}
     }
     }
     *)
-  method getTarget : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef ->
+  method getTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
   (** {% <p>Gets the target for the event.</p> %}
     
     {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t]
+    {ul {- selector: [Js.js_string Js.t] (optional)
     {% <p>A simple selector to filter the target or look for an ancestor of the target</p> %}
     }
-    {- maxDepth: ['a Js.t]
+    {- maxDepth: [_ Js.t] (optional)
     {% <p>The max depth to search as a number or element (defaults to 10 || document.body)</p> %}
     }
-    {- returnEl: [bool Js.t]
+    {- returnEl: [bool Js.t] (optional)
     {% <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> %}
     }
     }
@@ -551,11 +551,11 @@ In Mac this will also be true when meta key was down.</p> %}
     }
     }
     *)
-  method getWheelDeltas : 'a Js.t Js.meth
+  method getWheelDeltas : _ Js.t Js.meth
   (** {% <p>Returns the mouse wheel deltas for this event.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object with "x" and "y" properties holding the mouse wheel deltas.</p> %}
     }
     }
@@ -578,7 +578,7 @@ In Mac this will also be true when meta key was down.</p> %}
   method hasModifier : bool Js.t Js.meth
   (** {% <p>Returns true if the control, meta, shift or alt key was pressed during this event.</p> %}
     *)
-  method injectEvent : 'a Js.t Js.optdef -> unit Js.meth
+  method injectEvent : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Injects a DOM event using the data in this object and (optionally) a new target.
 This is a low-level technique and not likely to be used by application code. The
 currently supported event types are:</p>
@@ -624,7 +624,7 @@ currently supported event types are:</p>
 </ul> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t] (optional)
     {% <p>If specified, the target for the event. This
 is likely to be used when relaying a DOM event. If not specified, <a href="#!/api/Ext.EventObject-method-getTarget" rel="Ext.EventObject-method-getTarget" class="docClass">getTarget</a>
 is used to determine the target.</p> %}
@@ -658,7 +658,7 @@ is used to determine the target.</p> %}
   method stopPropagation : unit Js.meth
   (** {% <p>Cancels bubbling of the event.</p> %}
     *)
-  method within : 'a Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
+  method within : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
     bool Js.t Js.meth
   (** {% <p>Returns true if the target of this event is a child of el.  Unless the allowEl parameter is set, it will return false if if the target is el.
 Example usage:</p>
@@ -679,13 +679,13 @@ Example usage:</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The id, DOM element or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to check</p> %}
     }
-    {- related: [bool Js.t]
+    {- related: [bool Js.t] (optional)
     {% <p>true to test if the related target is within el instead of the target</p> %}
     }
-    {- allowEl: [bool Js.t]
+    {- allowEl: [bool Js.t] (optional)
     {% <p>true to also check if the passed element is the target or related target</p> %}
     }
     }

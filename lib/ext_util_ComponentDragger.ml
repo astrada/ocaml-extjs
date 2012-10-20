@@ -22,7 +22,7 @@ object('self)
     Js.meth_callback Js.writeonly_prop
   method constrain : bool Js.t Js.prop
   method constrainDelegate : bool Js.t Js.prop
-  method delegate_element : 'a Js.t Js.prop
+  method delegate_element : _ Js.t Js.prop
   
 end
 

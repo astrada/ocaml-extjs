@@ -157,16 +157,16 @@ then include it on top of your application.</p>
 class type t =
 object('self)
   
-  method history : 'a Js.js_array Js.t Js.prop
+  method history : _ Js.js_array Js.t Js.prop
   (** {% <p>An array of class names to keep track of the dependency loading order.
 This is not guaranteed to be the same everytime due to the asynchronous
 nature of the Loader.</p> %}
     *)
-  method addClassPathMappings : 'a Js.t -> 'self Js.t Js.meth
+  method addClassPathMappings : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets a batch of path entries</p> %}
     
     {b Parameters}:
-    {ul {- paths: ['a Js.t]
+    {ul {- paths: [_ Js.t]
     {% <p>a set of className: path mappings</p> %}
     }
     }
@@ -176,7 +176,7 @@ nature of the Loader.</p> %}
     }
     }
     *)
-  method exclude : 'a Js.js_array Js.t -> 'b Js.t Js.meth
+  method exclude : _ Js.js_array Js.t -> _ Js.t Js.meth
   (** {% <p>Explicitly exclude files from being loaded. Useful when used in conjunction with a broad include expression.
 Can be chained with more <code>require</code> and <code>exclude</code> methods, eg:</p>
 
@@ -186,17 +186,17 @@ Can be chained with more <code>require</code> and <code>exclude</code> methods, 
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- excludes: ['a Js.js_array Js.t]
+    {ul {- excludes: [_ Js.js_array Js.t]
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>object contains <code>require</code> method for chaining</p> %}
     }
     }
     *)
-  method getConfig : Js.js_string Js.t -> 'a Js.t Js.meth
+  method getConfig : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Get the config value corresponding to the specified name. If no name is given, will return the config object</p> %}
     
     {b Parameters}:
@@ -241,26 +241,26 @@ alert(<a href="#!/api/Ext.Loader-method-getPath" rel="Ext.Loader-method-getPath"
     }
     }
     *)
-  method loadScript : 'a Js.t -> unit Js.meth
+  method loadScript : _ Js.t -> unit Js.meth
   (** {% <p>Loads the specified script URL and calls the supplied callbacks. If this method
 is called before <a href="#!/api/Ext-property-isReady" rel="Ext-property-isReady" class="docClass">Ext.isReady</a>, the script's load will delay the transition
 to ready. This can be used to load arbitrary scripts that may contain further
 <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a> calls.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>The options object or simply the URL to load.</p> %}
     }
     }
     *)
-  method onReady : 'a Js.callback -> 'b Js.t -> bool Js.t -> unit Js.meth
+  method onReady : _ Js.callback -> _ Js.t -> bool Js.t -> unit Js.meth
   (** {% <p>Add a new listener to be executed when all required scripts are fully loaded</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function callback to be executed</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>The execution scope (<code>this</code>) of the callback function</p> %}
     }
     {- withDomReady: [bool Js.t]
@@ -268,27 +268,27 @@ to ready. This can be used to load arbitrary scripts that may contain further
     }
     }
     *)
-  method require : 'a Js.t -> 'b Js.callback Js.optdef -> 'c Js.t Js.optdef
-    -> 'd Js.t Js.optdef -> unit Js.meth
+  method require : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Loads all classes by the given names and all their direct dependencies; optionally executes the given callback function when
 finishes, within the optional scope. This method is aliased by <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a> for convenience</p> %}
     
     {b Parameters}:
-    {ul {- expressions: ['a Js.t]
+    {ul {- expressions: [_ Js.t]
     {% <p>Can either be a string or an array of string</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The callback function</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The execution scope (<code>this</code>) of the callback function</p> %}
     }
-    {- excludes: ['a Js.t]
+    {- excludes: [_ Js.t] (optional)
     {% <p>Classes to be excluded, useful when being used with expressions</p> %}
     }
     }
     *)
-  method setConfig : 'a Js.t -> 'self Js.t Js.meth
+  method setConfig : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Set the configuration for the loader. This should be called right after ext-(debug).js
 is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>. i.e:</p>
 
@@ -313,7 +313,7 @@ is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext
 <p>Refer to config options of <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> for the list of possible properties</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     {% <p>The config object to override the default values</p> %}
     }
     }
@@ -323,7 +323,7 @@ is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext
     }
     }
     *)
-  method setPath : 'a Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
+  method setPath : _ Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets the path of a namespace.
 For Example:</p>
 
@@ -331,7 +331,7 @@ For Example:</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- name: ['a Js.t]
+    {ul {- name: [_ Js.t]
     {% <p>See <a href="#!/api/Ext.Function-method-flexSetter" rel="Ext.Function-method-flexSetter" class="docClass">flexSetter</a></p> %}
     }
     {- path: [Js.js_string Js.t]
@@ -344,21 +344,21 @@ For Example:</p>
     }
     }
     *)
-  method syncRequire : 'a Js.t -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> 'd Js.t Js.optdef -> unit Js.meth
+  method syncRequire : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Synchronously loads all classes by the given names and all their direct dependencies; optionally executes the given callback function when finishes, within the optional scope. This method is aliased by <a href="#!/api/Ext-method-syncRequire" rel="Ext-method-syncRequire" class="docClass">Ext.syncRequire</a> for convenience</p> %}
     
     {b Parameters}:
-    {ul {- expressions: ['a Js.t]
+    {ul {- expressions: [_ Js.t]
     {% <p>Can either be a string or an array of string</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback] (optional)
     {% <p>The callback function</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The execution scope (<code>this</code>) of the callback function</p> %}
     }
-    {- excludes: ['a Js.t]
+    {- excludes: [_ Js.t] (optional)
     {% <p>Classes to be excluded, useful when being used with expressions</p> %}
     }
     }
@@ -390,7 +390,7 @@ if <a href="#!/api/Ext.Loader-cfg-preserveScripts" rel="Ext.Loader-cfg-preserveS
     
     Defaults to: [false]
     *)
-  method paths : 'a Js.t Js.prop
+  method paths : _ Js.t Js.prop
   (** {% <p>The mapping from namespaces to file paths</p>
 
 <pre><code>{

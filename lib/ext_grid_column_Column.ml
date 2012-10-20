@@ -14,21 +14,20 @@ object('self)
     Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method afterRender : unit Js.meth
   method defaultRenderer : unit Js.meth
-  method getEditor : 'a Js.t -> 'b Js.t -> #Ext_form_field_Field.t Js.t
-    Js.meth
+  method getEditor : _ Js.t -> _ Js.t -> #Ext_form_field_Field.t Js.t Js.meth
   method getIndex : Js.number Js.t Js.meth
   method getSortParam : Js.js_string Js.t Js.meth
   method getVisibleIndex : Js.number Js.t Js.meth
-  method hide_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method hide_column : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   method initComponent : unit Js.meth
   method onAdd : #Ext_Component.t Js.t -> Js.number Js.t -> unit Js.meth
   method onDestroy : unit Js.meth
   method onRemove : #Ext_Component.t Js.t -> bool Js.t -> unit Js.meth
-  method setEditor : 'a Js.t -> unit Js.meth
+  method setEditor : _ Js.t -> unit Js.meth
   method setText : Js.js_string Js.t -> unit Js.meth
-  method show_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method show_column : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   
 end
 
@@ -58,12 +57,12 @@ object('self)
     Js.meth_callback Js.writeonly_prop
   method align : Js.js_string Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
-  method columns : 'a Js.t Js.js_array Js.t Js.prop
+  method columns : _ Js.t Js.js_array Js.t Js.prop
   method componentLayout_str : Js.js_string Js.t Js.prop
   method dataIndex : Js.js_string Js.t Js.prop
   method draggable : bool Js.t Js.prop
-  method editRenderer : 'a Js.callback Js.prop
-  method editor : 'a Js.t Js.prop
+  method editRenderer : _ Js.callback Js.prop
+  method editor : _ Js.t Js.prop
   method emptyCellText : Js.js_string Js.t Js.prop
   method groupable : bool Js.t Js.prop
   method hideable : bool Js.t Js.prop
@@ -71,9 +70,9 @@ object('self)
   method menuDisabled : bool Js.t Js.prop
   method menuText : Js.js_string Js.t Js.prop
   method renderTpl_str : Js.js_string Js.t Js.prop
-  method renderer : 'a Js.t Js.prop
+  method renderer : _ Js.t Js.prop
   method resizable_bool : bool Js.t Js.prop
-  method scope : 'a Js.t Js.prop
+  method scope : _ Js.t Js.prop
   method sortable : bool Js.t Js.prop
   method stateId : Js.js_string Js.t Js.prop
   method tdCls : Js.js_string Js.t Js.prop

@@ -8,8 +8,8 @@ object('self)
     Js.number Js.t -> unit Js.meth
   method applyConfig : unit Js.meth
   method autoOffset : Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  method b4Drag : 'a Js.t -> unit Js.meth
-  method b4MouseDown : 'a Js.t -> unit Js.meth
+  method b4Drag : _ Js.t -> unit Js.meth
+  method b4MouseDown : _ Js.t -> unit Js.meth
   method cachePosition : Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef
     -> unit Js.meth
   method setDelta : Js.number Js.t -> Js.number Js.t -> unit Js.meth

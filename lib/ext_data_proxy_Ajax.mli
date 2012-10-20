@@ -211,7 +211,7 @@ object('self)
   inherit Ext_data_proxy_Proxy.t
   inherit Ext_data_proxy_Server.t
   
-  method actionMethods : 'a Js.t Js.prop
+  method actionMethods : _ Js.t Js.prop
   (** {% <p>Mapping of action name to HTTP request method. In the basic AjaxProxy these are set to 'GET' for 'read' actions
 and 'POST' for 'create', 'update' and 'destroy' actions. The <a href="#!/api/Ext.data.proxy.Rest" rel="Ext.data.proxy.Rest" class="docClass">Ext.data.proxy.Rest</a> maps these to the
 correct RESTful methods.</p> %}
@@ -243,7 +243,7 @@ object('self)
   inherit Ext_data_proxy_Proxy.configs
   inherit Ext_data_proxy_Server.configs
   
-  method headers : 'a Js.t Js.prop
+  method headers : _ Js.t Js.prop
   (** {% <p>Any headers to add to the Ajax request. Defaults to undefined.</p> %}
     *)
   

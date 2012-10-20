@@ -34,101 +34,100 @@ object
   inherit Ext_Component.events
   inherit Ext_view_AbstractView.events
   
-  method beforecontainerclick : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t
+  method beforecontainerclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
   method beforecontainercontextmenu : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforecontainerdblclick : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method beforecontainerkeydown : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecontainerkeydown : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
+    -> unit) Js.callback Js.writeonly_prop
   method beforecontainermousedown : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforecontainermouseout : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforecontainermouseover : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method beforecontainermouseup : (t Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecontainermouseup : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
+    -> unit) Js.callback Js.writeonly_prop
   method beforedeselect : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemcontextmenu : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemdblclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemkeydown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemmousedown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemmouseenter : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemmouseleave : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeitemmouseup : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeselect : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method containerclick : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method containerclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method containercontextmenu : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t
+  method containercontextmenu : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
-  method containerdblclick : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containerdblclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method containerkeydown : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containerkeydown : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method containermouseout : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containermouseout : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method containermouseover : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containermouseover : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  method containermouseup : (t Js.t -> Ext_EventObject.t Js.t -> 'a Js.t ->
+  method containermouseup : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   method deselect : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method focuschange : (#Ext_selection_Model.t Js.t -> Ext_data_Model.t Js.t
-    -> Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback
-    Js.writeonly_prop
-  method highlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> 'a Js.t ->
-    unit) Js.callback Js.writeonly_prop
+    -> Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method highlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   method itemclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemcontextmenu : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemdblclick : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemkeydown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemmousedown : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemmouseenter : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemmouseleave : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemmouseup : (t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method select : (Ext_selection_DataViewModel.t Js.t ->
-    Ext_data_Model.t Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method selectionchange : (#Ext_selection_Model.t Js.t ->
-    Ext_data_Model.t Js.js_array Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_data_Model.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method unhighlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> 'a Js.t ->
+  method unhighlightitem : (t Js.t -> Ext_dom_Element.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
   
 end

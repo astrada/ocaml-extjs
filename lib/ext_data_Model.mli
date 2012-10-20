@@ -238,7 +238,7 @@ property to specify by name of index, how to extract a field's value from a raw 
     
     Defaults to: [true]
     *)
-  method modified : 'a Js.t Js.prop
+  method modified : _ Js.t Js.prop
   (** {% <p>Key: value pairs of all fields whose values have changed</p> %}
     *)
   method phantom : bool Js.t Js.prop
@@ -247,15 +247,15 @@ Any record which has a real database pk set as its id property is NOT a phantom 
     
     Defaults to: [false]
     *)
-  method raw : 'a Js.t Js.prop
+  method raw : _ Js.t Js.prop
   (** {% <p>The raw data used to create this model if created via a reader.</p> %}
     *)
-  method store : 'a Js.t Js.prop
+  method store : _ Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> to which this instance belongs. NOTE: If this
 instance is bound to multiple stores, this property will reference only the
 first. To examine all the stores, use the <a href="#!/api/Ext.data.Model-property-stores" rel="Ext.data.Model-property-stores" class="docClass">stores</a> property instead.</p> %}
     *)
-  method stores : 'a Js.js_array Js.t Js.prop
+  method stores : _ Js.js_array Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Stores</a> to which this instance is bound.</p> %}
     *)
   method beginEdit : unit Js.meth
@@ -273,7 +273,7 @@ instance since either creation or the last commit operation.</p>
 operations.</p> %}
     
     {b Parameters}:
-    {ul {- silent: [bool Js.t]
+    {ul {- silent: [bool Js.t] (optional)
     {% <p>True to skip notification of the owning store of the change.
 Defaults to false.</p> %}
     }
@@ -283,7 +283,7 @@ Defaults to false.</p> %}
   (** {% <p>Creates a copy (clone) of this Model instance.</p> %}
     
     {b Parameters}:
-    {ul {- id: [Js.js_string Js.t]
+    {ul {- id: [Js.js_string Js.t] (optional)
     {% <p>A new id, defaults to the id of the instance being copied.
 See <code><a href="#!/api/Ext.data.Model-static-method-id" rel="Ext.data.Model-static-method-id" class="docClass">id</a></code>. To generate a phantom instance with a new id use:</p>
 
@@ -293,11 +293,11 @@ See <code><a href="#!/api/Ext.data.Model-static-method-id" rel="Ext.data.Model-s
     }
     }
     *)
-  method destroy : 'a Js.t -> 'self Js.t Js.meth
+  method destroy : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Destroys the model using the configured proxy.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>Options to pass to the proxy. Config object for <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>.</p> %}
     }
     }
@@ -321,7 +321,7 @@ fire).</p> %}
     }
     }
     *)
-  method get : Js.js_string Js.t -> 'a Js.t Js.meth
+  method get : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Returns the value of the given field</p> %}
     
     {b Parameters}:
@@ -331,11 +331,11 @@ fire).</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The value</p> %}
+    {ul {- [_ Js.t] {% <p>The value</p> %}
     }
     }
     *)
-  method getAssociatedData : 'a Js.t Js.meth
+  method getAssociatedData : _ Js.t Js.meth
   (** {% <p>Gets all of the data from this Models <em>loaded</em> associations. It does this recursively - for example if we have a
 User which hasMany Orders, and each Order hasMany OrderItems, it will return an object like this:</p>
 
@@ -353,15 +353,15 @@ User which hasMany Orders, and each Order hasMany OrderItems, it will return an 
 </code></pre> %}
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The nested data set for the Model's loaded associations</p> %}
     }
     }
     *)
-  method getChanges : 'a Js.t Js.meth
+  method getChanges : _ Js.t Js.meth
   (** {% <p>Gets a hash of only the fields that have been modified since this Model was created or commited.</p> %}
     *)
-  method getData : bool Js.t -> 'a Js.t Js.meth
+  method getData : bool Js.t -> _ Js.t Js.meth
   (** {% <p>Gets all values for each field in this model and returns an object
 containing the current data.</p> %}
     
@@ -372,20 +372,20 @@ containing the current data.</p> %}
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>An object hash containing all the values in this model</p> %}
     }
     }
     *)
-  method getId : 'a Js.t Js.meth
+  method getId : _ Js.t Js.meth
   (** {% <p>Returns the unique ID allocated to this model instance as defined by <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a>.</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The id</p> %}
+    {ul {- [_ Js.t] {% <p>The id</p> %}
     }
     }
     *)
-  method getProxy : 'a Js.t Js.meth
+  method getProxy : _ Js.t Js.meth
   (** {% <p>Returns the configured Proxy for this Model.</p> %}
     
     {b Returns}:
@@ -410,7 +410,7 @@ containing the current data.</p> %}
     }
     }
     *)
-  method join : 'a Js.t -> unit Js.meth
+  method join : _ Js.t -> unit Js.meth
   (** {% <p>Tells this model instance that it has been added to a store.</p> %}
     
     {b Parameters}:
@@ -428,17 +428,17 @@ reverted to their original values.</p>
 operations.</p> %}
     
     {b Parameters}:
-    {ul {- silent: [bool Js.t]
+    {ul {- silent: [bool Js.t] (optional)
     {% <p>True to skip notification of the owning store of the change.
 Defaults to false.</p> %}
     }
     }
     *)
-  method save : 'a Js.t -> 'self Js.t Js.meth
+  method save : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Saves the model instance using the configured proxy.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t]
     {% <p>Options to pass to the proxy. Config object for <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>.</p> %}
     }
     }
@@ -448,15 +448,14 @@ Defaults to false.</p> %}
     }
     }
     *)
-  method set : 'a Js.t -> 'b Js.t -> Js.js_string Js.t Js.js_array Js.t
-    Js.meth
+  method set : _ Js.t -> _ Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
   (** {% <p>Sets the given field to the given value, marks the instance as dirty</p> %}
     
     {b Parameters}:
-    {ul {- fieldName: ['a Js.t]
+    {ul {- fieldName: [_ Js.t]
     {% <p>The field to set, or an object containing key/value pairs</p> %}
     }
-    {- newValue: ['a Js.t]
+    {- newValue: [_ Js.t]
     {% <p>The value to set</p> %}
     }
     }
@@ -474,24 +473,24 @@ to a <a href="#!/api/Ext.data.proxy.Server-cfg-writer" rel="Ext.data.proxy.Serve
 <p>Marking a record <code><a href="#!/api/Ext.data.Model-property-dirty" rel="Ext.data.Model-property-dirty" class="docClass">dirty</a></code> causes the phantom to be returned by <a href="#!/api/Ext.data.Store-method-getUpdatedRecords" rel="Ext.data.Store-method-getUpdatedRecords" class="docClass">Ext.data.Store.getUpdatedRecords</a>
 where it will have a create action composed for it during <a href="#!/api/Ext.data.Model-method-save" rel="Ext.data.Model-method-save" class="docClass">model save</a> operations.</p> %}
     *)
-  method setId : 'a Js.t -> unit Js.meth
+  method setId : _ Js.t -> unit Js.meth
   (** {% <p>Sets the model instance's id field to the given id.</p> %}
     
     {b Parameters}:
-    {ul {- id: ['a Js.t] {% <p>The new id</p> %}
+    {ul {- id: [_ Js.t] {% <p>The new id</p> %}
     }
     }
     *)
-  method setProxy : 'a Js.t -> 'b Js.t Js.meth
+  method setProxy : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Sets the Proxy to use for this model. Accepts any options that can be accepted by
 <a href="#!/api/Ext-method-createByAlias" rel="Ext-method-createByAlias" class="docClass">Ext.createByAlias</a>.</p> %}
     
     {b Parameters}:
-    {ul {- proxy: ['a Js.t] {% <p>The proxy</p> %}
+    {ul {- proxy: [_ Js.t] {% <p>The proxy</p> %}
     }
     }
     *)
-  method unjoin : 'a Js.t -> unit Js.meth
+  method unjoin : _ Js.t -> unit Js.meth
   (** {% <p>Tells this model instance that it has been removed from the store.</p> %}
     
     {b Parameters}:
@@ -516,10 +515,10 @@ object('self)
   inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   
-  method associations : 'a Js.t Js.js_array Js.t Js.prop
+  method associations : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>An array of <a href="#!/api/Ext.data.association.Association" rel="Ext.data.association.Association" class="docClass">associations</a> for this model.</p> %}
     *)
-  method belongsTo : 'a Js.t Js.prop
+  method belongsTo : _ Js.t Js.prop
   (** {% <p>One or more <a href="#!/api/Ext.data.association.BelongsTo" rel="Ext.data.association.BelongsTo" class="docClass">BelongsTo associations</a> for this model.</p> %}
     *)
   method clientIdProperty : Js.js_string Js.t Js.prop
@@ -534,14 +533,14 @@ This property cannot have the same name as any of this Model's fields.</p> %}
     
     Defaults to: ['ajax']
     *)
-  method fields : 'a Js.t Js.prop
+  method fields : _ Js.t Js.prop
   (** {% <p>The fields for this model. This is an Array of <strong><a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Field</a></strong> definition objects. A Field
 definition may simply be the <em>name</em> of the Field, but a Field encapsulates <a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">data type</a>,
 <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">custom conversion</a> of raw data, and a <a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a>
 property to specify by name of index, how to extract a field's value from a raw data object, so it is best practice
 to specify a full set of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Field</a> config objects.</p> %}
     *)
-  method hasMany : 'a Js.t Js.prop
+  method hasMany : _ Js.t Js.prop
   (** {% <p>One or more <a href="#!/api/Ext.data.association.HasMany" rel="Ext.data.association.HasMany" class="docClass">HasMany associations</a> for this model.</p> %}
     *)
   method idProperty : Js.js_string Js.t Js.prop
@@ -549,7 +548,7 @@ to specify a full set of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" cl
     
     Defaults to: ['id']
     *)
-  method idgen : 'a Js.t Js.prop
+  method idgen : _ Js.t Js.prop
   (** {% <p>The id generator to use for this model. The default id generator does not generate
 values for the <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a>.</p>
 
@@ -619,10 +618,10 @@ See <a href="#!/api/Ext.data.IdGenerator" rel="Ext.data.IdGenerator" class="docC
     
     Defaults to: ['data']
     *)
-  method proxy : 'a Js.t Js.prop
+  method proxy : _ Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">proxy</a> to use for this model.</p> %}
     *)
-  method validations : 'a Js.t Js.js_array Js.t Js.prop
+  method validations : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>An array of <a href="#!/api/Ext.data.validations" rel="Ext.data.validations" class="docClass">validations</a> for this model.</p> %}
     *)
   
@@ -633,18 +632,18 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method idchanged : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit)
+  method idchanged : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
   (** {% <p>Fired when this model's id changes</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_data_Model.t Js.t]
     }
-    {- oldId: ['a Js.t] {% <p>The old id</p> %}
+    {- oldId: [_ Js.t] {% <p>The old id</p> %}
     }
-    {- newId: ['a Js.t] {% <p>The new id</p> %}
+    {- newId: [_ Js.t] {% <p>The new id</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
@@ -685,7 +684,7 @@ field values will be able to read those field values.</p> %}
     }
     }
     *)
-  method getProxy : 'a Js.t Js.meth
+  method getProxy : _ Js.t Js.meth
   (** {% <p>Returns the configured Proxy for this Model</p> %}
     
     {b Returns}:
@@ -714,7 +713,7 @@ record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
     }
     }
     *)
-  method load : 'a Js.t -> 'b Js.t Js.optdef -> unit Js.meth
+  method load : _ Js.t -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Asynchronously loads a model instance by id. Sample usage:</p>
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.User', {
@@ -740,35 +739,35 @@ MyApp.User.load(10, {
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- id: ['a Js.t]
+    {ul {- id: [_ Js.t]
     {% <p>The id of the model to load</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t] (optional)
     {% <p>config object containing success, failure and callback functions, plus
 optional scope</p> %}
     }
     }
     *)
-  method setFields : 'a Js.t -> 'b Js.t -> 'c Js.t -> unit Js.meth
+  method setFields : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Apply a new set of field and/or property definitions to the existing model. This will replace any existing
 fields, including fields inherited from superclasses. Mainly for reconfiguring the
 model based on changes in meta data (called from Reader's onMetaChange method).</p> %}
     
     {b Parameters}:
-    {ul {- fields: ['a Js.t]
+    {ul {- fields: [_ Js.t]
     }
-    {- idProperty: ['a Js.t]
+    {- idProperty: [_ Js.t]
     }
-    {- clientIdProperty: ['a Js.t]
+    {- clientIdProperty: [_ Js.t]
     }
     }
     *)
-  method setProxy : 'a Js.t -> 'b Js.t Js.meth
+  method setProxy : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Sets the Proxy to use for this model. Accepts any options that can be accepted by
 <a href="#!/api/Ext-method-createByAlias" rel="Ext-method-createByAlias" class="docClass">Ext.createByAlias</a>.</p> %}
     
     {b Parameters}:
-    {ul {- proxy: ['a Js.t] {% <p>The proxy</p> %}
+    {ul {- proxy: [_ Js.t] {% <p>The proxy</p> %}
     }
     }
     *)
@@ -781,19 +780,19 @@ val static : statics Js.t
 val getFields : unit -> Ext_data_Field.t Js.js_array Js.t
 (** See method [statics.getFields] *)
 
-val getProxy : unit -> 'a Js.t
+val getProxy : unit -> _ Js.t
 (** See method [statics.getProxy] *)
 
 val id : 'self Js.t -> Js.js_string Js.t
 (** See method [statics.id] *)
 
-val load : 'a Js.t -> 'b Js.t Js.optdef -> unit
+val load : _ Js.t -> _ Js.t Js.optdef -> unit
 (** See method [statics.load] *)
 
-val setFields : 'a Js.t -> 'b Js.t -> 'c Js.t -> unit
+val setFields : _ Js.t -> _ Js.t -> _ Js.t -> unit
 (** See method [statics.setFields] *)
 
-val setProxy : 'a Js.t -> 'b Js.t
+val setProxy : _ Js.t -> _ Js.t
 (** See method [statics.setProxy] *)
 
 val of_configs : configs Js.t -> t Js.t

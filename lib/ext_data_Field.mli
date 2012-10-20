@@ -105,7 +105,7 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method convert : 'a Js.callback Js.prop
+  method convert : _ Js.callback Js.prop
   (** {% <p>A function which converts the value provided by the Reader into an object that will be stored in the Model.</p>
 
 <p>If configured as <code>null</code>, then no conversion will be applied to the raw data property when this Field
@@ -184,7 +184,7 @@ var myData = [
 the Reader is a UNIX timestamp, or "time" if the value provided by the Reader is a javascript millisecond
 timestamp. See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a>.</p> %}
     *)
-  method defaultValue : 'a Js.t Js.prop
+  method defaultValue : _ Js.t Js.prop
   (** {% <p>The default value used when the creating an instance from a raw data object, and the property referenced by the
 <code><a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a></code> does not exist in that data object.</p>
 
@@ -192,7 +192,7 @@ timestamp. See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Dat
     
     Defaults to: [""]
     *)
-  method mapping : 'a Js.t Js.prop
+  method mapping : _ Js.t Js.prop
   (** {% <p>(Optional) A path expression for use by the <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> implementation that is creating the
 <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a> to extract the Field value from the data object. If the path expression is the same
 as the field name, the mapping may be omitted.</p>
@@ -233,7 +233,7 @@ used to keep state on the client but do not need to be persisted to the server. 
     
     Defaults to: [true]
     *)
-  method serialize : 'a Js.callback Js.prop
+  method serialize : _ Js.callback Js.prop
   (** {% <p>A function which converts the Model's value for this Field into a form which can be used by whatever <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Writer</a>
 is being used to sync data with the server.</p>
 
@@ -255,7 +255,7 @@ is being used to sync data with the server.</p>
     
     Defaults to: ["ASC"]
     *)
-  method sortType : 'a Js.callback Js.prop
+  method sortType : _ Js.callback Js.prop
   (** {% <p>A function which converts a Field's value to a comparable value in order to ensure correct sort ordering.
 Predefined functions are provided in <a href="#!/api/Ext.data.SortTypes" rel="Ext.data.SortTypes" class="docClass">Ext.data.SortTypes</a>. A custom sort example:</p>
 
@@ -276,7 +276,7 @@ sortType: function(value) {
 }
 </code></pre> %}
     *)
-  method _type : 'a Js.t Js.prop
+  method _type : _ Js.t Js.prop
   (** {% <p>The data type for automatic conversion from received data to the <em>stored</em> value if
 <code><a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">convert</a></code> has not been specified. This may be specified as a string value.
 Possible values are</p>

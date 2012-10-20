@@ -2,18 +2,18 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method bringToFront : 'a Js.t -> bool Js.t Js.meth
-  method each : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
-  method eachBottomUp : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
-  method eachTopDown : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
-  method get : 'a Js.t -> 'b Js.t Js.meth
-  method getActive : 'a Js.t Js.meth
-  method getBy : 'a Js.callback -> 'b Js.t Js.optdef -> 'c Js.js_array Js.t
+  method bringToFront : _ Js.t -> bool Js.t Js.meth
+  method each : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  method eachBottomUp : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  method eachTopDown : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  method get : _ Js.t -> _ Js.t Js.meth
+  method getActive : _ Js.t Js.meth
+  method getBy : _ Js.callback -> _ Js.t Js.optdef -> _ Js.js_array Js.t
     Js.meth
   method hideAll : unit Js.meth
-  method register : 'a Js.t -> unit Js.meth
-  method sendToBack : 'a Js.t -> 'b Js.t Js.meth
-  method unregister : 'a Js.t -> unit Js.meth
+  method register : _ Js.t -> unit Js.meth
+  method sendToBack : _ Js.t -> _ Js.t Js.meth
+  method unregister : _ Js.t -> unit Js.meth
   
 end
 

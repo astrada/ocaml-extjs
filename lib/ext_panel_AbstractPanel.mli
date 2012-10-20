@@ -49,13 +49,13 @@ than just the components element.</p> %}
   method beforeDestroy : unit Js.meth
   (** {% <p>Invoked before the Component is destroyed.</p> %}
     *)
-  method getComponent : 'a Js.t -> #Ext_Component.t Js.t Js.meth
+  method getComponent : _ Js.t -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Attempts a default component lookup (see <a href="#!/api/Ext.container.Container-method-getComponent" rel="Ext.container.Container-method-getComponent" class="docClass">Ext.container.Container.getComponent</a>). If the component is not found in the normal
 items, the dockedItems are searched and the matched component (if any) returned (see <a href="#!/api/Ext.panel.AbstractPanel-method-getDockedComponent" rel="Ext.panel.AbstractPanel-method-getDockedComponent" class="docClass">getDockedComponent</a>). Note that docked
 items will only be matched by component id or itemId -- if you pass a numeric index only non-docked child components will be searched.</p> %}
     
     {b Parameters}:
-    {ul {- comp: ['a Js.t]
+    {ul {- comp: [_ Js.t]
     {% <p>The component id, itemId or position to find</p> %}
     }
     }
@@ -122,11 +122,11 @@ will be: <code>this.baseCls + '-' + ui</code></p> %}
     }
     }
     *)
-  method setBodyStyle : 'a Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
+  method setBodyStyle : _ Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets the body style according to the passed parameters.</p> %}
     
     {b Parameters}:
-    {ul {- style: ['a Js.t]
+    {ul {- style: [_ Js.t]
     {% <p>A full style specification string, or object, or the name of a style property to set.</p> %}
     }
     {- value: [Js.js_string Js.t]
@@ -166,7 +166,7 @@ object('self)
   (** {% <p>A shortcut to add or remove the border on the body of a panel. This only applies to a panel which has the <a href="#!/api/Ext.panel.AbstractPanel-cfg-frame" rel="Ext.panel.AbstractPanel-cfg-frame" class="docClass">frame</a> configuration set to <code>true</code>.
 Defaults to <code>undefined</code>.</p> %}
     *)
-  method bodyCls : 'a Js.t Js.prop
+  method bodyCls : _ Js.t Js.prop
   (** {% <p>A CSS class, space-delimited string of classes, or array of classes to be applied to the panel's body element.
 The following examples are all valid:</p>
 
@@ -175,12 +175,12 @@ bodyCls: 'foo bar'
 bodyCls: ['foo', 'bar']
 </code></pre> %}
     *)
-  method bodyPadding : 'a Js.t Js.prop
+  method bodyPadding : _ Js.t Js.prop
   (** {% <p>A shortcut for setting a padding style on the body element. The value can either be
 a number to be applied to all sides, or a normal css string describing padding.
 Defaults to <code>undefined</code>.</p> %}
     *)
-  method bodyStyle : 'a Js.t Js.prop
+  method bodyStyle : _ Js.t Js.prop
   (** {% <p>Custom CSS styles to be applied to the panel's body element, which can be supplied as a valid CSS style string,
 an object containing style property name/value pairs or a function that returns such a string or object.
 For example, these two formats are interpreted to be equivalent:</p>
@@ -206,7 +206,7 @@ class which simply sizes the Component's encapsulating element to the height and
     
     Defaults to: ['dock']
     *)
-  method dockedItems : 'a Js.t Js.prop
+  method dockedItems : _ Js.t Js.prop
   (** {% <p>A component or series of components to be added as docked items to this panel.
 The docked items can be docked to either the top, right, left or bottom of a panel.
 This is typically used for things like toolbars or tab bars:</p>
@@ -222,7 +222,7 @@ This is typically used for things like toolbars or tab bars:</p>
     }]
 });</code></pre> %}
     *)
-  method renderTpl : 'a Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.panel.AbstractPanel-method-getEl" rel="Ext.panel.AbstractPanel-method-getEl" class="docClass">Element</a>.</p>
 

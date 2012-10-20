@@ -5,7 +5,7 @@ object('self)
   method destroy : unit Js.meth
   method disable : unit Js.meth
   method enable : unit Js.meth
-  method init : 'a Js.t -> unit Js.meth
+  method init : _ Js.t -> unit Js.meth
   
 end
 

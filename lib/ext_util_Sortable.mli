@@ -24,7 +24,7 @@ object('self)
   method sortRoot : Js.js_string Js.t Js.prop
   (** {% <p>The property in each item that contains the data to sort.</p> %}
     *)
-  method sorters : 'a Js.t Js.prop
+  method sorters : _ Js.t Js.prop
   (** {% <p>The collection of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a> currently applied to this Store</p> %}
     *)
   method generateComparator : unit Js.meth
@@ -48,7 +48,7 @@ any groupers that may be in place</p> %}
   (** {% <p>Performs initialization of this mixin. Component classes using this mixin should call this method during their
 own initialization.</p> %}
     *)
-  method sort : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
+  method sort : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
     Ext_util_Sorter.t Js.js_array Js.t Js.meth
   (** {% <p>Sorts the data in the Store by one or more of its properties. Example usage:</p>
 
@@ -84,11 +84,11 @@ store.sort('myField', 'DESC');
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- sorters: ['a Js.t]
+    {ul {- sorters: [_ Js.t] (optional)
     {% <p>Either a string name of one of the fields in this Store's configured
 <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a>, or an array of sorter configurations.</p> %}
     }
-    {- direction: [Js.js_string Js.t]
+    {- direction: [Js.js_string Js.t] (optional)
     {% <p>The overall direction to sort the data by.</p> %}
      Defaults to: "ASC"
     }

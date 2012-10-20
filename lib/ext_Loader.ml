@@ -1,19 +1,19 @@
 class type t =
 object('self)
   
-  method history : 'a Js.js_array Js.t Js.prop
-  method addClassPathMappings : 'a Js.t -> 'self Js.t Js.meth
-  method exclude : 'a Js.js_array Js.t -> 'b Js.t Js.meth
-  method getConfig : Js.js_string Js.t -> 'a Js.t Js.meth
+  method history : _ Js.js_array Js.t Js.prop
+  method addClassPathMappings : _ Js.t -> 'self Js.t Js.meth
+  method exclude : _ Js.js_array Js.t -> _ Js.t Js.meth
+  method getConfig : Js.js_string Js.t -> _ Js.t Js.meth
   method getPath : Js.js_string Js.t -> Js.js_string Js.t Js.meth
-  method loadScript : 'a Js.t -> unit Js.meth
-  method onReady : 'a Js.callback -> 'b Js.t -> bool Js.t -> unit Js.meth
-  method require : 'a Js.t -> 'b Js.callback Js.optdef -> 'c Js.t Js.optdef
-    -> 'd Js.t Js.optdef -> unit Js.meth
-  method setConfig : 'a Js.t -> 'self Js.t Js.meth
-  method setPath : 'a Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
-  method syncRequire : 'a Js.t -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> 'd Js.t Js.optdef -> unit Js.meth
+  method loadScript : _ Js.t -> unit Js.meth
+  method onReady : _ Js.callback -> _ Js.t -> bool Js.t -> unit Js.meth
+  method require : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
+  method setConfig : _ Js.t -> 'self Js.t Js.meth
+  method setPath : _ Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
+  method syncRequire : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
   
 end
 
@@ -24,7 +24,7 @@ object('self)
   method disableCachingParam : Js.js_string Js.t Js.prop
   method enabled : bool Js.t Js.prop
   method garbageCollect : bool Js.t Js.prop
-  method paths : 'a Js.t Js.prop
+  method paths : _ Js.t Js.prop
   method preserveScripts : bool Js.t Js.prop
   method scriptChainDelay : bool Js.t Js.prop
   method scriptCharset : Js.js_string Js.t Js.prop

@@ -165,7 +165,7 @@ object('self)
   inherit Ext_Base.t
   inherit Ext_util_Observable.t
   
-  method metaData : 'a Js.t Js.readonly_prop
+  method metaData : _ Js.t Js.readonly_prop
   (** {% <p>The raw meta data that was most recently read, if any. Meta data can include existing
 Reader config options like <a href="#!/api/Ext.data.reader.Reader-cfg-idProperty" rel="Ext.data.reader.Reader-cfg-idProperty" class="docClass">idProperty</a>, <a href="#!/api/Ext.data.reader.Reader-cfg-totalProperty" rel="Ext.data.reader.Reader-cfg-totalProperty" class="docClass">totalProperty</a>, etc. that get
 automatically applied to the Reader, and those can still be accessed directly from the Reader
@@ -182,15 +182,15 @@ passed to the reader. Note that typically you would handle proxy's
 object to listeners. However this property is available if it's more convenient to access it
 via the reader directly in certain cases.</p> %}
     *)
-  method rawData : 'a Js.t Js.prop
+  method rawData : _ Js.t Js.prop
   (** {% <p>The raw data object that was last passed to <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a>. Stored for further processing if needed.</p> %}
     *)
-  method getResponseData : 'a Js.t -> Ext_data_ResultSet.t Js.t Js.meth
+  method getResponseData : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   (** {% <p>Takes a raw response object (as passed to the <a href="#!/api/Ext.data.reader.Reader-method-read" rel="Ext.data.reader.Reader-method-read" class="docClass">read</a> method) and returns the useful data
 segment from it. This must be implemented by each subclass.</p> %}
     
     {b Parameters}:
-    {ul {- response: ['a Js.t]
+    {ul {- response: [_ Js.t]
     {% <p>The response object</p> %}
     }
     }
@@ -200,13 +200,13 @@ segment from it. This must be implemented by each subclass.</p> %}
     }
     }
     *)
-  method read : 'a Js.t -> Ext_data_ResultSet.t Js.t Js.meth
+  method read : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   (** {% <p>Reads the given response object. This method normalizes the different types of response object that may be passed to it.
 If it's an XMLHttpRequest object, hand off to the subclass' <a href="#!/api/Ext.data.reader.Reader-method-getResponseData" rel="Ext.data.reader.Reader-method-getResponseData" class="docClass">getResponseData</a> method.
 Else, hand off the reading of records to the <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a> method.</p> %}
     
     {b Parameters}:
-    {ul {- response: ['a Js.t]
+    {ul {- response: [_ Js.t]
     {% <p>The response object. This may be either an XMLHttpRequest object or a plain JS object</p> %}
     }
     }
@@ -217,13 +217,13 @@ Else, hand off the reading of records to the <a href="#!/api/Ext.data.reader.Rea
     }
     }
     *)
-  method readRecords : 'a Js.t -> Ext_data_ResultSet.t Js.t Js.meth
+  method readRecords : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   (** {% <p>Abstracts common functionality used by all Reader subclasses. Each subclass is expected to call this function
 before running its own logic and returning the <a href="#!/api/Ext.data.ResultSet" rel="Ext.data.ResultSet" class="docClass">Ext.data.ResultSet</a> instance. For most Readers additional
 processing should not be needed.</p> %}
     
     {b Parameters}:
-    {ul {- data: ['a Js.t]
+    {ul {- data: [_ Js.t]
     {% <p>The raw data object</p> %}
     }
     }
@@ -293,7 +293,7 @@ object
   inherit Ext_util_Observable.events
   
   method _exception : (t Js.t -> XmlHttpRequest.xmlHttpRequest Js.t ->
-    Ext_data_ResultSet.t Js.t -> 'a Js.t -> unit) Js.callback
+    Ext_data_ResultSet.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the reader receives improperly encoded data from the server</p> %}
     
@@ -307,7 +307,7 @@ object
     {- error: [Ext_data_ResultSet.t Js.t]
     {% <p>The error object</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

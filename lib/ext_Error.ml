@@ -23,7 +23,7 @@ object
   method ignore : bool Js.t Js.prop
   method notify : bool Js.t Js.prop
   method handle : 'self Js.t -> unit Js.meth
-  method _raise : 'a Js.t -> unit Js.meth
+  method _raise : _ Js.t -> unit Js.meth
   
 end
 

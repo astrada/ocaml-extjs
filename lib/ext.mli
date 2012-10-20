@@ -57,10 +57,10 @@ Also, property names must be quoted, otherwise the data will not parse.</p> %}
   method chromeVersion : Js.number Js.t Js.prop
   (** {% <p>The current version of Chrome (0 if the browser is not Chrome).</p> %}
     *)
-  method emptyFn : 'a Js.t Js.prop
+  method emptyFn : _ Js.t Js.prop
   (** {% <p>A reusable empty function</p> %}
     *)
-  method emptyString : 'a Js.t Js.prop
+  method emptyString : _ Js.t Js.prop
   (** {% <p>A zero length string which will pass a truth test. Useful for passing to methods
 which use a truth test to reject <i>falsy</i> values where a string value must be cleared.</p> %}
     *)
@@ -227,7 +227,7 @@ If you are using flash, you may want to set this to true.</p> %}
   method webKitVersion : Js.number Js.t Js.prop
   (** {% <p>The current version of WebKit (0 if the browser does not use WebKit).</p> %}
     *)
-  method addBehaviors : 'a Js.t -> unit Js.meth
+  method addBehaviors : _ Js.t -> unit Js.meth
   (** {% <p>Applies event listeners to elements by selectors when the document is ready.
 The event name is specified with an <code>\@</code> suffix.</p>
 
@@ -245,103 +245,102 @@ The event name is specified with an <code>\@</code> suffix.</p>
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- obj: ['a Js.t] {% <p>The list of behaviors to apply</p> %}
+    {ul {- obj: [_ Js.t] {% <p>The list of behaviors to apply</p> %}
     }
     }
     *)
-  method application : 'a Js.t -> unit Js.meth
+  method application : _ Js.t -> unit Js.meth
   (** {% <p>Loads <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> class and starts it up with given configuration after the page is ready.</p>
 
 <p>See <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for details.</p> %}
     
     {b Parameters}:
-    {ul {- config: ['a Js.t]
+    {ul {- config: [_ Js.t]
     }
     }
     *)
-  method apply : 'a Js.t -> 'b Js.t -> 'c Js.t Js.optdef -> 'd Js.t Js.meth
+  method apply : _ Js.t -> _ Js.t -> _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Copies all the properties of config to the specified object.
 Note that if recursive merging and cloning without referencing the original objects / arrays is needed, use
 <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a> instead.</p> %}
     
     {b Parameters}:
-    {ul {- _object: ['a Js.t]
+    {ul {- _object: [_ Js.t]
     {% <p>The receiver of the properties</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t]
     {% <p>The source of the properties</p> %}
     }
-    {- defaults: ['a Js.t]
+    {- defaults: [_ Js.t] (optional)
     {% <p>A different object that will also be applied for default values</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>returns obj</p> %}
+    {ul {- [_ Js.t] {% <p>returns obj</p> %}
     }
     }
     *)
-  method applyIf : 'a Js.t -> 'b Js.t -> 'c Js.t Js.meth
+  method applyIf : _ Js.t -> _ Js.t -> _ Js.t Js.meth
   (** {% <p>Copies all the properties of config to object if they don't already exist.</p> %}
     
     {b Parameters}:
-    {ul {- _object: ['a Js.t]
+    {ul {- _object: [_ Js.t]
     {% <p>The receiver of the properties</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t]
     {% <p>The source of the properties</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>returns obj</p> %}
+    {ul {- [_ Js.t] {% <p>returns obj</p> %}
     }
     }
     *)
-  method batchLayouts : 'a Js.callback -> 'b Js.t Js.optdef -> unit Js.meth
+  method batchLayouts : _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Utility wrapper that suspends layouts of all components for the duration of a given function.</p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to execute.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> %}
     }
     }
     *)
-  method bind : 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> 'd Js.t Js.optdef -> 'e Js.callback
-    Js.meth
+  method bind : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.callback Js.meth
   (** {% <p>Create a new function from the provided <code>fn</code>, change <code>this</code> to the provided scope, optionally
 overrides arguments for the call. (Defaults to the arguments passed by the caller)</p>
 
 <p><a href="#!/api/Ext-method-bind" rel="Ext-method-bind" class="docClass">Ext.bind</a> is alias for <a href="#!/api/Ext.Function-method-bind" rel="Ext.Function-method-bind" class="docClass">Ext.Function.bind</a></p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to delegate.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the function is executed.
 <strong>If omitted, defaults to the default global environment object (usually the browser window).</strong></p> %}
     }
-    {- args: ['a Js.js_array Js.t]
+    {- args: [_ Js.js_array Js.t] (optional)
     {% <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> %}
     }
-    {- appendArgs: ['a Js.t]
+    {- appendArgs: [_ Js.t] (optional)
     {% <p>if True args are appended to call args instead of overriding,
 if a number the args are inserted at the specified position</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.callback] {% <p>The new function</p> %}
+    {ul {- [_ Js.callback] {% <p>The new function</p> %}
     }
     }
     *)
-  method callback : 'a Js.callback -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth
+  method callback : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth
   (** {% <p>Execute a callback function in a particular scope. If no function is passed the call is ignored.</p>
 
 <p>For example, these lines are equivalent:</p>
@@ -351,38 +350,38 @@ if a number the args are inserted at the specified position</p> %}
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- callback: ['a Js.callback]
+    {ul {- callback: [_ Js.callback]
     {% <p>The callback to execute</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope to execute in</p> %}
     }
-    {- args: ['a Js.js_array Js.t]
+    {- args: [_ Js.js_array Js.t] (optional)
     {% <p>The arguments to pass to the function</p> %}
     }
-    {- delay: [Js.number Js.t]
+    {- delay: [Js.number Js.t] (optional)
     {% <p>Pass a number to delay the call by a number of milliseconds.</p> %}
     }
     }
     *)
-  method clone : 'a Js.t -> 'b Js.t Js.meth
+  method clone : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Clone simple variables including array, {}-like objects, DOM nodes and Date without keeping the old reference.
 A reference for the object itself is returned if it's not a direct decendant of Object. For model cloning,
 see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy" class="docClass">Model.copy</a>.</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     {% <p>The variable to clone</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>clone</p> %}
+    {ul {- [_ Js.t] {% <p>clone</p> %}
     }
     }
     *)
-  method copyTo : 'a Js.t -> 'b Js.t -> 'c Js.t -> bool Js.t Js.optdef ->
-    'd Js.t Js.meth
+  method copyTo : _ Js.t -> _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
+    Js.meth
   (** {% <p>Copies a set of named properties fom the source object to the destination object.</p>
 
 <p>Example:</p>
@@ -399,27 +398,27 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 <p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base.borrow</a> instead.</p> %}
     
     {b Parameters}:
-    {ul {- dest: ['a Js.t]
+    {ul {- dest: [_ Js.t]
     {% <p>The destination object.</p> %}
     }
-    {- source: ['a Js.t] {% <p>The source object.</p> %}
+    {- source: [_ Js.t] {% <p>The source object.</p> %}
     }
-    {- names: ['a Js.t]
+    {- names: [_ Js.t]
     {% <p>Either an Array of property names, or a comma-delimited list
 of property names to copy.</p> %}
     }
-    {- usePrototypeKeys: [bool Js.t]
+    {- usePrototypeKeys: [bool Js.t] (optional)
     {% <p>Defaults to false. Pass true to copy keys off of the
 prototype as well as the instance.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The modified object.</p> %}
+    {ul {- [_ Js.t] {% <p>The modified object.</p> %}
     }
     }
     *)
-  method create : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef -> 'b Js.t
+  method create : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Instantiate a class by either full name, alias or alternate name.</p>
 
@@ -459,25 +458,25 @@ not been defined yet, it will attempt to load the class via synchronous loading.
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- name: [Js.js_string Js.t]
+    {ul {- name: [Js.js_string Js.t] (optional)
     {% <p>The class name or alias. Can be specified as <code>xclass</code>
 property if only one object parameter is specified.</p> %}
     }
-    {- args: ['a Js.t]
+    {- args: [_ Js.t] (optional)
     {% <p>Additional arguments after the name will be passed to
 the class' constructor.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>instance</p> %}
+    {ul {- [_ Js.t] {% <p>instance</p> %}
     }
     }
     *)
   method createByAlias : unit Js.meth
   (** {% <p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a></p> %}
     *)
-  method decode : Js.js_string Js.t -> bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method decode : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.JSON-method-decode" rel="Ext.JSON-method-decode" class="docClass">Ext.JSON.decode</a></p>
 
 <p>Decodes (parses) a JSON string to an object. If the JSON is invalid, this function throws
@@ -487,19 +486,19 @@ a SyntaxError unless the safe option is set.</p> %}
     {ul {- json: [Js.js_string Js.t]
     {% <p>The JSON string</p> %}
     }
-    {- safe: [bool Js.t]
+    {- safe: [bool Js.t] (optional)
     {% <p>True to return null, false to throw an exception if the JSON is invalid.</p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The resulting object</p> %}
+    {ul {- [_ Js.t] {% <p>The resulting object</p> %}
     }
     }
     *)
-  method defer : 'a Js.callback -> Js.number Js.t -> 'b Js.t Js.optdef ->
-    'c Js.js_array Js.t Js.optdef -> 'd Js.t Js.optdef -> Js.number Js.t
+  method defer : _ Js.callback -> Js.number Js.t -> _ Js.t Js.optdef ->
+    _ Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef -> Js.number Js.t
     Js.meth
   (** {% <p>Calls this function after the number of millseconds specified, optionally in a specific scope. Example usage:</p>
 
@@ -523,21 +522,21 @@ sayHi('Fred');
 <p><a href="#!/api/Ext-method-defer" rel="Ext-method-defer" class="docClass">Ext.defer</a> is alias for <a href="#!/api/Ext.Function-method-defer" rel="Ext.Function-method-defer" class="docClass">Ext.Function.defer</a></p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The function to defer.</p> %}
     }
     {- millis: [Js.number Js.t]
     {% <p>The number of milliseconds for the setTimeout call
 (if less than or equal to 0 the function is executed immediately)</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the function is executed.
 <strong>If omitted, defaults to the browser window.</strong></p> %}
     }
-    {- args: ['a Js.js_array Js.t]
+    {- args: [_ Js.js_array Js.t] (optional)
     {% <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> %}
     }
-    {- appendArgs: ['a Js.t]
+    {- appendArgs: [_ Js.t] (optional)
     {% <p>if True args are appended to call args instead of overriding,
 if a number the args are inserted at the specified position</p> %}
     }
@@ -549,7 +548,7 @@ if a number the args are inserted at the specified position</p> %}
     }
     }
     *)
-  method define : Js.js_string Js.t -> 'a Js.t -> 'b Js.callback ->
+  method define : Js.js_string Js.t -> _ Js.t -> _ Js.callback ->
     #Ext_Base.t Js.t Js.meth
   (** {% <p>Defines a class or override. A basic class is defined like this:</p>
 
@@ -699,7 +698,7 @@ It is highly recommended to follow this simple convention:
  * Everything else is lower-cased
 Pass <code>null</code> to create an anonymous class.</p> %}
     }
-    {- data: ['a Js.t]
+    {- data: [_ Js.t]
     {% <p>The key * value pairs of properties to apply to this class. Property names can be of any valid
 strings, except those in the reserved listed below:
  * <code>mixins</code>
@@ -711,14 +710,14 @@ strings, except those in the reserved listed below:
  * <code>alternateClassName</code>
  * <code>override</code></p> %}
     }
-    {- createdFn: ['a Js.callback]
+    {- createdFn: [_ Js.callback]
     {% <p>Optional callback to execute after the class is created, the execution scope of which
 (<code>this</code>) will be the newly created class itself.</p> %}
     }
     }
     *)
-  method deprecate : Js.js_string Js.t -> Js.js_string Js.t -> 'a Js.callback
-    -> 'b Js.t -> unit Js.meth
+  method deprecate : Js.js_string Js.t -> Js.js_string Js.t -> _ Js.callback
+    -> _ Js.t -> unit Js.meth
   (** {% <p>Create a closure for deprecated code.</p>
 
 <pre><code>// This means Ext.oldMethod is only supported in 4.0.0beta and older.
@@ -738,15 +737,15 @@ strings, except those in the reserved listed below:
     {- since: [Js.js_string Js.t]
     {% <p>The last version before it's deprecated</p> %}
     }
-    {- closure: ['a Js.callback]
+    {- closure: [_ Js.callback]
     {% <p>The callback function to be executed with the specified version is less than the current version</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t]
     {% <p>The execution scope (<code>this</code>) if the closure</p> %}
     }
     }
     *)
-  method destroy : 'a Js.t -> unit Js.meth
+  method destroy : _ Js.t -> unit Js.meth
   (** {% <p>Attempts to destroy any objects passed to it by removing all event listeners, removing them from the
 DOM (if applicable) and calling their destroy functions (if available).  This method is primarily
 intended for arguments of type <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, but any subclass of
@@ -754,16 +753,16 @@ intended for arguments of type <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Ele
 passed into this function in a single call as separate arguments.</p> %}
     
     {b Parameters}:
-    {ul {- args: ['a Js.t]
+    {ul {- args: [_ Js.t]
     {% <p>An <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>, <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, or an Array of either of these to destroy</p> %}
     }
     }
     *)
-  method destroyMembers : 'a Js.t -> Js.js_string Js.t -> unit Js.meth
+  method destroyMembers : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   (** {% <p>Attempts to destroy and then remove a set of named properties of the passed object.</p> %}
     
     {b Parameters}:
-    {ul {- o: ['a Js.t]
+    {ul {- o: [_ Js.t]
     {% <p>The object (most likely a Component) who's properties you wish to destroy.</p> %}
     }
     {- args: [Js.js_string Js.t]
@@ -771,7 +770,7 @@ passed into this function in a single call as separate arguments.</p> %}
     }
     }
     *)
-  method each : 'a Js.t -> 'b Js.callback -> 'c Js.t Js.optdef ->
+  method each : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> bool Js.t Js.meth
   (** {% <p>Iterates an array or an iterable value and invoke the given callback function for each item.</p>
 
@@ -806,18 +805,18 @@ sum(1, 2, 3); // returns 6
 <p><a href="#!/api/Ext-method-each" rel="Ext-method-each" class="docClass">Ext.each</a> is alias for <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a></p> %}
     
     {b Parameters}:
-    {ul {- iterable: ['a Js.t]
+    {ul {- iterable: [_ Js.t]
     {% <p>The value to be iterated. If this
 argument is not iterable, the callback function is called once.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The callback function. If it returns false, the iteration stops and this method returns
 the current <code>index</code>.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> %}
     }
-    {- reverse: [bool Js.t]
+    {- reverse: [bool Js.t] (optional)
     {% <p>Reverse the iteration order (loop from the end to the beginning)
 Defaults false</p> %}
     }
@@ -829,7 +828,7 @@ Defaults false</p> %}
     }
     }
     *)
-  method encode : 'a Js.t -> Js.js_string Js.t Js.meth
+  method encode : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.JSON-method-encode" rel="Ext.JSON-method-encode" class="docClass">Ext.JSON.encode</a></p>
 
 <p>Encodes an Object, Array or other value.</p>
@@ -840,7 +839,7 @@ to add a <code>toJSON</code> method to their classes which need serializing to r
 of the object.</p> %}
     
     {b Parameters}:
-    {ul {- o: ['a Js.t]
+    {ul {- o: [_ Js.t]
     {% <p>The variable to encode</p> %}
     }
     }
@@ -853,7 +852,7 @@ of the object.</p> %}
   method exclude : unit Js.meth
   (** {% <p>Convenient shortcut to <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a></p> %}
     *)
-  method fly : 'a Js.t -> Js.js_string Js.t Js.optdef ->
+  method fly : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Ext_dom_AbstractElement_Fly.t Js.t Js.meth
   (** {% <p>Gets the singleton <a href="#!/api/Ext.dom.AbstractElement.Fly" rel="Ext.dom.AbstractElement.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
 
@@ -868,10 +867,10 @@ application code, or by Ext's classes. If accessing an element which will be pro
 class.</p> %}
     
     {b Parameters}:
-    {ul {- dom: ['a Js.t]
+    {ul {- dom: [_ Js.t]
     {% <p>The dom node or id</p> %}
     }
-    {- named: [Js.js_string Js.t]
+    {- named: [Js.js_string Js.t] (optional)
     {% <p>Allows for creation of named reusable flyweights to prevent conflicts (e.g.
 internally Ext uses "_global")</p> %}
     }
@@ -883,7 +882,7 @@ internally Ext uses "_global")</p> %}
     }
     }
     *)
-  method get : 'a Js.t -> Ext_dom_Element.t Js.t Js.meth
+  method get : _ Js.t -> Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> objects. <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">get</a> is alias for <a href="#!/api/Ext.dom.Element-static-method-get" rel="Ext.dom.Element-static-method-get" class="docClass">Ext.dom.Element.get</a>.</p>
 
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
@@ -893,7 +892,7 @@ objects which encapsulate DOM elements. To retrieve a Component by its ID, use <
 the same id via AJAX or DOM.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     {% <p>The id of the node, a DOM Node or an existing Element.</p> %}
     }
     }
@@ -945,7 +944,7 @@ Class was found.</p> %}
     }
     }
     *)
-  method getDom : 'a Js.t -> unit Js.meth
+  method getDom : _ Js.t -> unit Js.meth
   (** {% <p>Returns the dom node for the passed String (id), dom node, or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.
 Optional 'strict' flag is needed for IE since it can return 'name' and
 'id' elements by using getElementById.</p>
@@ -969,7 +968,7 @@ function(el){
 when this method is called to be successful.</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t]
     }
     }
     
@@ -996,28 +995,28 @@ when this method is called to be successful.</p> %}
     }
     }
     *)
-  method getScrollbarSize : bool Js.t Js.optdef -> 'a Js.t Js.meth
+  method getScrollbarSize : bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Returns the size of the browser scrollbars. This can differ depending on
 operating system settings, such as the theme or font size.</p> %}
     
     {b Parameters}:
-    {ul {- force: [bool Js.t]
+    {ul {- force: [bool Js.t] (optional)
     {% <p>true to force a recalculation of the value.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>An object containing scrollbar sizes.</p> %}
+    {ul {- [_ Js.t] {% <p>An object containing scrollbar sizes.</p> %}
     }
     }
     *)
-  method getStore : 'a Js.t -> Ext_data_Store.t Js.t Js.meth
+  method getStore : _ Js.t -> Ext_data_Store.t Js.t Js.meth
   (** {% <p>Shortcut to <a href="#!/api/Ext.data.StoreManager-method-lookup" rel="Ext.data.StoreManager-method-lookup" class="docClass">Ext.data.StoreManager.lookup</a>.</p>
 
 <p>Gets a registered Store by id</p> %}
     
     {b Parameters}:
-    {ul {- store: ['a Js.t]
+    {ul {- store: [_ Js.t]
     {% <p>The id of the Store, or a Store instance, or a store configuration</p> %}
     }
     }
@@ -1028,7 +1027,7 @@ operating system settings, such as the theme or font size.</p> %}
 (last <a href="#!/api/Ext-method-setVersion" rel="Ext-method-setVersion" class="docClass">Ext.setVersion</a> call) if there's no package name given.</p> %}
     
     {b Parameters}:
-    {ul {- packageName: [Js.js_string Js.t]
+    {ul {- packageName: [Js.js_string Js.t] (optional)
     {% <p>The package name, for example: 'core', 'touch', 'extjs'</p> %}
     }
     }
@@ -1038,15 +1037,15 @@ operating system settings, such as the theme or font size.</p> %}
     }
     }
     *)
-  method id : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
+  method id : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef ->
     Js.js_string Js.t Js.meth
   (** {% <p>Generates unique ids. If the element already has an id, it is unchanged</p> %}
     
     {b Parameters}:
-    {ul {- el: ['a Js.t]
+    {ul {- el: [_ Js.t] (optional)
     {% <p>The element to generate an id for</p> %}
     }
-    {- prefix: [Js.js_string Js.t]
+    {- prefix: [Js.js_string Js.t] (optional)
     {% <p>Id prefix (defaults "ext-gen")</p> %}
     }
     }
@@ -1056,47 +1055,47 @@ operating system settings, such as the theme or font size.</p> %}
     }
     }
     *)
-  method isArray : 'a Js.t -> bool Js.t Js.meth
+  method isArray : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a JavaScript Array, false otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t] {% <p>The target to test</p> %}
+    {ul {- target: [_ Js.t] {% <p>The target to test</p> %}
     }
     }
     *)
-  method isBoolean : 'a Js.t -> bool Js.t Js.meth
+  method isBoolean : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a boolean.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isDate : 'a Js.t -> bool Js.t Js.meth
+  method isDate : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a JavaScript Date object, false otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- _object: ['a Js.t] {% <p>The object to test</p> %}
+    {ul {- _object: [_ Js.t] {% <p>The object to test</p> %}
     }
     }
     *)
-  method isDefined : 'a Js.t -> bool Js.t Js.meth
+  method isDefined : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is defined.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isElement : 'a Js.t -> bool Js.t Js.meth
+  method isElement : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is an HTMLElement</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isEmpty : 'a Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth
+  method isEmpty : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is empty, false otherwise. The value is deemed to be empty if it is either:</p>
 
 <ul>
@@ -1107,43 +1106,43 @@ operating system settings, such as the theme or font size.</p> %}
 </ul> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to test</p> %}
     }
-    {- allowEmptyString: [bool Js.t]
+    {- allowEmptyString: [bool Js.t] (optional)
     {% <p>true to allow empty strings (defaults to false)</p> %}
     }
     }
     *)
-  method isFunction : 'a Js.t -> bool Js.t Js.meth
+  method isFunction : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a JavaScript Function, false otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isIterable : 'a Js.t -> bool Js.t Js.meth
+  method isIterable : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is iterable, false otherwise</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isNumber : 'a Js.t -> bool Js.t Js.meth
+  method isNumber : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a number. Returns false for non-finite numbers.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isNumeric : 'a Js.t -> bool Js.t Js.meth
+  method isNumeric : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Validates that a value is numeric.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>Examples: 1, '1', '2.34'</p> %}
     }
     }
@@ -1153,59 +1152,59 @@ operating system settings, such as the theme or font size.</p> %}
     }
     }
     *)
-  method isObject : 'a Js.t -> bool Js.t Js.meth
+  method isObject : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a JavaScript Object, false otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isPrimitive : 'a Js.t -> bool Js.t Js.meth
+  method isPrimitive : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a JavaScript 'primitive', a string, number or boolean.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isString : 'a Js.t -> bool Js.t Js.meth
+  method isString : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a string.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method isTextNode : 'a Js.t -> bool Js.t Js.meth
+  method isTextNode : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns true if the passed value is a TextNode</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to test</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
     }
     }
     *)
-  method iterate : 'a Js.t -> 'b Js.callback -> 'c Js.t Js.optdef -> unit
+  method iterate : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>Iterates either an array or an object. This method delegates to
 <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> if the given value is iterable, and <a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- _object: ['a Js.t]
+    {ul {- _object: [_ Js.t]
     {% <p>The object or array to be iterated.</p> %}
     }
-    {- fn: ['a Js.callback]
+    {- fn: [_ Js.callback]
     {% <p>The function to be called for each iteration. See and <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> and
 <a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> for detailed lists of arguments passed to this function depending on the given object
 type that is being iterated.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the specified function is executed.
 Defaults to the object being iterated itself.</p> %}
     }
     }
     *)
-  method log : 'a Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit
+  method log : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit
     Js.meth
   (** {% <p>Logs a message. If a console is present it will be used. On Opera, the method
 "opera.postError" is called. In other cases, the message is logged to an array
@@ -1233,7 +1232,7 @@ A technique for tracing entry and exit of a function is this:</p>
 <p>This method does nothing in a release build.</p> %}
     
     {b Parameters}:
-    {ul {- options: ['a Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>The message to log or an options object with any
 of the following properties:</p>
 
@@ -1246,13 +1245,13 @@ of the following properties:</p>
 <li><code>outdent</code>: Cause this and following statements to be one step less indented.</li>
 </ul> %}
     }
-    {- message: [Js.js_string Js.t]
+    {- message: [Js.js_string Js.t] (optional)
     {% <p>The message to log (required unless specified in
 options object).</p> %}
     }
     }
     *)
-  method merge : 'a Js.t -> 'b Js.t -> 'c Js.t Js.meth
+  method merge : _ Js.t -> _ Js.t -> _ Js.t Js.meth
   (** {% <p>A convenient alias method for <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a>.</p>
 
 <p>Merges any number of objects recursively without referencing them or their children.</p>
@@ -1293,21 +1292,21 @@ var sencha = <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-mer
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- destination: ['a Js.t]
+    {ul {- destination: [_ Js.t]
     {% <p>The object into which all subsequent objects are merged.</p> %}
     }
-    {- _object: ['a Js.t]
+    {- _object: [_ Js.t]
     {% <p>Any number of objects to merge into the destination.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>merged The destination object with all passed objects merged in.</p> %}
     }
     }
     *)
-  method namespace : Js.js_string Js.t -> 'a Js.t Js.meth
+  method namespace : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Creates namespaces to be used for scoping variables and classes so that they are not global.
 Specifying the last node of a namespace implicitly creates all other nodes. Usage:</p>
 
@@ -1327,13 +1326,13 @@ Company.data.CustomStore = function(config) { ... };
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The namespace object.
 (If multiple arguments are passed, this will be the last namespace created)</p> %}
     }
     }
     *)
-  method ns : Js.js_string Js.t -> 'a Js.t Js.meth
+  method ns : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>Convenient alias for <a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>.</p>
 
 <p>Creates namespaces to be used for scoping variables and classes so that they are not global.
@@ -1355,7 +1354,7 @@ Company.data.CustomStore = function(config) { ... };
     }
     
     {b Returns}:
-    {ul {- ['a Js.t]
+    {ul {- [_ Js.t]
     {% <p>The namespace object.
 (If multiple arguments are passed, this will be the last namespace created)</p> %}
     }
@@ -1367,7 +1366,7 @@ Company.data.CustomStore = function(config) { ... };
   method onReady : unit Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.Loader-method-onReady" rel="Ext.Loader-method-onReady" class="docClass">Ext.Loader.onReady</a> with withDomReady set to true</p> %}
     *)
-  method override : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method override : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Overrides members of the specified <code>target</code> with the given values.</p>
 
 <p>If the <code>target</code> is a class declared using <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>, the
@@ -1399,16 +1398,16 @@ using <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">
 further details.</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The target to override.</p> %}
     }
-    {- overrides: ['a Js.t]
+    {- overrides: [_ Js.t]
     {% <p>The properties to add or replace on <code>target</code>.</p> %}
     }
     }
     *)
-  method pass : 'a Js.callback -> 'b Js.js_array Js.t -> 'c Js.t Js.optdef ->
-    'd Js.callback Js.meth
+  method pass : _ Js.callback -> _ Js.js_array Js.t -> _ Js.t Js.optdef ->
+    _ Js.callback Js.meth
   (** {% <p>Create a new function from the provided <code>fn</code>, the arguments of which are pre-set to <code>args</code>.
 New arguments passed to the newly created callback when it's invoked are appended after the pre-set ones.
 This is especially useful when creating callbacks.</p>
@@ -1428,23 +1427,23 @@ callback('by Me'); // alerts 'Hello World by Me'
 <p><a href="#!/api/Ext-method-pass" rel="Ext-method-pass" class="docClass">Ext.pass</a> is alias for <a href="#!/api/Ext.Function-method-pass" rel="Ext.Function-method-pass" class="docClass">Ext.Function.pass</a></p> %}
     
     {b Parameters}:
-    {ul {- fn: ['a Js.callback]
+    {ul {- fn: [_ Js.callback]
     {% <p>The original function</p> %}
     }
-    {- args: ['a Js.js_array Js.t]
+    {- args: [_ Js.js_array Js.t]
     {% <p>The arguments to pass to new callback</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the function is executed.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.callback] {% <p>The new callback function</p> %}
+    {ul {- [_ Js.callback] {% <p>The new callback function</p> %}
     }
     }
     *)
-  method preg : Js.js_string Js.t -> 'a Js.callback -> unit Js.meth
+  method preg : Js.js_string Js.t -> _ Js.callback -> unit Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.PluginManager-method-registerType" rel="Ext.PluginManager-method-registerType" class="docClass">Ext.PluginManager.registerType</a></p> %}
     
     {b Parameters}:
@@ -1452,7 +1451,7 @@ callback('by Me'); // alerts 'Hello World by Me'
     {% <p>The ptype mnemonic string by which the Plugin class
 may be looked up.</p> %}
     }
-    {- cls: ['a Js.callback] {% <p>The new Plugin class.</p> %}
+    {- cls: [_ Js.callback] {% <p>The new Plugin class.</p> %}
     }
     }
     *)
@@ -1472,10 +1471,11 @@ may be looked up.</p> %}
     {ul {- path: [Js.js_string Js.t]
     {% <p>The selector/xpath query</p> %}
     }
-    {- root: [Dom_html.element Js.t] {% <p>The start of the query.</p> %}
+    {- root: [Dom_html.element Js.t] (optional)
+    {% <p>The start of the query.</p> %}
      Defaults to: document
     }
-    {- _type: [Js.js_string Js.t]
+    {- _type: [Js.js_string Js.t] (optional)
     {% <p>Either "select" or "simple" for a simple selector match (only valid when
 used when the call is deferred to the jsSelect method)</p> %}
     
@@ -1489,7 +1489,7 @@ used when the call is deferred to the jsSelect method)</p> %}
     }
     }
     *)
-  method regStore : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method regStore : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Creates a new store for the given id and config, then registers it with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">Store Manager</a>.
 Sample usage:</p>
 
@@ -1508,7 +1508,7 @@ new Ext.List({
     {ul {- id: [Js.js_string Js.t]
     {% <p>The id to set on the new store</p> %}
     }
-    {- config: ['a Js.t] {% <p>The store config</p> %}
+    {- config: [_ Js.t] {% <p>The store config</p> %}
     }
     }
     *)
@@ -1536,15 +1536,15 @@ The body node will be ignored if passed in.</p> %}
 <p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p> %}
     
     {b Parameters}:
-    {ul {- flush: [bool Js.t]
+    {ul {- flush: [bool Js.t] (optional)
     {% <p>True to perform all the pending layouts. This can also be
 achieved by calling <a href="#!/api/Ext.AbstractComponent-static-method-flushLayouts" rel="Ext.AbstractComponent-static-method-flushLayouts" class="docClass">flushLayouts</a> directly.</p> %}
      Defaults to: false
     }
     }
     *)
-  method select : 'a Js.t -> bool Js.t Js.optdef -> 'b Js.t Js.optdef ->
-    'c Js.t Js.meth
+  method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
+    Js.meth
   (** {% <p>Shorthand of <a href="#!/api/Ext.dom.Element-method-select" rel="Ext.dom.Element-method-select" class="docClass">Ext.Element.select</a>.</p>
 
 <p>Selects elements based on the passed CSS selector to enable <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> methods
@@ -1552,25 +1552,25 @@ to be applied to many related elements in one statement through the returned <a 
 <a href="#!/api/Ext.dom.CompositeElementLite" rel="Ext.dom.CompositeElementLite" class="docClass">CompositeElementLite</a> object.</p> %}
     
     {b Parameters}:
-    {ul {- selector: ['a Js.t]
+    {ul {- selector: [_ Js.t]
     {% <p>The CSS selector or an array of elements</p> %}
     }
-    {- unique: [bool Js.t]
+    {- unique: [bool Js.t] (optional)
     {% <p>true to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element (defaults to a shared flyweight object)</p> %}
     }
-    {- root: ['a Js.t]
+    {- root: [_ Js.t] (optional)
     {% <p>The root element of the query or id of the root</p> %}
     }
     }
     *)
-  method setVersion : Js.js_string Js.t -> 'a Js.t -> 'b Js.t Js.meth
+  method setVersion : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   (** {% <p>Set version number for the given package name.</p> %}
     
     {b Parameters}:
     {ul {- packageName: [Js.js_string Js.t]
     {% <p>The package name, for example: 'core', 'touch', 'extjs'</p> %}
     }
-    {- version: ['a Js.t]
+    {- version: [_ Js.t]
     {% <p>The version, for example: '1.2.3alpha', '2.4.0-dev'</p> %}
     }
     }
@@ -1593,8 +1593,8 @@ containers:</p>
   method syncRequire : unit Js.meth
   (** {% <p>Synchronous version of <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">require</a>, convenient alias of <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">Ext.Loader.syncRequire</a>.</p> %}
     *)
-  method toArray : 'a Js.t -> Js.number Js.t Js.optdef ->
-    Js.number Js.t Js.optdef -> 'b Js.js_array Js.t Js.meth
+  method toArray : _ Js.t -> Js.number Js.t Js.optdef ->
+    Js.number Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
   (** {% <p>Converts any iterable (numeric indices and a length property) into a true array.</p>
 
 <pre><code>function test() {
@@ -1616,24 +1616,24 @@ test('just', 'testing', 'here'); // alerts 'just testing here';
 <p><a href="#!/api/Ext-method-toArray" rel="Ext-method-toArray" class="docClass">Ext.toArray</a> is alias for <a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a></p> %}
     
     {b Parameters}:
-    {ul {- iterable: ['a Js.t]
+    {ul {- iterable: [_ Js.t]
     {% <p>the iterable object to be turned into a true Array.</p> %}
     }
-    {- start: [Js.number Js.t]
+    {- start: [Js.number Js.t] (optional)
     {% <p>a zero-based index that specifies the start of extraction. Defaults to 0</p> %}
     }
-    {- _end: [Js.number Js.t]
+    {- _end: [Js.number Js.t] (optional)
     {% <p>a 1-based index that specifies the end of extraction. Defaults to the last
 index of the iterable value</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t] {% <p>array</p> %}
+    {ul {- [_ Js.js_array Js.t] {% <p>array</p> %}
     }
     }
     *)
-  method typeOf : 'a Js.t -> Js.js_string Js.t Js.meth
+  method typeOf : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Returns the type of the given variable in string format. List of possible values are:</p>
 
 <ul>
@@ -1653,33 +1653,33 @@ index of the iterable value</p> %}
 </ul> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     }
     }
     *)
-  method valueFrom : 'a Js.t -> 'b Js.t -> bool Js.t Js.optdef -> 'c Js.t
+  method valueFrom : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Returns the given value itself if it's not empty, as described in <a href="#!/api/Ext-method-isEmpty" rel="Ext-method-isEmpty" class="docClass">isEmpty</a>; returns the default
 value (second argument) otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t]
+    {ul {- value: [_ Js.t]
     {% <p>The value to test</p> %}
     }
-    {- defaultValue: ['a Js.t]
+    {- defaultValue: [_ Js.t]
     {% <p>The value to return if the original value is empty</p> %}
     }
-    {- allowBlank: [bool Js.t]
+    {- allowBlank: [bool Js.t] (optional)
     {% <p>true to allow zero length strings to qualify as non-empty (defaults to false)</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>value, if non-empty, else defaultValue</p> %}
+    {ul {- [_ Js.t] {% <p>value, if non-empty, else defaultValue</p> %}
     }
     }
     *)
-  method widget : Js.js_string Js.t Js.optdef -> 'a Js.t Js.optdef -> 'b Js.t
+  method widget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Convenient shorthand to create a widget by its xtype or a config object.
 See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a>.</p>
@@ -1699,16 +1699,16 @@ See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.Cl
 <p>If a <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">component</a> instance is passed, it is simply returned.</p> %}
     
     {b Parameters}:
-    {ul {- name: [Js.js_string Js.t]
+    {ul {- name: [Js.js_string Js.t] (optional)
     {% <p>The xtype of the widget to create.</p> %}
     }
-    {- config: ['a Js.t]
+    {- config: [_ Js.t] (optional)
     {% <p>The configuration object for the widget constructor.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The widget instance</p> %}
+    {ul {- [_ Js.t] {% <p>The widget instance</p> %}
     }
     }
     *)

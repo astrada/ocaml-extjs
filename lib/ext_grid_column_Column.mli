@@ -125,17 +125,16 @@ names added, and will be in the configured visibility and the configured enable 
   (** {% <p>When defined this will take precedence over the <a href="#!/api/Ext.grid.column.Column-cfg-renderer" rel="Ext.grid.column.Column-cfg-renderer" class="docClass">renderer</a> config.
 This is meant to be defined in subclasses that wish to supply their own renderer.</p> %}
     *)
-  method getEditor : 'a Js.t -> 'b Js.t -> #Ext_form_field_Field.t Js.t
-    Js.meth
+  method getEditor : _ Js.t -> _ Js.t -> #Ext_form_field_Field.t Js.t Js.meth
   (** {% <p>Retrieves the editing field for editing associated with this header. Returns false if there is no field
 associated with the Header the method will return false. If the field has not been instantiated it will be
 created. Note: These methods only has an implementation if a Editing plugin has been enabled on the grid.</p> %}
     
     {b Parameters}:
-    {ul {- record: ['a Js.t]
+    {ul {- record: [_ Js.t]
     {% <p>The <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a> instance being edited.</p> %}
     }
-    {- defaultField: ['a Js.t]
+    {- defaultField: [_ Js.t]
     {% <p>An object representing a default field to be created</p> %}
     }
     }
@@ -157,21 +156,21 @@ need to be overriden in most cases.</p> %}
   (** {% <p>Returns the index of this column in the list of <em>visible</em> columns only if this column is a base level Column. If it
 is a group column, it returns <code>false</code>.</p> %}
     *)
-  method hide_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method hide_column : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.grid.column.Column-cfg-hideMode" rel="Ext.grid.column.Column-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     {% <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>A callback function to call after the Component is hidden.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> %}
     }
@@ -243,12 +242,12 @@ structure which may depend upon the state of the child items.</p> %}
     }
     }
     *)
-  method setEditor : 'a Js.t -> unit Js.meth
+  method setEditor : _ Js.t -> unit Js.meth
   (** {% <p>Sets the form field to be used for editing. Note: This method only has an implementation if an Editing plugin has
 been enabled on the grid.</p> %}
     
     {b Parameters}:
-    {ul {- field: ['a Js.t]
+    {ul {- field: [_ Js.t]
     {% <p>An object representing a field to be created. If no xtype is specified a 'textfield' is
 assumed.</p> %}
     }
@@ -263,24 +262,24 @@ assumed.</p> %}
     }
     }
     *)
-  method show_column : 'a Js.t Js.optdef -> 'b Js.callback Js.optdef ->
-    'c Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
+  method show_column : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
   (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.grid.column.Column-cfg-autoRender" rel="Ext.grid.column.Column-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 
 <p>After being shown, a <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
 brought to the front of its <a href="#!/api/Ext.grid.column.Column-property-zIndexManager" rel="Ext.grid.column.Column-property-zIndexManager" class="docClass">z-index stack</a>.</p> %}
     
     {b Parameters}:
-    {ul {- animateTarget: ['a Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     {% <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
      Defaults to: null
     }
-    {- callback: ['a Js.callback]
+    {- callback: [_ Js.callback] (optional)
     {% <p>A callback function to call after the Component is displayed.
 Only necessary if animation was specified.</p> %}
     }
-    {- scope: ['a Js.t]
+    {- scope: [_ Js.t] (optional)
     {% <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> %}
     }
@@ -339,7 +338,7 @@ componentCls to add specific styling for this component.</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'column-header ' + Ext.baseCSSPrefix + 'unselectable']
     *)
-  method columns : 'a Js.t Js.js_array Js.t Js.prop
+  method columns : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>An optional array of sub-column definitions. This column becomes a group, and houses the columns defined in the
 <code>columns</code> config.</p>
 
@@ -368,13 +367,13 @@ which to draw the column's value. <strong>Required.</strong></p> %}
     
     Defaults to: [true]
     *)
-  method editRenderer : 'a Js.callback Js.prop
+  method editRenderer : _ Js.callback Js.prop
   (** {% <p>A renderer to be used in conjunction with <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>. This renderer is used to
 display a custom value for non-editable fields.</p> %}
     
     Defaults to: [false]
     *)
-  method editor : 'a Js.t Js.prop
+  method editor : _ Js.t Js.prop
   (** {% <p>An optional xtype or config object for a <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Field</a> to use for editing.
 Only applicable if the grid is using an <a href="#!/api/Ext.grid.plugin.Editing" rel="Ext.grid.plugin.Editing" class="docClass">Editing</a> plugin.</p> %}
     *)
@@ -427,7 +426,7 @@ internal structure.</p>
     
     Defaults to: ['<div id="{id}-titleEl" {tipMarkup}class="' + Ext.baseCSSPrefix + 'column-header-inner">' + '<span id="{id}-textEl" class="' + Ext.baseCSSPrefix + 'column-header-text">' + '{text}' + '</span>' + '<tpl if="!menuDisabled">' + '<div id="{id}-triggerEl" class="' + Ext.baseCSSPrefix + 'column-header-trigger"></div>' + '</tpl>' + '</div>' + '{%this.renderContainer(out,values)%}']
     *)
-  method renderer : 'a Js.t Js.prop
+  method renderer : _ Js.t Js.prop
   (** {% <p>A renderer is an 'interceptor' method which can be used to transform data (value, appearance, etc.)
 before it is rendered. Example:</p>
 
@@ -455,7 +454,7 @@ before it is rendered. Example:</p>
     
     Defaults to: [true]
     *)
-  method scope : 'a Js.t Js.prop
+  method scope : _ Js.t Js.prop
   (** {% <p>The scope to use when calling the <a href="#!/api/Ext.grid.column.Column-cfg-renderer" rel="Ext.grid.column.Column-cfg-renderer" class="docClass">renderer</a> function.</p> %}
     *)
   method sortable : bool Js.t Js.prop

@@ -10,11 +10,11 @@ object('self)
   method isRunning : bool Js.t Js.prop
   method operations : Ext_data_Operation.t Js.js_array Js.t Js.prop
   method total : Js.number Js.t Js.prop
-  method add : 'a Js.t -> 'self Js.t Js.meth
+  method add : _ Js.t -> 'self Js.t Js.meth
   method pause : 'self Js.t Js.meth
   method retry : 'self Js.t Js.meth
   method runOperation : Js.number Js.t -> 'self Js.t Js.meth
-  method start : 'a Js.t -> 'self Js.t Js.meth
+  method start : _ Js.t -> 'self Js.t Js.meth
   
 end
 
@@ -33,12 +33,12 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method complete : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method complete : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method _exception : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method _exception : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method operationcomplete : (t Js.t -> 'a Js.t -> 'b Js.t -> unit)
-    Js.callback Js.writeonly_prop
+  method operationcomplete : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   
 end
 

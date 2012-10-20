@@ -49,15 +49,15 @@ object('self)
     
     Defaults to: [false]
     *)
-  method config : 'a Js.t Js.prop
+  method config : _ Js.t Js.prop
   (** {% <p>Configuration attributes passed into the constructor</p> %}
     *)
-  method defaultPadding : 'a Js.t Js.prop
+  method defaultPadding : _ Js.t Js.prop
   (** {% <p>Provides default constraint padding to "constrainTo" elements.</p> %}
     
     Defaults to: [{left: 0, right: 0, top: 0, bottom: 0}]
     *)
-  method groups : 'a Js.t Js.prop
+  method groups : _ Js.t Js.prop
   (** {% <p>The group defines a logical collection of DragDrop objects that are
 related.  Instances only get events when interacting with other
 DragDrop object in the same group.  This lets us define multiple
@@ -88,7 +88,7 @@ fire drag events to themselves.</p> %}
   method invalidHandleClasses : Js.js_string Js.t Js.js_array Js.t Js.prop
   (** {% <p>An Array of CSS class names for elements to be considered in valid as drag handles.</p> %}
     *)
-  method invalidHandleIds : 'a Js.t Js.prop
+  method invalidHandleIds : _ Js.t Js.prop
   (** {% <p>An object who's property names identify the IDs of elements to be considered invalid as drag handles.
 A non-null property value identifies the ID as invalid. For example, to prevent
 dragging from being initiated on element ID "foo", use:</p>
@@ -98,7 +98,7 @@ dragging from being initiated on element ID "foo", use:</p>
 }
 </code></pre> %}
     *)
-  method invalidHandleTypes : 'a Js.t Js.prop
+  method invalidHandleTypes : _ Js.t Js.prop
   (** {% <p>An object who's property names identify HTML tags to be considered invalid as drag handles.
 A non-null property value identifies the tag as invalid. Defaults to the
 following value which prevents drag operations from being initiated by <code>&lt;a&gt;</code> elements:</p>
@@ -204,7 +204,7 @@ since they can't exist independent of a constraint at this time.</p> %}
   method clearTicks : unit Js.meth
   (** {% <p>Clears any tick interval defined for this instance</p> %}
     *)
-  method constrainTo : 'a Js.t -> 'b Js.t Js.optdef -> bool Js.t Js.optdef ->
+  method constrainTo : _ Js.t -> _ Js.t Js.optdef -> bool Js.t Js.optdef ->
     unit Js.meth
   (** {% <p>Initializes the drag drop object's constraints to restrict movement to a certain element.</p>
 
@@ -227,15 +227,15 @@ dd.startDrag = function(){
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- constrainTo: ['a Js.t]
+    {ul {- constrainTo: [_ Js.t]
     {% <p>The element or element ID to constrain to.</p> %}
     }
-    {- pad: ['a Js.t]
+    {- pad: [_ Js.t] (optional)
     {% <p>Pad provides a way to specify "padding" of the constraints,
 and can be either a number for symmetrical padding (4 would be equal to <code>{left:4, right:4, top:4, bottom:4}</code>) or
 an object containing the sides to pad. For example: <code>{right:10, bottom:10}</code></p> %}
     }
-    {- inContent: [bool Js.t]
+    {- inContent: [bool Js.t] (optional)
     {% <p>Constrain the draggable in the content box of the element (inside padding and borders)</p> %}
     }
     }
@@ -266,7 +266,7 @@ element. An example of this can be found in <a href="#!/api/Ext.dd.DDProxy" rel=
     }
     }
     *)
-  method init : Js.js_string Js.t -> Js.js_string Js.t -> 'a Js.t -> unit
+  method init : Js.js_string Js.t -> Js.js_string Js.t -> _ Js.t -> unit
     Js.meth
   (** {% <p>Sets up the DragDrop object.  Must be called in the constructor of any
 <a href="#!/api/Ext.dd.DragDrop" rel="Ext.dd.DragDrop" class="docClass">Ext.dd.DragDrop</a> subclass</p> %}
@@ -278,11 +278,11 @@ element. An example of this can be found in <a href="#!/api/Ext.dd.DDProxy" rel=
     {- sGroup: [Js.js_string Js.t]
     {% <p>the group of related items</p> %}
     }
-    {- config: ['a Js.t] {% <p>configuration attributes</p> %}
+    {- config: [_ Js.t] {% <p>configuration attributes</p> %}
     }
     }
     *)
-  method initTarget : Js.js_string Js.t -> Js.js_string Js.t -> 'a Js.t ->
+  method initTarget : Js.js_string Js.t -> Js.js_string Js.t -> _ Js.t ->
     unit Js.meth
   (** {% <p>Initializes Targeting functionality only... the object does not
 get a mousedown handler.</p> %}
@@ -294,7 +294,7 @@ get a mousedown handler.</p> %}
     {- sGroup: [Js.js_string Js.t]
     {% <p>the group of related items</p> %}
     }
-    {- config: ['a Js.t] {% <p>configuration attributes</p> %}
+    {- config: [_ Js.t] {% <p>configuration attributes</p> %}
     }
     }
     *)
@@ -340,7 +340,7 @@ object.</p> %}
     }
     }
     *)
-  method onDragDrop : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragDrop : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Abstract method called when this item is dropped on another DragDrop
 obj</p> %}
     
@@ -348,14 +348,14 @@ obj</p> %}
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mouseup event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this was dropped on.  In INTERSECT mode, an array of dd items this
 was dropped on.</p> %}
     }
     }
     *)
-  method onDragEnter : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragEnter : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Abstract method called when this element fist begins hovering over
 another DragDrop obj</p> %}
     
@@ -363,28 +363,28 @@ another DragDrop obj</p> %}
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mousemove event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of one or more
 dragdrop items being hovered over.</p> %}
     }
     }
     *)
-  method onDragOut : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragOut : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Abstract method called when we are no longer hovering over an element</p> %}
     
     {b Parameters}:
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mousemove event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this was hovering over.  In INTERSECT mode, an array of dd items
 that the mouse is no longer over.</p> %}
     }
     }
     *)
-  method onDragOver : Dom_html.event Js.t -> 'a Js.t -> unit Js.meth
+  method onDragOver : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Abstract method called when this element is hovering over another
 DragDrop obj</p> %}
     
@@ -392,7 +392,7 @@ DragDrop obj</p> %}
     {ul {- e: [Dom_html.event Js.t]
     {% <p>the mousemove event</p> %}
     }
-    {- id: ['a Js.t]
+    {- id: [_ Js.t]
     {% <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of dd items
 being hovered over.</p> %}
@@ -549,7 +549,7 @@ this method to limit the horizontal travel of the element.  Pass in
     {% <p>the number of pixels the element can move to the
 right</p> %}
     }
-    {- iTickSize: [Js.number Js.t]
+    {- iTickSize: [Js.number Js.t] (optional)
     {% <p>parameter for specifying that the
 element should move iTickSize pixels at a time.</p> %}
     }
@@ -568,7 +568,7 @@ parameters if you want to lock the drag to the x axis.</p> %}
     {- iDown: [Js.number Js.t]
     {% <p>the number of pixels the element can move down</p> %}
     }
-    {- iTickSize: [Js.number Js.t]
+    {- iTickSize: [Js.number Js.t] (optional)
     {% <p>parameter for specifying that the
 element should move iTickSize pixels at a time.</p> %}
     }

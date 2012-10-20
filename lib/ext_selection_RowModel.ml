@@ -30,13 +30,13 @@ object
   inherit Ext_selection_Model.events
   
   method beforedeselect : (t Js.t -> Ext_data_Model.t Js.t -> Js.number Js.t
-    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+    -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforeselect : (t Js.t -> Ext_data_Model.t Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method deselect : (t Js.t -> Ext_data_Model.t Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   method select : (t Js.t -> Ext_data_Model.t Js.t -> Js.number Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

@@ -10,7 +10,7 @@ object('self)
   inherit Ext_layout_Layout.t
   inherit Ext_util_ElementContainer.t
   
-  method getScrollRangeFlags : 'a Js.t Js.prop
+  method getScrollRangeFlags : _ Js.t Js.prop
   (** {% <p>Returns flags indicating cross-browser handling of scrollHeight/Width. In particular,
 IE has issues with padding-bottom in a scrolling element (it does not include that
 padding in the scrollHeight). Also, margin-bottom on a child in a scrolling element
@@ -43,7 +43,7 @@ have a width that includes the right padding.</p> %}
   method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
   (** {% <p>The element used to correct body padding during overflow.</p> %}
     *)
-  method beginLayout_obj : 'a Js.t -> unit Js.meth
+  method beginLayout_obj : _ Js.t -> unit Js.meth
   (** {% <p>In addition to work done by our base classes, containers benefit from some extra
 cached data. The following properties are added to the ownerContext:</p>
 
@@ -54,7 +54,7 @@ cached data. The following properties are added to the ownerContext:</p>
 </ul> %}
     
     {b Parameters}:
-    {ul {- ownerContext: ['a Js.t]
+    {ul {- ownerContext: [_ Js.t]
     }
     }
     *)
@@ -71,7 +71,7 @@ component.</p> %}
     }
     }
     *)
-  method calculateOverflow : Ext_layout_ContextItem.t Js.t -> 'a Js.t ->
+  method calculateOverflow : Ext_layout_ContextItem.t Js.t -> _ Js.t ->
     Js.number Js.t -> unit Js.meth
   (** {% <p>Handles overflow processing for a container. This should be called once the layout
 has determined contentWidth/Height. In addition to the ownerContext passed to the
@@ -81,7 +81,7 @@ returned by <a href="#!/api/Ext.layout.container.Container-method-getContainerSi
     {b Parameters}:
     {ul {- ownerContext: [Ext_layout_ContextItem.t Js.t]
     }
-    {- containerSize: ['a Js.t]
+    {- containerSize: [_ Js.t]
     }
     {- dimensions: [Js.number Js.t]
     {% <p>A bit mask for the overflow managed dimensions. The 0-bit
@@ -112,15 +112,15 @@ component.</p> %}
     }
     }
     *)
-  method configureItem_obj : 'a Js.t -> unit Js.meth
+  method configureItem_obj : _ Js.t -> unit Js.meth
   (** {% <p>Adds layout's itemCls and owning Container's itemCls</p> %}
     
     {b Parameters}:
-    {ul {- item: ['a Js.t]
+    {ul {- item: [_ Js.t]
     }
     }
     *)
-  method doRenderPadder : 'a Js.t -> 'b Js.t -> unit Js.meth
+  method doRenderPadder : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Creates an element that makes bottom/right body padding consistent across browsers.
 This element is sized based on the need for scrollbars in <a href="#!/api/Ext.layout.container.Container-method-calculateOverflow" rel="Ext.layout.container.Container-method-calculateOverflow" class="docClass">calculateOverflow</a>.
 If the <a href="#!/api/Ext.layout.container.Container-cfg-manageOverflow" rel="Ext.layout.container.Container-cfg-manageOverflow" class="docClass">manageOverflow</a> option is false, this element is not created.</p>
@@ -128,14 +128,14 @@ If the <a href="#!/api/Ext.layout.container.Container-cfg-manageOverflow" rel="E
 <p>See <a href="#!/api/Ext.layout.container.Container-property-getScrollRangeFlags" rel="Ext.layout.container.Container-property-getScrollRangeFlags" class="docClass">getScrollRangeFlags</a> for more details.</p> %}
     
     {b Parameters}:
-    {ul {- out: ['a Js.t]
+    {ul {- out: [_ Js.t]
     }
-    {- renderData: ['a Js.t]
+    {- renderData: [_ Js.t]
     }
     }
     *)
   method getContainerSize : Ext_layout_ContextItem.t Js.t ->
-    bool Js.t Js.optdef -> 'a Js.t Js.meth
+    bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Returns the container size (that of the target). Only the fixed-sized dimensions can
 be returned because the shrinkWrap dimensions are based on the contentWidth/Height
 as determined by the container layout.</p>
@@ -147,14 +147,14 @@ true, this may adjust the width/height by the size of scrollbars.</p> %}
     {ul {- ownerContext: [Ext_layout_ContextItem.t Js.t]
     {% <p>The owner's context item.</p> %}
     }
-    {- inDom: [bool Js.t]
+    {- inDom: [bool Js.t] (optional)
     {% <p>True if the container size must be in the DOM.</p> %}
      Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- ['a Js.t] {% <p>The size</p> %}
+    {ul {- [_ Js.t] {% <p>The size</p> %}
     }
     }
     *)
@@ -180,22 +180,22 @@ target element.</p>
 
 <p>May be overridden in layout managers which implement an inner element.</p> %}
     *)
-  method getRenderedItems : 'a Js.js_array Js.t Js.meth
+  method getRenderedItems : _ Js.js_array Js.t Js.meth
   (** {% <p>Returns all items that are rendered</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t] {% <p>All matching items</p> %}
+    {ul {- [_ Js.js_array Js.t] {% <p>All matching items</p> %}
     }
     }
     *)
   method getTarget : Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Returns the owner component's resize element.</p> %}
     *)
-  method getVisibleItems : 'a Js.js_array Js.t Js.meth
+  method getVisibleItems : _ Js.js_array Js.t Js.meth
   (** {% <p>Returns all items that are both rendered and visible</p> %}
     
     {b Returns}:
-    {ul {- ['a Js.js_array Js.t] {% <p>All matching items</p> %}
+    {ul {- [_ Js.js_array Js.t] {% <p>All matching items</p> %}
     }
     }
     *)

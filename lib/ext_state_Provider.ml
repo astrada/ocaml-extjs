@@ -4,10 +4,10 @@ object('self)
   inherit Ext_util_Observable.t
   
   method clear : Js.js_string Js.t -> unit Js.meth
-  method decodeValue : Js.js_string Js.t -> 'a Js.t Js.meth
-  method encodeValue : 'a Js.t -> Js.js_string Js.t Js.meth
-  method get : Js.js_string Js.t -> 'a Js.t -> 'b Js.t Js.meth
-  method set : Js.js_string Js.t -> 'a Js.t -> unit Js.meth
+  method decodeValue : Js.js_string Js.t -> _ Js.t Js.meth
+  method encodeValue : _ Js.t -> Js.js_string Js.t Js.meth
+  method get : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
+  method set : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   
 end
 
@@ -26,7 +26,7 @@ object
   inherit Ext_util_Observable.events
   
   method statechange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 

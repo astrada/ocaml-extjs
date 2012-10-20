@@ -79,18 +79,18 @@ rendered to <a href="#!/api/Ext" rel="Ext" class="docClass">Ext.getDetachedBody<
 Any configured position is also restored.</p> %}
     
     {b Parameters}:
-    {ul {- runLayout: [bool Js.t]
+    {ul {- runLayout: [bool Js.t] (optional)
     {% <p>True to run the component's layout.</p> %}
      Defaults to: false
     }
     }
     *)
-  method getInsertPosition : 'a Js.t -> Dom_html.element Js.t Js.meth
+  method getInsertPosition : _ Js.t -> Dom_html.element Js.t Js.meth
   (** {% <p>This function takes the position argument passed to onRender and returns a
 DOM element that you can use in the insertBefore.</p> %}
     
     {b Parameters}:
-    {ul {- position: ['a Js.t]
+    {ul {- position: [_ Js.t]
     {% <p>Index, element id or element you want
 to put this component before.</p> %}
     }
@@ -120,7 +120,7 @@ call the parent class's method before attempting to access any child elements of
     }
     }
     *)
-  method render : 'a Js.t Js.optdef -> 'b Js.t Js.optdef -> unit Js.meth
+  method render : _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Renders the Component into the passed HTML element.</p>
 
 <p><strong>If you are using a <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> object to house this
@@ -145,11 +145,11 @@ layout manager is used which does nothing but render child components sequential
 Container. No sizing or positioning will be performed in this situation.</strong></p> %}
     
     {b Parameters}:
-    {ul {- container: ['a Js.t]
+    {ul {- container: [_ Js.t] (optional)
     {% <p>The element this Component should be
 rendered into. If it is being created from existing markup, this should be omitted.</p> %}
     }
-    {- position: ['a Js.t]
+    {- position: [_ Js.t] (optional)
     {% <p>The element ID or DOM node index within the container <strong>before</strong>
 which this component will be inserted (defaults to appending to the end of the container)</p> %}
     }

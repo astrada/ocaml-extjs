@@ -24,7 +24,7 @@ object('self)
     
     Defaults to: ['GET']
     *)
-  method params : 'a Js.t Js.prop
+  method params : _ Js.t Js.prop
   (** {% <p>HTTP request params. The Proxy and its Writer have access to and can modify this object.</p> %}
     *)
   method url : Js.js_string Js.t Js.prop

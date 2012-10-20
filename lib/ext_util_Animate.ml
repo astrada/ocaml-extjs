@@ -2,11 +2,11 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method animate : 'a Js.t -> 'b Js.t Js.meth
-  method getActiveAnimation : 'a Js.t Js.meth
-  method sequenceFx : 'a Js.t Js.meth
+  method animate : _ Js.t -> _ Js.t Js.meth
+  method getActiveAnimation : _ Js.t Js.meth
+  method sequenceFx : _ Js.t Js.meth
   method stopAnimation : Ext_dom_Element.t Js.t Js.meth
-  method syncFx : 'a Js.t Js.meth
+  method syncFx : _ Js.t Js.meth
   
 end
 

@@ -45,11 +45,11 @@ batch execution and did not successfully complete</p> %}
     
     Defaults to: [0]
     *)
-  method add : 'a Js.t -> 'self Js.t Js.meth
+  method add : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds a new operation to this batch at the end of the <a href="#!/api/Ext.data.Batch-property-operations" rel="Ext.data.Batch-property-operations" class="docClass">operations</a> array</p> %}
     
     {b Parameters}:
-    {ul {- operation: ['a Js.t]
+    {ul {- operation: [_ Js.t]
     {% <p>The <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Operation</a> object</p> %}
     }
     }
@@ -94,7 +94,7 @@ all operations are complete or another exception is encountered.</p>
     }
     }
     *)
-  method start : 'a Js.t -> 'self Js.t Js.meth
+  method start : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Kicks off execution of the batch, continuing from the next operation if the previous
 operation encountered an exception, or if execution was paused. Use this method to start
 the batch for the first time or to restart a paused batch by skipping the current
@@ -106,7 +106,7 @@ because you explicitly handled the operation's exception), call <a href="#!/api/
 <p>Note that if the batch is already running any call to start will be ignored.</p> %}
     
     {b Parameters}:
-    {ul {- index: ['a Js.t]
+    {ul {- index: [_ Js.t]
     }
     }
     
@@ -157,7 +157,7 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method complete : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method complete : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fired when all operations of this batch have been completed</p> %}
     
@@ -165,15 +165,15 @@ object
     {ul {- batch: [Ext_data_Batch.t Js.t]
     {% <p>The batch object</p> %}
     }
-    {- operation: ['a Js.t]
+    {- operation: [_ Js.t]
     {% <p>The last operation that was executed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method _exception : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method _exception : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fired when a operation encountered an exception</p> %}
     
@@ -181,26 +181,26 @@ object
     {ul {- batch: [Ext_data_Batch.t Js.t]
     {% <p>The batch object</p> %}
     }
-    {- operation: ['a Js.t]
+    {- operation: [_ Js.t]
     {% <p>The operation that encountered the exception</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
-  method operationcomplete : (t Js.t -> 'a Js.t -> 'b Js.t -> unit)
-    Js.callback Js.writeonly_prop
+  method operationcomplete : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   (** {% <p>Fired when each operation of the batch completes</p> %}
     
     {b Parameters}:
     {ul {- batch: [Ext_data_Batch.t Js.t]
     {% <p>The batch object</p> %}
     }
-    {- operation: ['a Js.t]
+    {- operation: [_ Js.t]
     {% <p>The operation that just completed</p> %}
     }
-    {- eOpts: ['a Js.t]
+    {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }

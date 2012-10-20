@@ -3,8 +3,8 @@ object('self)
   inherit Ext_Base.t
   
   method failureType : Js.js_string Js.t Js.prop
-  method response : 'a Js.t Js.prop
-  method result : 'a Js.t Js.prop
+  method response : _ Js.t Js.prop
+  method result : _ Js.t Js.prop
   method _type : Js.js_string Js.t Js.prop
   method run : unit Js.meth
   
@@ -14,15 +14,15 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method failure : 'a Js.callback Js.prop
-  method form : 'a Js.t Js.prop
-  method headers : 'a Js.t Js.prop
+  method failure : _ Js.callback Js.prop
+  method form : _ Js.t Js.prop
+  method headers : _ Js.t Js.prop
   method _method : Js.js_string Js.t Js.prop
-  method params : 'a Js.t Js.prop
+  method params : _ Js.t Js.prop
   method reset : bool Js.t Js.prop
-  method scope : 'a Js.t Js.prop
+  method scope : _ Js.t Js.prop
   method submitEmptyText : bool Js.t Js.prop
-  method success : 'a Js.callback Js.prop
+  method success : _ Js.callback Js.prop
   method timeout : Js.number Js.t Js.prop
   method url : Js.js_string Js.t Js.prop
   method waitMsg : Js.js_string Js.t Js.prop

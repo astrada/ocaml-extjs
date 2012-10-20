@@ -26,11 +26,11 @@ console.log(version.match('1.0.2')); // True
 class type t =
 object('self)
   
-  method equals : 'a Js.t -> bool Js.t Js.meth
+  method equals : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether this version equals to the supplied argument</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The version to compare with</p> %}
     }
     }
@@ -84,27 +84,27 @@ object('self)
   method getShortVersion : Js.js_string Js.t Js.meth
   (** {% <p>Returns shortVersion version without dots and release</p> %}
     *)
-  method gt : 'a Js.t -> bool Js.t Js.meth
+  method gt : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Convenient alias to <a href="#!/api/Ext.Version-method-isGreaterThan" rel="Ext.Version-method-isGreaterThan" class="docClass">isGreaterThan</a></p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     }
     }
     *)
-  method gtEq : 'a Js.t -> bool Js.t Js.meth
+  method gtEq : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Convenient alias to <a href="#!/api/Ext.Version-method-isGreaterThanOrEqual" rel="Ext.Version-method-isGreaterThanOrEqual" class="docClass">isGreaterThanOrEqual</a></p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     }
     }
     *)
-  method isGreaterThan : 'a Js.t -> bool Js.t Js.meth
+  method isGreaterThan : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether this version if greater than the supplied argument</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The version to compare with</p> %}
     }
     }
@@ -115,11 +115,11 @@ object('self)
     }
     }
     *)
-  method isGreaterThanOrEqual : 'a Js.t -> bool Js.t Js.meth
+  method isGreaterThanOrEqual : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether this version if greater than or equal to the supplied argument</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The version to compare with</p> %}
     }
     }
@@ -130,11 +130,11 @@ object('self)
     }
     }
     *)
-  method isLessThan : 'a Js.t -> bool Js.t Js.meth
+  method isLessThan : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether this version if smaller than the supplied argument</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The version to compare with</p> %}
     }
     }
@@ -145,11 +145,11 @@ object('self)
     }
     }
     *)
-  method isLessThanOrEqual : 'a Js.t -> bool Js.t Js.meth
+  method isLessThanOrEqual : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether this version if less than or equal to the supplied argument</p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The version to compare with</p> %}
     }
     }
@@ -160,23 +160,23 @@ object('self)
     }
     }
     *)
-  method lt : 'a Js.t -> bool Js.t Js.meth
+  method lt : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Convenient alias to <a href="#!/api/Ext.Version-method-isLessThan" rel="Ext.Version-method-isLessThan" class="docClass">isLessThan</a></p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     }
     }
     *)
-  method ltEq : 'a Js.t -> bool Js.t Js.meth
+  method ltEq : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Convenient alias to <a href="#!/api/Ext.Version-method-isLessThanOrEqual" rel="Ext.Version-method-isLessThanOrEqual" class="docClass">isLessThanOrEqual</a></p> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     }
     }
     *)
-  method _match : 'a Js.t -> bool Js.t Js.meth
+  method _match : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether this version matches the supplied argument. Example:</p>
 
 <pre><code>var version = new <a href="#!/api/Ext.Version" rel="Ext.Version" class="docClass">Ext.Version</a>('1.0.2beta');
@@ -187,7 +187,7 @@ console.log(version.match('1.0.2RC')); // False
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- target: ['a Js.t]
+    {ul {- target: [_ Js.t]
     {% <p>The version to compare with</p> %}
     }
     }
@@ -240,11 +240,11 @@ they are handled in the following order:
     }
     }
     *)
-  method getComponentValue : 'a Js.t -> 'b Js.t Js.meth
+  method getComponentValue : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Converts a version component to a comparable value</p> %}
     
     {b Parameters}:
-    {ul {- value: ['a Js.t] {% <p>The value to convert</p> %}
+    {ul {- value: [_ Js.t] {% <p>The value to convert</p> %}
     }
     }
     *)
@@ -257,7 +257,7 @@ val static : statics Js.t
 val compare : Js.js_string Js.t -> Js.js_string Js.t -> Js.number Js.t
 (** See method [statics.compare] *)
 
-val getComponentValue : 'a Js.t -> 'b Js.t
+val getComponentValue : _ Js.t -> _ Js.t
 (** See method [statics.getComponentValue] *)
 
 val of_configs : configs Js.t -> t Js.t

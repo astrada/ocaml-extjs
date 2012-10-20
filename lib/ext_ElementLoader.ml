@@ -6,11 +6,11 @@ object('self)
   method isLoader : bool Js.t Js.prop
   method abort : unit Js.meth
   method destroy : unit Js.meth
-  method getTarget : 'a Js.t Js.meth
+  method getTarget : _ Js.t Js.meth
   method isAutoRefreshing : bool Js.t Js.meth
-  method load : 'a Js.t -> unit Js.meth
-  method setTarget : 'a Js.t -> unit Js.meth
-  method startAutoRefresh : Js.number Js.t -> 'a Js.t Js.optdef -> unit
+  method load : _ Js.t -> unit Js.meth
+  method setTarget : _ Js.t -> unit Js.meth
+  method startAutoRefresh : Js.number Js.t -> _ Js.t Js.optdef -> unit
     Js.meth
   method stopAutoRefresh : unit Js.meth
   
@@ -21,18 +21,18 @@ object('self)
   inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   
-  method ajaxOptions : 'a Js.t Js.prop
-  method autoLoad : 'a Js.t Js.prop
-  method baseParams : 'a Js.t Js.prop
-  method callback : 'a Js.callback Js.prop
-  method failure : 'a Js.callback Js.prop
-  method loadMask : 'a Js.t Js.prop
-  method params : 'a Js.t Js.prop
-  method renderer : 'a Js.callback Js.prop
-  method scope : 'a Js.t Js.prop
+  method ajaxOptions : _ Js.t Js.prop
+  method autoLoad : _ Js.t Js.prop
+  method baseParams : _ Js.t Js.prop
+  method callback : _ Js.callback Js.prop
+  method failure : _ Js.callback Js.prop
+  method loadMask : _ Js.t Js.prop
+  method params : _ Js.t Js.prop
+  method renderer : _ Js.callback Js.prop
+  method scope : _ Js.t Js.prop
   method scripts : bool Js.t Js.prop
-  method success : 'a Js.callback Js.prop
-  method target : 'a Js.t Js.prop
+  method success : _ Js.callback Js.prop
+  method target : _ Js.t Js.prop
   method url : Js.js_string Js.t Js.prop
   
 end
@@ -42,11 +42,11 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method beforeload : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method beforeload : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method _exception : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit)
+  method _exception : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method load : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
+  method load : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   
 end
