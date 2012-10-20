@@ -4,11 +4,8 @@ open Batteries
 type name_type =
     FileName
   | ModuleName
-  | TypeName
   | ValueName
   | ParameterName
-  | FieldName
-  | ConstructorName
 
 module OCamlName =
 struct
@@ -57,27 +54,26 @@ struct
               ModuleName
             | FileName ->
                 "M" ^ name_without_invalid_characters
-            | ConstructorName ->
-                "V" ^ name_without_invalid_characters
-            | TypeName
             | ValueName
-            | ParameterName
-            | FieldName ->
+            | ParameterName ->
                 "_" ^ name_without_invalid_characters in
       let name_with_proper_first_letter_case =
         match name_type with
-            ModuleName
-          | ConstructorName ->
+            ModuleName ->
               String.capitalize name_with_valid_first_character
           | FileName
-          | TypeName
-          | ValueName
-          | ParameterName
-          | FieldName ->
+          | ParameterName ->
               String.uncapitalize name_with_valid_first_character
+          | ValueName ->
+              match name_with_valid_first_character.[0] with
+                  'a'..'z'
+                | '_' ->
+                    name_with_valid_first_character
+                | _ ->
+                    "_" ^ name_with_valid_first_character
       in
         if List.mem name_with_proper_first_letter_case keywords then
-          name_with_proper_first_letter_case ^ "_"
+          "_" ^ name_with_proper_first_letter_case
         else
           name_with_proper_first_letter_case
 
