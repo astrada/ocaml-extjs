@@ -2,7 +2,7 @@
 
 . ../../setup-deploy.sh
 
-SITENAME=grid/basic_array_grid
+SITENAME=tabs/basic_tabs
 SITEROOT="$WWWROOT/$SITENAME"
 
 set -e
@@ -10,7 +10,7 @@ set -e
 # build
 cd ../../..
 ocaml setup.ml -build
-cp "_build/examples/$SITENAME/array_grid.js" "examples/$SITENAME/app.js"
+cp "_build/examples/$SITENAME/tabs.js" "examples/$SITENAME/app.js"
 cd -
 
 # minify
@@ -22,7 +22,7 @@ $SENCHA build -p app.jsb3 -d .
 create_dir "$SITEROOT"
 link_extjs "$SITEROOT/extjs"
 cp index-prod.html "$SITEROOT/index.html"
-cp app-all.js $SITEROOT
+cp ajax1.htm ajax2.htm tabs.css app-all.js $SITEROOT
 
 # clean up
 rm extjs
