@@ -758,9 +758,10 @@ let print_param_doc formatter params =
     List.iter
       (fun param ->
          if param.Param.name <> "()" then begin
-           Format.fprintf formatter "{- %s: [%s]"
+           Format.fprintf formatter "{- %s: [%s]%s"
              param.Param.name
-             (Symbol.to_string "" StandardClass param.Param.ptype.Type.symbol);
+             (Symbol.to_string "" StandardClass param.Param.ptype.Type.symbol)
+             (if param.Param.optional then " (optional)" else "");
            if param.Param.doc <> "" then begin
              Format.fprintf formatter "@ {%% %s %%}"
                (Str.global_replace regexp_dash "* " param.Param.doc);

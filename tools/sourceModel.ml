@@ -303,81 +303,75 @@ struct
 
   end
 
-  let map_symbols_to_strings current_module class_cat symbols =
-    let get_param n =
-      let start_code = Char.code 'a' in
-      let param_code = start_code + n - 1 in
-      let param_chr = Char.chr param_code in
-      let param_string = String.of_char param_chr in
-        "'" ^ param_string
+  let rec to_string current_module class_cat orig_symbol =
+    let symbol = TypeMap.map_symbol current_module orig_symbol in
+    let params_string =
+      List.map
+        (function
+             TypeVariable -> "_"
+           | SelfTypeVariable ->
+               begin match class_cat with
+                   EventClass -> "t"
+                 | _ -> "'self" end
+           | Type t -> to_string current_module class_cat t)
+        symbol.params
+      |> String.concat ","
     in
-    let i = ref 0 in
-    let rec loop orig_symbol =
-      let symbol = TypeMap.map_symbol current_module orig_symbol in
-      let params_string =
-        List.map
-          (function
-               TypeVariable -> incr i; get_param !i
-             | SelfTypeVariable ->
-                 begin match class_cat with
-                     EventClass -> "t"
-                   | _ -> "'self" end
-             | Type t -> loop t)
-          symbol.params
-        |> String.concat ","
-      in
-      let type_string =
-        match symbol.params with
-            [] ->
-              if symbol.module_prefix <> "" &&
-                 symbol.module_prefix <> current_module then
-                Printf.sprintf "%s.%s"
-                  symbol.module_prefix
-                  symbol.symbol_name
-              else if symbol.module_prefix = current_module &&
-                      symbol.symbol_name = "t" &&
-                      class_cat <> EventClass then
-                "'self"
-              else symbol.symbol_name
-          | [Type t] when symbol.module_prefix = "Js" &&
-                          (* Added to compile faster: lots of event handlers
-                           * have "this" as first parameter (of type t Js.t).
-                           * Using types #t Js.t slows OCaml compiler. *)
-                          params_string <> "t" &&
-                          symbol.symbol_name = "t" &&
-                          (not (String.starts_with params_string "'")) &&
-                          BaseClasses.is_base_class t ->
-                Printf.sprintf "#%s %s.%s"
-                  params_string
-                  symbol.module_prefix
-                  symbol.symbol_name
-          | [_] ->
-              if symbol.module_prefix <> "" &&
-                 symbol.module_prefix <> current_module then
-                Printf.sprintf "%s %s.%s"
-                  params_string
-                  symbol.module_prefix
-                  symbol.symbol_name
-              else if symbol.symbol_name <> "" then
-                Printf.sprintf "%s %s"
-                  params_string
-                  symbol.symbol_name
-              else
+    let type_string =
+      match symbol.params with
+          [] ->
+            if symbol.module_prefix <> "" &&
+               symbol.module_prefix <> current_module then
+              Printf.sprintf "%s.%s"
+                symbol.module_prefix
+                symbol.symbol_name
+            else if symbol.module_prefix = current_module &&
+                    symbol.symbol_name = "t" &&
+                    class_cat <> EventClass then
+              "'self"
+            else symbol.symbol_name
+        | [Type t] when symbol.module_prefix = "Js" &&
+                        (* Added to compile faster: lots of event handlers
+                         * have "this" as first parameter (of type t Js.t).
+                         * Using types #t Js.t slows OCaml compiler. *)
+                        params_string <> "t" &&
+                        (* Exclude generic objects *)
+                        params_string <> "_" &&
+                        (* Exclude self references *)
+                        params_string <> "'self" &&
+                        symbol.symbol_name = "t" &&
+                        BaseClasses.is_base_class t ->
+              Printf.sprintf "#%s %s.%s"
                 params_string
-          | _ ->
-            Printf.sprintf "(%s) %s.%s"
+                symbol.module_prefix
+                symbol.symbol_name
+        | [_] ->
+            if symbol.module_prefix <> "" &&
+               symbol.module_prefix <> current_module then
+              Printf.sprintf "%s %s.%s"
+                params_string
+                symbol.module_prefix
+                symbol.symbol_name
+            else if symbol.symbol_name <> "" then
+              Printf.sprintf "%s %s"
+                params_string
+                symbol.symbol_name
+            else
               params_string
-              symbol.module_prefix
-              symbol.symbol_name
-      in
-      if symbol.optional
-      then type_string ^ " Js.optdef"
-      else type_string
+        | _ ->
+          Printf.sprintf "(%s) %s.%s"
+            params_string
+            symbol.module_prefix
+            symbol.symbol_name
     in
-    List.map loop symbols
+    if symbol.optional
+    then type_string ^ " Js.optdef"
+    else type_string
 
-  let to_string current_module class_cat symbol =
-    map_symbols_to_strings current_module class_cat [symbol] |> List.hd
+  let map_symbols_to_strings current_module class_cat symbols =
+    List.map
+      (to_string current_module class_cat)
+      symbols
 
 end
 
