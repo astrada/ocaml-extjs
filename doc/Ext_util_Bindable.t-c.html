@@ -127,11 +127,11 @@
 
     <b>Parameters</b>:
     <ul>
-<li>store: <code class="code">'a Js.t</code>
+<li>store: <code class="code">_ Js.t</code> (optional)
     <p>The store to bind or ID of the store.
 When no store given (or when <code>null</code> or <code>undefined</code> passed), unbinds the existing store.</p> 
     </li>
-<li>initial: <code class="code">bool Js.t</code>
+<li>initial: <code class="code">bool Js.t</code> (optional)
     <p>True to not remove listeners from existing store.</p> 
      Defaults to: false
     </li>
@@ -170,7 +170,7 @@ in a subclass to provide any more complicated handling.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The listeners to be bound to the store in object literal form. The scope
 may be omitted, it is assumed to be the current instance.</p> 
     </li>

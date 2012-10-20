@@ -121,28 +121,28 @@
 <li><a href="Ext_Base.statics-c.html"><code class="code">Ext_Base.statics</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODaSCLASS"><span class="keyword">method</span> aSCLASS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_ASCLASS"><span class="keyword">method</span> _ASCLASS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Add or remove the <a href="#!/api/Ext.Layer-cfg-visibilityCls" rel="Ext.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> 
 <p>
 
     Defaults to: <code class="code">4</code><br>
 </div>
-<pre><span id="METHODdISPLAY"><span class="keyword">method</span> dISPLAY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_DISPLAY"><span class="keyword">method</span> _DISPLAY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Use the CSS 'display' property to hide the element.</p> 
 <p>
 
     Defaults to: <code class="code">2</code><br>
 </div>
-<pre><span id="METHODoFFSETS"><span class="keyword">method</span> oFFSETS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_OFFSETS"><span class="keyword">method</span> _OFFSETS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Use CSS absolute positioning and top/left offsets to hide the element.</p> 
 <p>
 
     Defaults to: <code class="code">3</code><br>
 </div>
-<pre><span id="METHODvISIBILITY"><span class="keyword">method</span> vISIBILITY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_VISIBILITY"><span class="keyword">method</span> _VISIBILITY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Use the CSS 'visibility' property to hide the element.</p>
 
@@ -169,10 +169,10 @@ class.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>dom: <code class="code">'a Js.t</code>
+<li>dom: <code class="code">_ Js.t</code>
     <p>The dom node or id</p> 
     </li>
-<li>named: <code class="code">Js.js_string Js.t</code>
+<li>named: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Allows for creation of named reusable flyweights to prevent conflicts (e.g.
 internally Ext uses "_global")</p> 
     </li>
@@ -223,7 +223,7 @@ the same id via AJAX or DOM.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The id of the node, a DOM Node or an existing Element.</p> 
     </li>
 </ul>
@@ -279,7 +279,7 @@ determing if the height is greater than the width.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>object containing width and height properties</p> 
     </li>
 </ul>
@@ -329,10 +329,10 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-static-method-mergeCls
 
     <b>Parameters</b>:
     <ul>
-<li>clsList1: <code class="code">'a Js.t</code>
+<li>clsList1: <code class="code">_ Js.t</code>
     <p>A string of class names, or an array of class names.</p> 
     </li>
-<li>clsList2: <code class="code">'a Js.t</code>
+<li>clsList2: <code class="code">_ Js.t</code>
     <p>A string of class names, or an array of class names.</p> 
     </li>
 </ul>
@@ -341,7 +341,7 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-static-method-mergeCls
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code>
+<li><code class="code">_ Js.js_array Js.t</code>
     <p>An array of strings representing remaining unique, merged class names. If class names were added to the first list, the <code>changed</code> property will be <code>true</code>.</p> 
     </li>
 </ul>
@@ -380,7 +380,7 @@ For example:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>box: <code class="code">'a Js.t</code>
+<li>box: <code class="code">_ Js.t</code>
     <p>The encoded margins</p> 
     </li>
 </ul>
@@ -389,7 +389,7 @@ For example:</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object with margin sizes for top, right, bottom and left</p> 
     </li>
 </ul>
@@ -417,7 +417,7 @@ console.log(Ext.dom.Element.parseStyles(css));
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>styles</p> 
+<li><code class="code">_ Js.t</code> <p>styles</p> 
     </li>
 </ul>
 <br>
@@ -442,10 +442,10 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel=
 
     <b>Parameters</b>:
     <ul>
-<li>existingClsList: <code class="code">'a Js.t</code>
+<li>existingClsList: <code class="code">_ Js.t</code>
     <p>A string of class names, or an array of class names.</p> 
     </li>
-<li>removeClsList: <code class="code">'a Js.t</code>
+<li>removeClsList: <code class="code">_ Js.t</code>
     <p>A string of class names, or an array of class names to remove from <code>existingClsList</code>.</p> 
     </li>
 </ul>
@@ -454,7 +454,7 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel=
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code>
+<li><code class="code">_ Js.js_array Js.t</code>
     <p>An array of strings representing remaining class names. If class names were removed, the <code>changed</code> property will be <code>true</code>.</p> 
     </li>
 </ul>
@@ -467,7 +467,7 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel=
 
     <b>Parameters</b>:
     <ul>
-<li>box: <code class="code">'a Js.t</code>
+<li>box: <code class="code">_ Js.t</code>
     <p>The encoded margins</p> 
     </li>
 <li>units: <code class="code">Js.js_string Js.t</code>

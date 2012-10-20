@@ -140,7 +140,7 @@
 <li>index: <code class="code">Js.number Js.t</code>
     <p>The index at which the instances were inserted</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -160,7 +160,7 @@ action will be canceled.</p>
     <p>The <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object that will be passed to the Proxy to
 load the Store</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -172,10 +172,10 @@ load the Store</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>Hash of all records to be synchronized, broken down into create, update and destroy</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -189,7 +189,7 @@ load the Store</p>
     <ul>
 <li>this: <code class="code">Ext_data_Store.t Js.t</code>
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -205,7 +205,7 @@ records, or updating the data in existing records</p>
 <li>this: <code class="code">Ext_data_Store.t Js.t</code>
     <p>The data store</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -225,7 +225,7 @@ records, or updating the data in existing records</p>
 <li>successful: <code class="code">bool Js.t</code>
     <p>True if the operation was successful.</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -242,9 +242,9 @@ This event is currently only fired for JsonReaders.</p>
     <ul>
 <li>this: <code class="code">Ext_data_Store.t Js.t</code>
     </li>
-<li>meta: <code class="code">'a Js.t</code> <p>The JSON metadata</p> 
+<li>meta: <code class="code">_ Js.t</code> <p>The JSON metadata</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -260,7 +260,7 @@ widget that is using this Store as a Record cache should refresh its view.</p>
 <li>this: <code class="code">Ext_data_Store.t Js.t</code>
     <p>The data store</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -281,7 +281,7 @@ widget that is using this Store as a Record cache should refresh its view.</p>
 <li>index: <code class="code">Js.number Js.t</code>
     <p>The index of the record that was removed</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -309,7 +309,7 @@ widget that is using this Store as a Record cache should refresh its view.</p>
 <li>modifiedFieldNames: <code class="code">Js.js_string Js.t Js.js_array Js.t</code>
     <p>Array of field names changed during edit.</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
@@ -328,7 +328,7 @@ widget that is using this Store as a Record cache should refresh its view.</p>
     <p>The <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Operation</a> object that was used in
 the write</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>

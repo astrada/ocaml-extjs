@@ -114,14 +114,14 @@
 &nbsp;&nbsp;<span class="keyword">class</span>&nbsp;<span class="keyword">type</span>&nbsp;events&nbsp;=&nbsp;<span class="keyword">object</span>&nbsp;&nbsp;<span class="keyword">end</span><br>
 &nbsp;&nbsp;<span class="keyword">class</span>&nbsp;<span class="keyword">type</span>&nbsp;statics&nbsp;=<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">object</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;handle&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;_raise&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;handle&nbsp;:&nbsp;<span class="keywordsign">'</span>b&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;ignore&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;notify&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;raise_&nbsp;:&nbsp;<span class="keywordsign">'</span>b&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">end</span><br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;static&nbsp;:&nbsp;<span class="constructor">Ext_Error</span>.statics&nbsp;<span class="constructor">Js</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;handle&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
-&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;raise_&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
+&nbsp;&nbsp;<span class="keyword">val</span>&nbsp;_raise&nbsp;:&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;of_configs&nbsp;:&nbsp;<span class="constructor">Ext_Error</span>.configs&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ext_Error</span>.t&nbsp;<span class="constructor">Js</span>.t<br>
 &nbsp;&nbsp;<span class="keyword">val</span>&nbsp;to_configs&nbsp;:&nbsp;<span class="constructor">Ext_Error</span>.t&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Ext_Error</span>.configs&nbsp;<span class="constructor">Js</span>.t<br>
 <span class="keyword">end</span></code></body></html>

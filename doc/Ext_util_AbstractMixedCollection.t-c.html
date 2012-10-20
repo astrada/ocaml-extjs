@@ -134,7 +134,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>key: <code class="code">'a Js.t</code>
+<li>key: <code class="code">_ Js.t</code>
     <p>The key to associate with the item, or the new item.</p>
 
 <p>If a <a href="#!/api/Ext.util.AbstractMixedCollection-method-getKey" rel="Ext.util.AbstractMixedCollection-method-getKey" class="docClass">getKey</a> implementation was specified for this MixedCollection,
@@ -142,7 +142,7 @@ or if the key of the stored items is in a property called <code>id</code>,
 the MixedCollection will be able to <em>derive</em> the key for the new item.
 In this case just pass the new item in this parameter.</p> 
     </li>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code> (optional)
     <p>The item to add.</p> 
     </li>
 </ul>
@@ -151,7 +151,7 @@ In this case just pass the new item in this parameter.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The item added.</p> 
+<li><code class="code">_ Js.t</code> <p>The item added.</p> 
     </li>
 </ul>
 <br>
@@ -162,7 +162,7 @@ In this case just pass the new item in this parameter.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>objs: <code class="code">'a Js.t</code>
+<li>objs: <code class="code">_ Js.t</code>
     <p>An Object containing properties which will be added
 to the collection, or an Array of values, each of which are added to the collection.
 Functions references will be added to the collection if <code><a href="#!/api/Ext.util.AbstractMixedCollection-cfg-allowFunctions" rel="Ext.util.AbstractMixedCollection-cfg-allowFunctions" class="docClass">allowFunctions</a></code>
@@ -186,11 +186,11 @@ has been set to <code>true</code>.</p>
 <li>property: <code class="code">Js.js_string Js.t</code>
     <p>The property to collect on</p> 
     </li>
-<li>root: <code class="code">Js.js_string Js.t</code>
+<li>root: <code class="code">Js.js_string Js.t</code> (optional)
     <p>'root' property to extract the first argument from. This is used mainly when
 summing fields in records, where the fields are all stored inside the 'data' object</p> 
     </li>
-<li>allowBlank: <code class="code">bool Js.t</code>
+<li>allowBlank: <code class="code">bool Js.t</code> (optional)
     <p>Pass true to allow null, undefined or empty string values</p> 
     </li>
 </ul>
@@ -199,7 +199,7 @@ summing fields in records, where the fields are all stored inside the 'data' obj
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code> <p>The unique values</p> 
+<li><code class="code">_ Js.js_array Js.t</code> <p>The unique values</p> 
     </li>
 </ul>
 <br>
@@ -210,7 +210,7 @@ summing fields in records, where the fields are all stored inside the 'data' obj
 
     <b>Parameters</b>:
     <ul>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code>
     <p>The Object to look for in the collection.</p> 
     </li>
 </ul>
@@ -254,10 +254,10 @@ Returning false from the function will stop the iteration.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to execute for each item.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference)
 in which the function is executed. Defaults to the current item in the iteration.</p> 
     </li>
@@ -271,10 +271,10 @@ key, and its associated item as the first two parameters.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to execute for each item.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the
 function is executed. Defaults to the browser window.</p> 
     </li>
@@ -304,18 +304,18 @@ var middleAged = people.filter('age', 24);
 
     <b>Parameters</b>:
     <ul>
-<li>property: <code class="code">'a Js.t</code>
+<li>property: <code class="code">_ Js.t</code>
     <p>A property on your objects, or an array of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filter</a> objects</p> 
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>Either string that the property values
 should start with or a RegExp to test against the property</p> 
     </li>
-<li>anyMatch: <code class="code">bool Js.t</code>
+<li>anyMatch: <code class="code">bool Js.t</code> (optional)
     <p>True to match any part of the string, not just the beginning</p> 
      Defaults to: false
     </li>
-<li>caseSensitive: <code class="code">bool Js.t</code>
+<li>caseSensitive: <code class="code">bool Js.t</code> (optional)
     <p>True for case sensitive comparison.</p> 
      Defaults to: false
     </li>
@@ -339,10 +339,10 @@ If the function returns true, the value is included otherwise it is filtered.</p
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to be called.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in
 which the function is executed. Defaults to this MixedCollection.</p> 
     </li>
@@ -365,10 +365,10 @@ passed selection function.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The selection function to execute for each item.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the
 function is executed. Defaults to the browser window.</p> 
     </li>
@@ -378,7 +378,7 @@ function is executed. Defaults to the browser window.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The first item in the collection which returned true from the selection
 function, or null if none was found.</p> 
     </li>
@@ -394,18 +394,19 @@ function, or null if none was found.</p>
 <li>property: <code class="code">Js.js_string Js.t</code>
     <p>The name of a property on your objects.</p> 
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>A string that the property values
 should start with or a RegExp to test against the property.</p> 
     </li>
-<li>start: <code class="code">Js.number Js.t</code> <p>The index to start searching at.</p> 
+<li>start: <code class="code">Js.number Js.t</code> (optional)
+    <p>The index to start searching at.</p> 
      Defaults to: 0
     </li>
-<li>anyMatch: <code class="code">bool Js.t</code>
+<li>anyMatch: <code class="code">bool Js.t</code> (optional)
     <p>True to match any part of the string, not just the beginning.</p> 
      Defaults to: false
     </li>
-<li>caseSensitive: <code class="code">bool Js.t</code>
+<li>caseSensitive: <code class="code">bool Js.t</code> (optional)
     <p>True for case sensitive comparison.</p> 
      Defaults to: false
     </li>
@@ -427,13 +428,14 @@ If the function returns <i>true</i> it is considered a match.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to be called.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the function is executed. Defaults to this MixedCollection.</p> 
     </li>
-<li>start: <code class="code">Js.number Js.t</code> <p>The index to start searching at.</p> 
+<li>start: <code class="code">Js.number Js.t</code> (optional)
+    <p>The index to start searching at.</p> 
      Defaults to: 0
     </li>
 </ul>
@@ -453,7 +455,7 @@ If the function returns <i>true</i> it is considered a match.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>the first item in the collection..</p> 
+<li><code class="code">_ Js.t</code> <p>the first item in the collection..</p> 
     </li>
 </ul>
 <br>
@@ -466,7 +468,7 @@ of calling <a href="#!/api/Ext.util.AbstractMixedCollection-method-getByKey" rel
 
     <b>Parameters</b>:
     <ul>
-<li>key: <code class="code">'a Js.t</code>
+<li>key: <code class="code">_ Js.t</code>
     <p>The key or index of the item.</p> 
     </li>
 </ul>
@@ -475,7 +477,7 @@ of calling <a href="#!/api/Ext.util.AbstractMixedCollection-method-getByKey" rel
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>If the item is found, returns the item.  If the item was not found, returns <code>undefined</code>.
 If an item was found, but is a Class, returns <code>null</code>.</p> 
     </li>
@@ -497,7 +499,7 @@ If an item was found, but is a Class, returns <code>null</code>.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The item at the specified index.</p> 
+<li><code class="code">_ Js.t</code> <p>The item at the specified index.</p> 
     </li>
 </ul>
 <br>
@@ -508,7 +510,7 @@ If an item was found, but is a Class, returns <code>null</code>.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>key: <code class="code">'a Js.t</code>
+<li>key: <code class="code">_ Js.t</code>
     <p>The key of the item.</p> 
     </li>
 </ul>
@@ -517,8 +519,7 @@ If an item was found, but is a Class, returns <code>null</code>.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
-    <p>The item associated with the passed key.</p> 
+<li><code class="code">_ Js.t</code> <p>The item associated with the passed key.</p> 
     </li>
 </ul>
 <br>
@@ -565,7 +566,7 @@ mc.add(otherEl);
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     <p>The item for which to find the key.</p> 
     </li>
 </ul>
@@ -574,7 +575,7 @@ mc.add(otherEl);
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The key for the passed item.</p> 
+<li><code class="code">_ Js.t</code> <p>The key for the passed item.</p> 
     </li>
 </ul>
 <br>
@@ -585,10 +586,10 @@ mc.add(otherEl);
 
     <b>Parameters</b>:
     <ul>
-<li>startIndex: <code class="code">Js.number Js.t</code>
+<li>startIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The starting index. Defaults to 0.</p> 
     </li>
-<li>endIndex: <code class="code">Js.number Js.t</code>
+<li>endIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The ending index. Defaults to the last item.</p> 
     </li>
 </ul>
@@ -597,7 +598,7 @@ mc.add(otherEl);
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code> <p>An array of items</p> 
+<li><code class="code">_ Js.js_array Js.t</code> <p>An array of items</p> 
     </li>
 </ul>
 <br>
@@ -608,7 +609,7 @@ mc.add(otherEl);
 
     <b>Parameters</b>:
     <ul>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code>
     <p>The item to find the index of.</p> 
     </li>
 </ul>
@@ -655,7 +656,7 @@ mc.add(otherEl);
 <li>key: <code class="code">Js.js_string Js.t</code>
     <p>The key to associate with the new item, or the item itself.</p> 
     </li>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code> (optional)
     <p>If the second parameter was a key, the new item.</p> 
     </li>
 </ul>
@@ -664,7 +665,7 @@ mc.add(otherEl);
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The item inserted.</p> 
+<li><code class="code">_ Js.t</code> <p>The item inserted.</p> 
     </li>
 </ul>
 <br>
@@ -675,7 +676,7 @@ mc.add(otherEl);
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>the last item in the collection..</p> 
+<li><code class="code">_ Js.t</code> <p>the last item in the collection..</p> 
     </li>
 </ul>
 <br>
@@ -686,7 +687,7 @@ mc.add(otherEl);
 
     <b>Parameters</b>:
     <ul>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code>
     <p>The item to remove.</p> 
     </li>
 </ul>
@@ -695,7 +696,7 @@ mc.add(otherEl);
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The item removed or false if no item was removed.</p> 
     </li>
 </ul>
@@ -707,7 +708,7 @@ mc.add(otherEl);
 
     <b>Parameters</b>:
     <ul>
-<li>items: <code class="code">'a Js.js_array Js.t</code>
+<li>items: <code class="code">_ Js.js_array Js.t</code>
     <p>An array of items to be removed.</p> 
     </li>
 </ul>
@@ -736,7 +737,7 @@ mc.add(otherEl);
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The item removed or false if no item was removed.</p> 
     </li>
 </ul>
@@ -757,7 +758,7 @@ mc.add(otherEl);
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The item removed or false if no item was removed.</p> 
     </li>
 </ul>
@@ -778,7 +779,7 @@ of your stored items is in a property called <code><b>id</b></code>, then the Mi
 will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
 with one having the same key value, then just pass the replacement item in this parameter.</p> 
     </li>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code>
     <p>{Object} o (optional) If the first parameter passed was a key, the item to associate
 with that key.</p> 
     </li>
@@ -788,7 +789,7 @@ with that key.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The new item.</p> 
+<li><code class="code">_ Js.t</code> <p>The new item.</p> 
     </li>
 </ul>
 <br>
@@ -802,14 +803,16 @@ with that key.</p>
 <li>property: <code class="code">Js.js_string Js.t</code>
     <p>The property to sum by</p> 
     </li>
-<li>root: <code class="code">Js.js_string Js.t</code>
+<li>root: <code class="code">Js.js_string Js.t</code> (optional)
     <p>'root' property to extract the first argument from. This is used mainly when
 summing fields in records, where the fields are all stored inside the 'data' object</p> 
     </li>
-<li>start: <code class="code">Js.number Js.t</code> <p>The record index to start at</p> 
+<li>start: <code class="code">Js.number Js.t</code> (optional)
+    <p>The record index to start at</p> 
      Defaults to: 0
     </li>
-<li>end_: <code class="code">Js.number Js.t</code> <p>The record index to end at</p> 
+<li>_end: <code class="code">Js.number Js.t</code> (optional)
+    <p>The record index to end at</p> 
      Defaults to: -1
     </li>
 </ul>

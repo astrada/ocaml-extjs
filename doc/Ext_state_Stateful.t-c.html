@@ -130,7 +130,7 @@ argument passed to this method is the name of a state event.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>events: <code class="code">'a Js.t</code>
+<li>events: <code class="code">_ Js.t</code>
     <p>The event name or an array of event names.</p> 
     </li>
 </ul>
@@ -144,7 +144,7 @@ the current object.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>state: <code class="code">'a Js.t</code> <p>The state</p> 
+<li>state: <code class="code">_ Js.t</code> <p>The state</p> 
     </li>
 </ul>
 <br>
@@ -159,7 +159,7 @@ it should be overridden in subclasses to implement methods for getting the state
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The current state</p> 
+<li><code class="code">_ Js.t</code> <p>The current state</p> 
     </li>
 </ul>
 <br>
@@ -176,10 +176,10 @@ values that are user-changed state should be saved.</p>
 <li>propName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the property to save.</p> 
     </li>
-<li>state: <code class="code">'a Js.t</code>
+<li>state: <code class="code">_ Js.t</code>
     <p>The state object in to which to save the property.</p> 
     </li>
-<li>stateName: <code class="code">Js.js_string Js.t</code>
+<li>stateName: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The name to use for the property in state.</p> 
     </li>
 </ul>
@@ -201,10 +201,10 @@ to the passed state object.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>propNames: <code class="code">'a Js.t</code>
+<li>propNames: <code class="code">_ Js.t</code>
     <p>The name (or array of names) of the property to save.</p> 
     </li>
-<li>state: <code class="code">'a Js.t</code>
+<li>state: <code class="code">_ Js.t</code>
     <p>The state object in to which to save the property values.</p> 
     </li>
 </ul>
@@ -213,7 +213,7 @@ to the passed state object.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>state</p> 
+<li><code class="code">_ Js.t</code> <p>state</p> 
     </li>
 </ul>
 <br>

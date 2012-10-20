@@ -164,7 +164,7 @@ conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-g
 
     <b>Parameters</b>:
     <ul>
-<li>silent: <code class="code">bool Js.t</code>
+<li>silent: <code class="code">bool Js.t</code> (optional)
     <p>Passing true will supress the 'disable' event from being fired.</p> 
      Defaults to: false
     </li>
@@ -179,7 +179,7 @@ conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-g
 
     <b>Parameters</b>:
     <ul>
-<li>silent: <code class="code">bool Js.t</code>
+<li>silent: <code class="code">bool Js.t</code> (optional)
     <p>Passing true will supress the 'enable' event from being fired.</p> 
      Defaults to: false
     </li>
@@ -196,7 +196,7 @@ their own implementation of this method.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>Substitution data for a Template. The default implementation which provides data for the default
 <a href="#!/api/Ext.button.Button-property-template" rel="Ext.button.Button-property-template" class="docClass">template</a> returns an Object containing the following properties:</p> 
     </li>
@@ -302,10 +302,10 @@ call the parent class's method before attempting to access any child elements of
 
     <b>Parameters</b>:
     <ul>
-<li>handler: <code class="code">'a Js.callback</code>
+<li>handler: <code class="code">_ Js.callback</code>
     <p>The function to call when the button is clicked</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the handler function is executed.
 Defaults to this Button.</p> 
     </li>
@@ -370,7 +370,7 @@ value of the <a href="#!/api/Ext.button.Button-cfg-iconCls" rel="Ext.button.Butt
 
     <b>Parameters</b>:
     <ul>
-<li>params: <code class="code">'a Js.t</code>
+<li>params: <code class="code">_ Js.t</code>
     <p>Parameters to use in the href URL.</p> 
     </li>
 </ul>
@@ -426,7 +426,7 @@ value of the <a href="#!/api/Ext.button.Button-cfg-iconCls" rel="Ext.button.Butt
 
     <b>Parameters</b>:
     <ul>
-<li>tooltip: <code class="code">'a Js.t</code>
+<li>tooltip: <code class="code">_ Js.t</code>
     <p>This may be:</p>
 
 <ul>
@@ -469,10 +469,10 @@ uiCls set on the component and rename them so they include the new UI</p>
 
     <b>Parameters</b>:
     <ul>
-<li>state: <code class="code">bool Js.t</code>
+<li>state: <code class="code">bool Js.t</code> (optional)
     <p>Force a particular state</p> 
     </li>
-<li>suppressEvent: <code class="code">bool Js.t</code>
+<li>suppressEvent: <code class="code">bool Js.t</code> (optional)
     <p>True to stop events being fired when calling this method.</p> 
      Defaults to: false
     </li>

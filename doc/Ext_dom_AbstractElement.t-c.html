@@ -139,7 +139,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>className: <code class="code">'a Js.t</code>
+<li>className: <code class="code">_ Js.t</code>
     <p>The CSS classes to add separated by space, or an array of classes</p> 
     </li>
 </ul>
@@ -159,7 +159,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The id of the node, a DOM Node or an existing Element.</p> 
     </li>
 </ul>
@@ -179,7 +179,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The new parent element.
 The id of the node, a DOM Node or an existing Element.</p> 
     </li>
@@ -200,7 +200,7 @@ The id of the node, a DOM Node or an existing Element.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>styles: <code class="code">'a Js.t</code>
+<li>styles: <code class="code">_ Js.t</code>
     <p>A style specification string, e.g. "width:100px", or object in the form {width:"100px"}, or
 a function which returns such a specification.</p> 
     </li>
@@ -224,7 +224,7 @@ a function which returns such a specification.</p>
 <li>selector: <code class="code">Js.js_string Js.t</code>
     <p>The CSS selector</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return the DOM node instead of <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>.</p> 
      Defaults to: false
     </li>
@@ -234,7 +234,7 @@ a function which returns such a specification.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The child <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> (or DOM node if returnDom = true)</p> 
     </li>
 </ul>
@@ -246,7 +246,7 @@ a function which returns such a specification.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The element to check</p> 
     </li>
 </ul>
@@ -267,14 +267,14 @@ a function which returns such a specification.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>DomHelper element config object.  If no tag is specified (e.g., {tag:'input'}) then a div will be
 automatically generated with the specified attributes.</p> 
     </li>
-<li>insertBefore: <code class="code">Dom_html.element Js.t</code>
+<li>insertBefore: <code class="code">Dom_html.element Js.t</code> (optional)
     <p>a child element of this element</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>true to return the dom node instead of creating an Element</p> 
      Defaults to: false
     </li>
@@ -304,7 +304,7 @@ automatically generated with the specified attributes.</p>
 <li>selector: <code class="code">Js.js_string Js.t</code>
     <p>The CSS selector</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return the DOM node instead of <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> 
      Defaults to: false
     </li>
@@ -314,7 +314,7 @@ automatically generated with the specified attributes.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The child <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> (or DOM node if returnDom = true)</p> 
     </li>
 </ul>
@@ -329,11 +329,11 @@ automatically generated with the specified attributes.</p>
 <li>selector: <code class="code">Js.js_string Js.t</code>
     <p>The simple selector to test</p> 
     </li>
-<li>limit: <code class="code">'a Js.t</code>
+<li>limit: <code class="code">_ Js.t</code> (optional)
     <p>The max depth to search as a number or an element which causes the upward traversal to stop
 and is <b>not</b> considered for inclusion as the result. (defaults to 50 || document.documentElement)</p> 
     </li>
-<li>returnEl: <code class="code">bool Js.t</code>
+<li>returnEl: <code class="code">bool Js.t</code> (optional)
     <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> 
      Defaults to: false
     </li>
@@ -358,11 +358,11 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
 <li>selector: <code class="code">Js.js_string Js.t</code>
     <p>The simple selector to test</p> 
     </li>
-<li>limit: <code class="code">'a Js.t</code>
+<li>limit: <code class="code">_ Js.t</code> (optional)
     <p>The max depth to search as a number or an element which causes the upward traversal to stop
 and is <b>not</b> considered for inclusion as the result. (defaults to 50 || document.documentElement)</p> 
     </li>
-<li>returnEl: <code class="code">bool Js.t</code>
+<li>returnEl: <code class="code">bool Js.t</code> (optional)
     <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> 
      Defaults to: false
     </li>
@@ -384,10 +384,10 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Find the next sibling that matches the passed simple selector</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> 
      Defaults to: false
     </li>
@@ -397,7 +397,7 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The first child or null</p> 
+<li><code class="code">_ Js.t</code> <p>The first child or null</p> 
     </li>
 </ul>
 <br>
@@ -423,13 +423,14 @@ supported position values.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>element: <code class="code">'a Js.t</code>
+<li>element: <code class="code">_ Js.t</code>
     <p>The element to align to.</p> 
     </li>
-<li>position: <code class="code">Js.js_string Js.t</code> <p>The position to align to.</p> 
+<li>position: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The position to align to.</p> 
      Defaults to: "tl-bl?"
     </li>
-<li>offsets: <code class="code">'a Js.js_array Js.t</code>
+<li>offsets: <code class="code">_ Js.js_array Js.t</code> (optional)
     <p>Offset the positioning by [x, y]</p> 
      Defaults to: <code class="code">0,0</code>
     </li>
@@ -439,7 +440,7 @@ supported position values.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code> <p>[x, y]</p> 
+<li><code class="code">_ Js.js_array Js.t</code> <p>[x, y]</p> 
     </li>
 </ul>
 <br>
@@ -450,15 +451,15 @@ supported position values.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>anchor: <code class="code">Js.js_string Js.t</code>
+<li>anchor: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The specified anchor position (defaults to "c").  See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.dom.Element.alignTo</a>
 for details on supported anchor positions.</p> 
     </li>
-<li>local: <code class="code">bool Js.t</code>
+<li>local: <code class="code">bool Js.t</code> (optional)
     <p>True to get the local (element top/left-relative) anchor position instead
 of page coordinates</p> 
     </li>
-<li>size: <code class="code">'a Js.t</code>
+<li>size: <code class="code">_ Js.t</code> (optional)
     <p>An object containing the size to use for calculating anchor position
 {width: (target width), height: (target height)} (defaults to the element's current size)</p> 
     </li>
@@ -468,7 +469,7 @@ of page coordinates</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code>
+<li><code class="code">_ Js.js_array Js.t</code>
     <p>[x, y] An array containing the element's x and y coordinates</p> 
     </li>
 </ul>
@@ -483,7 +484,7 @@ of page coordinates</p>
 <li>name: <code class="code">Js.js_string Js.t</code>
     <p>The attribute name</p> 
     </li>
-<li>namespace: <code class="code">Js.js_string Js.t</code>
+<li>namespace: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The namespace in which to look for the attribute</p> 
     </li>
 </ul>
@@ -538,10 +539,10 @@ set another Element's size/location to match this element.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>contentBox: <code class="code">bool Js.t</code>
+<li>contentBox: <code class="code">bool Js.t</code> (optional)
     <p>If true a box for the content of the element is returned.</p> 
     </li>
-<li>local: <code class="code">bool Js.t</code>
+<li>local: <code class="code">bool Js.t</code> (optional)
     <p>If true the element's left and top are returned instead of page x/y.</p> 
     </li>
 </ul>
@@ -550,7 +551,7 @@ set another Element's size/location to match this element.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>box An object in the format:</p>
 
 <pre><code>{
@@ -578,7 +579,7 @@ and index 1 contains the Y position. So the result may also be used for <a href=
 <li>id: <code class="code">Js.js_string Js.t</code>
     <p>The id of the desired child element.</p> 
     </li>
-<li>asDom: <code class="code">bool Js.t</code>
+<li>asDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return the DOM element, false to return a
 wrapped Element object.</p> 
      Defaults to: false
@@ -596,7 +597,7 @@ dom no longer exists.</p> <br>
 
     <b>Parameters</b>:
     <ul>
-<li>contentHeight: <code class="code">bool Js.t</code>
+<li>contentHeight: <code class="code">bool Js.t</code> (optional)
     <p>true to get the height minus borders and padding</p> 
     </li>
 </ul>
@@ -629,7 +630,7 @@ then it returns the calculated width of the sides (see getPadding)</p>
 
     <b>Parameters</b>:
     <ul>
-<li>sides: <code class="code">Js.js_string Js.t</code>
+<li>sides: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Any combination of l, r, t, b to get the sum of those sides</p> 
     </li>
 </ul>
@@ -642,7 +643,7 @@ tree and not have display:none to have page coordinates.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>element: <code class="code">'a Js.t</code>
+<li>element: <code class="code">_ Js.t</code>
     <p>The element to get the offsets from.</p> 
     </li>
 </ul>
@@ -651,7 +652,7 @@ tree and not have display:none to have page coordinates.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code>
+<li><code class="code">_ Js.js_array Js.t</code>
     <p>The XY page offsets (e.g. [100, -200])</p> 
     </li>
 </ul>
@@ -686,7 +687,7 @@ set another Element's size/location to match this element.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>asRegion: <code class="code">bool Js.t</code>
+<li>asRegion: <code class="code">bool Js.t</code> (optional)
     <p>If true an <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Ext.util.Region</a> will be returned</p> 
     </li>
 </ul>
@@ -695,7 +696,7 @@ set another Element's size/location to match this element.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>box An object in the format</p>
 
 <pre><code>{
@@ -732,7 +733,7 @@ and index 1 contains the Y position. So the result may also be used for <a href=
 
     <b>Parameters</b>:
     <ul>
-<li>contentSize: <code class="code">bool Js.t</code>
+<li>contentSize: <code class="code">bool Js.t</code> (optional)
     <p>true to get the width/size minus borders and padding</p> 
     </li>
 </ul>
@@ -741,8 +742,7 @@ and index 1 contains the Y position. So the result may also be used for <a href=
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
-    <p>An object containing the element's size:</p> 
+<li><code class="code">_ Js.t</code> <p>An object containing the element's size:</p> 
     </li>
 </ul>
 <br>
@@ -754,11 +754,11 @@ inline-style if primary is not available.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>property: <code class="code">'a Js.t</code>
+<li>property: <code class="code">_ Js.t</code>
     <p>The style property (or multiple property names
 in an array) whose value is returned.</p> 
     </li>
-<li>inline: <code class="code">bool Js.t</code>
+<li>inline: <code class="code">bool Js.t</code> (optional)
     <p>if <code>true</code> only inline styles will be returned.</p> 
      Defaults to: false
     </li>
@@ -768,7 +768,7 @@ in an array) whose value is returned.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The current value of the style property for this element
 (or a hash of named style values if multiple property arguments are requested).</p> 
     </li>
@@ -824,7 +824,7 @@ To obtain the size including scrollbars, use getStyleSize</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>Object describing width and height.</p> 
+<li><code class="code">_ Js.t</code> <p>Object describing width and height.</p> 
     </li>
 </ul>
 <br>
@@ -835,7 +835,7 @@ To obtain the size including scrollbars, use getStyleSize</p>
 
     <b>Parameters</b>:
     <ul>
-<li>contentWidth: <code class="code">bool Js.t</code>
+<li>contentWidth: <code class="code">bool Js.t</code> (optional)
     <p>true to get the width minus borders and padding</p> 
     </li>
 </ul>
@@ -856,7 +856,7 @@ tree to have page coordinates (display:none or elements not appended return fals
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -876,7 +876,7 @@ tree to have page coordinates (display:none or elements not appended return fals
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code>
+<li><code class="code">_ Js.js_array Js.t</code>
     <p>The XY position of the element</p> 
     </li>
 </ul>
@@ -889,7 +889,7 @@ tree to have page coordinates (display:none or elements not appended return fals
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -928,7 +928,7 @@ tree to have page coordinates (display:none or elements not appended return fals
 
     <b>Parameters</b>:
     <ul>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -948,7 +948,7 @@ tree to have page coordinates (display:none or elements not appended return fals
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The element to insert after.
 The id of the node, a DOM Node or an existing Element.</p> 
     </li>
@@ -969,7 +969,7 @@ The id of the node, a DOM Node or an existing Element.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The element before which this element will be inserted.
 The id of the node, a DOM Node or an existing Element.</p> 
     </li>
@@ -990,7 +990,7 @@ The id of the node, a DOM Node or an existing Element.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The id or element to insert or a DomHelper config
 to create and insert</p> 
     </li>
@@ -1018,7 +1018,7 @@ See <a href="#!/api/Ext.dom.Helper-method-insertHtml" rel="Ext.dom.Helper-method
 <li>html: <code class="code">Js.js_string Js.t</code>
     <p>The HTML fragment</p> 
     </li>
-<li>returnEl: <code class="code">bool Js.t</code>
+<li>returnEl: <code class="code">bool Js.t</code> (optional)
     <p>True to return an <a href="#!/api/Ext.dom.AbstractElement" rel="Ext.dom.AbstractElement" class="docClass">Ext.dom.AbstractElement</a></p> 
      Defaults to: false
     </li>
@@ -1028,7 +1028,7 @@ See <a href="#!/api/Ext.dom.Helper-method-insertHtml" rel="Ext.dom.Helper-method
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The inserted node (or nearest related if more than 1 inserted)</p> 
     </li>
 </ul>
@@ -1040,14 +1040,14 @@ See <a href="#!/api/Ext.dom.Helper-method-insertHtml" rel="Ext.dom.Helper-method
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The id, element to insert or a DomHelper config
 to create and insert <em>or</em> an array of any of those.</p> 
     </li>
-<li>where: <code class="code">Js.js_string Js.t</code> <p>'before' or 'after'</p> 
+<li>where: <code class="code">Js.js_string Js.t</code> (optional) <p>'before' or 'after'</p> 
      Defaults to: 'before'
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return the .;ll;l,raw DOM element instead of <a href="#!/api/Ext.dom.AbstractElement" rel="Ext.dom.AbstractElement" class="docClass">Ext.dom.AbstractElement</a></p> 
      Defaults to: false
     </li>
@@ -1137,10 +1137,10 @@ component.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Find the previous sibling that matches the passed simple selector</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> 
      Defaults to: false
     </li>
@@ -1150,7 +1150,7 @@ component.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The last child or null</p> 
+<li><code class="code">_ Js.t</code> <p>The last child or null</p> 
     </li>
 </ul>
 <br>
@@ -1162,10 +1162,10 @@ This method can only be applied to elements which accept child nodes.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>msg: <code class="code">Js.js_string Js.t</code>
+<li>msg: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A message to display in the mask</p> 
     </li>
-<li>msgCls: <code class="code">Js.js_string Js.t</code>
+<li>msgCls: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A css class to apply to the msg element</p> 
     </li>
 </ul>
@@ -1177,10 +1177,10 @@ This method can only be applied to elements which accept child nodes.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Find the next sibling that matches the passed simple selector</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> 
      Defaults to: false
     </li>
@@ -1190,7 +1190,7 @@ This method can only be applied to elements which accept child nodes.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The next sibling or null</p> 
+<li><code class="code">_ Js.t</code> <p>The next sibling or null</p> 
     </li>
 </ul>
 <br>
@@ -1201,10 +1201,10 @@ This method can only be applied to elements which accept child nodes.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Find a parent node that matches the passed simple selector</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> 
      Defaults to: false
     </li>
@@ -1214,7 +1214,7 @@ This method can only be applied to elements which accept child nodes.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The parent node or null</p> 
+<li><code class="code">_ Js.t</code> <p>The parent node or null</p> 
     </li>
 </ul>
 <br>
@@ -1227,9 +1227,9 @@ before/after order.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>map: <code class="code">'a Js.t</code>
+<li>map: <code class="code">_ Js.t</code>
     </li>
-<li>order: <code class="code">'a Js.t</code>
+<li>order: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -1240,10 +1240,10 @@ before/after order.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Find the previous sibling that matches the passed simple selector</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return a raw dom node instead of an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a></p> 
      Defaults to: false
     </li>
@@ -1253,7 +1253,7 @@ before/after order.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The previous sibling or null</p> 
+<li><code class="code">_ Js.t</code> <p>The previous sibling or null</p> 
     </li>
 </ul>
 <br>
@@ -1285,7 +1285,7 @@ before/after order.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>className: <code class="code">'a Js.t</code>
+<li>className: <code class="code">_ Js.t</code>
     <p>The CSS class to add, or an array of classes</p> 
     </li>
 </ul>
@@ -1308,7 +1308,7 @@ before/after order.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>className: <code class="code">'a Js.t</code>
+<li>className: <code class="code">_ Js.t</code>
     <p>The CSS classes to remove separated by space, or an array of classes</p> 
     </li>
 </ul>
@@ -1339,7 +1339,7 @@ before/after order.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The element to replace.
 The id of the node, a DOM Node or an existing Element.</p> 
     </li>
@@ -1383,7 +1383,7 @@ The id of the node, a DOM Node or an existing Element.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The new element (id of the node, a DOM Node
 or an existing Element) or a DomHelper config of an element to create</p> 
     </li>
@@ -1407,7 +1407,7 @@ or an existing Element) or a DomHelper config of an element to create</p>
 <li>selector: <code class="code">Js.js_string Js.t</code>
     <p>The CSS selector</p> 
     </li>
-<li>unique: <code class="code">bool Js.t</code>
+<li>unique: <code class="code">bool Js.t</code> (optional)
     <p>True to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element. Defaults to a shared flyweight object.</p> 
     </li>
 </ul>
@@ -1428,7 +1428,7 @@ or an existing Element) or a DomHelper config of an element to create</p>
 
     <b>Parameters</b>:
     <ul>
-<li>form: <code class="code">'a Js.t</code>
+<li>form: <code class="code">_ Js.t</code>
     <p>The form</p> 
     </li>
 </ul>
@@ -1448,10 +1448,10 @@ or an existing Element) or a DomHelper config of an element to create</p>
 
     <b>Parameters</b>:
     <ul>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code>
     <p>The object with the attributes</p> 
     </li>
-<li>useSet: <code class="code">bool Js.t</code>
+<li>useSet: <code class="code">bool Js.t</code> (optional)
     <p>false to override the default setAttribute to use expandos.</p> 
      Defaults to: true
     </li>
@@ -1493,13 +1493,13 @@ If animate is true then width, height, x and y will be animated concurrently.</p
 
     <b>Parameters</b>:
     <ul>
-<li>box: <code class="code">'a Js.t</code>
+<li>box: <code class="code">_ Js.t</code>
     <p>The box to fill {x, y, width, height}</p> 
     </li>
-<li>adjust: <code class="code">bool Js.t</code>
+<li>adjust: <code class="code">bool Js.t</code> (optional)
     <p>Whether to adjust for box-model issues automatically</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard
 Element animation config object</p> 
     </li>
@@ -1551,7 +1551,7 @@ Element animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>height: <code class="code">'a Js.t</code>
+<li>height: <code class="code">_ Js.t</code>
     <p>The new height. This may be one of:</p>
 
 <ul>
@@ -1559,7 +1559,7 @@ Element animation config object</p>
 <li>A String used to set the CSS height style. Animation may <strong>not</strong> be used.</li>
 </ul> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -1619,7 +1619,7 @@ Element animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>width: <code class="code">'a Js.t</code>
+<li>width: <code class="code">_ Js.t</code>
     <p>The new width. This may be one of:</p>
 
 <ul>
@@ -1628,7 +1628,7 @@ Element animation config object</p>
 <li>A size object in the format <code>{width: widthValue, height: heightValue}</code>.</li>
 </ul> 
     </li>
-<li>height: <code class="code">'a Js.t</code>
+<li>height: <code class="code">_ Js.t</code>
     <p>The new height. This may be one of:</p>
 
 <ul>
@@ -1636,7 +1636,7 @@ Element animation config object</p>
 <li>A String used to set the CSS height style. Animation may <strong>not</strong> be used.</li>
 </ul> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -1656,10 +1656,10 @@ Element animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>property: <code class="code">'a Js.t</code>
+<li>property: <code class="code">_ Js.t</code>
     <p>The style property to be set, or an object of multiple styles.</p> 
     </li>
-<li>value: <code class="code">Js.js_string Js.t</code>
+<li>value: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The value to apply to the given property, or null if an object was passed.</p> 
     </li>
 </ul>
@@ -1699,7 +1699,7 @@ Element animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>mode: <code class="code">'a Js.t</code>
+<li>mode: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -1722,7 +1722,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
 <li>visible: <code class="code">bool Js.t</code>
     <p>Whether the element is visible</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -1742,7 +1742,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
 
     <b>Parameters</b>:
     <ul>
-<li>width: <code class="code">'a Js.t</code>
+<li>width: <code class="code">_ Js.t</code>
     <p>The new width. This may be one of:</p>
 
 <ul>
@@ -1750,7 +1750,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
 <li>A String used to set the CSS width style. Animation may <strong>not</strong> be used.</li>
 </ul> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -1774,7 +1774,7 @@ to have page coordinates (display:none or elements not appended return false).</
 <li>the: <code class="code">Js.number Js.t</code>
     <p>X position of the element</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element
 animation config object</p> 
     </li>
@@ -1796,10 +1796,10 @@ The element must be part of the DOM tree to have page coordinates (display:none 
 
     <b>Parameters</b>:
     <ul>
-<li>pos: <code class="code">'a Js.js_array Js.t</code>
+<li>pos: <code class="code">_ Js.js_array Js.t</code>
     <p>Contains X &amp; Y [x, y] values for new position (coordinates are page-based)</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -1823,7 +1823,7 @@ to have page coordinates (display:none or elements not appended return false).</
 <li>the: <code class="code">Js.number Js.t</code>
     <p>Y position of the element</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element
 animation config object</p> 
     </li>
@@ -1844,7 +1844,7 @@ animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -1884,10 +1884,10 @@ animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>x: <code class="code">'a Js.t</code>
+<li>x: <code class="code">_ Js.t</code>
     <p>The page x or an array containing [x, y]</p> 
     </li>
-<li>y: <code class="code">Js.number Js.t</code>
+<li>y: <code class="code">Js.number Js.t</code> (optional)
     <p>The page y, required if x is not an array</p> 
     </li>
 </ul>
@@ -1896,7 +1896,7 @@ animation config object</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object with left and top properties. e.g. {left: (value), top: (value)}</p> 
     </li>
 </ul>
@@ -1915,7 +1915,7 @@ This is a shortcut for findParentNode() that always returns an <a href="#!/api/E
 <li>selector: <code class="code">Js.js_string Js.t</code>
     <p>The simple selector to test</p> 
     </li>
-<li>limit: <code class="code">'a Js.t</code>
+<li>limit: <code class="code">_ Js.t</code> (optional)
     <p>The max depth to search as a number or an element which causes the upward traversal to stop
 and is <b>not</b> considered for inclusion as the result. (defaults to 50 || document.documentElement)</p> 
     </li>
@@ -1957,14 +1957,14 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code> (optional)
     <p>DomHelper element config object for the wrapper element or null for an empty div</p> 
     </li>
-<li>returnDom: <code class="code">bool Js.t</code>
+<li>returnDom: <code class="code">bool Js.t</code> (optional)
     <p>True to return the raw DOM element instead of <a href="#!/api/Ext.dom.AbstractElement" rel="Ext.dom.AbstractElement" class="docClass">Ext.dom.AbstractElement</a></p> 
      Defaults to: false
     </li>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A <a href="#!/api/Ext.dom.Query" rel="Ext.dom.Query" class="docClass">DomQuery</a> selector to select a descendant node within the created element to use as the wrapping element.</p> 
     </li>
 </ul>
@@ -1973,7 +1973,7 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The newly created wrapper element</p> 
+<li><code class="code">_ Js.t</code> <p>The newly created wrapper element</p> 
     </li>
 </ul>
 <br>

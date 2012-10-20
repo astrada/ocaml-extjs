@@ -132,10 +132,10 @@ the event will not fire.</p>
 <li>o: <code class="code">Ext_util_Observable.t Js.t</code>
     <p>The Observable to capture events from.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to call when an event is fired.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the function is executed. Defaults to
 the Observable firing the event.</p> 
     </li>
@@ -159,10 +159,10 @@ the <strong>class</strong> allowing for central handling of events on many insta
 
     <b>Parameters</b>:
     <ul>
-<li>c: <code class="code">'a Js.callback</code>
+<li>c: <code class="code">_ Js.callback</code>
     <p>The class constructor to make observable.</p> 
     </li>
-<li>listeners: <code class="code">'a Js.t</code>
+<li>listeners: <code class="code">_ Js.t</code>
     <p>An object containing a series of listeners to add. See <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a>.</p> 
     </li>
 </ul>

@@ -218,7 +218,7 @@ after a valid drop has occurred by providing an implementation.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>target: <code class="code">'a Js.t</code>
+<li>target: <code class="code">_ Js.t</code>
     <p>The target DD</p> 
     </li>
 <li>e: <code class="code">Dom_html.event Js.t</code>
@@ -427,7 +427,7 @@ drop has occurred.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>e: <code class="code">'a Js.t</code>
+<li>e: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -435,8 +435,7 @@ drop has occurred.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
-    <p>data An object containing arbitrary data</p> 
+<li><code class="code">_ Js.t</code> <p>data An object containing arbitrary data</p> 
     </li>
 </ul>
 <br>
@@ -462,7 +461,7 @@ drag event begins and optionally cancel it.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>data: <code class="code">'a Js.t</code>
+<li>data: <code class="code">_ Js.t</code>
     <p>An object containing arbitrary data to be shared with drop targets</p> 
     </li>
 <li>e: <code class="code">Dom_html.event Js.t</code>
@@ -492,7 +491,7 @@ obj</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mouseup event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this was dropped on.  In INTERSECT mode, an array of dd items this
 was dropped on.</p> 
@@ -512,7 +511,7 @@ another DragDrop obj</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mousemove event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of one or more
 dragdrop items being hovered over.</p> 
@@ -531,7 +530,7 @@ dragdrop items being hovered over.</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mousemove event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this was hovering over.  In INTERSECT mode, an array of dd items
 that the mouse is no longer over.</p> 
@@ -551,7 +550,7 @@ DragDrop obj</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mousemove event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of dd items
 being hovered over.</p> 

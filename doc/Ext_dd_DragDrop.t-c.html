@@ -324,15 +324,15 @@ dd.startDrag = function(){
 
     <b>Parameters</b>:
     <ul>
-<li>constrainTo: <code class="code">'a Js.t</code>
+<li>constrainTo: <code class="code">_ Js.t</code>
     <p>The element or element ID to constrain to.</p> 
     </li>
-<li>pad: <code class="code">'a Js.t</code>
+<li>pad: <code class="code">_ Js.t</code> (optional)
     <p>Pad provides a way to specify "padding" of the constraints,
 and can be either a number for symmetrical padding (4 would be equal to <code>{left:4, right:4, top:4, bottom:4}</code>) or
 an object containing the sides to pad. For example: <code>{right:10, bottom:10}</code></p> 
     </li>
-<li>inContent: <code class="code">bool Js.t</code>
+<li>inContent: <code class="code">bool Js.t</code> (optional)
     <p>Constrain the draggable in the content box of the element (inside padding and borders)</p> 
     </li>
 </ul>
@@ -386,7 +386,7 @@ element. An example of this can be found in <a href="#!/api/Ext.dd.DDProxy" rel=
 <li>sGroup: <code class="code">Js.js_string Js.t</code>
     <p>the group of related items</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code> <p>configuration attributes</p> 
+<li>config: <code class="code">_ Js.t</code> <p>configuration attributes</p> 
     </li>
 </ul>
 <br>
@@ -404,7 +404,7 @@ get a mousedown handler.</p>
 <li>sGroup: <code class="code">Js.js_string Js.t</code>
     <p>the group of related items</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code> <p>configuration attributes</p> 
+<li>config: <code class="code">_ Js.t</code> <p>configuration attributes</p> 
     </li>
 </ul>
 <br>
@@ -473,7 +473,7 @@ obj</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mouseup event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this was dropped on.  In INTERSECT mode, an array of dd items this
 was dropped on.</p> 
@@ -491,7 +491,7 @@ another DragDrop obj</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mousemove event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of one or more
 dragdrop items being hovered over.</p> 
@@ -508,7 +508,7 @@ dragdrop items being hovered over.</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mousemove event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this was hovering over.  In INTERSECT mode, an array of dd items
 that the mouse is no longer over.</p> 
@@ -526,7 +526,7 @@ DragDrop obj</p>
 <li>e: <code class="code">Dom_html.event Js.t</code>
     <p>the mousemove event</p> 
     </li>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>In POINT mode, the element
 id this is hovering over.  In INTERSECT mode, an array of dd items
 being hovered over.</p> 
@@ -723,7 +723,7 @@ this method to limit the horizontal travel of the element.  Pass in
     <p>the number of pixels the element can move to the
 right</p> 
     </li>
-<li>iTickSize: <code class="code">Js.number Js.t</code>
+<li>iTickSize: <code class="code">Js.number Js.t</code> (optional)
     <p>parameter for specifying that the
 element should move iTickSize pixels at a time.</p> 
     </li>
@@ -744,7 +744,7 @@ parameters if you want to lock the drag to the x axis.</p>
 <li>iDown: <code class="code">Js.number Js.t</code>
     <p>the number of pixels the element can move down</p> 
     </li>
-<li>iTickSize: <code class="code">Js.number Js.t</code>
+<li>iTickSize: <code class="code">Js.number Js.t</code> (optional)
     <p>parameter for specifying that the
 element should move iTickSize pixels at a time.</p> 
     </li>

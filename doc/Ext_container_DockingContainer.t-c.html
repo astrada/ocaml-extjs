@@ -127,12 +127,12 @@
 
     <b>Parameters</b>:
     <ul>
-<li>component: <code class="code">'a Js.t</code>
+<li>component: <code class="code">_ Js.t</code>
     <p>The Component or array of components to add. The components
 must include a 'dock' parameter on each component to indicate where it should be docked
 ('top', 'right', 'bottom', 'left').</p> 
     </li>
-<li>pos: <code class="code">Js.number Js.t</code>
+<li>pos: <code class="code">Js.number Js.t</code> (optional)
     <p>The index at which the Component will be added</p> 
     </li>
 </ul>
@@ -153,7 +153,7 @@ must include a 'dock' parameter on each component to indicate where it should be
 
     <b>Parameters</b>:
     <ul>
-<li>comp: <code class="code">'a Js.t</code>
+<li>comp: <code class="code">_ Js.t</code>
     <p>The id, itemId or position of the docked component (see <a href="#!/api/Ext.panel.AbstractPanel-method-getComponent" rel="Ext.panel.AbstractPanel-method-getComponent" class="docClass">getComponent</a> for details)</p> 
     </li>
 </ul>
@@ -208,7 +208,7 @@ must include a 'dock' parameter on each component to indicate where it should be
 <li>pos: <code class="code">Js.number Js.t</code>
     <p>The index at which the Component will be inserted</p> 
     </li>
-<li>component: <code class="code">'a Js.t</code>
+<li>component: <code class="code">_ Js.t</code>
     <p>. The Component or array of components to add. The components
 must include a 'dock' paramater on each component to indicate where it should be docked ('top', 'right',
 'bottom', 'left').</p> 
@@ -247,7 +247,7 @@ must include a 'dock' paramater on each component to indicate where it should be
 <li>item: <code class="code">#Ext_Component.t Js.t</code>
     <p>. The Component to remove.</p> 
     </li>
-<li>autoDestroy: <code class="code">bool Js.t</code>
+<li>autoDestroy: <code class="code">bool Js.t</code> (optional)
     <p>Destroy the component after removal.</p> 
     </li>
 </ul>

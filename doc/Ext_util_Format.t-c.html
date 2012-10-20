@@ -178,17 +178,17 @@ append the currency sign to the formatted value.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The numeric value to format</p> 
     </li>
-<li>sign: <code class="code">Js.js_string Js.t</code>
+<li>sign: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The currency sign to use (defaults to <a href="#!/api/Ext.util.Format-property-currencySign" rel="Ext.util.Format-property-currencySign" class="docClass">currencySign</a>)</p> 
     </li>
-<li>decimals: <code class="code">Js.number Js.t</code>
+<li>decimals: <code class="code">Js.number Js.t</code> (optional)
     <p>The number of decimals to use for the currency
 (defaults to <a href="#!/api/Ext.util.Format-property-currencyPrecision" rel="Ext.util.Format-property-currencyPrecision" class="docClass">currencyPrecision</a>)</p> 
     </li>
-<li>end_: <code class="code">bool Js.t</code>
+<li>_end: <code class="code">bool Js.t</code> (optional)
     <p>True if the currency sign should be at the end of the string
 (defaults to <a href="#!/api/Ext.util.Format-property-currencyAtEnd" rel="Ext.util.Format-property-currencyAtEnd" class="docClass">currencyAtEnd</a>)</p> 
     </li>
@@ -209,11 +209,11 @@ append the currency sign to the formatted value.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The value to format. If a string is passed, it is converted to a Date
 by the Javascript's built-in Date#parse method.</p> 
     </li>
-<li>format: <code class="code">Js.js_string Js.t</code>
+<li>format: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Any valid date format string. Defaults to <a href="#!/api/Ext.Date-property-defaultFormat" rel="Ext.Date-property-defaultFormat" class="docClass">Ext.Date.defaultFormat</a>.</p> 
     </li>
 </ul>
@@ -242,7 +242,7 @@ by the Javascript's built-in Date#parse method.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.callback</code> <p>The date formatting function</p> 
+<li><code class="code">_ Js.callback</code> <p>The date formatting function</p> 
     </li>
 </ul>
 <br>
@@ -253,10 +253,10 @@ by the Javascript's built-in Date#parse method.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>Reference to check</p> 
     </li>
-<li>defaultValue: <code class="code">Js.js_string Js.t</code>
+<li>defaultValue: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The value to insert of it's undefined.</p> 
      Defaults to: ""
     </li>
@@ -308,7 +308,7 @@ by the Javascript's built-in Date#parse method.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>size: <code class="code">'a Js.t</code>
+<li>size: <code class="code">_ Js.t</code>
     <p>The numeric value to format</p> 
     </li>
 </ul>
@@ -419,7 +419,7 @@ for normalizing number and date strings.  Example usage:</p>
 <li>size: <code class="code">Js.number Js.t</code>
     <p>The total length of the output string</p> 
     </li>
-<li>character: <code class="code">Js.js_string Js.t</code>
+<li>character: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The character with which to pad the original string (defaults to empty string " ")</p> 
     </li>
 </ul>
@@ -462,7 +462,7 @@ for normalizing number and date strings.  Example usage:</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.callback</code>
+<li><code class="code">_ Js.callback</code>
     <p>A function that operates on the passed value.</p> 
     </li>
 </ul>
@@ -563,7 +563,7 @@ times efficiently.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.callback</code> <p>The number formatting function</p> 
+<li><code class="code">_ Js.callback</code> <p>The number formatting function</p> 
     </li>
 </ul>
 <br>
@@ -576,7 +576,7 @@ Supports CSS-style margin declarations (e.g. 10, "10", "10 10", "10 10 10" and
 
     <b>Parameters</b>:
     <ul>
-<li>v: <code class="code">'a Js.t</code>
+<li>v: <code class="code">_ Js.t</code>
     <p>The encoded margins</p> 
     </li>
 </ul>
@@ -585,7 +585,7 @@ Supports CSS-style margin declarations (e.g. 10, "10", "10 10", "10 10 10" and
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object with margin sizes for top, right, bottom and left</p> 
     </li>
 </ul>
@@ -605,7 +605,7 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 <li>singular: <code class="code">Js.js_string Js.t</code>
     <p>The singular form of the word</p> 
     </li>
-<li>plural: <code class="code">Js.js_string Js.t</code>
+<li>plural: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The plural form of the word (defaults to the singular with an "s")</p> 
     </li>
 </ul>
@@ -617,7 +617,7 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The numeric value to round.</p> 
     </li>
 <li>precision: <code class="code">Js.number Js.t</code>
@@ -640,7 +640,7 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The text from which to strip script tags</p> 
     </li>
 </ul>
@@ -660,7 +660,7 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The text from which to strip tags</p> 
     </li>
 </ul>
@@ -734,7 +734,7 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>Reference to check</p> 
     </li>
 </ul>
@@ -743,7 +743,7 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>Empty string if converted, otherwise the original value</p> 
     </li>
 </ul>
@@ -775,7 +775,7 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The numeric value to format</p> 
     </li>
 </ul>

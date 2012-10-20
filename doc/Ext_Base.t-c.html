@@ -233,7 +233,7 @@ overridden by derivation or by an override (see <a href="#!/api/Ext-method-defin
 
     <b>Parameters</b>:
     <ul>
-<li>args: <code class="code">'a Js.t</code>
+<li>args: <code class="code">_ Js.t</code>
     <p>The arguments, either an array or the <code>arguments</code> object
 from the current method, for example: <code>this.callParent(arguments)</code></p> 
     </li>
@@ -243,7 +243,7 @@ from the current method, for example: <code>this.callParent(arguments)</code></p
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>Returns the result of calling the parent method</p> 
     </li>
 </ul>
@@ -297,7 +297,7 @@ using <code>callParent</code> would produce "Fixed" then "Bad" then "Good".</p>
 
     <b>Parameters</b>:
     <ul>
-<li>args: <code class="code">'a Js.t</code>
+<li>args: <code class="code">_ Js.t</code>
     <p>The arguments, either an array or the <code>arguments</code> object
 from the current method, for example: <code>this.callSuper(arguments)</code></p> 
     </li>
@@ -307,7 +307,7 @@ from the current method, for example: <code>this.callSuper(arguments)</code></p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>Returns the result of calling the superclass method</p> 
     </li>
 </ul>
@@ -320,7 +320,7 @@ this class.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>name: <code class="code">Js.js_string Js.t</code>
+<li>name: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Name of the config option to return.</p> 
     </li>
 </ul>
@@ -329,7 +329,7 @@ this class.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The full config object or a single config value
 when <code>name</code> parameter specified.</p> 
     </li>
@@ -361,7 +361,7 @@ alert(awesome.getName()); // 'Super Awesome'
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     </li>
 </ul>
 

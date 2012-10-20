@@ -202,9 +202,9 @@ Window as its <code>zIndexParent</code>, and will always show above that Window,
 
     <b>Parameters</b>:
     <ul>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
@@ -237,11 +237,11 @@ names added, and will be in the configured visibility and the configured enable 
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
@@ -257,13 +257,13 @@ be the args provided or the current component. If the function returns false at 
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to call</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope of the function. Defaults to current node.</p> 
     </li>
-<li>args: <code class="code">'a Js.js_array Js.t</code>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
     <p>The args to call the function with. Defaults to passing the current component.</p> 
     </li>
 </ul>
@@ -286,7 +286,7 @@ be the args provided or the current component. If the function returns false at 
 
     <b>Parameters</b>:
     <ul>
-<li>overrides: <code class="code">'a Js.t</code>
+<li>overrides: <code class="code">_ Js.t</code>
     <p>A new config containing any properties to override in the cloned version.
 An id property can be passed on this object, otherwise one will be generated to avoid duplicates.</p> 
     </li>
@@ -311,7 +311,7 @@ container will be returned.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The custom function to call with the arguments (container, this component).</p> 
     </li>
 </ul>
@@ -334,7 +334,7 @@ container will be returned.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>xtype: <code class="code">'a Js.t</code>
+<li>xtype: <code class="code">_ Js.t</code>
     <p>The xtype string for a component, or the class of the component directly</p> 
     </li>
 </ul>
@@ -355,10 +355,10 @@ container will be returned.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selectText: <code class="code">bool Js.t</code>
+<li>selectText: <code class="code">bool Js.t</code> (optional)
     <p>If applicable, true to also select the text in this component</p> 
     </li>
-<li>delay: <code class="code">'a Js.t</code>
+<li>delay: <code class="code">_ Js.t</code> (optional)
     <p>Delay the focus this number of milliseconds (true for 10 milliseconds).</p> 
     </li>
 </ul>
@@ -381,7 +381,7 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
 
     <b>Parameters</b>:
     <ul>
-<li>local: <code class="code">bool Js.t</code>
+<li>local: <code class="code">bool Js.t</code> (optional)
     <p>If true the element's left and top are returned instead of page XY.</p> 
      Defaults to: false
     </li>
@@ -391,7 +391,7 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>box An object in the format {x, y, width, height}</p> 
     </li>
 </ul>
@@ -423,7 +423,7 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
 
     <b>Parameters</b>:
     <ul>
-<li>local: <code class="code">bool Js.t</code>
+<li>local: <code class="code">bool Js.t</code> (optional)
     <p>If true the element's left and top are returned instead of page XY.</p> 
      Defaults to: false
     </li>
@@ -461,16 +461,16 @@ alert(t.getXType());  // alerts 'textfield'
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> 
      Defaults to: null
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>A callback function to call after the Component is hidden.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> 
     </li>
@@ -531,11 +531,11 @@ calling the superclass’s onHide, the Component will be hidden.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
@@ -558,11 +558,11 @@ calling the superclass's onShow, the Component will be visible.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
@@ -575,9 +575,9 @@ calling the superclass's onShow, the Component will be visible.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
@@ -595,14 +595,14 @@ calling the superclass's onShow, the Component will be visible.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>deltaX: <code class="code">'a Js.t</code>
+<li>deltaX: <code class="code">_ Js.t</code>
     <p>Either the x delta, an Array specifying x and y deltas or
 an object with "x" and "y" properties.</p> 
     </li>
-<li>deltaY: <code class="code">'a Js.t</code>
+<li>deltaY: <code class="code">_ Js.t</code>
     <p>Either the y delta, or an animate flag or config object.</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code>
     <p>Animate flag/config object if the delta values were passed separately.</p> 
     </li>
 </ul>
@@ -634,11 +634,11 @@ an object with "x" and "y" properties.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>load: <code class="code">'a Js.t</code>
+<li>load: <code class="code">_ Js.t</code>
     <p>True to show the default LoadMask, a config object that will be passed to the
 LoadMask constructor, or a message String to show. False to hide the current LoadMask.</p> 
     </li>
-<li>targetEl: <code class="code">bool Js.t</code>
+<li>targetEl: <code class="code">bool Js.t</code> (optional)
     <p>True to mask the targetEl of this Component instead of the <code>this.el</code>. For example,
 setting this to true on a Panel will cause only the body to be masked.</p> 
      Defaults to: false
@@ -694,7 +694,7 @@ This method fires the <a href="#!/api/Ext.Component-event-move" rel="Ext.Compone
 <li>y: <code class="code">Js.number Js.t</code>
     <p>The new y position</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True to animate the Component into its new position. You may also pass an
 animation configuration.</p> 
     </li>
@@ -718,16 +718,16 @@ brought to the front of its <a href="#!/api/Ext.Component-property-zIndexManager
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> 
      Defaults to: null
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>A callback function to call after the Component is displayed.
 Only necessary if animation was specified.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> 
     </li>
@@ -774,7 +774,7 @@ Useful for popping up a context menu:</p>
 <li>y: <code class="code">Js.number Js.t</code>
     <p>The new y position</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True to animate the Component into its new position. You may also pass an
 animation configuration.</p> 
     </li>
@@ -787,7 +787,7 @@ animation configuration.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>box: <code class="code">'a Js.t</code>
+<li>box: <code class="code">_ Js.t</code>
     <p>An object in the format {x, y, width, height}</p> 
     </li>
 </ul>

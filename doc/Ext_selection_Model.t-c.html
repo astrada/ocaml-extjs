@@ -137,11 +137,11 @@
 
     <b>Parameters</b>:
     <ul>
-<li>store: <code class="code">'a Js.t</code>
+<li>store: <code class="code">_ Js.t</code> (optional)
     <p>The store to bind or ID of the store.
 When no store given (or when <code>null</code> or <code>undefined</code> passed), unbinds the existing store.</p> 
     </li>
-<li>initial: <code class="code">bool Js.t</code>
+<li>initial: <code class="code">bool Js.t</code> (optional)
     <p>True to not remove listeners from existing store.</p> 
      Defaults to: false
     </li>
@@ -154,10 +154,10 @@ When no store given (or when <code>null</code> or <code>undefined</code> passed)
 
     <b>Parameters</b>:
     <ul>
-<li>records: <code class="code">'a Js.t</code>
+<li>records: <code class="code">_ Js.t</code>
     <p>An array of records or an index</p> 
     </li>
-<li>suppressEvent: <code class="code">bool Js.t</code>
+<li>suppressEvent: <code class="code">bool Js.t</code> (optional)
     <p>True to not fire a deselect event</p> 
      Defaults to: false
     </li>
@@ -220,7 +220,7 @@ When no store given (or when <code>null</code> or <code>undefined</code> passed)
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The listeners to be bound to the store in object literal form. The scope
 may be omitted, it is assumed to be the current instance.</p> 
     </li>
@@ -250,7 +250,7 @@ may be omitted, it is assumed to be the current instance.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>record: <code class="code">'a Js.t</code>
+<li>record: <code class="code">_ Js.t</code>
     <p>The record or index of the record to check</p> 
     </li>
 </ul>
@@ -262,14 +262,14 @@ may be omitted, it is assumed to be the current instance.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>records: <code class="code">'a Js.t</code>
+<li>records: <code class="code">_ Js.t</code>
     <p>An array of records or an index</p> 
     </li>
-<li>keepExisting: <code class="code">bool Js.t</code>
+<li>keepExisting: <code class="code">bool Js.t</code> (optional)
     <p>True to retain existing selections</p> 
      Defaults to: false
     </li>
-<li>suppressEvent: <code class="code">bool Js.t</code>
+<li>suppressEvent: <code class="code">bool Js.t</code> (optional)
     <p>True to not fire a select event</p> 
      Defaults to: false
     </li>
@@ -295,13 +295,13 @@ All rows in between startRow and endRow are also selected.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>startRow: <code class="code">'a Js.t</code>
+<li>startRow: <code class="code">_ Js.t</code>
     <p>The record or index of the first row in the range</p> 
     </li>
-<li>endRow: <code class="code">'a Js.t</code>
+<li>endRow: <code class="code">_ Js.t</code>
     <p>The record or index of the last row in the range</p> 
     </li>
-<li>keepExisting: <code class="code">bool Js.t</code>
+<li>keepExisting: <code class="code">bool Js.t</code> (optional)
     <p>True to retain existing selections</p> 
     </li>
 </ul>

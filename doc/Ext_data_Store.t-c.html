@@ -160,7 +160,7 @@ at the correct point in the Store to maintain the sort order.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>model: <code class="code">'a Js.t</code>
+<li>model: <code class="code">_ Js.t</code>
     <p>An array of Model instances
 or Model configuration objects, or variable number of Model instance or config arguments.</p> 
     </li>
@@ -196,20 +196,20 @@ should go based on the current sort information.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to execute. The function is called with a single parameter,
 an array of records for that group.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope to execute the function in. Defaults to the store.</p> 
     </li>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the group average being the value. The grouped parameter is only honored if
 the store has a groupField.</p> 
     </li>
-<li>args: <code class="code">'a Js.js_array Js.t</code>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
     <p>Any arguments to append to the function call</p> 
     </li>
 </ul>
@@ -218,7 +218,7 @@ the store has a groupField.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object literal with the group names and their appropriate values.</p> 
     </li>
 </ul>
@@ -235,7 +235,7 @@ the store has a groupField.</p>
 <li>field: <code class="code">Js.js_string Js.t</code>
     <p>The field in each record</p> 
     </li>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the group average being the value. The grouped parameter is only honored if
@@ -247,8 +247,7 @@ the store has a groupField.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
-    <p>The average value, if no items exist, 0.</p> 
+<li><code class="code">_ Js.t</code> <p>The average value, if no items exist, 0.</p> 
     </li>
 </ul>
 <br>
@@ -283,10 +282,10 @@ is not reloaded from the server.</p>
 <li>dataIndex: <code class="code">Js.js_string Js.t</code>
     <p>The property to collect</p> 
     </li>
-<li>allowNull: <code class="code">bool Js.t</code>
+<li>allowNull: <code class="code">bool Js.t</code> (optional)
     <p>Pass true to allow null, undefined or empty string values</p> 
     </li>
-<li>bypassFilter: <code class="code">bool Js.t</code>
+<li>bypassFilter: <code class="code">bool Js.t</code> (optional)
     <p>Pass true to collect from all records, even ones which are filtered.</p> 
     </li>
 </ul>
@@ -295,7 +294,7 @@ is not reloaded from the server.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t Js.js_array Js.t</code>
+<li><code class="code">_ Js.t Js.js_array Js.t</code>
     <p>An array of the unique values</p> 
     </li>
 </ul>
@@ -314,7 +313,7 @@ subscribe to the Store's <a href="#!/api/Ext.data.Store-event-update" rel="Ext.d
 
     <b>Parameters</b>:
     <ul>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the count for each group being the value. The grouped parameter is only honored if
@@ -339,11 +338,11 @@ the store has a groupField.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to call. The <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Record</a> is passed as the first parameter.
 Returning <code>false</code> aborts and exits the iteration.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (this reference) in which the function is executed.
 Defaults to the current <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">record</a> in the iteration.</p> 
     </li>
@@ -395,14 +394,14 @@ within the set of filtered records. Two notable exceptions are <a href="#!/api/E
 
     <b>Parameters</b>:
     <ul>
-<li>filters: <code class="code">'a Js.t</code>
+<li>filters: <code class="code">_ Js.t</code>
     <p>The set of filters to apply to the data.
 These are stored internally on the store, but the filtering itself is done on the Store's
 <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">MixedCollection</a>. See MixedCollection's
 <a href="#!/api/Ext.util.MixedCollection-method-filter" rel="Ext.util.MixedCollection-method-filter" class="docClass">filter</a> method for filter syntax.
 Alternatively, pass in a property string</p> 
     </li>
-<li>value: <code class="code">Js.js_string Js.t</code>
+<li>value: <code class="code">Js.js_string Js.t</code> (optional)
     <p>value to filter by (only if using a property string as the first argument)</p> 
     </li>
 </ul>
@@ -420,10 +419,10 @@ within the set of filtered records. Two notable exceptions are <a href="#!/api/E
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to be called. It will be passed the following parameters:</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (this reference) in which the function is executed.
 Defaults to this Store.</p> 
     </li>
@@ -441,23 +440,23 @@ Defaults to this Store.</p>
 <li>fieldName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the Record field to test.</p> 
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>Either a string that the field value
 should begin with, or a RegExp to test against the field.</p> 
     </li>
-<li>startIndex: <code class="code">Js.number Js.t</code>
+<li>startIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The index to start searching at</p> 
      Defaults to: 0
     </li>
-<li>anyMatch: <code class="code">bool Js.t</code>
+<li>anyMatch: <code class="code">bool Js.t</code> (optional)
     <p>True to match any part of the string, not just the beginning</p> 
      Defaults to: false
     </li>
-<li>caseSensitive: <code class="code">bool Js.t</code>
+<li>caseSensitive: <code class="code">bool Js.t</code> (optional)
     <p>True for case sensitive comparison</p> 
      Defaults to: false
     </li>
-<li>exactMatch: <code class="code">bool Js.t</code>
+<li>exactMatch: <code class="code">bool Js.t</code> (optional)
     <p>True to force exact match (^ and $ characters added to the regex).</p> 
      Defaults to: false
     </li>
@@ -481,14 +480,14 @@ If the function returns <code>true</code> it is considered a match.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to be called. It will be passed the following parameters:</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (this reference) in which the function is executed.
 Defaults to this Store.</p> 
     </li>
-<li>startIndex: <code class="code">Js.number Js.t</code>
+<li>startIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The index to start searching at</p> 
      Defaults to: 0
     </li>
@@ -514,10 +513,10 @@ Defaults to this Store.</p>
 <li>fieldName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the Record field to test.</p> 
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The value to match the field against.</p> 
     </li>
-<li>startIndex: <code class="code">Js.number Js.t</code>
+<li>startIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The index to start searching at</p> 
      Defaults to: 0
     </li>
@@ -543,23 +542,23 @@ Defaults to this Store.</p>
 <li>fieldName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the Record field to test.</p> 
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>Either a string that the field value
 should begin with, or a RegExp to test against the field.</p> 
     </li>
-<li>startIndex: <code class="code">Js.number Js.t</code>
+<li>startIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The index to start searching at</p> 
      Defaults to: 0
     </li>
-<li>anyMatch: <code class="code">bool Js.t</code>
+<li>anyMatch: <code class="code">bool Js.t</code> (optional)
     <p>True to match any part of the string, not just the beginning</p> 
      Defaults to: false
     </li>
-<li>caseSensitive: <code class="code">bool Js.t</code>
+<li>caseSensitive: <code class="code">bool Js.t</code> (optional)
     <p>True for case sensitive comparison</p> 
      Defaults to: false
     </li>
-<li>exactMatch: <code class="code">bool Js.t</code>
+<li>exactMatch: <code class="code">bool Js.t</code> (optional)
     <p>True to force exact match (^ and $ characters added to the regex).</p> 
      Defaults to: false
     </li>
@@ -583,7 +582,7 @@ should begin with, or a RegExp to test against the field.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the first record being the value. The grouped parameter is only honored if
@@ -595,7 +594,7 @@ the store has a groupField.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The first model instance in the store, or undefined</p> 
     </li>
 </ul>
@@ -633,7 +632,7 @@ inside the store, filtered or not.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>The id of the Record to find.</p> 
     </li>
 </ul>
@@ -729,7 +728,7 @@ myStore.getGroups(); // returns:
 
     <b>Parameters</b>:
     <ul>
-<li>groupName: <code class="code">Js.js_string Js.t</code>
+<li>groupName: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Pass in an optional groupName argument to access a specific
 group as defined by <a href="#!/api/Ext.data.Store-method-getGroupString" rel="Ext.data.Store-method-getGroupString" class="docClass">getGroupString</a>.</p> 
     </li>
@@ -739,7 +738,7 @@ group as defined by <a href="#!/api/Ext.data.Store-method-getGroupString" rel="E
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The grouped data</p> 
+<li><code class="code">_ Js.t</code> <p>The grouped data</p> 
     </li>
 </ul>
 <br>
@@ -787,10 +786,11 @@ yet been saved on this Store (this happens when adding a non-phantom record from
 
     <b>Parameters</b>:
     <ul>
-<li>startIndex: <code class="code">Js.number Js.t</code> <p>The starting index</p> 
+<li>startIndex: <code class="code">Js.number Js.t</code> (optional)
+    <p>The starting index</p> 
      Defaults to: 0
     </li>
-<li>endIndex: <code class="code">Js.number Js.t</code>
+<li>endIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The ending index. Defaults to the last Record in the Store.</p> 
     </li>
 </ul>
@@ -841,11 +841,11 @@ no value has been set via the reader.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>groupers: <code class="code">'a Js.t</code>
+<li>groupers: <code class="code">_ Js.t</code>
     <p>Either a string name of one of the fields in this Store's
 configured <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a>, or an Array of grouper configurations.</p> 
     </li>
-<li>direction: <code class="code">Js.js_string Js.t</code>
+<li>direction: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The overall direction to group the data by.</p> 
      Defaults to: "ASC"
     </li>
@@ -860,13 +860,13 @@ be necessary.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>start: <code class="code">'a Js.t</code>
+<li>start: <code class="code">_ Js.t</code>
     </li>
-<li>end_: <code class="code">'a Js.t</code>
+<li>_end: <code class="code">_ Js.t</code>
     </li>
-<li>cb: <code class="code">'a Js.t</code>
+<li>cb: <code class="code">_ Js.t</code>
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -978,7 +978,7 @@ See also <a href="#!/api/Ext.data.Store-method-add" rel="Ext.data.Store-method-a
 
     <b>Parameters</b>:
     <ul>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the last record being the value. The grouped parameter is only honored if
@@ -990,7 +990,7 @@ the store has a groupField.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The last model instance in the store, or undefined</p> 
     </li>
 </ul>
@@ -1021,7 +1021,7 @@ instances into the Store and calling an optional callback if required. Example u
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>config object, passed into the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object before loading.
 Additionally <code>addRecords: true</code> can be specified to add these records to the existing records, default is
 to remove the Store's existing records first.</p> 
@@ -1039,11 +1039,11 @@ processed by a reader). If your data requires processing to decode the data stru
 
     <b>Parameters</b>:
     <ul>
-<li>data: <code class="code">'a Js.t</code>
+<li>data: <code class="code">_ Js.t</code>
     <p>Array of data to load. Any non-model instances will be cast
 into model instances first.</p> 
     </li>
-<li>append: <code class="code">bool Js.t</code>
+<li>append: <code class="code">bool Js.t</code> (optional)
     <p>True to add the records to the existing records in the store, false
 to remove the old ones first.</p> 
      Defaults to: false
@@ -1061,7 +1061,7 @@ load operation, passing in calculated 'start' and 'limit' params</p>
 <li>page: <code class="code">Js.number Js.t</code>
     <p>The number of the page to load</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> 
     </li>
 </ul>
@@ -1075,10 +1075,10 @@ load operation, passing in calculated 'start' and 'limit' params</p>
 
     <b>Parameters</b>:
     <ul>
-<li>data: <code class="code">'a Js.t Js.js_array Js.t</code>
+<li>data: <code class="code">_ Js.t Js.js_array Js.t</code>
     <p>The full JSON object you'd like to load into the Data store.</p> 
     </li>
-<li>append: <code class="code">bool Js.t</code>
+<li>append: <code class="code">bool Js.t</code> (optional)
     <p>True to add the records to the existing records in the store, false
 to remove the old ones first.</p> 
      Defaults to: false
@@ -1096,7 +1096,7 @@ be called internally when loading from the <a href="#!/api/Ext.data.proxy.Proxy"
 <li>records: <code class="code">Ext_data_Model.t Js.js_array Js.t</code>
     <p>The array of records to load</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -1112,7 +1112,7 @@ be called internally when loading from the <a href="#!/api/Ext.data.proxy.Proxy"
 <li>field: <code class="code">Js.js_string Js.t</code>
     <p>The field in each record</p> 
     </li>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the maximum in the group being the value. The grouped parameter is only honored if
@@ -1124,7 +1124,7 @@ the store has a groupField.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The maximum value, if no items exist, undefined.</p> 
     </li>
 </ul>
@@ -1141,7 +1141,7 @@ the store has a groupField.</p>
 <li>field: <code class="code">Js.js_string Js.t</code>
     <p>The field in each record</p> 
     </li>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the minimum in the group being the value. The grouped parameter is only honored if
@@ -1153,7 +1153,7 @@ the store has a groupField.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The minimum value, if no items exist, undefined.</p> 
     </li>
 </ul>
@@ -1165,7 +1165,7 @@ the store has a groupField.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> 
     </li>
 </ul>
@@ -1177,7 +1177,7 @@ the store has a groupField.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>config object, passed into the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object before loading.
 See <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> 
     </li>
@@ -1193,7 +1193,7 @@ See <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load"
 <li>page: <code class="code">Js.number Js.t</code>
     <p>The page to prefetch</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>config object, passed into the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a> object before loading.
 See <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> 
     </li>
@@ -1209,9 +1209,9 @@ present in the page cache.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>start: <code class="code">'a Js.t</code>
+<li>start: <code class="code">_ Js.t</code>
     </li>
-<li>end_: <code class="code">'a Js.t</code>
+<li>_end: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -1222,7 +1222,7 @@ present in the page cache.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> 
     </li>
 </ul>
@@ -1241,18 +1241,18 @@ to the queryBy method.</p>
 <li>property: <code class="code">Js.js_string Js.t</code>
     <p>The property to create the filter function for</p> 
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The string/regex to compare the property value to</p> 
     </li>
-<li>anyMatch: <code class="code">bool Js.t</code>
+<li>anyMatch: <code class="code">bool Js.t</code> (optional)
     <p>True if we don't care if the filter value is not the full value.</p> 
      Defaults to: false
     </li>
-<li>caseSensitive: <code class="code">bool Js.t</code>
+<li>caseSensitive: <code class="code">bool Js.t</code> (optional)
     <p>True to create a case-sensitive regex.</p> 
      Defaults to: false
     </li>
-<li>exactMatch: <code class="code">bool Js.t</code>
+<li>exactMatch: <code class="code">bool Js.t</code> (optional)
     <p>True to force exact match (^ and $ characters added to the regex).
 Ignored if anyMatch is true.</p> 
      Defaults to: false
@@ -1280,10 +1280,10 @@ no matter if filter is applied or not.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to be called. It will be passed the following parameters:</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (this reference) in which the function is executed
 Defaults to this Store.</p> 
     </li>
@@ -1309,7 +1309,7 @@ and re-insert any records that were removed locally. Any phantom records will be
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>A config object which contains options which may override the options passed to the previous load call.</p> 
     </li>
 </ul>
@@ -1322,7 +1322,7 @@ plus a single 'datachanged' event after removal.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>records: <code class="code">'a Js.t</code>
+<li>records: <code class="code">_ Js.t</code>
     <p>Model instance or array of instances to remove.</p> 
     </li>
 </ul>
@@ -1391,11 +1391,11 @@ store.sort('myField', 'DESC');
 
     <b>Parameters</b>:
     <ul>
-<li>sorters: <code class="code">'a Js.t</code>
+<li>sorters: <code class="code">_ Js.t</code> (optional)
     <p>Either a string name of one of the fields in this Store's configured
 <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a>, or an array of sorter configurations.</p> 
     </li>
-<li>direction: <code class="code">Js.js_string Js.t</code>
+<li>direction: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The overall direction to sort the data by.</p> 
      Defaults to: "ASC"
     </li>
@@ -1414,7 +1414,7 @@ and <code>end</code> and returns the result.</p>
 <li>field: <code class="code">Js.js_string Js.t</code>
     <p>A field in each record</p> 
     </li>
-<li>grouped: <code class="code">bool Js.t</code>
+<li>grouped: <code class="code">bool Js.t</code> (optional)
     <p>True to perform the operation for each group
 in the store. The value returned will be an object literal with the key being the group
 name and the sum for that group being the value. The grouped parameter is only honored if

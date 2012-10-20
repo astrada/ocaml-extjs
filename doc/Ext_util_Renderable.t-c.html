@@ -139,7 +139,7 @@ Any configured position is also restored.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>runLayout: <code class="code">bool Js.t</code>
+<li>runLayout: <code class="code">bool Js.t</code> (optional)
     <p>True to run the component's layout.</p> 
      Defaults to: false
     </li>
@@ -153,7 +153,7 @@ DOM element that you can use in the insertBefore.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>position: <code class="code">'a Js.t</code>
+<li>position: <code class="code">_ Js.t</code>
     <p>Index, element id or element you want
 to put this component before.</p> 
     </li>
@@ -217,11 +217,11 @@ Container. No sizing or positioning will be performed in this situation.</strong
 
     <b>Parameters</b>:
     <ul>
-<li>container: <code class="code">'a Js.t</code>
+<li>container: <code class="code">_ Js.t</code> (optional)
     <p>The element this Component should be
 rendered into. If it is being created from existing markup, this should be omitted.</p> 
     </li>
-<li>position: <code class="code">'a Js.t</code>
+<li>position: <code class="code">_ Js.t</code> (optional)
     <p>The element ID or DOM node index within the container <strong>before</strong>
 which this component will be inserted (defaults to appending to the end of the container)</p> 
     </li>

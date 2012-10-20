@@ -157,10 +157,10 @@ Should be called after an invalid drop operation by the item being dragged.</p>
 <li>xy: <code class="code">Js.number Js.t Js.js_array Js.t</code>
     <p>The XY position of the element ([x, y])</p> 
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code>
     <p>The function to call after the repair is complete.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code>
     <p>The scope (<code>this</code> reference) in which the callback function is executed.
 Defaults to the browser window.</p> 
     </li>
@@ -204,7 +204,7 @@ over the current target element.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>html: <code class="code">'a Js.t</code>
+<li>html: <code class="code">_ Js.t</code>
     <p>The html that will replace the current innerHTML of the ghost element, or a
 DOM node to append as the child of the ghost element (in which case the innerHTML will be cleared first).</p> 
     </li>

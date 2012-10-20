@@ -150,7 +150,7 @@ have to call fireEvent hundreds or thousands of times. It is used like this:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>eventNames: <code class="code">'a Js.t</code>
+<li>eventNames: <code class="code">_ Js.t</code>
     <p>Either an object with event names as properties with
 a value of <code>true</code>. For example:</p>
 
@@ -205,20 +205,20 @@ containing properties which specify multiple events. For example:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>eventName: <code class="code">'a Js.t</code>
+<li>eventName: <code class="code">_ Js.t</code>
     <p>The name of the event to listen for.
 May also be an object who's property names are event names.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
 the specified <code>scope</code>.  Will be called with arguments
 given to <a href="#!/api/Ext.util.Observable-method-fireEvent" rel="Ext.util.Observable-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the handler function is
 executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>An object containing handler configuration.</p>
 
 
@@ -242,20 +242,20 @@ destroyed.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     <p>The item to which to add a listener/listeners.</p> 
     </li>
-<li>ename: <code class="code">'a Js.t</code>
+<li>ename: <code class="code">_ Js.t</code>
     <p>The event name, or an object containing event name properties.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> 
     </li>
-<li>opt: <code class="code">'a Js.t</code>
+<li>opt: <code class="code">_ Js.t</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> options.</p> 
     </li>
@@ -311,7 +311,7 @@ var myForm = new Ext.formPanel({
 
     <b>Parameters</b>:
     <ul>
-<li>eventNames: <code class="code">'a Js.t</code>
+<li>eventNames: <code class="code">_ Js.t</code>
     <p>The event name to bubble, or an Array of event names.</p> 
     </li>
 </ul>
@@ -330,7 +330,7 @@ calling <a href="#!/api/Ext.util.Observable-method-enableBubble" rel="Ext.util.O
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the event to fire.</p> 
     </li>
-<li>args: <code class="code">'a Js.t</code>
+<li>args: <code class="code">_ Js.t</code>
     <p>Variable number of parameters are passed to handlers.</p> 
     </li>
 </ul>
@@ -376,20 +376,20 @@ destroyed.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     <p>The item to which to add a listener/listeners.</p> 
     </li>
-<li>ename: <code class="code">'a Js.t</code>
+<li>ename: <code class="code">_ Js.t</code>
     <p>The event name, or an object containing event name properties.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> 
     </li>
-<li>opt: <code class="code">'a Js.t</code>
+<li>opt: <code class="code">_ Js.t</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> options.</p> 
     </li>
@@ -404,16 +404,16 @@ in which the handler function is executed.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     <p>The item from which to remove a listener/listeners.</p> 
     </li>
-<li>ename: <code class="code">'a Js.t</code>
+<li>ename: <code class="code">_ Js.t</code>
     <p>The event name, or an object containing event name properties.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> 
     </li>
@@ -459,20 +459,20 @@ containing properties which specify multiple events. For example:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>eventName: <code class="code">'a Js.t</code>
+<li>eventName: <code class="code">_ Js.t</code>
     <p>The name of the event to listen for.
 May also be an object who's property names are event names.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
 the specified <code>scope</code>.  Will be called with arguments
 given to <a href="#!/api/Ext.util.Observable-method-fireEvent" rel="Ext.util.Observable-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the handler function is
 executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>An object containing handler configuration.</p>
 
 
@@ -505,13 +505,13 @@ would have access to the grid using the <code>this</code> keyword.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>origin: <code class="code">'a Js.t</code>
+<li>origin: <code class="code">_ Js.t</code>
     <p>The Observable whose events this object is to relay.</p> 
     </li>
 <li>events: <code class="code">Js.js_string Js.t Js.js_array Js.t</code>
     <p>Array of event names to relay.</p> 
     </li>
-<li>prefix: <code class="code">Js.js_string Js.t</code>
+<li>prefix: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A common prefix to prepend to the event names. For example:</p>
 
 <pre><code>this.relayEvents(this.getStore(), ['load', 'clear'], 'store');
@@ -531,11 +531,11 @@ would have access to the grid using the <code>this</code> keyword.</p>
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The type of event the handler was associated with.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The handler to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> call.</strong></p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope originally specified for the handler. It must be the same as the
 scope argument specified in the original call to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> or the listener will not be removed.</p> 
     </li>
@@ -548,16 +548,16 @@ scope argument specified in the original call to <a href="#!/api/Ext.util.Observ
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     <p>The item from which to remove a listener/listeners.</p> 
     </li>
-<li>ename: <code class="code">'a Js.t</code>
+<li>ename: <code class="code">_ Js.t</code>
     <p>The event name, or an object containing event name properties.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the handler function.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> 
     </li>
@@ -594,11 +594,11 @@ after the <a href="#!/api/Ext.util.Observable-method-resumeEvents" rel="Ext.util
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The type of event the handler was associated with.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The handler to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> call.</strong></p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope originally specified for the handler. It must be the same as the
 scope argument specified in the original call to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> or the listener will not be removed.</p> 
     </li>

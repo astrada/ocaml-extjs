@@ -145,7 +145,7 @@ map.addBinding({
 
     <b>Parameters</b>:
     <ul>
-<li>binding: <code class="code">'a Js.t</code>
+<li>binding: <code class="code">_ Js.t</code>
     <p>A single KeyMap config or an array of configs.
 The following config object properties are supported:</p> 
     </li>
@@ -179,14 +179,14 @@ The following config object properties are supported:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>key: <code class="code">'a Js.t</code>
+<li>key: <code class="code">_ Js.t</code>
     <p>Either the numeric key code, array of key codes or an object with the
 following options: <code>{key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)}</code></p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to call</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the function is executed.
 Defaults to the browser window.</p> 
     </li>

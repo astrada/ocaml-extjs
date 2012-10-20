@@ -124,7 +124,7 @@
 <li><a href="Ext_data_proxy_Proxy.events-c.html"><code class="code">Ext_data_proxy_Proxy.events</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODexception_"><span class="keyword">method</span> exception_</span> : <code class="type">'a 'b 'c.<br>         ((#<a href="Ext_data_proxy_Proxy.t-c.html">Ext_data_proxy_Proxy.t</a> as 'a) Js.t -><br>          'b Js.t -> <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.t -> 'c Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHOD_exception"><span class="keyword">method</span> _exception</span> : <code class="type">'a 'b 'c.<br>         ((#<a href="Ext_data_proxy_Proxy.t-c.html">Ext_data_proxy_Proxy.t</a> as 'a) Js.t -><br>          'b Js.t -> <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.t -> 'c Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires when the server returns an exception</p> 
 <p>
 
@@ -132,13 +132,13 @@
     <ul>
 <li>this: <code class="code">#Ext_data_proxy_Proxy.t Js.t</code>
     </li>
-<li>response: <code class="code">'a Js.t</code>
+<li>response: <code class="code">_ Js.t</code>
     <p>The response from the AJAX request</p> 
     </li>
 <li>operation: <code class="code">Ext_data_Operation.t Js.t</code>
     <p>The operation that triggered request</p> 
     </li>
-<li>eOpts: <code class="code">'a Js.t</code>
+<li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>

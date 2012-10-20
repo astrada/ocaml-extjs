@@ -172,20 +172,20 @@ values (e.g. Date objects for date fields.)</p>
 
     <b>Parameters</b>:
     <ul>
-<li>asString: <code class="code">bool Js.t</code>
+<li>asString: <code class="code">bool Js.t</code> (optional)
     <p>If true, will return the key/value collection as a single
 URL-encoded param string.</p> 
      Defaults to: false
     </li>
-<li>dirtyOnly: <code class="code">bool Js.t</code>
+<li>dirtyOnly: <code class="code">bool Js.t</code> (optional)
     <p>If true, only fields that are dirty will be included in the result.</p> 
      Defaults to: false
     </li>
-<li>includeEmptyText: <code class="code">bool Js.t</code>
+<li>includeEmptyText: <code class="code">bool Js.t</code> (optional)
     <p>If true, the configured emptyText of empty fields will be used.</p> 
      Defaults to: false
     </li>
-<li>useDataValues: <code class="code">bool Js.t</code>
+<li>useDataValues: <code class="code">bool Js.t</code> (optional)
     <p>If true, the <a href="#!/api/Ext.form.field.Field-method-getModelData" rel="Ext.form.field.Field-method-getModelData" class="docClass">getModelData</a>
 method is used to retrieve values from fields, otherwise the <a href="#!/api/Ext.form.field.Field-method-getSubmitData" rel="Ext.form.field.Field-method-getSubmitData" class="docClass">getSubmitData</a>
 method is used.</p> 
@@ -231,7 +231,7 @@ instantiation of the class.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-load" rel="Ext.form.Basic-method-load" class="docClass">Ext.form.Basic.load</a> and
 <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">Ext.form.Basic.doAction</a> for details)</p> 
     </li>
@@ -282,7 +282,7 @@ values. This is normally started automatically by setting the <a href="#!/api/Ex
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-submit" rel="Ext.form.Basic-method-submit" class="docClass">Ext.form.Basic.submit</a> and
 <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">Ext.form.Basic.doAction</a> for details)</p> 
     </li>

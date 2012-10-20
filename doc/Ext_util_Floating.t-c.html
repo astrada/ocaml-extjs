@@ -127,16 +127,18 @@
 
     <b>Parameters</b>:
     <ul>
-<li>element: <code class="code">'a Js.t</code>
+<li>element: <code class="code">_ Js.t</code>
     <p>The element or <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to align to. If passing a component, it must be a
 component instance. If a string id is passed, it will be used as an element id.</p> 
     </li>
-<li>position: <code class="code">Js.js_string Js.t</code>
+<li>position: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The position to align to
 (see <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> for more details).</p> 
-     Defaults to: "tl-bl?"
+<p>
+
+    Defaults to: "tl-bl?"
     </li>
-<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code>
+<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code> (optional)
     <p>Offset the positioning by [x, y]</p> 
     </li>
 </ul>
@@ -172,7 +174,7 @@ rendered to.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>constrainTo: <code class="code">'a Js.t</code>
+<li>constrainTo: <code class="code">_ Js.t</code> (optional)
     <p>The Element or <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a>
 into which this Component is to be constrained. Defaults to the element into which this floating Component
 was rendered.</p> 
@@ -192,11 +194,11 @@ moved to the top of its zIndex stack, or pushed from the top of its zIndex stack
 
     <b>Parameters</b>:
     <ul>
-<li>active: <code class="code">bool Js.t</code>
+<li>active: <code class="code">bool Js.t</code> (optional)
     <p>True to activate the Component, false to deactivate it.</p> 
      Defaults to: false
     </li>
-<li>newActive: <code class="code">#Ext_Component.t Js.t</code>
+<li>newActive: <code class="code">#Ext_Component.t Js.t</code> (optional)
     <p>The newly active Component which is taking over topmost zIndex position.</p> 
     </li>
 </ul>
@@ -222,7 +224,7 @@ moved to the top of its zIndex stack, or pushed from the top of its zIndex stack
 
     <b>Parameters</b>:
     <ul>
-<li>preventFocus: <code class="code">bool Js.t</code>
+<li>preventFocus: <code class="code">bool Js.t</code> (optional)
     <p>Specify <code>true</code> to prevent the Component from being focused.</p> 
      Defaults to: false
     </li>

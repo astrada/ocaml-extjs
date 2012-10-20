@@ -136,7 +136,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>newCls: <code class="code">'a Js.t</code>
+<li>newCls: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -206,7 +206,7 @@ layout to be recalculated.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The property value or undefined if not yet set or is dirty.</p> 
     </li>
 </ul>
@@ -222,9 +222,9 @@ results.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>nameOrEl: <code class="code">'a Js.t</code>
+<li>nameOrEl: <code class="code">_ Js.t</code>
     </li>
-<li>owner: <code class="code">'a Js.t</code>
+<li>owner: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -260,7 +260,7 @@ property so that changes to it will trigger the layout to be recalculated.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The property value or undefined if not yet set.</p> 
     </li>
 </ul>
@@ -283,7 +283,7 @@ request and is then cached. If the value is an integer, it is parsed automatical
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The value of the DOM style (parsed as necessary).</p> 
     </li>
 </ul>
@@ -300,7 +300,7 @@ request and is then cached. If the value is an integer, it is parsed automatical
 <li>styleNames: <code class="code">Js.js_string Js.t Js.js_array Js.t</code>
     <p>The CSS style names.</p> 
     </li>
-<li>altNames: <code class="code">Js.js_string Js.t Js.js_array Js.t</code>
+<li>altNames: <code class="code">Js.js_string Js.t Js.js_array Js.t</code> (optional)
     <p>The alternate names for the returned styles. If given,
 these names must correspond one-for-one to the <code>styleNames</code>.</p> 
     </li>
@@ -310,7 +310,7 @@ these names must correspond one-for-one to the <code>styleNames</code>.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The values of the DOM styles (parsed as necessary).</p> 
     </li>
 </ul>
@@ -357,7 +357,7 @@ can be used.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>An object describing how to handle the invalidation.</p> 
     </li>
 </ul>
@@ -373,10 +373,10 @@ dirty state.</p>
 <li>propName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the property to recover.</p> 
     </li>
-<li>oldProps: <code class="code">'a Js.t</code>
+<li>oldProps: <code class="code">_ Js.t</code>
     <p>The old "props" object from which to recover values.</p> 
     </li>
-<li>oldDirty: <code class="code">'a Js.t</code>
+<li>oldDirty: <code class="code">_ Js.t</code>
     <p>The old "dirty" object from which to recover state.</p> 
     </li>
 </ul>
@@ -388,7 +388,7 @@ dirty state.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>removeCls: <code class="code">'a Js.t</code>
+<li>removeCls: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -399,9 +399,9 @@ dirty state.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>name: <code class="code">'a Js.t</code>
+<li>name: <code class="code">_ Js.t</code>
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -420,9 +420,9 @@ content, 1 is returned indicating that the caller is done.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>height: <code class="code">'a Js.t</code>
+<li>height: <code class="code">_ Js.t</code>
     </li>
-<li>measured: <code class="code">'a Js.t</code>
+<li>measured: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -441,11 +441,11 @@ content, true is returned indicating that the caller is done.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>width: <code class="code">'a Js.t</code>
+<li>width: <code class="code">_ Js.t</code>
     </li>
-<li>height: <code class="code">'a Js.t</code>
+<li>height: <code class="code">_ Js.t</code>
     </li>
-<li>measured: <code class="code">'a Js.t</code>
+<li>measured: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -464,9 +464,9 @@ content, 1 is returned indicating that the caller is done.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>width: <code class="code">'a Js.t</code>
+<li>width: <code class="code">_ Js.t</code>
     </li>
-<li>measured: <code class="code">'a Js.t</code>
+<li>measured: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -482,7 +482,7 @@ content, 1 is returned indicating that the caller is done.</p>
 <li>height: <code class="code">Js.number Js.t</code>
     <p>The height.</p> 
     </li>
-<li>dirty: <code class="code">bool Js.t</code>
+<li>dirty: <code class="code">bool Js.t</code> (optional)
     <p>Specifies if the value is currently in the DOM. A
 value of <code>false</code> indicates that the value is already in the DOM.</p> 
      Defaults to: true
@@ -512,7 +512,7 @@ this method.</p>
 <li>propName: <code class="code">Js.js_string Js.t</code>
     <p>The property name (e.g., 'width').</p> 
     </li>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The new value of the property.</p> 
     </li>
 <li>dirty: <code class="code">bool Js.t</code>
@@ -543,7 +543,7 @@ this method.</p>
 <li>width: <code class="code">Js.number Js.t</code>
     <p>The width.</p> 
     </li>
-<li>dirty: <code class="code">bool Js.t</code>
+<li>dirty: <code class="code">bool Js.t</code> (optional)
     <p>Specifies if the value is currently in the DOM. A
 value of <code>false</code> indicates that the value is already in the DOM.</p> 
      Defaults to: true

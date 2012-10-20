@@ -163,7 +163,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -174,7 +174,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>andBlurFocusedItem: <code class="code">'a Js.t</code>
+<li>andBlurFocusedItem: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -199,16 +199,16 @@
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> 
      Defaults to: null
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>A callback function to call after the Component is hidden.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> 
     </li>
@@ -236,16 +236,16 @@ brought to the front of its <a href="#!/api/Ext.menu.Menu-property-zIndexManager
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> 
      Defaults to: null
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>A callback function to call after the Component is displayed.
 Only necessary if animation was specified.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> 
     </li>
@@ -266,14 +266,14 @@ Defaults to this Component.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>component: <code class="code">'a Js.t</code>
+<li>component: <code class="code">_ Js.t</code>
     <p>The <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to show the menu by.</p> 
     </li>
-<li>position: <code class="code">Js.js_string Js.t</code>
+<li>position: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Alignment position as used by <a href="#!/api/Ext.dom.Element-method-getAlignToXY" rel="Ext.dom.Element-method-getAlignToXY" class="docClass">Ext.Element.getAlignToXY</a>.
 Defaults to <code><a href="#!/api/Ext.menu.Menu-cfg-defaultAlign" rel="Ext.menu.Menu-cfg-defaultAlign" class="docClass">defaultAlign</a></code>.</p> 
     </li>
-<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code>
+<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code> (optional)
     <p>Alignment offsets as used by <a href="#!/api/Ext.dom.Element-method-getAlignToXY" rel="Ext.dom.Element-method-getAlignToXY" class="docClass">Ext.Element.getAlignToXY</a>.</p> 
     </li>
 </ul>

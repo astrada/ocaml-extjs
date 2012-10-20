@@ -173,7 +173,7 @@ collapse action if it returns false.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>direction: <code class="code">Js.js_string Js.t</code>
+<li>direction: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The direction to collapse towards. Must be one of</p>
 
 <ul>
@@ -186,7 +186,7 @@ collapse action if it returns false.</p>
 
 <p>Defaults to <a href="#!/api/Ext.panel.Panel-cfg-collapseDirection" rel="Ext.panel.Panel-cfg-collapseDirection" class="docClass">collapseDirection</a>.</p> 
     </li>
-<li>animate: <code class="code">bool Js.t</code>
+<li>animate: <code class="code">bool Js.t</code> (optional)
     <p>True to animate the transition, else false (defaults to the value of the
 <a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config)</p> 
     </li>
@@ -208,7 +208,7 @@ cancel the expand action if it returns false.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>animate: <code class="code">bool Js.t</code>
+<li>animate: <code class="code">bool Js.t</code> (optional)
     <p>True to animate the transition, else false (defaults to the value of the
 <a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config)</p> 
     </li>
@@ -229,7 +229,7 @@ cancel the expand action if it returns false.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>False when not collapsed, otherwise the value of <a href="#!/api/Ext.panel.Panel-cfg-collapseDirection" rel="Ext.panel.Panel-cfg-collapseDirection" class="docClass">collapseDirection</a>.</p> 
     </li>
 </ul>
@@ -269,7 +269,7 @@ topmost participant in the layout run.</p> <br>
 
     <b>Parameters</b>:
     <ul>
-<li>deep: <code class="code">bool Js.t</code>
+<li>deep: <code class="code">bool Js.t</code> (optional)
     <p>Pass <code>true</code> to interrogate the visibility status of all parent Containers to
 determine whether this Component is truly visible to the user.</p>
 
@@ -302,11 +302,11 @@ calling the superclass’s onHide, the Component will be hidden.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
@@ -348,11 +348,11 @@ calling the superclass's onShow, the Component will be visible.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
@@ -363,7 +363,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>border: <code class="code">'a Js.t</code>
+<li>border: <code class="code">_ Js.t</code>
     <p>The border, see <a href="#!/api/Ext.panel.Panel-cfg-border" rel="Ext.panel.Panel-cfg-border" class="docClass">border</a>. If a falsey value is passed
 the border will be removed.</p> 
     </li>

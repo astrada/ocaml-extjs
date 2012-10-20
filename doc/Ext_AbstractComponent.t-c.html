@@ -181,7 +181,7 @@ when this Component is added to a Container).</p>
 
     <b>Parameters</b>:
     <ul>
-<li>cls: <code class="code">'a Js.t</code>
+<li>cls: <code class="code">_ Js.t</code>
     <p>The CSS class name to add</p> 
     </li>
 </ul>
@@ -203,10 +203,10 @@ component.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>classes: <code class="code">'a Js.t</code>
+<li>classes: <code class="code">_ Js.t</code>
     <p>A string or an array of strings to add to the uiCls</p> 
     </li>
-<li>skip: <code class="code">'a Js.t</code>
+<li>skip: <code class="code">_ Js.t</code>
     <p>(Boolean) skip True to skip adding it to the class and do it later (via the return)</p> 
     </li>
 </ul>
@@ -249,20 +249,20 @@ containing properties which specify multiple events. For example:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>eventName: <code class="code">'a Js.t</code>
+<li>eventName: <code class="code">_ Js.t</code>
     <p>The name of the event to listen for.
 May also be an object who's property names are event names.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
 the specified <code>scope</code>.  Will be called with arguments
 given to <a href="#!/api/Ext.AbstractComponent-method-fireEvent" rel="Ext.AbstractComponent-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the handler function is
 executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>An object containing handler configuration.</p>
 
 <p><strong>Note:</strong> Unlike in ExtJS 3.x, the options object will also be passed as the last
@@ -280,13 +280,13 @@ value.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>state: <code class="code">'a Js.t</code>
+<li>state: <code class="code">_ Js.t</code>
     <p>The state object</p> 
     </li>
 <li>propName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the property on this object to save.</p> 
     </li>
-<li>value: <code class="code">Js.js_string Js.t</code>
+<li>value: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The value of the state property (defaults to <code>this[propName]</code>).</p> 
     </li>
 </ul>
@@ -409,7 +409,7 @@ size. If dynamic updating of the Window's child Components is required, then con
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>Configuration for <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a>.
 Note that the <a href="#!/api/Ext.fx.Anim-cfg-to" rel="Ext.fx.Anim-cfg-to" class="docClass">to</a> config is required.</p> 
     </li>
@@ -419,7 +419,7 @@ Note that the <a href="#!/api/Ext.fx.Anim-cfg-to" rel="Ext.fx.Anim-cfg-to" class
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>this</p> 
+<li><code class="code">_ Js.t</code> <p>this</p> 
     </li>
 </ul>
 <br>
@@ -452,7 +452,7 @@ being executed.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>silent: <code class="code">bool Js.t</code>
+<li>silent: <code class="code">bool Js.t</code> (optional)
     <p>Passing true will supress the 'disable' event from being fired.</p> 
      Defaults to: false
     </li>
@@ -477,7 +477,7 @@ layout to be recalculated.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>silent: <code class="code">bool Js.t</code>
+<li>silent: <code class="code">bool Js.t</code> (optional)
     <p>Passing true will supress the 'enable' event from being fired.</p> 
      Defaults to: false
     </li>
@@ -546,7 +546,7 @@ is not set, returns the value of <a href="#!/api/Ext.AbstractComponent-cfg-id" r
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object containing the element's size {width: (element width), height: (element height)}</p> 
     </li>
 </ul>
@@ -559,7 +559,7 @@ All of these objects are shared and should not be modified.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>ownerCtSizeModel: <code class="code">'a Js.t</code>
+<li>ownerCtSizeModel: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -567,7 +567,7 @@ All of these objects are shared and should not be modified.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The size model for this component.</p> 
+<li><code class="code">_ Js.t</code> <p>The size model for this component.</p> 
     </li>
 </ul>
 <br>
@@ -767,7 +767,7 @@ of this component's containers is suspended.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>deep: <code class="code">bool Js.t</code>
+<li>deep: <code class="code">bool Js.t</code> (optional)
     <p>Pass <code>true</code> to interrogate the visibility status of all parent Containers to
 determine whether this Component is truly visible to the user.</p>
 
@@ -810,7 +810,7 @@ var isBoxInstance = t.isXType('field', true); // false, not a direct <a href="#!
 <li>xtype: <code class="code">Js.js_string Js.t</code>
     <p>The xtype to check for this Component</p> 
     </li>
-<li>shallow: <code class="code">bool Js.t</code>
+<li>shallow: <code class="code">bool Js.t</code> (optional)
     <p>True to check whether this Component is directly of the specified xtype, false to
 check whether this Component is descended from the xtype.</p> 
      Defaults to: false
@@ -836,7 +836,7 @@ tree to attempt to find a match. Contrast with <a href="#!/api/Ext.AbstractCompo
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the following nodes.</p> 
     </li>
 </ul>
@@ -865,7 +865,7 @@ Returns null if there is no matching node.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the following items.</p> 
     </li>
 </ul>
@@ -965,7 +965,7 @@ tree in reverse order to attempt to find a match. Contrast with <a href="#!/api/
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the preceding nodes.</p> 
     </li>
 </ul>
@@ -995,7 +995,7 @@ selector.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector to filter the preceding items.</p> 
     </li>
 </ul>
@@ -1022,7 +1022,7 @@ upon first show in the way that <a href="#!/api/Ext.window.Window" rel="Ext.wind
 
     <b>Parameters</b>:
     <ul>
-<li>cmp: <code class="code">'a Js.t</code>
+<li>cmp: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -1033,7 +1033,7 @@ upon first show in the way that <a href="#!/api/Ext.window.Window" rel="Ext.wind
 
     <b>Parameters</b>:
     <ul>
-<li>cls: <code class="code">'a Js.t</code>
+<li>cls: <code class="code">_ Js.t</code>
     <p>The CSS class name to remove</p> 
     </li>
 </ul>
@@ -1055,7 +1055,7 @@ elements of this component.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>cls: <code class="code">'a Js.t</code>
+<li>cls: <code class="code">_ Js.t</code>
     <p>A string or an array of strings to remove to the uiCls</p> 
     </li>
 </ul>
@@ -1092,10 +1092,11 @@ of the dockedItems collection of a parent that has a DockLayout (note that any P
 
     <b>Parameters</b>:
     <ul>
-<li>dock: <code class="code">'a Js.t</code>
+<li>dock: <code class="code">_ Js.t</code>
     <p>The dock position.</p> 
     </li>
-<li>layoutParent: <code class="code">bool Js.t</code> <p>True to re-layout parent.</p> 
+<li>layoutParent: <code class="code">bool Js.t</code> (optional)
+    <p>True to re-layout parent.</p> 
      Defaults to: false
     </li>
 </ul>
@@ -1145,9 +1146,10 @@ method fires the <a href="#!/api/Ext.AbstractComponent-event-move" rel="Ext.Abst
 <li>left: <code class="code">Js.number Js.t</code>
     <p>The new left</p> 
     </li>
-<li>top: <code class="code">Js.number Js.t</code> <p>The new top</p> 
+<li>top: <code class="code">Js.number Js.t</code>
+    <p>The new top</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>If true, the Component is <em>animated</em> into its new position. You may also pass an
 animation configuration.</p> 
     </li>
@@ -1169,7 +1171,7 @@ either width and height as separate arguments, or you can pass a size object lik
 
     <b>Parameters</b>:
     <ul>
-<li>width: <code class="code">'a Js.t</code>
+<li>width: <code class="code">_ Js.t</code>
     <p>The new width to set. This may be one of:</p>
 
 <ul>
@@ -1179,7 +1181,7 @@ either width and height as separate arguments, or you can pass a size object lik
 <li><code>undefined</code> to leave the width unchanged.</li>
 </ul> 
     </li>
-<li>height: <code class="code">'a Js.t</code>
+<li>height: <code class="code">_ Js.t</code>
     <p>The new height to set (not required if a size object is passed as the first arg).
 This may be one of:</p>
 
@@ -1269,7 +1271,7 @@ uiCls set on the component and rename them so they include the new UI</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The simple selector to test.</p> 
     </li>
 </ul>
@@ -1290,16 +1292,16 @@ uiCls set on the component and rename them so they include the new UI</p>
 
     <b>Parameters</b>:
     <ul>
-<li>htmlOrData: <code class="code">'a Js.t</code>
+<li>htmlOrData: <code class="code">_ Js.t</code>
     <p>If this component has been configured with a template via the tpl config then
 it will use this argument as data to populate the template. If this component was not configured with a template,
 the components content area will be updated via <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> update</p> 
     </li>
-<li>loadScripts: <code class="code">bool Js.t</code>
+<li>loadScripts: <code class="code">bool Js.t</code> (optional)
     <p>Only legitimate when using the html configuration.</p> 
      Defaults to: false
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>Only legitimate when using the html configuration. Callback to execute when
 scripts have finished loading</p> 
     </li>
@@ -1314,7 +1316,7 @@ Otherwise, just this component (and its child items) will layout.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code> <p>An object with layout options.</p> 
+<li>options: <code class="code">_ Js.t</code> <p>An object with layout options.</p> 
     </li>
 </ul>
 <br>

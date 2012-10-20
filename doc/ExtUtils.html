@@ -141,6 +141,9 @@ Generic <code class="code">undefined</code> to use as optional parameter<br>
 <code class="code">to_class_configs o</code> converts instance <code class="code">o</code> to an Ext.class config object<br>
 </div>
 <pre><span id="VALalert"><span class="keyword">val</span> alert</span> : <code class="type">Js.js_string Js.t -> unit</code></pre><div class="info">
-<code class="code">alert message</code> shows a message box<br>
+<code class="code">alert m</code> displays an alert dialog with content <code class="code">m</code> and an OK button.<br>
+</div>
+<pre><span id="VALsetTimeout"><span class="keyword">val</span> setTimeout</span> : <code class="type">(unit -> unit) -> int -> unit</code></pre><div class="info">
+<code class="code">setTimeout f d</code> calls function <code class="code">f</code> after delay <code class="code">d</code>.<br>
 </div>
 </body></html>

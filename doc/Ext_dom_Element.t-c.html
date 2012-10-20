@@ -143,11 +143,11 @@
 <li>className: <code class="code">Js.js_string Js.t</code>
     <p>The class to add</p> 
     </li>
-<li>testFn: <code class="code">'a Js.callback</code>
+<li>testFn: <code class="code">_ Js.callback</code> (optional)
     <p>A test function to execute before adding the class. The passed parameter
 will be the Element instance. If this functions returns false, the class will not be added.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope to execute the testFn in.</p> 
     </li>
 </ul>
@@ -170,11 +170,11 @@ will be the Element instance. If this functions returns false, the class will no
 <li>className: <code class="code">Js.js_string Js.t</code>
     <p>The class to add</p> 
     </li>
-<li>testFn: <code class="code">'a Js.callback</code>
+<li>testFn: <code class="code">_ Js.callback</code> (optional)
     <p>A test function to execute before adding the class. The passed parameter
 will be the Element instance. If this functions returns false, the class will not be added.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope to execute the testFn in.</p> 
     </li>
 </ul>
@@ -197,11 +197,11 @@ will be the Element instance. If this functions returns false, the class will no
 <li>className: <code class="code">Js.js_string Js.t</code>
     <p>The class to add</p> 
     </li>
-<li>testFn: <code class="code">'a Js.callback</code>
+<li>testFn: <code class="code">_ Js.callback</code> (optional)
     <p>A test function to execute before adding the class. The passed parameter
 will be the Element instance. If this functions returns false, the class will not be added.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope to execute the testFn in.</p> 
     </li>
 </ul>
@@ -221,14 +221,14 @@ will be the Element instance. If this functions returns false, the class will no
 
     <b>Parameters</b>:
     <ul>
-<li>key: <code class="code">'a Js.t</code>
+<li>key: <code class="code">_ Js.t</code>
     <p>Either a string with the keys to listen for, the numeric key code,
 array of key codes or an object with the following options:</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to call</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the specified function is executed. Defaults to this Element.</p> 
     </li>
 </ul>
@@ -248,7 +248,7 @@ array of key codes or an object with the following options:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The KeyMap config. See <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a> for more details</p> 
     </li>
 </ul>
@@ -273,7 +273,7 @@ array of key codes or an object with the following options:</p>
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The name of event to handle.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The handler function the event invokes. This function is passed the following parameters:</p>
 
 
@@ -291,11 +291,11 @@ array of key codes or an object with the following options:</p>
 <p>The options object from the call that setup the listener.</p></li>
 </ul> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<strong>this</strong> reference) in which the handler function is executed. <strong>If
 omitted, defaults to this Element.</strong></p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>An object containing handler configuration properties. This may contain any of
 the following properties:</p>
 
@@ -533,16 +533,19 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
 
     <b>Parameters</b>:
     <ul>
-<li>element: <code class="code">'a Js.t</code>
+<li>element: <code class="code">_ Js.t</code>
     <p>The element to align to.</p> 
     </li>
-<li>position: <code class="code">Js.js_string Js.t</code> <p>The position to align to</p> 
-     Defaults to: "tl-bl?"
+<li>position: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The position to align to</p> 
+<p>
+
+    Defaults to: "tl-bl?"
     </li>
-<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code>
+<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code> (optional)
     <p>Offset the positioning by [x, y]</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -562,23 +565,23 @@ el.alignTo("other-el", "c-bl", [-6, 0]);
 
     <b>Parameters</b>:
     <ul>
-<li>element: <code class="code">'a Js.t</code>
+<li>element: <code class="code">_ Js.t</code>
     <p>The element to align to.</p> 
     </li>
 <li>position: <code class="code">Js.js_string Js.t</code>
     <p>The position to align to.</p> 
     </li>
-<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code>
+<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code> (optional)
     <p>Offset the positioning by [x, y]</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation or a standard Element animation config object</p> 
     </li>
-<li>monitorScroll: <code class="code">'a Js.t</code>
+<li>monitorScroll: <code class="code">_ Js.t</code> (optional)
     <p>True to monitor body scroll and reposition. If this parameter
 is a number, it is used as the buffer delay (defaults to 50ms).</p> 
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>The function to call after the animation finishes</p> 
     </li>
 </ul>
@@ -618,7 +621,7 @@ animate certain properties of Components.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>Configuration for <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a>.
 Note that the <a href="#!/api/Ext.fx.Anim-cfg-to" rel="Ext.fx.Anim-cfg-to" class="docClass">to</a> config is required.</p> 
     </li>
@@ -672,7 +675,7 @@ The markup is of this form:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>class: <code class="code">Js.js_string Js.t</code>
+<li>class: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A base CSS class to apply to the containing wrapper element.
 Note that there are a number of CSS rules that are dependent on this name to make the overall effect work,
 so if you supply an alternate base class, make sure you also supply all of the necessary rules.</p> 
@@ -705,7 +708,7 @@ restoreScroll();
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.callback</code>
+<li><code class="code">_ Js.callback</code>
     <p>A function which will restore all descentant elements of this Element to their scroll
 positions recorded when this function was executed. Be aware that the returned function is a closure which has
 captured the scope of <code>cacheScrollValues</code>, so take care to derefence it as soon as not needed - if is it is a <code>var</code>
@@ -720,7 +723,7 @@ it will drop out of scope, and the reference will be freed.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>centerIn: <code class="code">'a Js.t</code>
+<li>centerIn: <code class="code">_ Js.t</code> (optional)
     <p>The element in which to center the element.</p> 
     </li>
 </ul>
@@ -732,7 +735,7 @@ it will drop out of scope, and the reference will be freed.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>forceReclean: <code class="code">bool Js.t</code>
+<li>forceReclean: <code class="code">bool Js.t</code> (optional)
     <p>By default the element keeps track if it has been cleaned already
 so you can call this over and over. However, if you update the element and need to force a reclean, you
 can pass true.</p> 
@@ -771,7 +774,7 @@ can pass true.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">Js.js_string Js.t</code>
+<li>value: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The value to use for the left, right, top, bottom. You could use 'auto'.</p> 
      Defaults to: ''
     </li>
@@ -803,13 +806,13 @@ can pass true.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The class name of the proxy element or a DomHelper config object</p> 
     </li>
-<li>renderTo: <code class="code">'a Js.t</code>
+<li>renderTo: <code class="code">_ Js.t</code> (optional)
     <p>The element or element id to render the proxy to. Defaults to: document.body.</p> 
     </li>
-<li>matchBox: <code class="code">bool Js.t</code>
+<li>matchBox: <code class="code">bool Js.t</code> (optional)
     <p>True to align and size the proxy to this element now.</p> 
      Defaults to: false
     </li>
@@ -842,7 +845,7 @@ showing through.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>display: <code class="code">Js.js_string Js.t</code>
+<li>display: <code class="code">Js.js_string Js.t</code> (optional)
     <p>What to set display to when visible</p> 
     </li>
 </ul>
@@ -877,7 +880,7 @@ el.fadeIn({
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -915,7 +918,7 @@ el.fadeOut({
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -935,7 +938,7 @@ el.fadeOut({
 
     <b>Parameters</b>:
     <ul>
-<li>defer: <code class="code">Js.number Js.t</code>
+<li>defer: <code class="code">Js.number Js.t</code> (optional)
     <p>Milliseconds to defer the focus</p> 
     </li>
 </ul>
@@ -979,14 +982,15 @@ el.frame("#C3DAF9", 1, {
 
     <b>Parameters</b>:
     <ul>
-<li>color: <code class="code">Js.js_string Js.t</code>
+<li>color: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The hex color value for the border.</p> 
      Defaults to: '#C3DAF9'
     </li>
-<li>count: <code class="code">Js.number Js.t</code> <p>The number of ripples to display.</p> 
+<li>count: <code class="code">Js.number Js.t</code> (optional)
+    <p>The number of ripples to display.</p> 
      Defaults to: 1
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -1007,14 +1011,16 @@ supported position values.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>element: <code class="code">'a Js.t</code>
+<li>element: <code class="code">_ Js.t</code>
     <p>The element to align to.</p> 
     </li>
-<li>position: <code class="code">Js.js_string Js.t</code>
+<li>position: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The position to align to (defaults to )</p> 
-     Defaults to: "tl-bl?"
+<p>
+
+    Defaults to: "tl-bl?"
     </li>
-<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code>
+<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code> (optional)
     <p>Offset the positioning by [x, y]</p> 
     </li>
 </ul>
@@ -1034,16 +1040,16 @@ supported position values.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>anchor: <code class="code">Js.js_string Js.t</code>
+<li>anchor: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The specified anchor position.  See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">alignTo</a>
 for details on supported anchor positions.</p> 
      Defaults to: 'c'
     </li>
-<li>local: <code class="code">bool Js.t</code>
+<li>local: <code class="code">bool Js.t</code> (optional)
     <p>True to get the local (element top/left-relative) anchor position instead
 of page coordinates</p> 
     </li>
-<li>size: <code class="code">'a Js.t</code>
+<li>size: <code class="code">_ Js.t</code> (optional)
     <p>An object containing the size to use for calculating anchor position
 {width: (target width), height: (target height)} (defaults to the element's current size)</p> 
     </li>
@@ -1107,7 +1113,7 @@ are convert to standard 6 digit hex color.</p>
 <li>defaultValue: <code class="code">Js.js_string Js.t</code>
     <p>The default value to use when a valid color isn't found</p> 
     </li>
-<li>prefix: <code class="code">Js.js_string Js.t</code>
+<li>prefix: <code class="code">Js.js_string Js.t</code> (optional)
     <p>defaults to #. Use an empty string when working with
 color anims.</p> 
     </li>
@@ -1136,7 +1142,7 @@ an <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Regio
 
     <b>Parameters</b>:
     <ul>
-<li>constrainTo: <code class="code">'a Js.t</code>
+<li>constrainTo: <code class="code">_ Js.t</code>
     <p>The Element or Region into which this element is to be constrained.</p> 
     </li>
 <li>proposedPosition: <code class="code">Js.number Js.t Js.js_array Js.t</code>
@@ -1149,7 +1155,7 @@ of using this Element's current position;</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p><strong>If</strong> this element <em>needs</em> to be translated, an <code>[X, Y]</code>
 vector by which this element must be translated. Otherwise, <code>false</code>.</p> 
     </li>
@@ -1210,7 +1216,7 @@ of the DOM tree and not have display:none to have page coordinates.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>element: <code class="code">'a Js.t</code>
+<li>element: <code class="code">_ Js.t</code>
     <p>The element to get the offsets from.</p> 
     </li>
 </ul>
@@ -1260,7 +1266,7 @@ The element must be part of the DOM tree to have a region
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object containing the scroll position in the format
 <code>{left: (scrollLeft), top: (scrollTop)}</code></p> 
     </li>
@@ -1278,7 +1284,7 @@ offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSiz
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>Object describing width and height.</p> 
+<li><code class="code">_ Js.t</code> <p>Object describing width and height.</p> 
     </li>
 </ul>
 <br>
@@ -1292,10 +1298,10 @@ offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSiz
 <li>text: <code class="code">Js.js_string Js.t</code>
     <p>The text to measure. Defaults to the innerHTML of the element.</p> 
     </li>
-<li>min: <code class="code">Js.number Js.t</code>
+<li>min: <code class="code">Js.number Js.t</code> (optional)
     <p>The minumum value to return.</p> 
     </li>
-<li>max: <code class="code">Js.number Js.t</code>
+<li>max: <code class="code">Js.number Js.t</code> (optional)
     <p>The maximum value to return.</p> 
     </li>
 </ul>
@@ -1355,10 +1361,10 @@ el.ghost('b', {
 
     <b>Parameters</b>:
     <ul>
-<li>anchor: <code class="code">Js.js_string Js.t</code>
+<li>anchor: <code class="code">Js.js_string Js.t</code> (optional)
     <p>One of the valid Fx anchor positions (defaults to bottom: 'b')</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -1378,7 +1384,7 @@ el.ghost('b', {
 
     <b>Parameters</b>:
     <ul>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -1415,11 +1421,11 @@ el.highlight("ffff9c", {
 
     <b>Parameters</b>:
     <ul>
-<li>color: <code class="code">Js.js_string Js.t</code>
+<li>color: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The highlight color. Should be a 6 char hex color without the leading #
 (defaults to yellow: 'ffff9c')</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -1439,17 +1445,17 @@ el.highlight("ffff9c", {
 
     <b>Parameters</b>:
     <ul>
-<li>overFn: <code class="code">'a Js.callback</code>
+<li>overFn: <code class="code">_ Js.callback</code>
     <p>The function to call when the mouse enters the Element.</p> 
     </li>
-<li>outFn: <code class="code">'a Js.callback</code>
+<li>outFn: <code class="code">_ Js.callback</code>
     <p>The function to call when the mouse leaves the Element.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the functions are executed. Defaults
 to the Element's DOM element.</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Options for the listener. See <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">the
 options parameter</a>.</p> 
     </li>
@@ -1473,10 +1479,10 @@ options parameter</a>.</p>
 <li>group: <code class="code">Js.js_string Js.t</code>
     <p>The group the DD object is member of</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The DD config object</p> 
     </li>
-<li>overrides: <code class="code">'a Js.t</code>
+<li>overrides: <code class="code">_ Js.t</code>
     <p>An object containing methods to override/implement on the DD object</p> 
     </li>
 </ul>
@@ -1499,10 +1505,10 @@ options parameter</a>.</p>
 <li>group: <code class="code">Js.js_string Js.t</code>
     <p>The group the DDProxy object is member of</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The DDProxy config object</p> 
     </li>
-<li>overrides: <code class="code">'a Js.t</code>
+<li>overrides: <code class="code">_ Js.t</code>
     <p>An object containing methods to override/implement on the DDProxy object</p> 
     </li>
 </ul>
@@ -1525,10 +1531,10 @@ options parameter</a>.</p>
 <li>group: <code class="code">Js.js_string Js.t</code>
     <p>The group the DDTarget object is member of</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The DDTarget config object</p> 
     </li>
-<li>overrides: <code class="code">'a Js.t</code>
+<li>overrides: <code class="code">_ Js.t</code>
     <p>An object containing methods to override/implement on the DDTarget object</p> 
     </li>
 </ul>
@@ -1560,7 +1566,7 @@ options parameter</a>.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>deep: <code class="code">bool Js.t</code>
+<li>deep: <code class="code">bool Js.t</code> (optional)
     <p>True to walk the dom and see if parent elements are hidden.
 If false, the function only checks the visibility of the element itself and it may return
 <code>true</code> even though a parent is not visible.</p> 
@@ -1585,7 +1591,7 @@ parameter as <a href="#!/api/Ext.ElementLoader-method-load" rel="Ext.ElementLoad
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -1605,10 +1611,10 @@ This method can only be applied to elements which accept child nodes.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>msg: <code class="code">Js.js_string Js.t</code>
+<li>msg: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A message to display in the mask</p> 
     </li>
-<li>msgCls: <code class="code">Js.js_string Js.t</code>
+<li>msgCls: <code class="code">Js.js_string Js.t</code> (optional)
     <p>A css class to apply to the msg element</p> 
     </li>
 </ul>
@@ -1633,10 +1639,10 @@ back in, the function is not called.</p>
 <li>delay: <code class="code">Js.number Js.t</code>
     <p>The delay <strong>in milliseconds</strong> to wait for possible mouse re-entry before calling the handler function.</p> 
     </li>
-<li>handler: <code class="code">'a Js.callback</code>
+<li>handler: <code class="code">_ Js.callback</code>
     <p>The function to call if the mouse remains outside of this Element for the specified time.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the handler function executes. Defaults to this Element.</p> 
     </li>
 </ul>
@@ -1645,7 +1651,7 @@ back in, the function is not called.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The listeners object which was added to this element so that monitoring can be stopped. Example usage:</p>
 
 <pre><code>// Hide the menu if the mouse moves out for 250ms or more
@@ -1678,7 +1684,7 @@ this.menuEl.un(this.mouseLeaveMonitor);
 <li>distance: <code class="code">Js.number Js.t</code>
     <p>How far to move the element in pixels</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element
 animation config object</p> 
     </li>
@@ -1699,7 +1705,7 @@ is positioned. The element must be part of the DOM tree to have page coordinates
 <li>y: <code class="code">Js.number Js.t</code>
     <p>Y value for new position (coordinates are page-based)</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element
 animation config object</p> 
     </li>
@@ -1727,7 +1733,7 @@ anchors elements <strong>with an href</strong> etc do not need a tabIndex, but s
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The name of event to handle.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The handler function the event invokes. This function is passed the following parameters:</p>
 
 
@@ -1745,11 +1751,11 @@ anchors elements <strong>with an href</strong> etc do not need a tabIndex, but s
 <p>The options object from the call that setup the listener.</p></li>
 </ul> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<strong>this</strong> reference) in which the handler function is executed. <strong>If
 omitted, defaults to this Element.</strong></p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>An object containing handler configuration properties. This may contain any of
 the following properties:</p>
 
@@ -1940,16 +1946,17 @@ the element positioned relative IF it is not already positioned.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>pos: <code class="code">Js.js_string Js.t</code>
+<li>pos: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Positioning to use "relative", "absolute" or "fixed"</p> 
     </li>
-<li>zIndex: <code class="code">Js.number Js.t</code>
+<li>zIndex: <code class="code">Js.number Js.t</code> (optional)
     <p>The zIndex to apply</p> 
     </li>
-<li>x: <code class="code">Js.number Js.t</code>
+<li>x: <code class="code">Js.number Js.t</code> (optional)
     <p>Set the page X position</p> 
     </li>
-<li>y: <code class="code">Js.number Js.t</code> <p>Set the page Y position</p> 
+<li>y: <code class="code">Js.number Js.t</code> (optional)
+    <p>Set the page Y position</p> 
     </li>
 </ul>
 <br>
@@ -1972,7 +1979,7 @@ el.puff({
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -2007,7 +2014,7 @@ it will be relayed to another object (i.e., fired again as if it originated from
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The type of event to relay</p> 
     </li>
-<li>observable: <code class="code">'a Js.t</code>
+<li>observable: <code class="code">_ Js.t</code>
     <p>Any object that extends <a href="#!/api/Ext.util.Observable" rel="Ext.util.Observable" class="docClass">Ext.util.Observable</a> that will provide the context
 for firing the relayed event</p> 
     </li>
@@ -2057,11 +2064,11 @@ el.removeListener('click', this.handlerFn);
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the event from which to remove the handler.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The handler function to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.dom.Element-method-on" rel="Ext.dom.Element-method-on" class="docClass">on</a> call.</strong></p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code>
     <p>If a scope (<strong>this</strong> reference) was specified when the listener was added, then this must
 refer to the same object.</p> 
     </li>
@@ -2096,7 +2103,7 @@ within this element's scrollable range.</p>
 <li>distance: <code class="code">Js.number Js.t</code>
     <p>How far to scroll the element in pixels</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element
 animation config object</p> 
     </li>
@@ -2126,14 +2133,14 @@ was scrolled as far as it could go.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>deltaX: <code class="code">'a Js.t</code>
+<li>deltaX: <code class="code">_ Js.t</code>
     <p>Either the x delta, an Array specifying x and y deltas or
 an object with "x" and "y" properties.</p> 
     </li>
-<li>deltaY: <code class="code">'a Js.t</code>
+<li>deltaY: <code class="code">_ Js.t</code>
     <p>Either the y delta, or an animate flag or config object.</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code>
     <p>Animate flag/config object if the delta values were passed separately.</p> 
     </li>
 </ul>
@@ -2153,15 +2160,16 @@ an object with "x" and "y" properties.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>container: <code class="code">'a Js.t</code>
+<li>container: <code class="code">_ Js.t</code> (optional)
     <p>The container element
 to scroll.  Should be a string (id), dom node, or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> 
      Defaults to: document.body
     </li>
-<li>hscroll: <code class="code">bool Js.t</code> <p>False to disable horizontal scroll.</p> 
+<li>hscroll: <code class="code">bool Js.t</code> (optional)
+    <p>False to disable horizontal scroll.</p> 
      Defaults to: true
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element
 animation config object</p> 
     </li>
@@ -2189,7 +2197,7 @@ if you scroll to a weird value it will try to do it. For auto bounds checking, u
 <li>value: <code class="code">Js.number Js.t</code>
     <p>The new scroll value</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element
 animation config object</p> 
     </li>
@@ -2228,7 +2236,7 @@ x and y will be animated concurrently.</p>
 <li>y: <code class="code">Js.number Js.t</code>
     <p>Y value for new position (coordinates are page-based)</p> 
     </li>
-<li>width: <code class="code">'a Js.t</code>
+<li>width: <code class="code">_ Js.t</code>
     <p>The new width. This may be one of:</p>
 
 <ul>
@@ -2236,7 +2244,7 @@ x and y will be animated concurrently.</p>
 <li>A String used to set the CSS width style. Animation may <strong>not</strong> be used.</li>
 </ul> 
     </li>
-<li>height: <code class="code">'a Js.t</code>
+<li>height: <code class="code">_ Js.t</code>
     <p>The new height. This may be one of:</p>
 
 <ul>
@@ -2244,7 +2252,7 @@ x and y will be animated concurrently.</p>
 <li>A String used to set the CSS height style. Animation may <strong>not</strong> be used.</li>
 </ul> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element
 animation config object</p> 
     </li>
@@ -2265,7 +2273,7 @@ animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>Boolean value to display the element using its default display, or a string to set the display directly.</p> 
     </li>
 </ul>
@@ -2316,7 +2324,7 @@ is positioned. The element must be part of the DOM tree to have page coordinates
 <li>y: <code class="code">Js.number Js.t</code>
     <p>Y value for new position (coordinates are page-based)</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element
 animation config object</p> 
     </li>
@@ -2340,7 +2348,7 @@ animation config object</p>
 <li>opacity: <code class="code">Js.number Js.t</code>
     <p>The new opacity. 0 = transparent, .5 = 50% visibile, 1 = fully visible, etc</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>a standard Element animation config object or <code>true</code> for
 the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p> 
     </li>
@@ -2361,7 +2369,7 @@ the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p>
 
     <b>Parameters</b>:
     <ul>
-<li>posCfg: <code class="code">'a Js.t</code>
+<li>posCfg: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -2384,7 +2392,7 @@ x and y will be animated concurrently.</p>
 <li>region: <code class="code">Ext_util_Region.t Js.t</code>
     <p>The region to fill</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element
 animation config object</p> 
     </li>
@@ -2409,7 +2417,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
 <li>visible: <code class="code">bool Js.t</code>
     <p>Whether the element is visible</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -2434,7 +2442,7 @@ is positioned. The element must be part of the DOM tree to have page coordinates
 <li>pos: <code class="code">Js.number Js.t Js.js_array Js.t</code>
     <p>Contains X &amp; Y [x, y] values for new position (coordinates are page-based)</p> 
     </li>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element
 animation config object</p> 
     </li>
@@ -2455,7 +2463,7 @@ animation config object</p>
 
     <b>Parameters</b>:
     <ul>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>true for the default animation or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -2490,10 +2498,10 @@ el.slideIn('t', {
 
     <b>Parameters</b>:
     <ul>
-<li>anchor: <code class="code">Js.js_string Js.t</code>
+<li>anchor: <code class="code">Js.js_string Js.t</code> (optional)
     <p>One of the valid Fx anchor positions (defaults to top: 't')</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -2532,10 +2540,10 @@ el.slideOut('t', {
 
     <b>Parameters</b>:
     <ul>
-<li>anchor: <code class="code">Js.js_string Js.t</code>
+<li>anchor: <code class="code">Js.js_string Js.t</code> (optional)
     <p>One of the valid Fx anchor positions (defaults to top: 't')</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -2555,10 +2563,10 @@ el.slideOut('t', {
 
     <b>Parameters</b>:
     <ul>
-<li>eventName: <code class="code">'a Js.t</code>
+<li>eventName: <code class="code">_ Js.t</code>
     <p>an event / array of events to stop from bubbling</p> 
     </li>
-<li>preventDefault: <code class="code">bool Js.t</code>
+<li>preventDefault: <code class="code">bool Js.t</code> (optional)
     <p>true to prevent the default action too</p> 
     </li>
 </ul>
@@ -2593,7 +2601,7 @@ el.switchOff({
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>Object literal with any of the Fx config options</p> 
     </li>
 </ul>
@@ -2613,7 +2621,7 @@ el.switchOff({
 
     <b>Parameters</b>:
     <ul>
-<li>animate: <code class="code">'a Js.t</code>
+<li>animate: <code class="code">_ Js.t</code> (optional)
     <p>True for the default animation, or a standard Element animation config object</p> 
     </li>
 </ul>
@@ -2646,11 +2654,11 @@ el.removeListener('click', this.handlerFn);
 <li>eventName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the event from which to remove the handler.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The handler function to remove. <strong>This must be a reference to the function passed into the
 <a href="#!/api/Ext.dom.Element-method-on" rel="Ext.dom.Element-method-on" class="docClass">on</a> call.</strong></p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code>
     <p>If a scope (<strong>this</strong> reference) was specified when the listener was added, then this must
 refer to the same object.</p> 
     </li>
@@ -2699,10 +2707,10 @@ refer to the same object.</p>
 <li>html: <code class="code">Js.js_string Js.t</code>
     <p>The new HTML</p> 
     </li>
-<li>loadScripts: <code class="code">bool Js.t</code>
+<li>loadScripts: <code class="code">bool Js.t</code> (optional)
     <p>True to look for and process scripts (defaults to false)</p> 
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>For async script loading you can be notified when the update completes</p> 
     </li>
 </ul>

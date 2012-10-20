@@ -140,7 +140,7 @@ change.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.t</code>
+<li>fn: <code class="code">_ Js.t</code>
     <p>A function containing the transaction code</p> 
     </li>
 </ul>
@@ -187,7 +187,7 @@ internally during validation and would not usually need to be used manually.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The value to get errors for (defaults to the current field value)</p> 
     </li>
 </ul>
@@ -213,7 +213,7 @@ field names in the Model.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>A mapping of submit parameter names to values; each value should be a string, or an array of
 strings if that particular name has multiple values. It can also return null if there are no parameters to be
 submitted.</p> 
@@ -244,7 +244,7 @@ its current stringified value. More advanced field implementations may return mo
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>A mapping of submit parameter names to values; each value should be a string, or an array of
 strings if that particular name has multiple values. It can also return null if there are no parameters to be
 submitted.</p> 
@@ -259,7 +259,7 @@ particular field (e.g. a Date object for <a href="#!/api/Ext.form.field.Date" re
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>value The field value</p> 
+<li><code class="code">_ Js.t</code> <p>value The field value</p> 
     </li>
 </ul>
 <br>
@@ -296,10 +296,10 @@ to provide custom comparison logic appropriate for the particular field's data t
 
     <b>Parameters</b>:
     <ul>
-<li>value1: <code class="code">'a Js.t</code>
+<li>value1: <code class="code">_ Js.t</code>
     <p>The first value to compare</p> 
     </li>
-<li>value2: <code class="code">'a Js.t</code>
+<li>value2: <code class="code">_ Js.t</code>
     <p>The second value to compare</p> 
     </li>
 </ul>
@@ -348,7 +348,7 @@ submitted with the <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" 
 
     <b>Parameters</b>:
     <ul>
-<li>errors: <code class="code">'a Js.t</code>
+<li>errors: <code class="code">_ Js.t</code>
     <p>The error message(s) for the field.</p> 
     </li>
 </ul>
@@ -368,7 +368,7 @@ called by <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The value to set</p> 
     </li>
 </ul>
@@ -389,7 +389,7 @@ value is set</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The initial value</p> 
     </li>
 </ul>
@@ -398,7 +398,7 @@ value is set</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The modified initial value</p> 
+<li><code class="code">_ Js.t</code> <p>The modified initial value</p> 
     </li>
 </ul>
 <br>

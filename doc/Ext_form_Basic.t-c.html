@@ -131,7 +131,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>obj: <code class="code">'a Js.t</code>
+<li>obj: <code class="code">_ Js.t</code>
     <p>The object to be applied</p> 
     </li>
 </ul>
@@ -151,7 +151,7 @@
 
     <b>Parameters</b>:
     <ul>
-<li>obj: <code class="code">'a Js.t</code>
+<li>obj: <code class="code">_ Js.t</code>
     <p>The object to be applied</p> 
     </li>
 </ul>
@@ -196,10 +196,10 @@ specific processing.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>action: <code class="code">'a Js.t</code>
+<li>action: <code class="code">_ Js.t</code>
     <p>The name of the predefined action type, or instance of <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> to perform.</p> 
     </li>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>The options to pass to the <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a> that will get created,
 if the action argument is a String.</p>
 
@@ -250,7 +250,7 @@ This is similar to <a href="#!/api/Ext.form.Basic-method-getValues" rel="Ext.for
 
     <b>Parameters</b>:
     <ul>
-<li>dirtyOnly: <code class="code">bool Js.t</code>
+<li>dirtyOnly: <code class="code">bool Js.t</code> (optional)
     <p>If true, only fields that are dirty will be included in the result.</p> 
      Defaults to: false
     </li>
@@ -291,20 +291,20 @@ values (e.g. Date objects for date fields.)</p>
 
     <b>Parameters</b>:
     <ul>
-<li>asString: <code class="code">bool Js.t</code>
+<li>asString: <code class="code">bool Js.t</code> (optional)
     <p>If true, will return the key/value collection as a single
 URL-encoded param string.</p> 
      Defaults to: false
     </li>
-<li>dirtyOnly: <code class="code">bool Js.t</code>
+<li>dirtyOnly: <code class="code">bool Js.t</code> (optional)
     <p>If true, only fields that are dirty will be included in the result.</p> 
      Defaults to: false
     </li>
-<li>includeEmptyText: <code class="code">bool Js.t</code>
+<li>includeEmptyText: <code class="code">bool Js.t</code> (optional)
     <p>If true, the configured emptyText of empty fields will be used.</p> 
      Defaults to: false
     </li>
-<li>useDataValues: <code class="code">bool Js.t</code>
+<li>useDataValues: <code class="code">bool Js.t</code> (optional)
     <p>If true, the <a href="#!/api/Ext.form.field.Field-method-getModelData" rel="Ext.form.field.Field-method-getModelData" class="docClass">getModelData</a>
 method is used to retrieve values from fields, otherwise the <a href="#!/api/Ext.form.field.Field-method-getSubmitData" rel="Ext.form.field.Field-method-getSubmitData" class="docClass">getSubmitData</a>
 method is used.</p> 
@@ -380,7 +380,7 @@ use <a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-m
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">doAction</a> for details)</p> 
     </li>
 </ul>
@@ -422,7 +422,7 @@ See also <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basi
 
     <b>Parameters</b>:
     <ul>
-<li>errors: <code class="code">'a Js.t</code>
+<li>errors: <code class="code">_ Js.t</code>
     <p>Either an array in the form <code>[{id:'fieldId', msg:'The message'}, ...]</code>,
 an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.data.Errors" rel="Ext.data.Errors" class="docClass">Ext.data.Errors</a> object.</p> 
     </li>
@@ -454,7 +454,7 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
 
     <b>Parameters</b>:
     <ul>
-<li>values: <code class="code">'a Js.t</code>
+<li>values: <code class="code">_ Js.t</code>
     <p>Either an array in the form:</p>
 
 <pre><code>[{id:'clientName', value:'Fred. Olsen Lines'},
@@ -533,7 +533,7 @@ it will use the <a href="#!/api/Ext.form.action.DirectLoad" rel="Ext.form.action
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>The options to pass to the action (see <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">doAction</a> for details).</p> 
     </li>
 </ul>
@@ -554,7 +554,7 @@ If the record is not specified, it will attempt to update (if it exists) the rec
 
     <b>Parameters</b>:
     <ul>
-<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code> (optional)
     <p>The record to edit</p> 
     </li>
 </ul>

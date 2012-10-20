@@ -129,7 +129,7 @@ nature of the Loader.</p> <br>
 
     <b>Parameters</b>:
     <ul>
-<li>paths: <code class="code">'a Js.t</code>
+<li>paths: <code class="code">_ Js.t</code>
     <p>a set of className: path mappings</p> 
     </li>
 </ul>
@@ -155,7 +155,7 @@ Can be chained with more <code>require</code> and <code>exclude</code> methods, 
 
     <b>Parameters</b>:
     <ul>
-<li>excludes: <code class="code">'a Js.js_array Js.t</code>
+<li>excludes: <code class="code">_ Js.js_array Js.t</code>
     </li>
 </ul>
 
@@ -163,7 +163,7 @@ Can be chained with more <code>require</code> and <code>exclude</code> methods, 
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>object contains <code>require</code> method for chaining</p> 
     </li>
 </ul>
@@ -232,7 +232,7 @@ to ready. This can be used to load arbitrary scripts that may contain further
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code>
     <p>The options object or simply the URL to load.</p> 
     </li>
 </ul>
@@ -244,10 +244,10 @@ to ready. This can be used to load arbitrary scripts that may contain further
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function callback to be executed</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code>
     <p>The execution scope (<code>this</code>) of the callback function</p> 
     </li>
 <li>withDomReady: <code class="code">bool Js.t</code>
@@ -263,16 +263,16 @@ finishes, within the optional scope. This method is aliased by <a href="#!/api/E
 
     <b>Parameters</b>:
     <ul>
-<li>expressions: <code class="code">'a Js.t</code>
+<li>expressions: <code class="code">_ Js.t</code>
     <p>Can either be a string or an array of string</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>The callback function</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The execution scope (<code>this</code>) of the callback function</p> 
     </li>
-<li>excludes: <code class="code">'a Js.t</code>
+<li>excludes: <code class="code">_ Js.t</code> (optional)
     <p>Classes to be excluded, useful when being used with expressions</p> 
     </li>
 </ul>
@@ -305,7 +305,7 @@ is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The config object to override the default values</p> 
     </li>
 </ul>
@@ -329,7 +329,7 @@ For Example:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>name: <code class="code">'a Js.t</code>
+<li>name: <code class="code">_ Js.t</code>
     <p>See <a href="#!/api/Ext.Function-method-flexSetter" rel="Ext.Function-method-flexSetter" class="docClass">flexSetter</a></p> 
     </li>
 <li>path: <code class="code">Js.js_string Js.t</code>
@@ -352,16 +352,16 @@ For Example:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>expressions: <code class="code">'a Js.t</code>
+<li>expressions: <code class="code">_ Js.t</code>
     <p>Can either be a string or an array of string</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>The callback function</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The execution scope (<code>this</code>) of the callback function</p> 
     </li>
-<li>excludes: <code class="code">'a Js.t</code>
+<li>excludes: <code class="code">_ Js.t</code> (optional)
     <p>Classes to be excluded, useful when being used with expressions</p> 
     </li>
 </ul>

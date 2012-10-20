@@ -174,7 +174,7 @@ class that uses the Ext 4 class system).</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODraise_"><span class="keyword">method</span> raise_</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHOD_raise"><span class="keyword">method</span> _raise</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Raise an error that can include additional data and supports automatic console logging if available.
 You can pass a string error message or an object with the <code>msg</code> attribute which will be used as the
 error message. The object can contain any other name-value attributes (or objects) to be logged
@@ -205,7 +205,7 @@ execution will halt.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>err: <code class="code">'a Js.t</code>
+<li>err: <code class="code">_ Js.t</code>
     <p>The error message string, or an object containing the attribute "msg" that will be
 used as the error message. Any other data included in the object will also be logged to the browser console,
 if available.</p> 

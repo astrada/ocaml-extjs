@@ -122,19 +122,19 @@
 <li><a href="Ext_util_Observable.statics-c.html"><code class="code">Ext_util_Observable.statics</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODcOMMIT"><span class="keyword">method</span> cOMMIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_COMMIT"><span class="keyword">method</span> _COMMIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
 <p>
 
     Defaults to: <code class="code">'commit'</code><br>
 </div>
-<pre><span id="METHODeDIT"><span class="keyword">method</span> eDIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_EDIT"><span class="keyword">method</span> _EDIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
 <p>
 
     Defaults to: <code class="code">'edit'</code><br>
 </div>
-<pre><span id="METHODrEJECT"><span class="keyword">method</span> rEJECT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_REJECT"><span class="keyword">method</span> _REJECT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
 <p>
 
@@ -179,7 +179,7 @@ record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>rec_: <code class="code">Ext_data_Model.t Js.t</code>
+<li>_rec: <code class="code">Ext_data_Model.t Js.t</code>
     <p>The record being created. The record does not exist, it's a <a href="#!/api/Ext.data.Model-property-phantom" rel="Ext.data.Model-property-phantom" class="docClass">phantom</a>.</p> 
     </li>
 </ul>
@@ -222,10 +222,10 @@ MyApp.User.load(10, {
 
     <b>Parameters</b>:
     <ul>
-<li>id: <code class="code">'a Js.t</code>
+<li>id: <code class="code">_ Js.t</code>
     <p>The id of the model to load</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code> (optional)
     <p>config object containing success, failure and callback functions, plus
 optional scope</p> 
     </li>
@@ -240,11 +240,11 @@ model based on changes in meta data (called from Reader's onMetaChange method).<
 
     <b>Parameters</b>:
     <ul>
-<li>fields: <code class="code">'a Js.t</code>
+<li>fields: <code class="code">_ Js.t</code>
     </li>
-<li>idProperty: <code class="code">'a Js.t</code>
+<li>idProperty: <code class="code">_ Js.t</code>
     </li>
-<li>clientIdProperty: <code class="code">'a Js.t</code>
+<li>clientIdProperty: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -256,7 +256,7 @@ model based on changes in meta data (called from Reader's onMetaChange method).<
 
     <b>Parameters</b>:
     <ul>
-<li>proxy: <code class="code">'a Js.t</code> <p>The proxy</p> 
+<li>proxy: <code class="code">_ Js.t</code> <p>The proxy</p> 
     </li>
 </ul>
 <br>

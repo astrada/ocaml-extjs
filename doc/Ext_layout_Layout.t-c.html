@@ -121,7 +121,7 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODdone_"><span class="keyword">method</span> done_</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_done"><span class="keyword">method</span> _done</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>Used only during a layout run, this value indicates that a
 layout has finished its calculations. This flag is set to true prior to the call to
 <a href="#!/api/Ext.layout.Layout-method-calculate" rel="Ext.layout.Layout-method-calculate" class="docClass">calculate</a> and should be set to false if this layout has more work to do.</p> <br>
@@ -139,7 +139,7 @@ Clears the managed dimensions flags</p>
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -306,7 +306,7 @@ This method must be implemented by any layout that manages components.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object describing the sizing done by the layout for this item or
 null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card').</p> 
     </li>
@@ -325,11 +325,11 @@ null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card'
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     </li>
-<li>target: <code class="code">'a Js.t</code>
+<li>target: <code class="code">_ Js.t</code>
     </li>
-<li>position: <code class="code">'a Js.t</code>
+<li>position: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -387,9 +387,9 @@ also determines if the items are in the proper place in the dom.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>items: <code class="code">'a Js.t</code>
+<li>items: <code class="code">_ Js.t</code>
     </li>
-<li>target: <code class="code">'a Js.t</code>
+<li>target: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>

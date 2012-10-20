@@ -131,7 +131,7 @@ method should be overridden to format the data in a way that differs from the de
 <li>record: <code class="code">Ext_data_Model.t Js.t</code>
     <p>The record that we are writing to the server.</p> 
     </li>
-<li>operation: <code class="code">Ext_data_Operation.t Js.t</code>
+<li>operation: <code class="code">Ext_data_Operation.t Js.t</code> (optional)
     <p>An operation object.</p> 
     </li>
 </ul>
@@ -140,7 +140,7 @@ method should be overridden to format the data in a way that differs from the de
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>An object literal of name/value keys to be written to the server.
 By default this method returns the data property on the record.</p> 
     </li>

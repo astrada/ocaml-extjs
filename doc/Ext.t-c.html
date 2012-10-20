@@ -118,18 +118,18 @@
 <center><h1>Class type <a href="type_Ext.t.html">Ext.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext.t-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="METHODbLANK_IMAGE_URL"><span class="keyword">method</span> bLANK_IMAGE_URL</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_BLANK_IMAGE_URL"><span class="keyword">method</span> _BLANK_IMAGE_URL</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>URL to a 1x1 transparent gif image used by Ext to create inline icons with
 CSS background images. In older versions of IE, this defaults to
 "http://sencha.com/s.gif" and you should change this to a URL on your server.
 For other browsers it uses an inline data URL.</p> <br>
 </div>
-<pre><span id="METHODsSL_SECURE_URL"><span class="keyword">method</span> sSL_SECURE_URL</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_SSL_SECURE_URL"><span class="keyword">method</span> _SSL_SECURE_URL</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>URL to a blank file used by Ext when in secure mode for iframe src and onReady src
 to prevent the IE insecure content warning (<code>'about:blank'</code>, except for IE
 in secure mode, which is <code>'javascript:""'</code>).</p> <br>
 </div>
-<pre><span id="METHODuSE_NATIVE_JSON"><span class="keyword">method</span> uSE_NATIVE_JSON</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHOD_USE_NATIVE_JSON"><span class="keyword">method</span> _USE_NATIVE_JSON</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>Indicates whether to use native browser parsing for JSON methods.
 This option is ignored if the browser does not support native JSON methods.</p>
 
@@ -337,7 +337,7 @@ The event name is specified with an <code>@</code> suffix.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>obj: <code class="code">'a Js.t</code> <p>The list of behaviors to apply</p> 
+<li>obj: <code class="code">_ Js.t</code> <p>The list of behaviors to apply</p> 
     </li>
 </ul>
 <br>
@@ -350,7 +350,7 @@ The event name is specified with an <code>@</code> suffix.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -363,13 +363,13 @@ Note that if recursive merging and cloning without referencing the original obje
 
     <b>Parameters</b>:
     <ul>
-<li>object_: <code class="code">'a Js.t</code>
+<li>_object: <code class="code">_ Js.t</code>
     <p>The receiver of the properties</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The source of the properties</p> 
     </li>
-<li>defaults: <code class="code">'a Js.t</code>
+<li>defaults: <code class="code">_ Js.t</code> (optional)
     <p>A different object that will also be applied for default values</p> 
     </li>
 </ul>
@@ -378,7 +378,7 @@ Note that if recursive merging and cloning without referencing the original obje
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>returns obj</p> 
+<li><code class="code">_ Js.t</code> <p>returns obj</p> 
     </li>
 </ul>
 <br>
@@ -389,10 +389,10 @@ Note that if recursive merging and cloning without referencing the original obje
 
     <b>Parameters</b>:
     <ul>
-<li>object_: <code class="code">'a Js.t</code>
+<li>_object: <code class="code">_ Js.t</code>
     <p>The receiver of the properties</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code>
     <p>The source of the properties</p> 
     </li>
 </ul>
@@ -401,7 +401,7 @@ Note that if recursive merging and cloning without referencing the original obje
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>returns obj</p> 
+<li><code class="code">_ Js.t</code> <p>returns obj</p> 
     </li>
 </ul>
 <br>
@@ -412,10 +412,10 @@ Note that if recursive merging and cloning without referencing the original obje
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to execute.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> 
     </li>
 </ul>
@@ -430,17 +430,17 @@ overrides arguments for the call. (Defaults to the arguments passed by the calle
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to delegate.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the function is executed.
 <strong>If omitted, defaults to the default global environment object (usually the browser window).</strong></p> 
     </li>
-<li>args: <code class="code">'a Js.js_array Js.t</code>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
     <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> 
     </li>
-<li>appendArgs: <code class="code">'a Js.t</code>
+<li>appendArgs: <code class="code">_ Js.t</code> (optional)
     <p>if True args are appended to call args instead of overriding,
 if a number the args are inserted at the specified position</p> 
     </li>
@@ -450,7 +450,7 @@ if a number the args are inserted at the specified position</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.callback</code> <p>The new function</p> 
+<li><code class="code">_ Js.callback</code> <p>The new function</p> 
     </li>
 </ul>
 <br>
@@ -467,16 +467,16 @@ if a number the args are inserted at the specified position</p>
 
     <b>Parameters</b>:
     <ul>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code>
     <p>The callback to execute</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope to execute in</p> 
     </li>
-<li>args: <code class="code">'a Js.js_array Js.t</code>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
     <p>The arguments to pass to the function</p> 
     </li>
-<li>delay: <code class="code">Js.number Js.t</code>
+<li>delay: <code class="code">Js.number Js.t</code> (optional)
     <p>Pass a number to delay the call by a number of milliseconds.</p> 
     </li>
 </ul>
@@ -490,7 +490,7 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 
     <b>Parameters</b>:
     <ul>
-<li>item: <code class="code">'a Js.t</code>
+<li>item: <code class="code">_ Js.t</code>
     <p>The variable to clone</p> 
     </li>
 </ul>
@@ -499,7 +499,7 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>clone</p> 
+<li><code class="code">_ Js.t</code> <p>clone</p> 
     </li>
 </ul>
 <br>
@@ -523,16 +523,16 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 
     <b>Parameters</b>:
     <ul>
-<li>dest: <code class="code">'a Js.t</code>
+<li>dest: <code class="code">_ Js.t</code>
     <p>The destination object.</p> 
     </li>
-<li>source: <code class="code">'a Js.t</code> <p>The source object.</p> 
+<li>source: <code class="code">_ Js.t</code> <p>The source object.</p> 
     </li>
-<li>names: <code class="code">'a Js.t</code>
+<li>names: <code class="code">_ Js.t</code>
     <p>Either an Array of property names, or a comma-delimited list
 of property names to copy.</p> 
     </li>
-<li>usePrototypeKeys: <code class="code">bool Js.t</code>
+<li>usePrototypeKeys: <code class="code">bool Js.t</code> (optional)
     <p>Defaults to false. Pass true to copy keys off of the
 prototype as well as the instance.</p> 
     </li>
@@ -542,7 +542,7 @@ prototype as well as the instance.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The modified object.</p> 
+<li><code class="code">_ Js.t</code> <p>The modified object.</p> 
     </li>
 </ul>
 <br>
@@ -588,11 +588,11 @@ not been defined yet, it will attempt to load the class via synchronous loading.
 
     <b>Parameters</b>:
     <ul>
-<li>name: <code class="code">Js.js_string Js.t</code>
+<li>name: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The class name or alias. Can be specified as <code>xclass</code>
 property if only one object parameter is specified.</p> 
     </li>
-<li>args: <code class="code">'a Js.t</code>
+<li>args: <code class="code">_ Js.t</code> (optional)
     <p>Additional arguments after the name will be passed to
 the class' constructor.</p> 
     </li>
@@ -602,7 +602,7 @@ the class' constructor.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>instance</p> 
+<li><code class="code">_ Js.t</code> <p>instance</p> 
     </li>
 </ul>
 <br>
@@ -622,7 +622,7 @@ a SyntaxError unless the safe option is set.</p>
 <li>json: <code class="code">Js.js_string Js.t</code>
     <p>The JSON string</p> 
     </li>
-<li>safe: <code class="code">bool Js.t</code>
+<li>safe: <code class="code">bool Js.t</code> (optional)
     <p>True to return null, false to throw an exception if the JSON is invalid.</p> 
      Defaults to: false
     </li>
@@ -632,7 +632,7 @@ a SyntaxError unless the safe option is set.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The resulting object</p> 
+<li><code class="code">_ Js.t</code> <p>The resulting object</p> 
     </li>
 </ul>
 <br>
@@ -662,21 +662,21 @@ sayHi('Fred');
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to defer.</p> 
     </li>
 <li>millis: <code class="code">Js.number Js.t</code>
     <p>The number of milliseconds for the setTimeout call
 (if less than or equal to 0 the function is executed immediately)</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the function is executed.
 <strong>If omitted, defaults to the browser window.</strong></p> 
     </li>
-<li>args: <code class="code">'a Js.js_array Js.t</code>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
     <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> 
     </li>
-<li>appendArgs: <code class="code">'a Js.t</code>
+<li>appendArgs: <code class="code">_ Js.t</code> (optional)
     <p>if True args are appended to call args instead of overriding,
 if a number the args are inserted at the specified position</p> 
     </li>
@@ -843,7 +843,7 @@ It is highly recommended to follow this simple convention:
  * Everything else is lower-cased
 Pass <code>null</code> to create an anonymous class.</p> 
     </li>
-<li>data: <code class="code">'a Js.t</code>
+<li>data: <code class="code">_ Js.t</code>
     <p>The key * value pairs of properties to apply to this class. Property names can be of any valid
 strings, except those in the reserved listed below:
  * <code>mixins</code>
@@ -855,7 +855,7 @@ strings, except those in the reserved listed below:
  * <code>alternateClassName</code>
  * <code>override</code></p> 
     </li>
-<li>createdFn: <code class="code">'a Js.callback</code>
+<li>createdFn: <code class="code">_ Js.callback</code>
     <p>Optional callback to execute after the class is created, the execution scope of which
 (<code>this</code>) will be the newly created class itself.</p> 
     </li>
@@ -884,10 +884,10 @@ strings, except those in the reserved listed below:
 <li>since: <code class="code">Js.js_string Js.t</code>
     <p>The last version before it's deprecated</p> 
     </li>
-<li>closure: <code class="code">'a Js.callback</code>
+<li>closure: <code class="code">_ Js.callback</code>
     <p>The callback function to be executed with the specified version is less than the current version</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code>
     <p>The execution scope (<code>this</code>) if the closure</p> 
     </li>
 </ul>
@@ -903,7 +903,7 @@ passed into this function in a single call as separate arguments.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>args: <code class="code">'a Js.t</code>
+<li>args: <code class="code">_ Js.t</code>
     <p>An <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>, <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, or an Array of either of these to destroy</p> 
     </li>
 </ul>
@@ -915,7 +915,7 @@ passed into this function in a single call as separate arguments.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code>
     <p>The object (most likely a Component) who's properties you wish to destroy.</p> 
     </li>
 <li>args: <code class="code">Js.js_string Js.t</code>
@@ -960,18 +960,18 @@ sum(1, 2, 3); // returns 6
 
     <b>Parameters</b>:
     <ul>
-<li>iterable: <code class="code">'a Js.t</code>
+<li>iterable: <code class="code">_ Js.t</code>
     <p>The value to be iterated. If this
 argument is not iterable, the callback function is called once.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The callback function. If it returns false, the iteration stops and this method returns
 the current <code>index</code>.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> 
     </li>
-<li>reverse: <code class="code">bool Js.t</code>
+<li>reverse: <code class="code">bool Js.t</code> (optional)
     <p>Reverse the iteration order (loop from the end to the beginning)
 Defaults false</p> 
     </li>
@@ -1000,7 +1000,7 @@ of the object.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>o: <code class="code">'a Js.t</code>
+<li>o: <code class="code">_ Js.t</code>
     <p>The variable to encode</p> 
     </li>
 </ul>
@@ -1033,10 +1033,10 @@ class.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>dom: <code class="code">'a Js.t</code>
+<li>dom: <code class="code">_ Js.t</code>
     <p>The dom node or id</p> 
     </li>
-<li>named: <code class="code">Js.js_string Js.t</code>
+<li>named: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Allows for creation of named reusable flyweights to prevent conflicts (e.g.
 internally Ext uses "_global")</p> 
     </li>
@@ -1064,7 +1064,7 @@ the same id via AJAX or DOM.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     <p>The id of the node, a DOM Node or an existing Element.</p> 
     </li>
 </ul>
@@ -1158,7 +1158,7 @@ when this method is called to be successful.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code>
     </li>
 </ul>
 
@@ -1202,7 +1202,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>force: <code class="code">bool Js.t</code>
+<li>force: <code class="code">bool Js.t</code> (optional)
     <p>true to force a recalculation of the value.</p> 
     </li>
 </ul>
@@ -1211,7 +1211,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>An object containing scrollbar sizes.</p> 
+<li><code class="code">_ Js.t</code> <p>An object containing scrollbar sizes.</p> 
     </li>
 </ul>
 <br>
@@ -1224,7 +1224,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>store: <code class="code">'a Js.t</code>
+<li>store: <code class="code">_ Js.t</code>
     <p>The id of the Store, or a Store instance, or a store configuration</p> 
     </li>
 </ul>
@@ -1237,7 +1237,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>packageName: <code class="code">Js.js_string Js.t</code>
+<li>packageName: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The package name, for example: 'core', 'touch', 'extjs'</p> 
     </li>
 </ul>
@@ -1257,10 +1257,10 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>el: <code class="code">'a Js.t</code>
+<li>el: <code class="code">_ Js.t</code> (optional)
     <p>The element to generate an id for</p> 
     </li>
-<li>prefix: <code class="code">Js.js_string Js.t</code>
+<li>prefix: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Id prefix (defaults "ext-gen")</p> 
     </li>
 </ul>
@@ -1280,7 +1280,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>target: <code class="code">'a Js.t</code> <p>The target to test</p> 
+<li>target: <code class="code">_ Js.t</code> <p>The target to test</p> 
     </li>
 </ul>
 <br>
@@ -1291,7 +1291,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1302,7 +1302,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>object_: <code class="code">'a Js.t</code> <p>The object to test</p> 
+<li>_object: <code class="code">_ Js.t</code> <p>The object to test</p> 
     </li>
 </ul>
 <br>
@@ -1313,7 +1313,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1324,7 +1324,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1342,10 +1342,10 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The value to test</p> 
     </li>
-<li>allowEmptyString: <code class="code">bool Js.t</code>
+<li>allowEmptyString: <code class="code">bool Js.t</code> (optional)
     <p>true to allow empty strings (defaults to false)</p> 
     </li>
 </ul>
@@ -1357,7 +1357,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1368,7 +1368,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1379,7 +1379,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1390,7 +1390,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>Examples: 1, '1', '2.34'</p> 
     </li>
 </ul>
@@ -1410,7 +1410,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1421,7 +1421,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1432,7 +1432,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1443,7 +1443,7 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code> <p>The value to test</p> 
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
     </li>
 </ul>
 <br>
@@ -1455,15 +1455,15 @@ operating system settings, such as the theme or font size.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>object_: <code class="code">'a Js.t</code>
+<li>_object: <code class="code">_ Js.t</code>
     <p>The object or array to be iterated.</p> 
     </li>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The function to be called for each iteration. See and <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> and
 <a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> for detailed lists of arguments passed to this function depending on the given object
 type that is being iterated.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the specified function is executed.
 Defaults to the object being iterated itself.</p> 
     </li>
@@ -1499,7 +1499,7 @@ A technique for tracing entry and exit of a function is this:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">'a Js.t</code>
+<li>options: <code class="code">_ Js.t</code> (optional)
     <p>The message to log or an options object with any
 of the following properties:</p>
 
@@ -1512,7 +1512,7 @@ of the following properties:</p>
 <li><code>outdent</code>: Cause this and following statements to be one step less indented.</li>
 </ul> 
     </li>
-<li>message: <code class="code">Js.js_string Js.t</code>
+<li>message: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The message to log (required unless specified in
 options object).</p> 
     </li>
@@ -1562,10 +1562,10 @@ var sencha = <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-mer
 
     <b>Parameters</b>:
     <ul>
-<li>destination: <code class="code">'a Js.t</code>
+<li>destination: <code class="code">_ Js.t</code>
     <p>The object into which all subsequent objects are merged.</p> 
     </li>
-<li>object_: <code class="code">'a Js.t</code>
+<li>_object: <code class="code">_ Js.t</code>
     <p>Any number of objects to merge into the destination.</p> 
     </li>
 </ul>
@@ -1574,7 +1574,7 @@ var sencha = <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-mer
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>merged The destination object with all passed objects merged in.</p> 
     </li>
 </ul>
@@ -1605,7 +1605,7 @@ Company.data.CustomStore = function(config) { ... };
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The namespace object.
 (If multiple arguments are passed, this will be the last namespace created)</p> 
     </li>
@@ -1639,7 +1639,7 @@ Company.data.CustomStore = function(config) { ... };
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code>
+<li><code class="code">_ Js.t</code>
     <p>The namespace object.
 (If multiple arguments are passed, this will be the last namespace created)</p> 
     </li>
@@ -1686,10 +1686,10 @@ further details.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>target: <code class="code">'a Js.t</code>
+<li>target: <code class="code">_ Js.t</code>
     <p>The target to override.</p> 
     </li>
-<li>overrides: <code class="code">'a Js.t</code>
+<li>overrides: <code class="code">_ Js.t</code>
     <p>The properties to add or replace on <code>target</code>.</p> 
     </li>
 </ul>
@@ -1717,13 +1717,13 @@ callback('by Me'); // alerts 'Hello World by Me'
 
     <b>Parameters</b>:
     <ul>
-<li>fn: <code class="code">'a Js.callback</code>
+<li>fn: <code class="code">_ Js.callback</code>
     <p>The original function</p> 
     </li>
-<li>args: <code class="code">'a Js.js_array Js.t</code>
+<li>args: <code class="code">_ Js.js_array Js.t</code>
     <p>The arguments to pass to new callback</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the function is executed.</p> 
     </li>
 </ul>
@@ -1732,7 +1732,7 @@ callback('by Me'); // alerts 'Hello World by Me'
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.callback</code> <p>The new callback function</p> 
+<li><code class="code">_ Js.callback</code> <p>The new callback function</p> 
     </li>
 </ul>
 <br>
@@ -1747,7 +1747,7 @@ callback('by Me'); // alerts 'Hello World by Me'
     <p>The ptype mnemonic string by which the Plugin class
 may be looked up.</p> 
     </li>
-<li>cls: <code class="code">'a Js.callback</code> <p>The new Plugin class.</p> 
+<li>cls: <code class="code">_ Js.callback</code> <p>The new Plugin class.</p> 
     </li>
 </ul>
 <br>
@@ -1768,10 +1768,11 @@ may be looked up.</p>
 <li>path: <code class="code">Js.js_string Js.t</code>
     <p>The selector/xpath query</p> 
     </li>
-<li>root: <code class="code">Dom_html.element Js.t</code> <p>The start of the query.</p> 
+<li>root: <code class="code">Dom_html.element Js.t</code> (optional)
+    <p>The start of the query.</p> 
      Defaults to: document
     </li>
-<li>type_: <code class="code">Js.js_string Js.t</code>
+<li>_type: <code class="code">Js.js_string Js.t</code> (optional)
     <p>Either "select" or "simple" for a simple selector match (only valid when
 used when the call is deferred to the jsSelect method)</p> 
 <p>
@@ -1811,7 +1812,7 @@ new Ext.List({
 <li>id: <code class="code">Js.js_string Js.t</code>
     <p>The id to set on the new store</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code> <p>The store config</p> 
+<li>config: <code class="code">_ Js.t</code> <p>The store config</p> 
     </li>
 </ul>
 <br>
@@ -1845,7 +1846,7 @@ The body node will be ignored if passed in.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>flush: <code class="code">bool Js.t</code>
+<li>flush: <code class="code">bool Js.t</code> (optional)
     <p>True to perform all the pending layouts. This can also be
 achieved by calling <a href="#!/api/Ext.AbstractComponent-static-method-flushLayouts" rel="Ext.AbstractComponent-static-method-flushLayouts" class="docClass">flushLayouts</a> directly.</p> 
      Defaults to: false
@@ -1863,13 +1864,13 @@ to be applied to many related elements in one statement through the returned <a 
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">'a Js.t</code>
+<li>selector: <code class="code">_ Js.t</code>
     <p>The CSS selector or an array of elements</p> 
     </li>
-<li>unique: <code class="code">bool Js.t</code>
+<li>unique: <code class="code">bool Js.t</code> (optional)
     <p>true to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element (defaults to a shared flyweight object)</p> 
     </li>
-<li>root: <code class="code">'a Js.t</code>
+<li>root: <code class="code">_ Js.t</code> (optional)
     <p>The root element of the query or id of the root</p> 
     </li>
 </ul>
@@ -1884,7 +1885,7 @@ to be applied to many related elements in one statement through the returned <a 
 <li>packageName: <code class="code">Js.js_string Js.t</code>
     <p>The package name, for example: 'core', 'touch', 'extjs'</p> 
     </li>
-<li>version: <code class="code">'a Js.t</code>
+<li>version: <code class="code">_ Js.t</code>
     <p>The version, for example: '1.2.3alpha', '2.4.0-dev'</p> 
     </li>
 </ul>
@@ -1932,13 +1933,13 @@ test('just', 'testing', 'here'); // alerts 'just testing here';
 
     <b>Parameters</b>:
     <ul>
-<li>iterable: <code class="code">'a Js.t</code>
+<li>iterable: <code class="code">_ Js.t</code>
     <p>the iterable object to be turned into a true Array.</p> 
     </li>
-<li>start: <code class="code">Js.number Js.t</code>
+<li>start: <code class="code">Js.number Js.t</code> (optional)
     <p>a zero-based index that specifies the start of extraction. Defaults to 0</p> 
     </li>
-<li>end_: <code class="code">Js.number Js.t</code>
+<li>_end: <code class="code">Js.number Js.t</code> (optional)
     <p>a 1-based index that specifies the end of extraction. Defaults to the last
 index of the iterable value</p> 
     </li>
@@ -1948,7 +1949,7 @@ index of the iterable value</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.js_array Js.t</code> <p>array</p> 
+<li><code class="code">_ Js.js_array Js.t</code> <p>array</p> 
     </li>
 </ul>
 <br>
@@ -1975,7 +1976,7 @@ index of the iterable value</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
@@ -1987,13 +1988,13 @@ value (second argument) otherwise.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>value: <code class="code">'a Js.t</code>
+<li>value: <code class="code">_ Js.t</code>
     <p>The value to test</p> 
     </li>
-<li>defaultValue: <code class="code">'a Js.t</code>
+<li>defaultValue: <code class="code">_ Js.t</code>
     <p>The value to return if the original value is empty</p> 
     </li>
-<li>allowBlank: <code class="code">bool Js.t</code>
+<li>allowBlank: <code class="code">bool Js.t</code> (optional)
     <p>true to allow zero length strings to qualify as non-empty (defaults to false)</p> 
     </li>
 </ul>
@@ -2002,7 +2003,7 @@ value (second argument) otherwise.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>value, if non-empty, else defaultValue</p> 
+<li><code class="code">_ Js.t</code> <p>value, if non-empty, else defaultValue</p> 
     </li>
 </ul>
 <br>
@@ -2028,10 +2029,10 @@ See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.Cl
 
     <b>Parameters</b>:
     <ul>
-<li>name: <code class="code">Js.js_string Js.t</code>
+<li>name: <code class="code">Js.js_string Js.t</code> (optional)
     <p>The xtype of the widget to create.</p> 
     </li>
-<li>config: <code class="code">'a Js.t</code>
+<li>config: <code class="code">_ Js.t</code> (optional)
     <p>The configuration object for the widget constructor.</p> 
     </li>
 </ul>
@@ -2040,7 +2041,7 @@ See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.Cl
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">'a Js.t</code> <p>The widget instance</p> 
+<li><code class="code">_ Js.t</code> <p>The widget instance</p> 
     </li>
 </ul>
 <br>

@@ -180,10 +180,10 @@ created. Note: These methods only has an implementation if a Editing plugin has 
 
     <b>Parameters</b>:
     <ul>
-<li>record: <code class="code">'a Js.t</code>
+<li>record: <code class="code">_ Js.t</code>
     <p>The <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a> instance being edited.</p> 
     </li>
-<li>defaultField: <code class="code">'a Js.t</code>
+<li>defaultField: <code class="code">_ Js.t</code>
     <p>An object representing a default field to be created</p> 
     </li>
 </ul>
@@ -215,16 +215,16 @@ is a group column, it returns <code>false</code>.</p> <br>
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> 
      Defaults to: null
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>A callback function to call after the Component is hidden.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> 
     </li>
@@ -313,7 +313,7 @@ been enabled on the grid.</p>
 
     <b>Parameters</b>:
     <ul>
-<li>field: <code class="code">'a Js.t</code>
+<li>field: <code class="code">_ Js.t</code>
     <p>An object representing a field to be created. If no xtype is specified a 'textfield' is
 assumed.</p> 
     </li>
@@ -341,16 +341,16 @@ brought to the front of its <a href="#!/api/Ext.grid.column.Column-property-zInd
 
     <b>Parameters</b>:
     <ul>
-<li>animateTarget: <code class="code">'a Js.t</code>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
     <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> 
      Defaults to: null
     </li>
-<li>callback: <code class="code">'a Js.callback</code>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
     <p>A callback function to call after the Component is displayed.
 Only necessary if animation was specified.</p> 
     </li>
-<li>scope: <code class="code">'a Js.t</code>
+<li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the callback is executed.
 Defaults to this Component.</p> 
     </li>
