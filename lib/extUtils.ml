@@ -23,3 +23,10 @@ let alert message =
     (Js.Unsafe.variable "alert")
     [|Js.Unsafe.inject message|]
 
+let setTimeout callback timeout =
+  Js.Unsafe.fun_call
+    (Js.Unsafe.variable "setTimeout")
+    [|Js.Unsafe.inject (Js.wrap_callback callback);
+      Js.Unsafe.inject timeout;
+    |]
+

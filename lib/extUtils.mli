@@ -22,5 +22,8 @@ val to_class_configs : < .. > Js.t -> Ext_Class.configs Js.t
 (** [to_class_configs o] converts instance [o] to an Ext.class config object *)
 
 val alert : Js.js_string Js.t -> unit
-(** [alert message] shows a message box *)
+(** [alert m] displays an alert dialog with content [m] and an OK button. *)
+
+val setTimeout : (unit -> unit) -> int -> unit
+(** [setTimeout f d] calls function [f] after delay [d]. *)
 

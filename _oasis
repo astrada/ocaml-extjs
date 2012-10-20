@@ -199,3 +199,11 @@ Library basic_array_grid
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 
+Library basic_tabs
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/tabs/basic_tabs
+  InternalModules: Tabs
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+

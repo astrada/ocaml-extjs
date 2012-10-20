@@ -1,0 +1,10 @@
+# OASIS_START
+# DO NOT EDIT (digest: 0294c69a88a475b07679843c790556af)
+version = "0.1"
+description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
+requires = "oextjs js_of_ocaml js_of_ocaml.syntax"
+archive(byte) = "basic_tabs.cma"
+archive(byte, plugin) = "basic_tabs.cma"
+exists_if = "basic_tabs.cma"
+# OASIS_STOP
+
