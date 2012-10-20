@@ -31,13 +31,6 @@ cp data/* "$SITEROOT/data"
 cp app-all.js "$SITEROOT"
 
 # clean up
-rm extjs
-rm app.js
-rm app.jsb3
-rm all-classes.js
-rm app-all.js
-rm app/controller/*.js
-rm app/view/user/*.js
-rm app/store/*.js
-rm app/model/*.js
+rm extjs app.js app.jsb3 all-classes.js app-all.js \
+  app/controller/*.js app/view/user/*.js app/store/*.js app/model/*.js
 

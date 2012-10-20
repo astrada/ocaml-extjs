@@ -16,8 +16,7 @@ cd -
 # deploy
 create_dir "$SITEROOT"
 link_extjs "$SITEROOT/extjs"
-cp index.html $SITEROOT
-cp array_grid.js $SITEROOT
+cp index.html array_grid.js $SITEROOT
 
 # clean up
 rm array_grid.js

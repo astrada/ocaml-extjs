@@ -25,9 +25,5 @@ cp index-prod.html "$SITEROOT/index.html"
 cp app-all.js $SITEROOT
 
 # clean up
-rm extjs
-rm app.js
-rm app.jsb3
-rm all-classes.js
-rm app-all.js
+rm extjs app.js app.jsb3 all-classes.js app-all.js
 
