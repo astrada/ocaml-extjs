@@ -18,7 +18,7 @@ object('self)
   method serialize : 'a Js.callback Js.prop
   method sortDir : Js.js_string Js.t Js.prop
   method sortType : 'a Js.callback Js.prop
-  method type_ : 'a Js.t Js.prop
+  method _type : 'a Js.t Js.prop
   method useNull : bool Js.t Js.prop
   
 end

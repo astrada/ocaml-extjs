@@ -1454,25 +1454,25 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method aSCLASS : Js.number Js.t Js.prop
+  method _ASCLASS : Js.number Js.t Js.prop
   (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Add or remove the <a href="#!/api/Ext.Layer-cfg-visibilityCls" rel="Ext.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> %}
     
     Defaults to: [4]
     *)
-  method dISPLAY : Js.number Js.t Js.prop
+  method _DISPLAY : Js.number Js.t Js.prop
   (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Use the CSS 'display' property to hide the element.</p> %}
     
     Defaults to: [2]
     *)
-  method oFFSETS : Js.number Js.t Js.prop
+  method _OFFSETS : Js.number Js.t Js.prop
   (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Use CSS absolute positioning and top/left offsets to hide the element.</p> %}
     
     Defaults to: [3]
     *)
-  method vISIBILITY : Js.number Js.t Js.prop
+  method _VISIBILITY : Js.number Js.t Js.prop
   (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
 Use the CSS 'visibility' property to hide the element.</p>
 

@@ -167,25 +167,25 @@ object
   inherit Ext_Base.events
   inherit Ext_dom_AbstractElement.events
   
-  method dOMActivate : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
+  method _DOMActivate : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
     'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMAttrModified : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
+  method _DOMAttrModified : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
     -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMCharacterDataModified : (Ext_EventObject.t Js.t ->
+  method _DOMCharacterDataModified : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMFocusIn : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
+  method _DOMFocusIn : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
     'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMFocusOut : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
+  method _DOMFocusOut : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
     'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMNodeInserted : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
+  method _DOMNodeInserted : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
     -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMNodeInsertedIntoDocument : (Ext_EventObject.t Js.t ->
+  method _DOMNodeInsertedIntoDocument : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMNodeRemoved : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMNodeRemovedFromDocument : (Ext_EventObject.t Js.t ->
+  method _DOMNodeRemoved : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
+    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method _DOMNodeRemovedFromDocument : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
-  method dOMSubtreeModified : (Ext_EventObject.t Js.t ->
+  method _DOMSubtreeModified : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   method abort : (Ext_EventObject.t Js.t -> Dom_html.element Js.t -> 'a Js.t
     -> unit) Js.callback Js.writeonly_prop

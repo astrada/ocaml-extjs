@@ -44,7 +44,7 @@ object
   
   method beforeload : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method exception_ : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit)
+  method _exception : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit)
     Js.callback Js.writeonly_prop
   method load : (t Js.t -> 'a Js.t -> 'b Js.t -> 'c Js.t -> unit) Js.callback
     Js.writeonly_prop

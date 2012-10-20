@@ -830,7 +830,7 @@ be necessary.</p> %}
     {b Parameters}:
     {ul {- start: ['a Js.t]
     }
-    {- end_: ['a Js.t]
+    {- _end: ['a Js.t]
     }
     {- cb: ['a Js.t]
     }
@@ -1113,7 +1113,7 @@ present in the page cache.</p> %}
     {b Parameters}:
     {ul {- start: ['a Js.t]
     }
-    {- end_: ['a Js.t]
+    {- _end: ['a Js.t]
     }
     }
     *)

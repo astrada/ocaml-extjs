@@ -657,17 +657,17 @@ object
   inherit Ext_Base.statics
   inherit Ext_util_Observable.statics
   
-  method cOMMIT : Js.js_string Js.t Js.prop
+  method _COMMIT : Js.js_string Js.t Js.prop
   (** {% <p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
     
     Defaults to: ['commit']
     *)
-  method eDIT : Js.js_string Js.t Js.prop
+  method _EDIT : Js.js_string Js.t Js.prop
   (** {% <p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
     
     Defaults to: ['edit']
     *)
-  method rEJECT : Js.js_string Js.t Js.prop
+  method _REJECT : Js.js_string Js.t Js.prop
   (** {% <p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
     
     Defaults to: ['reject']
@@ -703,7 +703,7 @@ record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
 </ul> %}
     
     {b Parameters}:
-    {ul {- rec_: [Ext_data_Model.t Js.t]
+    {ul {- _rec: [Ext_data_Model.t Js.t]
     {% <p>The record being created. The record does not exist, it's a <a href="#!/api/Ext.data.Model-property-phantom" rel="Ext.data.Model-property-phantom" class="docClass">phantom</a>.</p> %}
     }
     }

@@ -122,7 +122,7 @@ append the currency sign to the formatted value.</p>
     {% <p>The number of decimals to use for the currency
 (defaults to <a href="#!/api/Ext.util.Format-property-currencyPrecision" rel="Ext.util.Format-property-currencyPrecision" class="docClass">currencyPrecision</a>)</p> %}
     }
-    {- end_: [bool Js.t]
+    {- _end: [bool Js.t]
     {% <p>True if the currency sign should be at the end of the string
 (defaults to <a href="#!/api/Ext.util.Format-property-currencyAtEnd" rel="Ext.util.Format-property-currencyAtEnd" class="docClass">currencyAtEnd</a>)</p> %}
     }

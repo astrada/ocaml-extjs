@@ -142,7 +142,7 @@ object('self)
   (** {% <p>Registers a <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">reference</a>.</p> %}
     
     {b Parameters}:
-    {ul {- ref_: ['a Js.t]
+    {ul {- _ref: ['a Js.t]
     }
     }
     *)
@@ -243,7 +243,7 @@ you can use it like it's used by Application to create the Viewport:</p>
   (** {% <p>Returns true if a <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">reference</a> is registered.</p> %}
     
     {b Parameters}:
-    {ul {- ref_: ['a Js.t]
+    {ul {- _ref: ['a Js.t]
     }
     }
     *)

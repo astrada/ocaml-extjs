@@ -31,7 +31,7 @@ object
   inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
-  method exception_ : (t Js.t -> XmlHttpRequest.xmlHttpRequest Js.t ->
+  method _exception : (t Js.t -> XmlHttpRequest.xmlHttpRequest Js.t ->
     Ext_data_ResultSet.t Js.t -> 'a Js.t -> unit) Js.callback
     Js.writeonly_prop
   

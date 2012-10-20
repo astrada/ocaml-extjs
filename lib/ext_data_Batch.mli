@@ -173,7 +173,7 @@ object
     }
     }
     *)
-  method exception_ : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
+  method _exception : (t Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fired when a operation encountered an exception</p> %}
     

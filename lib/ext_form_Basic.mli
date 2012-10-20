@@ -478,7 +478,7 @@ structure:</p>
 }
 </code></pre> %}
     *)
-  method method_ : Js.js_string Js.t Js.prop
+  method _method : Js.js_string Js.t Js.prop
   (** {% <p>The request method to use (GET or POST) for form actions if one isn't supplied in the action options.</p> %}
     *)
   method paramOrder : 'a Js.t Js.prop

@@ -29,422 +29,422 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method a : Js.number Js.t Js.prop
+  method _A : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [65]
     *)
-  method aLT : Js.number Js.t Js.prop
+  method _ALT : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [18]
     *)
-  method b : Js.number Js.t Js.prop
+  method _B : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [66]
     *)
-  method bACKSPACE : Js.number Js.t Js.prop
+  method _BACKSPACE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [8]
     *)
-  method c : Js.number Js.t Js.prop
+  method _C : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [67]
     *)
-  method cAPS_LOCK : Js.number Js.t Js.prop
+  method _CAPS_LOCK : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [20]
     *)
-  method cONTEXT_MENU : Js.number Js.t Js.prop
+  method _CONTEXT_MENU : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [93]
     *)
-  method cTRL : Js.number Js.t Js.prop
+  method _CTRL : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [17]
     *)
-  method d : Js.number Js.t Js.prop
+  method _D : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [68]
     *)
-  method dELETE : Js.number Js.t Js.prop
+  method _DELETE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [46]
     *)
-  method dOWN : Js.number Js.t Js.prop
+  method _DOWN : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [40]
     *)
-  method e : Js.number Js.t Js.prop
+  method _E : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [69]
     *)
-  method eIGHT : Js.number Js.t Js.prop
+  method _EIGHT : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [56]
     *)
-  method eND : Js.number Js.t Js.prop
+  method _END : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [35]
     *)
-  method eNTER : Js.number Js.t Js.prop
+  method _ENTER : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [13]
     *)
-  method eSC : Js.number Js.t Js.prop
+  method _ESC : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [27]
     *)
-  method f : Js.number Js.t Js.prop
+  method _F : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [70]
     *)
-  method f1 : Js.number Js.t Js.prop
+  method _F1 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [112]
     *)
-  method f10 : Js.number Js.t Js.prop
+  method _F10 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [121]
     *)
-  method f11 : Js.number Js.t Js.prop
+  method _F11 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [122]
     *)
-  method f12 : Js.number Js.t Js.prop
+  method _F12 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [123]
     *)
-  method f2 : Js.number Js.t Js.prop
+  method _F2 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [113]
     *)
-  method f3 : Js.number Js.t Js.prop
+  method _F3 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [114]
     *)
-  method f4 : Js.number Js.t Js.prop
+  method _F4 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [115]
     *)
-  method f5 : Js.number Js.t Js.prop
+  method _F5 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [116]
     *)
-  method f6 : Js.number Js.t Js.prop
+  method _F6 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [117]
     *)
-  method f7 : Js.number Js.t Js.prop
+  method _F7 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [118]
     *)
-  method f8 : Js.number Js.t Js.prop
+  method _F8 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [119]
     *)
-  method f9 : Js.number Js.t Js.prop
+  method _F9 : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [120]
     *)
-  method fIVE : Js.number Js.t Js.prop
+  method _FIVE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [53]
     *)
-  method fOUR : Js.number Js.t Js.prop
+  method _FOUR : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [52]
     *)
-  method g : Js.number Js.t Js.prop
+  method _G : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [71]
     *)
-  method h : Js.number Js.t Js.prop
+  method _H : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [72]
     *)
-  method hOME : Js.number Js.t Js.prop
+  method _HOME : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [36]
     *)
-  method i : Js.number Js.t Js.prop
+  method _I : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [73]
     *)
-  method iNSERT : Js.number Js.t Js.prop
+  method _INSERT : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [45]
     *)
-  method j : Js.number Js.t Js.prop
+  method _J : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [74]
     *)
-  method k : Js.number Js.t Js.prop
+  method _K : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [75]
     *)
-  method l : Js.number Js.t Js.prop
+  method _L : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [76]
     *)
-  method lEFT : Js.number Js.t Js.prop
+  method _LEFT : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [37]
     *)
-  method m : Js.number Js.t Js.prop
+  method _M : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [77]
     *)
-  method n : Js.number Js.t Js.prop
+  method _N : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [78]
     *)
-  method nINE : Js.number Js.t Js.prop
+  method _NINE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [57]
     *)
-  method nUM_CENTER : Js.number Js.t Js.prop
+  method _NUM_CENTER : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [12]
     *)
-  method nUM_DIVISION : Js.number Js.t Js.prop
+  method _NUM_DIVISION : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [111]
     *)
-  method nUM_EIGHT : Js.number Js.t Js.prop
+  method _NUM_EIGHT : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [104]
     *)
-  method nUM_FIVE : Js.number Js.t Js.prop
+  method _NUM_FIVE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [101]
     *)
-  method nUM_FOUR : Js.number Js.t Js.prop
+  method _NUM_FOUR : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [100]
     *)
-  method nUM_MINUS : Js.number Js.t Js.prop
+  method _NUM_MINUS : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [109]
     *)
-  method nUM_MULTIPLY : Js.number Js.t Js.prop
+  method _NUM_MULTIPLY : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [106]
     *)
-  method nUM_NINE : Js.number Js.t Js.prop
+  method _NUM_NINE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [105]
     *)
-  method nUM_ONE : Js.number Js.t Js.prop
+  method _NUM_ONE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [97]
     *)
-  method nUM_PERIOD : Js.number Js.t Js.prop
+  method _NUM_PERIOD : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [110]
     *)
-  method nUM_PLUS : Js.number Js.t Js.prop
+  method _NUM_PLUS : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [107]
     *)
-  method nUM_SEVEN : Js.number Js.t Js.prop
+  method _NUM_SEVEN : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [103]
     *)
-  method nUM_SIX : Js.number Js.t Js.prop
+  method _NUM_SIX : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [102]
     *)
-  method nUM_THREE : Js.number Js.t Js.prop
+  method _NUM_THREE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [99]
     *)
-  method nUM_TWO : Js.number Js.t Js.prop
+  method _NUM_TWO : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [98]
     *)
-  method nUM_ZERO : Js.number Js.t Js.prop
+  method _NUM_ZERO : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [96]
     *)
-  method o : Js.number Js.t Js.prop
+  method _O : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [79]
     *)
-  method oNE : Js.number Js.t Js.prop
+  method _ONE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [49]
     *)
-  method p : Js.number Js.t Js.prop
+  method _P : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [80]
     *)
-  method pAGE_DOWN : Js.number Js.t Js.prop
+  method _PAGE_DOWN : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [34]
     *)
-  method pAGE_UP : Js.number Js.t Js.prop
+  method _PAGE_UP : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [33]
     *)
-  method pAUSE : Js.number Js.t Js.prop
+  method _PAUSE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [19]
     *)
-  method pRINT_SCREEN : Js.number Js.t Js.prop
+  method _PRINT_SCREEN : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [44]
     *)
-  method q : Js.number Js.t Js.prop
+  method _Q : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [81]
     *)
-  method r : Js.number Js.t Js.prop
+  method _R : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [82]
     *)
-  method rETURN : Js.number Js.t Js.prop
+  method _RETURN : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [13]
     *)
-  method rIGHT : Js.number Js.t Js.prop
+  method _RIGHT : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [39]
     *)
-  method s : Js.number Js.t Js.prop
+  method _S : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [83]
     *)
-  method sEVEN : Js.number Js.t Js.prop
+  method _SEVEN : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [55]
     *)
-  method sHIFT : Js.number Js.t Js.prop
+  method _SHIFT : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [16]
     *)
-  method sIX : Js.number Js.t Js.prop
+  method _SIX : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [54]
     *)
-  method sPACE : Js.number Js.t Js.prop
+  method _SPACE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [32]
     *)
-  method t : Js.number Js.t Js.prop
+  method _T : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [84]
     *)
-  method tAB : Js.number Js.t Js.prop
+  method _TAB : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [9]
     *)
-  method tHREE : Js.number Js.t Js.prop
+  method _THREE : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [51]
     *)
-  method tWO : Js.number Js.t Js.prop
+  method _TWO : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [50]
     *)
-  method u : Js.number Js.t Js.prop
+  method _U : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [85]
     *)
-  method uP : Js.number Js.t Js.prop
+  method _UP : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [38]
     *)
-  method v : Js.number Js.t Js.prop
+  method _V : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [86]
     *)
-  method w : Js.number Js.t Js.prop
+  method _W : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [87]
     *)
-  method wHEEL_SCALE : Js.number Js.t Js.prop
+  method _WHEEL_SCALE : Js.number Js.t Js.prop
   (** {% <p>The mouse wheel delta scaling factor. This value depends on browser version and OS and
 attempts to produce a similar scrolling experience across all platforms and browsers.</p>
 
@@ -453,22 +453,22 @@ attempts to produce a similar scrolling experience across all platforms and brow
 <pre><code> Ext.EventObjectImpl.prototype.WHEEL_SCALE = 72;
 </code></pre> %}
     *)
-  method x : Js.number Js.t Js.prop
+  method _X : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [88]
     *)
-  method y : Js.number Js.t Js.prop
+  method _Y : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [89]
     *)
-  method z : Js.number Js.t Js.prop
+  method _Z : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [90]
     *)
-  method zERO : Js.number Js.t Js.prop
+  method _ZERO : Js.number Js.t Js.prop
   (** {% <p>Key constant</p> %}
     
     Defaults to: [48]

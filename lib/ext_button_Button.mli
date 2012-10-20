@@ -736,7 +736,7 @@ QuickTips config object.</p> %}
     
     Defaults to: ['qtip']
     *)
-  method type_ : Js.js_string Js.t Js.prop
+  method _type : Js.js_string Js.t Js.prop
   (** {% <p>The type of <code>&lt;input&gt;</code> to create: submit, reset or button.</p> %}
     
     Defaults to: ['button']

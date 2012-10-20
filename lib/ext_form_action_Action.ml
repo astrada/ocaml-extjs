@@ -5,7 +5,7 @@ object('self)
   method failureType : Js.js_string Js.t Js.prop
   method response : 'a Js.t Js.prop
   method result : 'a Js.t Js.prop
-  method type_ : Js.js_string Js.t Js.prop
+  method _type : Js.js_string Js.t Js.prop
   method run : unit Js.meth
   
 end
@@ -17,7 +17,7 @@ object('self)
   method failure : 'a Js.callback Js.prop
   method form : 'a Js.t Js.prop
   method headers : 'a Js.t Js.prop
-  method method_ : Js.js_string Js.t Js.prop
+  method _method : Js.js_string Js.t Js.prop
   method params : 'a Js.t Js.prop
   method reset : bool Js.t Js.prop
   method scope : 'a Js.t Js.prop
@@ -41,10 +41,10 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method cLIENT_INVALID : Js.js_string Js.t Js.prop
-  method cONNECT_FAILURE : Js.js_string Js.t Js.prop
-  method lOAD_FAILURE : Js.js_string Js.t Js.prop
-  method sERVER_INVALID : Js.js_string Js.t Js.prop
+  method _CLIENT_INVALID : Js.js_string Js.t Js.prop
+  method _CONNECT_FAILURE : Js.js_string Js.t Js.prop
+  method _LOAD_FAILURE : Js.js_string Js.t Js.prop
+  method _SERVER_INVALID : Js.js_string Js.t Js.prop
   
 end
 

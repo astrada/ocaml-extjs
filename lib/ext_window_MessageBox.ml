@@ -9,17 +9,17 @@ object('self)
   inherit Ext_panel_Panel.t
   inherit Ext_window_Window.t
   
-  method cANCEL : Js.number Js.t Js.prop
-  method eRROR : Js.js_string Js.t Js.prop
-  method iNFO : Js.js_string Js.t Js.prop
-  method nO : Js.number Js.t Js.prop
-  method oK : Js.number Js.t Js.prop
-  method oKCANCEL : Js.number Js.t Js.prop
-  method qUESTION : Js.js_string Js.t Js.prop
-  method wARNING : Js.js_string Js.t Js.prop
-  method yES : Js.number Js.t Js.prop
-  method yESNO : Js.number Js.t Js.prop
-  method yESNOCANCEL : Js.number Js.t Js.prop
+  method _CANCEL : Js.number Js.t Js.prop
+  method _ERROR : Js.js_string Js.t Js.prop
+  method _INFO : Js.js_string Js.t Js.prop
+  method _NO : Js.number Js.t Js.prop
+  method _OK : Js.number Js.t Js.prop
+  method _OKCANCEL : Js.number Js.t Js.prop
+  method _QUESTION : Js.js_string Js.t Js.prop
+  method _WARNING : Js.js_string Js.t Js.prop
+  method _YES : Js.number Js.t Js.prop
+  method _YESNO : Js.number Js.t Js.prop
+  method _YESNOCANCEL : Js.number Js.t Js.prop
   method buttonText : 'a Js.t Js.prop
   method defaultTextHeight : Js.number Js.t Js.prop
   method minProgressWidth : Js.number Js.t Js.prop

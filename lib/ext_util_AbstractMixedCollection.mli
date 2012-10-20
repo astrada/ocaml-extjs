@@ -549,7 +549,7 @@ summing fields in records, where the fields are all stored inside the 'data' obj
     {- start: [Js.number Js.t] {% <p>The record index to start at</p> %}
      Defaults to: 0
     }
-    {- end_: [Js.number Js.t] {% <p>The record index to end at</p> %}
+    {- _end: [Js.number Js.t] {% <p>The record index to end at</p> %}
      Defaults to: -1
     }
     }

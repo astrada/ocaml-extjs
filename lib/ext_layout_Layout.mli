@@ -7,7 +7,7 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method done_ : bool Js.t Js.prop
+  method _done : bool Js.t Js.prop
   (** {% <p>Used only during a layout run, this value indicates that a
 layout has finished its calculations. This flag is set to true prior to the call to
 <a href="#!/api/Ext.layout.Layout-method-calculate" rel="Ext.layout.Layout-method-calculate" class="docClass">calculate</a> and should be set to false if this layout has more work to do.</p> %}

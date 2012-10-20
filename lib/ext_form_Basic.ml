@@ -40,7 +40,7 @@ object('self)
   method api : 'a Js.t Js.prop
   method baseParams : 'a Js.t Js.prop
   method errorReader : Ext_data_reader_Reader.t Js.t Js.prop
-  method method_ : Js.js_string Js.t Js.prop
+  method _method : Js.js_string Js.t Js.prop
   method paramOrder : 'a Js.t Js.prop
   method paramsAsHash : bool Js.t Js.prop
   method reader : Ext_data_reader_Reader.t Js.t Js.prop

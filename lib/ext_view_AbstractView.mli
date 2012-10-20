@@ -109,7 +109,7 @@ the id of a template node or the record associated with the node.</p> %}
     {ul {- start: [Js.number Js.t]
     {% <p>The index of the first node in the range</p> %}
     }
-    {- end_: [Js.number Js.t]
+    {- _end: [Js.number Js.t]
     {% <p>The index of the last node in the range</p> %}
     }
     }

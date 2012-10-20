@@ -16,7 +16,7 @@ object('self)
   method isLessThanOrEqual : 'a Js.t -> bool Js.t Js.meth
   method lt : 'a Js.t -> bool Js.t Js.meth
   method ltEq : 'a Js.t -> bool Js.t Js.meth
-  method match_ : 'a Js.t -> bool Js.t Js.meth
+  method _match : 'a Js.t -> bool Js.t Js.meth
   method toArray : Js.number Js.t Js.js_array Js.t Js.meth
   
 end

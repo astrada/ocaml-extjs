@@ -136,10 +136,10 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method aSCLASS : Js.number Js.t Js.prop
-  method dISPLAY : Js.number Js.t Js.prop
-  method oFFSETS : Js.number Js.t Js.prop
-  method vISIBILITY : Js.number Js.t Js.prop
+  method _ASCLASS : Js.number Js.t Js.prop
+  method _DISPLAY : Js.number Js.t Js.prop
+  method _OFFSETS : Js.number Js.t Js.prop
+  method _VISIBILITY : Js.number Js.t Js.prop
   method fly : 'a Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   method fromPoint : Js.number Js.t -> Js.number Js.t -> Js.js_string Js.t
     Js.meth

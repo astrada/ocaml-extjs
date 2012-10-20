@@ -44,57 +44,57 @@ object('self)
   inherit Ext_panel_Panel.t
   inherit Ext_window_Window.t
   
-  method cANCEL : Js.number Js.t Js.prop
+  method _CANCEL : Js.number Js.t Js.prop
   (** {% <p>Button config that displays a single Cancel button</p> %}
     
     Defaults to: [8]
     *)
-  method eRROR : Js.js_string Js.t Js.prop
+  method _ERROR : Js.js_string Js.t Js.prop
   (** {% <p>The CSS class that provides the ERROR icon image</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'message-box-error']
     *)
-  method iNFO : Js.js_string Js.t Js.prop
+  method _INFO : Js.js_string Js.t Js.prop
   (** {% <p>The CSS class that provides the INFO icon image</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'message-box-info']
     *)
-  method nO : Js.number Js.t Js.prop
+  method _NO : Js.number Js.t Js.prop
   (** {% <p>Button config that displays a single No button</p> %}
     
     Defaults to: [4]
     *)
-  method oK : Js.number Js.t Js.prop
+  method _OK : Js.number Js.t Js.prop
   (** {% <p>Button config that displays a single OK button</p> %}
     
     Defaults to: [1]
     *)
-  method oKCANCEL : Js.number Js.t Js.prop
+  method _OKCANCEL : Js.number Js.t Js.prop
   (** {% <p>Button config that displays OK and Cancel buttons</p> %}
     
     Defaults to: [9]
     *)
-  method qUESTION : Js.js_string Js.t Js.prop
+  method _QUESTION : Js.js_string Js.t Js.prop
   (** {% <p>The CSS class that provides the QUESTION icon image</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'message-box-question']
     *)
-  method wARNING : Js.js_string Js.t Js.prop
+  method _WARNING : Js.js_string Js.t Js.prop
   (** {% <p>The CSS class that provides the WARNING icon image</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'message-box-warning']
     *)
-  method yES : Js.number Js.t Js.prop
+  method _YES : Js.number Js.t Js.prop
   (** {% <p>Button config that displays a single Yes button</p> %}
     
     Defaults to: [2]
     *)
-  method yESNO : Js.number Js.t Js.prop
+  method _YESNO : Js.number Js.t Js.prop
   (** {% <p>Button config that displays Yes and No buttons</p> %}
     
     Defaults to: [6]
     *)
-  method yESNOCANCEL : Js.number Js.t Js.prop
+  method _YESNOCANCEL : Js.number Js.t Js.prop
   (** {% <p>Button config that displays Yes, No and Cancel buttons</p> %}
     
     Defaults to: [14]

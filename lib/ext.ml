@@ -1,9 +1,9 @@
 class type t =
 object('self)
   
-  method bLANK_IMAGE_URL : Js.js_string Js.t Js.prop
-  method sSL_SECURE_URL : Js.js_string Js.t Js.prop
-  method uSE_NATIVE_JSON : bool Js.t Js.prop
+  method _BLANK_IMAGE_URL : Js.js_string Js.t Js.prop
+  method _SSL_SECURE_URL : Js.js_string Js.t Js.prop
+  method _USE_NATIVE_JSON : bool Js.t Js.prop
   method chromeVersion : Js.number Js.t Js.prop
   method emptyFn : 'a Js.t Js.prop
   method emptyString : 'a Js.t Js.prop

@@ -34,18 +34,18 @@ preventing dependency issues. For example:</p>
 class type t =
 object('self)
   
-  method bLANK_IMAGE_URL : Js.js_string Js.t Js.prop
+  method _BLANK_IMAGE_URL : Js.js_string Js.t Js.prop
   (** {% <p>URL to a 1x1 transparent gif image used by Ext to create inline icons with
 CSS background images. In older versions of IE, this defaults to
 "http://sencha.com/s.gif" and you should change this to a URL on your server.
 For other browsers it uses an inline data URL.</p> %}
     *)
-  method sSL_SECURE_URL : Js.js_string Js.t Js.prop
+  method _SSL_SECURE_URL : Js.js_string Js.t Js.prop
   (** {% <p>URL to a blank file used by Ext when in secure mode for iframe src and onReady src
 to prevent the IE insecure content warning (<code>'about:blank'</code>, except for IE
 in secure mode, which is <code>'javascript:""'</code>).</p> %}
     *)
-  method uSE_NATIVE_JSON : bool Js.t Js.prop
+  method _USE_NATIVE_JSON : bool Js.t Js.prop
   (** {% <p>Indicates whether to use native browser parsing for JSON methods.
 This option is ignored if the browser does not support native JSON methods.</p>
 
@@ -265,7 +265,7 @@ Note that if recursive merging and cloning without referencing the original obje
 <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a> instead.</p> %}
     
     {b Parameters}:
-    {ul {- object_: ['a Js.t]
+    {ul {- _object: ['a Js.t]
     {% <p>The receiver of the properties</p> %}
     }
     {- config: ['a Js.t]
@@ -285,7 +285,7 @@ Note that if recursive merging and cloning without referencing the original obje
   (** {% <p>Copies all the properties of config to object if they don't already exist.</p> %}
     
     {b Parameters}:
-    {ul {- object_: ['a Js.t]
+    {ul {- _object: ['a Js.t]
     {% <p>The receiver of the properties</p> %}
     }
     {- config: ['a Js.t]
@@ -1076,7 +1076,7 @@ operating system settings, such as the theme or font size.</p> %}
   (** {% <p>Returns true if the passed value is a JavaScript Date object, false otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- object_: ['a Js.t] {% <p>The object to test</p> %}
+    {ul {- _object: ['a Js.t] {% <p>The object to test</p> %}
     }
     }
     *)
@@ -1191,7 +1191,7 @@ operating system settings, such as the theme or font size.</p> %}
 <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> if the given value is iterable, and <a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> otherwise.</p> %}
     
     {b Parameters}:
-    {ul {- object_: ['a Js.t]
+    {ul {- _object: ['a Js.t]
     {% <p>The object or array to be iterated.</p> %}
     }
     {- fn: ['a Js.callback]
@@ -1296,7 +1296,7 @@ var sencha = <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-mer
     {ul {- destination: ['a Js.t]
     {% <p>The object into which all subsequent objects are merged.</p> %}
     }
-    {- object_: ['a Js.t]
+    {- _object: ['a Js.t]
     {% <p>Any number of objects to merge into the destination.</p> %}
     }
     }
@@ -1475,7 +1475,7 @@ may be looked up.</p> %}
     {- root: [Dom_html.element Js.t] {% <p>The start of the query.</p> %}
      Defaults to: document
     }
-    {- type_: [Js.js_string Js.t]
+    {- _type: [Js.js_string Js.t]
     {% <p>Either "select" or "simple" for a simple selector match (only valid when
 used when the call is deferred to the jsSelect method)</p> %}
     
@@ -1622,7 +1622,7 @@ test('just', 'testing', 'here'); // alerts 'just testing here';
     {- start: [Js.number Js.t]
     {% <p>a zero-based index that specifies the start of extraction. Defaults to 0</p> %}
     }
-    {- end_: [Js.number Js.t]
+    {- _end: [Js.number Js.t]
     {% <p>a 1-based index that specifies the end of extraction. Defaults to the last
 index of the iterable value</p> %}
     }

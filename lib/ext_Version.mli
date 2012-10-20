@@ -176,7 +176,7 @@ object('self)
     }
     }
     *)
-  method match_ : 'a Js.t -> bool Js.t Js.meth
+  method _match : 'a Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether this version matches the supplied argument. Example:</p>
 
 <pre><code>var version = new <a href="#!/api/Ext.Version" rel="Ext.Version" class="docClass">Ext.Version</a>('1.0.2beta');

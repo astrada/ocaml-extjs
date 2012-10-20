@@ -161,7 +161,7 @@ class that uses the Ext 4 class system).</p> %}
     }
     }
     *)
-  method raise_ : 'a Js.t -> unit Js.meth
+  method _raise : 'a Js.t -> unit Js.meth
   (** {% <p>Raise an error that can include additional data and supports automatic console logging if available.
 You can pass a string error message or an object with the <code>msg</code> attribute which will be used as the
 error message. The object can contain any other name-value attributes (or objects) to be logged
@@ -206,8 +206,8 @@ val static : statics Js.t
 val handle : 'self Js.t -> unit
 (** See method [statics.handle] *)
 
-val raise_ : 'a Js.t -> unit
-(** See method [statics.raise_] *)
+val _raise : 'a Js.t -> unit
+(** See method [statics._raise] *)
 
 val of_configs : configs Js.t -> t Js.t
 (** [of_configs c] casts a config object [c] to an instance of class [t] *)

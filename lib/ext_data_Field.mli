@@ -276,7 +276,7 @@ sortType: function(value) {
 }
 </code></pre> %}
     *)
-  method type_ : 'a Js.t Js.prop
+  method _type : 'a Js.t Js.prop
   (** {% <p>The data type for automatic conversion from received data to the <em>stored</em> value if
 <code><a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">convert</a></code> has not been specified. This may be specified as a string value.
 Possible values are</p>

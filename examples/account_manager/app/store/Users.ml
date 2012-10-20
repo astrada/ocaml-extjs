@@ -14,7 +14,7 @@ let _ =
        successProperty = Js.string "success";
     |}
   in
-  (Js.Unsafe.coerce reader)##type_ <- Js.string "json";
+  (Js.Unsafe.coerce reader)##_type <- Js.string "json";
 
   let api =
     {| read = Js.string "data/users.json";
@@ -23,7 +23,7 @@ let _ =
   in
 
   let proxy : Ext_data_proxy_Ajax.configs Js.t = {| |} in
-  (Js.Unsafe.coerce proxy)##type_ <- Js.string "ajax";
+  (Js.Unsafe.coerce proxy)##_type <- Js.string "ajax";
   proxy##api <- api;
   proxy##reader <- reader;
 

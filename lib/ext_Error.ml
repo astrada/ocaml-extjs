@@ -23,7 +23,7 @@ object
   method ignore : bool Js.t Js.prop
   method notify : bool Js.t Js.prop
   method handle : 'self Js.t -> unit Js.meth
-  method raise_ : 'a Js.t -> unit Js.meth
+  method _raise : 'a Js.t -> unit Js.meth
   
 end
 
@@ -35,7 +35,7 @@ let handle err =
     (Js.Unsafe.variable "handle")
     [|Js.Unsafe.inject err; |]
 
-let raise_ err =
+let _raise err =
   Js.Unsafe.meth_call
     static
     (Js.Unsafe.variable "raise")

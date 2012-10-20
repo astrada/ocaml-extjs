@@ -74,9 +74,9 @@ object
   inherit Ext_Base.statics
   inherit Ext_util_Observable.statics
   
-  method cOMMIT : Js.js_string Js.t Js.prop
-  method eDIT : Js.js_string Js.t Js.prop
-  method rEJECT : Js.js_string Js.t Js.prop
+  method _COMMIT : Js.js_string Js.t Js.prop
+  method _EDIT : Js.js_string Js.t Js.prop
+  method _REJECT : Js.js_string Js.t Js.prop
   method getFields : Ext_data_Field.t Js.js_array Js.t Js.meth
   method getProxy : 'a Js.t Js.meth
   method id : 'self Js.t -> Js.js_string Js.t Js.meth
@@ -94,11 +94,11 @@ let getFields () =
 let getProxy () =
   Js.Unsafe.meth_call static (Js.Unsafe.variable "getProxy") [||]
 
-let id rec_ =
+let id _rec =
   Js.Unsafe.meth_call
     static
     (Js.Unsafe.variable "id")
-    [|Js.Unsafe.inject rec_; |]
+    [|Js.Unsafe.inject _rec; |]
 
 let load id config =
   Js.Unsafe.meth_call

@@ -2,7 +2,7 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method done_ : bool Js.t Js.prop
+  method _done : bool Js.t Js.prop
   method isLayout : bool Js.t Js.prop
   method afterRemove : 'a Js.t -> unit Js.meth
   method beginLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth

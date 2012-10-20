@@ -64,7 +64,7 @@ buttons: [{
   method result : 'a Js.t Js.prop
   (** {% <p>The decoded response object containing a boolean <code>success</code> property and other, action-specific properties.</p> %}
     *)
-  method type_ : Js.js_string Js.t Js.prop
+  method _type : Js.js_string Js.t Js.prop
   (** {% <p>The type of action this Action instance performs. Currently only "submit" and "load" are supported.</p> %}
     *)
   method run : unit Js.meth
@@ -87,7 +87,7 @@ object('self)
   (** {% <p>Extra headers to be sent in the AJAX request for submit and load actions.
 See <a href="#!/api/Ext.data.proxy.Ajax-cfg-headers" rel="Ext.data.proxy.Ajax-cfg-headers" class="docClass">Ext.data.proxy.Ajax.headers</a>.</p> %}
     *)
-  method method_ : Js.js_string Js.t Js.prop
+  method _method : Js.js_string Js.t Js.prop
   (** {% <p>The HTTP method to use to access the requested URL.
 Defaults to the <a href="#!/api/Ext.form.Basic-cfg-method" rel="Ext.form.Basic-cfg-method" class="docClass">BasicForm's method</a>, or 'POST' if not specified.</p> %}
     *)
@@ -145,26 +145,26 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method cLIENT_INVALID : Js.js_string Js.t Js.prop
+  method _CLIENT_INVALID : Js.js_string Js.t Js.prop
   (** {% <p>Failure type returned when client side validation of the Form fails thus aborting a submit action. Client
 side validation is performed unless <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" rel="Ext.form.action.Submit-cfg-clientValidation" class="docClass">Ext.form.action.Submit.clientValidation</a> is explicitly set to
 false.</p> %}
     
     Defaults to: ['client']
     *)
-  method cONNECT_FAILURE : Js.js_string Js.t Js.prop
+  method _CONNECT_FAILURE : Js.js_string Js.t Js.prop
   (** {% <p>Failure type returned when a communication error happens when attempting to send a request to the remote
 server. The <a href="#!/api/Ext.form.action.Action-property-response" rel="Ext.form.action.Action-property-response" class="docClass">response</a> may be examined to provide further information.</p> %}
     
     Defaults to: ['connect']
     *)
-  method lOAD_FAILURE : Js.js_string Js.t Js.prop
+  method _LOAD_FAILURE : Js.js_string Js.t Js.prop
   (** {% <p>Failure type returned when the response's <code>success</code> property is set to false, or no field values are returned
 in the response's data property.</p> %}
     
     Defaults to: ['load']
     *)
-  method sERVER_INVALID : Js.js_string Js.t Js.prop
+  method _SERVER_INVALID : Js.js_string Js.t Js.prop
   (** {% <p>Failure type returned when server side processing fails and the <a href="#!/api/Ext.form.action.Action-property-result" rel="Ext.form.action.Action-property-result" class="docClass">result</a>'s <code>success</code> property is set to
 false.</p>
 

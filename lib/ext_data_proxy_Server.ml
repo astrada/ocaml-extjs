@@ -56,7 +56,7 @@ object
   inherit Ext_Base.events
   inherit Ext_data_proxy_Proxy.events
   
-  method exception_ : (#Ext_data_proxy_Proxy.t Js.t -> 'a Js.t ->
+  method _exception : (#Ext_data_proxy_Proxy.t Js.t -> 'a Js.t ->
     Ext_data_Operation.t Js.t -> 'b Js.t -> unit) Js.callback
     Js.writeonly_prop
   

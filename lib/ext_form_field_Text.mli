@@ -275,7 +275,7 @@ Also adds <strong><a href="#!/api/Ext.form.field.Text-cfg-emptyText" rel="Ext.fo
     {% <p>The index where the selection should start</p> %}
      Defaults to: 0
     }
-    {- end_: [Js.number Js.t]
+    {- _end: [Js.number Js.t]
     {% <p>The index where the selection should end (defaults to the text length)</p> %}
     }
     }

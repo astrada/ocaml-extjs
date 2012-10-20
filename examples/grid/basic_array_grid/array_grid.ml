@@ -24,25 +24,25 @@ let _ =
          |};
          Js.Unsafe.inject {|
             name = Js.string "price";
-            type_ = Js.string "float";
+            _type = Js.string "float";
             convert = Js.null;
             defaultValue = Js.undefined;
          |};
          Js.Unsafe.inject {|
             name = Js.string "change";
-            type_ = Js.string "float";
+            _type = Js.string "float";
             convert = Js.null;
             defaultValue = Js.undefined;
          |};
          Js.Unsafe.inject {|
             name = Js.string "pctChange";
-            type_ = Js.string "float";
+            _type = Js.string "float";
             convert = Js.null;
             defaultValue = Js.undefined;
          |};
          Js.Unsafe.inject {|
             name = Js.string "lastChange";
-            type_ = Js.string "date";
+            _type = Js.string "date";
             dateFormat = Js.some (Js.string "n/j h:ia");
             defaultValue = Js.undefined;
          |};

@@ -19,7 +19,7 @@ object('self)
   method action : Js.js_string Js.t Js.prop
   (** {% <p>The name of the action this Request represents. Usually one of 'create', 'read', 'update' or 'destroy'.</p> %}
     *)
-  method method_ : Js.js_string Js.t Js.prop
+  method _method : Js.js_string Js.t Js.prop
   (** {% <p>The HTTP method to use on this Request. Should be one of 'GET', 'POST', 'PUT' or 'DELETE'.</p> %}
     
     Defaults to: ['GET']

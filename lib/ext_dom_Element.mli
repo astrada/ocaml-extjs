@@ -2291,7 +2291,7 @@ object
   inherit Ext_Base.events
   inherit Ext_dom_AbstractElement.events
   
-  method dOMActivate : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
+  method _DOMActivate : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
     'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when an element is activated, for instance, through a mouse click or a keypress.</p> %}
     
@@ -2307,7 +2307,7 @@ object
     }
     }
     *)
-  method dOMAttrModified : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
+  method _DOMAttrModified : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
     -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when an attribute has been modified.</p> %}
     
@@ -2323,7 +2323,7 @@ object
     }
     }
     *)
-  method dOMCharacterDataModified : (Ext_EventObject.t Js.t ->
+  method _DOMCharacterDataModified : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when the character data has been modified.</p> %}
     
@@ -2339,7 +2339,7 @@ object
     }
     }
     *)
-  method dOMFocusIn : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
+  method _DOMFocusIn : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
     'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Similar to HTML focus event, but can be applied to any focusable element.</p> %}
     
@@ -2355,7 +2355,7 @@ object
     }
     }
     *)
-  method dOMFocusOut : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
+  method _DOMFocusOut : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
     'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Similar to HTML blur event, but can be applied to any focusable element.</p> %}
     
@@ -2371,7 +2371,7 @@ object
     }
     }
     *)
-  method dOMNodeInserted : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
+  method _DOMNodeInserted : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
     -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a node has been added as a child of another node.</p> %}
     
@@ -2387,7 +2387,7 @@ object
     }
     }
     *)
-  method dOMNodeInsertedIntoDocument : (Ext_EventObject.t Js.t ->
+  method _DOMNodeInsertedIntoDocument : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a node is being inserted into a document.</p> %}
     
@@ -2403,8 +2403,8 @@ object
     }
     }
     *)
-  method dOMNodeRemoved : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
-    'a Js.t -> unit) Js.callback Js.writeonly_prop
+  method _DOMNodeRemoved : (Ext_EventObject.t Js.t -> Dom_html.element Js.t
+    -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a descendant node of the element is removed.</p> %}
     
     {b Parameters}:
@@ -2419,7 +2419,7 @@ object
     }
     }
     *)
-  method dOMNodeRemovedFromDocument : (Ext_EventObject.t Js.t ->
+  method _DOMNodeRemovedFromDocument : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when a node is being removed from a document.</p> %}
     
@@ -2435,7 +2435,7 @@ object
     }
     }
     *)
-  method dOMSubtreeModified : (Ext_EventObject.t Js.t ->
+  method _DOMSubtreeModified : (Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> 'a Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Where supported. Fires when the subtree is modified.</p> %}
     

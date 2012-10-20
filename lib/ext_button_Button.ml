@@ -95,7 +95,7 @@ object('self)
   method toggleHandler : 'a Js.callback Js.prop
   method tooltip : 'a Js.t Js.prop
   method tooltipType : Js.js_string Js.t Js.prop
-  method type_ : Js.js_string Js.t Js.prop
+  method _type : Js.js_string Js.t Js.prop
   
 end
 
