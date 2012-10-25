@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: eb125bb82e30468723c8aa10aedb6b4c) *)
+(* DO NOT EDIT (digest: 93a350cbc4ebded3a3f68ca4cace7a86) *)
 module OASISGettext = struct
 (* # 21 "/home/alex/.odb/install-oasis/oasis-0.3.0/src/oasis/OASISGettext.ml" *)
 
@@ -484,7 +484,8 @@ let package_default =
           ("helloext", ["examples/helloext"]);
           ("account_manager", ["examples/account_manager"]);
           ("basic_array_grid", ["examples/grid/basic_array_grid"]);
-          ("basic_tabs", ["examples/tabs/basic_tabs"])
+          ("basic_tabs", ["examples/tabs/basic_tabs"]);
+          ("message_box", ["examples/message_box"])
        ];
      lib_c = [("oextjs", "lib", [])];
      flags =
@@ -510,6 +511,7 @@ let package_default =
      includes =
        [
           ("examples/tabs/basic_tabs", ["lib"]);
+          ("examples/message_box", ["lib"]);
           ("examples/helloext", ["lib"]);
           ("examples/grid/basic_array_grid", ["lib"]);
           ("examples/account_manager/app/view/user",
@@ -558,7 +560,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 562 "myocamlbuild.ml"
+# 564 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 (* Turn on verbose logging *)
@@ -585,6 +587,10 @@ dep ["basic_array_grid"]
  * specified in _tags *)
 dep ["basic_tabs"]
   ["examples/tabs/basic_tabs/tabs.js"];;
+(* build message_box client scripts if message_box dependency is
+ * specified in _tags *)
+dep ["message_box"]
+  ["examples/message_box/msg_box.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"

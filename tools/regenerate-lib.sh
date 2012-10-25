@@ -201,4 +201,6 @@ echo Ext.state.Manager
 ./libgen.byte tools/jsduck/Ext.state.Manager.json
 echo Ext.util.Format
 ./libgen.byte tools/jsduck/Ext.util.Format.json
+echo Ext.MessageBox
+./libgen.byte tools/jsduck/Ext.MessageBox.json
 

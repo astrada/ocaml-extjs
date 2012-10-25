@@ -132,6 +132,7 @@ Library oextjs
     Ext_window_MessageBox,
     Ext_window_Window,
     Ext_ZIndexManager,
+    Ext_MessageBox,
     ExtUtils
   BuildDepends: js_of_ocaml, js_of_ocaml.syntax
   CompiledObject: byte
@@ -204,6 +205,14 @@ Library basic_tabs
   Install: false
   Path: examples/tabs/basic_tabs
   InternalModules: Tabs
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+
+Library message_box
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/message_box
+  InternalModules: Msg_box
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 
