@@ -1,5 +1,5 @@
 let () =
-  Ext_Loader.instance##require(
+  Ext.instance##require(
     Js.array [|
       Js.string "Ext.window.MessageBox";
       Js.string "Ext.tip.*"
@@ -31,7 +31,7 @@ let showResultText = (fun btn text _ ->
 )
 
 let () =
-  Ext_Loader.instance##onReady(
+  Ext.instance##onReady(
     Js.wrap_callback (fun () ->
       let _ =
         Ext.instance##get(Js.string "mb1")##on(Js.string "click",
@@ -230,5 +230,5 @@ let () =
       in ()
     ),
     ExtUtils.undef,
-    Js._true)
+    ExtUtils.undef)
 

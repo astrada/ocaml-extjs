@@ -19,15 +19,7 @@ let () =
     |}
   in
 
-  (* Should be equivalent to
-   * Ext.instance##require(
-       Js.string "Ext.container.Viewport",
-       Js.undefined,
-       Js.undefined,
-       Js.undefined);
-   * but Ext.require documentation does not report parameters, so "require"
-   * method in Ext generated module does not work. *)
-  Ext_Loader.instance##require(
+  Ext.instance##require(
     Js.string "Ext.container.Viewport",
     Js.undefined,
     Js.undefined,

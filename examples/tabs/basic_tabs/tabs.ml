@@ -1,12 +1,12 @@
 let () =
-  Ext_Loader.instance##require(
+  Ext.instance##require(
     Js.string "Ext.tab.*",
     Js.undefined,
     Js.undefined,
     Js.undefined)
 
 let () =
-  Ext_Loader.instance##onReady(
+  Ext.instance##onReady(
     Js.wrap_callback (fun () ->
       (* basic tabs 1, built from existing content *)
       let _ =
@@ -89,5 +89,5 @@ let () =
         |})) in ()
     ),
     ExtUtils.undef,
-    Js._true)
+    ExtUtils.undef)
 

@@ -1,5 +1,5 @@
 let () =
-  Ext_Loader.instance##require(
+  Ext.instance##require(
     Js.array [|
       Js.string "Ext.grid.*";
       Js.string "Ext.data.*";
@@ -52,7 +52,7 @@ let _ =
     ExtUtils.undef)
 
 let () =
-  Ext_Loader.instance##onReady(
+  Ext.instance##onReady(
     Js.wrap_callback (fun () ->
       (* Using get_instance to access singleton, because Ext.tip.QuickTipManager
        * is lazy-loaded. *)
@@ -410,5 +410,5 @@ let () =
         |}))
     ),
     ExtUtils.undef,
-    Js._true)
+    ExtUtils.undef)
 
