@@ -216,3 +216,11 @@ Library message_box
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 
+Library window
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/window/window
+  InternalModules: Window
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+

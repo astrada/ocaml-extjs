@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 93a350cbc4ebded3a3f68ca4cace7a86) *)
+(* DO NOT EDIT (digest: 1a94fa2f8b6aa155ad161aacfba364f0) *)
 module OASISGettext = struct
 (* # 21 "/home/alex/.odb/install-oasis/oasis-0.3.0/src/oasis/OASISGettext.ml" *)
 
@@ -485,7 +485,8 @@ let package_default =
           ("account_manager", ["examples/account_manager"]);
           ("basic_array_grid", ["examples/grid/basic_array_grid"]);
           ("basic_tabs", ["examples/tabs/basic_tabs"]);
-          ("message_box", ["examples/message_box"])
+          ("message_box", ["examples/message_box"]);
+          ("window", ["examples/window/window"])
        ];
      lib_c = [("oextjs", "lib", [])];
      flags =
@@ -510,6 +511,7 @@ let package_default =
        ];
      includes =
        [
+          ("examples/window/window", ["lib"]);
           ("examples/tabs/basic_tabs", ["lib"]);
           ("examples/message_box", ["lib"]);
           ("examples/helloext", ["lib"]);
@@ -560,7 +562,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 564 "myocamlbuild.ml"
+# 566 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 (* Turn on verbose logging *)
@@ -570,8 +572,7 @@ let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
  * _tags *)
 dep ["helloext_client"]
   ["examples/helloext/app.js"];;
-(* build account manager client scripts if account_manager_client dependency is
- * specified in _tags *)
+(* account manager client *)
 dep ["account_manager_client"]
   ["examples/account_manager/app.js";
    "examples/account_manager/app/controller/Users.js";
@@ -579,18 +580,18 @@ dep ["account_manager_client"]
    "examples/account_manager/app/view/user/Edit.js";
    "examples/account_manager/app/store/Users.js";
    "examples/account_manager/app/model/User.js"];;
-(* build basic array grid client scripts if basic_array_grid dependency is
- * specified in _tags *)
+(* basic array grid *)
 dep ["basic_array_grid"]
   ["examples/grid/basic_array_grid/array_grid.js"];;
-(* build basic tabs client scripts if basic_tabs dependency is
- * specified in _tags *)
+(* basic tabs *)
 dep ["basic_tabs"]
   ["examples/tabs/basic_tabs/tabs.js"];;
-(* build message_box client scripts if message_box dependency is
- * specified in _tags *)
+(* message box *)
 dep ["message_box"]
   ["examples/message_box/msg_box.js"];;
+(* window *)
+dep ["window"]
+  ["examples/window/window/window.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"

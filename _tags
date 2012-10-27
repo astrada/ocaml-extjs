@@ -2,7 +2,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 57466054cf906833c8d758af66310b9d)
+# DO NOT EDIT (digest: 841357c146d566f31af70f7e1be98a1e)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -73,6 +73,11 @@
 <examples/message_box/*.ml{,i}>: use_oextjs
 <examples/message_box/*.ml{,i}>: pkg_js_of_ocaml
 <examples/message_box/*.ml{,i}>: pkg_js_of_ocaml.syntax
+# Library window
+"examples/window/window/window.cmxs": use_window
+<examples/window/window/*.ml{,i}>: use_oextjs
+<examples/window/window/*.ml{,i}>: pkg_js_of_ocaml
+<examples/window/window/*.ml{,i}>: pkg_js_of_ocaml.syntax
 # OASIS_STOP
 
 "examples/account_manager": -include
@@ -116,4 +121,9 @@
 # build message_box/msg_box.js
 "examples/message_box/msg_box.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 <examples/message_box/message_box.cm{a,xa}>: message_box
+
+# Window
+# build window/window/window.js
+"examples/window/window/window.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+<examples/window/window/window.cm{a,xa}>: window
 
