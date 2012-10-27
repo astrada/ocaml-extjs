@@ -519,7 +519,7 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 });
 </code></pre>
 
-<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base.borrow</a> instead.</p> 
+<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base-static-method-borrow" rel="Ext.Base-static-method-borrow" class="docClass">Ext.Base.borrow</a> instead.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -608,10 +608,20 @@ the class' constructor.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODcreateByAlias"><span class="keyword">method</span> createByAlias</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a></p> <br>
+<pre><span id="METHODcreateByAlias"><span class="keyword">method</span> createByAlias</span> : <code class="type">'d1 'e1. Js.js_string Js.t -> 'd1 Js.t -> 'e1 Js.t Js.meth</code></pre><div class="info">
+<p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>alias: <code class="code">Js.js_string Js.t</code>
+    </li>
+<li>args: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
 </div>
-<pre><span id="METHODdecode"><span class="keyword">method</span> decode</span> : <code class="type">'d1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'd1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdecode"><span class="keyword">method</span> decode</span> : <code class="type">'f1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'f1 Js.t Js.meth</code></pre><div class="info">
 <p>Shorthand for <a href="#!/api/Ext.JSON-method-decode" rel="Ext.JSON-method-decode" class="docClass">Ext.JSON.decode</a></p>
 
 <p>Decodes (parses) a JSON string to an object. If the JSON is invalid, this function throws
@@ -638,7 +648,7 @@ a SyntaxError unless the safe option is set.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdefer"><span class="keyword">method</span> defer</span> : <code class="type">'e1 'f1 'g1 'h1.<br>         'e1 Js.callback -><br>         Js.number Js.t -><br>         'f1 Js.t Js.optdef -><br>         'g1 Js.js_array Js.t Js.optdef -><br>         'h1 Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdefer"><span class="keyword">method</span> defer</span> : <code class="type">'g1 'h1 'i1 'j1.<br>         'g1 Js.callback -><br>         Js.number Js.t -><br>         'h1 Js.t Js.optdef -><br>         'i1 Js.js_array Js.t Js.optdef -><br>         'j1 Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Calls this function after the number of millseconds specified, optionally in a specific scope. Example usage:</p>
 
 <pre><code>var sayHi = function(name){
@@ -693,7 +703,7 @@ if a number the args are inserted at the specified position</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdefine"><span class="keyword">method</span> define</span> : <code class="type">'i1 'j1 'k1.<br>         Js.js_string Js.t -><br>         'i1 Js.t -> 'j1 Js.callback -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'k1) Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdefine"><span class="keyword">method</span> define</span> : <code class="type">'k1 'l1 'm1.<br>         Js.js_string Js.t -><br>         'k1 Js.t -> 'l1 Js.callback -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'm1) Js.t Js.meth</code></pre><div class="info">
 <p>Defines a class or override. A basic class is defined like this:</p>
 
 <pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.awesome.Class', {
@@ -863,7 +873,7 @@ strings, except those in the reserved listed below:
 </ul>
 <br>
 </div>
-<pre><span id="METHODdeprecate"><span class="keyword">method</span> deprecate</span> : <code class="type">'l1 'm1.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -> 'l1 Js.callback -> 'm1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODdeprecate"><span class="keyword">method</span> deprecate</span> : <code class="type">'n1 'o1.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -> 'n1 Js.callback -> 'o1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Create a closure for deprecated code.</p>
 
 <pre><code>// This means Ext.oldMethod is only supported in 4.0.0beta and older.
@@ -894,7 +904,7 @@ strings, except those in the reserved listed below:
 </ul>
 <br>
 </div>
-<pre><span id="METHODdestroy"><span class="keyword">method</span> destroy</span> : <code class="type">'n1. 'n1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODdestroy"><span class="keyword">method</span> destroy</span> : <code class="type">'p1. 'p1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Attempts to destroy any objects passed to it by removing all event listeners, removing them from the
 DOM (if applicable) and calling their destroy functions (if available).  This method is primarily
 intended for arguments of type <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, but any subclass of
@@ -910,7 +920,7 @@ passed into this function in a single call as separate arguments.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdestroyMembers"><span class="keyword">method</span> destroyMembers</span> : <code class="type">'o1. 'o1 Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODdestroyMembers"><span class="keyword">method</span> destroyMembers</span> : <code class="type">'q1. 'q1 Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Attempts to destroy and then remove a set of named properties of the passed object.</p> 
 <p>
 
@@ -925,7 +935,7 @@ passed into this function in a single call as separate arguments.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODeach"><span class="keyword">method</span> each</span> : <code class="type">'p1 'q1 'r1.<br>         'p1 Js.t -><br>         'q1 Js.callback -><br>         'r1 Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODeach"><span class="keyword">method</span> each</span> : <code class="type">'r1 's1 't1.<br>         'r1 Js.t -><br>         's1 Js.callback -><br>         't1 Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Iterates an array or an iterable value and invoke the given callback function for each item.</p>
 
 <pre><code>var countries = ['Vietnam', 'Singapore', 'United States', 'Russia'];
@@ -988,7 +998,7 @@ Defaults false</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODencode"><span class="keyword">method</span> encode</span> : <code class="type">'s1. 's1 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODencode"><span class="keyword">method</span> encode</span> : <code class="type">'u1. 'u1 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Shorthand for <a href="#!/api/Ext.JSON-method-encode" rel="Ext.JSON-method-encode" class="docClass">Ext.JSON.encode</a></p>
 
 <p>Encodes an Object, Array or other value.</p>
@@ -1015,10 +1025,18 @@ of the object.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODexclude"><span class="keyword">method</span> exclude</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Convenient shortcut to <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a></p> <br>
+<pre><span id="METHODexclude"><span class="keyword">method</span> exclude</span> : <code class="type">'v1 'w1. 'v1 Js.js_array Js.t -> 'w1 Js.t Js.meth</code></pre><div class="info">
+<p>Convenient shortcut to <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>excludes: <code class="code">_ Js.js_array Js.t</code>
+    </li>
+</ul>
+<br>
 </div>
-<pre><span id="METHODfly"><span class="keyword">method</span> fly</span> : <code class="type">'t1.<br>         't1 Js.t -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_dom_AbstractElement_Fly.t-c.html">Ext_dom_AbstractElement_Fly.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfly"><span class="keyword">method</span> fly</span> : <code class="type">'x1.<br>         'x1 Js.t -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_dom_AbstractElement_Fly.t-c.html">Ext_dom_AbstractElement_Fly.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Gets the singleton <a href="#!/api/Ext.dom.AbstractElement.Fly" rel="Ext.dom.AbstractElement.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
 
 <p>Because it is a singleton, this Flyweight does not have an ID, and must be used and discarded in a single line.
@@ -1053,7 +1071,7 @@ internally Ext uses "_global")</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODget"><span class="keyword">method</span> get</span> : <code class="type">'u1. 'u1 Js.t -> <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODget"><span class="keyword">method</span> get</span> : <code class="type">'y1. 'y1 Js.t -> <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> objects. <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">get</a> is alias for <a href="#!/api/Ext.dom.Element-static-method-get" rel="Ext.dom.Element-static-method-get" class="docClass">Ext.dom.Element.get</a>.</p>
 
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
@@ -1080,23 +1098,30 @@ the same id via AJAX or DOM.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetBody"><span class="keyword">method</span> getBody</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Returns the current document body as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> 
+<pre><span id="METHODgetBody"><span class="keyword">method</span> getBody</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Returns the current document body as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
+</div>
+<pre><span id="METHODgetClass"><span class="keyword">method</span> getClass</span> : <code class="type">'z1. 'z1 Js.t -> <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-getClass" rel="Ext.ClassManager-method-getClass" class="docClass">Ext.ClassManager.getClass</a></p> 
 <p>
 
-    <b>Returns</b>:
+    <b>Parameters</b>:
     <ul>
-<li><code class="code">unit</code>
-    <p><a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> The document body</p> 
+<li>object: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetClass"><span class="keyword">method</span> getClass</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-getClass" rel="Ext.ClassManager-method-getClass" class="docClass">Ext.ClassManager.getClass</a></p> <br>
-</div>
-<pre><span id="METHODgetClassName"><span class="keyword">method</span> getClassName</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-getName" rel="Ext.ClassManager-method-getName" class="docClass">Ext.ClassManager.getName</a></p> <br>
+<pre><span id="METHODgetClassName"><span class="keyword">method</span> getClassName</span> : <code class="type">'a2. 'a2 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-getName" rel="Ext.ClassManager-method-getName" class="docClass">Ext.ClassManager.getName</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>object: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
 </div>
 <pre><span id="METHODgetCmp"><span class="keyword">method</span> getCmp</span> : <code class="type">Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>This is shorthand reference to <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.
@@ -1121,19 +1146,10 @@ Class was found.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetDoc"><span class="keyword">method</span> getDoc</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Returns the current HTML document object as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">unit</code>
-    <p><a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> The document</p> 
-    </li>
-</ul>
-<br>
+<pre><span id="METHODgetDoc"><span class="keyword">method</span> getDoc</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Returns the current HTML document object as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
 </div>
-<pre><span id="METHODgetDom"><span class="keyword">method</span> getDom</span> : <code class="type">'v1. 'v1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetDom"><span class="keyword">method</span> getDom</span> : <code class="type">'b2. 'b2 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Returns the dom node for the passed String (id), dom node, or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.
 Optional 'strict' flag is needed for IE since it can return 'name' and
 'id' elements by using getElementById.</p>
@@ -1172,17 +1188,8 @@ when this method is called to be successful.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetHead"><span class="keyword">method</span> getHead</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Returns the current document head as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">unit</code>
-    <p><a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> The document head</p> 
-    </li>
-</ul>
-<br>
+<pre><span id="METHODgetHead"><span class="keyword">method</span> getHead</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Returns the current document head as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
 </div>
 <pre><span id="METHODgetOrientation"><span class="keyword">method</span> getOrientation</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Returns the current orientation of the mobile device</p> 
@@ -1196,7 +1203,7 @@ when this method is called to be successful.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetScrollbarSize"><span class="keyword">method</span> getScrollbarSize</span> : <code class="type">'w1. bool Js.t Js.optdef -> 'w1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetScrollbarSize"><span class="keyword">method</span> getScrollbarSize</span> : <code class="type">'c2. bool Js.t Js.optdef -> 'c2 Js.t Js.meth</code></pre><div class="info">
 <p>Returns the size of the browser scrollbars. This can differ depending on
 operating system settings, such as the theme or font size.</p> 
 <p>
@@ -1217,7 +1224,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetStore"><span class="keyword">method</span> getStore</span> : <code class="type">'x1. 'x1 Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetStore"><span class="keyword">method</span> getStore</span> : <code class="type">'d2. 'd2 Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Shortcut to <a href="#!/api/Ext.data.StoreManager-method-lookup" rel="Ext.data.StoreManager-method-lookup" class="docClass">Ext.data.StoreManager.lookup</a>.</p>
 
 <p>Gets a registered Store by id</p> 
@@ -1252,7 +1259,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">'y1.<br>         'y1 Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">'e2.<br>         'e2 Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Generates unique ids. If the element already has an id, it is unchanged</p> 
 <p>
 
@@ -1275,7 +1282,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisArray"><span class="keyword">method</span> isArray</span> : <code class="type">'z1. 'z1 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisArray"><span class="keyword">method</span> isArray</span> : <code class="type">'f2. 'f2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a JavaScript Array, false otherwise.</p> 
 <p>
 
@@ -1286,7 +1293,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisBoolean"><span class="keyword">method</span> isBoolean</span> : <code class="type">'a2. 'a2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisBoolean"><span class="keyword">method</span> isBoolean</span> : <code class="type">'g2. 'g2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a boolean.</p> 
 <p>
 
@@ -1297,7 +1304,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisDate"><span class="keyword">method</span> isDate</span> : <code class="type">'b2. 'b2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisDate"><span class="keyword">method</span> isDate</span> : <code class="type">'h2. 'h2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a JavaScript Date object, false otherwise.</p> 
 <p>
 
@@ -1308,7 +1315,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisDefined"><span class="keyword">method</span> isDefined</span> : <code class="type">'c2. 'c2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisDefined"><span class="keyword">method</span> isDefined</span> : <code class="type">'i2. 'i2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is defined.</p> 
 <p>
 
@@ -1319,7 +1326,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisElement"><span class="keyword">method</span> isElement</span> : <code class="type">'d2. 'd2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisElement"><span class="keyword">method</span> isElement</span> : <code class="type">'j2. 'j2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is an HTMLElement</p> 
 <p>
 
@@ -1330,7 +1337,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisEmpty"><span class="keyword">method</span> isEmpty</span> : <code class="type">'e2. 'e2 Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisEmpty"><span class="keyword">method</span> isEmpty</span> : <code class="type">'k2. 'k2 Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is empty, false otherwise. The value is deemed to be empty if it is either:</p>
 
 <ul>
@@ -1352,7 +1359,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisFunction"><span class="keyword">method</span> isFunction</span> : <code class="type">'f2. 'f2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisFunction"><span class="keyword">method</span> isFunction</span> : <code class="type">'l2. 'l2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a JavaScript Function, false otherwise.</p> 
 <p>
 
@@ -1363,7 +1370,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisIterable"><span class="keyword">method</span> isIterable</span> : <code class="type">'g2. 'g2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisIterable"><span class="keyword">method</span> isIterable</span> : <code class="type">'m2. 'm2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is iterable, false otherwise</p> 
 <p>
 
@@ -1374,7 +1381,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisNumber"><span class="keyword">method</span> isNumber</span> : <code class="type">'h2. 'h2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisNumber"><span class="keyword">method</span> isNumber</span> : <code class="type">'n2. 'n2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a number. Returns false for non-finite numbers.</p> 
 <p>
 
@@ -1385,7 +1392,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisNumeric"><span class="keyword">method</span> isNumeric</span> : <code class="type">'i2. 'i2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisNumeric"><span class="keyword">method</span> isNumeric</span> : <code class="type">'o2. 'o2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Validates that a value is numeric.</p> 
 <p>
 
@@ -1405,7 +1412,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisObject"><span class="keyword">method</span> isObject</span> : <code class="type">'j2. 'j2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisObject"><span class="keyword">method</span> isObject</span> : <code class="type">'p2. 'p2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a JavaScript Object, false otherwise.</p> 
 <p>
 
@@ -1416,7 +1423,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisPrimitive"><span class="keyword">method</span> isPrimitive</span> : <code class="type">'k2. 'k2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisPrimitive"><span class="keyword">method</span> isPrimitive</span> : <code class="type">'q2. 'q2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a JavaScript 'primitive', a string, number or boolean.</p> 
 <p>
 
@@ -1427,7 +1434,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisString"><span class="keyword">method</span> isString</span> : <code class="type">'l2. 'l2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisString"><span class="keyword">method</span> isString</span> : <code class="type">'r2. 'r2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a string.</p> 
 <p>
 
@@ -1438,7 +1445,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisTextNode"><span class="keyword">method</span> isTextNode</span> : <code class="type">'m2. 'm2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisTextNode"><span class="keyword">method</span> isTextNode</span> : <code class="type">'s2. 's2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the passed value is a TextNode</p> 
 <p>
 
@@ -1449,7 +1456,7 @@ operating system settings, such as the theme or font size.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODiterate"><span class="keyword">method</span> iterate</span> : <code class="type">'n2 'o2 'p2.<br>         'n2 Js.t -> 'o2 Js.callback -> 'p2 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODiterate"><span class="keyword">method</span> iterate</span> : <code class="type">'t2 'u2 'v2.<br>         't2 Js.t -> 'u2 Js.callback -> 'v2 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Iterates either an array or an object. This method delegates to
 <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> if the given value is iterable, and <a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> otherwise.</p> 
 <p>
@@ -1471,7 +1478,7 @@ Defaults to the object being iterated itself.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODlog"><span class="keyword">method</span> log</span> : <code class="type">'q2. 'q2 Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODlog"><span class="keyword">method</span> log</span> : <code class="type">'w2. 'w2 Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Logs a message. If a console is present it will be used. On Opera, the method
 "opera.postError" is called. In other cases, the message is logged to an array
 "Ext.log.out". An attached debugger can watch this array and view the log. The
@@ -1520,7 +1527,7 @@ options object).</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODmerge"><span class="keyword">method</span> merge</span> : <code class="type">'r2 's2 't2. 'r2 Js.t -> 's2 Js.t -> 't2 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODmerge"><span class="keyword">method</span> merge</span> : <code class="type">'x2 'y2 'z2. 'x2 Js.t -> 'y2 Js.t -> 'z2 Js.t Js.meth</code></pre><div class="info">
 <p>A convenient alias method for <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a>.</p>
 
 <p>Merges any number of objects recursively without referencing them or their children.</p>
@@ -1581,7 +1588,7 @@ var sencha = <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-mer
 </ul>
 <br>
 </div>
-<pre><span id="METHODnamespace"><span class="keyword">method</span> namespace</span> : <code class="type">'u2. Js.js_string Js.t -> 'u2 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODnamespace"><span class="keyword">method</span> namespace</span> : <code class="type">'a3. Js.js_string Js.t -> 'a3 Js.t Js.meth</code></pre><div class="info">
 <p>Creates namespaces to be used for scoping variables and classes so that they are not global.
 Specifying the last node of a namespace implicitly creates all other nodes. Usage:</p>
 
@@ -1613,7 +1620,7 @@ Company.data.CustomStore = function(config) { ... };
 </ul>
 <br>
 </div>
-<pre><span id="METHODns"><span class="keyword">method</span> ns</span> : <code class="type">'v2. Js.js_string Js.t -> 'v2 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODns"><span class="keyword">method</span> ns</span> : <code class="type">'b3. Js.js_string Js.t -> 'b3 Js.t Js.meth</code></pre><div class="info">
 <p>Convenient alias for <a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>.</p>
 
 <p>Creates namespaces to be used for scoping variables and classes so that they are not global.
@@ -1647,13 +1654,37 @@ Company.data.CustomStore = function(config) { ... };
 </ul>
 <br>
 </div>
-<pre><span id="METHODonDocumentReady"><span class="keyword">method</span> onDocumentReady</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Alias for <a href="#!/api/Ext.EventManager-method-onDocumentReady" rel="Ext.EventManager-method-onDocumentReady" class="docClass">Ext.EventManager.onDocumentReady</a></p> <br>
+<pre><span id="METHODonDocumentReady"><span class="keyword">method</span> onDocumentReady</span> : <code class="type">'c3 'd3 'e3.<br>         'c3 Js.callback -> 'd3 Js.t Js.optdef -> 'e3 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Alias for <a href="#!/api/Ext.EventManager-method-onDocumentReady" rel="Ext.EventManager-method-onDocumentReady" class="docClass">Ext.EventManager.onDocumentReady</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    </li>
+<li>options: <code class="code">_ Js.t</code> (optional)
+    </li>
+</ul>
+<br>
 </div>
-<pre><span id="METHODonReady"><span class="keyword">method</span> onReady</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Alias for <a href="#!/api/Ext.Loader-method-onReady" rel="Ext.Loader-method-onReady" class="docClass">Ext.Loader.onReady</a> with withDomReady set to true</p> <br>
+<pre><span id="METHODonReady"><span class="keyword">method</span> onReady</span> : <code class="type">'f3 'g3 'h3. 'f3 Js.callback -> 'g3 Js.t -> 'h3 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Alias for <a href="#!/api/Ext.Loader-method-onReady" rel="Ext.Loader-method-onReady" class="docClass">Ext.Loader.onReady</a> with withDomReady set to true</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    </li>
+<li>scope: <code class="code">_ Js.t</code>
+    </li>
+<li>options: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
 </div>
-<pre><span id="METHODoverride"><span class="keyword">method</span> override</span> : <code class="type">'w2 'x2. 'w2 Js.t -> 'x2 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODoverride"><span class="keyword">method</span> override</span> : <code class="type">'i3 'j3. 'i3 Js.t -> 'j3 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Overrides members of the specified <code>target</code> with the given values.</p>
 
 <p>If the <code>target</code> is a class declared using <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>, the
@@ -1696,7 +1727,7 @@ further details.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODpass"><span class="keyword">method</span> pass</span> : <code class="type">'y2 'z2 'a3 'b3.<br>         'y2 Js.callback -><br>         'z2 Js.js_array Js.t -> 'a3 Js.t Js.optdef -> 'b3 Js.callback Js.meth</code></pre><div class="info">
+<pre><span id="METHODpass"><span class="keyword">method</span> pass</span> : <code class="type">'k3 'l3 'm3 'n3.<br>         'k3 Js.callback -><br>         'l3 Js.js_array Js.t -> 'm3 Js.t Js.optdef -> 'n3 Js.callback Js.meth</code></pre><div class="info">
 <p>Create a new function from the provided <code>fn</code>, the arguments of which are pre-set to <code>args</code>.
 New arguments passed to the newly created callback when it's invoked are appended after the pre-set ones.
 This is especially useful when creating callbacks.</p>
@@ -1738,7 +1769,7 @@ callback('by Me'); // alerts 'Hello World by Me'
 </ul>
 <br>
 </div>
-<pre><span id="METHODpreg"><span class="keyword">method</span> preg</span> : <code class="type">'c3. Js.js_string Js.t -> 'c3 Js.callback -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODpreg"><span class="keyword">method</span> preg</span> : <code class="type">'o3. Js.js_string Js.t -> 'o3 Js.callback -> unit Js.meth</code></pre><div class="info">
 <p>Shorthand for <a href="#!/api/Ext.PluginManager-method-registerType" rel="Ext.PluginManager-method-registerType" class="docClass">Ext.PluginManager.registerType</a></p> 
 <p>
 
@@ -1792,7 +1823,7 @@ used when the call is deferred to the jsSelect method)</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODregStore"><span class="keyword">method</span> regStore</span> : <code class="type">'d3. Js.js_string Js.t -> 'd3 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODregStore"><span class="keyword">method</span> regStore</span> : <code class="type">'p3. Js.js_string Js.t -> 'p3 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Creates a new store for the given id and config, then registers it with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">Store Manager</a>.
 Sample usage:</p>
 
@@ -1835,27 +1866,25 @@ The body node will be ignored if passed in.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODrequire"><span class="keyword">method</span> require</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODrequire"><span class="keyword">method</span> require</span> : <code class="type">'q3 'r3 's3 't3.<br>         'q3 Js.t -><br>         'r3 Js.callback Js.optdef -><br>         's3 Js.t Js.optdef -> 't3 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Convenient alias of <a href="#!/api/Ext.Loader-method-require" rel="Ext.Loader-method-require" class="docClass">Ext.Loader.require</a>. Please see the introduction documentation of
-<a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> for examples.</p> <br>
-</div>
-<pre><span id="METHODresumeLayouts"><span class="keyword">method</span> resumeLayouts</span> : <code class="type">bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Resumes layout activity in the whole framework.</p>
-
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p> 
+<a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> for examples.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>flush: <code class="code">bool Js.t</code> (optional)
-    <p>True to perform all the pending layouts. This can also be
-achieved by calling <a href="#!/api/Ext.AbstractComponent-static-method-flushLayouts" rel="Ext.AbstractComponent-static-method-flushLayouts" class="docClass">flushLayouts</a> directly.</p> 
-     Defaults to: false
+<li>expressions: <code class="code">_ Js.t</code>
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    </li>
+<li>excludes: <code class="code">_ Js.t</code> (optional)
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODselect"><span class="keyword">method</span> select</span> : <code class="type">'e3 'f3 'g3.<br>         'e3 Js.t -> bool Js.t Js.optdef -> 'f3 Js.t Js.optdef -> 'g3 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODresumeLayouts"><span class="keyword">method</span> resumeLayouts</span> : <code class="type">'u3. 'u3 Js.t -> unit Js.meth</code></pre><pre><span id="METHODselect"><span class="keyword">method</span> select</span> : <code class="type">'v3 'w3 'x3.<br>         'v3 Js.t -> bool Js.t Js.optdef -> 'w3 Js.t Js.optdef -> 'x3 Js.t Js.meth</code></pre><div class="info">
 <p>Shorthand of <a href="#!/api/Ext.dom.Element-method-select" rel="Ext.dom.Element-method-select" class="docClass">Ext.Element.select</a>.</p>
 
 <p>Selects elements based on the passed CSS selector to enable <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> methods
@@ -1877,7 +1906,7 @@ to be applied to many related elements in one statement through the returned <a 
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetVersion"><span class="keyword">method</span> setVersion</span> : <code class="type">'h3 'i3. Js.js_string Js.t -> 'h3 Js.t -> 'i3 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetVersion"><span class="keyword">method</span> setVersion</span> : <code class="type">'y3 'z3. Js.js_string Js.t -> 'y3 Js.t -> 'z3 Js.t Js.meth</code></pre><div class="info">
 <p>Set version number for the given package name.</p> 
 <p>
 
@@ -1903,14 +1932,28 @@ containers:</p>
 <a href="#!/api/Ext-method-resumeLayouts" rel="Ext-method-resumeLayouts" class="docClass">Ext.resumeLayouts</a>(true);
 </code></pre>
 
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p>
+<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p>
 
 <p>See also <a href="#!/api/Ext-method-batchLayouts" rel="Ext-method-batchLayouts" class="docClass">batchLayouts</a> for more abstract way of doing this.</p> <br>
 </div>
-<pre><span id="METHODsyncRequire"><span class="keyword">method</span> syncRequire</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Synchronous version of <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">require</a>, convenient alias of <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">Ext.Loader.syncRequire</a>.</p> <br>
+<pre><span id="METHODsyncRequire"><span class="keyword">method</span> syncRequire</span> : <code class="type">'a4 'b4 'c4 'd4.<br>         'a4 Js.t -><br>         'b4 Js.callback Js.optdef -><br>         'c4 Js.t Js.optdef -> 'd4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Synchronous version of <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">require</a>, convenient alias of <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">Ext.Loader.syncRequire</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>expressions: <code class="code">_ Js.t</code>
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    </li>
+<li>excludes: <code class="code">_ Js.t</code> (optional)
+    </li>
+</ul>
+<br>
 </div>
-<pre><span id="METHODtoArray"><span class="keyword">method</span> toArray</span> : <code class="type">'j3 'k3.<br>         'j3 Js.t -><br>         Js.number Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -> 'k3 Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODtoArray"><span class="keyword">method</span> toArray</span> : <code class="type">'e4 'f4.<br>         'e4 Js.t -><br>         Js.number Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -> 'f4 Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Converts any iterable (numeric indices and a length property) into a true array.</p>
 
 <pre><code>function test() {
@@ -1955,7 +1998,7 @@ index of the iterable value</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODtypeOf"><span class="keyword">method</span> typeOf</span> : <code class="type">'l3. 'l3 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODtypeOf"><span class="keyword">method</span> typeOf</span> : <code class="type">'g4. 'g4 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Returns the type of the given variable in string format. List of possible values are:</p>
 
 <ul>
@@ -1982,7 +2025,7 @@ index of the iterable value</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODvalueFrom"><span class="keyword">method</span> valueFrom</span> : <code class="type">'m3 'n3 'o3. 'm3 Js.t -> 'n3 Js.t -> bool Js.t Js.optdef -> 'o3 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODvalueFrom"><span class="keyword">method</span> valueFrom</span> : <code class="type">'h4 'i4 'j4. 'h4 Js.t -> 'i4 Js.t -> bool Js.t Js.optdef -> 'j4 Js.t Js.meth</code></pre><div class="info">
 <p>Returns the given value itself if it's not empty, as described in <a href="#!/api/Ext-method-isEmpty" rel="Ext-method-isEmpty" class="docClass">isEmpty</a>; returns the default
 value (second argument) otherwise.</p> 
 <p>
@@ -2009,7 +2052,7 @@ value (second argument) otherwise.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODwidget"><span class="keyword">method</span> widget</span> : <code class="type">'p3 'q3.<br>         Js.js_string Js.t Js.optdef -> 'p3 Js.t Js.optdef -> 'q3 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODwidget"><span class="keyword">method</span> widget</span> : <code class="type">'k4 'l4.<br>         Js.js_string Js.t Js.optdef -> 'k4 Js.t Js.optdef -> 'l4 Js.t Js.meth</code></pre><div class="info">
 <p>Convenient shorthand to create a widget by its xtype or a config object.
 See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a>.</p>
 

@@ -136,7 +136,7 @@
 (defaults to false). If you set this to true you are responsible for implementing the appropriate
 handling logic and restarting or discarding the batch as needed. There are different ways you could
 do this, e.g. by handling the batch's <a href="#!/api/Ext.data.Batch-event-exception" rel="Ext.data.Batch-event-exception" class="docClass">exception</a> event directly, or perhaps by overriding
-<a href="#!/api/Ext.data.AbstractStore" rel="Ext.data.AbstractStore" class="docClass">onBatchException</a> at the store level. If you do pause
+<a href="#!/api/Ext.data.AbstractStore-method-onBatchException" rel="Ext.data.AbstractStore-method-onBatchException" class="docClass">onBatchException</a> at the store level. If you do pause
 and attempt to handle the exception you can call <a href="#!/api/Ext.data.Batch-method-retry" rel="Ext.data.Batch-method-retry" class="docClass">retry</a> to process the same operation again.</p>
 
 <p>Note that <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">operations</a> are atomic, so any operations that may have succeeded

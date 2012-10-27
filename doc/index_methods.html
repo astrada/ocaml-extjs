@@ -1764,7 +1764,7 @@ See method <code class="code">t.afterShow</code>
 <td><div class="info">
 <p>Invoked after the Component is shown (after <a href="#!/api/Ext.container.Container-method-onShow" rel="Ext.container.Container-method-onShow" class="docClass">onShow</a> is called).</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.container.Container-event-show" rel="Ext.container.Container-event-show" class="docClass">show</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.container.Container-method-show" rel="Ext.container.Container-method-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_Component.configs-c.html#METHODafterShow">afterShow</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
@@ -1776,7 +1776,7 @@ See method <code class="code">t.afterShow</code>
 <td><div class="info">
 <p>Invoked after the Component is shown (after <a href="#!/api/Ext.Component-method-onShow" rel="Ext.Component-method-onShow" class="docClass">onShow</a> is called).</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-show" rel="Ext.Component-event-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_form_Labelable.configs-c.html#METHODafterSubTpl">afterSubTpl</a> [<a href="Ext_form_Labelable.configs-c.html">Ext_form_Labelable.configs</a>]</td>
@@ -2491,25 +2491,13 @@ left corner and the location the element was clicked.</p>
 left corner and the location the element was clicked.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODautoRender">autoRender</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
-<td><div class="info">
-<p>This config is intended mainly for non-<a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
-<a href="#!/api/Ext.AbstractComponent-cfg-renderTo" rel="Ext.AbstractComponent-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
-upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
-
-<p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
-
-<p>Specify as an element, or the ID of an element to have this Component render to a specific element upon first
-show.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_window_Window.configs-c.html#METHODautoRender_bool">autoRender_bool</a> [<a href="Ext_window_Window.configs-c.html">Ext_window_Window.configs</a>]</td>
+<tr><td><a href="Ext_window_Window.configs-c.html#METHODautoRender">autoRender</a> [<a href="Ext_window_Window.configs-c.html">Ext_window_Window.configs</a>]</td>
 <td><div class="info">
 <p>Windows render to the body on first show.</p>
 
-<p>This config is intended mainly for non-<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">floating</a> Components which may or may not be shown. Instead of using
+<p>This config is intended mainly for non-<a href="#!/api/Ext.window.Window-cfg-floating" rel="Ext.window.Window-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
 <a href="#!/api/Ext.window.Window-cfg-renderTo" rel="Ext.window.Window-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
-upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
+upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.window.Window-cfg-floating" rel="Ext.window.Window-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
 
 <p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
 
@@ -2517,13 +2505,25 @@ upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-met
 show.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_tip_Tip.configs-c.html#METHODautoRender_bool">autoRender_bool</a> [<a href="Ext_tip_Tip.configs-c.html">Ext_tip_Tip.configs</a>]</td>
+<tr><td><a href="Ext_tip_Tip.configs-c.html#METHODautoRender">autoRender</a> [<a href="Ext_tip_Tip.configs-c.html">Ext_tip_Tip.configs</a>]</td>
 <td><div class="info">
 <p>private panel overrides</p>
 
 <p>This config is intended mainly for non-<a href="#!/api/Ext.tip.Tip-cfg-floating" rel="Ext.tip.Tip-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
 <a href="#!/api/Ext.tip.Tip-cfg-renderTo" rel="Ext.tip.Tip-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
 upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.tip.Tip-cfg-floating" rel="Ext.tip.Tip-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
+
+<p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
+
+<p>Specify as an element, or the ID of an element to have this Component render to a specific element upon first
+show.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODautoRender">autoRender</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
+<td><div class="info">
+<p>This config is intended mainly for non-<a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
+<a href="#!/api/Ext.AbstractComponent-cfg-renderTo" rel="Ext.AbstractComponent-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
+upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
 
 <p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
 
@@ -3493,43 +3493,43 @@ bodyStyle: {
 </code></pre> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_header_Container.configs-c.html#METHODborder">border</a> [<a href="Ext_grid_header_Container.configs-c.html">Ext_grid_header_Container.configs</a>]</td>
+<td><div class="info">
+<p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
+be a CSS style specification for each style, for example: '10 5 3 10'.</p>
+
+<p>For components that have no border by default, setting this won't make the border appear by itself.
+You also need to specify border color and style:</p>
+
+<pre><code>border: 5,
+style: {
+    borderColor: 'red',
+    borderStyle: 'solid'
+}
+</code></pre>
+
+<p>To turn off the border, use <code>border: false</code>.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_button_Button.configs-c.html#METHODborder">border</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
+<td><div class="info">
+<p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
+be a CSS style specification for each style, for example: '10 5 3 10'.</p>
+
+<p>For components that have no border by default, setting this won't make the border appear by itself.
+You also need to specify border color and style:</p>
+
+<pre><code>border: 5,
+style: {
+    borderColor: 'red',
+    borderStyle: 'solid'
+}
+</code></pre>
+
+<p>To turn off the border, use <code>border: false</code>.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODborder">border</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
-<td><div class="info">
-<p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
-be a CSS style specification for each style, for example: '10 5 3 10'.</p>
-
-<p>For components that have no border by default, setting this won't make the border appear by itself.
-You also need to specify border color and style:</p>
-
-<pre><code>border: 5,
-style: {
-    borderColor: 'red',
-    borderStyle: 'solid'
-}
-</code></pre>
-
-<p>To turn off the border, use <code>border: false</code>.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_grid_header_Container.configs-c.html#METHODborder_bool">border_bool</a> [<a href="Ext_grid_header_Container.configs-c.html">Ext_grid_header_Container.configs</a>]</td>
-<td><div class="info">
-<p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
-be a CSS style specification for each style, for example: '10 5 3 10'.</p>
-
-<p>For components that have no border by default, setting this won't make the border appear by itself.
-You also need to specify border color and style:</p>
-
-<pre><code>border: 5,
-style: {
-    borderColor: 'red',
-    borderStyle: 'solid'
-}
-</code></pre>
-
-<p>To turn off the border, use <code>border: false</code>.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_button_Button.configs-c.html#METHODborder_bool">border_bool</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
 <td><div class="info">
 <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
 be a CSS style specification for each style, for example: '10 5 3 10'.</p>
@@ -4332,7 +4332,7 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 disallow closing the window.</p>
 
 <p>By default, when close is requested by either clicking the close button in the header or pressing ESC when the
-Window has focus, the <a href="#!/api/Ext.window.Window-method-close" rel="Ext.window.Window-method-close" class="docClass">close</a> method will be called. This will <em><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a></em> the
+Window has focus, the <a href="#!/api/Ext.window.Window-method-close" rel="Ext.window.Window-method-close" class="docClass">close</a> method will be called. This will <em><a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a></em> the
 Window and its content meaning that it may not be reused.</p>
 
 <p>To make closing a Window <em>hide</em> the Window so that it may be reused, set <a href="#!/api/Ext.window.Window-cfg-closeAction" rel="Ext.window.Window-cfg-closeAction" class="docClass">closeAction</a> to 'hide'.</p> 
@@ -4349,7 +4349,7 @@ Window and its content meaning that it may not be reused.</p>
 disallow closing the window.</p>
 
 <p>By default, when close is requested by clicking the close button in the header, the <a href="#!/api/Ext.panel.Panel-method-close" rel="Ext.panel.Panel-method-close" class="docClass">close</a> method will be
-called. This will <em><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a></em> the Panel and its content meaning that it may not be
+called. This will <em><a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a></em> the Panel and its content meaning that it may not be
 reused.</p>
 
 <p>To make closing a Panel <em>hide</em> the Panel so that it may be reused, set <a href="#!/api/Ext.panel.Panel-cfg-closeAction" rel="Ext.panel.Panel-cfg-closeAction" class="docClass">closeAction</a> to 'hide'.</p> 
@@ -4362,12 +4362,12 @@ reused.</p>
 </td></tr>
 <tr><td><a href="Ext_panel_Panel.t-c.html#METHODclose">close</a> [<a href="Ext_panel_Panel.t-c.html">Ext_panel_Panel.t</a>]</td>
 <td><div class="info">
-<p>Closes the Panel. By default, this method, removes it from the DOM, <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a>s the
+<p>Closes the Panel. By default, this method, removes it from the DOM, <a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a>s the
 Panel object and all its descendant Components. The <a href="#!/api/Ext.panel.Panel-event-beforeclose" rel="Ext.panel.Panel-event-beforeclose" class="docClass">beforeclose</a> event is fired before the
 close happens and will cancel the close action if it returns false.</p>
 
 <p><strong>Note:</strong> This method is also affected by the <a href="#!/api/Ext.panel.Panel-cfg-closeAction" rel="Ext.panel.Panel-cfg-closeAction" class="docClass">closeAction</a> setting. For more explicit control use
-<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">destroy</a> and <a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a> methods.</p> 
+<a href="#!/api/Ext.panel.Panel-method-destroy" rel="Ext.panel.Panel-method-destroy" class="docClass">destroy</a> and <a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a> methods.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODcloseAction">closeAction</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
@@ -4375,9 +4375,9 @@ close happens and will cancel the close action if it returns false.</p>
 <p>The action to take when the close header tool is clicked:</p>
 
 <ul>
-<li><p><strong><code>'<a href="#!/api/Ext.window.MessageBox" rel="Ext.window.MessageBox" class="docClass">destroy</a>'</code></strong> :</p>
+<li><p><strong><code>'<a href="#!/api/Ext.window.MessageBox-method-destroy" rel="Ext.window.MessageBox-method-destroy" class="docClass">destroy</a>'</code></strong> :</p>
 
-<p><a href="#!/api/Ext.window.MessageBox-method-remove" rel="Ext.window.MessageBox-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a> it and all descendant
+<p><a href="#!/api/Ext.window.MessageBox-method-remove" rel="Ext.window.MessageBox-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a> it and all descendant
 Components. The window will <strong>not</strong> be available to be redisplayed via the <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method.</p></li>
 <li><p><strong><code>'<a href="#!/api/Ext.window.MessageBox-method-hide" rel="Ext.window.MessageBox-method-hide" class="docClass">hide</a>'</code></strong> :</p>
 
@@ -4395,8 +4395,8 @@ approriate closeAction.</p>
 <p>The action to take when the close header tool is clicked:</p>
 
 <ul>
-<li><p><strong><a href="#!/api/Ext.tip.Tip" rel="Ext.tip.Tip" class="docClass">destroy</a></strong> : <a href="#!/api/Ext.tip.Tip-method-remove" rel="Ext.tip.Tip-method-remove" class="docClass">remove</a> the window from the DOM and
-<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a> it and all descendant Components. The
+<li><p><strong><a href="#!/api/Ext.tip.Tip-method-destroy" rel="Ext.tip.Tip-method-destroy" class="docClass">destroy</a></strong> : <a href="#!/api/Ext.tip.Tip-method-remove" rel="Ext.tip.Tip-method-remove" class="docClass">remove</a> the window from the DOM and
+<a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a> it and all descendant Components. The
 window will <strong>not</strong> be available to be redisplayed via the <a href="#!/api/Ext.tip.Tip-method-show" rel="Ext.tip.Tip-method-show" class="docClass">show</a> method.</p></li>
 <li><p><strong><a href="#!/api/Ext.tip.Tip-method-hide" rel="Ext.tip.Tip-method-hide" class="docClass">hide</a></strong> : <strong>Default.</strong> <a href="#!/api/Ext.tip.Tip-method-hide" rel="Ext.tip.Tip-method-hide" class="docClass">hide</a> the window by setting visibility
 to hidden and applying negative offsets. The window will be available to be
@@ -4413,9 +4413,9 @@ which will invoke the approriate closeAction.</p>
 <p>The action to take when the close header tool is clicked:</p>
 
 <ul>
-<li><p><strong><code>'<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">destroy</a>'</code></strong> :</p>
+<li><p><strong><code>'<a href="#!/api/Ext.panel.Panel-method-destroy" rel="Ext.panel.Panel-method-destroy" class="docClass">destroy</a>'</code></strong> :</p>
 
-<p><a href="#!/api/Ext.panel.Panel-method-remove" rel="Ext.panel.Panel-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a> it and all descendant
+<p><a href="#!/api/Ext.panel.Panel-method-remove" rel="Ext.panel.Panel-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a> it and all descendant
 Components. The window will <strong>not</strong> be available to be redisplayed via the <a href="#!/api/Ext.panel.Panel-method-show" rel="Ext.panel.Panel-method-show" class="docClass">show</a> method.</p></li>
 <li><p><strong><code>'<a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a>'</code></strong> :</p>
 
@@ -4757,20 +4757,7 @@ implemented when needed.</p>
 <p>CSS Class to be added to a components root level element to give distinction to it via styling.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODcomponentLayout">componentLayout</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
-<td><div class="info">
-<p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
-manager which sizes a Component's internal structure in response to the Component being sized.</p>
-
-<p>Generally, developers will not use this configuration as all provided Components which need their internal
-elements sizing (Such as <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">input fields</a>) come with their own componentLayout managers.</p>
-
-<p>The <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used on instances of the base <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>
-class which simply sizes the Component's encapsulating element to the height and width specified in the
-<a href="#!/api/Ext.AbstractComponent-method-setSize" rel="Ext.AbstractComponent-method-setSize" class="docClass">setSize</a> method.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_view_Table.configs-c.html#METHODcomponentLayout_str">componentLayout_str</a> [<a href="Ext_view_Table.configs-c.html">Ext_view_Table.configs</a>]</td>
+<tr><td><a href="Ext_view_Table.configs-c.html#METHODcomponentLayout">componentLayout</a> [<a href="Ext_view_Table.configs-c.html">Ext_view_Table.configs</a>]</td>
 <td><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
@@ -4783,7 +4770,7 @@ class which simply sizes the Component's encapsulating element to the height and
 <a href="#!/api/Ext.view.Table-method-setSize" rel="Ext.view.Table-method-setSize" class="docClass">setSize</a> method.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_panel_AbstractPanel.configs-c.html#METHODcomponentLayout_str">componentLayout_str</a> [<a href="Ext_panel_AbstractPanel.configs-c.html">Ext_panel_AbstractPanel.configs</a>]</td>
+<tr><td><a href="Ext_panel_AbstractPanel.configs-c.html#METHODcomponentLayout">componentLayout</a> [<a href="Ext_panel_AbstractPanel.configs-c.html">Ext_panel_AbstractPanel.configs</a>]</td>
 <td><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
@@ -4796,7 +4783,7 @@ class which simply sizes the Component's encapsulating element to the height and
 <a href="#!/api/Ext.panel.AbstractPanel-method-setSize" rel="Ext.panel.AbstractPanel-method-setSize" class="docClass">setSize</a> method.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_grid_column_Column.configs-c.html#METHODcomponentLayout_str">componentLayout_str</a> [<a href="Ext_grid_column_Column.configs-c.html">Ext_grid_column_Column.configs</a>]</td>
+<tr><td><a href="Ext_grid_column_Column.configs-c.html#METHODcomponentLayout">componentLayout</a> [<a href="Ext_grid_column_Column.configs-c.html">Ext_grid_column_Column.configs</a>]</td>
 <td><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
@@ -4809,7 +4796,7 @@ class which simply sizes the Component's encapsulating element to the height and
 <a href="#!/api/Ext.grid.column.Column-method-setSize" rel="Ext.grid.column.Column-method-setSize" class="docClass">setSize</a> method.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_form_field_Base.configs-c.html#METHODcomponentLayout_str">componentLayout_str</a> [<a href="Ext_form_field_Base.configs-c.html">Ext_form_field_Base.configs</a>]</td>
+<tr><td><a href="Ext_form_field_Base.configs-c.html#METHODcomponentLayout">componentLayout</a> [<a href="Ext_form_field_Base.configs-c.html">Ext_form_field_Base.configs</a>]</td>
 <td><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
@@ -4822,7 +4809,7 @@ class which simply sizes the Component's encapsulating element to the height and
 <a href="#!/api/Ext.form.field.Base-method-setSize" rel="Ext.form.field.Base-method-setSize" class="docClass">setSize</a> method.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_button_Button.configs-c.html#METHODcomponentLayout_str">componentLayout_str</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
+<tr><td><a href="Ext_button_Button.configs-c.html#METHODcomponentLayout">componentLayout</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
 <td><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
@@ -4833,6 +4820,19 @@ elements sizing (Such as <a href="#!/api/Ext.form.field.Base" rel="Ext.form.fiel
 <p>The <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used on instances of the base <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>
 class which simply sizes the Component's encapsulating element to the height and width specified in the
 <a href="#!/api/Ext.button.Button-method-setSize" rel="Ext.button.Button-method-setSize" class="docClass">setSize</a> method.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODcomponentLayout">componentLayout</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
+<td><div class="info">
+<p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
+manager which sizes a Component's internal structure in response to the Component being sized.</p>
+
+<p>Generally, developers will not use this configuration as all provided Components which need their internal
+elements sizing (Such as <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">input fields</a>) come with their own componentLayout managers.</p>
+
+<p>The <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used on instances of the base <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>
+class which simply sizes the Component's encapsulating element to the height and width specified in the
+<a href="#!/api/Ext.AbstractComponent-method-setSize" rel="Ext.AbstractComponent-method-setSize" class="docClass">setSize</a> method.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dd_DragDrop.t-c.html#METHODconfig">config</a> [<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a>]</td>
@@ -5236,7 +5236,7 @@ var myData = [
 });
 </code></pre>
 
-<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base.borrow</a> instead.</p> 
+<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base-static-method-borrow" rel="Ext.Base-static-method-borrow" class="docClass">Ext.Base.borrow</a> instead.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_EventObject.t-c.html#METHODcorrectWheelDelta">correctWheelDelta</a> [<a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a>]</td>
@@ -6072,7 +6072,7 @@ passed into this function in a single call as separate arguments.</p>
 </td></tr>
 <tr><td><a href="Ext_grid_header_Container.configs-c.html#METHODdetachOnRemove">detachOnRemove</a> [<a href="Ext_grid_header_Container.configs-c.html">Ext_grid_header_Container.configs</a>]</td>
 <td><div class="info">
-<p>True to move any component to the <a href="#!/api/Ext" rel="Ext" class="docClass">detachedBody</a> when the component is
+<p>True to move any component to the <a href="#!/api/Ext-method-getDetachedBody" rel="Ext-method-getDetachedBody" class="docClass">detachedBody</a> when the component is
 removed from this container. This option is only applicable when the component is not destroyed while
 being removed, see <a href="#!/api/Ext.grid.header.Container-cfg-autoDestroy" rel="Ext.grid.header.Container-cfg-autoDestroy" class="docClass">autoDestroy</a> and <a href="#!/api/Ext.grid.header.Container-method-remove" rel="Ext.grid.header.Container-method-remove" class="docClass">remove</a>. If this option is set to false, the DOM
 of the component will remain in the current place until it is explicitly moved.</p> 
@@ -6080,7 +6080,7 @@ of the component will remain in the current place until it is explicitly moved.<
 </td></tr>
 <tr><td><a href="Ext_container_AbstractContainer.configs-c.html#METHODdetachOnRemove">detachOnRemove</a> [<a href="Ext_container_AbstractContainer.configs-c.html">Ext_container_AbstractContainer.configs</a>]</td>
 <td><div class="info">
-<p>True to move any component to the <a href="#!/api/Ext" rel="Ext" class="docClass">detachedBody</a> when the component is
+<p>True to move any component to the <a href="#!/api/Ext-method-getDetachedBody" rel="Ext-method-getDetachedBody" class="docClass">detachedBody</a> when the component is
 removed from this container. This option is only applicable when the component is not destroyed while
 being removed, see <a href="#!/api/Ext.container.AbstractContainer-cfg-autoDestroy" rel="Ext.container.AbstractContainer-cfg-autoDestroy" class="docClass">autoDestroy</a> and <a href="#!/api/Ext.container.AbstractContainer-method-remove" rel="Ext.container.AbstractContainer-method-remove" class="docClass">remove</a>. If this option is set to false, the DOM
 of the component will remain in the current place until it is explicitly moved.</p> 
@@ -6858,7 +6858,7 @@ fire).</p>
 <tr><td><a href="Ext_util_Renderable.t-c.html#METHODensureAttachedToBody">ensureAttachedToBody</a> [<a href="Ext_util_Renderable.t-c.html">Ext_util_Renderable.t</a>]</td>
 <td><div class="info">
 <p>Ensures that this component is attached to <code>document.body</code>. If the component was
-rendered to <a href="#!/api/Ext" rel="Ext" class="docClass">Ext.getDetachedBody</a>, then it will be appended to <code>document.body</code>.
+rendered to <a href="#!/api/Ext-method-getDetachedBody" rel="Ext-method-getDetachedBody" class="docClass">Ext.getDetachedBody</a>, then it will be appended to <code>document.body</code>.
 Any configured position is also restored.</p> 
 </div>
 </td></tr>
@@ -7583,6 +7583,39 @@ Window as its <code>floatParent</code></p>
 false to force the user to fully expand a collapsed region by clicking the expand button to see it again.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_tip_Tip.configs-c.html#METHODfloating">floating</a> [<a href="Ext_tip_Tip.configs-c.html">Ext_tip_Tip.configs</a>]</td>
+<td><div class="info">
+<p>Specify as true to float the Component outside of the document flow using CSS absolute positioning.</p>
+
+<p>Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s and <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a>s are floating by default.</p>
+
+<p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will register
+themselves with the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a></p>
+
+<h3>Floating Components as child items of a Container</h3>
+
+<p>A floating Component may be used as a child item of a Container. This just allows the floating Component to seek
+a ZIndexManager by examining the ownerCt chain.</p>
+
+<p>When configured as floating, Components acquire, at render time, a <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a> which
+manages a stack of related floating Components. The ZIndexManager brings a single floating Component to the top
+of its stack when the Component's <a href="#!/api/Ext.tip.Tip-method-toFront" rel="Ext.tip.Tip-method-toFront" class="docClass">toFront</a> method is called.</p>
+
+<p>The ZIndexManager is found by traversing up the <a href="#!/api/Ext.tip.Tip-property-ownerCt" rel="Ext.tip.Tip-property-ownerCt" class="docClass">ownerCt</a> chain to find an ancestor which itself is
+floating. This is so that descendant floating Components of floating <em>Containers</em> (Such as a ComboBox dropdown
+within a Window) can have its zIndex managed relative to any siblings, but always <strong>above</strong> that floating
+ancestor Container.</p>
+
+<p>If no floating ancestor is found, a floating Component registers itself with the default <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a>.</p>
+
+<p>Floating components <em>do not participate in the Container's layout</em>. Because of this, they are not rendered until
+you explicitly <a href="#!/api/Ext.tip.Tip-method-show" rel="Ext.tip.Tip-method-show" class="docClass">show</a> them.</p>
+
+<p>After rendering, the ownerCt reference is deleted, and the <a href="#!/api/Ext.tip.Tip-property-floatParent" rel="Ext.tip.Tip-property-floatParent" class="docClass">floatParent</a> property is set to the found
+floating ancestor Container. If no floating ancestor Container was found the <a href="#!/api/Ext.tip.Tip-property-floatParent" rel="Ext.tip.Tip-property-floatParent" class="docClass">floatParent</a> property will
+not be set.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_menu_Menu.configs-c.html#METHODfloating">floating</a> [<a href="Ext_menu_Menu.configs-c.html">Ext_menu_Menu.configs</a>]</td>
 <td><div class="info">
 <p>A Menu configured as <code>floating: true</code> (the default) will be rendered as an absolutely positioned,
@@ -7636,39 +7669,6 @@ ZIndexManager instance to manage its descendant floaters. If no floating ancesto
 <p>When a floating Component which has a ZindexManager managing descendant floaters is destroyed, those descendant floaters will also be destroyed.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_tip_Tip.configs-c.html#METHODfloating_obj">floating_obj</a> [<a href="Ext_tip_Tip.configs-c.html">Ext_tip_Tip.configs</a>]</td>
-<td><div class="info">
-<p>Specify as true to float the Component outside of the document flow using CSS absolute positioning.</p>
-
-<p>Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s and <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a>s are floating by default.</p>
-
-<p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will register
-themselves with the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a></p>
-
-<h3>Floating Components as child items of a Container</h3>
-
-<p>A floating Component may be used as a child item of a Container. This just allows the floating Component to seek
-a ZIndexManager by examining the ownerCt chain.</p>
-
-<p>When configured as floating, Components acquire, at render time, a <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a> which
-manages a stack of related floating Components. The ZIndexManager brings a single floating Component to the top
-of its stack when the Component's <a href="#!/api/Ext.tip.Tip-method-toFront" rel="Ext.tip.Tip-method-toFront" class="docClass">toFront</a> method is called.</p>
-
-<p>The ZIndexManager is found by traversing up the <a href="#!/api/Ext.tip.Tip-property-ownerCt" rel="Ext.tip.Tip-property-ownerCt" class="docClass">ownerCt</a> chain to find an ancestor which itself is
-floating. This is so that descendant floating Components of floating <em>Containers</em> (Such as a ComboBox dropdown
-within a Window) can have its zIndex managed relative to any siblings, but always <strong>above</strong> that floating
-ancestor Container.</p>
-
-<p>If no floating ancestor is found, a floating Component registers itself with the default <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a>.</p>
-
-<p>Floating components <em>do not participate in the Container's layout</em>. Because of this, they are not rendered until
-you explicitly <a href="#!/api/Ext.tip.Tip-method-show" rel="Ext.tip.Tip-method-show" class="docClass">show</a> them.</p>
-
-<p>After rendering, the ownerCt reference is deleted, and the <a href="#!/api/Ext.tip.Tip-property-floatParent" rel="Ext.tip.Tip-property-floatParent" class="docClass">floatParent</a> property is set to the found
-floating ancestor Container. If no floating ancestor Container was found the <a href="#!/api/Ext.tip.Tip-property-floatParent" rel="Ext.tip.Tip-property-floatParent" class="docClass">floatParent</a> property will
-not be set.</p> 
-</div>
-</td></tr>
 <tr><td><a href="Ext_layout_ContextItem.t-c.html#METHODflush">flush</a> [<a href="Ext_layout_ContextItem.t-c.html">Ext_layout_ContextItem.t</a>]</td>
 <td><div class="info">
 <p>Flushes any updates in the dirty collection to the DOM. This is only called if there
@@ -7679,7 +7679,7 @@ are dirty entries because this object is only added to the flushQueue of the
 <tr><td><a href="Ext_AbstractComponent.statics-c.html#METHODflushLayouts">flushLayouts</a> [<a href="Ext_AbstractComponent.statics-c.html">Ext_AbstractComponent.statics</a>]</td>
 <td><div class="info">
 <p>Performs all pending layouts that were sceduled while
-<a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">suspendLayouts</a> was in effect.</p> 
+<a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">suspendLayouts</a> was in effect.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.statics-c.html#METHODfly">fly</a> [<a href="Ext_dom_AbstractElement.statics-c.html">Ext_dom_AbstractElement.statics</a>]</td>
@@ -8788,7 +8788,7 @@ mc.add(otherEl);
 </td></tr>
 <tr><td><a href="Ext_form_Labelable.t-c.html#METHODgetLabelableRenderData">getLabelableRenderData</a> [<a href="Ext_form_Labelable.t-c.html">Ext_form_Labelable.t</a>]</td>
 <td><div class="info">
-<p>Generates the arguments for the field decorations <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" class="docClass">rendering template</a>.</p> 
+<p>Generates the arguments for the field decorations <a href="#!/api/Ext.form.Labelable-cfg-labelableRenderTpl" rel="Ext.form.Labelable-cfg-labelableRenderTpl" class="docClass">rendering template</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_selection_Model.t-c.html#METHODgetLastSelected">getLastSelected</a> [<a href="Ext_selection_Model.t-c.html">Ext_selection_Model.t</a>]</td>
@@ -9538,7 +9538,7 @@ See method <code class="code">t.getSubTplData</code>
 </td></tr>
 <tr><td><a href="Ext_form_field_Text.t-c.html#METHODgetSubTplData">getSubTplData</a> [<a href="Ext_form_field_Text.t-c.html">Ext_form_field_Text.t</a>]</td>
 <td><div class="info">
-<p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Text" rel="Ext.form.field.Text" class="docClass">fieldSubTpl</a>.</p> 
+<p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Text-cfg-fieldSubTpl" rel="Ext.form.field.Text-cfg-fieldSubTpl" class="docClass">fieldSubTpl</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_form_field_Base.configs-c.html#METHODgetSubTplData">getSubTplData</a> [<a href="Ext_form_field_Base.configs-c.html">Ext_form_field_Base.configs</a>]</td>
@@ -9548,7 +9548,7 @@ See method <code class="code">t.getSubTplData</code>
 </td></tr>
 <tr><td><a href="Ext_form_field_Base.t-c.html#METHODgetSubTplData">getSubTplData</a> [<a href="Ext_form_field_Base.t-c.html">Ext_form_field_Base.t</a>]</td>
 <td><div class="info">
-<p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">fieldSubTpl</a>.</p> 
+<p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Base-cfg-fieldSubTpl" rel="Ext.form.field.Base-cfg-fieldSubTpl" class="docClass">fieldSubTpl</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_form_Labelable.t-c.html#METHODgetSubTplMarkup">getSubTplMarkup</a> [<a href="Ext_form_Labelable.t-c.html">Ext_form_Labelable.t</a>]</td>
@@ -10561,7 +10561,7 @@ interacted.</p>
 record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
 
 <ul>
-<li><strong>PREFIX</strong> : String - Ext.data.Model.PREFIX (defaults to 'ext-record')</li>
+<li><strong>PREFIX</strong> : String - <a href="#!/api/Ext.data.Model-static-property-PREFIX" rel="Ext.data.Model-static-property-PREFIX" class="docClass">Ext.data.Model.PREFIX</a> (defaults to 'ext-record')</li>
 <li><strong>AUTO_ID</strong> : String - <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>.AUTO_ID (defaults to 1 initially)</li>
 </ul> 
 </div>
@@ -12925,17 +12925,17 @@ layout: {
 </code></pre> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_container_AbstractContainer.configs-c.html#METHODlayout">layout</a> [<a href="Ext_container_AbstractContainer.configs-c.html">Ext_container_AbstractContainer.configs</a>]</td>
+<tr><td><a href="Ext_panel_Table.configs-c.html#METHODlayout">layout</a> [<a href="Ext_panel_Table.configs-c.html">Ext_panel_Table.configs</a>]</td>
 <td><div class="info">
 <p><strong>Important</strong>: In order for child items to be correctly sized and
 positioned, typically a layout manager <strong>must</strong> be specified through
 the <code>layout</code> configuration option.</p>
 
-<p>The sizing and positioning of child <a href="#!/api/Ext.container.AbstractContainer-cfg-items" rel="Ext.container.AbstractContainer-cfg-items" class="docClass">items</a> is the responsibility of
+<p>The sizing and positioning of child <a href="#!/api/Ext.panel.Table-cfg-items" rel="Ext.panel.Table-cfg-items" class="docClass">items</a> is the responsibility of
 the Container's layout manager which creates and manages the type of layout
 you have in mind.  For example:</p>
 
-<p>If the <a href="#!/api/Ext.container.AbstractContainer-cfg-layout" rel="Ext.container.AbstractContainer-cfg-layout" class="docClass">layout</a> configuration is not explicitly specified for
+<p>If the <a href="#!/api/Ext.panel.Table-cfg-layout" rel="Ext.panel.Table-cfg-layout" class="docClass">layout</a> configuration is not explicitly specified for
 a general purpose container (e.g. Container or Panel) the
 <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used
 which does nothing but render child components sequentially into the
@@ -13013,17 +13013,17 @@ layout: {
 </code></pre> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_panel_Table.configs-c.html#METHODlayout_str">layout_str</a> [<a href="Ext_panel_Table.configs-c.html">Ext_panel_Table.configs</a>]</td>
+<tr><td><a href="Ext_container_AbstractContainer.configs-c.html#METHODlayout">layout</a> [<a href="Ext_container_AbstractContainer.configs-c.html">Ext_container_AbstractContainer.configs</a>]</td>
 <td><div class="info">
 <p><strong>Important</strong>: In order for child items to be correctly sized and
 positioned, typically a layout manager <strong>must</strong> be specified through
 the <code>layout</code> configuration option.</p>
 
-<p>The sizing and positioning of child <a href="#!/api/Ext.panel.Table-cfg-items" rel="Ext.panel.Table-cfg-items" class="docClass">items</a> is the responsibility of
+<p>The sizing and positioning of child <a href="#!/api/Ext.container.AbstractContainer-cfg-items" rel="Ext.container.AbstractContainer-cfg-items" class="docClass">items</a> is the responsibility of
 the Container's layout manager which creates and manages the type of layout
 you have in mind.  For example:</p>
 
-<p>If the <a href="#!/api/Ext.panel.Table-cfg-layout" rel="Ext.panel.Table-cfg-layout" class="docClass">layout</a> configuration is not explicitly specified for
+<p>If the <a href="#!/api/Ext.container.AbstractContainer-cfg-layout" rel="Ext.container.AbstractContainer-cfg-layout" class="docClass">layout</a> configuration is not explicitly specified for
 a general purpose container (e.g. Container or Panel) the
 <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used
 which does nothing but render child components sequentially into the
@@ -15043,7 +15043,7 @@ See method <code class="code">t.onHide</code>
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-hide" rel="Ext.Component-event-hide" class="docClass">hide</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-hide" rel="Ext.Component-method-hide" class="docClass">hide</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dd_DragSource.t-c.html#METHODonInvalidDrop">onInvalidDrop</a> [<a href="Ext_dd_DragSource.t-c.html">Ext_dd_DragSource.t</a>]</td>
@@ -15355,7 +15355,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.window.Window-event-show" rel="Ext.window.Window-event-show" class="docClass">show</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.window.Window-method-show" rel="Ext.window.Window-method-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODonShow">onShow</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
@@ -15370,7 +15370,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.window.MessageBox-event-show" rel="Ext.window.MessageBox-event-show" class="docClass">show</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_tip_ToolTip.configs-c.html#METHODonShow">onShow</a> [<a href="Ext_tip_ToolTip.configs-c.html">Ext_tip_ToolTip.configs</a>]</td>
@@ -15387,7 +15387,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-event-show" rel="Ext.tip.ToolTip-event-show" class="docClass">show</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-method-show" rel="Ext.tip.ToolTip-method-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_panel_Panel.configs-c.html#METHODonShow">onShow</a> [<a href="Ext_panel_Panel.configs-c.html">Ext_panel_Panel.configs</a>]</td>
@@ -15404,7 +15404,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-event-show" rel="Ext.panel.Panel-event-show" class="docClass">show</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-method-show" rel="Ext.panel.Panel-method-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_Component.configs-c.html#METHODonShow">onShow</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
@@ -15419,7 +15419,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-show" rel="Ext.Component-event-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_Component.configs-c.html#METHODonShowComplete">onShowComplete</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
@@ -15824,7 +15824,7 @@ See <a href="#!/api/Ext.Loader-cfg-paths" rel="Ext.Loader-cfg-paths" class="docC
 (defaults to false). If you set this to true you are responsible for implementing the appropriate
 handling logic and restarting or discarding the batch as needed. There are different ways you could
 do this, e.g. by handling the batch's <a href="#!/api/Ext.data.Batch-event-exception" rel="Ext.data.Batch-event-exception" class="docClass">exception</a> event directly, or perhaps by overriding
-<a href="#!/api/Ext.data.AbstractStore" rel="Ext.data.AbstractStore" class="docClass">onBatchException</a> at the store level. If you do pause
+<a href="#!/api/Ext.data.AbstractStore-method-onBatchException" rel="Ext.data.AbstractStore-method-onBatchException" class="docClass">onBatchException</a> at the store level. If you do pause
 and attempt to handle the exception you can call <a href="#!/api/Ext.data.Batch-method-retry" rel="Ext.data.Batch-method-retry" class="docClass">retry</a> to process the same operation again.</p>
 
 <p>Note that <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">operations</a> are atomic, so any operations that may have succeeded
@@ -16957,58 +16957,7 @@ internal structure.</p>
 <a href="#!/api/Ext.panel.AbstractPanel-cfg-renderSelectors" rel="Ext.panel.AbstractPanel-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.panel.AbstractPanel-cfg-childEls" rel="Ext.panel.AbstractPanel-cfg-childEls" class="docClass">childEls</a> options.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODrenderTpl">renderTpl</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
-<td><div class="info">
-<p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
-<a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a>.</p>
-
-<p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
-<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
-classes which use a more complex DOM structure, provide their own template definitions.</p>
-
-<p>This is intended to allow the developer to create application-specific utility Components with customized
-internal structure.</p>
-
-<p>Upon rendering, any created child elements may be automatically imported into object properties using the
-<a href="#!/api/Ext.AbstractComponent-cfg-renderSelectors" rel="Ext.AbstractComponent-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.AbstractComponent-cfg-childEls" rel="Ext.AbstractComponent-cfg-childEls" class="docClass">childEls</a> options.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_dd_StatusProxy.configs-c.html#METHODrenderTpl_arr">renderTpl_arr</a> [<a href="Ext_dd_StatusProxy.configs-c.html">Ext_dd_StatusProxy.configs</a>]</td>
-<td><div class="info">
-<p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
-<a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a>.</p>
-
-<p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
-<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
-classes which use a more complex DOM structure, provide their own template definitions.</p>
-
-<p>This is intended to allow the developer to create application-specific utility Components with customized
-internal structure.</p>
-
-<p>Upon rendering, any created child elements may be automatically imported into object properties using the
-<a href="#!/api/Ext.dd.StatusProxy-cfg-renderSelectors" rel="Ext.dd.StatusProxy-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.dd.StatusProxy-cfg-childEls" rel="Ext.dd.StatusProxy-cfg-childEls" class="docClass">childEls</a> options.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_button_Button.configs-c.html#METHODrenderTpl_arr">renderTpl_arr</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
-<td><div class="info">
-<p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
-<a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a>.</p>
-
-<p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
-<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
-classes which use a more complex DOM structure, provide their own template definitions.</p>
-
-<p>This is intended to allow the developer to create application-specific utility Components with customized
-internal structure.</p>
-
-<p>Upon rendering, any created child elements may be automatically imported into object properties using the
-<a href="#!/api/Ext.button.Button-cfg-renderSelectors" rel="Ext.button.Button-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.button.Button-cfg-childEls" rel="Ext.button.Button-cfg-childEls" class="docClass">childEls</a> options.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_grid_column_Column.configs-c.html#METHODrenderTpl_str">renderTpl_str</a> [<a href="Ext_grid_column_Column.configs-c.html">Ext_grid_column_Column.configs</a>]</td>
+<tr><td><a href="Ext_grid_column_Column.configs-c.html#METHODrenderTpl">renderTpl</a> [<a href="Ext_grid_column_Column.configs-c.html">Ext_grid_column_Column.configs</a>]</td>
 <td><div class="info">
 <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a>.</p>
@@ -17025,7 +16974,24 @@ internal structure.</p>
 <a href="#!/api/Ext.grid.column.Column-cfg-renderSelectors" rel="Ext.grid.column.Column-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.grid.column.Column-cfg-childEls" rel="Ext.grid.column.Column-cfg-childEls" class="docClass">childEls</a> options.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_container_AbstractContainer.configs-c.html#METHODrenderTpl_str">renderTpl_str</a> [<a href="Ext_container_AbstractContainer.configs-c.html">Ext_container_AbstractContainer.configs</a>]</td>
+<tr><td><a href="Ext_dd_StatusProxy.configs-c.html#METHODrenderTpl">renderTpl</a> [<a href="Ext_dd_StatusProxy.configs-c.html">Ext_dd_StatusProxy.configs</a>]</td>
+<td><div class="info">
+<p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
+<a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a>.</p>
+
+<p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
+<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
+with no internal structure; they render their <a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+classes which use a more complex DOM structure, provide their own template definitions.</p>
+
+<p>This is intended to allow the developer to create application-specific utility Components with customized
+internal structure.</p>
+
+<p>Upon rendering, any created child elements may be automatically imported into object properties using the
+<a href="#!/api/Ext.dd.StatusProxy-cfg-renderSelectors" rel="Ext.dd.StatusProxy-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.dd.StatusProxy-cfg-childEls" rel="Ext.dd.StatusProxy-cfg-childEls" class="docClass">childEls</a> options.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_container_AbstractContainer.configs-c.html#METHODrenderTpl">renderTpl</a> [<a href="Ext_container_AbstractContainer.configs-c.html">Ext_container_AbstractContainer.configs</a>]</td>
 <td><div class="info">
 <p>End Definitions</p>
 
@@ -17042,6 +17008,40 @@ internal structure.</p>
 
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.container.AbstractContainer-cfg-renderSelectors" rel="Ext.container.AbstractContainer-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.container.AbstractContainer-cfg-childEls" rel="Ext.container.AbstractContainer-cfg-childEls" class="docClass">childEls</a> options.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_button_Button.configs-c.html#METHODrenderTpl">renderTpl</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
+<td><div class="info">
+<p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
+<a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a>.</p>
+
+<p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
+<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
+with no internal structure; they render their <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+classes which use a more complex DOM structure, provide their own template definitions.</p>
+
+<p>This is intended to allow the developer to create application-specific utility Components with customized
+internal structure.</p>
+
+<p>Upon rendering, any created child elements may be automatically imported into object properties using the
+<a href="#!/api/Ext.button.Button-cfg-renderSelectors" rel="Ext.button.Button-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.button.Button-cfg-childEls" rel="Ext.button.Button-cfg-childEls" class="docClass">childEls</a> options.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODrenderTpl">renderTpl</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
+<td><div class="info">
+<p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
+<a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a>.</p>
+
+<p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
+<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
+with no internal structure; they render their <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+classes which use a more complex DOM structure, provide their own template definitions.</p>
+
+<p>This is intended to allow the developer to create application-specific utility Components with customized
+internal structure.</p>
+
+<p>Upon rendering, any created child elements may be automatically imported into object properties using the
+<a href="#!/api/Ext.AbstractComponent-cfg-renderSelectors" rel="Ext.AbstractComponent-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.AbstractComponent-cfg-childEls" rel="Ext.AbstractComponent-cfg-childEls" class="docClass">childEls</a> options.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_AbstractComponent.t-c.html#METHODrendered">rendered</a> [<a href="Ext_AbstractComponent.t-c.html">Ext_AbstractComponent.t</a>]</td>
@@ -17383,6 +17383,13 @@ called by <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">
 <p>This may also be specified as a config object to <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Ext.resizer.Resizer</a></p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODresizable">resizable</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
+<td><div class="info">
+<p>Specify as <code>true</code> to allow user resizing at each edge and corner of the window, false to disable resizing.</p>
+
+<p>This may also be specified as a config object to <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Ext.resizer.Resizer</a></p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_Component.configs-c.html#METHODresizable">resizable</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
 <td><div class="info">
 <p>Specify as <code>true</code> to apply a <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Resizer</a> to this Component after rendering.</p>
@@ -17390,13 +17397,6 @@ called by <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">
 <p>May also be specified as a config object to be passed to the constructor of <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Resizer</a>
 to override any defaults. By default the Component passes its minimum and maximum size, and uses
 <code><a href="#!/api/Ext.resizer.Resizer-cfg-dynamic" rel="Ext.resizer.Resizer-cfg-dynamic" class="docClass">Ext.resizer.Resizer.dynamic</a>: false</code></p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODresizable_bool">resizable_bool</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
-<td><div class="info">
-<p>Specify as <code>true</code> to allow user resizing at each edge and corner of the window, false to disable resizing.</p>
-
-<p>This may also be specified as a config object to <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Ext.resizer.Resizer</a></p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_grid_column_Column.configs-c.html#METHODresizable_bool">resizable_bool</a> [<a href="Ext_grid_column_Column.configs-c.html">Ext_grid_column_Column.configs</a>]</td>
@@ -17470,16 +17470,11 @@ during event suspension will be sent to any listeners now.</p>
 <td><div class="info">
 <p>Resumes layout activity in the whole framework.</p>
 
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p> 
+<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext.t-c.html#METHODresumeLayouts">resumeLayouts</a> [<a href="Ext.t-c.html">Ext.t</a>]</td>
-<td><div class="info">
-<p>Resumes layout activity in the whole framework.</p>
-
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p> 
-</div>
-</td></tr>
+<td></td></tr>
 <tr><td><a href="Ext_data_Batch.t-c.html#METHODretry">retry</a> [<a href="Ext_data_Batch.t-c.html">Ext_data_Batch.t</a>]</td>
 <td><div class="info">
 <p>Kicks off execution of the batch, continuing from the current operation. This is intended
@@ -17695,7 +17690,7 @@ window when a drag and drop element is dragged near the viewport boundary.</p>
 </td></tr>
 <tr><td><a href="Ext_Component.t-c.html#METHODscrollBy">scrollBy</a> [<a href="Ext_Component.t-c.html">Ext_Component.t</a>]</td>
 <td><div class="info">
-<p>Scrolls this Component's <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">target element</a> by the passed delta values, optionally animating.</p>
+<p>Scrolls this Component's <a href="#!/api/Ext.Component-method-getTargetEl" rel="Ext.Component-method-getTargetEl" class="docClass">target element</a> by the passed delta values, optionally animating.</p>
 
 <p>All of the following are equivalent:</p>
 
@@ -18807,7 +18802,7 @@ brought to the front of its <a href="#!/api/Ext.grid.column.Column-property-zInd
 </td></tr>
 <tr><td><a href="Ext_menu_Menu.t-c.html#METHODshow_menu">show_menu</a> [<a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a>]</td>
 <td><div class="info">
-<p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
+<p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu-cfg-autoRender" rel="Ext.menu.Menu-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 
 <p>After being shown, a <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
 brought to the front of its <a href="#!/api/Ext.menu.Menu-property-zIndexManager" rel="Ext.menu.Menu-property-zIndexManager" class="docClass">z-index stack</a>.</p> 
@@ -18821,7 +18816,7 @@ are basic shortcuts and do not support all of the config options allowed here.</
 
 <p>Example usage:</p>
 
-<pre><code><a href="#!/api/Ext.MessageBox-event-show" rel="Ext.MessageBox-event-show" class="docClass">Ext.Msg.show</a>({
+<pre><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>({
     title: 'Address',
     msg: 'Please enter your address:',
     width: 300,
@@ -18839,7 +18834,7 @@ are basic shortcuts and do not support all of the config options allowed here.</
 <p>Shows this tooltip at the current event target XY position.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODshrinkWrap">shrinkWrap</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
+<tr><td><a href="Ext_button_Button.configs-c.html#METHODshrinkWrap">shrinkWrap</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
 <td><div class="info">
 <p>If this property is a number, it is interpreted as follows:</p>
 
@@ -18857,7 +18852,7 @@ effectively ignoring this property (e.g., <a href="#!/api/Ext.layout.container.H
 <a href="#!/api/Ext.layout.container.VBox" rel="Ext.layout.container.VBox" class="docClass">Ext.layout.container.VBox</a>, <a href="#!/api/Ext.layout.component.Dock" rel="Ext.layout.component.Dock" class="docClass">Ext.layout.component.Dock</a>).</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_button_Button.configs-c.html#METHODshrinkWrap_num">shrinkWrap_num</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
+<tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODshrinkWrap">shrinkWrap</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
 <td><div class="info">
 <p>If this property is a number, it is interpreted as follows:</p>
 
@@ -19734,7 +19729,7 @@ containers:</p>
 <a href="#!/api/Ext-method-resumeLayouts" rel="Ext-method-resumeLayouts" class="docClass">Ext.resumeLayouts</a>(true);
 </code></pre>
 
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p>
+<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p>
 
 <p>See also <a href="#!/api/Ext-method-batchLayouts" rel="Ext-method-batchLayouts" class="docClass">Ext.batchLayouts</a> for more abstract way of doing this.</p> 
 </div>
@@ -19751,7 +19746,7 @@ containers:</p>
 <a href="#!/api/Ext-method-resumeLayouts" rel="Ext-method-resumeLayouts" class="docClass">Ext.resumeLayouts</a>(true);
 </code></pre>
 
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p>
+<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p>
 
 <p>See also <a href="#!/api/Ext-method-batchLayouts" rel="Ext-method-batchLayouts" class="docClass">batchLayouts</a> for more abstract way of doing this.</p> 
 </div>
@@ -21087,7 +21082,7 @@ manually used to instantiate a component using <a href="#!/api/Ext-method-widget
 </code></pre>
 
 <p>This conversion of configuration objects into instantiated components is done when
-a container is created as part of its {Ext.container.AbstractContainer#initComponent}
+a container is created as part of its {<a href="#!/api/Ext.container.AbstractContainer-method-initComponent" rel="Ext.container.AbstractContainer-method-initComponent" class="docClass">Ext.container.AbstractContainer.initComponent</a>}
 process. As part of the same process, the <code>items</code> array is converted from its raw
 array form into a <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a> instance.</p>
 

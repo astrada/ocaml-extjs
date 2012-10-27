@@ -148,26 +148,26 @@
 <li>ContainerA's initComponent calls <a href="#!/api/Ext.util.Renderable-method-render" rel="Ext.util.Renderable-method-render" class="docClass">render</a> passing the <code>renderTo</code> property as the
 container argument.</li>
 <li><code>render</code> calls the <code>getRenderTree</code> method to get a complete <a href="#!/api/Ext.DomHelper" rel="Ext.DomHelper" class="docClass">Ext.DomHelper</a> spec.</li>
-<li><code>getRenderTree</code> fires the "beforerender" event and calls the #beforeRender
-method. Its result is obtained by calling #getElConfig.</li>
-<li>The #getElConfig method uses the <code>renderTpl</code> and its render data as the content
+<li><code>getRenderTree</code> fires the "beforerender" event and calls the <a href="#!/api/Ext.util.Renderable-method-beforeRender" rel="Ext.util.Renderable-method-beforeRender" class="docClass">beforeRender</a>
+method. Its result is obtained by calling <a href="#!/api/Ext.util.Renderable-method-getElConfig" rel="Ext.util.Renderable-method-getElConfig" class="docClass">getElConfig</a>.</li>
+<li>The <a href="#!/api/Ext.util.Renderable-method-getElConfig" rel="Ext.util.Renderable-method-getElConfig" class="docClass">getElConfig</a> method uses the <code>renderTpl</code> and its render data as the content
 of the <code>autoEl</code> described element.</li>
 <li>The result of <code>getRenderTree</code> is passed to <a href="#!/api/Ext.DomHelper-method-append" rel="Ext.DomHelper-method-append" class="docClass">Ext.DomHelper.append</a>.</li>
 <li>The <code>renderTpl</code> contains calls to render things like docked items, container items
 and raw markup (such as the <code>html</code> or <code>tpl</code> config properties). These calls are to
-methods added to the <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a> instance by #setupRenderTpl.</li>
-<li>The #setupRenderTpl method adds methods such as <code>renderItems</code>, <code>renderContent</code>, etc.
+methods added to the <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a> instance by <a href="#!/api/Ext.util.Renderable-method-setupRenderTpl" rel="Ext.util.Renderable-method-setupRenderTpl" class="docClass">setupRenderTpl</a>.</li>
+<li>The <a href="#!/api/Ext.util.Renderable-method-setupRenderTpl" rel="Ext.util.Renderable-method-setupRenderTpl" class="docClass">setupRenderTpl</a> method adds methods such as <code>renderItems</code>, <code>renderContent</code>, etc.
 to the template. These are directed to "doRenderItems", "doRenderContent" etc..</li>
-<li>The #setupRenderTpl calls traverse from components to their <a href="#!/api/Ext.layout.Layout" rel="Ext.layout.Layout" class="docClass">Ext.layout.Layout</a>
+<li>The <a href="#!/api/Ext.util.Renderable-method-setupRenderTpl" rel="Ext.util.Renderable-method-setupRenderTpl" class="docClass">setupRenderTpl</a> calls traverse from components to their <a href="#!/api/Ext.layout.Layout" rel="Ext.layout.Layout" class="docClass">Ext.layout.Layout</a>
 object.</li>
 <li>When a container is rendered, it also has a <code>renderTpl</code>. This is processed when the
 <code>renderContainer</code> method is called in the component's <code>renderTpl</code>. This call goes to
-Ext.layout.container.Container#doRenderContainer. This method repeats this
+<a href="#!/api/Ext.layout.container.Container-method-doRenderContainer" rel="Ext.layout.container.Container-method-doRenderContainer" class="docClass">Ext.layout.container.Container.doRenderContainer</a>. This method repeats this
 process for all components in the container.</li>
 <li>After the top-most component's markup is generated and placed in to the DOM, the next
 step is to link elements to their components and finish calling the component methods
 <code>onRender</code> and <code>afterRender</code> as well as fire the corresponding events.</li>
-<li>The first step in this is to call #finishRender. This method descends the
+<li>The first step in this is to call <a href="#!/api/Ext.util.Renderable-method-finishRender" rel="Ext.util.Renderable-method-finishRender" class="docClass">finishRender</a>. This method descends the
 component hierarchy and calls <code>onRender</code> and fires the <code>render</code> event. These calls
 are delivered top-down to approximate the timing of these calls/events from previous
 versions.</li>
