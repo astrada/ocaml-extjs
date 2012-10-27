@@ -840,8 +840,10 @@ let write_module formatter m =
     (write_class_type formatter write_method m)
     m.Module.class_types;
   Format.fprintf formatter
-    "@[<hov 2>let static =@ Js.Unsafe.variable \"%s\"@]@\n@\n"
+    "@[<hov 2>let get_static () =@ Js.Unsafe.variable \"%s\"@]@\n@\n"
     m.Module.id;
+  Format.fprintf formatter
+    "@[<hov 2>let static =@ get_static ()@]@\n@\n";
   List.iter
     (write_function formatter)
     m.Module.functions;
@@ -966,6 +968,10 @@ let write_module_interface formatter m =
     (fun ct ->
        if ct.ClassType.class_cat = StaticClass &&
           List.length ct.ClassType.methods > 0 then begin
+         Format.fprintf formatter
+           "val get_static : unit -> %s Js.t@\n\
+            (** Static instance for lazy-loaded modules. *)@\n@\n"
+           ct.ClassType.name;
          Format.fprintf formatter
            "val static : %s Js.t@\n(** Static instance. *)@\n@\n"
            ct.ClassType.name;
