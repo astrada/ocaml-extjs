@@ -107,7 +107,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.view.AbstractView"
+let get_static () = Js.Unsafe.variable "Ext.view.AbstractView"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

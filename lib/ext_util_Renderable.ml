@@ -36,7 +36,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.util.Renderable"
+let get_static () = Js.Unsafe.variable "Ext.util.Renderable"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

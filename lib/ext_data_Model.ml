@@ -85,7 +85,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.data.Model"
+let get_static () = Js.Unsafe.variable "Ext.data.Model"
+
+let static = get_static ()
 
 let getFields () =
   Js.Unsafe.meth_call static (Js.Unsafe.variable "getFields") [||]

@@ -37,7 +37,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.util.Point"
+let get_static () = Js.Unsafe.variable "Ext.util.Point"
+
+let static = get_static ()
 
 let fromEvent e =
   Js.Unsafe.meth_call

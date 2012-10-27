@@ -86,7 +86,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.data.AbstractStore"
+let get_static () = Js.Unsafe.variable "Ext.data.AbstractStore"
+
+let static = get_static ()
 
 let create store =
   Js.Unsafe.meth_call

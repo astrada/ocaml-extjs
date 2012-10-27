@@ -45,7 +45,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.Template"
+let get_static () = Js.Unsafe.variable "Ext.Template"
+
+let static = get_static ()
 
 let from el config =
   Js.Unsafe.meth_call

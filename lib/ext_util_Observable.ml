@@ -59,7 +59,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.util.Observable"
+let get_static () = Js.Unsafe.variable "Ext.util.Observable"
+
+let static = get_static ()
 
 let capture o fn scope =
   Js.Unsafe.meth_call

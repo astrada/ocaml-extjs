@@ -139,7 +139,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.EventObject"
+let get_static () = Js.Unsafe.variable "Ext.EventObject"
+
+let static = get_static ()
 
 let get_instance () = Js.Unsafe.variable "Ext.EventObject"
 

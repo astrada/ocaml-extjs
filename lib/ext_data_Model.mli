@@ -774,6 +774,9 @@ model based on changes in meta data (called from Reader's onMetaChange method).<
   
 end
 
+val get_static : unit -> statics Js.t
+(** Static instance for lazy-loaded modules. *)
+
 val static : statics Js.t
 (** Static instance. *)
 

@@ -1745,6 +1745,9 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel=
   
 end
 
+val get_static : unit -> statics Js.t
+(** Static instance for lazy-loaded modules. *)
+
 val static : statics Js.t
 (** Static instance. *)
 

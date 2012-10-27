@@ -168,7 +168,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext"
+let get_static () = Js.Unsafe.variable "Ext"
+
+let static = get_static ()
 
 let get_instance () = Js.Unsafe.variable "Ext"
 

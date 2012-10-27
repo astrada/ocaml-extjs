@@ -250,7 +250,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.dom.Element"
+let get_static () = Js.Unsafe.variable "Ext.dom.Element"
+
+let static = get_static ()
 
 let select selector unique root =
   Js.Unsafe.meth_call

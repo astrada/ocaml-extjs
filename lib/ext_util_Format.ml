@@ -64,7 +64,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.util.Format"
+let get_static () = Js.Unsafe.variable "Ext.util.Format"
+
+let static = get_static ()
 
 let get_instance () = Js.Unsafe.variable "Ext.util.Format"
 

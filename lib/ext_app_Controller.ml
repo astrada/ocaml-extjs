@@ -48,7 +48,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.app.Controller"
+let get_static () = Js.Unsafe.variable "Ext.app.Controller"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

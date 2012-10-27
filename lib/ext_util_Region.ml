@@ -47,7 +47,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.util.Region"
+let get_static () = Js.Unsafe.variable "Ext.util.Region"
+
+let static = get_static ()
 
 let from o =
   Js.Unsafe.meth_call

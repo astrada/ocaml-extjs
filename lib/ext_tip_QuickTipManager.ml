@@ -35,7 +35,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.tip.QuickTipManager"
+let get_static () = Js.Unsafe.variable "Ext.tip.QuickTipManager"
+
+let static = get_static ()
 
 let get_instance () = Js.Unsafe.variable "Ext.tip.QuickTipManager"
 

@@ -43,7 +43,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.Loader"
+let get_static () = Js.Unsafe.variable "Ext.Loader"
+
+let static = get_static ()
 
 let get_instance () = Js.Unsafe.variable "Ext.Loader"
 

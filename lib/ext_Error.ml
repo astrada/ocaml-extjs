@@ -27,7 +27,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.Error"
+let get_static () = Js.Unsafe.variable "Ext.Error"
+
+let static = get_static ()
 
 let handle err =
   Js.Unsafe.meth_call

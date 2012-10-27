@@ -593,6 +593,9 @@ the <strong>class</strong> allowing for central handling of events on many insta
   
 end
 
+val get_static : unit -> statics Js.t
+(** Static instance for lazy-loaded modules. *)
+
 val static : statics Js.t
 (** Static instance. *)
 

@@ -233,7 +233,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.AbstractComponent"
+let get_static () = Js.Unsafe.variable "Ext.AbstractComponent"
+
+let static = get_static ()
 
 let cancelLayout comp =
   Js.Unsafe.meth_call

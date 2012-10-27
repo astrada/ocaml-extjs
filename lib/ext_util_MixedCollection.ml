@@ -40,7 +40,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.util.MixedCollection"
+let get_static () = Js.Unsafe.variable "Ext.util.MixedCollection"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

@@ -158,7 +158,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.dom.AbstractElement"
+let get_static () = Js.Unsafe.variable "Ext.dom.AbstractElement"
+
+let static = get_static ()
 
 let fly dom named =
   Js.Unsafe.meth_call

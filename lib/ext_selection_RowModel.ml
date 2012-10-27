@@ -49,7 +49,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.selection.RowModel"
+let get_static () = Js.Unsafe.variable "Ext.selection.RowModel"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

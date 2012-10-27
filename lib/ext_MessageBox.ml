@@ -58,7 +58,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.MessageBox"
+let get_static () = Js.Unsafe.variable "Ext.MessageBox"
+
+let static = get_static ()
 
 let get_instance () = Js.Unsafe.variable "Ext.MessageBox"
 

@@ -2888,6 +2888,9 @@ to be applied to many related elements in one statement through the returned <a 
   
 end
 
+val get_static : unit -> statics Js.t
+(** Static instance for lazy-loaded modules. *)
+
 val static : statics Js.t
 (** Static instance. *)
 

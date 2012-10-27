@@ -28,7 +28,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.util.ElementContainer"
+let get_static () = Js.Unsafe.variable "Ext.util.ElementContainer"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

@@ -33,7 +33,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.Base"
+let get_static () = Js.Unsafe.variable "Ext.Base"
+
+let static = get_static ()
 
 let addMembers members =
   Js.Unsafe.meth_call

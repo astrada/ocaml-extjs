@@ -31,7 +31,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.state.Manager"
+let get_static () = Js.Unsafe.variable "Ext.state.Manager"
+
+let static = get_static ()
 
 let get_instance () = Js.Unsafe.variable "Ext.state.Manager"
 

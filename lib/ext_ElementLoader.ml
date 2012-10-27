@@ -59,7 +59,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.ElementLoader"
+let get_static () = Js.Unsafe.variable "Ext.ElementLoader"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

@@ -42,7 +42,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.Version"
+let get_static () = Js.Unsafe.variable "Ext.Version"
+
+let static = get_static ()
 
 let compare current target =
   Js.Unsafe.meth_call

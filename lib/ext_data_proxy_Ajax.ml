@@ -37,7 +37,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.data.proxy.Ajax"
+let get_static () = Js.Unsafe.variable "Ext.data.proxy.Ajax"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

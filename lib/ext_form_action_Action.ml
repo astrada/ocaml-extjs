@@ -48,7 +48,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.form.action.Action"
+let get_static () = Js.Unsafe.variable "Ext.form.action.Action"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 

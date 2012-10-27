@@ -67,7 +67,9 @@ object
   
 end
 
-let static = Js.Unsafe.variable "Ext.panel.AbstractPanel"
+let get_static () = Js.Unsafe.variable "Ext.panel.AbstractPanel"
+
+let static = get_static ()
 
 let of_configs c = Js.Unsafe.coerce c
 
