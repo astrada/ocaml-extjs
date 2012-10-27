@@ -201,7 +201,7 @@ that are to be stretched &amp; explicit widths on columns that are not.</p> %}
     
     Defaults to: [false]
     *)
-  method layout_str : Js.js_string Js.t Js.prop
+  method layout : _ Js.t Js.prop
   (** {% <p><strong>Important</strong>: In order for child items to be correctly sized and
 positioned, typically a layout manager <strong>must</strong> be specified through
 the <code>layout</code> configuration option.</p>

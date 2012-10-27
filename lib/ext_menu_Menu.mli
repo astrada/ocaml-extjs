@@ -112,7 +112,7 @@ object('self)
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -137,14 +137,14 @@ After calling the superclass’s onDestroy, the Component will be destroyed.</p>
     *)
   method show_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
-  (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
+  (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu-cfg-autoRender" rel="Ext.menu.Menu-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 
 <p>After being shown, a <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
 brought to the front of its <a href="#!/api/Ext.menu.Menu-property-zIndexManager" rel="Ext.menu.Menu-property-zIndexManager" class="docClass">z-index stack</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
+    {% <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
      Defaults to: null
     }

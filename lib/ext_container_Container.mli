@@ -173,7 +173,7 @@ object('self)
     _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Invoked after the Component is shown (after <a href="#!/api/Ext.container.Container-method-onShow" rel="Ext.container.Container-method-onShow" class="docClass">onShow</a> is called).</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.container.Container-event-show" rel="Ext.container.Container-event-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.container.Container-method-show" rel="Ext.container.Container-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)

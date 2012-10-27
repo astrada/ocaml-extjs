@@ -45,7 +45,7 @@ object('self)
   method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   method baseCls : Js.js_string Js.t Js.prop
-  method border_bool : bool Js.t Js.prop
+  method border : _ Js.t Js.prop
   method defaultType : Js.js_string Js.t Js.prop
   method defaultWidth : Js.number Js.t Js.prop
   method detachOnRemove : bool Js.t Js.prop

@@ -26,13 +26,13 @@ object('self)
   
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  method autoRender_bool : bool Js.t Js.prop
+  method autoRender : _ Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method closable : bool Js.t Js.prop
   method closeAction : Js.js_string Js.t Js.prop
   method constrainPosition : bool Js.t Js.prop
   method defaultAlign : Js.js_string Js.t Js.prop
-  method floating_obj : _ Js.t Js.prop
+  method floating : bool Js.t Js.prop
   method focusOnToFront : bool Js.t Js.prop
   method frameHeader : bool Js.t Js.prop
   method hidden : bool Js.t Js.prop

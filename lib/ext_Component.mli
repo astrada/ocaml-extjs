@@ -170,7 +170,7 @@ names added, and will be in the configured visibility and the configured enable 
     _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Invoked after the Component is shown (after <a href="#!/api/Ext.Component-method-onShow" rel="Ext.Component-method-onShow" class="docClass">onShow</a> is called).</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-show" rel="Ext.Component-event-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -351,7 +351,7 @@ alert(t.getXType());  // alerts 'textfield'
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -412,7 +412,7 @@ After calling the superclass’s onDestroy, the Component will be destroyed.</p>
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-hide" rel="Ext.Component-event-hide" class="docClass">hide</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-hide" rel="Ext.Component-method-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -437,7 +437,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-show" rel="Ext.Component-event-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -462,7 +462,7 @@ calling the superclass's onShow, the Component will be visible.</p>
     }
     *)
   method scrollBy : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
-  (** {% <p>Scrolls this Component's <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">target element</a> by the passed delta values, optionally animating.</p>
+  (** {% <p>Scrolls this Component's <a href="#!/api/Ext.Component-method-getTargetEl" rel="Ext.Component-method-getTargetEl" class="docClass">target element</a> by the passed delta values, optionally animating.</p>
 
 <p>All of the following are equivalent:</p>
 

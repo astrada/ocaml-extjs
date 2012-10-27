@@ -209,7 +209,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.window.Window-event-show" rel="Ext.window.Window-event-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.window.Window-method-show" rel="Ext.window.Window-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -283,12 +283,12 @@ object('self)
     
     Defaults to: [null]
     *)
-  method autoRender_bool : bool Js.t Js.prop
+  method autoRender : _ Js.t Js.prop
   (** {% <p>Windows render to the body on first show.</p>
 
-<p>This config is intended mainly for non-<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">floating</a> Components which may or may not be shown. Instead of using
+<p>This config is intended mainly for non-<a href="#!/api/Ext.window.Window-cfg-floating" rel="Ext.window.Window-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
 <a href="#!/api/Ext.window.Window-cfg-renderTo" rel="Ext.window.Window-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
-upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
+upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.window.Window-cfg-floating" rel="Ext.window.Window-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
 
 <p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
 
@@ -307,7 +307,7 @@ show.</p> %}
 disallow closing the window.</p>
 
 <p>By default, when close is requested by either clicking the close button in the header or pressing ESC when the
-Window has focus, the <a href="#!/api/Ext.window.Window-method-close" rel="Ext.window.Window-method-close" class="docClass">close</a> method will be called. This will <em><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a></em> the
+Window has focus, the <a href="#!/api/Ext.window.Window-method-close" rel="Ext.window.Window-method-close" class="docClass">close</a> method will be called. This will <em><a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a></em> the
 Window and its content meaning that it may not be reused.</p>
 
 <p>To make closing a Window <em>hide</em> the Window so that it may be reused, set <a href="#!/api/Ext.window.Window-cfg-closeAction" rel="Ext.window.Window-cfg-closeAction" class="docClass">closeAction</a> to 'hide'.</p> %}

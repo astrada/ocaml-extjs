@@ -395,7 +395,7 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 });
 </code></pre>
 
-<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base" rel="Ext.Base" class="docClass">Ext.Base.borrow</a> instead.</p> %}
+<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base-static-method-borrow" rel="Ext.Base-static-method-borrow" class="docClass">Ext.Base.borrow</a> instead.</p> %}
     
     {b Parameters}:
     {ul {- dest: [_ Js.t]
@@ -473,8 +473,15 @@ the class' constructor.</p> %}
     }
     }
     *)
-  method createByAlias : unit Js.meth
+  method createByAlias : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   (** {% <p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a></p> %}
+    
+    {b Parameters}:
+    {ul {- alias: [Js.js_string Js.t]
+    }
+    {- args: [_ Js.t]
+    }
+    }
     *)
   method decode : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.JSON-method-decode" rel="Ext.JSON-method-decode" class="docClass">Ext.JSON.decode</a></p>
@@ -849,8 +856,13 @@ of the object.</p> %}
     }
     }
     *)
-  method exclude : unit Js.meth
+  method exclude : _ Js.js_array Js.t -> _ Js.t Js.meth
   (** {% <p>Convenient shortcut to <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a></p> %}
+    
+    {b Parameters}:
+    {ul {- excludes: [_ Js.js_array Js.t]
+    }
+    }
     *)
   method fly : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Ext_dom_AbstractElement_Fly.t Js.t Js.meth
@@ -903,20 +915,24 @@ the same id via AJAX or DOM.</p> %}
     }
     }
     *)
-  method getBody : unit Js.meth
+  method getBody : Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Returns the current document body as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
-    
-    {b Returns}:
-    {ul {- [unit]
-    {% <p><a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> The document body</p> %}
-    }
-    }
     *)
-  method getClass : unit Js.meth
+  method getClass : _ Js.t -> Ext_Class.t Js.t Js.meth
   (** {% <p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-getClass" rel="Ext.ClassManager-method-getClass" class="docClass">Ext.ClassManager.getClass</a></p> %}
+    
+    {b Parameters}:
+    {ul {- object: [_ Js.t]
+    }
+    }
     *)
-  method getClassName : unit Js.meth
+  method getClassName : _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Convenient shorthand, see <a href="#!/api/Ext.ClassManager-method-getName" rel="Ext.ClassManager-method-getName" class="docClass">Ext.ClassManager.getName</a></p> %}
+    
+    {b Parameters}:
+    {ul {- object: [_ Js.t]
+    }
+    }
     *)
   method getCmp : Js.js_string Js.t -> unit Js.meth
   (** {% <p>This is shorthand reference to <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.
@@ -935,14 +951,8 @@ Class was found.</p> %}
     }
     }
     *)
-  method getDoc : unit Js.meth
+  method getDoc : Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Returns the current HTML document object as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
-    
-    {b Returns}:
-    {ul {- [unit]
-    {% <p><a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> The document</p> %}
-    }
-    }
     *)
   method getDom : _ Js.t -> unit Js.meth
   (** {% <p>Returns the dom node for the passed String (id), dom node, or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.
@@ -977,14 +987,8 @@ when this method is called to be successful.</p> %}
     }
     }
     *)
-  method getHead : unit Js.meth
+  method getHead : Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Returns the current document head as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> %}
-    
-    {b Returns}:
-    {ul {- [unit]
-    {% <p><a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> The document head</p> %}
-    }
-    }
     *)
   method getOrientation : Js.js_string Js.t Js.meth
   (** {% <p>Returns the current orientation of the mobile device</p> %}
@@ -1360,11 +1364,30 @@ Company.data.CustomStore = function(config) { ... };
     }
     }
     *)
-  method onDocumentReady : unit Js.meth
+  method onDocumentReady : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.EventManager-method-onDocumentReady" rel="Ext.EventManager-method-onDocumentReady" class="docClass">Ext.EventManager.onDocumentReady</a></p> %}
+    
+    {b Parameters}:
+    {ul {- fn: [_ Js.callback]
+    }
+    {- scope: [_ Js.t] (optional)
+    }
+    {- options: [_ Js.t] (optional)
+    }
+    }
     *)
-  method onReady : unit Js.meth
+  method onReady : _ Js.callback -> _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.Loader-method-onReady" rel="Ext.Loader-method-onReady" class="docClass">Ext.Loader.onReady</a> with withDomReady set to true</p> %}
+    
+    {b Parameters}:
+    {ul {- fn: [_ Js.callback]
+    }
+    {- scope: [_ Js.t]
+    }
+    {- options: [_ Js.t]
+    }
+    }
     *)
   method override : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Overrides members of the specified <code>target</code> with the given values.</p>
@@ -1526,23 +1549,23 @@ The body node will be ignored if passed in.</p> %}
     }
     }
     *)
-  method require : unit Js.meth
+  method require : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Convenient alias of <a href="#!/api/Ext.Loader-method-require" rel="Ext.Loader-method-require" class="docClass">Ext.Loader.require</a>. Please see the introduction documentation of
 <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> for examples.</p> %}
-    *)
-  method resumeLayouts : bool Js.t Js.optdef -> unit Js.meth
-  (** {% <p>Resumes layout activity in the whole framework.</p>
-
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p> %}
     
     {b Parameters}:
-    {ul {- flush: [bool Js.t] (optional)
-    {% <p>True to perform all the pending layouts. This can also be
-achieved by calling <a href="#!/api/Ext.AbstractComponent-static-method-flushLayouts" rel="Ext.AbstractComponent-static-method-flushLayouts" class="docClass">flushLayouts</a> directly.</p> %}
-     Defaults to: false
+    {ul {- expressions: [_ Js.t]
+    }
+    {- fn: [_ Js.callback] (optional)
+    }
+    {- scope: [_ Js.t] (optional)
+    }
+    {- excludes: [_ Js.t] (optional)
     }
     }
     *)
+  method resumeLayouts : _ Js.t -> unit Js.meth
   method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
   (** {% <p>Shorthand of <a href="#!/api/Ext.dom.Element-method-select" rel="Ext.dom.Element-method-select" class="docClass">Ext.Element.select</a>.</p>
@@ -1586,12 +1609,24 @@ containers:</p>
 <a href="#!/api/Ext-method-resumeLayouts" rel="Ext-method-resumeLayouts" class="docClass">Ext.resumeLayouts</a>(true);
 </code></pre>
 
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p>
+<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">Ext.AbstractComponent.suspendLayouts</a>.</p>
 
 <p>See also <a href="#!/api/Ext-method-batchLayouts" rel="Ext-method-batchLayouts" class="docClass">batchLayouts</a> for more abstract way of doing this.</p> %}
     *)
-  method syncRequire : unit Js.meth
+  method syncRequire : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Synchronous version of <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">require</a>, convenient alias of <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">Ext.Loader.syncRequire</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- expressions: [_ Js.t]
+    }
+    {- fn: [_ Js.callback] (optional)
+    }
+    {- scope: [_ Js.t] (optional)
+    }
+    {- excludes: [_ Js.t] (optional)
+    }
+    }
     *)
   method toArray : _ Js.t -> Js.number Js.t Js.optdef ->
     Js.number Js.t Js.optdef -> _ Js.js_array Js.t Js.meth

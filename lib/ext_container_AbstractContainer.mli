@@ -378,7 +378,7 @@ been removed.</p> %}
     }
     {- autoDestroy: [bool Js.t] (optional)
     {% <p>True to automatically invoke the removed Component's
-<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component.destroy</a> function.</p>
+<a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">Ext.Component.destroy</a> function.</p>
 
 <p>Defaults to the value of this Container's <a href="#!/api/Ext.container.AbstractContainer-cfg-autoDestroy" rel="Ext.container.AbstractContainer-cfg-autoDestroy" class="docClass">autoDestroy</a> config.</p> %}
     }
@@ -397,7 +397,7 @@ been removed.</p> %}
     {b Parameters}:
     {ul {- autoDestroy: [bool Js.t] (optional)
     {% <p>True to automatically invoke the removed
-Component's <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component.destroy</a> function.
+Component's <a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">Ext.Component.destroy</a> function.
 Defaults to the value of this Container's <a href="#!/api/Ext.container.AbstractContainer-cfg-autoDestroy" rel="Ext.container.AbstractContainer-cfg-autoDestroy" class="docClass">autoDestroy</a> config.</p> %}
     }
     }
@@ -502,7 +502,7 @@ items: [
 </code></pre> %}
     *)
   method detachOnRemove : bool Js.t Js.prop
-  (** {% <p>True to move any component to the <a href="#!/api/Ext" rel="Ext" class="docClass">detachedBody</a> when the component is
+  (** {% <p>True to move any component to the <a href="#!/api/Ext-method-getDetachedBody" rel="Ext-method-getDetachedBody" class="docClass">detachedBody</a> when the component is
 removed from this container. This option is only applicable when the component is not destroyed while
 being removed, see <a href="#!/api/Ext.container.AbstractContainer-cfg-autoDestroy" rel="Ext.container.AbstractContainer-cfg-autoDestroy" class="docClass">autoDestroy</a> and <a href="#!/api/Ext.container.AbstractContainer-method-remove" rel="Ext.container.AbstractContainer-method-remove" class="docClass">remove</a>. If this option is set to false, the DOM
 of the component will remain in the current place until it is explicitly moved.</p> %}
@@ -638,7 +638,7 @@ layout: {
 }
 </code></pre> %}
     *)
-  method renderTpl_str : Js.js_string Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   (** {% <p>End Definitions</p>
 
 <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating

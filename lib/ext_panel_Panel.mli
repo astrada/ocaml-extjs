@@ -139,12 +139,12 @@ supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ex
   (** {% <p>Invoked before the Component is destroyed.</p> %}
     *)
   method close : unit Js.meth
-  (** {% <p>Closes the Panel. By default, this method, removes it from the DOM, <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a>s the
+  (** {% <p>Closes the Panel. By default, this method, removes it from the DOM, <a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a>s the
 Panel object and all its descendant Components. The <a href="#!/api/Ext.panel.Panel-event-beforeclose" rel="Ext.panel.Panel-event-beforeclose" class="docClass">beforeclose</a> event is fired before the
 close happens and will cancel the close action if it returns false.</p>
 
 <p><strong>Note:</strong> This method is also affected by the <a href="#!/api/Ext.panel.Panel-cfg-closeAction" rel="Ext.panel.Panel-cfg-closeAction" class="docClass">closeAction</a> setting. For more explicit control use
-<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">destroy</a> and <a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a> methods.</p> %}
+<a href="#!/api/Ext.panel.Panel-method-destroy" rel="Ext.panel.Panel-method-destroy" class="docClass">destroy</a> and <a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a> methods.</p> %}
     *)
   method collapse : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
     'self Js.t Js.meth
@@ -300,7 +300,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-event-show" rel="Ext.panel.Panel-event-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-method-show" rel="Ext.panel.Panel-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -460,7 +460,7 @@ each of the buttons in the buttons toolbar.</p> %}
 disallow closing the window.</p>
 
 <p>By default, when close is requested by clicking the close button in the header, the <a href="#!/api/Ext.panel.Panel-method-close" rel="Ext.panel.Panel-method-close" class="docClass">close</a> method will be
-called. This will <em><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a></em> the Panel and its content meaning that it may not be
+called. This will <em><a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a></em> the Panel and its content meaning that it may not be
 reused.</p>
 
 <p>To make closing a Panel <em>hide</em> the Panel so that it may be reused, set <a href="#!/api/Ext.panel.Panel-cfg-closeAction" rel="Ext.panel.Panel-cfg-closeAction" class="docClass">closeAction</a> to 'hide'.</p> %}
@@ -471,9 +471,9 @@ reused.</p>
   (** {% <p>The action to take when the close header tool is clicked:</p>
 
 <ul>
-<li><p><strong><code>'<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">destroy</a>'</code></strong> :</p>
+<li><p><strong><code>'<a href="#!/api/Ext.panel.Panel-method-destroy" rel="Ext.panel.Panel-method-destroy" class="docClass">destroy</a>'</code></strong> :</p>
 
-<p><a href="#!/api/Ext.panel.Panel-method-remove" rel="Ext.panel.Panel-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a> it and all descendant
+<p><a href="#!/api/Ext.panel.Panel-method-remove" rel="Ext.panel.Panel-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a> it and all descendant
 Components. The window will <strong>not</strong> be available to be redisplayed via the <a href="#!/api/Ext.panel.Panel-method-show" rel="Ext.panel.Panel-method-show" class="docClass">show</a> method.</p></li>
 <li><p><strong><code>'<a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a>'</code></strong> :</p>
 

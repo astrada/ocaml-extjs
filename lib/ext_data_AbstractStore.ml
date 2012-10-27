@@ -1,8 +1,8 @@
 class type t =
 object('self)
   inherit Ext_Base.t
-  inherit Ext_util_Sortable.t
   inherit Ext_util_Observable.t
+  inherit Ext_util_Sortable.t
   
   method defaultProxyType : Js.js_string Js.t Js.prop
   method filters : Ext_util_MixedCollection.t Js.t Js.prop
@@ -28,8 +28,8 @@ end
 class type configs =
 object('self)
   inherit Ext_Base.configs
-  inherit Ext_util_Sortable.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_util_Sortable.configs
   
   method autoLoad : _ Js.t Js.prop
   method autoSync : bool Js.t Js.prop
@@ -49,8 +49,8 @@ end
 class type events =
 object
   inherit Ext_Base.events
-  inherit Ext_util_Sortable.events
   inherit Ext_util_Observable.events
+  inherit Ext_util_Sortable.events
   
   method add : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t
     -> _ Js.t -> unit) Js.callback Js.writeonly_prop
@@ -79,8 +79,8 @@ end
 class type statics =
 object
   inherit Ext_Base.statics
-  inherit Ext_util_Sortable.statics
   inherit Ext_util_Observable.statics
+  inherit Ext_util_Sortable.statics
   
   method create_store : _ Js.t -> 'self Js.t Js.meth
   

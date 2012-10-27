@@ -100,7 +100,7 @@ object('self)
     
     Defaults to: [Ext.baseCSSPrefix + 'dd-drop-nodrop']
     *)
-  method renderTpl_arr : _ Js.js_array Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a>.</p>
 

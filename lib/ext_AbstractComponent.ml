@@ -2,10 +2,10 @@ class type t =
 object('self)
   inherit Ext_Base.t
   inherit Ext_state_Stateful.t
+  inherit Ext_util_Animate.t
+  inherit Ext_util_ElementContainer.t
   inherit Ext_util_Observable.t
   inherit Ext_util_Renderable.t
-  inherit Ext_util_ElementContainer.t
-  inherit Ext_util_Animate.t
   
   method _isLayoutRoot : bool Js.t Js.prop
   method draggable : bool Js.t Js.readonly_prop
@@ -93,10 +93,10 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   inherit Ext_state_Stateful.configs
+  inherit Ext_util_Animate.configs
+  inherit Ext_util_ElementContainer.configs
   inherit Ext_util_Observable.configs
   inherit Ext_util_Renderable.configs
-  inherit Ext_util_ElementContainer.configs
-  inherit Ext_util_Animate.configs
   
   method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
     -> Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback
@@ -170,10 +170,10 @@ class type events =
 object
   inherit Ext_Base.events
   inherit Ext_state_Stateful.events
+  inherit Ext_util_Animate.events
+  inherit Ext_util_ElementContainer.events
   inherit Ext_util_Observable.events
   inherit Ext_util_Renderable.events
-  inherit Ext_util_ElementContainer.events
-  inherit Ext_util_Animate.events
   
   method activate : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method added : (t Js.t -> _ Js.t -> Js.number Js.t -> _ Js.t -> unit)
@@ -220,10 +220,10 @@ class type statics =
 object
   inherit Ext_Base.statics
   inherit Ext_state_Stateful.statics
+  inherit Ext_util_Animate.statics
+  inherit Ext_util_ElementContainer.statics
   inherit Ext_util_Observable.statics
   inherit Ext_util_Renderable.statics
-  inherit Ext_util_ElementContainer.statics
-  inherit Ext_util_Animate.statics
   
   method cancelLayout : 'self Js.t -> unit Js.meth
   method flushLayouts : unit Js.meth

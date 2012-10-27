@@ -97,7 +97,7 @@ object('self)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
-  method autoRender_bool : bool Js.t Js.prop
+  method autoRender : _ Js.t Js.prop
   (** {% <p>private panel overrides</p>
 
 <p>This config is intended mainly for non-<a href="#!/api/Ext.tip.Tip-cfg-floating" rel="Ext.tip.Tip-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
@@ -125,8 +125,8 @@ show.</p> %}
   (** {% <p>The action to take when the close header tool is clicked:</p>
 
 <ul>
-<li><p><strong><a href="#!/api/Ext.tip.Tip" rel="Ext.tip.Tip" class="docClass">destroy</a></strong> : <a href="#!/api/Ext.tip.Tip-method-remove" rel="Ext.tip.Tip-method-remove" class="docClass">remove</a> the window from the DOM and
-<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a> it and all descendant Components. The
+<li><p><strong><a href="#!/api/Ext.tip.Tip-method-destroy" rel="Ext.tip.Tip-method-destroy" class="docClass">destroy</a></strong> : <a href="#!/api/Ext.tip.Tip-method-remove" rel="Ext.tip.Tip-method-remove" class="docClass">remove</a> the window from the DOM and
+<a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a> it and all descendant Components. The
 window will <strong>not</strong> be available to be redisplayed via the <a href="#!/api/Ext.tip.Tip-method-show" rel="Ext.tip.Tip-method-show" class="docClass">show</a> method.</p></li>
 <li><p><strong><a href="#!/api/Ext.tip.Tip-method-hide" rel="Ext.tip.Tip-method-hide" class="docClass">hide</a></strong> : <strong>Default.</strong> <a href="#!/api/Ext.tip.Tip-method-hide" rel="Ext.tip.Tip-method-hide" class="docClass">hide</a> the window by setting visibility
 to hidden and applying negative offsets. The window will be available to be
@@ -151,7 +151,7 @@ for this tip relative to its element of origin.</p> %}
     
     Defaults to: ["tl-bl?"]
     *)
-  method floating_obj : _ Js.t Js.prop
+  method floating : bool Js.t Js.prop
   (** {% <p>Specify as true to float the Component outside of the document flow using CSS absolute positioning.</p>
 
 <p>Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s and <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a>s are floating by default.</p>

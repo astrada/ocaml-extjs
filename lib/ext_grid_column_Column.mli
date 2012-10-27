@@ -345,7 +345,7 @@ componentCls to add specific styling for this component.</p> %}
 <p>Group columns may not be sortable. But they may be hideable and moveable. And you may move headers into and out
 of a group. Note that if all sub columns are dragged out of a group, the group is destroyed.</p> %}
     *)
-  method componentLayout_str : Js.js_string Js.t Js.prop
+  method componentLayout : _ Js.t Js.prop
   (** {% <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -409,7 +409,7 @@ See also <a href="#!/api/Ext.grid.Panel-cfg-enableLocking" rel="Ext.grid.Panel-c
   (** {% <p>The text to render in the column visibility selection menu for this column.  If not
 specified, will default to the text value.</p> %}
     *)
-  method renderTpl_str : Js.js_string Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a>.</p>
 

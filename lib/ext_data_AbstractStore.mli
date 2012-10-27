@@ -26,8 +26,8 @@ or can be completed on the server. This is controlled by the <a href="#!/api/Ext
 class type t =
 object('self)
   inherit Ext_Base.t
-  inherit Ext_util_Sortable.t
   inherit Ext_util_Observable.t
+  inherit Ext_util_Sortable.t
   
   method defaultProxyType : Js.js_string Js.t Js.prop
   (** {% <p>The string type of the Proxy to create if none is specified. This defaults to creating a
@@ -183,8 +183,8 @@ end
 class type configs =
 object('self)
   inherit Ext_Base.configs
-  inherit Ext_util_Sortable.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_util_Sortable.configs
   
   method autoLoad : _ Js.t Js.prop
   (** {% <p>If data is not specified, and if autoLoad is true or an Object, this store's load method is automatically called
@@ -268,8 +268,8 @@ end
 class type events =
 object
   inherit Ext_Base.events
-  inherit Ext_util_Sortable.events
   inherit Ext_util_Observable.events
+  inherit Ext_util_Sortable.events
   
   method add : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t
     -> _ Js.t -> unit) Js.callback Js.writeonly_prop
@@ -463,8 +463,8 @@ end
 class type statics =
 object
   inherit Ext_Base.statics
-  inherit Ext_util_Sortable.statics
   inherit Ext_util_Observable.statics
+  inherit Ext_util_Sortable.statics
   
   method create_store : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Creates a store from config object.</p> %}

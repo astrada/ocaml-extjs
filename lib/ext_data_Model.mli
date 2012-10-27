@@ -697,7 +697,7 @@ field values will be able to read those field values.</p> %}
 record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
 
 <ul>
-<li><strong>PREFIX</strong> : String - Ext.data.Model.PREFIX (defaults to 'ext-record')</li>
+<li><strong>PREFIX</strong> : String - <a href="#!/api/Ext.data.Model-static-property-PREFIX" rel="Ext.data.Model-static-property-PREFIX" class="docClass">Ext.data.Model.PREFIX</a> (defaults to 'ext-record')</li>
 <li><strong>AUTO_ID</strong> : String - <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>.AUTO_ID (defaults to 1 initially)</li>
 </ul> %}
     

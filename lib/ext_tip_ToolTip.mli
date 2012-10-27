@@ -225,7 +225,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-event-show" rel="Ext.tip.ToolTip-event-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-method-show" rel="Ext.tip.ToolTip-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)

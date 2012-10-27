@@ -73,7 +73,7 @@ object('self)
   method maxWidth : Js.number Js.t Js.prop
   method minHeight : Js.number Js.t Js.prop
   method minWidth : Js.number Js.t Js.prop
-  method resizable_bool : bool Js.t Js.prop
+  method resizable : _ Js.t Js.prop
   method title : Js.js_string Js.t Js.prop
   method width : Js.number Js.t Js.prop
   

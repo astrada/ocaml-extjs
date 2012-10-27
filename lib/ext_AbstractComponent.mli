@@ -9,10 +9,10 @@ class type t =
 object('self)
   inherit Ext_Base.t
   inherit Ext_state_Stateful.t
+  inherit Ext_util_Animate.t
+  inherit Ext_util_ElementContainer.t
   inherit Ext_util_Observable.t
   inherit Ext_util_Renderable.t
-  inherit Ext_util_ElementContainer.t
-  inherit Ext_util_Animate.t
   
   method _isLayoutRoot : bool Js.t Js.prop
   (** {% <p>Setting this property to <code>true</code> causes the <a href="#!/api/Ext.AbstractComponent-method-isLayoutRoot" rel="Ext.AbstractComponent-method-isLayoutRoot" class="docClass">isLayoutRoot</a> method to return
@@ -996,10 +996,10 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   inherit Ext_state_Stateful.configs
+  inherit Ext_util_Animate.configs
+  inherit Ext_util_ElementContainer.configs
   inherit Ext_util_Observable.configs
   inherit Ext_util_Renderable.configs
-  inherit Ext_util_ElementContainer.configs
-  inherit Ext_util_Animate.configs
   
   method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
     -> Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback
@@ -1581,7 +1581,7 @@ manually used to instantiate a component using <a href="#!/api/Ext-method-widget
 </code></pre>
 
 <p>This conversion of configuration objects into instantiated components is done when
-a container is created as part of its {Ext.container.AbstractContainer#initComponent}
+a container is created as part of its {<a href="#!/api/Ext.container.AbstractContainer-method-initComponent" rel="Ext.container.AbstractContainer-method-initComponent" class="docClass">Ext.container.AbstractContainer.initComponent</a>}
 process. As part of the same process, the <code>items</code> array is converted from its raw
 array form into a <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a> instance.</p>
 
@@ -1613,10 +1613,10 @@ class type events =
 object
   inherit Ext_Base.events
   inherit Ext_state_Stateful.events
+  inherit Ext_util_Animate.events
+  inherit Ext_util_ElementContainer.events
   inherit Ext_util_Observable.events
   inherit Ext_util_Renderable.events
-  inherit Ext_util_ElementContainer.events
-  inherit Ext_util_Animate.events
   
   method activate : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after a Component has been visually activated.</p> %}
@@ -1932,10 +1932,10 @@ class type statics =
 object
   inherit Ext_Base.statics
   inherit Ext_state_Stateful.statics
+  inherit Ext_util_Animate.statics
+  inherit Ext_util_ElementContainer.statics
   inherit Ext_util_Observable.statics
   inherit Ext_util_Renderable.statics
-  inherit Ext_util_ElementContainer.statics
-  inherit Ext_util_Animate.statics
   
   method cancelLayout : 'self Js.t -> unit Js.meth
   (** {% <p>Cancels layout of a component.</p> %}
@@ -1947,12 +1947,12 @@ object
     *)
   method flushLayouts : unit Js.meth
   (** {% <p>Performs all pending layouts that were sceduled while
-<a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">suspendLayouts</a> was in effect.</p> %}
+<a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">suspendLayouts</a> was in effect.</p> %}
     *)
   method resumeLayouts : bool Js.t Js.optdef -> unit Js.meth
   (** {% <p>Resumes layout activity in the whole framework.</p>
 
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p> %}
+<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p> %}
     
     {b Parameters}:
     {ul {- flush: [bool Js.t] (optional)
@@ -1973,7 +1973,7 @@ containers:</p>
 <a href="#!/api/Ext-method-resumeLayouts" rel="Ext-method-resumeLayouts" class="docClass">Ext.resumeLayouts</a>(true);
 </code></pre>
 
-<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-static-method-suspendLayouts" rel="Ext.AbstractComponent-static-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p>
+<p><a href="#!/api/Ext-method-suspendLayouts" rel="Ext-method-suspendLayouts" class="docClass">Ext.suspendLayouts</a> is alias of <a href="#!/api/Ext.AbstractComponent-method-suspendLayouts" rel="Ext.AbstractComponent-method-suspendLayouts" class="docClass">suspendLayouts</a>.</p>
 
 <p>See also <a href="#!/api/Ext-method-batchLayouts" rel="Ext-method-batchLayouts" class="docClass">Ext.batchLayouts</a> for more abstract way of doing this.</p> %}
     *)

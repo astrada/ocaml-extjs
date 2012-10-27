@@ -26,7 +26,7 @@ should override these methods to handle the conversion.</p>
 
 <h1>Rendering</h1>
 
-<p>The content of the field body is defined by the <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">fieldSubTpl</a> XTemplate, with its argument data
+<p>The content of the field body is defined by the <a href="#!/api/Ext.form.field.Base-cfg-fieldSubTpl" rel="Ext.form.field.Base-cfg-fieldSubTpl" class="docClass">fieldSubTpl</a> XTemplate, with its argument data
 created by the <a href="#!/api/Ext.form.field.Base-method-getSubTplData" rel="Ext.form.field.Base-method-getSubTplData" class="docClass">getSubTplData</a> method. Override this template and/or method to create custom
 field renderings.</p>
 
@@ -129,7 +129,7 @@ normalized and converted value see <a href="#!/api/Ext.form.field.Base-method-ge
     }
     *)
   method getSubTplData : _ Js.t Js.meth
-  (** {% <p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">fieldSubTpl</a>.</p> %}
+  (** {% <p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Base-cfg-fieldSubTpl" rel="Ext.form.field.Base-cfg-fieldSubTpl" class="docClass">fieldSubTpl</a>.</p> %}
     
     {b Returns}:
     {ul {- [_ Js.t] {% <p>The template data</p> %}
@@ -476,7 +476,7 @@ and textareas</li>
 a <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>, you can use the FormPanel's <a href="#!/api/Ext.form.Panel-cfg-pollForChanges" rel="Ext.form.Panel-cfg-pollForChanges" class="docClass">Ext.form.Panel.pollForChanges</a> configuration to set up
 such a task automatically.</p> %}
     *)
-  method componentLayout_str : Js.js_string Js.t Js.prop
+  method componentLayout : _ Js.t Js.prop
   (** {% <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 

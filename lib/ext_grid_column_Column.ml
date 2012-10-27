@@ -58,7 +58,7 @@ object('self)
   method align : Js.js_string Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method columns : _ Js.t Js.js_array Js.t Js.prop
-  method componentLayout_str : Js.js_string Js.t Js.prop
+  method componentLayout : _ Js.t Js.prop
   method dataIndex : Js.js_string Js.t Js.prop
   method draggable : bool Js.t Js.prop
   method editRenderer : _ Js.callback Js.prop
@@ -69,7 +69,7 @@ object('self)
   method locked : bool Js.t Js.prop
   method menuDisabled : bool Js.t Js.prop
   method menuText : Js.js_string Js.t Js.prop
-  method renderTpl_str : Js.js_string Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   method renderer : _ Js.t Js.prop
   method resizable_bool : bool Js.t Js.prop
   method scope : _ Js.t Js.prop

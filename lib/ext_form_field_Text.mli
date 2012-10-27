@@ -196,7 +196,7 @@ to the result if this basic state is to be saved.</p>
 configured for the document.</p> %}
     *)
   method getSubTplData : _ Js.t Js.meth
-  (** {% <p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Text" rel="Ext.form.field.Text" class="docClass">fieldSubTpl</a>.</p> %}
+  (** {% <p>Creates and returns the data object to be used when rendering the <a href="#!/api/Ext.form.field.Text-cfg-fieldSubTpl" rel="Ext.form.field.Text-cfg-fieldSubTpl" class="docClass">fieldSubTpl</a>.</p> %}
     
     {b Returns}:
     {ul {- [_ Js.t] {% <p>The template data</p> %}

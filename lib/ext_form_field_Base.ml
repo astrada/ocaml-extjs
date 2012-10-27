@@ -57,7 +57,7 @@ object('self)
   method baseCls : Js.js_string Js.t Js.prop
   method checkChangeBuffer : Js.number Js.t Js.prop
   method checkChangeEvents : Js.js_string Js.t Js.js_array Js.t Js.prop
-  method componentLayout_str : Js.js_string Js.t Js.prop
+  method componentLayout : _ Js.t Js.prop
   method dirtyCls : Js.js_string Js.t Js.prop
   method fieldCls : Js.js_string Js.t Js.prop
   method fieldStyle : Js.js_string Js.t Js.prop

@@ -24,7 +24,7 @@ that should only run <em>after</em> some user feedback from the MessageBox, you 
 
 <p>Show a dialog using config options</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext.MessageBox-event-show" rel="Ext.MessageBox-event-show" class="docClass">Ext.Msg.show</a>({
+<pre class='inline-example '><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>({
      title:'Save Changes?',
      msg: 'You are closing a tab that has unsaved changes. Would you like to save your changes?',
      buttons: <a href="#!/api/Ext.MessageBox-property-YESNOCANCEL" rel="Ext.MessageBox-property-YESNOCANCEL" class="docClass">Ext.Msg.YESNOCANCEL</a>,
@@ -191,7 +191,7 @@ See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBo
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox" rel="Ext.window.MessageBox" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -248,7 +248,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.window.MessageBox-event-show" rel="Ext.window.MessageBox-event-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -353,7 +353,7 @@ are basic shortcuts and do not support all of the config options allowed here.</
 
 <p>Example usage:</p>
 
-<pre><code><a href="#!/api/Ext.MessageBox-event-show" rel="Ext.MessageBox-event-show" class="docClass">Ext.Msg.show</a>({
+<pre><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>({
     title: 'Address',
     msg: 'Please enter your address:',
     width: 300,
@@ -450,9 +450,9 @@ object('self)
   (** {% <p>The action to take when the close header tool is clicked:</p>
 
 <ul>
-<li><p><strong><code>'<a href="#!/api/Ext.window.MessageBox" rel="Ext.window.MessageBox" class="docClass">destroy</a>'</code></strong> :</p>
+<li><p><strong><code>'<a href="#!/api/Ext.window.MessageBox-method-destroy" rel="Ext.window.MessageBox-method-destroy" class="docClass">destroy</a>'</code></strong> :</p>
 
-<p><a href="#!/api/Ext.window.MessageBox-method-remove" rel="Ext.window.MessageBox-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">destroy</a> it and all descendant
+<p><a href="#!/api/Ext.window.MessageBox-method-remove" rel="Ext.window.MessageBox-method-remove" class="docClass">remove</a> the window from the DOM and <a href="#!/api/Ext.Component-method-destroy" rel="Ext.Component-method-destroy" class="docClass">destroy</a> it and all descendant
 Components. The window will <strong>not</strong> be available to be redisplayed via the <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method.</p></li>
 <li><p><strong><code>'<a href="#!/api/Ext.window.MessageBox-method-hide" rel="Ext.window.MessageBox-method-hide" class="docClass">hide</a>'</code></strong> :</p>
 
@@ -616,7 +616,7 @@ layout: {
     
     Defaults to: [250]
     *)
-  method resizable_bool : bool Js.t Js.prop
+  method resizable : _ Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to allow user resizing at each edge and corner of the window, false to disable resizing.</p>
 
 <p>This may also be specified as a config object to <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Ext.resizer.Resizer</a></p> %}

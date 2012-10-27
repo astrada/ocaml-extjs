@@ -24,7 +24,7 @@ object('self)
   
   method dropAllowed : Js.js_string Js.t Js.prop
   method dropNotAllowed : Js.js_string Js.t Js.prop
-  method renderTpl_arr : _ Js.js_array Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   
 end
 

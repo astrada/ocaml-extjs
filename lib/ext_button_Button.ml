@@ -56,10 +56,10 @@ object('self)
   method arrowCls : Js.js_string Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method baseParams : _ Js.t Js.prop
-  method border_bool : bool Js.t Js.prop
+  method border : _ Js.t Js.prop
   method clickEvent : Js.js_string Js.t Js.prop
   method cls : Js.js_string Js.t Js.prop
-  method componentLayout_str : Js.js_string Js.t Js.prop
+  method componentLayout : _ Js.t Js.prop
   method disabled : bool Js.t Js.prop
   method enableToggle : bool Js.t Js.prop
   method focusCls : Js.js_string Js.t Js.prop
@@ -82,11 +82,11 @@ object('self)
   method pressed : bool Js.t Js.prop
   method pressedCls : Js.js_string Js.t Js.prop
   method preventDefault : bool Js.t Js.prop
-  method renderTpl_arr : _ Js.js_array Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   method repeat : _ Js.t Js.prop
   method scale : Js.js_string Js.t Js.prop
   method scope : _ Js.t Js.prop
-  method shrinkWrap_num : Js.number Js.t Js.prop
+  method shrinkWrap : _ Js.t Js.prop
   method tabIndex : Js.number Js.t Js.prop
   method text : Js.js_string Js.t Js.prop
   method textAlign : Js.js_string Js.t Js.prop

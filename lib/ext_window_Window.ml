@@ -60,7 +60,7 @@ object('self)
   method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method animateTarget : _ Js.t Js.prop
-  method autoRender_bool : bool Js.t Js.prop
+  method autoRender : _ Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method closable : bool Js.t Js.prop
   method collapsed : bool Js.t Js.prop

@@ -84,7 +84,7 @@ Implementing subclasses may also use this as e.g. the id for their own input ele
     }
     *)
   method getLabelableRenderData : _ Js.t Js.meth
-  (** {% <p>Generates the arguments for the field decorations <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" class="docClass">rendering template</a>.</p> %}
+  (** {% <p>Generates the arguments for the field decorations <a href="#!/api/Ext.form.Labelable-cfg-labelableRenderTpl" rel="Ext.form.Labelable-cfg-labelableRenderTpl" class="docClass">rendering template</a>.</p> %}
     
     {b Returns}:
     {ul {- [_ Js.t] {% <p>The template arguments</p> %}

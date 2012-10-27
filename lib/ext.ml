@@ -66,7 +66,7 @@ object('self)
     Js.meth
   method create : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
-  method createByAlias : unit Js.meth
+  method createByAlias : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   method decode : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   method defer : _ Js.callback -> Js.number Js.t -> _ Js.t Js.optdef ->
     _ Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef -> Js.number Js.t
@@ -80,17 +80,17 @@ object('self)
   method each : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef ->
     bool Js.t Js.optdef -> bool Js.t Js.meth
   method encode : _ Js.t -> Js.js_string Js.t Js.meth
-  method exclude : unit Js.meth
+  method exclude : _ Js.js_array Js.t -> _ Js.t Js.meth
   method fly : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Ext_dom_AbstractElement_Fly.t Js.t Js.meth
   method get : _ Js.t -> Ext_dom_Element.t Js.t Js.meth
-  method getBody : unit Js.meth
-  method getClass : unit Js.meth
-  method getClassName : unit Js.meth
+  method getBody : Ext_dom_Element.t Js.t Js.meth
+  method getClass : _ Js.t -> Ext_Class.t Js.t Js.meth
+  method getClassName : _ Js.t -> Js.js_string Js.t Js.meth
   method getCmp : Js.js_string Js.t -> unit Js.meth
-  method getDoc : unit Js.meth
+  method getDoc : Ext_dom_Element.t Js.t Js.meth
   method getDom : _ Js.t -> unit Js.meth
-  method getHead : unit Js.meth
+  method getHead : Ext_dom_Element.t Js.t Js.meth
   method getOrientation : Js.js_string Js.t Js.meth
   method getScrollbarSize : bool Js.t Js.optdef -> _ Js.t Js.meth
   method getStore : _ Js.t -> Ext_data_Store.t Js.t Js.meth
@@ -119,8 +119,9 @@ object('self)
   method merge : _ Js.t -> _ Js.t -> _ Js.t Js.meth
   method namespace : Js.js_string Js.t -> _ Js.t Js.meth
   method ns : Js.js_string Js.t -> _ Js.t Js.meth
-  method onDocumentReady : unit Js.meth
-  method onReady : unit Js.meth
+  method onDocumentReady : _ Js.callback -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
+  method onReady : _ Js.callback -> _ Js.t -> _ Js.t -> unit Js.meth
   method override : _ Js.t -> _ Js.t -> unit Js.meth
   method pass : _ Js.callback -> _ Js.js_array Js.t -> _ Js.t Js.optdef ->
     _ Js.callback Js.meth
@@ -130,13 +131,15 @@ object('self)
     Js.meth
   method regStore : Js.js_string Js.t -> _ Js.t -> unit Js.meth
   method removeNode : Dom_html.element Js.t -> unit Js.meth
-  method require : unit Js.meth
-  method resumeLayouts : bool Js.t Js.optdef -> unit Js.meth
+  method require : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
+  method resumeLayouts : _ Js.t -> unit Js.meth
   method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
   method setVersion : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   method suspendLayouts : unit Js.meth
-  method syncRequire : unit Js.meth
+  method syncRequire : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
+    -> _ Js.t Js.optdef -> unit Js.meth
   method toArray : _ Js.t -> Js.number Js.t Js.optdef ->
     Js.number Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
   method typeOf : _ Js.t -> Js.js_string Js.t Js.meth

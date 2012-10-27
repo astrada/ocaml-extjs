@@ -232,7 +232,7 @@ componentCls to add specific styling for this component.</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'grid-header-ct']
     *)
-  method border_bool : bool Js.t Js.prop
+  method border : _ Js.t Js.prop
   (** {% <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
 be a CSS style specification for each style, for example: '10 5 3 10'.</p>
 
@@ -262,7 +262,7 @@ a child item is specified as a raw configuration object, rather than as an insta
     Defaults to: [100]
     *)
   method detachOnRemove : bool Js.t Js.prop
-  (** {% <p>True to move any component to the <a href="#!/api/Ext" rel="Ext" class="docClass">detachedBody</a> when the component is
+  (** {% <p>True to move any component to the <a href="#!/api/Ext-method-getDetachedBody" rel="Ext-method-getDetachedBody" class="docClass">detachedBody</a> when the component is
 removed from this container. This option is only applicable when the component is not destroyed while
 being removed, see <a href="#!/api/Ext.grid.header.Container-cfg-autoDestroy" rel="Ext.grid.header.Container-cfg-autoDestroy" class="docClass">autoDestroy</a> and <a href="#!/api/Ext.grid.header.Container-method-remove" rel="Ext.grid.header.Container-method-remove" class="docClass">remove</a>. If this option is set to false, the DOM
 of the component will remain in the current place until it is explicitly moved.</p> %}

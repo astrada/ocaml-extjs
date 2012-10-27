@@ -61,7 +61,7 @@ object('self)
   method detachOnRemove : bool Js.t Js.prop
   method items : _ Js.t Js.prop
   method layout : _ Js.t Js.prop
-  method renderTpl_str : Js.js_string Js.t Js.prop
+  method renderTpl : _ Js.t Js.prop
   method suspendLayout : bool Js.t Js.prop
   
 end
