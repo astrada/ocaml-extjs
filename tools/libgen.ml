@@ -137,12 +137,35 @@ struct
       Suffix of string
     | Disable
     | NoOverride
+    | Override of Param.t list * Param.t option
 
   let overrides =
+    let make_param ?(name = "") ?(optional = false) symbol = {
+      Param.id = "";
+      name;
+      ptype = {
+        Type.id = "";
+        symbol;
+      };
+      doc = "";
+      default = "";
+      optional;
+    } in
+    let make_param_js_t ?name ?optional type_param =
+      make_param ?name ?optional (Symbol.js_t (Symbol.Type type_param))
+    in
+    let make_param_ext_js_t ?name ?optional module_name =
+      make_param_js_t ?name ?optional {
+        Symbol.module_prefix = module_name;
+        symbol_name = "t";
+        params = [];
+        optional = false;
+      }
+    in
     let tbl = Hashtbl.create 64 in
     List.iter
-      (fun (module_name, name, member_type, override_suffix) ->
-         Hashtbl.add tbl (module_name, name, member_type) override_suffix)
+      (fun (module_name, name, member_type, override) ->
+         Hashtbl.add tbl (module_name, name, member_type) override)
       [("Ext.util.Point", "equals", Method, Suffix "point");
        ("Ext.dd.DDTarget", "addInvalidHandleClass", Method, Disable);
        ("Ext.dd.DDTarget", "addInvalidHandleId", Method, Disable);
@@ -182,21 +205,18 @@ struct
        ("Ext.Component", "draggable", Cfg, Suffix "obj");
        ("Ext.layout.Layout", "getLayoutItems", Method, Suffix "empty");
        ("Ext.layout.container.Container", "beginLayout", Method, Suffix "obj");
-       ("Ext.layout.container.Container", "configureItem", Method, Suffix "obj");
-       ("Ext.container.AbstractContainer", "disable", Method, Suffix "chainable");
-       ("Ext.container.AbstractContainer", "renderTpl", Cfg, Suffix "str");
+       ("Ext.layout.container.Container", "configureItem", Method,
+        Suffix "obj");
+       ("Ext.container.AbstractContainer", "disable", Method,
+        Suffix "chainable");
        ("Ext.container.Container", "onAdded", Method, Suffix "container");
-       ("Ext.panel.AbstractPanel", "componentLayout", Cfg, Suffix "str");
-       ("Ext.dd.StatusProxy", "renderTpl", Cfg, Suffix "arr");
        ("Ext.dd.StatusProxy", "hide", Method, Suffix "proxy");
        ("Ext.dd.StatusProxy", "update", Method, Suffix "html");
        ("Ext.util.ComponentDragger", "delegate", Cfg, Suffix "element");
-       ("Ext.window.Window", "autoRender", Cfg, Suffix "bool");
        ("Ext.window.Window", "dd", Property, Suffix "dragger");
        ("Ext.window.Window", "activate", Event, Suffix "window");
        ("Ext.window.Window", "deactivate", Event, Suffix "window");
        ("Ext.window.Window", "resize", Event, Suffix "window");
-       ("Ext.window.MessageBox", "resizable", Cfg, Suffix "bool");
        ("Ext.window.MessageBox", "hide", Method, Suffix "component");
        ("Ext.window.MessageBox", "setIcon", Method, Suffix "chainable");
        ("Ext.window.MessageBox", "show", Method, Suffix "messagebox");
@@ -205,38 +225,104 @@ struct
        ("Ext.data.Store", "removeAll", Method, Suffix "bool");
        ("Ext.view.AbstractView", "bindStore", Method, Suffix "view");
        ("Ext.view.AbstractView", "getStore", Method, Suffix "view");
-       ("Ext.view.Table", "componentLayout", Cfg, Suffix "str");
-       ("Ext.panel.Table", "layout", Cfg, Suffix "str");
        ("Ext.grid.plugin.Editing", "init", Method, Suffix "component");
        ("Ext.menu.Menu", "getBubbleTarget", Method, Suffix "container");
        ("Ext.menu.Menu", "hide", Method, Suffix "menu");
        ("Ext.menu.Menu", "show", Method, Suffix "menu");
-       ("Ext.grid.header.Container", "border", Cfg, Suffix "bool");
-       ("Ext.grid.column.Column", "componentLayout", Cfg, Suffix "str");
-       ("Ext.grid.column.Column", "renderTpl", Cfg, Suffix "str");
        ("Ext.grid.column.Column", "resizable", Cfg, Suffix "bool");
        ("Ext.grid.column.Column", "hide", Method, Suffix "column");
        ("Ext.grid.column.Column", "show", Method, Suffix "column");
-       ("Ext.button.Button", "border", Cfg, Suffix "bool");
-       ("Ext.button.Button", "componentLayout", Cfg, Suffix "str");
-       ("Ext.button.Button", "renderTpl", Cfg, Suffix "arr");
-       ("Ext.button.Button", "shrinkWrap", Cfg, Suffix "num");
        ("Ext.app.Application", "getController", Method, Suffix "app");
        ("Ext.form.Panel", "layout", Cfg, Suffix "str");
        ("Ext.form.field.Base", "doComponentLayout", Method, Suffix "container");
        ("Ext.form.field.Base", "getInputId", Method, Disable);
        ("Ext.form.field.Base", "getSubTplMarkup", Method, Disable);
-       ("Ext.form.field.Base", "componentLayout", Cfg, Suffix "str");
        ("Ext.form.field.Text", "processRawValue", Method, Suffix "str");
        ("Ext.tip.Tip", "showAt", Method, Suffix "arr");
-       ("Ext.tip.Tip", "autoRender", Cfg, Suffix "bool");
-       ("Ext.tip.Tip", "floating", Cfg, Suffix "obj");
        ("Ext.tip.ToolTip", "hide", Method, Suffix "tooltip");
        ("Ext.tip.ToolTip", "setPagePosition", Method, Disable);
        ("Ext.tip.ToolTip", "show", Method, Suffix "tooltip");
        ("Ext.tip.ToolTip", "showAt", Method, Suffix "arr");
        ("Ext.tip.QuickTip", "hide", Method, Disable);
        ("Ext.tip.QuickTip", "showAt", Method, Disable);
+       ("Ext", "createByAlias", Method,
+        Override ([make_param ~name:"alias"
+                     (Symbol.js_t (Symbol.Type (Symbol.js_type "js_string")));
+                   make_param ~name:"args" Symbol.js_object],
+                  Some (make_param Symbol.js_object))
+       );
+       ("Ext", "exclude", Method,
+        Override ([make_param_js_t ~name:"excludes" Symbol.generic_js_array],
+                  Some (make_param Symbol.js_object))
+       );
+       ("Ext", "getBody", Method,
+        Override ([],
+                  Some (make_param_ext_js_t "Ext_dom_Element"))
+       );
+       ("Ext", "getClass", Method,
+        Override ([make_param ~name:"object" Symbol.js_object],
+                  Some (make_param_ext_js_t "Ext_Class"))
+       );
+       ("Ext", "getClassName", Method,
+        Override ([make_param ~name:"object" Symbol.js_object],
+                  Some (make_param
+                          (Symbol.js_t
+                             (Symbol.Type (Symbol.js_type "js_string")))))
+       );
+       ("Ext", "getDoc", Method,
+        Override ([],
+                  Some (make_param_ext_js_t "Ext_dom_Element"))
+       );
+       ("Ext", "getHead", Method,
+        Override ([],
+                  Some (make_param_ext_js_t "Ext_dom_Element"))
+       );
+       ("Ext", "onDocumentReady", Method,
+        Override ([make_param ~name:"fn"
+                     { Symbol.module_prefix = "Js";
+                       symbol_name = "callback";
+                       params = [Symbol.TypeVariable];
+                       optional = false;
+                     };
+                   make_param ~name:"scope" ~optional:true Symbol.js_object;
+                   make_param ~name:"options" ~optional:true Symbol.js_object],
+                  None)
+       );
+       ("Ext", "onReady", Method,
+        Override ([make_param ~name:"fn"
+                     { Symbol.module_prefix = "Js";
+                       symbol_name = "callback";
+                       params = [Symbol.TypeVariable];
+                       optional = false;
+                     };
+                   make_param ~name:"scope" Symbol.js_object;
+                   make_param ~name:"options" Symbol.js_object],
+                  None)
+       );
+       ("Ext", "require", Method,
+        Override ([make_param ~name:"expressions" Symbol.js_object;
+                   make_param ~name:"fn" ~optional:true
+                     { Symbol.module_prefix = "Js";
+                       symbol_name = "callback";
+                       params = [Symbol.TypeVariable];
+                       optional = false;
+                     };
+                   make_param ~name:"scope" ~optional:true Symbol.js_object;
+                   make_param ~name:"excludes" ~optional:true Symbol.js_object],
+                  None)
+       );
+       ("Ext", "syncRequire", Method,
+        Override ([make_param ~name:"expressions" Symbol.js_object;
+                   make_param ~name:"fn" ~optional:true
+                     { Symbol.module_prefix = "Js";
+                       symbol_name = "callback";
+                       params = [Symbol.TypeVariable];
+                       optional = false;
+                     };
+                   make_param ~name:"scope" ~optional:true Symbol.js_object;
+                   make_param ~name:"excludes" ~optional:true Symbol.js_object],
+                  None)
+       );
       ];
     tbl
 
@@ -280,12 +366,7 @@ let create_and_add_members member_type
          else
            let doc =
              get_json_element "doc" es |> get_json_string |> clean_doc in
-           let suffix =
-             match override with
-                 Overrides.Suffix s -> s
-               | Overrides.NoOverride -> ""
-               | _ -> assert false in
-           let member = create_member es table name doc suffix in
+           let member = create_member es table name doc override in
            let updated =
              current |> ClassType.methods ^%= (fun m -> m @ [member])
            in
@@ -293,13 +374,37 @@ let create_and_add_members member_type
     current_class_type
     json_array
 
-let create_property es table name doc suffix =
+let get_suffix = function
+    Overrides.Suffix s -> s
+  | Overrides.NoOverride
+  | Overrides.Override _ -> ""
+  | Overrides.Disable -> assert false
+
+let get_params = function
+    Overrides.Suffix _
+  | Overrides.NoOverride -> []
+  | Overrides.Override (params, _) -> params
+  | Overrides.Disable -> assert false
+
+let get_return = function
+    Overrides.Suffix _
+  | Overrides.NoOverride -> None
+  | Overrides.Override (_, return) -> return
+  | Overrides.Disable -> assert false
+
+let create_property es table name doc override =
   let readonly = is_readonly es in
   let ext_type = get_json_element "type" es |> get_json_string in
   let default = get_json_element "default" es |> get_json_string in
-  let return_type = SymbolTable.map_type table ext_type in
-  let return = Type.create ext_type return_type in
-  let return_param = Param.create "" return "" default false in
+  let suffix = get_suffix override in
+  let return_param =
+    match get_return override with
+        None ->
+          let return_type = SymbolTable.map_type table ext_type in
+          let return = Type.create ext_type return_type in
+          Param.create "" return "" default false
+      | Some r -> r
+  in
   Method.create_property name doc readonly suffix return_param
 
 let add_properties =
@@ -310,20 +415,35 @@ let add_configs =
 
 let add_methods =
   create_and_add_members Method
-    (fun es table name doc suffix ->
+    (fun es table name doc override ->
        let template = is_template es in
        let params =
-         get_json_element "params" es |> get_json_array
-           |> List.map (parse_param table) in
-       let return = get_json_element "return" es |> parse_param table in
+         match get_params override with
+             [] ->
+               get_json_element "params" es |> get_json_array
+                 |> List.map (parse_param table)
+           | p -> p
+       in
+       let return =
+         match get_return override with
+             None ->
+               get_json_element "return" es |> parse_param table
+           | Some r -> r
+       in
+       let suffix = get_suffix override in
        Method.create_method name doc template suffix params return)
 
 let add_events =
   create_and_add_members Event
-    (fun es table name doc suffix ->
+    (fun es table name doc override ->
        let params =
-         get_json_element "params" es |> get_json_array
-           |> List.map (parse_param table) in
+         match get_params override with
+             [] ->
+               get_json_element "params" es |> get_json_array
+                 |> List.map (parse_param table)
+           | p -> p
+       in
+       let suffix = get_suffix override in
        Method.create_event name doc suffix params)
 
 let add_members json_elements current_module current_class_type =

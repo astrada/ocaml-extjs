@@ -100,6 +100,13 @@ struct
     optional : bool;
   }
 
+  let js_t param = {
+    module_prefix = "Js";
+    symbol_name = "t";
+    params = [param];
+    optional = false;
+  }
+
   let js_object = {
     module_prefix = "Js";
     symbol_name = "t";
