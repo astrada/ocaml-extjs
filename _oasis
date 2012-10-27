@@ -224,3 +224,11 @@ Library window
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
 
+Library layout_window
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/window/layout
+  InternalModules: Layout
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+

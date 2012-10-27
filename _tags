@@ -2,7 +2,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 841357c146d566f31af70f7e1be98a1e)
+# DO NOT EDIT (digest: fab42ce67723189b43fd21380d6f9fdd)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -78,6 +78,11 @@
 <examples/window/window/*.ml{,i}>: use_oextjs
 <examples/window/window/*.ml{,i}>: pkg_js_of_ocaml
 <examples/window/window/*.ml{,i}>: pkg_js_of_ocaml.syntax
+# Library layout_window
+"examples/window/layout/layout_window.cmxs": use_layout_window
+<examples/window/layout/*.ml{,i}>: use_oextjs
+<examples/window/layout/*.ml{,i}>: pkg_js_of_ocaml
+<examples/window/layout/*.ml{,i}>: pkg_js_of_ocaml.syntax
 # OASIS_STOP
 
 "examples/account_manager": -include
@@ -126,4 +131,9 @@
 # build window/window/window.js
 "examples/window/window/window.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 <examples/window/window/window.cm{a,xa}>: window
+
+# Layout Window
+# build window/layout/layout.js
+"examples/window/layout/layout.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+<examples/window/layout/layout_window.cm{a,xa}>: layout_window
 
