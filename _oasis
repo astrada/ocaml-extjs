@@ -29,6 +29,10 @@ Flag docgen
   Description: Build ocamldoc custom generator
   Default$: flag(all)
 
+Flag syntax
+  Description: Build the syntax extension
+  Default$: true
+
 # Libraries
 Library oextjs
   Path: lib
@@ -140,6 +144,19 @@ Library oextjs
   CCOpt: -D OPTION_PASSED
   XMETADescription: Ext JS 4.x for js_of_ocaml
 
+# syntax extension
+Library "oextjs-syntax"
+  Build$: flag(syntax) || flag(all)
+  Install$: flag(syntax) || flag(all)
+  FindlibName: syntax
+  FindlibParent: oextjs
+  Path: lib/syntax
+  Modules: Pa_extjs
+  BuildDepends: camlp4, camlp4.quotations, camlp4.extend
+  XMETAType: syntax
+  XMETADescription: Syntactic sugar for ocaml-extjs
+  XMETARequires: camlp4
+
 # ocamldoc extension
 Library generator
   Build$: flag(docgen) || flag(all)
@@ -176,7 +193,7 @@ Library helloext
   Path: examples/helloext
   InternalModules: App
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, oextjs.syntax, js_of_ocaml, js_of_ocaml.syntax
 
 Library account_manager
   Build$: flag(examples) || flag(all)
@@ -190,7 +207,7 @@ Library account_manager
     app/store/Users,
     app/model/User
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, oextjs.syntax, js_of_ocaml, js_of_ocaml.syntax
 
 Library basic_array_grid
   Build$: flag(examples) || flag(all)
@@ -198,7 +215,7 @@ Library basic_array_grid
   Path: examples/grid/basic_array_grid
   InternalModules: Array_grid
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, oextjs.syntax, js_of_ocaml, js_of_ocaml.syntax
 
 Library basic_tabs
   Build$: flag(examples) || flag(all)
@@ -206,7 +223,7 @@ Library basic_tabs
   Path: examples/tabs/basic_tabs
   InternalModules: Tabs
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, oextjs.syntax, js_of_ocaml, js_of_ocaml.syntax
 
 Library message_box
   Build$: flag(examples) || flag(all)
@@ -214,7 +231,7 @@ Library message_box
   Path: examples/message_box
   InternalModules: Msg_box
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, oextjs.syntax, js_of_ocaml, js_of_ocaml.syntax
 
 Library window
   Build$: flag(examples) || flag(all)
@@ -222,7 +239,7 @@ Library window
   Path: examples/window/window
   InternalModules: Window
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, oextjs.syntax, js_of_ocaml, js_of_ocaml.syntax
 
 Library layout_window
   Build$: flag(examples) || flag(all)
@@ -230,5 +247,5 @@ Library layout_window
   Path: examples/window/layout
   InternalModules: Layout
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, oextjs.syntax, js_of_ocaml, js_of_ocaml.syntax
 
