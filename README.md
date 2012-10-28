@@ -9,8 +9,7 @@ You will need the following libraries:
 
 * [OCaml][] >= 3.12.1
 * [Findlib][] >= 1.2.7
-* [js_of_ocaml][] latest development version, patched with a custom syntax
-  extension
+* [js_of_ocaml][] latest development version
 * [extjs][] >= 4.1.1a (GPL version)
 * [extjs-sdk-tools][] >= 2.0.0beta3 (to minify and deploy examples, optional)
 * [Batteries][] >= 2.0beta2 (to build the library generator, optional)
@@ -20,7 +19,7 @@ This library was developed and tested on Ubuntu 12.04 LTS (64-bit).
 
 [OCaml]: http://caml.inria.fr/ocaml/release.en.html
 [Findlib]: http://projects.camlcity.org/projects/findlib.html/
-[js_of_ocaml]: https://github.com/astrada/js_of_ocaml
+[js_of_ocaml]: http://ocsigen.org/darcsweb/?r=js_of_ocaml;a=summary
 [extjs]: http://www.sencha.com/products/extjs/
 [extjs-sdk-tools]: http://www.sencha.com/products/sdk-tools/
 [Batteries]: http://batteries.forge.ocamlcore.org/
