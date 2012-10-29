@@ -134,7 +134,7 @@ Library oextjs
     Ext_ZIndexManager,
     Ext_MessageBox,
     ExtUtils
-  BuildDepends: js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: js_of_ocaml
   CompiledObject: byte
   CSources: extUtils_stubs.c
   CCOpt: -D OPTION_PASSED
@@ -176,7 +176,7 @@ Library helloext
   Path: examples/helloext
   InternalModules: App
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
 Library account_manager
   Build$: flag(examples) || flag(all)
@@ -190,7 +190,7 @@ Library account_manager
     app/store/Users,
     app/model/User
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
 Library basic_array_grid
   Build$: flag(examples) || flag(all)
@@ -198,7 +198,7 @@ Library basic_array_grid
   Path: examples/grid/basic_array_grid
   InternalModules: Array_grid
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
 Library basic_tabs
   Build$: flag(examples) || flag(all)
@@ -206,7 +206,7 @@ Library basic_tabs
   Path: examples/tabs/basic_tabs
   InternalModules: Tabs
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
 Library message_box
   Build$: flag(examples) || flag(all)
@@ -214,7 +214,7 @@ Library message_box
   Path: examples/message_box
   InternalModules: Msg_box
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
 Library window
   Build$: flag(examples) || flag(all)
@@ -222,7 +222,7 @@ Library window
   Path: examples/window/window
   InternalModules: Window
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
 Library layout_window
   Build$: flag(examples) || flag(all)
@@ -230,5 +230,5 @@ Library layout_window
   Path: examples/window/layout
   InternalModules: Layout
   CompiledObject: byte
-  BuildDepends: oextjs, js_of_ocaml, js_of_ocaml.syntax
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
