@@ -232,3 +232,11 @@ Library layout_window
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library border_layout
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/layout/border
+  InternalModules: Border
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+
