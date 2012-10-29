@@ -1,8 +1,8 @@
 # OASIS_START
-# DO NOT EDIT (digest: f9255c2201e52e34cffa0490b82a9c20)
+# DO NOT EDIT (digest: 4a7575f78ddc9710219e34a9e020cf90)
 version = "0.1"
 description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
-requires = "oextjs js_of_ocaml js_of_ocaml.syntax"
+requires = "oextjs js_of_ocaml pa_extjs"
 archive(byte) = "account_manager.cma"
 archive(byte, plugin) = "account_manager.cma"
 exists_if = "account_manager.cma"
