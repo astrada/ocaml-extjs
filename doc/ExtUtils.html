@@ -120,23 +120,14 @@
 <br>
 <pre><span class="keyword">module</span> ExtUtils: <code class="code">sig</code> <a href="ExtUtils.html">..</a> <code class="code">end</code></pre>Collection of utility functions.<br>
 <hr width="100%">
-<pre><span id="VALassoc_get"><span class="keyword">val</span> assoc_get</span> : <code class="type">'a -> 'b -> 'c</code></pre><div class="info">
-<code class="code">assoc_get o k</code> returns member <code class="code">k</code> of object <code class="code">o</code> (<code class="code">o[k]</code>)<br>
-</div>
-<pre><span id="VALassoc_set"><span class="keyword">val</span> assoc_set</span> : <code class="type">'a -> 'b -> 'c -> unit</code></pre><div class="info">
-<code class="code">assoc_set o k v</code> set member <code class="code">k</code> of object <code class="code">o</code> to value <code class="code">v</code> (<code class="code">o[k] = v</code>)<br>
-</div>
 <pre><span id="VALcall_parent"><span class="keyword">val</span> call_parent</span> : <code class="type">'a -> string -> unit</code></pre><div class="info">
-<code class="code">call_parent o n</code> calls method <code class="code">n</code> of the superclass of object <code class="code">o</code><br>
-</div>
-<pre><span id="VALnew_config"><span class="keyword">val</span> new_config</span> : <code class="type">('a Js.t -> unit) -> 'a Js.t</code></pre><div class="info">
-<code class="code">new_config s</code> creates a new object setting it up using function <code class="code">s</code><br>
+<code class="code">call_parent o n</code> calls method <code class="code">n</code> of the superclass of object <code class="code">o</code>.<br>
 </div>
 <pre><span id="VALlog"><span class="keyword">val</span> log</span> : <code class="type">string -> unit</code></pre><div class="info">
-<code class="code">log m</code> logs message <code class="code">m</code> to Javascript console<br>
+<code class="code">log m</code> logs message <code class="code">m</code> to Javascript console.<br>
 </div>
 <pre><span id="VALundef"><span class="keyword">val</span> undef</span> : <code class="type">'a</code></pre><div class="info">
-Generic <code class="code">undefined</code> to use as optional parameter<br>
+Generic <code class="code">undefined</code> to use as optional parameter.<br>
 </div>
 <pre><span id="VALto_class_configs"><span class="keyword">val</span> to_class_configs</span> : <code class="type">< .. > Js.t -> <a href="Ext_Class.configs-c.html">Ext_Class.configs</a> Js.t</code></pre><div class="info">
 <code class="code">to_class_configs o</code> converts instance <code class="code">o</code> to an Ext.class config object<br>
@@ -147,4 +138,4 @@ Generic <code class="code">undefined</code> to use as optional parameter<br>
 <pre><span id="VALsetTimeout"><span class="keyword">val</span> setTimeout</span> : <code class="type">(unit -> unit) -> int -> unit</code></pre><div class="info">
 <code class="code">setTimeout f d</code> calls function <code class="code">f</code> after delay <code class="code">d</code>.<br>
 </div>
-</body></html>
+<pre><span id="VALget_global"><span class="keyword">val</span> get_global</span> : <code class="type">string -> 'a</code></pre><pre><span id="VALset_global"><span class="keyword">val</span> set_global</span> : <code class="type">string -> 'a -> unit</code></pre><pre><span id="VALtest_global"><span class="keyword">val</span> test_global</span> : <code class="type">string -> bool</code></pre></body></html>
