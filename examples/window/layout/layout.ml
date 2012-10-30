@@ -13,17 +13,16 @@ let () =
 let () =
   Ext.instance##onReady(
     Js.wrap_callback (fun () ->
-      (Js.Unsafe.coerce Dom_html.window)##win <- Js.undefined;
+      ExtUtils.set_global "win" Js.undefined;
 
       let button = Ext.instance##get(Js.string "show-btn") in
 
       let _ =
         button##on(Js.string "click", Js.wrap_callback (fun e this _ ->
 
-          if not (Js.Optdef.test
-                    (Js.Unsafe.coerce Dom_html.window)##win) then begin
-            (Js.Unsafe.coerce Dom_html.window)##win <-
-              Ext.instance##create(Js.def (Js.string "widget.window"), Js.def {|
+          if not (ExtUtils.test_global "win") then begin
+            ExtUtils.set_global "win"
+              (Ext.instance##create(Js.def (Js.string "widget.window"), Js.def {|
                 title = Js.string "Layout Window";
                 closable = Js._true;
                 closeAction = Js.string "hide";
@@ -63,10 +62,10 @@ let () =
                     |];
                   |};
                 |];
-            |});
+            |}));
           end;
           (Js.Unsafe.coerce button##dom)##disabled <- Js._true;
-          let win = (Js.Unsafe.coerce Dom_html.window)##win in
+          let win = ExtUtils.get_global "win" in
           if win##isVisible() then begin
             win##hide(Js.def this, Js.def (Js.wrap_callback (fun () ->
               (Js.Unsafe.coerce button##dom)##disabled <- Js._false;

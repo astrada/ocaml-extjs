@@ -42,12 +42,12 @@ let () =
               1.0))##toString()##concat(Js.string "px");
             opacity = Js.number_of_float 0.3;
           |} in
-          ExtUtils.assoc_set style "pointer-events" (Js.string "none");
-          ExtUtils.assoc_set style "z-index" 9999999;
+          Js.Unsafe.set style (Js.string "pointer-events") (Js.string "none");
+          Js.Unsafe.set style (Js.string "z-index") 9999999;
 
           if not (Js.Optdef.test (Js.Unsafe.coerce this)##highlightEl) then begin
-            ExtUtils.assoc_set style "background-color"
-              (ExtUtils.assoc_get this##colors this##nextColor);
+            Js.Unsafe.set style (Js.string "background-color")
+              (Js.Unsafe.get this##colors this##nextColor);
             (Js.Unsafe.coerce Ext_util_Region.static)##prototype##nextColor <-
               (Js.Unsafe.coerce Ext_util_Region.static)##prototype##nextColor + 1;
             this##highlightEl <- Ext.instance##getBody()##createChild({|

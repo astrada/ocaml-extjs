@@ -50,16 +50,16 @@ let () =
       |]
       in
 
-      (Js.Unsafe.coerce Dom_html.window)##viewport <- Js.undefined;
+      ExtUtils.set_global "viewport" Js.undefined;
 
       let closeRegion e target header tool =
         let region = header##ownerCt in
         ignore (newRegions##unshift(region##initialConfig));
-        (Js.Unsafe.coerce Dom_html.window)##viewport##remove(region)
+        (ExtUtils.get_global "viewport")##remove(region)
       in
 
-      (Js.Unsafe.coerce Dom_html.window)##viewport <-
-        Ext.instance##create(Js.def (Js.string "Ext.Viewport"), Js.def {|
+      ExtUtils.set_global "viewport"
+        (Ext.instance##create(Js.def (Js.string "Ext.Viewport"), Js.def {|
           layout = {|
             _type = Js.string "border";
             padding = 5;
@@ -115,7 +115,7 @@ let () =
                              handler = Js.wrap_callback closeRegion;
                           |}
                         |]);
-                        (Js.Unsafe.coerce Dom_html.window)##viewport##add(region);
+                        (ExtUtils.get_global "viewport")##add(region);
                       end else begin
                         (Ext_MessageBox.get_instance ())##show(Js.def {|
                           title = Js.string "All added";
@@ -133,7 +133,7 @@ let () =
                   text = Js.string "Change Titles";
                   listeners = {|
                     click = Js.wrap_callback (fun _ _ _ ->
-                      let panels = (Js.Unsafe.coerce Dom_html.window)##viewport##query(Js.string "panel") in
+                      let panels = (ExtUtils.get_global "viewport")##query(Js.string "panel") in
                       Ext.instance##each(
                         panels,
                         Js.wrap_callback (fun panel _ _ ->
@@ -222,7 +222,7 @@ let () =
               |];
             |};
            |];
-        |});
+        |}));
     ),
     ExtUtils.undef,
     ExtUtils.undef)
