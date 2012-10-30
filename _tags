@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 260cd8ebb9410dd91a8bb21c2aa84ffd)
+# DO NOT EDIT (digest: 723eee0340d5d57e262ef80655c7ae74)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -85,6 +85,11 @@
 <examples/layout/border/*.ml{,i}>: use_oextjs
 <examples/layout/border/*.ml{,i}>: pkg_js_of_ocaml
 <examples/layout/border/*.ml{,i}>: pkg_pa_extjs
+# Library accordion_layout
+"examples/layout/accordion/accordion_layout.cmxs": use_accordion_layout
+<examples/layout/accordion/*.ml{,i}>: use_oextjs
+<examples/layout/accordion/*.ml{,i}>: pkg_js_of_ocaml
+<examples/layout/accordion/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
 "examples/account_manager": -include
@@ -143,4 +148,9 @@
 # build layout/border/border.js
 "examples/layout/border/border.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 <examples/layout/border/border_layout.cm{a,xa}>: border_layout
+
+# Accordion Layout
+# build layout/accordion/accordion.js
+"examples/layout/accordion/accordion.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+<examples/layout/accordion/accordion_layout.cm{a,xa}>: accordion_layout
 

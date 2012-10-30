@@ -240,3 +240,11 @@ Library border_layout
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library accordion_layout
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/layout/accordion
+  InternalModules: Accordion
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+
