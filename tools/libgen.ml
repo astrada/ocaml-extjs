@@ -269,6 +269,10 @@ struct
                           (Symbol.js_t
                              (Symbol.Type (Symbol.js_type "js_string")))))
        );
+       ("Ext", "getCmp", Method,
+        Override ([],
+                  Some (make_param Symbol.js_object))
+       );
        ("Ext", "getDoc", Method,
         Override ([],
                   Some (make_param_ext_js_t "Ext_dom_Element"))
