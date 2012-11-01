@@ -934,20 +934,13 @@ the same id via AJAX or DOM.</p> %}
     }
     }
     *)
-  method getCmp : Js.js_string Js.t -> unit Js.meth
+  method getCmp : Js.js_string Js.t -> _ Js.t Js.meth
   (** {% <p>This is shorthand reference to <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.
 Looks up an existing <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> by <a href="#!/api/Ext.Component-cfg-id" rel="Ext.Component-cfg-id" class="docClass">id</a></p> %}
     
     {b Parameters}:
     {ul {- id: [Js.js_string Js.t]
     {% <p>The component <a href="#!/api/Ext.Component-cfg-id" rel="Ext.Component-cfg-id" class="docClass">id</a></p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [unit]
-    {% <p><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> The Component, <code>undefined</code> if not found, or <code>null</code> if a
-Class was found.</p> %}
     }
     }
     *)

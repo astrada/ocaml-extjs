@@ -87,7 +87,7 @@ object('self)
   method getBody : Ext_dom_Element.t Js.t Js.meth
   method getClass : _ Js.t -> Ext_Class.t Js.t Js.meth
   method getClassName : _ Js.t -> Js.js_string Js.t Js.meth
-  method getCmp : Js.js_string Js.t -> unit Js.meth
+  method getCmp : Js.js_string Js.t -> _ Js.t Js.meth
   method getDoc : Ext_dom_Element.t Js.t Js.meth
   method getDom : _ Js.t -> unit Js.meth
   method getHead : Ext_dom_Element.t Js.t Js.meth
