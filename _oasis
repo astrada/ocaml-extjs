@@ -248,3 +248,11 @@ Library accordion_layout
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library quicktips
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/misc/quicktips
+  InternalModules: Qtips
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+

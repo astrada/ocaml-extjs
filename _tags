@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 723eee0340d5d57e262ef80655c7ae74)
+# DO NOT EDIT (digest: 77b6a411eb317ea49888786b7db54966)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -90,6 +90,11 @@
 <examples/layout/accordion/*.ml{,i}>: use_oextjs
 <examples/layout/accordion/*.ml{,i}>: pkg_js_of_ocaml
 <examples/layout/accordion/*.ml{,i}>: pkg_pa_extjs
+# Library quicktips
+"examples/misc/quicktips/quicktips.cmxs": use_quicktips
+<examples/misc/quicktips/*.ml{,i}>: use_oextjs
+<examples/misc/quicktips/*.ml{,i}>: pkg_js_of_ocaml
+<examples/misc/quicktips/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
 "examples/account_manager": -include
@@ -153,4 +158,9 @@
 # build layout/accordion/accordion.js
 "examples/layout/accordion/accordion.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 <examples/layout/accordion/accordion_layout.cm{a,xa}>: accordion_layout
+
+# Quicktips
+# build misc/quicktips/qtips.js
+"examples/misc/quicktips/qtips.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+<examples/misc/quicktips/quicktips.cm{a,xa}>: quicktips
 

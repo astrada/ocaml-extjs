@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: eac69220b099ed0aa69538f2f0a928ca) *)
+(* DO NOT EDIT (digest: 156441c6754254f034a338e7e594fa3b) *)
 module OASISGettext = struct
 (* # 21 "/home/alex/.odb/install-oasis/oasis-0.3.0/src/oasis/OASISGettext.ml" *)
 
@@ -489,7 +489,8 @@ let package_default =
           ("window", ["examples/window/window"]);
           ("layout_window", ["examples/window/layout"]);
           ("border_layout", ["examples/layout/border"]);
-          ("accordion_layout", ["examples/layout/accordion"])
+          ("accordion_layout", ["examples/layout/accordion"]);
+          ("quicktips", ["examples/misc/quicktips"])
        ];
      lib_c = [("oextjs", "lib", [])];
      flags =
@@ -517,6 +518,7 @@ let package_default =
           ("examples/window/window", ["lib"]);
           ("examples/window/layout", ["lib"]);
           ("examples/tabs/basic_tabs", ["lib"]);
+          ("examples/misc/quicktips", ["lib"]);
           ("examples/message_box", ["lib"]);
           ("examples/layout/border", ["lib"]);
           ("examples/layout/accordion", ["lib"]);
@@ -568,7 +570,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 572 "myocamlbuild.ml"
+# 574 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 (* Turn on verbose logging *)
@@ -607,6 +609,9 @@ dep ["border_layout"]
 (* accordion layout *)
 dep ["accordion_layout"]
   ["examples/layout/accordion/accordion.js"];;
+(* quicktips *)
+dep ["quicktips"]
+  ["examples/misc/quicktips/qtips.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"
