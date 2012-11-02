@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 77b6a411eb317ea49888786b7db54966)
+# DO NOT EDIT (digest: c42d81a57c819b72b06e9ce6702cfe31)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -95,6 +95,11 @@
 <examples/misc/quicktips/*.ml{,i}>: use_oextjs
 <examples/misc/quicktips/*.ml{,i}>: pkg_js_of_ocaml
 <examples/misc/quicktips/*.ml{,i}>: pkg_pa_extjs
+# Library basic_templating
+"examples/misc/templates/basic_templating.cmxs": use_basic_templating
+<examples/misc/templates/*.ml{,i}>: use_oextjs
+<examples/misc/templates/*.ml{,i}>: pkg_js_of_ocaml
+<examples/misc/templates/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
 "examples/account_manager": -include
@@ -163,4 +168,9 @@
 # build misc/quicktips/qtips.js
 "examples/misc/quicktips/qtips.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 <examples/misc/quicktips/quicktips.cm{a,xa}>: quicktips
+
+# Basic templating
+# build misc/templates/templates.js
+"examples/misc/templates/templates.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+<examples/misc/templates/basic_templating.cm{a,xa}>: basic_templating
 

@@ -256,3 +256,11 @@ Library quicktips
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library basic_templating
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/misc/templates
+  InternalModules: Templates
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+
