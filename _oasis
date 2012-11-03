@@ -264,3 +264,11 @@ Library basic_templating
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library basic_combobox
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/combobox/basic_combobox
+  InternalModules: Combos
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+

@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 4f560c16d33e72cd3e5bb697716f6c1c) *)
+(* DO NOT EDIT (digest: 28dffb3b63c2fe000a95e3d570dd2037) *)
 module OASISGettext = struct
 (* # 21 "/home/alex/.odb/install-oasis/oasis-0.3.0/src/oasis/OASISGettext.ml" *)
 
@@ -491,7 +491,8 @@ let package_default =
           ("border_layout", ["examples/layout/border"]);
           ("accordion_layout", ["examples/layout/accordion"]);
           ("quicktips", ["examples/misc/quicktips"]);
-          ("basic_templating", ["examples/misc/templates"])
+          ("basic_templating", ["examples/misc/templates"]);
+          ("basic_combobox", ["examples/combobox/basic_combobox"])
        ];
      lib_c = [("oextjs", "lib", [])];
      flags =
@@ -526,6 +527,7 @@ let package_default =
           ("examples/layout/accordion", ["lib"]);
           ("examples/helloext", ["lib"]);
           ("examples/grid/basic_array_grid", ["lib"]);
+          ("examples/combobox/basic_combobox", ["lib"]);
           ("examples/account_manager/app/view/user",
             [
                "examples/account_manager";
@@ -572,7 +574,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 576 "myocamlbuild.ml"
+# 578 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 (* Turn on verbose logging *)
@@ -617,6 +619,9 @@ dep ["quicktips"]
 (* basic templating *)
 dep ["basic_templating"]
   ["examples/misc/templates/templates.js"];;
+(* basic combobox *)
+dep ["basic_combobox"]
+  ["examples/combobox/basic_combobox/combos.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"

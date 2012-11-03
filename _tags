@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: c42d81a57c819b72b06e9ce6702cfe31)
+# DO NOT EDIT (digest: 3d4a4b5f4683a2ca6afc3e82973e6cf2)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -100,6 +100,11 @@
 <examples/misc/templates/*.ml{,i}>: use_oextjs
 <examples/misc/templates/*.ml{,i}>: pkg_js_of_ocaml
 <examples/misc/templates/*.ml{,i}>: pkg_pa_extjs
+# Library basic_combobox
+"examples/combobox/basic_combobox/basic_combobox.cmxs": use_basic_combobox
+<examples/combobox/basic_combobox/*.ml{,i}>: use_oextjs
+<examples/combobox/basic_combobox/*.ml{,i}>: pkg_js_of_ocaml
+<examples/combobox/basic_combobox/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
 "examples/account_manager": -include
@@ -173,4 +178,9 @@
 # build misc/templates/templates.js
 "examples/misc/templates/templates.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
 <examples/misc/templates/basic_templating.cm{a,xa}>: basic_templating
+
+# Basic combobox
+# build combobox/basic_combobox/combos.js
+"examples/combobox/basic_combobox/combos.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+<examples/combobox/basic_combobox/basic_combobox.cm{a,xa}>: basic_combobox
 
