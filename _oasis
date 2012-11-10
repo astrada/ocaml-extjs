@@ -272,3 +272,11 @@ Library basic_combobox
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library panels
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/misc/panel
+  InternalModules: Panel
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+
