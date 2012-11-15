@@ -128,6 +128,13 @@ struct
     optional = false;
   }
 
+  let date = {
+    module_prefix = "Js";
+    symbol_name = "date";
+    params = [];
+    optional = false;
+  }
+
   let js_type n = {
     module_prefix = "Js";
     symbol_name = n;
@@ -413,6 +420,9 @@ struct
       |> ignore;
     add_type table
       ~params:[Symbol.Type Symbol.generic_js_array] "Array" "Js" "t"
+      |> ignore;
+    add_type table
+      ~params:[Symbol.Type Symbol.date] "Date" "Js" "t"
       |> ignore;
     add_symbol table "Object" Symbol.js_object |> ignore;
     add_type table

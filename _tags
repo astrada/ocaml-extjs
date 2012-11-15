@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: c976b5e0be4ef764f244f0d5fea7b6f3)
+# DO NOT EDIT (digest: 5ae0bb1fcbfc1ecc6876429daa12541a)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -110,87 +110,112 @@
 <examples/misc/panel/*.ml{,i}>: use_oextjs
 <examples/misc/panel/*.ml{,i}>: pkg_js_of_ocaml
 <examples/misc/panel/*.ml{,i}>: pkg_pa_extjs
+# Library area_chart
+"examples/charts/area/area_chart.cmxs": use_area_chart
+<examples/charts/area/*.ml{,i}>: use_oextjs
+<examples/charts/area/*.ml{,i}>: pkg_js_of_ocaml
+<examples/charts/area/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
+"examples/helloext": -include
 "examples/account_manager": -include
 "examples/account_manager/app/controller": -include
 "examples/account_manager/app/view/user": -include
 "examples/account_manager/app/store": -include
 "examples/account_manager/app/model": -include
+"examples/grid/basic_array_grid": -include
+"examples/tabs/basic_tabs": -include
+"examples/message_box": -include
+"examples/window/window": -include
+"examples/window/layout": -include
+"examples/layout/border": -include
+"examples/layout/accordion": -include
+"examples/misc/quicktips": -include
+"examples/misc/templates": -include
+"examples/combobox/basic_combobox": -include
+"examples/misc/panel": -include
+"examples/charts/area": -include
 
 # HelloExt
 # build helloext/app.js
-"examples/helloext/app.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/helloext/app.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/helloext/helloext.cm{a,xa}>: helloext_client
 
 # Account Manager
 # build account_manager/app.js
-"examples/account_manager/app.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/account_manager/app.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 # build account_manager/app/controller/Users.js
-"examples/account_manager/app/controller/Users.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/account_manager/app/controller/Users.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 # build account_manager/app/view/user/List.js
-"examples/account_manager/app/view/user/List.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/account_manager/app/view/user/List.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 # build account_manager/app/view/user/Edit.js
-"examples/account_manager/app/view/user/Edit.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/account_manager/app/view/user/Edit.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 # build account_manager/app/store/Users.js
-"examples/account_manager/app/store/Users.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/account_manager/app/store/Users.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 # build account_manager/app/model/User.js
-"examples/account_manager/app/model/User.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/account_manager/app/model/User.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 
 <examples/account_manager/account_manager.cm{a,xa}>: account_manager_client
 
 # Basic Array Grid
 # build grid/basic_array_grid/array_grid.js
-"examples/grid/basic_array_grid/array_grid.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/grid/basic_array_grid/array_grid.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/grid/basic_array_grid/basic_array_grid.cm{a,xa}>: basic_array_grid
 
 # Basic Tabs
 # build tabs/basic_tabs/tabs.js
-"examples/tabs/basic_tabs/tabs.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/tabs/basic_tabs/tabs.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/tabs/basic_tabs/basic_tabs.cm{a,xa}>: basic_tabs
 
 # Message box
 # build message_box/msg_box.js
-"examples/message_box/msg_box.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/message_box/msg_box.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/message_box/message_box.cm{a,xa}>: message_box
 
 # Window
 # build window/window/window.js
-"examples/window/window/window.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/window/window/window.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/window/window/window.cm{a,xa}>: window
 
 # Layout Window
 # build window/layout/layout.js
-"examples/window/layout/layout.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/window/layout/layout.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/window/layout/layout_window.cm{a,xa}>: layout_window
 
 # Border Layout
 # build layout/border/border.js
-"examples/layout/border/border.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/layout/border/border.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/layout/border/border_layout.cm{a,xa}>: border_layout
 
 # Accordion Layout
 # build layout/accordion/accordion.js
-"examples/layout/accordion/accordion.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/layout/accordion/accordion.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/layout/accordion/accordion_layout.cm{a,xa}>: accordion_layout
 
 # Quicktips
 # build misc/quicktips/qtips.js
-"examples/misc/quicktips/qtips.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/misc/quicktips/qtips.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/misc/quicktips/quicktips.cm{a,xa}>: quicktips
 
 # Basic templating
 # build misc/templates/templates.js
-"examples/misc/templates/templates.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/misc/templates/templates.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/misc/templates/basic_templating.cm{a,xa}>: basic_templating
 
 # Basic combobox
 # build combobox/basic_combobox/combos.js
-"examples/combobox/basic_combobox/combos.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/combobox/basic_combobox/combos.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/combobox/basic_combobox/basic_combobox.cm{a,xa}>: basic_combobox
 
 # Panels
 # build misc/panel/panel.js
-"examples/misc/panel/panel.byte": use_oextjs, pkg_js_of_ocaml, pkg_js_of_ocaml.syntax
+"examples/misc/panel/panel.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/misc/panel/panels.cm{a,xa}>: panels
+
+# Area charts
+# build charts/area/example_data.js
+"examples/charts/area/example_data.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
+# build charts/area/area.js
+"examples/charts/area/area.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
+<examples/charts/area/area_chart.cm{a,xa}>: area_chart
 

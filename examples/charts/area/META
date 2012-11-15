@@ -1,0 +1,10 @@
+# OASIS_START
+# DO NOT EDIT (digest: 84ef41884b2d76bab1a1c58b63f3f62c)
+version = "0.1"
+description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
+requires = "oextjs js_of_ocaml pa_extjs"
+archive(byte) = "area_chart.cma"
+archive(byte, plugin) = "area_chart.cma"
+exists_if = "area_chart.cma"
+# OASIS_STOP
+

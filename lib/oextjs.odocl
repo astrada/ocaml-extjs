@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 5602830c8c9248679895ee9d8959e388)
+# DO NOT EDIT (digest: a8987df2cfd18827eb0fe799bd32c3c1)
 Ext
 Ext_AbstractComponent
 Ext_AbstractPlugin
@@ -100,5 +100,6 @@ Ext_window_MessageBox
 Ext_window_Window
 Ext_ZIndexManager
 Ext_MessageBox
+Ext_Date
 ExtUtils
 # OASIS_STOP

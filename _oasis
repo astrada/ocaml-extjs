@@ -133,6 +133,7 @@ Library oextjs
     Ext_window_Window,
     Ext_ZIndexManager,
     Ext_MessageBox,
+    Ext_Date,
     ExtUtils
   BuildDepends: js_of_ocaml
   CompiledObject: byte
@@ -277,6 +278,14 @@ Library panels
   Install: false
   Path: examples/misc/panel
   InternalModules: Panel
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+
+Library area_chart
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/charts/area
+  InternalModules: Area, Example_data
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
