@@ -245,6 +245,10 @@ struct
        ("Ext.tip.ToolTip", "showAt", Method, Suffix "arr");
        ("Ext.tip.QuickTip", "hide", Method, Disable);
        ("Ext.tip.QuickTip", "showAt", Method, Disable);
+       ("Ext.draw.Surface", "create", Method, Suffix "surface");
+       ("Ext.LoadMask", "bindStore", Method, Suffix "store");
+       ("Ext.LoadMask", "hide", Method, Suffix "mask");
+       ("Ext.LoadMask", "show", Method, Suffix "mask");
        ("Ext", "createByAlias", Method,
         Override ([make_param ~name:"alias"
                      (Symbol.js_t (Symbol.Type (Symbol.js_type "js_string")));
