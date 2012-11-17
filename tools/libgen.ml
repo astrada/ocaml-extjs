@@ -80,13 +80,13 @@ let is_optional =
 (* END JSON *)
 
 (* Docs *)
-let at_regexp = Str.regexp "@"
+let to_escape_regexp = Str.regexp "[@{}]"
 (* HACK: Specific regexp to match an unbalanced quote *)
 let quote_regexp = Str.regexp (Str.quote "', and \"")
 
 let clean_doc s =
   String.trim s
-    |> Str.global_replace at_regexp "\\\\\\0"
+    |> Str.global_replace to_escape_regexp "\\\\\\0"
     |> Str.global_replace quote_regexp "', and &quot;"
 (* END Docs *)
 
@@ -347,7 +347,7 @@ let parse_param table json_object =
   let doc =
     get_json_element "doc" es |> get_json_string |> clean_doc in
   let ext_type = get_json_element "type" es |> get_json_string in
-  let default = get_json_element "default" es |> get_json_string in
+  let default = get_json_element "default" es |> get_json_string |> clean_doc in
   let optional = is_optional es in
   let ptype = SymbolTable.map_type table ext_type |> Type.create ext_type in
   Param.create name ptype doc default optional
@@ -403,7 +403,7 @@ let get_return = function
 let create_property es table name doc override =
   let readonly = is_readonly es in
   let ext_type = get_json_element "type" es |> get_json_string in
-  let default = get_json_element "default" es |> get_json_string in
+  let default = get_json_element "default" es |> get_json_string |> clean_doc in
   let suffix = get_suffix override in
   let return_param =
     match get_return override with
