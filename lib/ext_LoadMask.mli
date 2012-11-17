@@ -13,7 +13,7 @@ object, and upon show, it will place itsef at the top of the hierarchy.</p>
 <p>Example usage:</p>
 
 <pre><code>// Basic mask:
-var myMask = new <a href="#!/api/Ext.LoadMask" rel="Ext.LoadMask" class="docClass">Ext.LoadMask</a>(myPanel, {msg:"Please wait..."});
+var myMask = new <a href="#!/api/Ext.LoadMask" rel="Ext.LoadMask" class="docClass">Ext.LoadMask</a>(myPanel, \{msg:"Please wait..."\});
 myMask.show();
 </code></pre> %}
   *)
@@ -232,7 +232,7 @@ you explicitly <a href="#!/api/Ext.LoadMask-method-show" rel="Ext.LoadMask-metho
 floating ancestor Container. If no floating ancestor Container was found the <a href="#!/api/Ext.LoadMask-property-floatParent" rel="Ext.LoadMask-property-floatParent" class="docClass">floatParent</a> property will
 not be set.</p> %}
     
-    Defaults to: [{shadow: 'frame'}]
+    Defaults to: [\{shadow: 'frame'\}]
     *)
   method focusOnToFront : bool Js.t Js.prop
   (** {% <p>Private. Masks are not focusable</p>
@@ -272,7 +272,7 @@ internal structure.</p>
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.LoadMask-cfg-renderSelectors" rel="Ext.LoadMask-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.LoadMask-cfg-childEls" rel="Ext.LoadMask-cfg-childEls" class="docClass">childEls</a> options.</p> %}
     
-    Defaults to: ['<div id="{id}-msgEl" style="position:relative" class="{[values.$comp.msgCls]}"></div>']
+    Defaults to: ['<div id="\{id\}-msgEl" style="position:relative" class="\{[values.$comp.msgCls]\}"></div>']
     *)
   method store : Ext_data_Store.t Js.t Js.prop
   (** {% <p>Optional Store to which the mask is bound. The mask is displayed when a load request is issued, and
