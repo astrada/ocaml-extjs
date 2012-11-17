@@ -17,10 +17,22 @@
 <link title="Ext_Class" rel="Chapter" href="Ext_Class.html">
 <link title="Ext_Component" rel="Chapter" href="Ext_Component.html">
 <link title="Ext_ComponentLoader" rel="Chapter" href="Ext_ComponentLoader.html">
+<link title="Ext_chart_Callout" rel="Chapter" href="Ext_chart_Callout.html">
+<link title="Ext_chart_Chart" rel="Chapter" href="Ext_chart_Chart.html">
+<link title="Ext_chart_Label" rel="Chapter" href="Ext_chart_Label.html">
+<link title="Ext_chart_Highlight" rel="Chapter" href="Ext_chart_Highlight.html">
+<link title="Ext_chart_Mask" rel="Chapter" href="Ext_chart_Mask.html">
+<link title="Ext_chart_Navigation" rel="Chapter" href="Ext_chart_Navigation.html">
+<link title="Ext_chart_Tip" rel="Chapter" href="Ext_chart_Tip.html">
+<link title="Ext_chart_axis_Abstract" rel="Chapter" href="Ext_chart_axis_Abstract.html">
+<link title="Ext_chart_axis_Axis" rel="Chapter" href="Ext_chart_axis_Axis.html">
+<link title="Ext_chart_series_Series" rel="Chapter" href="Ext_chart_series_Series.html">
+<link title="Ext_chart_theme_Theme" rel="Chapter" href="Ext_chart_theme_Theme.html">
 <link title="Ext_container_AbstractContainer" rel="Chapter" href="Ext_container_AbstractContainer.html">
 <link title="Ext_container_Container" rel="Chapter" href="Ext_container_Container.html">
 <link title="Ext_container_DockingContainer" rel="Chapter" href="Ext_container_DockingContainer.html">
 <link title="Ext_container_Viewport" rel="Chapter" href="Ext_container_Viewport.html">
+<link title="Ext_Date" rel="Chapter" href="Ext_Date.html">
 <link title="Ext_data_AbstractStore" rel="Chapter" href="Ext_data_AbstractStore.html">
 <link title="Ext_data_Batch" rel="Chapter" href="Ext_data_Batch.html">
 <link title="Ext_data_Errors" rel="Chapter" href="Ext_data_Errors.html">
@@ -45,6 +57,9 @@
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
 <link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
+<link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
+<link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
@@ -65,7 +80,9 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
+<link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
 <link title="Ext_menu_Menu" rel="Chapter" href="Ext_menu_Menu.html">
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
@@ -106,7 +123,6 @@
 <link title="Ext_window_MessageBox" rel="Chapter" href="Ext_window_MessageBox.html">
 <link title="Ext_window_Window" rel="Chapter" href="Ext_window_Window.html">
 <link title="Ext_ZIndexManager" rel="Chapter" href="Ext_ZIndexManager.html">
-<link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
 <link title="ExtUtils" rel="Chapter" href="ExtUtils.html"><title>Index of values</title>
 </head>
 <body>
@@ -153,6 +169,11 @@ See method <code class="code">statics.capture</code>
 <tr><td><a href="Ext_Version.html#VALcompare">compare</a> [<a href="Ext_Version.html">Ext_Version</a>]</td>
 <td><div class="info">
 See method <code class="code">statics.compare</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Surface.html#VALcreate">create</a> [<a href="Ext_draw_Surface.html">Ext_draw_Surface</a>]</td>
+<td><div class="info">
+See method <code class="code">statics.create</code>
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_AbstractStore.html#VALcreate">create</a> [<a href="Ext_data_AbstractStore.html">Ext_data_AbstractStore</a>]</td>
@@ -264,11 +285,6 @@ See method <code class="code">statics.getViewportWidth</code>
 </td></tr>
 <tr><td><a href="ExtUtils.html#VALget_global">get_global</a> [<a href="ExtUtils.html">ExtUtils</a>]</td>
 <td></td></tr>
-<tr><td><a href="Ext_MessageBox.html#VALget_instance">get_instance</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
-<td><div class="info">
-Singleton instance for lazy-loaded modules.
-</div>
-</td></tr>
 <tr><td><a href="Ext_util_Format.html#VALget_instance">get_instance</a> [<a href="Ext_util_Format.html">Ext_util_Format</a>]</td>
 <td><div class="info">
 Singleton instance for lazy-loaded modules.
@@ -284,12 +300,22 @@ Singleton instance for lazy-loaded modules.
 Singleton instance for lazy-loaded modules.
 </div>
 </td></tr>
+<tr><td><a href="Ext_MessageBox.html#VALget_instance">get_instance</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
+<td><div class="info">
+Singleton instance for lazy-loaded modules.
+</div>
+</td></tr>
 <tr><td><a href="Ext_Loader.html#VALget_instance">get_instance</a> [<a href="Ext_Loader.html">Ext_Loader</a>]</td>
 <td><div class="info">
 Singleton instance for lazy-loaded modules.
 </div>
 </td></tr>
 <tr><td><a href="Ext_EventObject.html#VALget_instance">get_instance</a> [<a href="Ext_EventObject.html">Ext_EventObject</a>]</td>
+<td><div class="info">
+Singleton instance for lazy-loaded modules.
+</div>
+</td></tr>
+<tr><td><a href="Ext_Date.html#VALget_instance">get_instance</a> [<a href="Ext_Date.html">Ext_Date</a>]</td>
 <td><div class="info">
 Singleton instance for lazy-loaded modules.
 </div>
@@ -330,6 +356,11 @@ Static instance for lazy-loaded modules.
 </div>
 </td></tr>
 <tr><td><a href="Ext_Error.html#VALget_static">get_static</a> [<a href="Ext_Error.html">Ext_Error</a>]</td>
+<td><div class="info">
+Static instance for lazy-loaded modules.
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Surface.html#VALget_static">get_static</a> [<a href="Ext_draw_Surface.html">Ext_draw_Surface</a>]</td>
 <td><div class="info">
 Static instance for lazy-loaded modules.
 </div>
@@ -381,11 +412,6 @@ See method <code class="code">statics.handle</code>
 See method <code class="code">statics.id</code>
 </div>
 </td></tr>
-<tr><td><a href="Ext_MessageBox.html#VALinstance">instance</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
-<td><div class="info">
-Singleton instance.
-</div>
-</td></tr>
 <tr><td><a href="Ext_util_Format.html#VALinstance">instance</a> [<a href="Ext_util_Format.html">Ext_util_Format</a>]</td>
 <td><div class="info">
 Singleton instance.
@@ -401,12 +427,22 @@ Singleton instance.
 Singleton instance.
 </div>
 </td></tr>
+<tr><td><a href="Ext_MessageBox.html#VALinstance">instance</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
+<td><div class="info">
+Singleton instance.
+</div>
+</td></tr>
 <tr><td><a href="Ext_Loader.html#VALinstance">instance</a> [<a href="Ext_Loader.html">Ext_Loader</a>]</td>
 <td><div class="info">
 Singleton instance.
 </div>
 </td></tr>
 <tr><td><a href="Ext_EventObject.html#VALinstance">instance</a> [<a href="Ext_EventObject.html">Ext_EventObject</a>]</td>
+<td><div class="info">
+Singleton instance.
+</div>
+</td></tr>
+<tr><td><a href="Ext_Date.html#VALinstance">instance</a> [<a href="Ext_Date.html">Ext_Date</a>]</td>
 <td><div class="info">
 Singleton instance.
 </div>
@@ -443,11 +479,6 @@ See method <code class="code">statics.normalize</code>
 <tr><td><a href="Ext_util_Observable.html#VALobserve">observe</a> [<a href="Ext_util_Observable.html">Ext_util_Observable</a>]</td>
 <td><div class="info">
 See method <code class="code">statics.observe</code>
-</div>
-</td></tr>
-<tr><td><a href="Ext_MessageBox.html#VALof_configs">of_configs</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
-<td><div class="info">
-<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
 </div>
 </td></tr>
 <tr><td><a href="Ext_ZIndexManager.html#VALof_configs">of_configs</a> [<a href="Ext_ZIndexManager.html">Ext_ZIndexManager</a>]</td>
@@ -650,7 +681,17 @@ See method <code class="code">statics.observe</code>
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
 </div>
 </td></tr>
+<tr><td><a href="Ext_MessageBox.html#VALof_configs">of_configs</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
 <tr><td><a href="Ext_Loader.html#VALof_configs">of_configs</a> [<a href="Ext_Loader.html">Ext_Loader</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_LoadMask.html#VALof_configs">of_configs</a> [<a href="Ext_LoadMask.html">Ext_LoadMask</a>]</td>
 <td><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
 </div>
@@ -751,6 +792,21 @@ See method <code class="code">statics.observe</code>
 </div>
 </td></tr>
 <tr><td><a href="Ext_ElementLoader.html#VALof_configs">of_configs</a> [<a href="Ext_ElementLoader.html">Ext_ElementLoader</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Surface.html#VALof_configs">of_configs</a> [<a href="Ext_draw_Surface.html">Ext_draw_Surface</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Sprite.html#VALof_configs">of_configs</a> [<a href="Ext_draw_Sprite.html">Ext_draw_Sprite</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Component.html#VALof_configs">of_configs</a> [<a href="Ext_draw_Component.html">Ext_draw_Component</a>]</td>
 <td><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
 </div>
@@ -875,6 +931,11 @@ See method <code class="code">statics.observe</code>
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
 </div>
 </td></tr>
+<tr><td><a href="Ext_Date.html#VALof_configs">of_configs</a> [<a href="Ext_Date.html">Ext_Date</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
 <tr><td><a href="Ext_container_Viewport.html#VALof_configs">of_configs</a> [<a href="Ext_container_Viewport.html">Ext_container_Viewport</a>]</td>
 <td><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
@@ -891,6 +952,61 @@ See method <code class="code">statics.observe</code>
 </div>
 </td></tr>
 <tr><td><a href="Ext_container_AbstractContainer.html#VALof_configs">of_configs</a> [<a href="Ext_container_AbstractContainer.html">Ext_container_AbstractContainer</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_theme_Theme.html#VALof_configs">of_configs</a> [<a href="Ext_chart_theme_Theme.html">Ext_chart_theme_Theme</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_series_Series.html#VALof_configs">of_configs</a> [<a href="Ext_chart_series_Series.html">Ext_chart_series_Series</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_axis_Axis.html#VALof_configs">of_configs</a> [<a href="Ext_chart_axis_Axis.html">Ext_chart_axis_Axis</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_axis_Abstract.html#VALof_configs">of_configs</a> [<a href="Ext_chart_axis_Abstract.html">Ext_chart_axis_Abstract</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Tip.html#VALof_configs">of_configs</a> [<a href="Ext_chart_Tip.html">Ext_chart_Tip</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Navigation.html#VALof_configs">of_configs</a> [<a href="Ext_chart_Navigation.html">Ext_chart_Navigation</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Mask.html#VALof_configs">of_configs</a> [<a href="Ext_chart_Mask.html">Ext_chart_Mask</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Highlight.html#VALof_configs">of_configs</a> [<a href="Ext_chart_Highlight.html">Ext_chart_Highlight</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Label.html#VALof_configs">of_configs</a> [<a href="Ext_chart_Label.html">Ext_chart_Label</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Chart.html#VALof_configs">of_configs</a> [<a href="Ext_chart_Chart.html">Ext_chart_Chart</a>]</td>
+<td><div class="info">
+<code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Callout.html#VALof_configs">of_configs</a> [<a href="Ext_chart_Callout.html">Ext_chart_Callout</a>]</td>
 <td><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code>
 </div>
@@ -973,6 +1089,11 @@ See method <code class="code">statics.resumeLayouts</code>
 </div>
 </td></tr>
 <tr><td align="left"><br>S</td></tr>
+<tr><td><a href="Ext_draw_Surface.html#VALsave">save</a> [<a href="Ext_draw_Surface.html">Ext_draw_Surface</a>]</td>
+<td><div class="info">
+See method <code class="code">statics.save</code>
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_Element.html#VALselect">select</a> [<a href="Ext_dom_Element.html">Ext_dom_Element</a>]</td>
 <td><div class="info">
 See method <code class="code">statics.select</code>
@@ -1030,6 +1151,11 @@ Static instance.
 Static instance.
 </div>
 </td></tr>
+<tr><td><a href="Ext_draw_Surface.html#VALstatic">static</a> [<a href="Ext_draw_Surface.html">Ext_draw_Surface</a>]</td>
+<td><div class="info">
+Static instance.
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_Element.html#VALstatic">static</a> [<a href="Ext_dom_Element.html">Ext_dom_Element</a>]</td>
 <td><div class="info">
 Static instance.
@@ -1076,11 +1202,6 @@ See method <code class="code">statics.suspendLayouts</code>
 <tr><td><a href="ExtUtils.html#VALto_class_configs">to_class_configs</a> [<a href="ExtUtils.html">ExtUtils</a>]</td>
 <td><div class="info">
 <code class="code">to_class_configs o</code> converts instance <code class="code">o</code> to an Ext.class config object
-</div>
-</td></tr>
-<tr><td><a href="Ext_MessageBox.html#VALto_configs">to_configs</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
-<td><div class="info">
-<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
 </div>
 </td></tr>
 <tr><td><a href="Ext_ZIndexManager.html#VALto_configs">to_configs</a> [<a href="Ext_ZIndexManager.html">Ext_ZIndexManager</a>]</td>
@@ -1283,7 +1404,17 @@ See method <code class="code">statics.suspendLayouts</code>
 <code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
 </div>
 </td></tr>
+<tr><td><a href="Ext_MessageBox.html#VALto_configs">to_configs</a> [<a href="Ext_MessageBox.html">Ext_MessageBox</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
 <tr><td><a href="Ext_Loader.html#VALto_configs">to_configs</a> [<a href="Ext_Loader.html">Ext_Loader</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_LoadMask.html#VALto_configs">to_configs</a> [<a href="Ext_LoadMask.html">Ext_LoadMask</a>]</td>
 <td><div class="info">
 <code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
 </div>
@@ -1384,6 +1515,21 @@ See method <code class="code">statics.suspendLayouts</code>
 </div>
 </td></tr>
 <tr><td><a href="Ext_ElementLoader.html#VALto_configs">to_configs</a> [<a href="Ext_ElementLoader.html">Ext_ElementLoader</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Surface.html#VALto_configs">to_configs</a> [<a href="Ext_draw_Surface.html">Ext_draw_Surface</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Sprite.html#VALto_configs">to_configs</a> [<a href="Ext_draw_Sprite.html">Ext_draw_Sprite</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_draw_Component.html#VALto_configs">to_configs</a> [<a href="Ext_draw_Component.html">Ext_draw_Component</a>]</td>
 <td><div class="info">
 <code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
 </div>
@@ -1508,6 +1654,11 @@ See method <code class="code">statics.suspendLayouts</code>
 <code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
 </div>
 </td></tr>
+<tr><td><a href="Ext_Date.html#VALto_configs">to_configs</a> [<a href="Ext_Date.html">Ext_Date</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
 <tr><td><a href="Ext_container_Viewport.html#VALto_configs">to_configs</a> [<a href="Ext_container_Viewport.html">Ext_container_Viewport</a>]</td>
 <td><div class="info">
 <code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
@@ -1524,6 +1675,61 @@ See method <code class="code">statics.suspendLayouts</code>
 </div>
 </td></tr>
 <tr><td><a href="Ext_container_AbstractContainer.html#VALto_configs">to_configs</a> [<a href="Ext_container_AbstractContainer.html">Ext_container_AbstractContainer</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_theme_Theme.html#VALto_configs">to_configs</a> [<a href="Ext_chart_theme_Theme.html">Ext_chart_theme_Theme</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_series_Series.html#VALto_configs">to_configs</a> [<a href="Ext_chart_series_Series.html">Ext_chart_series_Series</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_axis_Axis.html#VALto_configs">to_configs</a> [<a href="Ext_chart_axis_Axis.html">Ext_chart_axis_Axis</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_axis_Abstract.html#VALto_configs">to_configs</a> [<a href="Ext_chart_axis_Abstract.html">Ext_chart_axis_Abstract</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Tip.html#VALto_configs">to_configs</a> [<a href="Ext_chart_Tip.html">Ext_chart_Tip</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Navigation.html#VALto_configs">to_configs</a> [<a href="Ext_chart_Navigation.html">Ext_chart_Navigation</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Mask.html#VALto_configs">to_configs</a> [<a href="Ext_chart_Mask.html">Ext_chart_Mask</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Highlight.html#VALto_configs">to_configs</a> [<a href="Ext_chart_Highlight.html">Ext_chart_Highlight</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Label.html#VALto_configs">to_configs</a> [<a href="Ext_chart_Label.html">Ext_chart_Label</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Chart.html#VALto_configs">to_configs</a> [<a href="Ext_chart_Chart.html">Ext_chart_Chart</a>]</td>
+<td><div class="info">
+<code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_Callout.html#VALto_configs">to_configs</a> [<a href="Ext_chart_Callout.html">Ext_chart_Callout</a>]</td>
 <td><div class="info">
 <code class="code">to_configs o</code> casts instance <code class="code">o</code> of class <code class="code">t</code> to a config object
 </div>
