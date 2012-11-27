@@ -1,5 +1,5 @@
 (* OASIS_START *)
-(* DO NOT EDIT (digest: 0ea775519a0fe15b44d956602bd242ab) *)
+(* DO NOT EDIT (digest: 42b1e3e18937e8435f1caf16a6bd1729) *)
 module OASISGettext = struct
 (* # 21 "/home/alex/.odb/install-oasis/oasis-0.3.0/src/oasis/OASISGettext.ml" *)
 
@@ -495,7 +495,8 @@ let package_default =
           ("basic_combobox", ["examples/combobox/basic_combobox"]);
           ("panels", ["examples/misc/panel"]);
           ("area_chart", ["examples/charts/area"]);
-          ("menus", ["examples/toolbars/menu"])
+          ("menus", ["examples/toolbars/menu"]);
+          ("dnd_grid_to_grid", ["examples/dd/grid_to_grid"])
        ];
      lib_c = [("oextjs", "lib", [])];
      flags =
@@ -532,6 +533,7 @@ let package_default =
           ("examples/layout/accordion", ["lib"]);
           ("examples/helloext", ["lib"]);
           ("examples/grid/basic_array_grid", ["lib"]);
+          ("examples/dd/grid_to_grid", ["lib"]);
           ("examples/combobox/basic_combobox", ["lib"]);
           ("examples/charts/area", ["lib"]);
           ("examples/account_manager/app/view/user",
@@ -580,7 +582,7 @@ let package_default =
 
 let dispatch_default = MyOCamlbuildBase.dispatch_default package_default;;
 
-# 584 "myocamlbuild.ml"
+# 586 "myocamlbuild.ml"
 (* OASIS_STOP *)
 
 (* Turn on verbose logging *)
@@ -638,6 +640,9 @@ dep ["area_chart"]
 (* menus *)
 dep ["menus"]
   ["examples/toolbars/menu/menus.js"];;
+(* DnD Grid to Grid *)
+dep ["dnd_grid_to_grid"]
+  ["examples/dd/grid_to_grid/dnd_grid_to_grid.js"];;
 
 (* js_of_ocaml compiler *)
 rule "js_of_ocaml: .byte -> .js" ~deps:["%.byte"] ~prod:"%.js"

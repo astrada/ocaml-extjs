@@ -312,3 +312,11 @@ Library menus
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library dnd_grid_to_grid
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/dd/grid_to_grid
+  InternalModules: Dnd_grid_to_grid
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+

@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 00b5950a5b580488ab2badac1d074b5e)
+# DO NOT EDIT (digest: e92b6c1ea89fee19a0e0232bbc1ebb66)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -120,6 +120,11 @@
 <examples/toolbars/menu/*.ml{,i}>: use_oextjs
 <examples/toolbars/menu/*.ml{,i}>: pkg_js_of_ocaml
 <examples/toolbars/menu/*.ml{,i}>: pkg_pa_extjs
+# Library dnd_grid_to_grid
+"examples/dd/grid_to_grid/dnd_grid_to_grid.cmxs": use_dnd_grid_to_grid
+<examples/dd/grid_to_grid/*.ml{,i}>: use_oextjs
+<examples/dd/grid_to_grid/*.ml{,i}>: pkg_js_of_ocaml
+<examples/dd/grid_to_grid/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
 "examples/helloext": -include
@@ -228,4 +233,9 @@
 # build toolbars/menu/menus.js
 "examples/toolbars/menu/menus.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/toolbars/menu/menus.cm{a,xa}>: menus
+
+# DnD Grid to Grid
+# build dd/grid_to_grid/dnd_grid_to_grid.js
+"examples/dd/grid_to_grid/dnd_grid_to_grid.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
+<examples/dd/grid_to_grid/dnd_grid_to_grid.cm{a,xa}>: dnd_grid_to_grid
 

@@ -1,0 +1,10 @@
+# OASIS_START
+# DO NOT EDIT (digest: 83d57f61005d3252cf4e9f976c5589a3)
+version = "0.1"
+description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
+requires = "oextjs js_of_ocaml pa_extjs"
+archive(byte) = "dnd_grid_to_grid.cma"
+archive(byte, plugin) = "dnd_grid_to_grid.cma"
+exists_if = "dnd_grid_to_grid.cma"
+# OASIS_STOP
+
