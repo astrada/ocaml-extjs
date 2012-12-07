@@ -9,7 +9,7 @@ You will need the following libraries:
 
 * [OCaml][] >= 3.12.1
 * [Findlib][] >= 1.2.7
-* [js_of_ocaml][] latest development version
+* [js_of_ocaml][] >= 1.3
 * [pa_extjs][] latest development version
 * [extjs][] >= 4.1.1a (GPL version)
 * [extjs-sdk-tools][] >= 2.0.0beta3 (to minify and deploy examples, optional)
