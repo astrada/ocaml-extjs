@@ -320,3 +320,11 @@ Library dnd_grid_to_grid
   CompiledObject: byte
   BuildDepends: oextjs, js_of_ocaml, pa_extjs
 
+Library contact_form
+  Build$: flag(examples) || flag(all)
+  Install: false
+  Path: examples/forms/contact
+  InternalModules: Contact_form
+  CompiledObject: byte
+  BuildDepends: oextjs, js_of_ocaml, pa_extjs
+

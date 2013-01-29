@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: e92b6c1ea89fee19a0e0232bbc1ebb66)
+# DO NOT EDIT (digest: 06419211ff86900fdb2029c3083638a1)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -125,6 +125,11 @@
 <examples/dd/grid_to_grid/*.ml{,i}>: use_oextjs
 <examples/dd/grid_to_grid/*.ml{,i}>: pkg_js_of_ocaml
 <examples/dd/grid_to_grid/*.ml{,i}>: pkg_pa_extjs
+# Library contact_form
+"examples/forms/contact/contact_form.cmxs": use_contact_form
+<examples/forms/contact/*.ml{,i}>: use_oextjs
+<examples/forms/contact/*.ml{,i}>: pkg_js_of_ocaml
+<examples/forms/contact/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
 "examples/helloext": -include
@@ -238,4 +243,9 @@
 # build dd/grid_to_grid/dnd_grid_to_grid.js
 "examples/dd/grid_to_grid/dnd_grid_to_grid.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/dd/grid_to_grid/dnd_grid_to_grid.cm{a,xa}>: dnd_grid_to_grid
+
+# Contact form
+# build forms/contact/contact_form.js
+"examples/forms/contact/contact_form.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
+<examples/forms/contact/contact_form.cm{a,xa}>: contact_form
 

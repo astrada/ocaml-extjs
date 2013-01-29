@@ -1,0 +1,10 @@
+# OASIS_START
+# DO NOT EDIT (digest: f689b91457f49cb5f9b9415d10aaac1b)
+version = "0.1"
+description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
+requires = "oextjs js_of_ocaml pa_extjs"
+archive(byte) = "contact_form.cma"
+archive(byte, plugin) = "contact_form.cma"
+exists_if = "contact_form.cma"
+# OASIS_STOP
+
