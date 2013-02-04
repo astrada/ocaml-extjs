@@ -1,7 +1,7 @@
 <examples/**/*.ml>: syntax_camlp4o
 
 # OASIS_START
-# DO NOT EDIT (digest: 06419211ff86900fdb2029c3083638a1)
+# DO NOT EDIT (digest: 018507bb6fab98116269f80a2b4000ea)
 # Ignore VCS directories, you can use the same kind of rule outside 
 # OASIS_START/STOP if you want to exclude directories that contains 
 # useless stuff for the build process
@@ -130,6 +130,11 @@
 <examples/forms/contact/*.ml{,i}>: use_oextjs
 <examples/forms/contact/*.ml{,i}>: pkg_js_of_ocaml
 <examples/forms/contact/*.ml{,i}>: pkg_pa_extjs
+# Library sencha_logo
+"examples/drawing/sencha/sencha_logo.cmxs": use_sencha_logo
+<examples/drawing/sencha/*.ml{,i}>: use_oextjs
+<examples/drawing/sencha/*.ml{,i}>: pkg_js_of_ocaml
+<examples/drawing/sencha/*.ml{,i}>: pkg_pa_extjs
 # OASIS_STOP
 
 "examples/helloext": -include
@@ -248,4 +253,9 @@
 # build forms/contact/contact_form.js
 "examples/forms/contact/contact_form.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
 <examples/forms/contact/contact_form.cm{a,xa}>: contact_form
+
+# Sencha logo
+# build drawing/sencha/Sencha.js
+"examples/drawing/sencha/Sencha.byte": use_oextjs, pkg_js_of_ocaml, pkg_pa_extjs
+<examples/drawing/sencha/sencha_logo.cm{a,xa}>: sencha_logo
 
