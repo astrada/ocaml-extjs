@@ -2,11 +2,8 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method defaultUnit : Js.js_string Js.t Js.prop
-  method dom : Dom_html.element Js.t Js.prop
-  method id : Js.js_string Js.t Js.prop
   method addCls : _ Js.t -> 'self Js.t Js.meth
-  method appendChild : _ Js.t -> 'self Js.t Js.meth
+  method appendChild : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   method appendTo : _ Js.t -> 'self Js.t Js.meth
   method applyStyles : _ Js.t -> 'self Js.t Js.meth
   method child : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
@@ -22,34 +19,19 @@ object('self)
   method first : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method getActiveElement : Dom_html.element Js.t Js.meth
-  method getAlignToXY : _ Js.t -> Js.js_string Js.t Js.optdef ->
-    _ Js.js_array Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
-  method getAnchorXY : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
-    _ Js.t Js.optdef -> _ Js.js_array Js.t Js.meth
   method getAttribute : Js.js_string Js.t -> Js.js_string Js.t Js.optdef ->
     Js.js_string Js.t Js.meth
   method getBorderWidth : Js.js_string Js.t -> Js.number Js.t Js.meth
-  method getBottom : bool Js.t -> Js.number Js.t Js.meth
-  method getBox : bool Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
-    Js.meth
   method getById : Js.js_string Js.t -> bool Js.t Js.optdef -> unit Js.meth
   method getHTML : unit Js.meth
   method getHeight : bool Js.t Js.optdef -> Js.number Js.t Js.meth
-  method getLeft : bool Js.t -> Js.number Js.t Js.meth
   method getMargin : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
-  method getOffsetsTo : _ Js.t -> _ Js.js_array Js.t Js.meth
   method getPadding : Js.js_string Js.t -> Js.number Js.t Js.meth
-  method getPageBox : bool Js.t Js.optdef -> _ Js.t Js.meth
-  method getRight : bool Js.t -> Js.number Js.t Js.meth
   method getSize : bool Js.t Js.optdef -> _ Js.t Js.meth
   method getStyle : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
-  method getTop : bool Js.t -> Js.number Js.t Js.meth
   method getValue : bool Js.t -> _ Js.t Js.meth
   method getViewSize : _ Js.t Js.meth
   method getWidth : bool Js.t Js.optdef -> Js.number Js.t Js.meth
-  method getX : _ Js.t -> Js.number Js.t Js.meth
-  method getXY : _ Js.js_array Js.t Js.meth
-  method getY : _ Js.t -> Js.number Js.t Js.meth
   method hasCls : Js.js_string Js.t -> bool Js.t Js.meth
   method hide : _ Js.t Js.optdef -> 'self Js.t Js.meth
   method insertAfter : _ Js.t -> 'self Js.t Js.meth
@@ -71,7 +53,6 @@ object('self)
     Js.meth
   method parent : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
     _ Js.t Js.meth
-  method populateStyleMap : _ Js.t -> _ Js.t -> unit Js.meth
   method prev : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method query : Js.js_string Js.t -> Dom_html.element Js.t Js.js_array Js.t
@@ -87,32 +68,25 @@ object('self)
   method select : Js.js_string Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   method serializeForm : _ Js.t -> Js.js_string Js.t Js.meth
   method set : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
-  method setBottom : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setBox : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef ->
-    'self Js.t Js.meth
   method setHTML : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setHeight : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
-  method setLeft : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setRight : Js.js_string Js.t -> 'self Js.t Js.meth
-  method setSize : _ Js.t -> _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method setHeight : _ Js.t -> 'self Js.t Js.meth
+  method setSize : _ Js.t -> _ Js.t -> 'self Js.t Js.meth
   method setStyle : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
     Js.meth
-  method setTop : Js.js_string Js.t -> 'self Js.t Js.meth
   method setVisibilityMode : _ Js.t -> 'self Js.t Js.meth
   method setVisible : bool Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
-  method setWidth : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
-  method setX : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
-  method setXY : _ Js.js_array Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
-  method setY : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method setWidth : _ Js.t -> 'self Js.t Js.meth
   method show : _ Js.t Js.optdef -> 'self Js.t Js.meth
   method toggleCls : Js.js_string Js.t -> 'self Js.t Js.meth
-  method translatePoints : _ Js.t -> Js.number Js.t Js.optdef -> _ Js.t
-    Js.meth
   method unmask : unit Js.meth
-  method up : Js.js_string Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
+  method up : Js.js_string Js.t -> _ Js.t Js.optdef -> bool Js.t Js.optdef ->
+    'self Js.t Js.meth
   method update : Js.js_string Js.t -> 'self Js.t Js.meth
   method wrap : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
     Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
+  method defaultUnit : Js.js_string Js.t Js.prop
+  method dom : Dom_html.element Js.t Js.prop
+  method id : Js.js_string Js.t Js.prop
   
 end
 
@@ -134,10 +108,6 @@ class type statics =
 object
   inherit Ext_Base.statics
   
-  method _ASCLASS : Js.number Js.t Js.prop
-  method _DISPLAY : Js.number Js.t Js.prop
-  method _OFFSETS : Js.number Js.t Js.prop
-  method _VISIBILITY : Js.number Js.t Js.prop
   method fly : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   method fromPoint : Js.number Js.t -> Js.number Js.t -> Js.js_string Js.t
     Js.meth
@@ -155,6 +125,10 @@ object
   method removeCls : _ Js.t -> _ Js.t -> _ Js.js_array Js.t Js.meth
   method unitizeBox : _ Js.t -> Js.js_string Js.t -> Js.js_string Js.t
     Js.meth
+  method _ASCLASS : Js.number Js.t Js.prop
+  method _DISPLAY : Js.number Js.t Js.prop
+  method _OFFSETS : Js.number Js.t Js.prop
+  method _VISIBILITY : Js.number Js.t Js.prop
   
 end
 

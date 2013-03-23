@@ -76,7 +76,7 @@ must include a 'dock' parameter on each component to indicate where it should be
     {% <p>The index at which the Component will be inserted</p> %}
     }
     {- component: [_ Js.t]
-    {% <p>. The Component or array of components to add. The components
+    {% <p>The Component or array of components to add. The components
 must include a 'dock' paramater on each component to indicate where it should be docked ('top', 'right',
 'bottom', 'left').</p> %}
     }
@@ -104,7 +104,7 @@ must include a 'dock' paramater on each component to indicate where it should be
     
     {b Parameters}:
     {ul {- item: [#Ext_Component.t Js.t]
-    {% <p>. The Component to remove.</p> %}
+    {% <p>The Component to remove.</p> %}
     }
     {- autoDestroy: [bool Js.t] (optional)
     {% <p>Destroy the component after removal.</p> %}
@@ -131,31 +131,31 @@ so that even weights can be used to get between different dock orders.</p>
 
 <p>To make default docking order match border layout, do this:</p>
 
-<pre><code> Ext.panel.AbstractPanel.prototype.defaultDockWeights = { top: 1, bottom: 3, left: 5, right: 7 };
+<pre><code> Ext.panel.AbstractPanel.prototype.defaultDockWeights = \{ top: 1, bottom: 3, left: 5, right: 7 \};
 </code></pre>
 
 <p>Changing these defaults as above or individually on this object will effect all Panels.
 To change the defaults on a single panel, you should replace the entire object:</p>
 
-<pre><code> initComponent: function () {
+<pre><code> initComponent: function () \{
      // NOTE: Don't change members of defaultDockWeights since the object is shared.
-     this.defaultDockWeights = { top: 1, bottom: 3, left: 5, right: 7 };
+     this.defaultDockWeights = \{ top: 1, bottom: 3, left: 5, right: 7 \};
 
      this.callParent();
- }
+ \}
 </code></pre>
 
 <p>To change only one of the default values, you do this:</p>
 
-<pre><code> initComponent: function () {
+<pre><code> initComponent: function () \{
      // NOTE: Don't change members of defaultDockWeights since the object is shared.
-     this.defaultDockWeights = <a href="#!/api/Ext-method-applyIf" rel="Ext-method-applyIf" class="docClass">Ext.applyIf</a>({ top: 10 }, this.defaultDockWeights);
+     this.defaultDockWeights = <a href="#!/api/Ext-method-applyIf" rel="Ext-method-applyIf" class="docClass">Ext.applyIf</a>(\{ top: 10 \}, this.defaultDockWeights);
 
      this.callParent();
- }
+ \}
 </code></pre> %}
     
-    Defaults to: [{top: {render: 1, visual: 1}, left: {render: 3, visual: 5}, right: {render: 5, visual: 7}, bottom: {render: 7, visual: 3}}]
+    Defaults to: [\{top: \{render: 1, visual: 1\}, left: \{render: 3, visual: 5\}, right: \{render: 5, visual: 7\}, bottom: \{render: 7, visual: 3\}\}]
     *)
   
 end
@@ -164,6 +164,39 @@ class type events =
 object
   inherit Ext_Base.events
   
+  method dockedadd : (_ Js.t -> #Ext_Component.t Js.t -> Js.number Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fires when any <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> is added or inserted as a docked item.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [#Ext_panel_Panel.t Js.t]
+    }
+    {- component: [#Ext_Component.t Js.t]
+    {% <p>The component being added</p> %}
+    }
+    {- index: [Js.number Js.t]
+    {% <p>The index at which the component will be added docked items collection</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method dockedremove : (_ Js.t -> #Ext_Component.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
+  (** {% <p>Fires when any <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> is removed from the docked items.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [#Ext_panel_Panel.t Js.t]
+    }
+    {- component: [#Ext_Component.t Js.t]
+    {% <p>The component being removed</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
   
 end
 

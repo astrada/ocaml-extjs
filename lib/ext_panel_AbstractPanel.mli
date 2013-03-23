@@ -7,18 +7,9 @@
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
   inherit Ext_container_DockingContainer.t
+  inherit Ext_container_Container.t
   
-  method isPanel : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Panel, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method addBodyCls : Js.js_string Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds a CSS class to the body element. If not rendered, the class will
 be added when the panel is rendered.</p> %}
@@ -37,12 +28,12 @@ be added when the panel is rendered.</p> %}
   method addUIClsToElement : Js.js_string Js.t -> unit Js.meth
   (** {% <p>inherit docs</p>
 
-<p>Method which adds a specified UI + uiCls to the components element. Can be overridden to remove the UI from more
+<p>Method which adds a specified UI + <code>uiCls</code> to the components element. Can be overridden to remove the UI from more
 than just the components element.</p> %}
     
     {b Parameters}:
     {ul {- ui: [Js.js_string Js.t]
-    {% <p>The UI to remove from the element</p> %}
+    {% <p>The UI to remove from the element.</p> %}
     }
     }
     *)
@@ -65,6 +56,23 @@ items will only be matched by component id or itemId -- if you pass a numeric in
     }
     }
     *)
+  method getRefItems : _ Js.t -> unit Js.meth
+  (** {% <p>Used by <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a>, <a href="#!/api/Ext.panel.AbstractPanel-method-child" rel="Ext.panel.AbstractPanel-method-child" class="docClass">child</a> and <a href="#!/api/Ext.panel.AbstractPanel-method-down" rel="Ext.panel.AbstractPanel-method-down" class="docClass">down</a> to retrieve all of the items
+which can potentially be considered a child of this Container.</p>
+
+<p>This may be overriden by Components which have ownership of Components
+that are not contained in the <a href="#!/api/Ext.panel.AbstractPanel-property-items" rel="Ext.panel.AbstractPanel-property-items" class="docClass">items</a> collection.</p>
+
+<p>NOTE: IMPORTANT note for maintainers:
+Items are returned in tree traversal order. Each item is appended to the result array
+followed by the results of that child's getRefItems call.
+Floating child items are appended after internal child items.</p> %}
+    
+    {b Parameters}:
+    {ul {- deep: [_ Js.t]
+    }
+    }
+    *)
   method initComponent : unit Js.meth
   (** {% <p>The initComponent template method is an important initialization step for a Component. It is intended to be
 implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
@@ -81,19 +89,19 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
     *)
   method removeBodyCls : Js.js_string Js.t -> 'self Js.t Js.meth
@@ -113,12 +121,12 @@ instantiation of the class.</p>
   method removeUIClsFromElement : Js.js_string Js.t -> unit Js.meth
   (** {% <p>inherit docs</p>
 
-<p>Method which removes a specified UI + uiCls from the components element. The cls which is added to the element
-will be: <code>this.baseCls + '-' + ui</code></p> %}
+<p>Method which removes a specified UI + <code>uiCls</code> from the components element. The <code>cls</code> which is added to the element
+will be: <code>this.baseCls + '-' + ui</code>.</p> %}
     
     {b Parameters}:
     {ul {- ui: [Js.js_string Js.t]
-    {% <p>The UI to add to the element</p> %}
+    {% <p>The UI to add to the element.</p> %}
     }
     }
     *)
@@ -139,17 +147,36 @@ will be: <code>this.baseCls + '-' + ui</code></p> %}
     }
     }
     *)
+  method body : Ext_dom_Element.t Js.t Js.readonly_prop
+  (** {% <p>The Panel's body <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> which may be used to contain HTML content.
+The content may be specified in the <a href="#!/api/Ext.panel.AbstractPanel-cfg-html" rel="Ext.panel.AbstractPanel-cfg-html" class="docClass">html</a> config, or it may be loaded using the
+<a href="#!/api/Ext.panel.AbstractPanel-cfg-loader" rel="Ext.panel.AbstractPanel-cfg-loader" class="docClass">loader</a> config. Read-only.</p>
+
+<p>If this is used to load visible HTML elements in either way, then
+the Panel may not be used as a Layout for hosting nested Panels.</p>
+
+<p>If this Panel is intended to be used as the host of a Layout (See <a href="#!/api/Ext.panel.AbstractPanel-cfg-layout" rel="Ext.panel.AbstractPanel-cfg-layout" class="docClass">layout</a>
+then the body Element must not be loaded or changed - it is under the control
+of the Panel's Layout.</p> %}
+    *)
+  method contentPaddingProperty : Js.js_string Js.t Js.prop
+  (** {% <p>The name of the padding property that is used by the layout to manage
+padding.  See <a href="#!/api/Ext.layout.container.Auto-property-managePadding" rel="Ext.layout.container.Auto-property-managePadding" class="docClass">managePadding</a></p> %}
+    
+    Defaults to: ['bodyPadding']
+    *)
+  method isPanel : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Panel, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
   inherit Ext_container_DockingContainer.configs
+  inherit Ext_container_Container.configs
   
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -163,8 +190,8 @@ object('self)
     Defaults to: [x-panel]
     *)
   method bodyBorder : bool Js.t Js.prop
-  (** {% <p>A shortcut to add or remove the border on the body of a panel. This only applies to a panel which has the <a href="#!/api/Ext.panel.AbstractPanel-cfg-frame" rel="Ext.panel.AbstractPanel-cfg-frame" class="docClass">frame</a> configuration set to <code>true</code>.
-Defaults to <code>undefined</code>.</p> %}
+  (** {% <p>A shortcut to add or remove the border on the body of a panel. In the classic theme
+this only applies to a panel which has the <a href="#!/api/Ext.panel.AbstractPanel-cfg-frame" rel="Ext.panel.AbstractPanel-cfg-frame" class="docClass">frame</a> configuration set to <code>true</code>.</p> %}
     *)
   method bodyCls : _ Js.t Js.prop
   (** {% <p>A CSS class, space-delimited string of classes, or array of classes to be applied to the panel's body element.
@@ -187,11 +214,29 @@ For example, these two formats are interpreted to be equivalent:</p>
 
 <pre><code>bodyStyle: 'background:#ffc; padding:10px;'
 
-bodyStyle: {
+bodyStyle: \{
     background: '#ffc',
     padding: '10px'
-}
+\}
 </code></pre> %}
+    *)
+  method border : _ Js.t Js.prop
+  (** {% <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
+be a CSS style specification for each style, for example: '10 5 3 10' (top, right, bottom, left).</p>
+
+<p>For components that have no border by default, setting this won't make the border appear by itself.
+You also need to specify border color and style:</p>
+
+<pre><code>border: 5,
+style: \{
+    borderColor: 'red',
+    borderStyle: 'solid'
+\}
+</code></pre>
+
+<p>To turn off the border, use <code>border: false</code>.</p> %}
+    
+    Defaults to: [true]
     *)
   method componentLayout : _ Js.t Js.prop
   (** {% <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
@@ -211,16 +256,16 @@ class which simply sizes the Component's encapsulating element to the height and
 The docked items can be docked to either the top, right, left or bottom of a panel.
 This is typically used for things like toolbars or tab bars:</p>
 
-<pre><code>var panel = new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>({
+<pre><code>var panel = new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>(\{
     fullscreen: true,
-    dockedItems: [{
+    dockedItems: [\{
         xtype: 'toolbar',
         dock: 'top',
-        items: [{
+        items: [\{
             text: 'Docked to the top'
-        }]
-    }]
-});</code></pre> %}
+        \}]
+    \}]
+\});</code></pre> %}
     *)
   method renderTpl : _ Js.t Js.prop
   (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
@@ -228,7 +273,7 @@ This is typically used for things like toolbars or tab bars:</p>
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.panel.AbstractPanel-method-getEl" rel="Ext.panel.AbstractPanel-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.panel.AbstractPanel-method-getEl" rel="Ext.panel.AbstractPanel-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -237,27 +282,26 @@ internal structure.</p>
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.panel.AbstractPanel-cfg-renderSelectors" rel="Ext.panel.AbstractPanel-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.panel.AbstractPanel-cfg-childEls" rel="Ext.panel.AbstractPanel-cfg-childEls" class="docClass">childEls</a> options.</p> %}
     *)
+  method shrinkWrapDock : _ Js.t Js.prop
+  (** {% <p>Allows for this panel to include the <a href="#!/api/Ext.panel.AbstractPanel-cfg-dockedItems" rel="Ext.panel.AbstractPanel-cfg-dockedItems" class="docClass">dockedItems</a> when trying to determine the overall
+size of the panel. This option is only applicable when this panel is also shrink wrapping in the
+same dimensions. See <a href="#!/api/Ext.AbstractComponent-cfg-shrinkWrap" rel="Ext.AbstractComponent-cfg-shrinkWrap" class="docClass">Ext.AbstractComponent.shrinkWrap</a> for an explanation of the configuration options.</p> %}
+    
+    Defaults to: [false]
+    *)
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
   inherit Ext_container_DockingContainer.events
+  inherit Ext_container_Container.events
   
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
   inherit Ext_container_Container.statics
   inherit Ext_container_DockingContainer.statics
   

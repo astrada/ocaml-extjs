@@ -1,22 +1,19 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractPlugin.t
   inherit Ext_util_Observable.t
+  inherit Ext_AbstractPlugin.t
   
-  method editing : bool Js.t Js.prop
   method cancelEdit : unit Js.meth
   method completeEdit : unit Js.meth
-  method init_component : #Ext_Component.t Js.t -> unit Js.meth
   method startEdit : _ Js.t -> _ Js.t -> unit Js.meth
+  method editing : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractPlugin.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_AbstractPlugin.configs
   
   method clicksToEdit : Js.number Js.t Js.prop
   method triggerEvent : Js.js_string Js.t Js.prop
@@ -25,9 +22,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractPlugin.events
   inherit Ext_util_Observable.events
+  inherit Ext_AbstractPlugin.events
   
   method beforeedit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -42,7 +38,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_AbstractPlugin.statics
   inherit Ext_util_Observable.statics
   

@@ -1,27 +1,23 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
   
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
   
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   
   
 end

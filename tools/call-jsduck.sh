@@ -8,3 +8,5 @@ jsduck $EXTJS/src \
   --output jsduck/ \
   --pretty-json
 
+./fix-jsduck.sh
+

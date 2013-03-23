@@ -1,11 +1,11 @@
 (** Represents a collection of a set of key and value ...
   
-  {% <p>
-Represents a collection of a set of key and value pairs. Each key in the MixedCollection
+  {% <p>Represents a collection of a set of key and value pairs. Each key in the MixedCollection
 must be unique, the same key cannot exist twice. This collection is ordered, items in the
 collection can be accessed by index  or via the key. Newly added items are added to
 the end of the collection. This class is similar to <a href="#!/api/Ext.util.HashMap" rel="Ext.util.HashMap" class="docClass">Ext.util.HashMap</a> however it
-is heavier and provides more functionality. Sample usage:
+is heavier and provides more functionality. Sample usage:</p>
+
 <pre><code>var coll = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
 coll.add('key1', 'val1');
 coll.add('key2', 'val2');
@@ -15,26 +15,24 @@ console.log(coll.get('key1')); // prints 'val1'
 console.log(coll.indexOfKey('key3')); // prints 2
 </code></pre>
 
-<p>
-The MixedCollection also has support for sorting and filtering of the values in the collection.
+<p>The MixedCollection also has support for sorting and filtering of the values in the collection.</p>
+
 <pre><code>var coll = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
 coll.add('key1', 100);
 coll.add('key2', -100);
 coll.add('key3', 17);
 coll.add('key4', 0);
-var biggerThanZero = coll.filterBy(function(value){
-    return value > 0;
-});
+var biggerThanZero = coll.filterBy(function(value)\{
+    return value &gt; 0;
+\});
 console.log(biggerThanZero.getCount()); // prints 2
-</code></pre>
-</p> %}
+</code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_util_AbstractMixedCollection.t
   inherit Ext_util_Sortable.t
+  inherit Ext_util_AbstractMixedCollection.t
   
   method findInsertionIndex : _ Js.t -> _ Js.callback Js.optdef ->
     Js.number Js.t Js.meth
@@ -50,7 +48,7 @@ passed to <a href="#!/api/Ext.util.MixedCollection-method-sortBy" rel="Ext.util.
 depending on the relative sort positions of the 2 compared items.</p>
 
 <p>If omitted, a function <a href="#!/api/Ext.util.MixedCollection-method-generateComparator" rel="Ext.util.MixedCollection-method-generateComparator" class="docClass">generated</a> from the currently defined set of
-<a href="#!/api/Ext.util.MixedCollection-property-sorters" rel="Ext.util.MixedCollection-property-sorters" class="docClass">sorters</a> will be used.</p> %}
+<a href="#!/api/Ext.util.MixedCollection-cfg-sorters" rel="Ext.util.MixedCollection-cfg-sorters" class="docClass">sorters</a> will be used.</p> %}
     }
     }
     
@@ -97,25 +95,25 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_util_AbstractMixedCollection.configs
   inherit Ext_util_Sortable.configs
+  inherit Ext_util_AbstractMixedCollection.configs
   
+  method allowFunctions : bool Js.t Js.prop
+  (** {% <p>Configure as <code>true</code> if the <a href="#!/api/Ext.util.MixedCollection-method-addAll" rel="Ext.util.MixedCollection-method-addAll" class="docClass">addAll</a> function should add function references to the collection.</p> %}
+    *)
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_util_AbstractMixedCollection.events
   inherit Ext_util_Sortable.events
+  inherit Ext_util_AbstractMixedCollection.events
   
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_util_AbstractMixedCollection.statics
   inherit Ext_util_Sortable.statics
   

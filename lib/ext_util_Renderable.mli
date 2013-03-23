@@ -2,21 +2,21 @@
   
   {% <p>Given a component hierarchy of this:</p>
 
-<pre><code> {
+<pre><code> \{
      xtype: 'panel',
      id: 'ContainerA',
      layout: 'hbox',
      renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
      items: [
-         {
+         \{
              id: 'ContainerB',
              xtype: 'container',
              items: [
-                 { id: 'ComponentA' }
+                 \{ id: 'ComponentA' \}
              ]
-         }
+         \}
      ]
- }
+ \}
 </code></pre>
 
 <p>The rendering of the above proceeds roughly like this:</p>
@@ -99,6 +99,15 @@ to put this component before.</p> %}
     {b Returns}:
     {ul {- [Dom_html.element Js.t]
     {% <p>DOM element that you can use in the insertBefore</p> %}
+    }
+    }
+    *)
+  method initRenderData : _ Js.t Js.meth
+  (** {% <p>Initialized the renderData to be used when rendering the renderTpl.</p> %}
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p>Object with keys and values that are going to be applied to the renderTpl</p> %}
     }
     }
     *)

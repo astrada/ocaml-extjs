@@ -8,7 +8,9 @@ object('self)
   method enable : unit Js.meth
   method isEnabled : bool Js.t Js.meth
   method on : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  method removeBinding : _ Js.t -> unit Js.meth
   method setDisabled : bool Js.t -> unit Js.meth
+  method un : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
   
 end
 

@@ -1,43 +1,50 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_view_AbstractView.t
   inherit Ext_view_View.t
   
   method addRowCls : _ Js.t -> Js.js_string Js.t -> unit Js.meth
-  method afterRender : unit Js.meth
+  method autoSizeColumn : _ Js.t -> unit Js.meth
   method beforeDestroy : unit Js.meth
   method collectData : Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
     _ Js.t Js.js_array Js.t Js.meth
+  method focus_table : bool Js.t Js.optdef -> _ Js.t Js.optdef ->
+    #Ext_Component.t Js.t Js.meth
   method focusRow : _ Js.t -> unit Js.meth
+  method getBodySelector : unit Js.meth
+  method getCellSelector : Ext_grid_column_Column.t Js.t Js.optdef -> unit
+    Js.meth
+  method getColumnSizerSelector : _ Js.t -> unit Js.meth
+  method getDataRowSelector : unit Js.meth
   method getFeature : Js.js_string Js.t -> Ext_grid_feature_Feature.t Js.t
     Js.meth
+  method getItemSelector : unit Js.meth
+  method getNode_table : _ Js.t -> bool Js.t Js.optdef ->
+    Dom_html.element Js.t Js.meth
+  method getNodeContainerSelector : unit Js.meth
   method getPosition : bool Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t
     Js.meth
+  method getRecord : _ Js.t -> Ext_data_Model.t Js.t Js.meth
   method getRowClass : Ext_data_Model.t Js.t -> Js.number Js.t -> _ Js.t ->
     Ext_data_Store.t Js.t -> Js.js_string Js.t Js.meth
-  method getTableChunker : unit Js.meth
+  method indexOf : _ Js.t -> Js.number Js.t Js.meth
   method initComponent : unit Js.meth
+  method onDestroy : unit Js.meth
   method refresh : unit Js.meth
   method removeRowCls : _ Js.t -> Js.js_string Js.t -> unit Js.meth
+  method walkRecs : Ext_data_Model.t Js.t -> Js.number Js.t -> unit Js.meth
+  method walkRows : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_view_AbstractView.configs
   inherit Ext_view_View.configs
   
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   method baseCls : Js.js_string Js.t Js.prop
   method componentLayout : _ Js.t Js.prop
@@ -55,21 +62,54 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_view_AbstractView.events
   inherit Ext_view_View.events
   
+  method beforecellclick : (t Js.t -> Dom_html.element Js.t -> Js.number Js.t
+    -> Ext_data_Model.t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecellcontextmenu : (t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method beforecelldblclick : (t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method beforecellkeydown : (t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method beforecellmousedown : (t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method beforecellmouseup : (t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method cellclick : (t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_data_Model.t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method cellcontextmenu : (t Js.t -> Dom_html.element Js.t -> Js.number Js.t
+    -> Ext_data_Model.t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method celldblclick : (t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_data_Model.t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method cellkeydown : (t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_data_Model.t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method cellmousedown : (t Js.t -> Dom_html.element Js.t -> Js.number Js.t
+    -> Ext_data_Model.t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method cellmouseup : (t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_data_Model.t Js.t -> Dom_html.element Js.t -> Js.number Js.t ->
+    Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_view_AbstractView.statics
   inherit Ext_view_View.statics
   
   

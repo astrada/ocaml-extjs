@@ -48,32 +48,32 @@ For detailed descriptions see the config options for the
 <a href="#!/api/Ext.tip.QuickTipManager-method-init" rel="Ext.tip.QuickTipManager-method-init" class="docClass">Ext.tip.QuickTipManager.init</a>();
 
 // Apply a set of config properties to the singleton
-<a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a>(<a href="#!/api/Ext.tip.QuickTipManager-method-getQuickTip" rel="Ext.tip.QuickTipManager-method-getQuickTip" class="docClass">Ext.tip.QuickTipManager.getQuickTip</a>(), {
+<a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a>(<a href="#!/api/Ext.tip.QuickTipManager-method-getQuickTip" rel="Ext.tip.QuickTipManager-method-getQuickTip" class="docClass">Ext.tip.QuickTipManager.getQuickTip</a>(), \{
     maxWidth: 200,
     minWidth: 100,
     showDelay: 50      // Show 50ms after entering target
-});
+\});
 
 // Create a small panel to add a quick tip to
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>', \{
     id: 'quickTipContainer',
     width: 200,
     height: 150,
-    style: {
+    style: \{
         backgroundColor:'#000000'
-    },
+    \},
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 
 
 // Manually register a quick tip for a specific element
-<a href="#!/api/Ext.tip.QuickTipManager-method-register" rel="Ext.tip.QuickTipManager-method-register" class="docClass">Ext.tip.QuickTipManager.register</a>({
+<a href="#!/api/Ext.tip.QuickTipManager-method-register" rel="Ext.tip.QuickTipManager-method-register" class="docClass">Ext.tip.QuickTipManager.register</a>(\{
     target: 'quickTipContainer',
     title: 'My Tooltip',
     text: 'This tooltip was added in code',
     width: 100,
     dismissDelay: 10000 // Hide after 10 seconds hover
-});
+\});
 </code></pre>
 
 <p>To register a quick tip in markup, you simply add one or more of the valid QuickTip

@@ -1,23 +1,20 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_form_Labelable.t
   inherit Ext_form_field_Field.t
+  inherit Ext_Component.t
   
-  method inputEl : Ext_dom_Element.t Js.t Js.prop
-  method maskOnDisable : bool Js.t Js.prop
   method clearInvalid : unit Js.meth
   method doComponentLayout_container : #Ext_container_Container.t Js.t
     Js.meth
-  method extractFileInput : Dom_html.element Js.t Js.meth
   method getRawValue : Js.js_string Js.t Js.meth
   method getSubTplData : _ Js.t Js.meth
   method getSubmitData : _ Js.t Js.meth
   method getSubmitValue : Js.js_string Js.t Js.meth
   method getValue : _ Js.t Js.meth
   method initComponent : unit Js.meth
+  method initEvents : unit Js.meth
+  method initRenderData : _ Js.t Js.meth
   method isFileUpload : bool Js.t Js.meth
   method isValid : bool Js.t Js.meth
   method markInvalid : _ Js.t -> unit Js.meth
@@ -33,16 +30,16 @@ object('self)
   method transformRawValue : _ Js.t -> _ Js.t Js.meth
   method validateValue : _ Js.t -> bool Js.t Js.meth
   method valueToRaw : _ Js.t -> _ Js.t Js.meth
+  method inputEl : Ext_dom_Element.t Js.t Js.prop
+  method maskOnDisable : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_form_Labelable.configs
   inherit Ext_form_field_Field.configs
+  inherit Ext_Component.configs
   
   method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
     Js.writeonly_prop
@@ -76,11 +73,9 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_form_Labelable.events
   inherit Ext_form_field_Field.events
+  inherit Ext_Component.events
   
   method specialkey : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
@@ -91,8 +86,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   inherit Ext_form_Labelable.statics
   inherit Ext_form_field_Field.statics

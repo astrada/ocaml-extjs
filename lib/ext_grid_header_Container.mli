@@ -8,20 +8,8 @@ triggering changes within the view.</p> %}
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
   inherit Ext_container_Container.t
   
-  method isGroupHeader : bool Js.t Js.prop
-  (** {% <p>True if this HeaderContainer is in fact a group header which contains sub headers.</p> %}
-    *)
-  method afterRender : unit Js.meth
-  (** {% <p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
-will have been styled according to the configuration, will have had any configured CSS class
-names added, and will be in the configured visibility and the configured enable state.</p> %}
-    *)
   method getColumnCount : unit Js.meth
   (** {% <p>Returns the number of <b>grid columns</b> descended from this HeaderContainer.
 Group Columns are HeaderContainers. All grid columns are returned, including hidden ones.</p> %}
@@ -35,21 +23,22 @@ of the passed Container which have been configured as hideable.</p> %}
     }
     }
     *)
-  method getFullWidth : _ Js.t -> unit Js.meth
+  method getFullWidth : unit Js.meth
   (** {% <p>Gets the full width of all columns that are visible.</p> %}
-    
-    {b Parameters}:
-    {ul {- flushCache: [_ Js.t]
-    }
-    }
     *)
-  method getGridColumns : bool Js.t -> _ Js.js_array Js.t Js.meth
-  (** {% <p>Returns an array of all columns which map to Store fields. This goes down to the lowest column header
-level, and does not return <strong>grouped</strong> headers which contain sub headers.</p> %}
+  method getGridColumns : _ Js.t -> _ Js.t -> _ Js.js_array Js.t Js.meth
+  (** {% <p>Returns an array of all columns which appear in the grid's View. This goes down to the leaf column header
+level, and does not return <strong>grouped</strong> headers which contain sub headers.</p>
+
+<p>It includes hidden headers because they are still rendered into a table view, but with zero width.</p>
+
+<p>Headers which have a hidden ancestor have a <code>hiddenAncestor: true</code> property injected so that they can also be rendered at zero width without interrogating
+that header's ownerCt axis for a hidden ancestor.</p> %}
     
     {b Parameters}:
-    {ul {- refreshCache: [bool Js.t]
-    {% <p>If omitted, the cached set of columns will be returned. Pass true to refresh the cache.</p> %}
+    {ul {- inResult: [_ Js.t]
+    }
+    {- hiddenAncestor: [_ Js.t]
     }
     }
     *)
@@ -58,8 +47,8 @@ level, and does not return <strong>grouped</strong> headers which contain sub he
 structure is.</p> %}
     
     {b Parameters}:
-    {ul {- the: [Js.number Js.t]
-    {% <p>column index for which to retrieve the column.</p> %}
+    {ul {- index: [Js.number Js.t]
+    {% <p>The column index for which to retrieve the column.</p> %}
     }
     }
     *)
@@ -90,15 +79,9 @@ across all headers in this header container.</p> %}
     }
     }
     *)
-  method getVisibleGridColumns : bool Js.t -> _ Js.js_array Js.t Js.meth
+  method getVisibleGridColumns : _ Js.js_array Js.t Js.meth
   (** {% <p>Returns an array of the <strong>visible</strong> columns in the grid. This goes down to the lowest column header
 level, and does not return <strong>grouped</strong> headers which contain sub headers.</p> %}
-    
-    {b Parameters}:
-    {ul {- refreshCache: [bool Js.t]
-    {% <p>If omitted, the cached set of columns will be returned. Pass true to refresh the cache.</p> %}
-    }
-    }
     *)
   method getVisibleHeaderClosestToIndex : Js.number Js.t -> unit Js.meth
   (** {% <p>When passed a column index, returns the closet <em>visible</em> column to that. If the column at the passed index is visible,
@@ -126,20 +109,31 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
+    *)
+  method isLayoutRoot : unit Js.meth
+  (** {% <p>Determines whether this Component is the root of a layout. This returns <code>true</code> if
+this component can run its layout without assistance from or impact on its owner.
+If this component cannot run its layout given these restrictions, <code>false</code> is returned
+and its owner will be considered as the next candidate for the layout root.</p>
+
+<p>Setting the <a href="#!/api/Ext.grid.header.Container-property-_isLayoutRoot" rel="Ext.grid.header.Container-property-_isLayoutRoot" class="docClass">_isLayoutRoot</a> property to <code>true</code> causes this method to always
+return <code>true</code>. This may be useful when updating a layout of a Container which shrink
+wraps content, and you know that it will not change size, and so can safely be the
+topmost participant in the layout run.</p> %}
     *)
   method onAdd : #Ext_Component.t Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>Invalidate column cache on add
@@ -160,7 +154,7 @@ the state of the child items.</p> %}
     *)
   method onDestroy : unit Js.meth
   (** {% <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method onRemove : #Ext_Component.t Js.t -> bool Js.t -> unit Js.meth
   (** {% <p>Invalidate column cache on remove
@@ -179,39 +173,34 @@ structure which may depend upon the state of the child items.</p> %}
     }
     }
     *)
-  method prepareData : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
-    Js.meth
-  (** {% <p>Maps the record data to base it on the header id's.
-This correlates to the markup/template generated by
-TableChunker.</p> %}
+  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Allows addition of behavior to the show operation. After
+calling the superclass's onShow, the Component will be visible.</p>
+
+<p>Override in subclasses where more complex behaviour is needed.</p>
+
+<p>Gets passed the same parameters as <a href="#!/api/Ext.grid.header.Container-method-show" rel="Ext.grid.header.Container-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
-    {ul {- data: [_ Js.t]
+    {ul {- animateTarget: [_ Js.t] (optional)
     }
-    {- rowIdx: [_ Js.t]
+    {- callback: [_ Js.callback] (optional)
     }
-    {- record: [_ Js.t]
-    }
-    {- view: [_ Js.t]
-    }
-    {- panel: [_ Js.t]
+    {- scope: [_ Js.t] (optional)
     }
     }
+    *)
+  method isGroupHeader : bool Js.t Js.prop
+  (** {% <p>True if this HeaderContainer is in fact a group header which contains sub headers.</p> %}
     *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
   inherit Ext_container_Container.configs
   
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
@@ -224,26 +213,29 @@ object('self)
   method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   (** See method [t.onRemove] *)
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onShow] *)
   method baseCls : Js.js_string Js.t Js.prop
-  (** {% <p>The base CSS class to apply to this components's element. This will also be prepended to elements within this
-component like Panel's body will get a class x-panel-body. This means that if you create a subclass of Panel, and
-you want it to get all the Panels styling for the element and the body, you leave the baseCls x-panel and use
-componentCls to add specific styling for this component.</p> %}
+  (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
+component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
+you want it to get all the Panels styling for the element and the body, you leave the <code>baseCls</code> <code>x-panel</code> and use
+<code>componentCls</code> to add specific styling for this component.</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'grid-header-ct']
     *)
   method border : _ Js.t Js.prop
   (** {% <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
-be a CSS style specification for each style, for example: '10 5 3 10'.</p>
+be a CSS style specification for each style, for example: '10 5 3 10' (top, right, bottom, left).</p>
 
 <p>For components that have no border by default, setting this won't make the border appear by itself.
 You also need to specify border color and style:</p>
 
 <pre><code>border: 5,
-style: {
+style: \{
     borderColor: 'red',
     borderStyle: 'solid'
-}
+\}
 </code></pre>
 
 <p>To turn off the border, use <code>border: false</code>.</p> %}
@@ -269,22 +261,27 @@ of the component will remain in the current place until it is explicitly moved.<
     
     Defaults to: [false]
     *)
+  method enableColumnHide : bool Js.t Js.prop
+  (** {% <p>False to disable column hiding within this grid.</p> %}
+    
+    Defaults to: [true]
+    *)
   method sealed : bool Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to constrain column dragging so that a column cannot be dragged into or out of this column.</p>
 
 <p><strong>Note that this config is only valid for column headers which contain child column headers, eg:</strong></p>
 
-<pre><code>{
+<pre><code>\{
     sealed: true
     text: 'ExtJS',
-    columns: [{
+    columns: [\{
         text: '3.0.4',
         dataIndex: 'ext304'
-    }, {
+    \}, \{
         text: '4.1.0',
         dataIndex: 'ext410'
-    }
-}
+    \}
+\}
 </code></pre> %}
     
     Defaults to: [false]
@@ -308,10 +305,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
   inherit Ext_container_Container.events
   
   method columnhide : (t Js.t -> t Js.t -> _ Js.t -> unit) Js.callback
@@ -320,9 +313,25 @@ object
     -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method columnresize : (t Js.t -> t Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
+  method columnschanged : (t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired after the columns change in any way, when a column has been hidden or shown, or when a column
+is added to or removed from this header container.</p> %}
+    
+    {b Parameters}:
+    {ul {- ct: [Ext_grid_header_Container.t Js.t]
+    {% <p>The grid's header Container which encapsulates all column headers.</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
   method columnshow : (t Js.t -> t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   method headerclick : (t Js.t -> t Js.t -> Ext_EventObject.t Js.t ->
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method headercontextmenu : (t Js.t -> t Js.t -> Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method headertriggerclick : (t Js.t -> t Js.t -> Ext_EventObject.t Js.t ->
     Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
@@ -349,10 +358,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
   inherit Ext_container_Container.statics
   
   

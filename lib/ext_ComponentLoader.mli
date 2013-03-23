@@ -34,17 +34,17 @@ the <a href="#!/api/Ext.container.Container-cfg-items" rel="Ext.container.Contai
 
 <h2>Example Usage</h2>
 
-<pre><code>var cmp = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>', {
+<pre><code>var cmp = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>', \{
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-    tpl: '{firstName} - {lastName}',
-    loader: {
+    tpl: '\{firstName\} - \{lastName\}',
+    loader: \{
         url: 'myPage.php',
         renderer: 'data',
-        params: {
+        params: \{
             userId: 1
-        }
-    }
-});
+        \}
+    \}
+\});
 
 // call the loader manually (or use autoLoad:true instead)
 cmp.getLoader().load();
@@ -53,11 +53,10 @@ cmp.getLoader().load();
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_ElementLoader.t
   
   method setTarget : _ Js.t -> unit Js.meth
-  (** {% <p>Set a {<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>} as the target of this loader. Note that if the target is changed,
+  (** {% <p>Set a \{<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>\} as the target of this loader. Note that if the target is changed,
 any active requests will be aborted.</p> %}
     
     {b Parameters}:
@@ -72,7 +71,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_ElementLoader.configs
   
   method loadMask : _ Js.t Js.prop
@@ -86,7 +84,7 @@ object('self)
 <ul>
 <li><strong>html</strong> : Loads raw html content, see <a href="#!/api/Ext.Component-cfg-html" rel="Ext.Component-cfg-html" class="docClass">Ext.Component.html</a></li>
 <li><strong>data</strong> : Loads raw html content, see <a href="#!/api/Ext.Component-cfg-data" rel="Ext.Component-cfg-data" class="docClass">Ext.Component.data</a></li>
-<li><strong>component</strong> : Loads child {<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>} instances. This option is only valid when used with a Container.</li>
+<li><strong>component</strong> : Loads child \{<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>\} instances. This option is only valid when used with a Container.</li>
 </ul>
 
 
@@ -101,16 +99,16 @@ object('self)
 
 <p>The function must return false is loading is not successful. Below is a sample of using a custom renderer:</p>
 
-<pre><code>new <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>({
-    loader: {
+<pre><code>new <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>(\{
+    loader: \{
         url: 'myPage.php',
-        renderer: function(loader, response, active) {
+        renderer: function(loader, response, active) \{
             var text = response.responseText;
             loader.getTarget().update('The response is ' + text);
             return true;
-        }
-    }
-});
+        \}
+    \}
+\});
 </code></pre> %}
     
     Defaults to: ['html']
@@ -128,7 +126,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_ElementLoader.events
   
   
@@ -136,7 +133,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_ElementLoader.statics
   
   

@@ -7,27 +7,31 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method highlight : _ Js.t -> unit Js.meth
-  (** {% <p>Highlight the given series item.</p> %}
-    
-    {b Parameters}:
-    {ul {- default: [_ Js.t]
-    {% <p>'s false. Can also be an object width style properties (i.e fill, stroke, radius)
-or just use default styles per series by setting highlight = true.</p> %}
-    }
-    }
-    *)
   method highlightItem : _ Js.t -> unit Js.meth
   (** {% <p>Highlight the given series item.</p> %}
     
     {b Parameters}:
     {ul {- item: [_ Js.t]
-    {% <p>Info about the item; same format as returned by #getItemForPoint.</p> %}
+    {% <p>Info about the item; same format as returned by <a href="#!/api/Ext.chart.series.Line-method-getItemForPoint" rel="Ext.chart.series.Line-method-getItemForPoint" class="docClass">getItemForPoint</a>.</p> %}
     }
     }
     *)
   method unHighlightItem : unit Js.meth
   (** {% <p>Un-highlight any existing highlights</p> %}
+    *)
+  method highlightCfg : _ Js.t Js.prop
+  (** {% <p>The default properties to apply as a highight. Value is</p>
+
+<p>   \{</p>
+
+<pre><code>   fill: '#fdd',
+   "stroke-width": 5,
+   stroke: "#f55"
+</code></pre>
+
+<p>   \}</p> %}
+    
+    Defaults to: [\{fill: '#fdd', "stroke-width": 5, stroke: '#f55'\}]
     *)
   
 end
@@ -36,6 +40,13 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method highlight : _ Js.t Js.prop
+  (** {% <p>Set to <code>true</code> to enable highlighting using the <a href="#!/api/Ext.chart.Highlight-property-highlightCfg" rel="Ext.chart.Highlight-property-highlightCfg" class="docClass">default highlight attributes</a>.</p>
+
+<p>Can also be an object with style properties (i.e fill, stroke, stroke-width, radius) which are may override the <a href="#!/api/Ext.chart.Highlight-property-highlightCfg" rel="Ext.chart.Highlight-property-highlightCfg" class="docClass">default highlight attributes</a>.</p> %}
+    
+    Defaults to: [false]
+    *)
   
 end
 

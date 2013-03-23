@@ -12,7 +12,7 @@ arguments:</p>
 <ul>
 <li><p>String:</p>
 
-<pre><code>var t = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>("&lt;div&gt;Hello {0}.&lt;/div&gt;");
+<pre><code>var t = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>("&lt;div&gt;Hello \{0\}.&lt;/div&gt;");
 t.<a href="#!/api/Ext.Template-method-append" rel="Ext.Template-method-append" class="docClass">append</a>('some-element', ['foo']);
 </code></pre></li>
 <li><p>Array:</p>
@@ -20,12 +20,12 @@ t.<a href="#!/api/Ext.Template-method-append" rel="Ext.Template-method-append" c
 <p>An Array will be combined with <code>join('')</code>.</p>
 
 <pre><code>var t = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>([
-    '&lt;div name="{id}"&gt;',
-        '&lt;span class="{cls}"&gt;{name:trim} {value:ellipsis(10)}&lt;/span&gt;',
+    '&lt;div name="\{id\}"&gt;',
+        '&lt;span class="\{cls\}"&gt;\{name:trim\} \{value:ellipsis(10)\}&lt;/span&gt;',
     '&lt;/div&gt;',
 ]);
 t.<a href="#!/api/Ext.Template-method-compile" rel="Ext.Template-method-compile" class="docClass">compile</a>();
-t.<a href="#!/api/Ext.Template-method-append" rel="Ext.Template-method-append" class="docClass">append</a>('some-element', {id: 'myid', cls: 'myclass', name: 'foo', value: 'bar'});
+t.<a href="#!/api/Ext.Template-method-append" rel="Ext.Template-method-append" class="docClass">append</a>('some-element', \{id: 'myid', cls: 'myclass', name: 'foo', value: 'bar'\});
 </code></pre></li>
 </ul>
 
@@ -35,13 +35,13 @@ t.<a href="#!/api/Ext.Template-method-append" rel="Ext.Template-method-append" c
 <p>Multiple arguments will be combined with <code>join('')</code>.</p>
 
 <pre><code>var t = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>(
-    '&lt;div name="{id}"&gt;',
-        '&lt;span class="{cls}"&gt;{name} {value}&lt;/span&gt;',
+    '&lt;div name="\{id\}"&gt;',
+        '&lt;span class="\{cls\}"&gt;\{name\} \{value\}&lt;/span&gt;',
     '&lt;/div&gt;',
     // a configuration object:
-    {
+    \{
         compiled: true,      // <a href="#!/api/Ext.Template-method-compile" rel="Ext.Template-method-compile" class="docClass">compile</a> immediately
-    }
+    \}
 );
 </code></pre>
 
@@ -57,11 +57,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method isTemplate : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Template, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method append : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Applies the supplied <code>values</code> to the template and appends the new node(s) to the specified <code>el</code>.</p>
 
@@ -93,7 +88,7 @@ object('self)
 
 
 
-<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: {0}, Age: {1}');
+<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: \{0\}, Age: \{1\}');
 tpl.apply(['John', 25]);
 </code></pre>
 
@@ -105,8 +100,8 @@ tpl.apply(['John', 25]);
 
 
 
-<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: {name}, Age: {age}');
-tpl.apply({name: 'John', age: 25});
+<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: \{name\}, Age: \{age\}');
+tpl.apply(\{name: 'John', age: 25\});
 </code></pre> %}
     }
     }
@@ -146,7 +141,7 @@ tpl.apply({name: 'John', age: 25});
 
 
 
-<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: {0}, Age: {1}');
+<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: \{0\}, Age: \{1\}');
 tpl.apply(['John', 25]);
 </code></pre>
 
@@ -158,8 +153,8 @@ tpl.apply(['John', 25]);
 
 
 
-<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: {name}, Age: {age}');
-tpl.apply({name: 'John', age: 25});
+<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('Name: \{name\}, Age: \{age\}');
+tpl.apply(\{name: 'John', age: 25\});
 </code></pre> %}
     }
     }
@@ -272,6 +267,11 @@ tpl.apply({name: 'John', age: 25});
     {ul {- [Ext_Template.t Js.t] {% <p>this</p> %}
     }
     }
+    *)
+  method isTemplate : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Template, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
     *)
   
 end

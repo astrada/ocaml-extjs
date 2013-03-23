@@ -6,31 +6,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method alignTo : _ Js.t -> Js.js_string Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.optdef -> _ Js.t Js.meth
-  (** {% <p>Aligns this floating Component to the specified element</p> %}
-    
-    {b Parameters}:
-    {ul {- element: [_ Js.t]
-    {% <p>The element or <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to align to. If passing a component, it must be a
-component instance. If a string id is passed, it will be used as an element id.</p> %}
-    }
-    {- position: [Js.js_string Js.t] (optional)
-    {% <p>The position to align to
-(see <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> for more details).</p> %}
-    
-    Defaults to: "tl-bl?"
-    }
-    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
-    {% <p>Offset the positioning by [x, y]</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [#Ext_Component.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
   method center : _ Js.t Js.meth
   (** {% <p>Center this Component in its container.</p> %}
     
@@ -107,6 +82,23 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method constrain : bool Js.t Js.prop
+  (** {% <p>True to constrain this Components within its containing element, false to allow it to fall outside of its containing
+element. By default this Component will be rendered to <code>document.body</code>. To render and constrain this Component within
+another element specify <a href="#!/api/Ext.AbstractComponent-cfg-renderTo" rel="Ext.AbstractComponent-cfg-renderTo" class="docClass">renderTo</a>.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method fixed : bool Js.t Js.prop
+  (** {% <p>Configure as <code>true</code> to have this Component fixed at its <code>X, Y</code> coordinates in the browser viewport, immune
+to scrolling the document.</p>
+
+<p><em>Only in browsers that support <code>position:fixed</code></em></p>
+
+<p><em>IE6 and IE7, 8 and 9 quirks do not support <code>position: fixed</code></em></p> %}
+    
+    Defaults to: [false]
+    *)
   method focusOnToFront : bool Js.t Js.prop
   (** {% <p>Specifies whether the floated component should be automatically <a href="#!/api/Ext.Component-method-focus" rel="Ext.Component-method-focus" class="docClass">focused</a> when
 it is <a href="#!/api/Ext.util.Floating-method-toFront" rel="Ext.util.Floating-method-toFront" class="docClass">brought to the front</a>.</p> %}
@@ -120,7 +112,7 @@ disable the shadow.</p> %}
     
     Defaults to: ['sides']
     *)
-  method shadowOffset : _ Js.t Js.prop
+  method shadowOffset : Js.number Js.t Js.prop
   (** {% <p>Number of pixels to offset the shadow.</p> %}
     *)
   

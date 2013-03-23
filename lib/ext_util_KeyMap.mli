@@ -21,37 +21,37 @@ representation of keys. By default KeyMap starts enabled.</p>
 <p>Usage:</p>
 
 <pre><code>// map one key by key code
-var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>({
+var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>(\{
     target: "my-element",
     key: 13, // or <a href="#!/api/Ext.EventObject-property-ENTER" rel="Ext.EventObject-property-ENTER" class="docClass">Ext.EventObject.ENTER</a>
     fn: myHandler,
     scope: myObject
-});
+\});
 
 // map multiple keys to one action by string
-var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>({
+var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>(\{
     target: "my-element",
     key: "a\r\n\t",
     fn: myHandler,
     scope: myObject
-});
+\});
 
 // map multiple keys to multiple actions by strings and array of codes
-var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>({
+var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>(\{
     target: "my-element",
-    binding: [{
+    binding: [\{
         key: [10,13],
-        fn: function(){ alert("Return was pressed"); }
-    }, {
+        fn: function()\{ alert("Return was pressed"); \}
+    \}, \{
         key: "abc",
-        fn: function(){ alert('a, b or c was pressed'); }
-    }, {
+        fn: function()\{ alert('a, b or c was pressed'); \}
+    \}, \{
         key: "\t",
         ctrl:true,
         shift:true,
-        fn: function(){ alert('Control + shift + tab was pressed.'); }
-    }]
-});
+        fn: function()\{ alert('Control + shift + tab was pressed.'); \}
+    \}]
+\});
 </code></pre>
 
 <p>Since 4.1.0, KeyMaps can bind to Components and process key-based events fired by Components.</p>
@@ -60,10 +60,10 @@ var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docC
 to listen for, and a <code>processEvent</code> implementation which returns the key event for further processing by
 the KeyMap:</p>
 
-<pre><code>var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>({
+<pre><code>var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>(\{
     target: myGridView,
     eventName: 'itemkeydown',
-    processEvent: function(view, record, node, index, event) {
+    processEvent: function(view, record, node, index, event) \{
 
         // Load the event with the extra information needed by the mappings
         event.view = view;
@@ -71,18 +71,18 @@ the KeyMap:</p>
         event.record = record;
         event.index = index;
         return event;
-    },
-    binding: {
+    \},
+    binding: \{
         key: <a href="#!/api/Ext.EventObject-property-DELETE" rel="Ext.EventObject-property-DELETE" class="docClass">Ext.EventObject.DELETE</a>,
-        fn: function(keyCode, e) {
+        fn: function(keyCode, e) \{
             e.store.remove(e.record);
 
             // Attempt to select the record that's now in its place
             e.view.getSelectionModel().select(e.index);
             e.view.el.focus();
-        }
-    }
-});
+        \}
+    \}
+\});
 </code></pre> %}
   *)
 
@@ -96,19 +96,19 @@ object('self)
 <p>Usage:</p>
 
 <pre><code>// Create a KeyMap
-var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>(document, {
+var map = new <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>(document, \{
     key: <a href="#!/api/Ext.EventObject-property-ENTER" rel="Ext.EventObject-property-ENTER" class="docClass">Ext.EventObject.ENTER</a>,
     fn: handleKey,
     scope: this
-});
+\});
 
 //Add a new binding to the existing KeyMap later
-map.addBinding({
+map.addBinding(\{
     key: 'abc',
     shift: true,
     fn: handleKey,
     scope: this
-});
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -142,7 +142,7 @@ The following config object properties are supported:</p> %}
     {b Parameters}:
     {ul {- key: [_ Js.t]
     {% <p>Either the numeric key code, array of key codes or an object with the
-following options: <code>{key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)}</code></p> %}
+following options: <code>\{key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)\}</code></p> %}
     }
     {- fn: [_ Js.callback]
     {% <p>The function to call</p> %}
@@ -153,11 +153,37 @@ Defaults to the browser window.</p> %}
     }
     }
     *)
+  method removeBinding : _ Js.t -> unit Js.meth
+  (** {% <p>Remove a binding from this KeyMap.</p> %}
+    
+    {b Parameters}:
+    {ul {- binding: [_ Js.t]
+    {% <p>See <a href="#!/api/Ext.util.KeyMap-method-addBinding" rel="Ext.util.KeyMap-method-addBinding" class="docClass">for options</a></p> %}
+    }
+    }
+    *)
   method setDisabled : bool Js.t -> unit Js.meth
   (** {% <p>Convenience function for setting disabled/enabled by boolean.</p> %}
     
     {b Parameters}:
     {ul {- disabled: [bool Js.t]
+    }
+    }
+    *)
+  method un : _ Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Shorthand for removing a single key listener.</p> %}
+    
+    {b Parameters}:
+    {ul {- key: [_ Js.t]
+    {% <p>Either the numeric key code, array of key codes or an object with the
+following options: <code>\{key: (number or array), shift: (true/false), ctrl: (true/false), alt: (true/false)\}</code></p> %}
+    }
+    {- fn: [_ Js.callback]
+    {% <p>The function to call</p> %}
+    }
+    {- scope: [_ Js.t] (optional)
+    {% <p>The scope (<code>this</code> reference) in which the function is executed.
+Defaults to the browser window.</p> %}
     }
     }
     *)

@@ -27,20 +27,20 @@ for scrolling if needed using the <a href="#!/api/Ext.container.Viewport-cfg-aut
 
 <p>An example showing a classic application border layout:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.container.Viewport" rel="Ext.container.Viewport" class="docClass">Ext.container.Viewport</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.container.Viewport" rel="Ext.container.Viewport" class="docClass">Ext.container.Viewport</a>', \{
     layout: 'border',
-    items: [{
+    items: [\{
         region: 'north',
         html: '&lt;h1 class="x-panel-header"&gt;Page Title&lt;/h1&gt;',
         border: false,
         margins: '0 0 5 0'
-    }, {
+    \}, \{
         region: 'west',
         collapsible: true,
         title: 'Navigation',
         width: 150
         // could use a TreePanel or AccordionLayout for navigational items
-    }, {
+    \}, \{
         region: 'south',
         title: 'South Panel',
         collapsible: true,
@@ -48,38 +48,29 @@ for scrolling if needed using the <a href="#!/api/Ext.container.Viewport-cfg-aut
         split: true,
         height: 100,
         minHeight: 100
-    }, {
+    \}, \{
         region: 'east',
         title: 'East Panel',
         collapsible: true,
         split: true,
         width: 150
-    }, {
+    \}, \{
         region: 'center',
         xtype: 'tabpanel', // TabPanel itself has no title
         activeTab: 0,      // First tab active by default
-        items: {
+        items: \{
             title: 'Default Tab',
             html: 'The first tab\'s content. Others may be added dynamically'
-        }
-    }]
-});
+        \}
+    \}]
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
   inherit Ext_container_Container.t
   
-  method isViewport : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Viewport, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method initComponent : unit Js.meth
   (** {% <p>The initComponent template method is an important initialization step for a Component. It is intended to be
 implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
@@ -96,19 +87,19 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
     *)
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
@@ -129,15 +120,16 @@ call the parent class's method before attempting to access any child elements of
     }
     }
     *)
+  method isViewport : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Viewport, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
   inherit Ext_container_Container.configs
   
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
@@ -151,10 +143,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
   inherit Ext_container_Container.events
   
   
@@ -162,10 +150,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
   inherit Ext_container_Container.statics
   
   

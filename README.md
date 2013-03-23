@@ -11,19 +11,19 @@ You will need the following libraries:
 * [Findlib][] >= 1.2.7
 * [js_of_ocaml][] >= 1.3
 * [pa_extjs][] latest development version
-* [extjs][] >= 4.1.1a (GPL version)
-* [extjs-sdk-tools][] >= 2.0.0beta3 (to minify and deploy examples, optional)
+* [extjs][] >= 4.2.0 (GPL version)
+* [sencha-cmd][] >= 3.0.0 (to minify and deploy examples, optional)
 * [Batteries][] >= 2.0beta2 (to build the library generator, optional)
 * [Yojson][] >= 1.0.2 (to build the library generator, optional)
 
-This library was developed and tested on Ubuntu 12.04 LTS (64-bit).
+This library was developed and tested on Ubuntu 12.10 (64-bit).
 
 [OCaml]: http://caml.inria.fr/ocaml/release.en.html
 [Findlib]: http://projects.camlcity.org/projects/findlib.html/
 [js_of_ocaml]: http://ocsigen.org/darcsweb/?r=js_of_ocaml;a=summary
 [pa_extjs]: https://github.com/astrada/pa_extjs
 [extjs]: http://www.sencha.com/products/extjs/
-[extjs-sdk-tools]: http://www.sencha.com/products/sdk-tools/
+[sencha-cmd]: http://www.sencha.com/products/sencha-cmd/download/
 [Batteries]: http://batteries.forge.ocamlcore.org/
 [Yojson]: http://mjambon.com/yojson.html
 

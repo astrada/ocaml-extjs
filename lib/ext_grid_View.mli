@@ -4,12 +4,12 @@
 <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">Ext.view.Table</a>. In general, this class is not instanced directly, instead a viewConfig
 option is passed to the grid:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
     // other options
-    viewConfig: {
+    viewConfig: \{
         stripeRows: false
-    }
-});
+    \}
+\});
 </code></pre>
 
 <h2>Drag Drop</h2>
@@ -17,26 +17,21 @@ option is passed to the grid:</p>
 <p>Drag and drop functionality can be achieved in the grid by attaching a <a href="#!/api/Ext.grid.plugin.DragDrop" rel="Ext.grid.plugin.DragDrop" class="docClass">Ext.grid.plugin.DragDrop</a> plugin
 when creating the view.</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
     // other options
-    viewConfig: {
-        plugins: {
+    viewConfig: \{
+        plugins: \{
             ddGroup: 'people-group',
             ptype: 'gridviewdragdrop',
             enableDrop: false
-        }
-    }
-});
+        \}
+    \}
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_view_AbstractView.t
-  inherit Ext_view_View.t
   inherit Ext_view_Table.t
   
   
@@ -44,11 +39,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_view_AbstractView.configs
-  inherit Ext_view_View.configs
   inherit Ext_view_Table.configs
   
   method autoScroll : bool Js.t Js.prop
@@ -72,11 +62,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_view_AbstractView.events
-  inherit Ext_view_View.events
   inherit Ext_view_Table.events
   
   
@@ -84,11 +69,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_view_AbstractView.statics
-  inherit Ext_view_View.statics
   inherit Ext_view_Table.statics
   
   

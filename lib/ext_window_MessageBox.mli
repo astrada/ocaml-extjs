@@ -15,118 +15,28 @@ that should only run <em>after</em> some user feedback from the MessageBox, you 
 
 <p>Prompt for user data and process the result using a callback</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext.MessageBox-method-prompt" rel="Ext.MessageBox-method-prompt" class="docClass">Ext.Msg.prompt</a>('Name', 'Please enter your name:', function(btn, text){
-    if (btn == 'ok'){
+<pre class='inline-example '><code><a href="#!/api/Ext.MessageBox-method-prompt" rel="Ext.MessageBox-method-prompt" class="docClass">Ext.Msg.prompt</a>('Name', 'Please enter your name:', function(btn, text)\{
+    if (btn == 'ok')\{
         // process text value and close...
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>Show a dialog using config options</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>({
+<pre class='inline-example '><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>(\{
      title:'Save Changes?',
      msg: 'You are closing a tab that has unsaved changes. Would you like to save your changes?',
      buttons: <a href="#!/api/Ext.MessageBox-property-YESNOCANCEL" rel="Ext.MessageBox-property-YESNOCANCEL" class="docClass">Ext.Msg.YESNOCANCEL</a>,
      icon: <a href="#!/api/Ext.MessageBox-property-QUESTION" rel="Ext.MessageBox-property-QUESTION" class="docClass">Ext.Msg.QUESTION</a>
-});
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
-  inherit Ext_panel_Panel.t
   inherit Ext_window_Window.t
   
-  method _CANCEL : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single Cancel button</p> %}
-    
-    Defaults to: [8]
-    *)
-  method _ERROR : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the ERROR icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-error']
-    *)
-  method _INFO : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the INFO icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-info']
-    *)
-  method _NO : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single No button</p> %}
-    
-    Defaults to: [4]
-    *)
-  method _OK : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single OK button</p> %}
-    
-    Defaults to: [1]
-    *)
-  method _OKCANCEL : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays OK and Cancel buttons</p> %}
-    
-    Defaults to: [9]
-    *)
-  method _QUESTION : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the QUESTION icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-question']
-    *)
-  method _WARNING : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the WARNING icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-warning']
-    *)
-  method _YES : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single Yes button</p> %}
-    
-    Defaults to: [2]
-    *)
-  method _YESNO : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays Yes and No buttons</p> %}
-    
-    Defaults to: [6]
-    *)
-  method _YESNOCANCEL : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays Yes, No and Cancel buttons</p> %}
-    
-    Defaults to: [14]
-    *)
-  method buttonText : _ Js.t Js.prop
-  (** {% <p>An object containing the default button text strings that can be overriden for localized language support.
-Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
-resource file for handling language support across the framework.
-Customize the default text like so:</p>
-
-<pre><code>Ext.window.MessageBox.buttonText.yes = "oui"; //french
-</code></pre> %}
-    
-    Defaults to: [{ok: 'OK', yes: 'Yes', no: 'No', cancel: 'Cancel'}]
-    *)
-  method defaultTextHeight : Js.number Js.t Js.prop
-  (** {% <p>The default height in pixels of the message box's multiline textarea if displayed.</p> %}
-    
-    Defaults to: [75]
-    *)
-  method minProgressWidth : Js.number Js.t Js.prop
-  (** {% <p>The minimum width in pixels of the message box if it is a progress-style dialog.  This is useful
-for setting a different minimum width than text-only dialogs may need.</p> %}
-    
-    Defaults to: [250]
-    *)
-  method minPromptWidth : Js.number Js.t Js.prop
-  (** {% <p>The minimum width in pixels of the message box if it is a prompt dialog.  This is useful
-for setting a different minimum width than text-only dialogs may need.</p> %}
-    
-    Defaults to: [250]
-    *)
   method alert : Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.callback Js.optdef -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt).
@@ -226,19 +136,19 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
     *)
   method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
@@ -323,7 +233,8 @@ property, or the height in pixels to create the textbox/</p> %}
     }
     }
     *)
-  method setIcon_chainable : Js.js_string Js.t -> 'self Js.t Js.meth
+  method setIcon_chainable : Js.js_string Js.t -> Js.number Js.t Js.optdef ->
+    Js.number Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Adds the specified icon to the dialog.  By default, the class 'x-messagebox-icon' is applied for default
 styling, and the class passed in is expected to supply the background image url. Pass in empty string ('')
 to clear any existing icon. This method must be called before the MessageBox is shown.
@@ -339,6 +250,12 @@ The following built-in icon classes are supported, but you can also pass in a cu
     {ul {- icon: [Js.js_string Js.t]
     {% <p>A CSS classname specifying the icon's background image url, or empty string to clear the icon</p> %}
     }
+    {- width: [Js.number Js.t] (optional)
+    {% <p>The width of the icon. If not specified, the default is used</p> %}
+    }
+    {- height: [Js.number Js.t] (optional)
+    {% <p>The height of the icon. If not specified, the default is used</p> %}
+    }
     }
     
     {b Returns}:
@@ -353,7 +270,7 @@ are basic shortcuts and do not support all of the config options allowed here.</
 
 <p>Example usage:</p>
 
-<pre><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>({
+<pre><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>(\{
     title: 'Address',
     msg: 'Please enter your address:',
     width: 300,
@@ -362,7 +279,7 @@ are basic shortcuts and do not support all of the config options allowed here.</
     fn: saveAddress,
     animateTarget: 'addAddressBtn',
     icon: <a href="#!/api/Ext.window.MessageBox-property-INFO" rel="Ext.window.MessageBox-property-INFO" class="docClass">Ext.window.MessageBox.INFO</a>
-});
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -426,18 +343,94 @@ You are responsible for closing the message box when the process is complete.</p
     }
     }
     *)
+  method _CANCEL : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single Cancel button</p> %}
+    
+    Defaults to: [8]
+    *)
+  method _ERROR : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the ERROR icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-error']
+    *)
+  method _INFO : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the INFO icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-info']
+    *)
+  method _NO : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single No button</p> %}
+    
+    Defaults to: [4]
+    *)
+  method _OK : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single OK button</p> %}
+    
+    Defaults to: [1]
+    *)
+  method _OKCANCEL : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays OK and Cancel buttons</p> %}
+    
+    Defaults to: [9]
+    *)
+  method _QUESTION : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the QUESTION icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-question']
+    *)
+  method _WARNING : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the WARNING icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-warning']
+    *)
+  method _YES : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single Yes button</p> %}
+    
+    Defaults to: [2]
+    *)
+  method _YESNO : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays Yes and No buttons</p> %}
+    
+    Defaults to: [6]
+    *)
+  method _YESNOCANCEL : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays Yes, No and Cancel buttons</p> %}
+    
+    Defaults to: [14]
+    *)
+  method buttonText : _ Js.t Js.prop
+  (** {% <p>An object containing the default button text strings that can be overriden for localized language support.
+Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
+resource file for handling language support across the framework.
+Customize the default text like so:</p>
+
+<pre><code>Ext.window.MessageBox.buttonText.yes = "oui"; //french
+</code></pre> %}
+    
+    Defaults to: [\{ok: 'OK', yes: 'Yes', no: 'No', cancel: 'Cancel'\}]
+    *)
+  method defaultTextHeight : Js.number Js.t Js.prop
+  (** {% <p>The default height in pixels of the message box's multiline textarea if displayed.</p> %}
+    
+    Defaults to: [75]
+    *)
+  method minProgressWidth : Js.number Js.t Js.prop
+  (** {% <p>The minimum width in pixels of the message box if it is a progress-style dialog.  This is useful
+for setting a different minimum width than text-only dialogs may need.</p> %}
+    
+    Defaults to: [250]
+    *)
+  method minPromptWidth : Js.number Js.t Js.prop
+  (** {% <p>The minimum width in pixels of the message box if it is a prompt dialog.  This is useful
+for setting a different minimum width than text-only dialogs may need.</p> %}
+    
+    Defaults to: [250]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
-  inherit Ext_panel_Panel.configs
   inherit Ext_window_Window.configs
   
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
@@ -470,20 +463,15 @@ approriate closeAction.</p> %}
   (** {% <p>An optional extra CSS class that will be added to this component's Element. This can be useful
 for adding customized styles to the component or any of its children using standard CSS rules.</p> %}
     
-    Defaults to: [Ext.baseCSSPrefix + 'message-box']
+    Defaults to: [Ext.baseCSSPrefix + 'message-box', Ext.baseCSSPrefix + 'hide-offsets']
     *)
   method constrain : bool Js.t Js.prop
   (** {% <p>True to constrain the window within its containing element, false to allow it to fall outside of its containing
-element. By default the window will be rendered to document.body. To render and constrain the window within
+element. By default the window will be rendered to <code>document.body</code>. To render and constrain the window within
 another element specify <a href="#!/api/Ext.window.MessageBox-cfg-renderTo" rel="Ext.window.MessageBox-cfg-renderTo" class="docClass">renderTo</a>. Optionally the header only can be constrained
 using <a href="#!/api/Ext.window.MessageBox-cfg-constrainHeader" rel="Ext.window.MessageBox-cfg-constrainHeader" class="docClass">constrainHeader</a>.</p> %}
     
     Defaults to: [true]
-    *)
-  method height : Js.number Js.t Js.prop
-  (** {% <p>The height of this component in pixels.</p> %}
-    
-    Defaults to: [500]
     *)
   method hideMode : Js.js_string Js.t Js.prop
   (** {% <p>hide it by offsets. Windows are hidden on render by default.</p>
@@ -509,7 +497,7 @@ the <code>layout</code> configuration option.</p>
 the Container's layout manager which creates and manages the type of layout
 you have in mind.  For example:</p>
 
-<p>If the <a href="#!/api/Ext.window.MessageBox-cfg-layout" rel="Ext.window.MessageBox-cfg-layout" class="docClass">layout</a> configuration is not explicitly specified for
+<p>If the layout configuration is not explicitly specified for
 a general purpose container (e.g. Container or Panel) the
 <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used
 which does nothing but render child components sequentially into the
@@ -517,14 +505,14 @@ Container (no sizing or positioning will be performed in this situation).</p>
 
 <p><strong>layout</strong> may be specified as either as an Object or as a String:</p>
 
-<h1>Specify as an Object</h1>
+<h2>Specify as an Object</h2>
 
 <p>Example usage:</p>
 
-<pre><code>layout: {
+<pre><code>layout: \{
     type: 'vbox',
     align: 'left'
-}
+\}
 </code></pre>
 
 <ul>
@@ -533,18 +521,7 @@ Container (no sizing or positioning will be performed in this situation).</p>
 <p>The layout type to be used for this container.  If not specified,
 a default <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">Ext.layout.container.Auto</a> will be created and used.</p>
 
-<p>Valid layout <code>type</code> values are:</p>
-
-<ul>
-<li><a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">Auto</a> - <strong>Default</strong></li>
-<li><a href="#!/api/Ext.layout.container.Card" rel="Ext.layout.container.Card" class="docClass">card</a></li>
-<li><a href="#!/api/Ext.layout.container.Fit" rel="Ext.layout.container.Fit" class="docClass">fit</a></li>
-<li><a href="#!/api/Ext.layout.container.HBox" rel="Ext.layout.container.HBox" class="docClass">hbox</a></li>
-<li><a href="#!/api/Ext.layout.container.VBox" rel="Ext.layout.container.VBox" class="docClass">vbox</a></li>
-<li><a href="#!/api/Ext.layout.container.Anchor" rel="Ext.layout.container.Anchor" class="docClass">anchor</a></li>
-<li><a href="#!/api/Ext.layout.container.Table" rel="Ext.layout.container.Table" class="docClass">table</a></li>
-</ul>
-</li>
+<p>Valid layout <code>type</code> values are listed in <a href="#!/api/Ext.enums.Layout" rel="Ext.enums.Layout" class="docClass">Ext.enums.Layout</a>.</p></li>
 <li><p>Layout specific configuration properties</p>
 
 <p>Additional layout specific configuration properties may also be
@@ -554,7 +531,7 @@ specified.</p></li>
 </ul>
 
 
-<h1>Specify as a String</h1>
+<h2>Specify as a String</h2>
 
 <p>Example usage:</p>
 
@@ -564,8 +541,8 @@ specified.</p></li>
 <ul>
 <li><p><strong>layout</strong></p>
 
-<p>The layout <code>type</code> to be used for this container (see list
-of valid layout type values above).</p>
+<p>The layout <code>type</code> to be used for this container (see <a href="#!/api/Ext.enums.Layout" rel="Ext.enums.Layout" class="docClass">Ext.enums.Layout</a>
+for list of valid values).</p>
 
 <p>Additional layout specific configuration properties. For complete
 details regarding the valid config options for each layout type, see the
@@ -573,48 +550,19 @@ layout class corresponding to the <code>layout</code> specified.</p></li>
 </ul>
 
 
-<h1>Configuring the default layout type</h1>
+<h2>Configuring the default layout type</h2>
 
-<pre><code>If a certain Container class has a default layout (For example a <a href="#!/api/Ext.toolbar.Toolbar" rel="Ext.toolbar.Toolbar" class="docClass">Toolbar</a>
-with a default `Box` layout), then to simply configure the default layout,
-use an object, but without the `type` property:
+<p>If a certain Container class has a default layout (For example a <a href="#!/api/Ext.toolbar.Toolbar" rel="Ext.toolbar.Toolbar" class="docClass">Toolbar</a>
+with a default <code>Box</code> layout), then to simply configure the default layout,
+use an object, but without the <code>type</code> property:</p>
 
-
-xtype: 'toolbar',
-layout: {
+<pre><code>xtype: 'toolbar',
+layout: \{
     pack: 'center'
-}
+\}
 </code></pre> %}
     
-    Defaults to: [{type: 'vbox', align: 'stretch'}]
-    *)
-  method maxHeight : Js.number Js.t Js.prop
-  (** {% <p>The maximum value in pixels which this Component will set its height to.</p>
-
-<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
-    
-    Defaults to: [500]
-    *)
-  method maxWidth : Js.number Js.t Js.prop
-  (** {% <p>The maximum value in pixels which this Component will set its width to.</p>
-
-<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
-    
-    Defaults to: [600]
-    *)
-  method minHeight : Js.number Js.t Js.prop
-  (** {% <p>The minimum value in pixels which this Component will set its height to.</p>
-
-<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
-    
-    Defaults to: [110]
-    *)
-  method minWidth : Js.number Js.t Js.prop
-  (** {% <p>The minimum value in pixels which this Component will set its width to.</p>
-
-<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
-    
-    Defaults to: [250]
+    Defaults to: [\{type: 'vbox', align: 'stretch'\}]
     *)
   method resizable : _ Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to allow user resizing at each edge and corner of the window, false to disable resizing.</p>
@@ -623,6 +571,15 @@ layout: {
     
     Defaults to: [false]
     *)
+  method shrinkWrapDock : _ Js.t Js.prop
+  (** {% <p>We want to shrinkWrap around all docked items</p>
+
+<p>Allows for this panel to include the <a href="#!/api/Ext.window.MessageBox-cfg-dockedItems" rel="Ext.window.MessageBox-cfg-dockedItems" class="docClass">dockedItems</a> when trying to determine the overall
+size of the panel. This option is only applicable when this panel is also shrink wrapping in the
+same dimensions. See <a href="#!/api/Ext.AbstractComponent-cfg-shrinkWrap" rel="Ext.AbstractComponent-cfg-shrinkWrap" class="docClass">Ext.AbstractComponent.shrinkWrap</a> for an explanation of the configuration options.</p> %}
+    
+    Defaults to: [true]
+    *)
   method title : Js.js_string Js.t Js.prop
   (** {% <p>The title text to be used to display in the <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">panel header</a>. When a
 <code>title</code> is specified the <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">Ext.panel.Header</a> will automatically be created and displayed unless
@@ -630,23 +587,11 @@ layout: {
     
     Defaults to: ['&#160;']
     *)
-  method width : Js.number Js.t Js.prop
-  (** {% <p>The width of this component in pixels.</p> %}
-    
-    Defaults to: [600]
-    *)
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
-  inherit Ext_panel_Panel.events
   inherit Ext_window_Window.events
   
   
@@ -654,13 +599,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
-  inherit Ext_panel_Panel.statics
   inherit Ext_window_Window.statics
   
   

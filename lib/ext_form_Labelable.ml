@@ -2,15 +2,11 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method bodyEl : Ext_dom_Element.t Js.t Js.prop
-  method errorEl : Ext_dom_Element.t Js.t Js.prop
-  method isFieldLabelable : bool Js.t Js.prop
-  method labelCell : Ext_dom_Element.t Js.t Js.prop
-  method labelEl : Ext_dom_Element.t Js.t Js.prop
   method getActiveError : Js.js_string Js.t Js.meth
   method getActiveErrors : Js.js_string Js.t Js.js_array Js.t Js.meth
   method getFieldLabel : Js.js_string Js.t Js.meth
   method getInputId : Js.js_string Js.t Js.meth
+  method getLabelWidth : Js.number Js.t Js.meth
   method getLabelableRenderData : _ Js.t Js.meth
   method getSubTplMarkup : Js.js_string Js.t Js.meth
   method hasActiveError : bool Js.t Js.meth
@@ -22,6 +18,11 @@ object('self)
   method setFieldLabel : Js.js_string Js.t -> unit Js.meth
   method trimLabelSeparator : Js.js_string Js.t Js.meth
   method unsetActiveError : unit Js.meth
+  method bodyEl : Ext_dom_Element.t Js.t Js.prop
+  method errorEl : Ext_dom_Element.t Js.t Js.prop
+  method isFieldLabelable : bool Js.t Js.prop
+  method labelCell : Ext_dom_Element.t Js.t Js.prop
+  method labelEl : Ext_dom_Element.t Js.t Js.prop
   
 end
 

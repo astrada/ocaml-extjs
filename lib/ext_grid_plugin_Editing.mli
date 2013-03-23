@@ -10,32 +10,14 @@ in the <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" clas
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractPlugin.t
   inherit Ext_util_Observable.t
+  inherit Ext_AbstractPlugin.t
   
-  method editing : bool Js.t Js.prop
-  (** {% <p>Set to <code>true</code> while the editing plugin is active and an Editor is visible.</p> %}
-    *)
   method cancelEdit : unit Js.meth
   (** {% <p>Cancels any active edit that is in progress.</p> %}
     *)
   method completeEdit : unit Js.meth
   (** {% <p>Completes the edit if there is an active edit in progress.</p> %}
-    *)
-  method init_component : #Ext_Component.t Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>The init method is invoked after initComponent method has been run for the client Component.</p>
-
-<p>The supplied implementation is empty. Subclasses should perform plugin initialization, and set up bidirectional
-links between the plugin and its client Component in their own implementation of this method.</p> %}
-    
-    {b Parameters}:
-    {ul {- client: [#Ext_Component.t Js.t]
-    {% <p>The client Component which owns this plugin.</p> %}
-    }
-    }
     *)
   method startEdit : _ Js.t -> _ Js.t -> unit Js.meth
   (** {% <p>Starts editing the specified record, using the specified Column definition to define which field is being edited.</p> %}
@@ -49,14 +31,16 @@ links between the plugin and its client Component in their own implementation of
     }
     }
     *)
+  method editing : bool Js.t Js.prop
+  (** {% <p>Set to <code>true</code> while the editing plugin is active and an Editor is visible.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractPlugin.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_AbstractPlugin.configs
   
   method clicksToEdit : Js.number Js.t Js.prop
   (** {% <p>The number of clicks on a grid required to display the editor.
@@ -79,9 +63,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractPlugin.events
   inherit Ext_util_Observable.events
+  inherit Ext_AbstractPlugin.events
   
   method beforeedit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -90,21 +73,8 @@ object
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record being edited</li>
-<li>field * The field name being edited</li>
-<li>value * The value for the field being edited.</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that is being edited.</li>
-<li>rowIdx * The row index that is being edited</li>
-<li>colIdx * The column index that is being edited</li>
-<li>cancel * Set this to true to cancel the edit or return false from your handler.</li>
-<li>originalValue * Alias for value (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>).</li>
-</ul> %}
+    {- context: [_ Js.t]
+    {% <p>The editing context with the following properties:</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -118,21 +88,8 @@ object
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record that was edited</li>
-<li>field * The field name that was edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that was edited.</li>
-<li>rowIdx * The row index that was edited</li>
-<li>colIdx * The column index that was edited</li>
-<li>view * The grid view</li>
-<li>store * The grid store</li>
-</ul> %}
+    {- context: [_ Js.t]
+    {% <p>The editing context with the following properties:</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -143,33 +100,17 @@ object
     Js.writeonly_prop
   (** {% <p>Fires after a editing. Usage example:</p>
 
-<pre><code>grid.on('edit', function(editor, e) {
+<pre><code>grid.on('edit', function(editor, e) \{
     // commit the changes right after editing finished
     e.record.commit();
-});
+\});
 </code></pre> %}
     
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record that was edited</li>
-<li>field * The field name that was edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that was edited.</li>
-<li>rowIdx * The row index that was edited</li>
-<li>colIdx * The column index that was edited</li>
-<li>originalValue * The original value for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>)</li>
-<li>originalValues * The original values for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>newValues * The new values being set (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>view * The grid view (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-</ul> %}
+    {- context: [_ Js.t]
+    {% <p>The editing context with the following properties:</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -185,38 +126,21 @@ cancel the change.</p>
 observing the grid's validateedit event, it can be cancelled if the edit occurs on a targeted row (for example)
 and then setting the field's new value in the Record directly:</p>
 
-<pre><code>grid.on('validateedit', function(editor, e) {
+<pre><code>grid.on('validateedit', function(editor, e) \{
   var myTargetRow = 6;
 
-  if (e.rowIdx == myTargetRow) {
+  if (e.rowIdx == myTargetRow) \{
     e.cancel = true;
     e.record.data[e.field] = e.value;
-  }
-});
+  \}
+\});
 </code></pre> %}
     
     {b Parameters}:
     {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
     }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record being edited</li>
-<li>field * The field name being edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that is being edited.</li>
-<li>rowIdx * The row index that is being edited</li>
-<li>colIdx * The column index that is being edited</li>
-<li>cancel * Set this to true to cancel the edit or return false from your handler.</li>
-<li>originalValue * The original value for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>)</li>
-<li>originalValues * The original values for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>newValues * The new values being set (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>view * The grid view (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-</ul> %}
+    {- context: [_ Js.t]
+    {% <p>The editing context with the following properties:</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -228,7 +152,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_AbstractPlugin.statics
   inherit Ext_util_Observable.statics
   

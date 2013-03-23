@@ -2,13 +2,13 @@
   
   {% <p>A class used to load remote content to an Element. Sample usage:</p>
 
-<pre><code><a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('el').load({
+<pre><code><a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('el').load(\{
     url: 'myPage.php',
     scripts: true,
-    params: {
+    params: \{
         id: 1
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>In general this class will not be instanced directly, rather the <a href="#!/api/Ext.dom.Element-method-load" rel="Ext.dom.Element-method-load" class="docClass">Ext.Element.load</a> method
@@ -17,14 +17,9 @@ will be used.</p> %}
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method isLoader : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated ElementLoader, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method abort : unit Js.meth
   (** {% <p>Aborts the active load request</p> %}
     *)
@@ -85,13 +80,18 @@ Note that if the target is changed, any active requests will be aborted.</p> %}
   method stopAutoRefresh : unit Js.meth
   (** {% <p>Clears any auto refresh. See <a href="#!/api/Ext.ElementLoader-method-startAutoRefresh" rel="Ext.ElementLoader-method-startAutoRefresh" class="docClass">startAutoRefresh</a>.</p> %}
     *)
+  method isLoader : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated ElementLoader, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method ajaxOptions : _ Js.t Js.prop
   (** {% <p>Any additional options to be passed to the request, for example timeout or headers.</p> %}
@@ -175,8 +175,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method beforeload : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

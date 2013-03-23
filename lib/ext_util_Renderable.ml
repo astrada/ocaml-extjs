@@ -6,6 +6,7 @@ object('self)
   method doAutoRender : unit Js.meth
   method ensureAttachedToBody : bool Js.t Js.optdef -> unit Js.meth
   method getInsertPosition : _ Js.t -> Dom_html.element Js.t Js.meth
+  method initRenderData : _ Js.t Js.meth
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
   method render : _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
   

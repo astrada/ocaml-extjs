@@ -6,48 +6,48 @@ and <a href="#!/api/Ext.button.Button-cfg-scale" rel="Ext.button.Button-cfg-scal
 a user clicks the button, or use <a href="#!/api/Ext.button.Button-cfg-listeners" rel="Ext.button.Button-cfg-listeners" class="docClass">listeners</a> for other events such as
 <a href="#!/api/Ext.button.Button-event-mouseover" rel="Ext.button.Button-event-mouseover" class="docClass">mouseover</a>. Example usage:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', \{
     text: 'Click me',
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-    handler: function() {
+    handler: function() \{
         alert('You clicked the button!');
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>The <a href="#!/api/Ext.button.Button-cfg-handler" rel="Ext.button.Button-cfg-handler" class="docClass">handler</a> configuration can also be updated dynamically using the <a href="#!/api/Ext.button.Button-method-setHandler" rel="Ext.button.Button-method-setHandler" class="docClass">setHandler</a>
 method.  Example usage:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', \{
     text    : 'Dynamic Handler Button',
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-    handler : function() {
+    handler : function() \{
         // this button will spit out a different number every time you click it.
         // so firstly we must check if that number is already set:
-        if (this.clickCount) {
+        if (this.clickCount) \{
             // looks like the property is already set, so lets just add 1 to that number and alert the user
             this.clickCount++;
             alert('You have clicked the button "' + this.clickCount + '" times.\n\nTry clicking it again..');
-        } else {
+        \} else \{
             // if the clickCount property is not set, we will set it and alert the user
             this.clickCount = 1;
             alert('You just clicked the button for the first time!\n\nTry pressing it again..');
-        }
-    }
-});
+        \}
+    \}
+\});
 </code></pre>
 
 <p>A button within a container:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.Container</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.Container</a>', \{
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
     items   : [
-        {
+        \{
             xtype: 'button',
             text : 'My Button'
-        }
+        \}
     ]
-});
+\});
 </code></pre>
 
 <p>A useful option of Button is the <a href="#!/api/Ext.button.Button-cfg-scale" rel="Ext.button.Button-cfg-scale" class="docClass">scale</a> configuration. This configuration has three different options:</p>
@@ -61,21 +61,21 @@ method.  Example usage:</p>
 
 <p>Example usage:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', \{
     renderTo: document.body,
     text    : 'Click me',
     scale   : 'large'
-});
+\});
 </code></pre>
 
 <p>Buttons can also be toggled. To enable this, you simple set the <a href="#!/api/Ext.button.Button-cfg-enableToggle" rel="Ext.button.Button-cfg-enableToggle" class="docClass">enableToggle</a> property to <code>true</code>.
 Example usage:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', \{
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
     text: 'Click Me',
     enableToggle: true
-});
+\});
 </code></pre>
 
 <p>You can assign a menu to a button by using the <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a> configuration. This standard configuration
@@ -84,17 +84,17 @@ can either be a reference to a <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu
 added to the button.  You can change the alignment of the arrow using the <a href="#!/api/Ext.button.Button-cfg-arrowAlign" rel="Ext.button.Button-cfg-arrowAlign" class="docClass">arrowAlign</a> configuration
 on button.  Example usage:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', \{
     text      : 'Menu button',
     renderTo  : <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
     arrowAlign: 'bottom',
     menu      : [
-        {text: 'Item 1'},
-        {text: 'Item 2'},
-        {text: 'Item 3'},
-        {text: 'Item 4'}
+        \{text: 'Item 1'\},
+        \{text: 'Item 2'\},
+        \{text: 'Item 3'\},
+        \{text: 'Item 4'\}
     ]
-});
+\});
 </code></pre>
 
 <p>Using listeners, you can easily listen to events fired by any component, using the <a href="#!/api/Ext.button.Button-cfg-listeners" rel="Ext.button.Button-cfg-listeners" class="docClass">listeners</a>
@@ -114,62 +114,30 @@ configuration or using the <a href="#!/api/Ext.button.Button-method-addListener"
 
 <p>Example usage:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.Button</a>', \{
     text     : 'Button',
     renderTo : <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-    listeners: {
-        click: function() {
+    listeners: \{
+        click: function() \{
             // this == the button, as we are in the local scope
             this.setText('I was clicked!');
-        },
-        mouseover: function() {
+        \},
+        mouseover: function() \{
             // set a new config which says we moused over, if not already set
-            if (!this.mousedOver) {
+            if (!this.mousedOver) \{
                 this.mousedOver = true;
                 alert('You moused over a button!\n\nI wont do this again.');
-            }
-        }
-    }
-});
+            \}
+        \}
+    \}
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
   inherit Ext_Component.t
   
-  method disabled : bool Js.t Js.readonly_prop
-  (** {% <p>True if this button is disabled.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method hidden : bool Js.t Js.readonly_prop
-  (** {% <p>True if this button is hidden.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method menu : Ext_menu_Menu.t Js.t Js.prop
-  (** {% <p>The <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a> object associated with this Button when configured with the <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a> config
-option.</p> %}
-    *)
-  method pressed : bool Js.t Js.readonly_prop
-  (** {% <p>True if this button is pressed (only if enableToggle = true).</p> %}
-    
-    Defaults to: [false]
-    *)
-  method template : Ext_Template.t Js.t Js.prop
-  (** {% <p>A <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Template</a> used to create the Button's DOM structure.</p>
-
-<p>Instances, or subclasses which need a different DOM structure may provide a different template layout in
-conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-getTemplateArgs" rel="Ext.button.Button-method-getTemplateArgs" class="docClass">getTemplateArgs</a>.</p> %}
-    *)
-  method beforeDestroy : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Invoked before the Component is destroyed.</p> %}
-    *)
   method disable : bool Js.t Js.optdef -> unit Js.meth
   (** {% <p>inherit docs</p>
 
@@ -177,7 +145,7 @@ conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-g
     
     {b Parameters}:
     {ul {- silent: [bool Js.t] (optional)
-    {% <p>Passing true will supress the 'disable' event from being fired.</p> %}
+    {% <p>Passing <code>true</code> will suppress the <code>disable</code> event from being fired.</p> %}
      Defaults to: false
     }
     }
@@ -189,7 +157,7 @@ conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-g
     
     {b Parameters}:
     {ul {- silent: [bool Js.t] (optional)
-    {% <p>Passing true will supress the 'enable' event from being fired.</p> %}
+    {% <p>Passing <code>true</code> will suppress the <code>enable</code> event from being fired.</p> %}
      Defaults to: false
     }
     }
@@ -204,7 +172,7 @@ their own implementation of this method.</p> %}
     {b Returns}:
     {ul {- [_ Js.t]
     {% <p>Substitution data for a Template. The default implementation which provides data for the default
-<a href="#!/api/Ext.tab.Tab-property-template" rel="Ext.tab.Tab-property-template" class="docClass">template</a> returns an Object containing the following properties:</p> %}
+<a href="#!/api/Ext.button.Button-property-template" rel="Ext.button.Button-property-template" class="docClass">template</a> returns an Object containing the following properties:</p> %}
     }
     }
     *)
@@ -245,50 +213,39 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
-    *)
-  method onDestroy : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
     *)
   method onDisable : unit Js.meth
   (** {% <p>See comments in onFocus</p>
 
 <p>Allows addition of behavior to the disable operation.
-After calling the superclass’s onDisable, the Component will be disabled.</p> %}
+After calling the superclass's <code>onDisable</code>, the Component will be disabled.</p> %}
     *)
-  method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Template method called when this Component's DOM structure is created.</p>
-
-<p>At this point, this Component's (and all descendants') DOM structure <em>exists</em> but it has not
-been layed out (positioned and sized).</p>
-
-<p>Subclasses which override this to gain access to the structure at render time should
-call the parent class's method before attempting to access any child elements of the Component.</p> %}
+  method setGlyph : _ Js.t -> 'self Js.t Js.meth
+  (** {% <p>Sets this button's glyph</p> %}
     
     {b Parameters}:
-    {ul {- parentNode: [Ext_dom_Element.t Js.t]
-    {% <p>The parent Element in which this Component's encapsulating element is contained.</p> %}
+    {ul {- glyph: [_ Js.t]
+    {% <p>the numeric charCode or string charCode/font-family.
+This parameter expects a format consistent with that of <a href="#!/api/Ext.button.Button-cfg-glyph" rel="Ext.button.Button-cfg-glyph" class="docClass">glyph</a></p> %}
     }
-    {- containerIdx: [Js.number Js.t]
-    {% <p>The index within the parent Container's child collection of this Component.</p> %}
+    }
+    
+    {b Returns}:
+    {ul {- [Ext_button_Button.t Js.t] {% <p>this</p> %}
     }
     }
     *)
@@ -307,6 +264,17 @@ Defaults to this Button.</p> %}
     
     {b Returns}:
     {ul {- [Ext_button_Button.t Js.t] {% <p>this</p> %}
+    }
+    }
+    *)
+  method setHref : Js.js_string Js.t -> unit Js.meth
+  (** {% <p>Sets the href of the embedded anchor element to the passed URL.</p>
+
+<p>Also appends any configured <a href="#!/api/Ext.button.Button-cfg-baseParams" rel="Ext.button.Button-cfg-baseParams" class="docClass">baseParams</a> and parameters set through <a href="#!/api/Ext.button.Button-method-setParams" rel="Ext.button.Button-method-setParams" class="docClass">setParams</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- href: [Js.js_string Js.t]
+    {% <p>The URL to set in the anchor element.</p> %}
     }
     }
     *)
@@ -406,16 +374,21 @@ value of the <a href="#!/api/Ext.button.Button-cfg-iconCls" rel="Ext.button.Butt
   (** {% <p>inherit docs</p>
 
 <p>Sets the UI for the component. This will remove any existing UIs on the component. It will also loop through any
-uiCls set on the component and rename them so they include the new UI</p> %}
+<code>uiCls</code> set on the component and rename them so they include the new UI.</p> %}
     
     {b Parameters}:
     {ul {- ui: [Js.js_string Js.t]
-    {% <p>The new UI for the component</p> %}
+    {% <p>The new UI for the component.</p> %}
     }
     }
     *)
-  method showMenu : unit Js.meth
+  method showMenu : _ Js.t -> unit Js.meth
   (** {% <p>Shows this button's menu (if it has one)</p> %}
+    
+    {b Parameters}:
+    {ul {- fromEvent: [_ Js.t]
+    }
+    }
     *)
   method toggle : bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'self Js.t
     Js.meth
@@ -436,30 +409,44 @@ uiCls set on the component and rename them so they include the new UI</p> %}
     }
     }
     *)
+  method disabled : bool Js.t Js.readonly_prop
+  (** {% <p>True if this button is disabled.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method hidden : bool Js.t Js.readonly_prop
+  (** {% <p>True if this button is hidden.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method menu : Ext_menu_Menu.t Js.t Js.prop
+  (** {% <p>The <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a> object associated with this Button when configured with the <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a> config
+option.</p> %}
+    *)
+  method pressed : bool Js.t Js.readonly_prop
+  (** {% <p>True if this button is pressed (only if enableToggle = true).</p> %}
+    
+    Defaults to: [false]
+    *)
+  method template : Ext_Template.t Js.t Js.prop
+  (** {% <p>A <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Template</a> used to create the Button's DOM structure.</p>
+
+<p>Instances, or subclasses which need a different DOM structure may provide a different template layout in
+conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-getTemplateArgs" rel="Ext.button.Button-method-getTemplateArgs" class="docClass">getTemplateArgs</a>.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
   inherit Ext_Component.configs
   
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
   method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onDisable] *)
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRender] *)
   method allowDepress : bool Js.t Js.prop
   (** {% <p>False to not allow a pressed Button to be depressed. Only valid when <a href="#!/api/Ext.button.Button-cfg-enableToggle" rel="Ext.button.Button-cfg-enableToggle" class="docClass">enableToggle</a> is true.</p> %}
     
@@ -489,24 +476,6 @@ values are allowed:</p>
   method baseParams : _ Js.t Js.prop
   (** {% <p>An object literal of parameters to pass to the url when the <a href="#!/api/Ext.button.Button-cfg-href" rel="Ext.button.Button-cfg-href" class="docClass">href</a> property is specified.</p> %}
     *)
-  method border : _ Js.t Js.prop
-  (** {% <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
-be a CSS style specification for each style, for example: '10 5 3 10'.</p>
-
-<p>For components that have no border by default, setting this won't make the border appear by itself.
-You also need to specify border color and style:</p>
-
-<pre><code>border: 5,
-style: {
-    borderColor: 'red',
-    borderStyle: 'solid'
-}
-</code></pre>
-
-<p>To turn off the border, use <code>border: false</code>.</p> %}
-    
-    Defaults to: [true]
-    *)
   method clickEvent : Js.js_string Js.t Js.prop
   (** {% <p>The DOM event that will fire the handler of the button. This can be any valid event name (dblclick, contextmenu).</p> %}
     
@@ -527,6 +496,10 @@ class which simply sizes the Component's encapsulating element to the height and
 <a href="#!/api/Ext.button.Button-method-setSize" rel="Ext.button.Button-method-setSize" class="docClass">setSize</a> method.</p> %}
     
     Defaults to: ['button']
+    *)
+  method destroyMenu : bool Js.t Js.prop
+  (** {% <p>Whether or not to destroy any associated menu when this button is destroyed. The menu
+will be destroyed unless this is explicitly set to false.</p> %}
     *)
   method disabled : bool Js.t Js.prop
   (** {% <p>True to start disabled.</p> %}
@@ -555,6 +528,13 @@ Explorer prior to version 9 which do not support rounded corners natively.</p>
     
     Defaults to: [true]
     *)
+  method glyph : _ Js.t Js.prop
+  (** {% <p>A numeric unicode character code to use as the icon for this button. The default
+font-family for glyphs can be set globally using
+<a href="#!/api/Ext-method-setGlyphFontFamily" rel="Ext-method-setGlyphFontFamily" class="docClass">Ext.setGlyphFontFamily()</a>. Alternatively, this
+config option accepts a string with the charCode and font-family separated by the
+<code>\@</code> symbol. For example '65\@My Font Family'.</p> %}
+    *)
   method handleMouseEvents : bool Js.t Js.prop
   (** {% <p>False to disable visual cues on mouseover, mouseout and mousedown.</p> %}
     
@@ -570,11 +550,11 @@ Explorer prior to version 9 which do not support rounded corners natively.</p>
     *)
   method href : Js.js_string Js.t Js.prop
   (** {% <p>The URL to open when the button is clicked. Specifying this config causes the Button to be
-rendered with an anchor (An <code>&lt;a&gt;</code> element) as its active element, referencing the specified URL.</p>
+rendered with the specified URL as the <code>href</code> attribute of its <code>&lt;a&gt;</code> Element.</p>
 
 <p>This is better than specifying a click handler of</p>
 
-<pre><code>function() { window.location = "http://www.sencha.com" }
+<pre><code>function() \{ window.location = "http://www.sencha.com" \}
 </code></pre>
 
 <p>because the UI will provide meaningful hints to the user as to what to expect upon clicking
@@ -616,7 +596,7 @@ property is specified.</p> %}
     Defaults to: ['menu-active']
     *)
   method menuAlign : Js.js_string Js.t Js.prop
-  (** {% <p>The position to align the menu to (see <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> for more details).</p> %}
+  (** {% <p>The position to align the menu to (see <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> for more details).</p> %}
     
     Defaults to: ['tl-bl?']
     *)
@@ -653,12 +633,16 @@ override <a href="#!/api/Ext.button.Button-cfg-baseParams" rel="Ext.button.Butto
     Defaults to: [true]
     *)
   method renderTpl : _ Js.t Js.prop
-  (** {% <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
+  (** {% <p>We have to keep "unselectable" attribute on all elements because it's not inheritable.
+Without it, clicking anywhere on a button disrupts current selection and cursor position
+in HtmlEditor.</p>
+
+<p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a>.</p>
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -667,7 +651,7 @@ internal structure.</p>
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.button.Button-cfg-renderSelectors" rel="Ext.button.Button-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.button.Button-cfg-childEls" rel="Ext.button.Button-cfg-childEls" class="docClass">childEls</a> options.</p> %}
     
-    Defaults to: [['<em id="{id}-btnWrap"<tpl if="splitCls"> class="{splitCls}"</tpl>>', '<tpl if="href">', '<a id="{id}-btnEl" href="{href}" class="{btnCls}" target="{hrefTarget}"', '<tpl if="tabIndex"> tabIndex="{tabIndex}"</tpl>', '<tpl if="disabled"> disabled="disabled"</tpl>', ' role="link">', '<span id="{id}-btnInnerEl" class="{baseCls}-inner">', '{text}', '</span>', '<span id="{id}-btnIconEl" class="{baseCls}-icon {iconCls}"<tpl if="iconUrl"> style="background-image:url({iconUrl})"</tpl>></span>', '</a>', '<tpl else>', '<button id="{id}-btnEl" type="{type}" class="{btnCls}" hidefocus="true"', '<tpl if="tabIndex"> tabIndex="{tabIndex}"</tpl>', '<tpl if="disabled"> disabled="disabled"</tpl>', ' role="button" autocomplete="off">', '<span id="{id}-btnInnerEl" class="{baseCls}-inner" style="{innerSpanStyle}">', '{text}', '</span>', '<span id="{id}-btnIconEl" class="{baseCls}-icon {iconCls}"<tpl if="iconUrl"> style="background-image:url({iconUrl})"</tpl>></span>', '</button>', '</tpl>', '</em>', '<tpl if="closable">', '<a id="{id}-closeEl" href="#" class="{baseCls}-close-btn" title="{closeText}"></a>', '</tpl>']]
+    Defaults to: ['<div id=''\{id\}-btnWrap'' class=''\{baseCls\}-wrap', '<tpl if=''splitCls''> \{splitCls\}</tpl>', '\{childElCls\}'' unselectable=''on''>', '<a id=''\{id\}-btnEl'' class=''\{baseCls\}-button'' role=''button'' hidefocus=''on'' unselectable=''on''', '<tpl if=''tabIndex != null>', ' tabIndex=''\{tabIndex\}''', '</tpl>', '<tpl if=''href''>', ' href=''\{href\}''', '<tpl if=''hrefTarget''>', ' target=''\{hrefTarget\}''', '</tpl>', '</tpl>', '>', '<span id=''\{id\}-btnInnerEl'' class=''\{baseCls\}-inner \{innerCls\}', '\{childElCls\}'' unselectable=''on''>', '\{text\}', '</span>', '<span role=''img'' id=''\{id\}-btnIconEl'' class=''\{baseCls\}-icon-el \{iconCls\}', '\{childElCls\} \{glyphCls\}'' unselectable=''on'' style=''', '<tpl if=''iconUrl''>background-image:url(\{iconUrl\});</tpl>', '<tpl if=''glyph && glyphFontFamily''>font-family:\{glyphFontFamily\};</tpl>''>', '<tpl if=''glyph''>&#\{glyph\};</tpl><tpl if=''iconCls || iconUrl''>&#160;</tpl>', '</span>', '</a>', '</div>', '<tpl if=''closable''>', '<a id=''\{id\}-closeEl'' class=''\{baseCls\}-close-btn'' title=''\{closeText\}'' href=''#''></a>', '</tpl>']
     *)
   method repeat : _ Js.t Js.prop
   (** {% <p>True to repeat fire the click event while the mouse is down. This can also be a
@@ -675,7 +659,7 @@ internal structure.</p>
     
     Defaults to: [false]
     *)
-  method scale : Js.js_string Js.t Js.prop
+  method scale : _ Js.t Js.prop
   (** {% <p>The size of the Button. Three values are allowed:</p>
 
 <ul>
@@ -689,6 +673,12 @@ internal structure.</p>
   method scope : _ Js.t Js.prop
   (** {% <p>The scope (<strong>this</strong> reference) in which the <code><a href="#!/api/Ext.button.Button-cfg-handler" rel="Ext.button.Button-cfg-handler" class="docClass">handler</a></code> and <code><a href="#!/api/Ext.button.Button-cfg-toggleHandler" rel="Ext.button.Button-cfg-toggleHandler" class="docClass">toggleHandler</a></code> is executed.
 Defaults to this Button.</p> %}
+    *)
+  method showEmptyMenu : bool Js.t Js.prop
+  (** {% <p>True to force an attached <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a> with no items to be shown when clicking
+this button. By default, the menu will not show if it is empty.</p> %}
+    
+    Defaults to: [false]
     *)
   method shrinkWrap : _ Js.t Js.prop
   (** {% <p>If this property is a number, it is interpreted as follows:</p>
@@ -745,8 +735,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
   inherit Ext_Component.events
   
   method click : (t Js.t -> Dom_html.event Js.t -> _ Js.t -> unit)
@@ -759,6 +747,38 @@ object
     }
     {- e: [Dom_html.event Js.t]
     {% <p>The click event</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method glyphchange : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
+  (** {% <p>Fired when the button's glyph is changed by the <a href="#!/api/Ext.button.Button-method-setGlyph" rel="Ext.button.Button-method-setGlyph" class="docClass">setGlyph</a> method.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_button_Button.t Js.t]
+    }
+    {- newGlyph: [_ Js.t]
+    }
+    {- oldGlyph: [_ Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method iconchange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fired when the button's icon is changed by the <a href="#!/api/Ext.button.Button-method-setIcon" rel="Ext.button.Button-method-setIcon" class="docClass">setIcon</a> or <a href="#!/api/Ext.button.Button-method-setIconCls" rel="Ext.button.Button-method-setIconCls" class="docClass">setIconCls</a> methods.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_button_Button.t Js.t]
+    }
+    {- oldIcon: [Js.js_string Js.t]
+    }
+    {- newIcon: [Js.js_string Js.t]
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -855,6 +875,22 @@ object
     }
     }
     *)
+  method textchange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fired when the button's text is changed by the <a href="#!/api/Ext.button.Button-method-setText" rel="Ext.button.Button-method-setText" class="docClass">setText</a> method.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_button_Button.t Js.t]
+    }
+    {- oldText: [Js.js_string Js.t]
+    }
+    {- newText: [Js.js_string Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
   method toggle : (t Js.t -> bool Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
   (** {% <p>Fires when the 'pressed' state of this button changes (only if enableToggle = true)</p> %}
@@ -874,8 +910,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   
   

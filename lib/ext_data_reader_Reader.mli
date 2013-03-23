@@ -4,28 +4,28 @@
 a Reader instance directly, since a Reader is almost always used together with a <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">Proxy</a>,
 and is configured using the Proxy's <a href="#!/api/Ext.data.proxy.Proxy-cfg-reader" rel="Ext.data.proxy.Proxy-cfg-reader" class="docClass">reader</a> configuration property:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     model: 'User',
-    proxy: {
+    proxy: \{
         type: 'ajax',
         url : 'users.json',
-        reader: {
+        reader: \{
             type: 'json',
             root: 'users'
-        }
-    },
-});
+        \}
+    \},
+\});
 </code></pre>
 
 <p>The above reader is configured to consume a JSON string that looks something like this:</p>
 
-<pre><code>{
+<pre><code>\{
     "success": true,
     "users": [
-        { "name": "User 1" },
-        { "name": "User 2" }
+        \{ "name": "User 1" \},
+        \{ "name": "User 2" \}
     ]
-}
+\}
 </code></pre>
 
 <h1>Loading Nested Data</h1>
@@ -33,122 +33,122 @@ and is configured using the Proxy's <a href="#!/api/Ext.data.proxy.Proxy-cfg-rea
 <p>Readers have the ability to automatically load deeply-nested data objects based on the <a href="#!/api/Ext.data.association.Association" rel="Ext.data.association.Association" class="docClass">associations</a> configured on each Model. Below is an example demonstrating the flexibility of these associations in a
 fictional CRM system which manages a User, their Orders, OrderItems and Products. First we'll define the models:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("User", {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("User", \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
         'id', 'name'
     ],
 
-    hasMany: {model: 'Order', name: 'orders'},
+    hasMany: \{model: 'Order', name: 'orders'\},
 
-    proxy: {
+    proxy: \{
         type: 'rest',
         url : 'users.json',
-        reader: {
+        reader: \{
             type: 'json',
             root: 'users'
-        }
-    }
-});
+        \}
+    \}
+\});
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("Order", {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("Order", \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
         'id', 'total'
     ],
 
-    hasMany  : {model: 'OrderItem', name: 'orderItems', associationKey: 'order_items'},
+    hasMany  : \{model: 'OrderItem', name: 'orderItems', associationKey: 'order_items'\},
     belongsTo: 'User'
-});
+\});
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("OrderItem", {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("OrderItem", \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
         'id', 'price', 'quantity', 'order_id', 'product_id'
     ],
 
-    belongsTo: ['Order', {model: 'Product', associationKey: 'product'}]
-});
+    belongsTo: ['Order', \{model: 'Product', associationKey: 'product'\}]
+\});
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("Product", {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("Product", \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
         'id', 'name'
     ],
 
     hasMany: 'OrderItem'
-});
+\});
 </code></pre>
 
 <p>This may be a lot to take in - basically a User has many Orders, each of which is composed of several OrderItems.
 Finally, each OrderItem has a single Product. This allows us to consume data like this:</p>
 
-<pre><code>{
+<pre><code>\{
     "users": [
-        {
+        \{
             "id": 123,
             "name": "Ed",
             "orders": [
-                {
+                \{
                     "id": 50,
                     "total": 100,
                     "order_items": [
-                        {
+                        \{
                             "id"      : 20,
                             "price"   : 40,
                             "quantity": 2,
-                            "product" : {
+                            "product" : \{
                                 "id": 1000,
                                 "name": "MacBook Pro"
-                            }
-                        },
-                        {
+                            \}
+                        \},
+                        \{
                             "id"      : 21,
                             "price"   : 20,
                             "quantity": 3,
-                            "product" : {
+                            "product" : \{
                                 "id": 1001,
                                 "name": "iPhone"
-                            }
-                        }
+                            \}
+                        \}
                     ]
-                }
+                \}
             ]
-        }
+        \}
     ]
-}
+\}
 </code></pre>
 
 <p>The JSON response is deeply nested - it returns all Users (in this case just 1 for simplicity's sake), all of the
 Orders for each User (again just 1 in this case), all of the OrderItems for each Order (2 order items in this case),
 and finally the Product associated with each OrderItem. Now we can read the data and use it as follows:</p>
 
-<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     model: "User"
-});
+\});
 
-store.load({
-    callback: function() {
+store.load(\{
+    callback: function() \{
         //the user that was loaded
         var user = store.first();
 
         console.log("Orders for " + user.get('name') + ":")
 
         //iterate over the Orders for each User
-        user.orders().each(function(order) {
+        user.orders().each(function(order) \{
             console.log("Order ID: " + order.getId() + ", which contains items:");
 
             //iterate over the OrderItems for each Order
-            order.orderItems().each(function(orderItem) {
+            order.orderItems().each(function(orderItem) \{
                 //we know that the Product data is already loaded, so we can use the synchronous getProduct
                 //usually, we would use the asynchronous version (see <a href="#!/api/Ext.data.association.BelongsTo" rel="Ext.data.association.BelongsTo" class="docClass">Ext.data.association.BelongsTo</a>)
                 var product = orderItem.getProduct();
 
                 console.log(orderItem.get('quantity') + ' orders of ' + product.get('name'));
-            });
-        });
-    }
-});
+            \});
+        \});
+    \}
+\});
 </code></pre>
 
 <p>Running the code above results in the following:</p>
@@ -162,29 +162,9 @@ Order ID: 50, which contains items:
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method metaData : _ Js.t Js.readonly_prop
-  (** {% <p>The raw meta data that was most recently read, if any. Meta data can include existing
-Reader config options like <a href="#!/api/Ext.data.reader.Reader-cfg-idProperty" rel="Ext.data.reader.Reader-cfg-idProperty" class="docClass">idProperty</a>, <a href="#!/api/Ext.data.reader.Reader-cfg-totalProperty" rel="Ext.data.reader.Reader-cfg-totalProperty" class="docClass">totalProperty</a>, etc. that get
-automatically applied to the Reader, and those can still be accessed directly from the Reader
-if needed. However, meta data is also often used to pass other custom data to be processed
-by application code. For example, it is common when reconfiguring the data model of a grid to
-also pass a corresponding column model config to be applied to the grid. Any such data will
-not get applied to the Reader directly (it just gets passed through and is ignored by Ext).
-This metaData property gives you access to all meta data that was passed, including any such
-custom data ignored by the reader.</p>
-
-<p>This is a read-only property, and it will get replaced each time a new meta data object is
-passed to the reader. Note that typically you would handle proxy's
-<a href="#!/api/Ext.data.proxy.Proxy-event-metachange" rel="Ext.data.proxy.Proxy-event-metachange" class="docClass">metachange</a> event which passes this exact same meta
-object to listeners. However this property is available if it's more convenient to access it
-via the reader directly in certain cases.</p> %}
-    *)
-  method rawData : _ Js.t Js.prop
-  (** {% <p>The raw data object that was last passed to <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a>. Stored for further processing if needed.</p> %}
-    *)
   method getResponseData : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   (** {% <p>Takes a raw response object (as passed to the <a href="#!/api/Ext.data.reader.Reader-method-read" rel="Ext.data.reader.Reader-method-read" class="docClass">read</a> method) and returns the useful data
 segment from it. This must be implemented by each subclass.</p> %}
@@ -233,17 +213,37 @@ processing should not be needed.</p> %}
     }
     }
     *)
+  method metaData : _ Js.t Js.readonly_prop
+  (** {% <p>The raw meta data that was most recently read, if any. Meta data can include existing
+Reader config options like <a href="#!/api/Ext.data.reader.Reader-cfg-idProperty" rel="Ext.data.reader.Reader-cfg-idProperty" class="docClass">idProperty</a>, <a href="#!/api/Ext.data.reader.Reader-cfg-totalProperty" rel="Ext.data.reader.Reader-cfg-totalProperty" class="docClass">totalProperty</a>, etc. that get
+automatically applied to the Reader, and those can still be accessed directly from the Reader
+if needed. However, meta data is also often used to pass other custom data to be processed
+by application code. For example, it is common when reconfiguring the data model of a grid to
+also pass a corresponding column model config to be applied to the grid. Any such data will
+not get applied to the Reader directly (it just gets passed through and is ignored by Ext).
+This metaData property gives you access to all meta data that was passed, including any such
+custom data ignored by the reader.</p>
+
+<p>This is a read-only property, and it will get replaced each time a new meta data object is
+passed to the reader. Note that typically you would handle proxy's
+<a href="#!/api/Ext.data.proxy.Proxy-event-metachange" rel="Ext.data.proxy.Proxy-event-metachange" class="docClass">metachange</a> event which passes this exact same meta
+object to listeners. However this property is available if it's more convenient to access it
+via the reader directly in certain cases.</p> %}
+    *)
+  method rawData : _ Js.t Js.prop
+  (** {% <p>The raw data object that was last passed to <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a>. Stored for further processing if needed.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method idProperty : Js.js_string Js.t Js.prop
   (** {% <p>Name of the property within a row object that contains a record identifier value. Defaults to the id of the
-model. If an idProperty is explicitly specified it will override the idProperty defined on the model.</p> %}
+model. If an idProperty is explicitly specified it will take precedence over idProperty defined on the model.</p> %}
     *)
   method implicitIncludes : bool Js.t Js.prop
   (** {% <p>True to automatically parse models nested within other models in a response object. See the
@@ -289,8 +289,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method _exception : (t Js.t -> XmlHttpRequest.xmlHttpRequest Js.t ->
     Ext_data_ResultSet.t Js.t -> _ Js.t -> unit) Js.callback

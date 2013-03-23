@@ -1,27 +1,12 @@
 class type t =
 object('self)
   
-  method _DAY : Js.js_string Js.t Js.prop
-  method _HOUR : Js.js_string Js.t Js.prop
-  method _MILLI : Js.js_string Js.t Js.prop
-  method _MINUTE : Js.js_string Js.t Js.prop
-  method _MONTH : Js.js_string Js.t Js.prop
-  method _SECOND : Js.js_string Js.t Js.prop
-  method _YEAR : Js.js_string Js.t Js.prop
-  method dayNames : Js.js_string Js.t Js.js_array Js.t Js.prop
-  method defaultFormat : Js.js_string Js.t Js.prop
-  method defaults : _ Js.t Js.prop
-  method formatCodes : _ Js.t Js.prop
-  method formatFunctions : _ Js.t Js.prop
-  method monthNames : Js.js_string Js.t Js.js_array Js.t Js.prop
-  method monthNumbers : _ Js.t Js.prop
-  method parseFunctions : _ Js.t Js.prop
-  method useStrict : bool Js.t Js.prop
   method add : Js.date Js.t -> Js.js_string Js.t -> Js.number Js.t ->
     Js.date Js.t Js.meth
   method between : Js.date Js.t -> Js.date Js.t -> Js.date Js.t -> bool Js.t
     Js.meth
-  method clearTime : Js.date Js.t -> bool Js.t -> Js.date Js.t Js.meth
+  method clearTime : Js.date Js.t -> bool Js.t Js.optdef -> Js.date Js.t
+    Js.meth
   method clone : Js.date Js.t -> Js.date Js.t Js.meth
   method format : Js.date Js.t -> Js.js_string Js.t -> Js.js_string Js.t
     Js.meth
@@ -52,7 +37,25 @@ object('self)
   method now : Js.number Js.t Js.meth
   method parse : Js.js_string Js.t -> Js.js_string Js.t ->
     bool Js.t Js.optdef -> Js.date Js.t Js.meth
+  method subtract : Js.date Js.t -> Js.js_string Js.t -> Js.number Js.t ->
+    Js.date Js.t Js.meth
   method unescapeFormat : Js.js_string Js.t -> Js.js_string Js.t Js.meth
+  method _DAY : Js.js_string Js.t Js.prop
+  method _HOUR : Js.js_string Js.t Js.prop
+  method _MILLI : Js.js_string Js.t Js.prop
+  method _MINUTE : Js.js_string Js.t Js.prop
+  method _MONTH : Js.js_string Js.t Js.prop
+  method _SECOND : Js.js_string Js.t Js.prop
+  method _YEAR : Js.js_string Js.t Js.prop
+  method dayNames : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method defaultFormat : Js.js_string Js.t Js.prop
+  method defaults : _ Js.t Js.prop
+  method formatCodes : _ Js.t Js.prop
+  method formatFunctions : _ Js.t Js.prop
+  method monthNames : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method monthNumbers : _ Js.t Js.prop
+  method parseFunctions : _ Js.t Js.prop
+  method useStrict : bool Js.t Js.prop
   
 end
 

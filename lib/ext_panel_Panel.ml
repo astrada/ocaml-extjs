@@ -1,19 +1,15 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
   inherit Ext_panel_AbstractPanel.t
   
-  method dd : Ext_dd_DragSource.t Js.t Js.prop
+  method addTool : _ Js.t -> unit Js.meth
   method afterCollapse : bool Js.t -> unit Js.meth
   method afterExpand : bool Js.t -> unit Js.meth
   method beforeDestroy : unit Js.meth
   method close : unit Js.meth
   method collapse : Js.js_string Js.t Js.optdef -> bool Js.t Js.optdef ->
     'self Js.t Js.meth
+  method convertCollapseDir : _ Js.t -> unit Js.meth
   method expand : bool Js.t Js.optdef -> 'self Js.t Js.meth
   method getCollapsed : _ Js.t Js.meth
   method getHeader : unit Js.meth
@@ -26,21 +22,18 @@ object('self)
   method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
   method setBorder : _ Js.t -> unit Js.meth
+  method setGlyph : _ Js.t -> unit Js.meth
   method setIcon : Js.js_string Js.t -> unit Js.meth
   method setIconCls : Js.js_string Js.t -> unit Js.meth
   method setTitle : Js.js_string Js.t -> unit Js.meth
   method setUI : Js.js_string Js.t -> unit Js.meth
   method toggleCollapse : 'self Js.t Js.meth
+  method dd : _ Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
   inherit Ext_panel_AbstractPanel.configs
   
   method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
@@ -67,12 +60,16 @@ object('self)
   method collapsed : bool Js.t Js.prop
   method collapsedCls : Js.js_string Js.t Js.prop
   method collapsible : bool Js.t Js.prop
+  method constrain : bool Js.t Js.prop
+  method constrainHeader : bool Js.t Js.prop
   method dockedItems : _ Js.t Js.prop
   method fbar : _ Js.t Js.prop
   method floatable : bool Js.t Js.prop
   method frame : bool Js.t Js.prop
   method frameHeader : bool Js.t Js.prop
+  method glyph : _ Js.t Js.prop
   method header : _ Js.t Js.prop
+  method headerOverCls : Js.js_string Js.t Js.prop
   method headerPosition : Js.js_string Js.t Js.prop
   method hideCollapseTool : bool Js.t Js.prop
   method icon : Js.js_string Js.t Js.prop
@@ -84,6 +81,7 @@ object('self)
   method placeholder : _ Js.t Js.prop
   method placeholderCollapseHideMode : Js.number Js.t Js.prop
   method rbar : _ Js.t Js.prop
+  method simpleDrag : bool Js.t Js.prop
   method tbar : _ Js.t Js.prop
   method title : Js.js_string Js.t Js.prop
   method titleAlign : Js.js_string Js.t Js.prop
@@ -94,11 +92,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
   inherit Ext_panel_AbstractPanel.events
   
   method beforeclose : (t Js.t -> _ Js.t -> unit) Js.callback
@@ -110,22 +103,21 @@ object
   method close : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method collapse : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method expand : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method float : (_ Js.t -> unit) Js.callback Js.writeonly_prop
+  method glyphchange : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   method iconchange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop
   method iconclschange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop
   method titlechange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method unfloat : (_ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
   inherit Ext_panel_AbstractPanel.statics
   
   

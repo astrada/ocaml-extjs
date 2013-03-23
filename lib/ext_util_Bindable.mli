@@ -10,17 +10,13 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method bindStore : _ Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth
+  method bindStore : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Binds a store to this instance.</p> %}
     
     {b Parameters}:
     {ul {- store: [_ Js.t] (optional)
     {% <p>The store to bind or ID of the store.
 When no store given (or when <code>null</code> or <code>undefined</code> passed), unbinds the existing store.</p> %}
-    }
-    {- initial: [bool Js.t] (optional)
-    {% <p>True to not remove listeners from existing store.</p> %}
-     Defaults to: false
     }
     }
     *)
@@ -44,8 +40,14 @@ in a subclass to provide any more complicated handling.</p> %}
     }
     }
     *)
-  method getStoreListeners : _ Js.t Js.meth
+  method getStoreListeners : Ext_data_Store.t Js.t -> _ Js.t Js.meth
   (** {% <p>Gets the listeners to bind to a new store.</p> %}
+    
+    {b Parameters}:
+    {ul {- store: [Ext_data_Store.t Js.t]
+    {% <p>The Store which is being bound to for which a listeners object should be returned.</p> %}
+    }
+    }
     
     {b Returns}:
     {ul {- [_ Js.t]

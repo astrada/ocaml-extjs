@@ -50,6 +50,11 @@ links between the plugin and its client Component in their own implementation of
     }
     }
     *)
+  method isPlugin : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Plugin, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
@@ -61,13 +66,13 @@ object('self)
   (** {% <p>A name for the plugin that can be set at creation time to then retrieve the plugin
 through <a href="#!/api/Ext.AbstractComponent-method-getPlugin" rel="Ext.AbstractComponent-method-getPlugin" class="docClass">getPlugin</a> method.  For example:</p>
 
-<pre><code>var grid = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
-    plugins: [{
+<pre><code>var grid = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
+    plugins: [\{
         ptype: 'cellediting',
         clicksToEdit: 2,
         pluginId: 'cellplugin'
-    }]
-});
+    \}]
+\});
 
 // later on:
 var plugin = grid.getPlugin('cellplugin');

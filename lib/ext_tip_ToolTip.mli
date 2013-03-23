@@ -14,13 +14,13 @@ attributes of each target element.</p>
 
 <h1>Basic Example</h1>
 
-<pre><code>var tip = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>', {
+<pre><code>var tip = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>', \{
     target: 'clearButton',
     html: 'Press this button to clear the form'
-});
+\});
 </code></pre>
 
-<p><p><img src="images/Ext.tip.ToolTip/Ext.tip.ToolTip1.png" alt="Basic Ext.tip.ToolTip"></p></p>
+<p><p><img src="" alt="Basic Ext.tip.ToolTip" width="" height=""></p></p>
 
 <h1>Delegation</h1>
 
@@ -34,7 +34,7 @@ appropriate sub-elements.</p>
 of the ToolTip based on each delegate element; you can do this by implementing a custom
 listener for the <a href="#!/api/Ext.tip.ToolTip-event-beforeshow" rel="Ext.tip.ToolTip-event-beforeshow" class="docClass">beforeshow</a> event. Example:</p>
 
-<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.ArrayStore" rel="Ext.data.ArrayStore" class="docClass">Ext.data.ArrayStore</a>', {
+<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.ArrayStore" rel="Ext.data.ArrayStore" class="docClass">Ext.data.ArrayStore</a>', \{
     fields: ['company', 'price', 'change'],
     data: [
         ['3m Co',                               71.72, 0.02],
@@ -44,42 +44,41 @@ listener for the <a href="#!/api/Ext.tip.ToolTip-event-beforeshow" rel="Ext.tip.
         ['American International Group, Inc.',  64.13, 0.31],
         ['AT&amp;T Inc.',                           31.61, -0.48]
     ]
-});
+\});
 
-var grid = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
+var grid = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
     title: 'Array Grid',
     store: store,
     columns: [
-        {text: 'Company', flex: 1, dataIndex: 'company'},
-        {text: 'Price', width: 75, dataIndex: 'price'},
-        {text: 'Change', width: 75, dataIndex: 'change'}
+        \{text: 'Company', flex: 1, dataIndex: 'company'\},
+        \{text: 'Price', width: 75, dataIndex: 'price'\},
+        \{text: 'Change', width: 75, dataIndex: 'change'\}
     ],
     height: 200,
     width: 400,
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 
-grid.getView().on('render', function(view) {
-    view.tip = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>', {
-        // The overall target element.
-        target: view.el,
-        // Each grid row causes its own separate show and hide.
-        delegate: view.itemSelector,
-        // Moving within the row should not hide the tip.
-        trackMouse: true,
-        // Render immediately so that tip.body can be referenced prior to the first show.
-        renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-        listeners: {
-            // Change content dynamically depending on which element triggered the show.
-            beforeshow: function updateTipBody(tip) {
-                tip.update('Over company "' + view.getRecord(tip.triggerElement).get('company') + '"');
-            }
-        }
-    });
-});
+var view = grid.getView();
+var tip = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>', \{
+    // The overall target element.
+    target: view.el,
+    // Each grid row causes its own separate show and hide.
+    delegate: view.itemSelector,
+    // Moving within the row should not hide the tip.
+    trackMouse: true,
+    // Render immediately so that tip.body can be referenced prior to the first show.
+    renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
+    listeners: \{
+        // Change content dynamically depending on which element triggered the show.
+        beforeshow: function updateTipBody(tip) \{
+            tip.update('Over company "' + view.getRecord(tip.triggerElement).get('company') + '"');
+        \}
+    \}
+\});
 </code></pre>
 
-<p><p><img src="images/Ext.tip.ToolTip/Ext.tip.ToolTip2.png" alt="Ext.tip.ToolTip with delegation"></p></p>
+<p><p><img src="" alt="Ext.tip.ToolTip with delegation" width="" height=""></p></p>
 
 <h1>Alignment</h1>
 
@@ -110,131 +109,13 @@ shown and hidden:</p>
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
-  inherit Ext_panel_Panel.t
   inherit Ext_tip_Tip.t
   
-  method triggerElement : Dom_html.element Js.t Js.prop
-  (** {% <p>When a ToolTip is configured with the <code><a href="#!/api/Ext.tip.ToolTip-cfg-delegate" rel="Ext.tip.ToolTip-cfg-delegate" class="docClass">delegate</a></code>
-option to cause selected child elements of the <code><a href="#!/api/Ext.tip.ToolTip-cfg-target" rel="Ext.tip.ToolTip-cfg-target" class="docClass">target</a></code>
-Element to each trigger a separate show event, this property is set to
-the DOM element which triggered the show.</p> %}
-    *)
   method beforeDestroy : unit Js.meth
   (** {% <p>Invoked before the Component is destroyed.</p> %}
     *)
   method hide_tooltip : unit Js.meth
   (** {% <p>Hides this tooltip if visible.</p> %}
-    *)
-  method initComponent : unit Js.meth
-  (** {% <p>private</p>
-
-<p>The initComponent template method is an important initialization step for a Component. It is intended to be
-implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
-initComponent method of the class being created is called first, with each initComponent method
-up the hierarchy to <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> being called thereafter. This makes it easy to implement and,
-if needed, override the constructor logic of the Component at any step in the hierarchy.</p>
-
-<p>The initComponent method <strong>must</strong> contain a call to <a href="#!/api/Ext.Base-method-callParent" rel="Ext.Base-method-callParent" class="docClass">callParent</a> in order
-to ensure that the parent class' initComponent method is also called.</p>
-
-<p>All config options passed to the constructor are applied to <code>this</code> before initComponent is called,
-so you can simply access them with <code>this.someOption</code>.</p>
-
-<p>The following example demonstrates using a dynamic string for the text of a button at the time of
-instantiation of the class.</p>
-
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
-    extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
-
-    initComponent: function() {
-        this.text = new Date();
-        this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
-        this.callParent();
-    }
-});
-
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
-    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
-</code></pre> %}
-    *)
-  method onDestroy : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
-    *)
-  method onDisable : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Allows addition of behavior to the disable operation.
-After calling the superclass’s onDisable, the Component will be disabled.</p> %}
-    *)
-  method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Possibly animates down to a target element.</p>
-
-<p>Allows addition of behavior to the hide operation. After
-calling the superclass’s onHide, the Component will be hidden.</p>
-
-<p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-event-hide" rel="Ext.tip.ToolTip-event-hide" class="docClass">hide</a>.</p> %}
-    
-    {b Parameters}:
-    {ul {- animateTarget: [_ Js.t] (optional)
-    }
-    {- callback: [_ Js.callback] (optional)
-    }
-    {- scope: [_ Js.t] (optional)
-    }
-    }
-    *)
-  method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Template method called when this Component's DOM structure is created.</p>
-
-<p>At this point, this Component's (and all descendants') DOM structure <em>exists</em> but it has not
-been layed out (positioned and sized).</p>
-
-<p>Subclasses which override this to gain access to the structure at render time should
-call the parent class's method before attempting to access any child elements of the Component.</p> %}
-    
-    {b Parameters}:
-    {ul {- parentNode: [Ext_dom_Element.t Js.t]
-    {% <p>The parent Element in which this Component's encapsulating element is contained.</p> %}
-    }
-    {- containerIdx: [Js.number Js.t]
-    {% <p>The index within the parent Container's child collection of this Component.</p> %}
-    }
-    }
-    *)
-  method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Allows addition of behavior to the show operation. After
-calling the superclass's onShow, the Component will be visible.</p>
-
-<p>Override in subclasses where more complex behaviour is needed.</p>
-
-<p>Gets passed the same parameters as <a href="#!/api/Ext.tip.ToolTip-method-show" rel="Ext.tip.ToolTip-method-show" class="docClass">show</a>.</p> %}
-    
-    {b Parameters}:
-    {ul {- animateTarget: [_ Js.t] (optional)
-    }
-    {- callback: [_ Js.callback] (optional)
-    }
-    {- scope: [_ Js.t] (optional)
-    }
-    }
     *)
   method setTarget : _ Js.t -> unit Js.meth
   (** {% <p>Binds this ToolTip to the specified element. The tooltip will be displayed when the mouse moves over the element.</p> %}
@@ -249,9 +130,7 @@ calling the superclass's onShow, the Component will be visible.</p>
   (** {% <p>Shows this tooltip at the current event target XY position.</p> %}
     *)
   method showAt_arr : Js.number Js.t Js.js_array Js.t -> unit Js.meth
-  (** {% <p>inherit docs</p>
-
-<p>Shows this tip at the specified XY position.  Example usage:</p>
+  (** {% <p>Shows this tip at the specified XY position.  Example usage:</p>
 
 <pre><code>// Show the tip at x:50 and y:100
 tip.showAt([50,100]);
@@ -263,41 +142,22 @@ tip.showAt([50,100]);
     }
     }
     *)
+  method triggerElement : Dom_html.element Js.t Js.prop
+  (** {% <p>When a ToolTip is configured with the <code><a href="#!/api/Ext.tip.ToolTip-cfg-delegate" rel="Ext.tip.ToolTip-cfg-delegate" class="docClass">delegate</a></code>
+option to cause selected child elements of the <code><a href="#!/api/Ext.tip.ToolTip-cfg-target" rel="Ext.tip.ToolTip-cfg-target" class="docClass">target</a></code>
+Element to each trigger a separate show event, this property is set to
+the DOM element which triggered the show.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
-  inherit Ext_panel_Panel.configs
   inherit Ext_tip_Tip.configs
   
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.beforeDestroy] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDisable] *)
-  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onHide] *)
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRender] *)
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onShow] *)
   method anchor : Js.js_string Js.t Js.prop
   (** {% <p>If specified, indicates that the tip should be anchored to a
 particular side of the target element or mouse pointer ("top", "right", "bottom",
@@ -356,7 +216,7 @@ Set to 0 for the tooltip to hide immediately.</p> %}
   method mouseOffset : Js.number Js.t Js.js_array Js.t Js.prop
   (** {% <p>An XY offset from the mouse position where the tooltip should be shown.</p> %}
     
-    Defaults to: [[15,18]]
+    Defaults to: [15,18]
     *)
   method showDelay : Js.number Js.t Js.prop
   (** {% <p>Delay in milliseconds before the tooltip displays after the mouse enters the target element.</p> %}
@@ -377,13 +237,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
-  inherit Ext_panel_Panel.events
   inherit Ext_tip_Tip.events
   
   
@@ -391,13 +244,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
-  inherit Ext_panel_Panel.statics
   inherit Ext_tip_Tip.statics
   
   

@@ -5,10 +5,8 @@
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_util_Bindable.t
+  inherit Ext_Component.t
   
   method afterRender : unit Js.meth
   (** {% <p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
@@ -29,9 +27,8 @@ names added, and will be in the configured visibility and the configured enable 
   (** {% <p>Function which can be overridden which returns the data object passed to this
 DataView's <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.AbstractView-cfg-tpl" class="docClass">template</a> to render the whole DataView.</p>
 
-
 <p>This is usually an Array of data objects, each element of which is processed by an
-<a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> which uses <tt>'&lt;tpl for="."&gt;'</tt> to iterate over its supplied
+<a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> which uses <code>'&amp;lt;tpl for="."&amp;gt;'</code> to iterate over its supplied
 data object as an Array. However, <i>named</i> properties may be placed into the data object to
 provide non-repeating data such as headings, totals etc.</p> %}
     
@@ -176,8 +173,14 @@ the id of a template node or the record associated with the node.</p> %}
     }
     }
     *)
-  method getStoreListeners : _ Js.t Js.meth
+  method getStoreListeners : Ext_data_Store.t Js.t -> _ Js.t Js.meth
   (** {% <p>Gets the listeners to bind to a new store.</p> %}
+    
+    {b Parameters}:
+    {ul {- store: [Ext_data_Store.t Js.t]
+    {% <p>The Store which is being bound to for which a listeners object should be returned.</p> %}
+    }
+    }
     
     {b Returns}:
     {ul {- [_ Js.t]
@@ -219,19 +222,19 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
     *)
   method isSelected : _ Js.t -> bool Js.t Js.meth
@@ -264,7 +267,7 @@ to the current instance.</p> %}
     *)
   method onDestroy : unit Js.meth
   (** {% <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>Template method called when this Component's DOM structure is created.</p>
@@ -318,7 +321,7 @@ DataView's <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.Abstract
     {b Returns}:
     {ul {- [_ Js.t]
     {% <p>The formatted data in a format expected by the internal <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.AbstractView-cfg-tpl" class="docClass">template</a>'s overwrite() method.
-(either an array if your params are numeric (i.e. {0}) or an object (i.e. {foo: 'bar'}))</p> %}
+(either an array if your params are numeric (i.e. \{0\}) or an object (i.e. \{foo: 'bar'\}))</p> %}
     }
     }
     *)
@@ -339,10 +342,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_util_Bindable.configs
+  inherit Ext_Component.configs
   
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -434,8 +435,7 @@ contents will continue to display normally until the new data is loaded and the 
 Setting this will automatically set <a href="#!/api/Ext.view.AbstractView-cfg-trackOver" rel="Ext.view.AbstractView-cfg-trackOver" class="docClass">trackOver</a> to <code>true</code>.</p> %}
     *)
   method preserveScrollOnRefresh : bool Js.t Js.prop
-  (** {% <p>=false
-True to preserve scroll position across refresh operations.</p> %}
+  (** {% <p>True to preserve scroll position across refresh operations.</p> %}
     
     Defaults to: [false]
     *)
@@ -469,10 +469,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_util_Bindable.events
+  inherit Ext_Component.events
   
   method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -572,8 +570,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   inherit Ext_util_Bindable.statics
   

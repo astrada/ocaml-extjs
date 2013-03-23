@@ -1,12 +1,9 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_view_AbstractView.t
   
-  method afterRender : unit Js.meth
   method clearHighlight : unit Js.meth
+  method focusNode : Ext_data_Model.t Js.t -> unit Js.meth
   method highlightItem : Dom_html.element Js.t -> unit Js.meth
   method initComponent : unit Js.meth
   method refresh : unit Js.meth
@@ -15,23 +12,16 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_view_AbstractView.configs
   
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
+  method mouseOverOutBuffer : Js.number Js.t Js.prop
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_view_AbstractView.events
   
   method beforecontainerclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
@@ -134,9 +124,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
   inherit Ext_view_AbstractView.statics
   
   

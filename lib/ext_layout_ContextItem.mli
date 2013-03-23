@@ -22,23 +22,13 @@ dependent on that property in the appropriate state. Any changes to the property
 trigger the layout and it will be queued in the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a>.</p>
 
 <p>Triggers, once added, remain for the entire layout. Any changes to the property will
-reschedule all unfinished layouts in their trigger set.</p>
-
-<p><strong>From override Ext.diag.layout.ContextItem:</strong> This override adds diagnostics to the <a href="#!/api/Ext.layout.ContextItem" rel="Ext.layout.ContextItem" class="docClass">Ext.layout.ContextItem</a> class.</p> %}
+reschedule all unfinished layouts in their trigger set.</p> %}
   *)
 
 class type t =
 object('self)
   inherit Ext_Base.t
   
-  method state : _ Js.t Js.prop
-  (** {% <p>State variables that are cleared when invalidated. Only applies to component items.</p> %}
-    *)
-  method wrapsComponent : bool Js.t Js.readonly_prop
-  (** {% <p>True if this item wraps a Component (rather than an Element).</p> %}
-    
-    Defaults to: [false]
-    *)
   method addCls : _ Js.t -> unit Js.meth
   (** {% <p>Queue the addition of a class name (or array of class names) to this ContextItem's target when next flushed.</p> %}
     
@@ -106,7 +96,7 @@ layout to be recalculated.</p> %}
     }
     }
     *)
-  method getEl : _ Js.t -> _ Js.t -> unit Js.meth
+  method getEl : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Returns the context item for an owned element. This should only be called on a
 component's item. The list of child items is used to manage invalidating calculated
 results.</p>
@@ -115,8 +105,14 @@ results.</p>
     
     {b Parameters}:
     {ul {- nameOrEl: [_ Js.t]
+    {% <p>The element or the name of an owned element</p> %}
     }
-    {- owner: [_ Js.t]
+    {- owner: [_ Js.t] (optional)
+    {% <p>The owner of the
+named element if the passed "nameOrEl" parameter is a String. Defaults to this
+ContextItem's "target" property.  For more details on owned elements see
+<a href="#!/api/Ext.Component-cfg-childEls" rel="Ext.Component-cfg-childEls" class="docClass">childEls</a> and
+<a href="#!/api/Ext.Component-cfg-renderSelectors" rel="Ext.Component-cfg-renderSelectors" class="docClass">renderSelectors</a></p> %}
     }
     }
     *)
@@ -249,6 +245,23 @@ dirty state.</p> %}
     
     {b Parameters}:
     {ul {- removeCls: [_ Js.t]
+    }
+    }
+    *)
+  method removeEl : _ Js.t -> _ Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Removes a cached ContextItem that was created using <a href="#!/api/Ext.layout.ContextItem-method-getEl" rel="Ext.layout.ContextItem-method-getEl" class="docClass">getEl</a>.  It may be
+necessary to call this method if the dom reference for owned element changes so
+that <a href="#!/api/Ext.layout.ContextItem-method-getEl" rel="Ext.layout.ContextItem-method-getEl" class="docClass">getEl</a> can be called again to reinitialize the ContextItem with the
+new element.</p> %}
+    
+    {b Parameters}:
+    {ul {- nameOrEl: [_ Js.t]
+    {% <p>The element or the name of an owned element</p> %}
+    }
+    {- owner: [_ Js.t] (optional)
+    {% <p>The owner of the
+named element if the passed "nameOrEl" parameter is a String. Defaults to this
+ContextItem's "target" property.</p> %}
     }
     }
     *)
@@ -391,6 +404,14 @@ value of <code>false</code> indicates that the value is already in the DOM.</p> 
     {% <p>The actual width after constraining.</p> %}
     }
     }
+    *)
+  method state : _ Js.t Js.prop
+  (** {% <p>State variables that are cleared when invalidated. Only applies to component items.</p> %}
+    *)
+  method wrapsComponent : bool Js.t Js.readonly_prop
+  (** {% <p>True if this item wraps a Component (rather than an Element).</p> %}
+    
+    Defaults to: [false]
     *)
   
 end

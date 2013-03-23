@@ -9,21 +9,29 @@ from an event:</p>
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Region.t
   
   method equals_point : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Compare this point and another point</p> %}
     
     {b Parameters}:
-    {ul {- the: [_ Js.t]
-    {% <p>point to compare with, either an instance
+    {ul {- p: [_ Js.t]
+    {% <p>The point to compare with, either an instance
 of <a href="#!/api/Ext.util.Point" rel="Ext.util.Point" class="docClass">Ext.util.Point</a> or an object with left and top properties</p> %}
     }
     }
     
     {b Returns}:
     {ul {- [bool Js.t] {% <p>Returns whether they are equivalent</p> %}
+    }
+    }
+    *)
+  method isContainedBy : _ Js.t -> bool Js.t Js.meth
+  (** {% <p>Determins whether this Point contained by the passed Region, Component or element.</p> %}
+    
+    {b Parameters}:
+    {ul {- region: [_ Js.t]
+    {% <p>The rectangle to check that this Point is within.</p> %}
     }
     }
     *)
@@ -81,7 +89,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Region.configs
   
   
@@ -89,7 +96,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Region.events
   
   
@@ -97,14 +103,13 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_util_Region.statics
   
-  method fromEvent : Dom_html.event Js.t -> 'self Js.t Js.meth
+  method fromEvent : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Returns a new instance of <a href="#!/api/Ext.util.Point" rel="Ext.util.Point" class="docClass">Ext.util.Point</a> base on the pageX / pageY values of the given event</p> %}
     
     {b Parameters}:
-    {ul {- e: [Dom_html.event Js.t] {% <p>The event</p> %}
+    {ul {- e: [_ Js.t] {% <p>The event</p> %}
     }
     }
     *)
@@ -117,7 +122,7 @@ val get_static : unit -> statics Js.t
 val static : statics Js.t
 (** Static instance. *)
 
-val fromEvent : Dom_html.event Js.t -> 'self Js.t
+val fromEvent : _ Js.t -> 'self Js.t
 (** See method [statics.fromEvent] *)
 
 val of_configs : configs Js.t -> t Js.t

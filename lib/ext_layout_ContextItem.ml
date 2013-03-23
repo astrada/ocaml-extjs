@@ -2,8 +2,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method state : _ Js.t Js.prop
-  method wrapsComponent : bool Js.t Js.readonly_prop
   method addCls : _ Js.t -> unit Js.meth
   method block : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   method clearMarginCache : unit Js.meth
@@ -12,7 +10,7 @@ object('self)
   method getBorderInfo : _ Js.t Js.meth
   method getClassList : unit Js.meth
   method getDomProp : Js.js_string Js.t -> _ Js.t Js.meth
-  method getEl : _ Js.t -> _ Js.t -> unit Js.meth
+  method getEl : _ Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   method getFrameInfo : _ Js.t Js.meth
   method getMarginInfo : _ Js.t Js.meth
   method getPaddingInfo : _ Js.t Js.meth
@@ -25,6 +23,7 @@ object('self)
   method invalidate : _ Js.t -> unit Js.meth
   method recoverProp : Js.js_string Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   method removeCls : _ Js.t -> unit Js.meth
+  method removeEl : _ Js.t -> _ Js.t Js.optdef -> unit Js.meth
   method setAttribute : _ Js.t -> _ Js.t -> unit Js.meth
   method setContentHeight : _ Js.t -> _ Js.t -> unit Js.meth
   method setContentSize : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
@@ -35,6 +34,8 @@ object('self)
     Js.meth
   method setWidth : Js.number Js.t -> bool Js.t Js.optdef -> Js.number Js.t
     Js.meth
+  method state : _ Js.t Js.prop
+  method wrapsComponent : bool Js.t Js.readonly_prop
   
 end
 

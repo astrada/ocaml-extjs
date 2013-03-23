@@ -16,8 +16,8 @@ a subclass if you want to change the format of the encoded value and subsequent 
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
   method clear : Js.js_string Js.t -> unit Js.meth
   (** {% <p>Clears a value from the state</p> %}
@@ -88,8 +88,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method prefix : Js.js_string Js.t Js.prop
   (** {% <p>A string to prefix to items stored in the underlying state store.
@@ -102,8 +102,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method statechange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop

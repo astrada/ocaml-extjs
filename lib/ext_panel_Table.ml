@@ -1,15 +1,7 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
   inherit Ext_panel_Panel.t
   
-  method hasView : bool Js.t Js.prop
-  method optimizedColumnMove : bool Js.t Js.prop
   method afterCollapse : bool Js.t -> unit Js.meth
   method afterExpand : bool Js.t -> unit Js.meth
   method applyState : _ Js.t -> unit Js.meth
@@ -18,17 +10,15 @@ object('self)
   method getState : _ Js.t Js.meth
   method getStore : Ext_data_Store.t Js.t Js.meth
   method getView : Ext_view_Table.t Js.t Js.meth
+  method initComponent : unit Js.meth
+  method onDestroy : unit Js.meth
+  method hasView : bool Js.t Js.prop
+  method optimizedColumnMove : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
   inherit Ext_panel_Panel.configs
   
   method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
@@ -36,6 +26,10 @@ object('self)
   method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   method allowDeselect : bool Js.t Js.prop
   method columnLines : bool Js.t Js.prop
@@ -47,7 +41,7 @@ object('self)
   method enableColumnMove : bool Js.t Js.prop
   method enableColumnResize : bool Js.t Js.prop
   method enableLocking : bool Js.t Js.prop
-  method features : Ext_grid_feature_Feature.t Js.js_array Js.t Js.prop
+  method features : _ Js.t Js.prop
   method forceFit : bool Js.t Js.prop
   method hideHeaders : bool Js.t Js.prop
   method layout : _ Js.t Js.prop
@@ -67,14 +61,32 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
+  method beforecellclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method beforecellcontextmenu : (Ext_view_Table.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecelldblclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t
+    -> Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method beforecellkeydown : (Ext_view_Table.t Js.t -> Dom_html.element Js.t
+    -> Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method beforecellmousedown : (Ext_view_Table.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method beforecellmouseup : (Ext_view_Table.t Js.t -> Dom_html.element Js.t
+    -> Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   method beforecontainerclick : (Ext_view_View.t Js.t ->
     Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method beforecontainercontextmenu : (Ext_view_View.t Js.t ->
@@ -92,8 +104,6 @@ object
   method beforedeselect : (Ext_selection_RowModel.t Js.t ->
     Ext_data_Model.t Js.t -> Js.number Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method beforeedit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t ->
-    unit) Js.callback Js.writeonly_prop
   method beforeitemclick : (Ext_view_View.t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop
@@ -118,13 +128,27 @@ object
   method beforeselect : (Ext_selection_RowModel.t Js.t ->
     Ext_data_Model.t Js.t -> Js.number Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  method canceledit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t ->
-    unit) Js.callback Js.writeonly_prop
   method cellclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
+  method cellcontextmenu : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   method celldblclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method cellkeydown : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method cellmousedown : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method cellmouseup : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -137,6 +161,8 @@ object
   method columnresize : (Ext_grid_header_Container.t Js.t ->
     Ext_grid_column_Column.t Js.t -> Js.number Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
+  method columnschanged : (Ext_grid_header_Container.t Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
   method columnshow : (Ext_grid_header_Container.t Js.t ->
     Ext_grid_column_Column.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -154,8 +180,18 @@ object
     -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method deselect : (Ext_selection_RowModel.t Js.t -> Ext_data_Model.t Js.t
     -> Js.number Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
-  method edit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t -> unit)
-    Js.callback Js.writeonly_prop
+  method filterchange : (Ext_data_Store.t Js.t ->
+    Ext_util_Filter.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  method headerclick : (Ext_grid_header_Container.t Js.t ->
+    Ext_grid_column_Column.t Js.t -> Ext_EventObject.t Js.t ->
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method headercontextmenu : (Ext_grid_header_Container.t Js.t ->
+    Ext_grid_column_Column.t Js.t -> Ext_EventObject.t Js.t ->
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method headertriggerclick : (Ext_grid_header_Container.t Js.t ->
+    Ext_grid_column_Column.t Js.t -> Ext_EventObject.t Js.t ->
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemclick : (Ext_view_View.t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop
@@ -185,20 +221,12 @@ object
   method sortchange : (Ext_grid_header_Container.t Js.t ->
     Ext_grid_column_Column.t Js.t -> Js.js_string Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method validateedit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t
-    -> unit) Js.callback Js.writeonly_prop
   method viewready : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
   inherit Ext_panel_Panel.statics
   
   

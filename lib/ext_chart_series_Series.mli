@@ -9,6 +9,7 @@ mouse events, animating, hiding, showing all elements and returning the color of
 <p>The series class supports listeners via the Observable syntax. Some of these listeners are:</p>
 
 <ul>
+<li><code>itemclick</code> When the user interacts with a marker.</li>
 <li><code>itemmouseup</code> When the user interacts with a marker.</li>
 <li><code>itemmousedown</code> When the user interacts with a marker.</li>
 <li><code>itemmousemove</code> When the user iteracts with a marker.</li>
@@ -18,28 +19,28 @@ mouse events, animating, hiding, showing all elements and returning the color of
 
 <p>For example:</p>
 
-<pre><code>series: [{
+<pre><code>series: [\{
         type: 'column',
         axis: 'left',
-        listeners: {
-                'afterrender': function() {
+        listeners: \{
+                'afterrender': function() \{
                         console('afterrender');
-                }
-        },
+                \}
+        \},
         xField: 'category',
         yField: 'data1'
-}]
+\}]
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_chart_Callout.t
   inherit Ext_chart_Highlight.t
   inherit Ext_chart_Label.t
   inherit Ext_chart_Tip.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
   method eachRecord : _ Js.callback -> _ Js.t -> unit Js.meth
   (** {% <p>Iterate over each of the records for this series. The default implementation simply iterates
@@ -120,12 +121,12 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_chart_Callout.configs
   inherit Ext_chart_Highlight.configs
   inherit Ext_chart_Label.configs
   inherit Ext_chart_Tip.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method highlight : _ Js.t Js.prop
   (** {% <p>If set to <code>true</code> it will highlight the markers or the series when hovering
@@ -137,6 +138,7 @@ styles to markers and series.</p> %}
   (** {% <p>An (optional) object with event callbacks. All event callbacks get the target <em>item</em> as first parameter. The callback functions are:</p>
 
 <ul>
+<li>itemclick</li>
 <li>itemmouseover</li>
 <li>itemmouseout</li>
 <li>itemmousedown</li>
@@ -159,14 +161,14 @@ Passes in (sprite, record, attributes, index, store) to the function.</p> %}
   (** {% <p>Add tooltips to the visualization's markers. The options for the tips are the
 same configuration used with <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>. For example:</p>
 
-<pre><code>tips: {
+<pre><code>tips: \{
   trackMouse: true,
   width: 140,
   height: 28,
-  renderer: function(storeItem, item) {
+  renderer: function(storeItem, item) \{
     this.setTitle(storeItem.get('name') + ': ' + storeItem.get('data1') + ' views');
-  }
-},
+  \}
+\},
 </code></pre> %}
     *)
   method title : Js.js_string Js.t Js.prop
@@ -180,12 +182,12 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_chart_Callout.events
   inherit Ext_chart_Highlight.events
   inherit Ext_chart_Label.events
   inherit Ext_chart_Tip.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method titlechange : (Js.js_string Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop

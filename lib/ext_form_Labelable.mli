@@ -24,25 +24,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method bodyEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The div Element wrapping the component's contents. Only available after the component has been rendered.</p> %}
-    *)
-  method errorEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The div Element that will contain the component's error message(s). Note that depending on the configured
-<a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a>, this element may be hidden in favor of some other form of presentation, but will always
-be present in the DOM for use by assistive technologies.</p> %}
-    *)
-  method isFieldLabelable : bool Js.t Js.prop
-  (** {% <p>Flag denoting that this object is labelable as a field. Always true.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method labelCell : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The <code>&lt;TD&gt;</code> Element which contains the label Element for this component. Only available after the component has been rendered.</p> %}
-    *)
-  method labelEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The label Element for this component. Only available after the component has been rendered.</p> %}
-    *)
   method getActiveError : Js.js_string Js.t Js.meth
   (** {% <p>Gets the active error message for this component, if any. This does not trigger validation on its own, it merely
 returns any message that the component may already hold.</p> %}
@@ -80,6 +61,14 @@ Implementing subclasses may also use this as e.g. the id for their own input ele
     
     {b Returns}:
     {ul {- [Js.js_string Js.t] {% <p>The input id</p> %}
+    }
+    }
+    *)
+  method getLabelWidth : Js.number Js.t Js.meth
+  (** {% <p>Gets the width of the label (if visible)</p> %}
+    
+    {b Returns}:
+    {ul {- [Js.number Js.t] {% <p>The label width</p> %}
     }
     }
     *)
@@ -174,6 +163,25 @@ string.</p> %}
   (** {% <p>Clears the active error message(s). Note that this only clears the error message element's text and attributes,
 you'll have to call doComponentLayout to actually update the field's layout to match. If the field extends <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a> you should call <a href="#!/api/Ext.form.field.Base-method-clearInvalid" rel="Ext.form.field.Base-method-clearInvalid" class="docClass">clearInvalid</a> instead.</p> %}
     *)
+  method bodyEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The div Element wrapping the component's contents. Only available after the component has been rendered.</p> %}
+    *)
+  method errorEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The div Element that will contain the component's error message(s). Note that depending on the configured
+<a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a>, this element may be hidden in favor of some other form of presentation, but will always
+be present in the DOM for use by assistive technologies.</p> %}
+    *)
+  method isFieldLabelable : bool Js.t Js.prop
+  (** {% <p>Flag denoting that this object is labelable as a field. Always true.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method labelCell : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The <code>&lt;TD&gt;</code> Element which contains the label Element for this component. Only available after the component has been rendered.</p> %}
+    *)
+  method labelEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The label Element for this component. Only available after the component has been rendered.</p> %}
+    *)
   
 end
 
@@ -190,9 +198,8 @@ object('self)
     *)
   method activeErrorsTpl : _ Js.t Js.prop
   (** {% <p>The template used to format the Array of error messages passed to <a href="#!/api/Ext.form.Labelable-method-setActiveErrors" rel="Ext.form.Labelable-method-setActiveErrors" class="docClass">setActiveErrors</a> into a single HTML
-string. By default this renders each message as an item in an unordered list.</p> %}
-    
-    Defaults to: [['<tpl if="errors && errors.length">', '<ul><tpl for="errors"><li>{.}</li></tpl></ul>', '</tpl>']]
+string. if the <a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a> is title, it defaults to a list separated by new lines. Otherwise, it
+renders each message as an item in an unordered list.</p> %}
     *)
   method afterBodyEl : _ Js.t Js.prop
   (** {% <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup

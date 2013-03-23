@@ -11,60 +11,59 @@ be provided for the View to determine what nodes it will be working with.</stron
 
 <p>The example below binds a View to a <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a> and renders it into an <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>.</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Image', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Image', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
-        { name:'src', type:'string' },
-        { name:'caption', type:'string' }
+        \{ name:'src', type:'string' \},
+        \{ name:'caption', type:'string' \}
     ]
-});
+\});
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     id:'imagesStore',
     model: 'Image',
     data: [
-        { src:'http://www.sencha.com/img/20110215-feat-drawing.png', caption:'Drawing &amp; Charts' },
-        { src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' },
-        { src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' },
-        { src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned' }
+        \{ src:'http://www.sencha.com/img/20110215-feat-drawing.png', caption:'Drawing &amp; Charts' \},
+        \{ src:'http://www.sencha.com/img/20110215-feat-data.png', caption:'Advanced Data' \},
+        \{ src:'http://www.sencha.com/img/20110215-feat-html5.png', caption:'Overhauled Theme' \},
+        \{ src:'http://www.sencha.com/img/20110215-feat-perf.png', caption:'Performance Tuned' \}
     ]
-});
+\});
 
 var imageTpl = new <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a>(
     '&lt;tpl for="."&gt;',
         '&lt;div style="margin-bottom: 10px;" class="thumb-wrap"&gt;',
-          '&lt;img src="{src}" /&gt;',
-          '&lt;br/&gt;&lt;span&gt;{caption}&lt;/span&gt;',
+          '&lt;img src="\{src\}" /&gt;',
+          '&lt;br/&gt;&lt;span&gt;\{caption\}&lt;/span&gt;',
         '&lt;/div&gt;',
     '&lt;/tpl&gt;'
 );
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">Ext.view.View</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">Ext.view.View</a>', \{
     store: <a href="#!/api/Ext.data.StoreManager-method-lookup" rel="Ext.data.StoreManager-method-lookup" class="docClass">Ext.data.StoreManager.lookup</a>('imagesStore'),
     tpl: imageTpl,
     itemSelector: 'div.thumb-wrap',
     emptyText: 'No images available',
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_view_AbstractView.t
   
-  method afterRender : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
-will have been styled according to the configuration, will have had any configured CSS class
-names added, and will be in the configured visibility and the configured enable state.</p> %}
-    *)
   method clearHighlight : unit Js.meth
   (** {% <p>Un-highlights the currently highlighted item, if any.</p> %}
+    *)
+  method focusNode : Ext_data_Model.t Js.t -> unit Js.meth
+  (** {% <p>Focuses a node in the view.</p> %}
+    
+    {b Parameters}:
+    {ul {- _rec: [Ext_data_Model.t Js.t]
+    {% <p>The record associated to the node that is to be focused.</p> %}
+    }
+    }
     *)
   method highlightItem : Dom_html.element Js.t -> unit Js.meth
   (** {% <p>Highlights a given item in the View. This is called by the mouseover handler if <a href="#!/api/Ext.view.View-cfg-overItemCls" rel="Ext.view.View-cfg-overItemCls" class="docClass">overItemCls</a>
@@ -93,19 +92,19 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
     *)
   method refresh : unit Js.meth
@@ -116,25 +115,23 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_view_AbstractView.configs
   
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
+  method mouseOverOutBuffer : Js.number Js.t Js.prop
+  (** {% <p>The number of milliseconds to buffer mouseover and mouseout event handling on view items.</p>
+
+<p>Configure this as <code>false</code> to process mouseover and mouseout events immediately.</p> %}
+    
+    Defaults to: [20]
+    *)
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_view_AbstractView.events
   
   method beforecontainerclick : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t
@@ -895,9 +892,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
   inherit Ext_view_AbstractView.statics
   
   

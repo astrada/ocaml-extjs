@@ -18,25 +18,25 @@ data that will be displayed in the Chart. For example the data for a chart that 
 a weather forecast could be represented as a series of "WeatherPoint" data points with
 two fields - "temperature", and "date":</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('WeatherPoint', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('WeatherPoint', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['temperature', 'date']
-});
+\});
 </code></pre>
 
 <p>Next a <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> must be created.  The store contains a collection of "WeatherPoint" Model instances.
 The data could be loaded dynamically, but for sake of ease this example uses inline data:</p>
 
-<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     model: 'WeatherPoint',
     data: [
-        { temperature: 58, date: new Date(2011, 1, 1, 8) },
-        { temperature: 63, date: new Date(2011, 1, 1, 9) },
-        { temperature: 73, date: new Date(2011, 1, 1, 10) },
-        { temperature: 78, date: new Date(2011, 1, 1, 11) },
-        { temperature: 81, date: new Date(2011, 1, 1, 12) }
+        \{ temperature: 58, date: new Date(2011, 1, 1, 8) \},
+        \{ temperature: 63, date: new Date(2011, 1, 1, 9) \},
+        \{ temperature: 73, date: new Date(2011, 1, 1, 10) \},
+        \{ temperature: 78, date: new Date(2011, 1, 1, 11) \},
+        \{ temperature: 81, date: new Date(2011, 1, 1, 12) \}
     ]
-});
+\});
 </code></pre>
 
 <p>For additional information on Models and Stores please refer to the <a href="#/guide/data">Data Guide</a>.</p>
@@ -45,12 +45,12 @@ The data could be loaded dynamically, but for sake of ease this example uses inl
 
 <p>Now that a Store has been created it can be used in a Chart:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', \{
    renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
    width: 400,
    height: 300,
    store: store
-});
+\});
 </code></pre>
 
 <p>That's all it takes to create a Chart instance that is backed by a Store.
@@ -63,26 +63,26 @@ the Chart's <a href="#!/api/Ext.chart.Chart-cfg-axes" rel="Ext.chart.Chart-cfg-a
 <p><a href="#!/api/Ext.chart.axis.Axis" rel="Ext.chart.axis.Axis" class="docClass">Axes</a> are the lines that define the boundaries of the data points that a Chart can display.
 This example uses one of the most common Axes configurations - a horizontal "x" axis, and a vertical "y" axis:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', \{
     ...
     axes: [
-        {
+        \{
             title: 'Temperature',
             type: 'Numeric',
             position: 'left',
             fields: ['temperature'],
             minimum: 0,
             maximum: 100
-        },
-        {
+        \},
+        \{
             title: 'Time',
             type: 'Time',
             position: 'bottom',
             fields: ['date'],
             dateFormat: 'ga'
-        }
+        \}
     ]
-});
+\});
 </code></pre>
 
 <p>The "Temperature" axis is a vertical <a href="#!/api/Ext.chart.axis.Numeric" rel="Ext.chart.axis.Numeric" class="docClass">Numeric Axis</a> and is positioned on the left edge of the Chart.
@@ -96,7 +96,7 @@ configuration tells the Time Axis how to format it's labels.</p>
 
 <p>Here's what the Chart looks like now that it has its Axes configured:</p>
 
-<p><p><img src="images/Ext.chart.Chart/Ext.chart.Chart1.png" alt="Chart Axes"></p></p>
+<p><p><img src="" alt="Chart Axes" width="" height=""></p></p>
 
 <h3>4. Configuring the Series</h3>
 
@@ -104,25 +104,25 @@ configuration tells the Time Axis how to format it's labels.</p>
 Series are responsible for the visual representation of the data points contained in the Store.
 This example only has one Series:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', \{
     ...
     axes: [
         ...
     ],
     series: [
-        {
+        \{
             type: 'line',
             xField: 'date',
             yField: 'temperature'
-        }
+        \}
     ]
-});
+\});
 </code></pre>
 
 <p>This Series is a <a href="#!/api/Ext.chart.series.Line" rel="Ext.chart.series.Line" class="docClass">Line Series</a>, and it uses the "date" and "temperature" fields
 from the "WeatherPoint" Models in the Store to plot its data points:</p>
 
-<p><p><img src="images/Ext.chart.Chart/Ext.chart.Chart2.png" alt="Line Series"></p></p>
+<p><p><img src="" alt="Line Series" width="" height=""></p></p>
 
 <p>See the <a href="#!/example/charts/Charts.html">Line Charts Example</a> for a live demo.</p>
 
@@ -130,31 +130,28 @@ from the "WeatherPoint" Models in the Store to plot its data points:</p>
 
 <p>The color scheme for a Chart can be easily changed using the <a href="#!/api/Ext.chart.Chart-cfg-theme" rel="Ext.chart.Chart-cfg-theme" class="docClass">theme</a> configuration option:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.chart.Chart" rel="Ext.chart.Chart" class="docClass">Ext.chart.Chart</a>', \{
     ...
     theme: 'Green',
     ...
-});
+\});
 </code></pre>
 
-<p><p><img src="images/Ext.chart.Chart/Ext.chart.Chart3.png" alt="Green Theme"></p></p>
+<p><p><img src="" alt="Green Theme" width="" height=""></p></p>
 
 <p>For more information on Charts please refer to the <a href="#/guide/drawing_and_charting">Drawing and Charting Guide</a>.</p> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_draw_Component.t
   inherit Ext_chart_Mask.t
   inherit Ext_chart_Navigation.t
   inherit Ext_chart_theme_Theme.t
   inherit Ext_util_Bindable.t
   inherit Ext_util_Observable.t
+  inherit Ext_draw_Component.t
   
-  method bindStore : _ Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth
+  method bindStore : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Binds a store to this instance.</p> %}
     
     {b Parameters}:
@@ -162,14 +159,16 @@ object('self)
     {% <p>The store to bind or ID of the store.
 When no store given (or when <code>null</code> or <code>undefined</code> passed), unbinds the existing store.</p> %}
     }
-    {- initial: [bool Js.t] (optional)
-    {% <p>True to not remove listeners from existing store.</p> %}
-     Defaults to: false
-    }
     }
     *)
-  method getStoreListeners : _ Js.t Js.meth
+  method getStoreListeners : Ext_data_Store.t Js.t -> _ Js.t Js.meth
   (** {% <p>Gets the listeners to bind to a new store.</p> %}
+    
+    {b Parameters}:
+    {ul {- store: [Ext_data_Store.t Js.t]
+    {% <p>The Store which is being bound to for which a listeners object should be returned.</p> %}
+    }
+    }
     
     {b Returns}:
     {ul {- [_ Js.t]
@@ -194,19 +193,19 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
     *)
   method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
@@ -258,10 +257,15 @@ for more details.</p>
 
 <p>Example usage:</p>
 
-<pre><code>chart.save({
+<pre><code>chart.save(\{
      type: 'image/png'
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Important</strong>: By default, chart data is sent to a server operated
+by Sencha to do data processing. You may change this default by
+setting the <a href="#!/api/Ext.draw.engine.ImageExporter-property-defaultUrl" rel="Ext.draw.engine.ImageExporter-property-defaultUrl" class="docClass">defaultUrl</a> of the <a href="#!/api/Ext.draw.engine.ImageExporter" rel="Ext.draw.engine.ImageExporter" class="docClass">Ext.draw.engine.ImageExporter</a> class.
+In addition, please note that this service only creates PNG images.</p> %}
     
     {b Parameters}:
     {ul {- config: [_ Js.t] (optional)
@@ -282,15 +286,12 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_draw_Component.configs
   inherit Ext_chart_Mask.configs
   inherit Ext_chart_Navigation.configs
   inherit Ext_chart_theme_Theme.configs
   inherit Ext_util_Bindable.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_draw_Component.configs
   
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -307,7 +308,7 @@ object to be used for default chart animations. Defaults to false.</p> %}
   method axes : Ext_chart_axis_Axis.t Js.js_array Js.t Js.prop
   (** {% <p>Array of <a href="#!/api/Ext.chart.axis.Axis" rel="Ext.chart.axis.Axis" class="docClass">Axis</a> instances or config objects.  For example:</p>
 
-<pre><code>axes: [{
+<pre><code>axes: [\{
     type: 'Numeric',
     position: 'left',
     fields: ['data1'],
@@ -315,56 +316,50 @@ object to be used for default chart animations. Defaults to false.</p> %}
     minimum: 0,
     //one minor tick between two major ticks
     minorTickSteps: 1
-}, {
+\}, \{
     type: 'Category',
     position: 'bottom',
     fields: ['name'],
     title: 'Month of the Year'
-}]
+\}]
 </code></pre> %}
     *)
   method background : _ Js.t Js.prop
   (** {% <p>The chart background. This can be a gradient object, image, or color. Defaults to false for no
 background. For example, if <code>background</code> were to be a color we could set the object as</p>
 
-<pre><code>background: {
+<pre><code>background: \{
     //color string
     fill: '#ccc'
-}
+\}
 </code></pre>
 
 <p>You can specify an image by using:</p>
 
-<pre><code>background: {
+<pre><code>background: \{
     image: 'http://path.to.image/'
-}
+\}
 </code></pre>
 
 <p>Also you can specify a gradient by using the gradient object syntax:</p>
 
-<pre><code>background: {
-    gradient: {
+<pre><code>background: \{
+    gradient: \{
         id: 'gradientId',
         angle: 45,
-        stops: {
-            0: {
+        stops: \{
+            0: \{
                 color: '#555'
-            }
-            100: {
+            \}
+            100: \{
                 color: '#ddd'
-            }
-        }
-    }
-}
+            \}
+        \}
+    \}
+\}
 </code></pre> %}
     
     Defaults to: [false]
-    *)
-  method enginePriority : Js.js_string Js.t Js.js_array Js.t Js.prop
-  (** {% <p>Defines the priority order for which Surface implementation to use. The first one supported by the current
-environment will be used. Defaults to <code>['Svg', 'Vml']</code>.</p> %}
-    
-    Defaults to: [['Svg', 'Vml']]
     *)
   method gradients : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>Define a set of gradients that can be used as <code>fill</code> property in sprites. The gradients array is an
@@ -379,39 +374,39 @@ array of objects with the following properties:</p>
 
 <p>For example:</p>
 
-<pre><code>gradients: [{
+<pre><code>gradients: [\{
     id: 'gradientId',
     angle: 45,
-    stops: {
-        0: {
+    stops: \{
+        0: \{
             color: '#555'
-        },
-        100: {
+        \},
+        100: \{
             color: '#ddd'
-        }
-    }
-}, {
+        \}
+    \}
+\}, \{
     id: 'gradientId2',
     angle: 0,
-    stops: {
-        0: {
+    stops: \{
+        0: \{
             color: '#590'
-        },
-        20: {
+        \},
+        20: \{
             color: '#599'
-        },
-        100: {
+        \},
+        100: \{
             color: '#ddd'
-        }
-    }
-}]
+        \}
+    \}
+\}]
 </code></pre>
 
 <p>Then the sprites can use <code>gradientId</code> and <code>gradientId2</code> by setting the fill attributes to those ids, for example:</p>
 
-<pre><code>sprite.setAttributes({
+<pre><code>sprite.setAttributes(\{
     fill: 'url(#gradientId)'
-}, true);
+\}, true);
 </code></pre> %}
     *)
   method insetPadding : Js.number Js.t Js.prop
@@ -427,17 +422,17 @@ array of objects with the following properties:</p>
   method series : Ext_chart_series_Series.t Js.js_array Js.t Js.prop
   (** {% <p>Array of <a href="#!/api/Ext.chart.series.Series" rel="Ext.chart.series.Series" class="docClass">Series</a> instances or config objects.  For example:</p>
 
-<pre><code>series: [{
+<pre><code>series: [\{
     type: 'column',
     axis: 'left',
-    listeners: {
-        'afterrender': function() {
+    listeners: \{
+        'afterrender': function() \{
             console('afterrender');
-        }
-    },
+        \}
+    \},
     xField: 'category',
     yField: 'data1'
-}]
+\}]
 </code></pre> %}
     *)
   method store : Ext_data_Store.t Js.t Js.prop
@@ -454,15 +449,12 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_draw_Component.events
   inherit Ext_chart_Mask.events
   inherit Ext_chart_Navigation.events
   inherit Ext_chart_theme_Theme.events
   inherit Ext_util_Bindable.events
   inherit Ext_util_Observable.events
+  inherit Ext_draw_Component.events
   
   method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -493,9 +485,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
   inherit Ext_draw_Component.statics
   inherit Ext_chart_Mask.statics
   inherit Ext_chart_Navigation.statics

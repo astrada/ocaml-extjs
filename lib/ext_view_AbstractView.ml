@@ -1,9 +1,7 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_util_Bindable.t
+  inherit Ext_Component.t
   
   method afterRender : unit Js.meth
   method bindStore_view : Ext_data_Store.t Js.t -> unit Js.meth
@@ -22,7 +20,7 @@ object('self)
   method getSelectedNodes : Dom_html.element Js.t Js.js_array Js.t Js.meth
   method getSelectionModel : #Ext_selection_Model.t Js.t Js.meth
   method getStore_view : Ext_data_Store.t Js.t Js.meth
-  method getStoreListeners : _ Js.t Js.meth
+  method getStoreListeners : Ext_data_Store.t Js.t -> _ Js.t Js.meth
   method indexOf : _ Js.t -> Js.number Js.t Js.meth
   method initComponent : unit Js.meth
   method isSelected : _ Js.t -> bool Js.t Js.meth
@@ -41,10 +39,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_util_Bindable.configs
+  inherit Ext_Component.configs
   
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -78,10 +74,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_util_Bindable.events
+  inherit Ext_Component.events
   
   method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -99,8 +93,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   inherit Ext_util_Bindable.statics
   

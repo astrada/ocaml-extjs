@@ -8,7 +8,19 @@ the Operations.</p>
 the config options passed to the JsonWriter's constructor.</p>
 
 <p>Writers are not needed for any kind of local storage - whether via a <a href="#!/api/Ext.data.proxy.WebStorage" rel="Ext.data.proxy.WebStorage" class="docClass">Web Storage
-proxy</a> (see <a href="#!/api/Ext.data.proxy.LocalStorage" rel="Ext.data.proxy.LocalStorage" class="docClass">localStorage</a> and <a href="#!/api/Ext.data.proxy.SessionStorage" rel="Ext.data.proxy.SessionStorage" class="docClass">sessionStorage</a>) or just in memory via a <a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">MemoryProxy</a>.</p> %}
+proxy</a> (see <a href="#!/api/Ext.data.proxy.LocalStorage" rel="Ext.data.proxy.LocalStorage" class="docClass">localStorage</a> and <a href="#!/api/Ext.data.proxy.SessionStorage" rel="Ext.data.proxy.SessionStorage" class="docClass">sessionStorage</a>) or just in memory via a <a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">MemoryProxy</a>.</p>
+
+<h1>Dates</h1>
+
+<p>Before sending dates to the server, they can be formatted using one of the <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a> formats.
+These formats can be specified both on the field and the writer itself. In terms of precedence, from highest to lowest:</p>
+
+<ul>
+<li><a href="#!/api/Ext.data.writer.Writer-cfg-dateFormat" rel="Ext.data.writer.Writer-cfg-dateFormat" class="docClass">Writer.dateFormat</a> The writer dateFormat will always have the highest precedence</li>
+<li><a href="#!/api/Ext.data.Field-cfg-dateWriteFormat" rel="Ext.data.Field-cfg-dateWriteFormat" class="docClass">Ext.data.Field.dateWriteFormat</a> The dateWriteFormat will be used if no format is specified on the writer</li>
+<li><a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">Field.dateFormat</a>/<a href="#!/api/Ext.data.Field-cfg-dateReadFormat" rel="Ext.data.Field-cfg-dateReadFormat" class="docClass">Field.dateReadFormat</a>
+Finally, if none of the above options are specified the field will be formatted using the format that was used to read the date from the server.</li>
+</ul> %}
   *)
 
 class type t =
@@ -58,32 +70,36 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method dateFormat : Js.js_string Js.t Js.prop
+  (** {% <p>This is used for each field of type date in the model to format the value before
+it is sent to the server.</p> %}
+    *)
   method nameProperty : Js.js_string Js.t Js.prop
   (** {% <p>This property is used to read the key for each value that will be sent to the server. For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Person', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Person', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
-    fields: [{
+    fields: [\{
         name: 'first',
         mapping: 'firstName'
-    }, {
+    \}, \{
         name: 'last',
         mapping: 'lastName'
-    }, {
+    \}, \{
         name: 'age'
-    }]
-});
-new <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a>({
+    \}]
+\});
+new <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a>(\{
     writeAllFields: true,
     nameProperty: 'mapping'
-});
+\});
 
 // This will be sent to the server
-{
+\{
     firstName: 'first name value',
     lastName: 'last name value',
     age: 1
-}
+\}
 </code></pre>
 
 <p>If the value is not present, the field name will always be used.</p> %}
@@ -93,6 +109,17 @@ new <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="
   method writeAllFields : bool Js.t Js.prop
   (** {% <p>True to write all fields from the record to the server. If set to false it will only send the fields that were
 modified. Note that any fields that have <a href="#!/api/Ext.data.Field-cfg-persist" rel="Ext.data.Field-cfg-persist" class="docClass">Ext.data.Field.persist</a> set to false will still be ignored.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method writeRecordId : bool Js.t Js.prop
+  (** {% <p>By default, each record's id is always included in the output for non-phantom records since in most
+cases the id will be required on the server to process the record action. This is helpful since the id
+will normally not be modified, and so would not be sent to the server unless <a href="#!/api/Ext.data.writer.Writer-cfg-writeAllFields" rel="Ext.data.writer.Writer-cfg-writeAllFields" class="docClass">writeAllFields</a>
+was explicitly enabled.</p>
+
+<p>However, there are cases where it is not desirable for the record id to be passed in the data directly.
+For example, when using a RESTful API the record id would typically be appended to the url instead.</p> %}
     
     Defaults to: [true]
     *)

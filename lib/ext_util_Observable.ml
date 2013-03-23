@@ -2,34 +2,38 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method hasListeners : _ Js.t Js.readonly_prop
-  method isObservable : bool Js.t Js.prop
   method addEvents : _ Js.t -> unit Js.meth
   method addListener : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
-    -> _ Js.t Js.optdef -> unit Js.meth
+    -> _ Js.t Js.optdef -> _ Js.t Js.meth
   method addManagedListener : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t Js.meth
   method clearListeners : unit Js.meth
   method clearManagedListeners : unit Js.meth
   method enableBubble : _ Js.t -> unit Js.meth
   method fireEvent : Js.js_string Js.t -> _ Js.t -> bool Js.t Js.meth
+  method fireEventArgs : Js.js_string Js.t -> _ Js.t Js.js_array Js.t ->
+    bool Js.t Js.meth
   method hasListener : Js.js_string Js.t -> bool Js.t Js.meth
   method mon : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t Js.meth
   method mun : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
   method on : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
-    _ Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.optdef -> _ Js.t Js.meth
   method relayEvents : _ Js.t -> Js.js_string Js.t Js.js_array Js.t ->
-    Js.js_string Js.t Js.optdef -> unit Js.meth
+    Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   method removeListener : Js.js_string Js.t -> _ Js.callback ->
     _ Js.t Js.optdef -> unit Js.meth
   method removeManagedListener : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef
     -> _ Js.t Js.optdef -> unit Js.meth
+  method resumeEvent : Js.js_string Js.t -> unit Js.meth
   method resumeEvents : unit Js.meth
+  method suspendEvent : Js.js_string Js.t -> unit Js.meth
   method suspendEvents : bool Js.t -> unit Js.meth
   method un : Js.js_string Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit
     Js.meth
+  method hasListeners : _ Js.t Js.readonly_prop
+  method isObservable : bool Js.t Js.prop
   
 end
 

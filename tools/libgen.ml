@@ -81,13 +81,11 @@ let is_optional =
 
 (* Docs *)
 let to_escape_regexp = Str.regexp "[@{}]"
-(* HACK: Specific regexp to match an unbalanced quote *)
-let quote_regexp = Str.regexp (Str.quote "', and \"")
+let quot_regexp = Str.regexp "\""
 
 let clean_doc s =
   String.trim s
     |> Str.global_replace to_escape_regexp "\\\\\\0"
-    |> Str.global_replace quote_regexp "', and &quot;"
 (* END Docs *)
 
 (* Superclasses *)
@@ -203,12 +201,15 @@ struct
        ("Ext.dom.Element", "update", Method, Suffix "html");
        ("Ext.ComponentLoader", "renderer", Cfg, Suffix "2");
        ("Ext.Component", "draggable", Cfg, Suffix "obj");
+       ("Ext.Component", "getBubbleTarget", Method, Disable);
        ("Ext.layout.Layout", "getLayoutItems", Method, Suffix "empty");
        ("Ext.layout.container.Container", "beginLayout", Method, Suffix "obj");
        ("Ext.layout.container.Container", "configureItem", Method,
         Suffix "obj");
        ("Ext.container.AbstractContainer", "disable", Method,
         Suffix "chainable");
+       ("Ext.container.AbstractContainer", "move", Method,
+        Suffix "container");
        ("Ext.container.Container", "onAdded", Method, Suffix "container");
        ("Ext.dd.StatusProxy", "hide", Method, Suffix "proxy");
        ("Ext.dd.StatusProxy", "update", Method, Suffix "html");
@@ -225,26 +226,32 @@ struct
        ("Ext.data.Store", "removeAll", Method, Suffix "bool");
        ("Ext.view.AbstractView", "bindStore", Method, Suffix "view");
        ("Ext.view.AbstractView", "getStore", Method, Suffix "view");
+       ("Ext.view.Table", "focus", Method, Suffix "table");
+       ("Ext.view.Table", "getNode", Method, Suffix "table");
        ("Ext.grid.plugin.Editing", "init", Method, Suffix "component");
        ("Ext.menu.Menu", "getBubbleTarget", Method, Suffix "container");
        ("Ext.menu.Menu", "hide", Method, Suffix "menu");
        ("Ext.menu.Menu", "show", Method, Suffix "menu");
+       ("Ext.menu.Menu", "showBy", Method, Suffix "menu");
        ("Ext.grid.column.Column", "resizable", Cfg, Suffix "bool");
        ("Ext.grid.column.Column", "hide", Method, Suffix "column");
        ("Ext.grid.column.Column", "show", Method, Suffix "column");
        ("Ext.app.Application", "getController", Method, Suffix "app");
+       ("Ext.app.Application", "getApplication", Method, Suffix "app");
        ("Ext.form.Panel", "layout", Cfg, Suffix "str");
        ("Ext.form.field.Base", "doComponentLayout", Method, Suffix "container");
        ("Ext.form.field.Base", "getInputId", Method, Disable);
        ("Ext.form.field.Base", "getSubTplMarkup", Method, Disable);
        ("Ext.form.field.Text", "processRawValue", Method, Suffix "str");
        ("Ext.tip.Tip", "showAt", Method, Suffix "arr");
+       ("Ext.tip.Tip", "showBy", Method, Suffix "tip");
        ("Ext.tip.ToolTip", "hide", Method, Suffix "tooltip");
        ("Ext.tip.ToolTip", "setPagePosition", Method, Disable);
        ("Ext.tip.ToolTip", "show", Method, Suffix "tooltip");
        ("Ext.tip.ToolTip", "showAt", Method, Suffix "arr");
        ("Ext.tip.QuickTip", "hide", Method, Disable);
        ("Ext.tip.QuickTip", "showAt", Method, Disable);
+       ("Ext.tip.QuickTip", "show", Method, Disable);
        ("Ext.draw.Surface", "create", Method, Suffix "surface");
        ("Ext.LoadMask", "bindStore", Method, Suffix "store");
        ("Ext.LoadMask", "hide", Method, Suffix "mask");
@@ -507,7 +514,15 @@ let add_class_types json_elements current_module =
              (current |> ClassType.doc ^= clean_doc s,
               current_event,
               current_config)
-       | ("superclasses", `List xs)
+       | ("extends", (`String _ as s)) ->
+           let xs = [s] in
+           add_superclasses xs current >>= fun current' ->
+           add_superclasses xs current_event >>= fun current_event' ->
+           add_superclasses xs current_config >>= fun current_config' ->
+           ContextM.return
+             (current',
+              current_event',
+              current_config')
        | ("mixins", `List xs) ->
            add_superclasses xs current >>= fun current' ->
            add_superclasses xs current_event >>= fun current_event' ->
@@ -536,9 +551,9 @@ let add_class_types json_elements current_module =
     json_elements >>= fun (class_type, event_class_type, config_class_type) ->
   let updated_module =
     current_module
-      |> Module.class_types ^= [class_type;
-                                config_class_type;
-                                event_class_type]
+      |> Module.class_types ^%= (fun cs -> [class_type;
+                                            config_class_type;
+                                            event_class_type] @ cs)
   in
   Lens.get_state Context.symbol_table >>= fun table ->
   SymbolTable.add_type table
@@ -606,11 +621,15 @@ let add_static_events =
 let add_statics json_elements current_module parent_elements =
   let new_static_class_type =
     ClassType.create_static_class current_module.Module.id in
-  let superclasses =
-    get_json_element "superclasses" parent_elements |> get_json_array in
+  let superclass =
+    get_json_element "extends" parent_elements |> get_json_string in
   let mixins =
     get_json_element "mixins" parent_elements |> get_json_array in
-  add_superclasses superclasses new_static_class_type >>= fun sct ->
+  begin if superclass <> "" then
+    add_superclasses [`String superclass] new_static_class_type
+  else
+    ContextM.return new_static_class_type
+  end >>= fun sct ->
   add_superclasses mixins sct >>= fun sct' ->
   ContextM.foldM
     (fun (current_m, current_ct) -> function
@@ -928,7 +947,12 @@ let write_method_with_docs formatter current_module class_cat m =
       m.Method.doc;
     begin match m.Method.method_type with
         Method.Property ->
-          if m.Method.return.Param.default <> "" then begin
+          if String.starts_with m.Method.return.Param.default "[" then begin
+            let default =
+              Str.global_replace quot_regexp "''"
+                m.Method.return.Param.default in
+            Format.fprintf formatter "@\nDefaults to: %s@\n" default;
+          end else if m.Method.return.Param.default <> "" then begin
             Format.fprintf formatter "@\nDefaults to: [%s]@\n"
               m.Method.return.Param.default;
           end;

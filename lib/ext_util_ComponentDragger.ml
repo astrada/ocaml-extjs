@@ -1,6 +1,5 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_dd_DragTracker.t
   
   method onDrag : Ext_EventObject.t Js.t -> unit Js.meth
@@ -11,7 +10,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_dd_DragTracker.configs
   
   method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
@@ -28,7 +26,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_dd_DragTracker.events
   
   
@@ -36,7 +33,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_dd_DragTracker.statics
   
   

@@ -12,7 +12,7 @@ child elements need to be sized using one of Ext's built-in <code><a href="#!/ap
 schemes. By default, Panels use the <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">Auto</a> scheme. This simply renders child
 components, appending them one after the other inside the Container, and <strong>does not apply any sizing</strong> at all.</p>
 
-<p><p><img src="images/Ext.panel.Panel/panel.png" alt="Panel components"></p></p>
+<p><p><img src="" alt="Panel components" width="" height=""></p></p>
 
 <p>A Panel may also contain <a href="#!/api/Ext.panel.Panel-cfg-bbar" rel="Ext.panel.Panel-cfg-bbar" class="docClass">bottom</a> and <a href="#!/api/Ext.panel.Panel-cfg-tbar" rel="Ext.panel.Panel-cfg-tbar" class="docClass">top</a> toolbars, along with separate <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">header</a>, <a href="#!/api/Ext.panel.Panel-cfg-fbar" rel="Ext.panel.Panel-cfg-fbar" class="docClass">footer</a> and body sections.</p>
 
@@ -29,30 +29,30 @@ Panel and the destruction of any descendant Components. This makes the Panel obj
 Containers, and would themselves use Ext.Components as child <a href="#!/api/Ext.panel.Panel-cfg-items" rel="Ext.panel.Panel-cfg-items" class="docClass">items</a>. However to illustrate simply rendering a
 Panel into the document, here's how to do it:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>', \{
     title: 'Hello',
     width: 200,
     html: '&lt;p&gt;World!&lt;/p&gt;',
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre>
 
 <p>A more realistic scenario is a Panel created to house input fields which will not be rendered, but used as a
 constituent part of a Container:</p>
 
-<pre class='inline-example '><code>var filterPanel = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>', {
+<pre class='inline-example '><code>var filterPanel = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>', \{
     bodyPadding: 5,  // Don't want content to crunch against the borders
     width: 300,
     title: 'Filters',
-    items: [{
+    items: [\{
         xtype: 'datefield',
         fieldLabel: 'Start date'
-    }, {
+    \}, \{
         xtype: 'datefield',
         fieldLabel: 'End date'
-    }],
+    \}],
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre>
 
 <p>Note that the Panel above is configured to render into the document and assigned a size. In a real world scenario,
@@ -62,33 +62,33 @@ child Components.</p>
 <p>Panels will often use specific <a href="#!/api/Ext.panel.Panel-cfg-layout" rel="Ext.panel.Panel-cfg-layout" class="docClass">layout</a>s to provide an application with shape and structure by containing and
 arranging child Components:</p>
 
-<pre class='inline-example '><code>var resultsPanel = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>', {
+<pre class='inline-example '><code>var resultsPanel = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>', \{
     title: 'Results',
     width: 600,
     height: 400,
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-    layout: {
+    layout: \{
         type: 'vbox',       // Arrange child items vertically
         align: 'stretch',    // Each takes up full width
         padding: 5
-    },
-    items: [{               // Results grid specified as a config object with an xtype of 'grid'
+    \},
+    items: [\{               // Results grid specified as a config object with an xtype of 'grid'
         xtype: 'grid',
-        columns: [{header: 'Column One'}],            // One header just for show. There's no data,
-        store: <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.ArrayStore" rel="Ext.data.ArrayStore" class="docClass">Ext.data.ArrayStore</a>', {}), // A dummy empty data store
+        columns: [\{header: 'Column One'\}],            // One header just for show. There's no data,
+        store: <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.ArrayStore" rel="Ext.data.ArrayStore" class="docClass">Ext.data.ArrayStore</a>', \{\}), // A dummy empty data store
         flex: 1                                       // Use 1/3 of Container's height (hint to Box layout)
-    }, {
+    \}, \{
         xtype: 'splitter'   // A splitter between the two child items
-    }, {                    // Details Panel specified as a config object (no xtype defaults to 'panel').
+    \}, \{                    // Details Panel specified as a config object (no xtype defaults to 'panel').
         title: 'Details',
         bodyPadding: 5,
-        items: [{
+        items: [\{
             fieldLabel: 'Data item',
             xtype: 'textfield'
-        }], // An array of form fields
+        \}], // An array of form fields
         flex: 2             // Use 2/3 of Container's height (hint to Box layout)
-    }]
-});
+    \}]
+\});
 </code></pre>
 
 <p>The example illustrates one possible method of displaying search results. The Panel contains a grid with the
@@ -106,18 +106,15 @@ browser size.</p> %}
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
   inherit Ext_panel_AbstractPanel.t
   
-  method dd : Ext_dd_DragSource.t Js.t Js.prop
-  (** {% <p>If this Panel is configured <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a>, this property will contain an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Panel.</p>
-
-<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> in order to
-supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a>.</p> %}
+  method addTool : _ Js.t -> unit Js.meth
+  (** {% <p>Add tools to this panel</p> %}
+    
+    {b Parameters}:
+    {ul {- tools: [_ Js.t] {% <p>The tools to add</p> %}
+    }
+    }
     *)
   method afterCollapse : bool Js.t -> unit Js.meth
   (** {% <p>Invoked after the Panel is Collapsed.</p> %}
@@ -157,23 +154,33 @@ collapse action if it returns false.</p> %}
     {% <p>The direction to collapse towards. Must be one of</p>
 
 <ul>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_TOP</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_RIGHT</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_BOTTOM</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_LEFT</li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_TOP" rel="Ext.Component-property-DIRECTION_TOP" class="docClass">Ext.Component.DIRECTION_TOP</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_RIGHT" rel="Ext.Component-property-DIRECTION_RIGHT" class="docClass">Ext.Component.DIRECTION_RIGHT</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_BOTTOM" rel="Ext.Component-property-DIRECTION_BOTTOM" class="docClass">Ext.Component.DIRECTION_BOTTOM</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_LEFT" rel="Ext.Component-property-DIRECTION_LEFT" class="docClass">Ext.Component.DIRECTION_LEFT</a></li>
 </ul>
 
 
 <p>Defaults to <a href="#!/api/Ext.panel.Panel-cfg-collapseDirection" rel="Ext.panel.Panel-cfg-collapseDirection" class="docClass">collapseDirection</a>.</p> %}
     }
     {- animate: [bool Js.t] (optional)
-    {% <p>True to animate the transition, else false (defaults to the value of the
-<a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config)</p> %}
+    {% <p>True to animate the transition, else false
+(defaults to the value of the <a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config). May
+also be specified as the animation duration in milliseconds.</p> %}
     }
     }
     
     {b Returns}:
     {ul {- [#Ext_panel_Panel.t Js.t] {% <p>this</p> %}
+    }
+    }
+    *)
+  method convertCollapseDir : _ Js.t -> unit Js.meth
+  (** {% <p>converts a collapsdDir into an anchor argument for Element.slideIn
+overridden in rtl mode to switch "l" and "r"</p> %}
+    
+    {b Parameters}:
+    {ul {- collapseDir: [_ Js.t]
     }
     }
     *)
@@ -183,8 +190,9 @@ cancel the expand action if it returns false.</p> %}
     
     {b Parameters}:
     {ul {- animate: [bool Js.t] (optional)
-    {% <p>True to animate the transition, else false (defaults to the value of the
-<a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config)</p> %}
+    {% <p>True to animate the transition, else false
+(defaults to the value of the <a href="#!/api/Ext.panel.Panel-cfg-animCollapse" rel="Ext.panel.Panel-cfg-animCollapse" class="docClass">animCollapse</a> panel config).  May
+also be specified as the animation duration in milliseconds.</p> %}
     }
     }
     
@@ -229,9 +237,7 @@ wraps content, and you know that it will not change size, and so can safely be t
 topmost participant in the layout run.</p> %}
     *)
   method isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth
-  (** {% <p>inherit docs</p>
-
-<p>Returns true if this component is visible.</p> %}
+  (** {% <p>Returns <code>true</code> if this component is visible.</p> %}
     
     {b Parameters}:
     {ul {- deep: [bool Js.t] (optional)
@@ -246,20 +252,18 @@ dynamically laid out UIs in a hidden Container before showing them.</p> %}
     
     {b Returns}:
     {ul {- [bool Js.t]
-    {% <p>True if this component is visible, false otherwise.</p> %}
+    {% <p><code>true</code> if this component is visible, <code>false</code> otherwise.</p> %}
     }
     }
     *)
   method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
-  (** {% <p>inherit docs</p>
-
-<p>Possibly animates down to a target element.</p>
+  (** {% <p>Possibly animates down to a target element.</p>
 
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-event-hide" rel="Ext.panel.Panel-event-hide" class="docClass">hide</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -279,23 +283,21 @@ cleaned up after removing a component from its owning container.</p>
 its parent Container. At this stage, the Component has been
 removed from its parent Container's collection of child items,
 but has not been destroyed (It will be destroyed if the parent
-Container's autoDestroy is true, or if the remove call was
+Container's <code>autoDestroy</code> is <code>true</code>, or if the remove call was
 passed a truthy second parameter). After calling the
-superclass's onRemoved, the ownerCt and the refOwner will not
+superclass's <code>onRemoved</code>, the <code>ownerCt</code> and the <code>refOwner</code> will not
 be present.</p> %}
     
     {b Parameters}:
     {ul {- destroying: [bool Js.t]
-    {% <p>Will be passed as true if the Container performing the remove operation will delete this
+    {% <p>Will be passed as <code>true</code> if the Container performing the remove operation will delete this
 Component upon remove.</p> %}
     }
     }
     *)
   method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
-  (** {% <p>inherit docs</p>
-
-<p>Allows addition of behavior to the show operation. After
+  (** {% <p>Allows addition of behavior to the show operation. After
 calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
@@ -312,12 +314,14 @@ calling the superclass's onShow, the Component will be visible.</p>
     }
     *)
   method setBorder : _ Js.t -> unit Js.meth
-  (** {% <p>inherit docs</p> %}
+  method setGlyph : _ Js.t -> unit Js.meth
+  (** {% <p>Set the glyph for the panel's header. See <a href="#!/api/Ext.panel.Header-cfg-glyph" rel="Ext.panel.Header-cfg-glyph" class="docClass">Ext.panel.Header.glyph</a>. It will
+fire the <a href="#!/api/Ext.panel.Panel-event-glyphchange" rel="Ext.panel.Panel-event-glyphchange" class="docClass">glyphchange</a> event after completion.</p> %}
     
     {b Parameters}:
-    {ul {- border: [_ Js.t]
-    {% <p>The border, see <a href="#!/api/Ext.panel.Panel-cfg-border" rel="Ext.panel.Panel-cfg-border" class="docClass">border</a>. If a falsey value is passed
-the border will be removed.</p> %}
+    {ul {- newGlyph: [_ Js.t]
+    {% <p>The new glyph
+This parameter expects a format consistent with that of <a href="#!/api/Ext.panel.Panel-cfg-glyph" rel="Ext.panel.Panel-cfg-glyph" class="docClass">glyph</a></p> %}
     }
     }
     *)
@@ -349,14 +353,12 @@ the border will be removed.</p> %}
     }
     *)
   method setUI : Js.js_string Js.t -> unit Js.meth
-  (** {% <p>inherit docs</p>
-
-<p>Sets the UI for the component. This will remove any existing UIs on the component. It will also loop through any
-uiCls set on the component and rename them so they include the new UI</p> %}
+  (** {% <p>Sets the UI for the component. This will remove any existing UIs on the component. It will also loop through any
+<code>uiCls</code> set on the component and rename them so they include the new UI.</p> %}
     
     {b Parameters}:
     {ul {- ui: [Js.js_string Js.t]
-    {% <p>The new UI for the component</p> %}
+    {% <p>The new UI for the component.</p> %}
     }
     }
     *)
@@ -368,16 +370,30 @@ uiCls set on the component and rename them so they include the new UI</p> %}
     }
     }
     *)
+  method dd : _ Js.t Js.prop
+  (** {% <p>Only present if this Panel has been configured with <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a> <code>true</code>.</p>
+
+<h2>Simple dragging</h2>
+
+<p>If this Panel is configured <a href="#!/api/Ext.panel.Panel-cfg-simpleDrag" rel="Ext.panel.Panel-cfg-simpleDrag" class="docClass">simpleDrag</a> <code>true</code> (the default is <code>false</code>), this property
+will reference an instance of <a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of
+<a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles moving the Panel's DOM Element,
+and constraining according to the <a href="#!/api/Ext.panel.Panel-cfg-constrain" rel="Ext.panel.Panel-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.panel.Panel-cfg-constrainHeader" rel="Ext.panel.Panel-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
+
+<p>This object fires various events during its lifecycle and during a drag operation.</p>
+
+<h2>Complex dragging interacting with other DragDrop instances</h2>
+
+<p>By default, this property in a <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a> Panel will contain an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Panel.</p>
+
+<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> in order to
+supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a>.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
   inherit Ext_panel_AbstractPanel.configs
   
   method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
@@ -407,19 +423,19 @@ duration in milliseconds.</p> %}
   (** {% <p>Convenience config. Short for 'Bottom Bar'.</p>
 
 <pre><code>bbar: [
-  { xtype: 'button', text: 'Button 1' }
+  \{ xtype: 'button', text: 'Button 1' \}
 ]
 </code></pre>
 
 <p>is equivalent to</p>
 
-<pre><code>dockedItems: [{
+<pre><code>dockedItems: [\{
     xtype: 'toolbar',
     dock: 'bottom',
     items: [
-        { xtype: 'button', text: 'Button 1' }
+        \{ xtype: 'button', text: 'Button 1' \}
     ]
-}]
+\}]
 </code></pre> %}
     *)
   method buttonAlign : Js.js_string Js.t Js.prop
@@ -427,29 +443,29 @@ duration in milliseconds.</p> %}
 'right' for buttons/fbar, 'left' for other toolbar types).</p>
 
 <p><strong>NOTE:</strong> The prefered way to specify toolbars is to use the dockedItems config. Instead of buttonAlign you
-would add the layout: { pack: 'start' | 'center' | 'end' } option to the dockedItem config.</p> %}
+would add the layout: \{ pack: 'start' | 'center' | 'end' \} option to the dockedItem config.</p> %}
     *)
   method buttons : _ Js.t Js.prop
   (** {% <p>Convenience config used for adding buttons docked to the bottom of the panel. This is a
 synonym for the <a href="#!/api/Ext.panel.Panel-cfg-fbar" rel="Ext.panel.Panel-cfg-fbar" class="docClass">fbar</a> config.</p>
 
 <pre><code>buttons: [
-  { text: 'Button 1' }
+  \{ text: 'Button 1' \}
 ]
 </code></pre>
 
 <p>is equivalent to</p>
 
-<pre><code>dockedItems: [{
+<pre><code>dockedItems: [\{
     xtype: 'toolbar',
     dock: 'bottom',
     ui: 'footer',
-    defaults: {minWidth: <a href="#!/api/Ext.panel.Panel-cfg-minButtonWidth" rel="Ext.panel.Panel-cfg-minButtonWidth" class="docClass">minButtonWidth</a>},
+    defaults: \{minWidth: <a href="#!/api/Ext.panel.Panel-cfg-minButtonWidth" rel="Ext.panel.Panel-cfg-minButtonWidth" class="docClass">minButtonWidth</a>\},
     items: [
-        { xtype: 'component', flex: 1 },
-        { xtype: 'button', text: 'Button 1' }
+        \{ xtype: 'component', flex: 1 \},
+        \{ xtype: 'button', text: 'Button 1' \}
     ]
-}]
+\}]
 </code></pre>
 
 <p>The <a href="#!/api/Ext.panel.Panel-cfg-minButtonWidth" rel="Ext.panel.Panel-cfg-minButtonWidth" class="docClass">minButtonWidth</a> is used as the default <a href="#!/api/Ext.button.Button-cfg-minWidth" rel="Ext.button.Button-cfg-minWidth" class="docClass">minWidth</a> for
@@ -533,9 +549,23 @@ represent the Panel and to provide a UI with a Tool to allow the user to re-expa
     *)
   method collapsible : bool Js.t Js.prop
   (** {% <p>True to make the panel collapsible and have an expand/collapse toggle Tool added into the header tool button
-area. False to keep the panel sized either statically, or by an owning layout manager, with no toggle Tool.</p>
-
-<p>See <a href="#!/api/Ext.panel.Panel-cfg-collapseMode" rel="Ext.panel.Panel-cfg-collapseMode" class="docClass">collapseMode</a> and <a href="#!/api/Ext.panel.Panel-cfg-collapseDirection" rel="Ext.panel.Panel-cfg-collapseDirection" class="docClass">collapseDirection</a></p> %}
+area. False to keep the panel sized either statically, or by an owning layout manager, with no toggle Tool.
+When a panel is used in a <a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">border layout</a>, the <a href="#!/api/Ext.panel.Panel-cfg-floatable" rel="Ext.panel.Panel-cfg-floatable" class="docClass">floatable</a> option
+can influence the behavior of collapsing.
+See <a href="#!/api/Ext.panel.Panel-cfg-collapseMode" rel="Ext.panel.Panel-cfg-collapseMode" class="docClass">collapseMode</a> and <a href="#!/api/Ext.panel.Panel-cfg-collapseDirection" rel="Ext.panel.Panel-cfg-collapseDirection" class="docClass">collapseDirection</a></p> %}
+    *)
+  method constrain : bool Js.t Js.prop
+  (** {% <p>True to constrain the panel within its containing element, false to allow it to fall outside of its containing
+element. By default floating components such as Windows will be rendered to <code>document.body</code>. To render and constrain the window within
+another element specify <a href="#!/api/Ext.panel.Panel-cfg-renderTo" rel="Ext.panel.Panel-cfg-renderTo" class="docClass">renderTo</a>. Optionally the header only can be constrained
+using <a href="#!/api/Ext.panel.Panel-cfg-constrainHeader" rel="Ext.panel.Panel-cfg-constrainHeader" class="docClass">constrainHeader</a>.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method constrainHeader : bool Js.t Js.prop
+  (** {% <p>True to constrain the panel header within its containing element (allowing the panel body to fall outside of
+its containing element) or false to allow the header to fall outside its containing element.
+Optionally the entire panel can be constrained using <a href="#!/api/Ext.panel.Panel-cfg-constrain" rel="Ext.panel.Panel-cfg-constrain" class="docClass">constrain</a>.</p> %}
     
     Defaults to: [false]
     *)
@@ -543,37 +573,37 @@ area. False to keep the panel sized either statically, or by an owning layout ma
   (** {% <p>A component or series of components to be added as docked items to this panel. The docked items can be docked to
 either the top, right, left or bottom of a panel. This is typically used for things like toolbars or tab bars:</p>
 
-<pre><code>var panel = new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>({
-    dockedItems: [{
+<pre><code>var panel = new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>(\{
+    dockedItems: [\{
         xtype: 'toolbar',
         dock: 'top',
-        items: [{
+        items: [\{
             text: 'Docked to the top'
-        }]
-    }]
-});
+        \}]
+    \}]
+\});
 </code></pre> %}
     *)
   method fbar : _ Js.t Js.prop
   (** {% <p>Convenience config used for adding items to the bottom of the panel. Short for Footer Bar.</p>
 
 <pre><code>fbar: [
-  { type: 'button', text: 'Button 1' }
+  \{ type: 'button', text: 'Button 1' \}
 ]
 </code></pre>
 
 <p>is equivalent to</p>
 
-<pre><code>dockedItems: [{
+<pre><code>dockedItems: [\{
     xtype: 'toolbar',
     dock: 'bottom',
     ui: 'footer',
-    defaults: {minWidth: <a href="#!/api/Ext.panel.Panel-cfg-minButtonWidth" rel="Ext.panel.Panel-cfg-minButtonWidth" class="docClass">minButtonWidth</a>},
+    defaults: \{minWidth: <a href="#!/api/Ext.panel.Panel-cfg-minButtonWidth" rel="Ext.panel.Panel-cfg-minButtonWidth" class="docClass">minButtonWidth</a>\},
     items: [
-        { xtype: 'component', flex: 1 },
-        { xtype: 'button', text: 'Button 1' }
+        \{ xtype: 'component', flex: 1 \},
+        \{ xtype: 'button', text: 'Button 1' \}
     ]
-}]
+\}]
 </code></pre>
 
 <p>The <a href="#!/api/Ext.panel.Panel-cfg-minButtonWidth" rel="Ext.panel.Panel-cfg-minButtonWidth" class="docClass">minButtonWidth</a> is used as the default <a href="#!/api/Ext.button.Button-cfg-minWidth" rel="Ext.button.Button-cfg-minWidth" class="docClass">minWidth</a> for
@@ -598,10 +628,42 @@ false to force the user to fully expand a collapsed region by clicking the expan
     
     Defaults to: [true]
     *)
+  method glyph : _ Js.t Js.prop
+  (** {% <p>A numeric unicode character code to use as the icon for the panel header. The
+default font-family for glyphs can be set globally using
+<a href="#!/api/Ext-method-setGlyphFontFamily" rel="Ext-method-setGlyphFontFamily" class="docClass">Ext.setGlyphFontFamily()</a>. Alternatively, this
+config option accepts a string with the charCode and font-family separated by the
+<code>\@</code> symbol. For example '65\@My Font Family'.</p> %}
+    *)
   method header : _ Js.t Js.prop
   (** {% <p>Pass as <code>false</code> to prevent a Header from being created and shown.</p>
 
-<p>Pass as a config object (optionally containing an <code>xtype</code>) to custom-configure this Panel's header.</p> %}
+<p>Pass as a config object (optionally containing an <code>xtype</code>) to custom-configure this Panel's header.</p>
+
+<p>See <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">Ext.panel.Header</a> for all the options that may be specified here.</p>
+
+<p>A <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">panel header</a> is a <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a> which contains the Panel's <a href="#!/api/Ext.panel.Panel-cfg-title" rel="Ext.panel.Panel-cfg-title" class="docClass">title</a> and <a href="#!/api/Ext.panel.Panel-cfg-tools" rel="Ext.panel.Panel-cfg-tools" class="docClass">tools</a>.
+You may also configure the Panel's <code>header</code> option with its own child items which go <em>before</em> the <a href="#!/api/Ext.panel.Panel-cfg-tools" rel="Ext.panel.Panel-cfg-tools" class="docClass">tools</a></p>
+
+<p>By default the panel <a href="#!/api/Ext.panel.Panel-cfg-title" rel="Ext.panel.Panel-cfg-title" class="docClass">title</a> is inserted after items configured in this config, but before any tools.
+To insert the title at any point in the full array, specify the <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">#titlePosition</a> config:</p>
+
+<p>   new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>(\{</p>
+
+<pre><code>   title: 'Test',
+   tools: [\{
+       type: 'refresh
+   \}, \{
+       type: 'help'
+   \}],
+   titlePosition: 2 // Title will come AFTER the two tools
+   ...
+</code></pre>
+
+<p>   \});</p> %}
+    *)
+  method headerOverCls : Js.js_string Js.t Js.prop
+  (** {% <p>Optional CSS class to apply to the header element on mouseover</p> %}
     *)
   method headerPosition : Js.js_string Js.t Js.prop
   (** {% <p>Specify as <code>'top'</code>, <code>'bottom'</code>, <code>'left'</code> or <code>'right'</code>.</p> %}
@@ -623,23 +685,23 @@ false to force the user to fully expand a collapsed region by clicking the expan
   (** {% <p>Convenience config. Short for 'Left Bar' (left-docked, vertical toolbar).</p>
 
 <pre><code>lbar: [
-  { xtype: 'button', text: 'Button 1' }
+  \{ xtype: 'button', text: 'Button 1' \}
 ]
 </code></pre>
 
 <p>is equivalent to</p>
 
-<pre><code>dockedItems: [{
+<pre><code>dockedItems: [\{
     xtype: 'toolbar',
     dock: 'left',
     items: [
-        { xtype: 'button', text: 'Button 1' }
+        \{ xtype: 'button', text: 'Button 1' \}
     ]
-}]
+\}]
 </code></pre> %}
     *)
   method manageHeight : bool Js.t Js.prop
-  (** {% <p>: When true, the dock component layout writes
+  (** {% <p>When true, the dock component layout writes
 height information to the panel's DOM elements based on its shrink wrap height
 calculation. This ensures that the browser respects the calculated height.
 When false, the dock component layout will not write heights on the panel or its
@@ -678,38 +740,66 @@ using <a href="#!/api/Ext.panel.Panel-cfg-collapseMode" rel="Ext.panel.Panel-cfg
   (** {% <p>Convenience config. Short for 'Right Bar' (right-docked, vertical toolbar).</p>
 
 <pre><code>rbar: [
-  { xtype: 'button', text: 'Button 1' }
+  \{ xtype: 'button', text: 'Button 1' \}
 ]
 </code></pre>
 
 <p>is equivalent to</p>
 
-<pre><code>dockedItems: [{
+<pre><code>dockedItems: [\{
     xtype: 'toolbar',
     dock: 'right',
     items: [
-        { xtype: 'button', text: 'Button 1' }
+        \{ xtype: 'button', text: 'Button 1' \}
     ]
-}]
+\}]
 </code></pre> %}
+    *)
+  method simpleDrag : bool Js.t Js.prop
+  (** {% <p>When <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a> is <code>true</code>, Specify this as <code>true</code> to  cause the <code>draggable</code> config
+to work the same as it does in <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>. This Panel
+just becomes movable. No DragDrop instances receive any notifications.
+For example:</p>
+
+<pre class='inline-example '><code>var win = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.window', \{
+    height: 300,
+    width: 300,
+    title: 'Constraining Window',
+    closable: false,
+    items: \{
+        title: "Floating Panel",
+        width: 100,
+        height: 100,
+        floating: true,
+        draggable: true,
+        constrain: true,
+        simpleDrag: true
+    \}
+\});
+win.show();
+// Floating components begin life hidden
+win.child('[title=Floating Panel]').show();
+</code></pre> %}
+    
+    Defaults to: [false]
     *)
   method tbar : _ Js.t Js.prop
   (** {% <p>Convenience config. Short for 'Top Bar'.</p>
 
 <pre><code>tbar: [
-  { xtype: 'button', text: 'Button 1' }
+  \{ xtype: 'button', text: 'Button 1' \}
 ]
 </code></pre>
 
 <p>is equivalent to</p>
 
-<pre><code>dockedItems: [{
+<pre><code>dockedItems: [\{
     xtype: 'toolbar',
     dock: 'top',
     items: [
-        { xtype: 'button', text: 'Button 1' }
+        \{ xtype: 'button', text: 'Button 1' \}
     ]
-}]
+\}]
 </code></pre> %}
     *)
   method title : Js.js_string Js.t Js.prop
@@ -720,21 +810,22 @@ using <a href="#!/api/Ext.panel.Panel-cfg-collapseMode" rel="Ext.panel.Panel-cfg
     Defaults to: ['']
     *)
   method titleAlign : Js.js_string Js.t Js.prop
-  (** {% <p>May be <code>"left"</code>, <code>"right"</code> or <code>"center"</code>.</p>
+  (** {% <p>The alignment of the title text within the available space between the
+icon and the tools.</p>
 
-<p>The alignment of the title text within the available space between the icon and the tools.</p> %}
-    
-    Defaults to: ['left']
+<p>May be <code>"left"</code>, <code>"right"</code> or <code>"center"</code>. Defaults to the browser's natural
+behavior depending on the css direction property - <code>"left"</code> when direction
+is ltr and <code>"right"</code> when direction is rtl
+(see <a href="#!/api/Ext.AbstractComponent-cfg-rtl" rel="Ext.AbstractComponent-cfg-rtl" class="docClass">Ext.AbstractComponent.rtl</a>).</p> %}
     *)
   method titleCollapse : bool Js.t Js.prop
   (** {% <p><code>true</code> to allow expanding and collapsing the panel (when <code><a href="#!/api/Ext.panel.Panel-cfg-collapsible" rel="Ext.panel.Panel-cfg-collapsible" class="docClass">collapsible</a> = true</code>) by clicking anywhere in
-the header bar, <code>false</code>) to allow it only by clicking to tool button).</p> %}
-    
-    Defaults to: [false]
+the header bar, <code>false</code>) to allow it only by clicking to tool button). When a panel is used in a
+<a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">border layout</a>, the <a href="#!/api/Ext.panel.Panel-cfg-floatable" rel="Ext.panel.Panel-cfg-floatable" class="docClass">floatable</a> option can influence the behavior of collapsing.</p> %}
     *)
   method tools : _ Js.t Js.prop
   (** {% <p>An array of <a href="#!/api/Ext.panel.Tool" rel="Ext.panel.Tool" class="docClass">Ext.panel.Tool</a> configs/instances to be added to the header tool area. The tools are stored as
-child components of the header container. They can be accessed using <a href="#!/api/Ext.panel.Panel-method-down" rel="Ext.panel.Panel-method-down" class="docClass">down</a> and {<a href="#!/api/Ext.panel.Panel-method-query" rel="Ext.panel.Panel-method-query" class="docClass">query</a>}, as well as the
+child components of the header container. They can be accessed using <a href="#!/api/Ext.panel.Panel-method-down" rel="Ext.panel.Panel-method-down" class="docClass">down</a> and \{<a href="#!/api/Ext.panel.Panel-method-query" rel="Ext.panel.Panel-method-query" class="docClass">query</a>\}, as well as the
 other component methods. The toggle tool is automatically created if <a href="#!/api/Ext.panel.Panel-cfg-collapsible" rel="Ext.panel.Panel-cfg-collapsible" class="docClass">collapsible</a> is set to true.</p>
 
 <p>Note that, apart from the toggle tool which is provided when a panel is collapsible, these tools only provide the
@@ -743,21 +834,21 @@ behavior.</p>
 
 <p>Example usage:</p>
 
-<pre><code>tools:[{
+<pre><code>tools:[\{
     type:'refresh',
     tooltip: 'Refresh form Data',
     // hidden:true,
-    handler: function(event, toolEl, panel){
+    handler: function(event, toolEl, panel)\{
         // refresh logic
-    }
-},
-{
+    \}
+\},
+\{
     type:'help',
     tooltip: 'Get Help',
-    handler: function(event, toolEl, panel){
+    handler: function(event, toolEl, panel)\{
         // show help here
-    }
-}]
+    \}
+\}]
 </code></pre> %}
     *)
   
@@ -765,11 +856,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
   inherit Ext_panel_AbstractPanel.events
   
   method beforeclose : (t Js.t -> _ Js.t -> unit) Js.callback
@@ -798,10 +884,10 @@ fired</p> %}
     {% <p>. The direction of the collapse. One of</p>
 
 <ul>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_TOP</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_RIGHT</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_BOTTOM</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_LEFT</li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_TOP" rel="Ext.Component-property-DIRECTION_TOP" class="docClass">Ext.Component.DIRECTION_TOP</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_RIGHT" rel="Ext.Component-property-DIRECTION_RIGHT" class="docClass">Ext.Component.DIRECTION_RIGHT</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_BOTTOM" rel="Ext.Component-property-DIRECTION_BOTTOM" class="docClass">Ext.Component.DIRECTION_BOTTOM</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_LEFT" rel="Ext.Component-property-DIRECTION_LEFT" class="docClass">Ext.Component.DIRECTION_LEFT</a></li>
 </ul> %}
     }
     {- animate: [bool Js.t]
@@ -841,7 +927,7 @@ fired</p> %}
     }
     *)
   method collapse : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
-  (** {% <p>Fires after this Panel hass collapsed.</p> %}
+  (** {% <p>Fires after this Panel has collapsed.</p> %}
     
     {b Parameters}:
     {ul {- p: [#Ext_panel_Panel.t Js.t]
@@ -858,6 +944,33 @@ fired</p> %}
     {b Parameters}:
     {ul {- p: [#Ext_panel_Panel.t Js.t]
     {% <p>The Panel that has been expanded.</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method float : (_ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fires after a collapsed Panel has been "floated" by clicking on
+it's header. Only applicable when the Panel is an item in a
+<a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">Border Layout</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method glyphchange : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
+  (** {% <p>Fired when the Panel glyph has been changed by the <a href="#!/api/Ext.panel.Panel-method-setGlyph" rel="Ext.panel.Panel-method-setGlyph" class="docClass">setGlyph</a> method.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [#Ext_panel_Panel.t Js.t]
+    }
+    {- newGlyph: [_ Js.t]
+    }
+    {- oldGlyph: [_ Js.t]
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -921,16 +1034,23 @@ fired</p> %}
     }
     }
     *)
+  method unfloat : (_ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fires after a "floated" Panel has returned to it's collapsed state
+as a result of the mouse leaving the Panel. Only applicable when
+the Panel is an item in a
+<a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">Border Layout</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
   inherit Ext_panel_AbstractPanel.statics
   
   

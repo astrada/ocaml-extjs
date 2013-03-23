@@ -48,23 +48,23 @@ used for all animations is 'ease'.  Popular easing functions are included and ca
 
 <pre><code>var p1 = <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('myElementId');
 
-p1.animate({
-    to: {
+p1.animate(\{
+    to: \{
         opacity: 0
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>To make this animation fade out in a tenth of a second:</p>
 
 <pre><code>var p1 = <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('myElementId');
 
-p1.animate({
+p1.animate(\{
    duration: 100,
-    to: {
+    to: \{
         opacity: 0
-    }
-});
+    \}
+\});
 </code></pre>
 
 <h2>Animation Queues</h2>
@@ -72,23 +72,23 @@ p1.animate({
 <p>By default all animations are added to a queue which allows for animation via a chain-style API.
 For example, the following code will queue 4 animations which occur sequentially (one right after the other):</p>
 
-<pre><code>p1.animate({
-    to: {
+<pre><code>p1.animate(\{
+    to: \{
         x: 500
-    }
-}).animate({
-    to: {
+    \}
+\}).animate(\{
+    to: \{
         y: 150
-    }
-}).animate({
-    to: {
+    \}
+\}).animate(\{
+    to: \{
         backgroundColor: '#f00'  //red
-    }
-}).animate({
-    to: {
+    \}
+\}).animate(\{
+    to: \{
         opacity: 0
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>You can change this behavior by calling the <a href="#!/api/Ext.util.Animate-method-syncFx" rel="Ext.util.Animate-method-syncFx" class="docClass">syncFx</a> method and all
@@ -96,35 +96,35 @@ subsequent animations for the specified target will be run concurrently (at the 
 
 <pre><code>p1.syncFx();  //this will make all animations run at the same time
 
-p1.animate({
-    to: {
+p1.animate(\{
+    to: \{
         x: 500
-    }
-}).animate({
-    to: {
+    \}
+\}).animate(\{
+    to: \{
         y: 150
-    }
-}).animate({
-    to: {
+    \}
+\}).animate(\{
+    to: \{
         backgroundColor: '#f00'  //red
-    }
-}).animate({
-    to: {
+    \}
+\}).animate(\{
+    to: \{
         opacity: 0
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>This works the same as:</p>
 
-<pre><code>p1.animate({
-    to: {
+<pre><code>p1.animate(\{
+    to: \{
         x: 500,
         y: 150,
         backgroundColor: '#f00'  //red
         opacity: 0
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>The <a href="#!/api/Ext.util.Animate-method-stopAnimation" rel="Ext.util.Animate-method-stopAnimation" class="docClass">stopAnimation</a> method can be used to stop any
@@ -136,23 +136,23 @@ currently running animations and clear any queued animations.</p>
 CSS3 Animation configuration pattern. Note rotation, translation, and scaling can only be done for sprites.
 The previous example can be written with the following syntax:</p>
 
-<pre><code>p1.animate({
+<pre><code>p1.animate(\{
     duration: 1000,  //one second total
-    keyframes: {
-        25: {     //from 0 to 250ms (25%)
+    keyframes: \{
+        25: \{     //from 0 to 250ms (25%)
             x: 0
-        },
-        50: {   //from 250ms to 500ms (50%)
+        \},
+        50: \{   //from 250ms to 500ms (50%)
             y: 0
-        },
-        75: {  //from 500ms to 750ms (75%)
+        \},
+        75: \{  //from 500ms to 750ms (75%)
             backgroundColor: '#f00'  //red
-        },
-        100: {  //from 750ms to 1sec
+        \},
+        100: \{  //from 750ms to 1sec
             opacity: 0
-        }
-    }
-});
+        \}
+    \}
+\});
 </code></pre>
 
 <h2>Animation Events</h2>
@@ -164,31 +164,31 @@ fires for each keyframe in your animation.</p>
 
 <p>All animations support the <a href="#!/api/Ext.util.Observable-cfg-listeners" rel="Ext.util.Observable-cfg-listeners" class="docClass">listeners</a> configuration to attact functions to these events.</p>
 
-<pre><code>startAnimate: function() {
+<pre><code>startAnimate: function() \{
     var p1 = <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('myElementId');
-    p1.animate({
+    p1.animate(\{
        duration: 100,
-        to: {
+        to: \{
             opacity: 0
-        },
-        listeners: {
-            beforeanimate:  function() {
+        \},
+        listeners: \{
+            beforeanimate:  function() \{
                 // Execute my custom method before the animation
                 this.myBeforeAnimateFn();
-            },
-            afteranimate: function() {
+            \},
+            afteranimate: function() \{
                 // Execute my custom method after the animation
                 this.myAfterAnimateFn();
-            },
+            \},
             scope: this
-    });
-},
-myBeforeAnimateFn: function() {
+    \});
+\},
+myBeforeAnimateFn: function() \{
   // My custom logic
-},
-myAfterAnimateFn: function() {
+\},
+myAfterAnimateFn: function() \{
   // My custom logic
-}
+\}
 </code></pre>
 
 <p>Due to the fact that animations run asynchronously, you can determine if an animation is currently
@@ -200,16 +200,16 @@ running <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.A
 queued animations before we fade our element's opacity to 0:</p>
 
 <pre><code>var curAnim = p1.getActiveAnimation();
-if (curAnim) {
-    curAnim.on('afteranimate', function() {
+if (curAnim) \{
+    curAnim.on('afteranimate', function() \{
         p1.stopAnimation();
-        p1.animate({
-            to: {
+        p1.animate(\{
+            to: \{
                 opacity: 0
-            }
-        });
-    });
-}
+            \}
+        \});
+    \});
+\}
 </code></pre> %}
   *)
 
@@ -233,7 +233,7 @@ class. It performs animated transitions of certain properties of this object ove
 <li><p><code>left</code> - The Component's <code>left</code> value in pixels.</p></li>
 <li><p><code>top</code> - The Component's <code>top</code> value in pixels.</p></li>
 <li><p><code>width</code> - The Component's <code>width</code> value in pixels.</p></li>
-<li><p><code>width</code> - The Component's <code>width</code> value in pixels.</p></li>
+<li><p><code>height</code> - The Component's <code>height</code> value in pixels.</p></li>
 <li><p><code>dynamic</code> - Specify as true to update the Component's layout (if it is a Container) at every frame of the animation.
 <em>Use sparingly as laying out on every intermediate size change is an expensive operation.</em></p></li>
 </ul>
@@ -241,33 +241,33 @@ class. It performs animated transitions of certain properties of this object ove
 
 <p>For example, to animate a Window to a new size, ensuring that its internal layout and any shadow is correct:</p>
 
-<pre><code>myWindow = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', {
+<pre><code>myWindow = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', \{
     title: 'Test Component animation',
     width: 500,
     height: 300,
-    layout: {
+    layout: \{
         type: 'hbox',
         align: 'stretch'
-    },
-    items: [{
+    \},
+    items: [\{
         title: 'Left: 33%',
         margins: '5 0 5 5',
         flex: 1
-    }, {
+    \}, \{
         title: 'Left: 66%',
         margins: '5 5 5 5',
         flex: 2
-    }]
-});
+    \}]
+\});
 myWindow.show();
-myWindow.header.el.on('click', function() {
-    myWindow.animate({
-        to: {
+myWindow.header.el.on('click', function() \{
+    myWindow.animate(\{
+        to: \{
             width: (myWindow.getWidth() == 500) ? 700 : 500,
             height: (myWindow.getHeight() == 300) ? 400 : 300
-        }
-    });
-});
+        \}
+    \});
+\});
 </code></pre>
 
 <p>For performance reasons, by default, the internal layout is only updated when the Window reaches its final <code>"to"</code>

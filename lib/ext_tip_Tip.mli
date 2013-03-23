@@ -7,12 +7,6 @@ tips that are displayed programmatically, or it can be extended to provide custo
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
   inherit Ext_panel_Panel.t
   
   method initComponent : unit Js.meth
@@ -31,19 +25,19 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
     *)
   method showAt_arr : Js.number Js.t Js.js_array Js.t -> unit Js.meth
@@ -59,15 +53,16 @@ tip.showAt([50,100]);
     }
     }
     *)
-  method showBy : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
+  method showBy_tip : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
   (** {% <p><strong>Experimental</strong>. Shows this tip at a position relative to another element using
-a standard <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> anchor position value.  Example usage:</p>
+a standard <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position value.  Example usage:</p>
 
-<p>   // Show the tip at the default position ('tl-br?')
-   tip.showBy('my-el');</p>
+<pre><code>// Show the tip at the default position ('tl-br?')
+tip.showBy('my-el');
 
-<p>   // Show the tip's top-left corner anchored to the element's top-right corner
-   tip.showBy('my-el', 'tl-tr');</p> %}
+// Show the tip's top-left corner anchored to the element's top-right corner
+tip.showBy('my-el', 'tl-tr');
+</code></pre> %}
     
     {b Parameters}:
     {ul {- el: [_ Js.t]
@@ -75,7 +70,7 @@ a standard <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-
 id of the target element to align to.</p> %}
     }
     {- position: [Js.js_string Js.t] (optional)
-    {% <p>A valid <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> anchor position.</p>
+    {% <p>A valid <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position.</p>
 
 <p>Defaults to 'tl-br?' or <a href="#!/api/Ext.tip.Tip-cfg-defaultAlign" rel="Ext.tip.Tip-cfg-defaultAlign" class="docClass">defaultAlign</a> if specified.</p> %}
     }
@@ -86,12 +81,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
   inherit Ext_panel_Panel.configs
   
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
@@ -102,7 +91,7 @@ object('self)
 
 <p>This config is intended mainly for non-<a href="#!/api/Ext.tip.Tip-cfg-floating" rel="Ext.tip.Tip-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
 <a href="#!/api/Ext.tip.Tip-cfg-renderTo" rel="Ext.tip.Tip-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
-upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.tip.Tip-cfg-floating" rel="Ext.tip.Tip-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
+upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.tip.Tip-cfg-floating" rel="Ext.tip.Tip-cfg-floating" class="docClass">floating</a> is <code>true</code>, the value of this config is omitted as if it is <code>true</code>.</p>
 
 <p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
 
@@ -140,13 +129,13 @@ which will invoke the approriate closeAction.</p> %}
     Defaults to: ['hide']
     *)
   method constrainPosition : bool Js.t Js.prop
-  (** {% <p>If true, then the tooltip will be automatically constrained to stay within
+  (** {% <p>If <code>true</code>, then the tooltip will be automatically constrained to stay within
 the browser viewport.</p> %}
     
     Defaults to: [true]
     *)
   method defaultAlign : Js.js_string Js.t Js.prop
-  (** {% <p><strong>Experimental</strong>. The default <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> anchor position value
+  (** {% <p><strong>Experimental</strong>. The default <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position value
 for this tip relative to its element of origin.</p> %}
     
     Defaults to: ["tl-bl?"]
@@ -182,7 +171,7 @@ you explicitly <a href="#!/api/Ext.tip.Tip-method-show" rel="Ext.tip.Tip-method-
 floating ancestor Container. If no floating ancestor Container was found the <a href="#!/api/Ext.tip.Tip-property-floatParent" rel="Ext.tip.Tip-property-floatParent" class="docClass">floatParent</a> property will
 not be set.</p> %}
     
-    Defaults to: [{shadow: true, shim: true, constrain: true}]
+    Defaults to: [\{shadow: true, shim: true\}]
     *)
   method focusOnToFront : bool Js.t Js.prop
   (** {% <p>Specifies whether the floated component should be automatically <a href="#!/api/Ext.Component-method-focus" rel="Ext.Component-method-focus" class="docClass">focused</a> when
@@ -196,7 +185,7 @@ it is <a href="#!/api/Ext.tip.Tip-method-toFront" rel="Ext.tip.Tip-method-toFron
     Defaults to: [false]
     *)
   method hidden : bool Js.t Js.prop
-  (** {% <p>True to hide the component.</p> %}
+  (** {% <p><code>true</code> to hide the component.</p> %}
     
     Defaults to: [true]
     *)
@@ -211,7 +200,7 @@ it is <a href="#!/api/Ext.tip.Tip-method-toFront" rel="Ext.tip.Tip-method-toFron
     Defaults to: [40]
     *)
   method shadow : _ Js.t Js.prop
-  (** {% <p>True or "sides" for the default effect, "frame" for 4-way shadow, and "drop"
+  (** {% <p><code>true</code> or "sides" for the default effect, "frame" for 4-way shadow, and "drop"
 for bottom-right shadow.</p> %}
     
     Defaults to: ["sides"]
@@ -219,21 +208,15 @@ for bottom-right shadow.</p> %}
   method width : Js.number Js.t Js.prop
   (** {% <p>Width in pixels of the tip.  Width will be ignored if it
 exceeds the bounds of <a href="#!/api/Ext.tip.Tip-cfg-minWidth" rel="Ext.tip.Tip-cfg-minWidth" class="docClass">minWidth</a> or <a href="#!/api/Ext.tip.Tip-cfg-maxWidth" rel="Ext.tip.Tip-cfg-maxWidth" class="docClass">maxWidth</a>.  The maximum
-supported value is 500.</p>
-
-<p>Defaults to auto.</p> %}
+supported value is 500.</p> %}
+    
+    Defaults to: ['auto']
     *)
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
   
@@ -241,12 +224,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
   inherit Ext_panel_Panel.statics
   
   

@@ -41,36 +41,33 @@ validation: see <a href="#!/api/Ext.form.field.Text-cfg-maskRe" rel="Ext.form.fi
 
 <h1>Example usage</h1>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', \{
     title: 'Contact Info',
     width: 300,
     bodyPadding: 10,
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-    items: [{
+    items: [\{
         xtype: 'textfield',
         name: 'name',
         fieldLabel: 'Name',
         allowBlank: false  // requires a non-empty value
-    }, {
+    \}, \{
         xtype: 'textfield',
         name: 'email',
         fieldLabel: 'Email Address',
         vtype: 'email'  // requires value to be a valid email address format
-    }]
-});
+    \}]
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_form_field_Base.t
   
-  method afterComponentLayout : Js.number Js.t -> Js.number Js.t ->
-    Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>Called by the layout system after the Component has been layed out.</p> %}
+  method afterComponentLayout : Js.number Js.t -> Js.number Js.t -> _ Js.t ->
+    _ Js.t -> unit Js.meth
+  (** {% <p>Called by the layout system after the Component has been laid out.</p> %}
     
     {b Parameters}:
     {ul {- width: [Js.number Js.t]
@@ -79,11 +76,11 @@ object('self)
     {- height: [Js.number Js.t]
     {% <p>The height that was set</p> %}
     }
-    {- oldWidth: [Js.number Js.t]
-    {% <p>The old width. <code>undefined</code> if this was the initial layout.</p> %}
+    {- oldWidth: [_ Js.t]
+    {% <p>The old width, or <code>undefined</code> if this was the initial layout.</p> %}
     }
-    {- oldHeight: [Js.number Js.t]
-    {% <p>The old height. <code>undefined</code> if this was the initial layout.</p> %}
+    {- oldHeight: [_ Js.t]
+    {% <p>The old height, or <code>undefined</code> if this was the initial layout.</p> %}
     }
     }
     *)
@@ -105,6 +102,16 @@ the current object.</p> %}
   method autoSize : unit Js.meth
   (** {% <p>Automatically grows the field to accomodate the width of the text up to the maximum field width allowed. This
 only takes effect if <a href="#!/api/Ext.form.field.Text-cfg-grow" rel="Ext.form.field.Text-cfg-grow" class="docClass">grow</a> = true, and fires the <a href="#!/api/Ext.form.field.Text-event-autosize" rel="Ext.form.field.Text-event-autosize" class="docClass">autosize</a> event if the width changes.</p> %}
+    *)
+  method beforeFocus : Ext_EventObject.t Js.t -> unit Js.meth
+  (** {% <p>private</p>
+
+<p>Template method to do any pre-focus processing.</p> %}
+    
+    {b Parameters}:
+    {ul {- e: [Ext_EventObject.t Js.t] {% <p>The event object</p> %}
+    }
+    }
     *)
   method getErrors : _ Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth
   (** {% <p>Validates a value according to the field's validation rules and returns an array of errors
@@ -219,32 +226,51 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
+    *)
+  method initEvents : unit Js.meth
+  (** {% <p>private</p>
+
+<p>Initialize any events on this component</p> %}
+    *)
+  method onDestroy : unit Js.meth
+  (** {% <p>Allows addition of behavior to the destroy operation.
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method onDisable : unit Js.meth
   (** {% <p>private</p>
 
 <p>Allows addition of behavior to the disable operation.
-After calling the superclass’s onDisable, the Component will be disabled.</p> %}
+After calling the superclass's <code>onDisable</code>, the Component will be disabled.</p> %}
     *)
   method onEnable : unit Js.meth
   (** {% <p>private</p>
 
 <p>Allows addition of behavior to the enable operation.
-After calling the superclass’s onEnable, the Component will be enabled.</p> %}
+After calling the superclass's <code>onEnable</code>, the Component will be enabled.</p> %}
+    *)
+  method postBlur : Ext_EventObject.t Js.t -> unit Js.meth
+  (** {% <p>private</p>
+
+<p>Template method to do any post-blur processing.</p> %}
+    
+    {b Parameters}:
+    {ul {- e: [Ext_EventObject.t Js.t] {% <p>The event object</p> %}
+    }
+    }
     *)
   method processRawValue_str : Js.js_string Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Performs any necessary manipulation of a raw String value to prepare it for conversion and/or
@@ -300,14 +326,10 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_form_field_Base.configs
   
   method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterComponentLayout] *)
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -318,6 +340,9 @@ object('self)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
   method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onDisable] *)
@@ -325,7 +350,17 @@ object('self)
     Js.writeonly_prop
   (** See method [t.onEnable] *)
   method allowBlank : bool Js.t Js.prop
-  (** {% <p>Specify false to validate that the value's length is > 0</p> %}
+  (** {% <p>Specify false to validate that the value's length must be > 0. If <code>true</code>, then a blank value is <strong>always</strong> taken to be valid regardless of any <a href="#!/api/Ext.form.field.Text-cfg-vtype" rel="Ext.form.field.Text-cfg-vtype" class="docClass">vtype</a>
+validation that may be applied.</p>
+
+<p>If <a href="#!/api/Ext.form.field.Text-cfg-vtype" rel="Ext.form.field.Text-cfg-vtype" class="docClass">vtype</a> validation must still be applied to blank values, configure <a href="#!/api/Ext.form.field.Text-cfg-validateBlank" rel="Ext.form.field.Text-cfg-validateBlank" class="docClass">validateBlank</a> as <code>true</code>;</p> %}
+    
+    Defaults to: [true]
+    *)
+  method allowOnlyWhitespace : bool Js.t Js.prop
+  (** {% <p>Specify false to automatically trim the value before validating
+the whether the value is blank. Setting this to false automatically
+sets <a href="#!/api/Ext.form.field.Text-cfg-allowBlank" rel="Ext.form.field.Text-cfg-allowBlank" class="docClass">allowBlank</a> to false.</p> %}
     
     Defaults to: [true]
     *)
@@ -407,7 +442,7 @@ tracking. To restrict the maximum number of characters that can be entered into 
   method maxLengthText : Js.js_string Js.t Js.prop
   (** {% <p>Error text to display if the <strong><a href="#!/api/Ext.form.field.Text-cfg-maxLength" rel="Ext.form.field.Text-cfg-maxLength" class="docClass">maximum length</a></strong> validation fails</p> %}
     
-    Defaults to: ['The maximum length for this field is {0}']
+    Defaults to: ['The maximum length for this field is \{0\}']
     *)
   method minLength : Js.number Js.t Js.prop
   (** {% <p>Minimum input field length required</p> %}
@@ -416,6 +451,8 @@ tracking. To restrict the maximum number of characters that can be entered into 
     *)
   method minLengthText : Js.js_string Js.t Js.prop
   (** {% <p>Error text to display if the <strong><a href="#!/api/Ext.form.field.Text-cfg-minLength" rel="Ext.form.field.Text-cfg-minLength" class="docClass">minimum length</a></strong> validation fails.</p> %}
+    
+    Defaults to: ['The minimum length for this field is \{0\}']
     *)
   method regex : Regexp.regexp Js.t Js.prop
   (** {% <p>A JavaScript RegExp object to be tested against the field value during validation.
@@ -448,6 +485,11 @@ configured <a href="#!/api/Ext.form.field.Text-cfg-width" rel="Ext.form.field.Te
 during input. If <code>stripCharsRe</code> is specified,
 every <em>character sequence</em> matching <code>stripCharsRe</code> will be removed.</p> %}
     *)
+  method validateBlank : bool Js.t Js.prop
+  (** {% <p>Specify as <code>true</code> to modify the behaviour of <a href="#!/api/Ext.form.field.Text-cfg-allowBlank" rel="Ext.form.field.Text-cfg-allowBlank" class="docClass">allowBlank</a> so that blank values are not passed as valid, but are subject to any configure <a href="#!/api/Ext.form.field.Text-cfg-vtype" rel="Ext.form.field.Text-cfg-vtype" class="docClass">vtype</a> validation.</p> %}
+    
+    Defaults to: [false]
+    *)
   method validator : _ Js.callback Js.prop
   (** {% <p>A custom validation function to be called during field validation (<a href="#!/api/Ext.form.field.Text-method-getErrors" rel="Ext.form.field.Text-method-getErrors" class="docClass">getErrors</a>).
 If specified, this function will be called first, allowing the developer to override the default validation
@@ -467,9 +509,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_form_field_Base.events
   
   method autosize : (t Js.t -> Js.number Js.t -> _ Js.t -> unit) Js.callback
@@ -540,9 +579,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
   inherit Ext_form_field_Base.statics
   
   

@@ -6,15 +6,8 @@ mouse cursor during a drag.</p> %}
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_dd_DragDrop.t
   
-  method scroll : bool Js.t Js.prop
-  (** {% <p>When set to true, the utility automatically tries to scroll the browser
-window when a drag and drop element is dragged near the viewport boundary.</p> %}
-    
-    Defaults to: [true]
-    *)
   method alignElWithMouse : Dom_html.element Js.t -> Js.number Js.t ->
     Js.number Js.t -> unit Js.meth
   (** {% <p>Sets the element to the location of the mousedown or click event,
@@ -124,12 +117,17 @@ location other than where the cursor is.</p> %}
     }
     }
     *)
+  method scroll : bool Js.t Js.prop
+  (** {% <p>When set to true, the utility automatically tries to scroll the browser
+window when a drag and drop element is dragged near the viewport boundary.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_dd_DragDrop.configs
   
   
@@ -137,7 +135,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_dd_DragDrop.events
   
   
@@ -145,7 +142,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_dd_DragDrop.statics
   
   

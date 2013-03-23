@@ -2,9 +2,9 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method highlight : _ Js.t -> unit Js.meth
   method highlightItem : _ Js.t -> unit Js.meth
   method unHighlightItem : unit Js.meth
+  method highlightCfg : _ Js.t Js.prop
   
 end
 
@@ -12,6 +12,7 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method highlight : _ Js.t Js.prop
   
 end
 

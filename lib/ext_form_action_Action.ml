@@ -2,11 +2,11 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method run : unit Js.meth
   method failureType : Js.js_string Js.t Js.prop
   method response : _ Js.t Js.prop
   method result : _ Js.t Js.prop
   method _type : Js.js_string Js.t Js.prop
-  method run : unit Js.meth
   
 end
 

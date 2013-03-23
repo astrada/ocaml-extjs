@@ -13,13 +13,13 @@ boxes of sprites, add sprites to the canvas, initialize other graphic components
 <p>One of the most used methods for this class is the <a href="#!/api/Ext.draw.Surface-method-add" rel="Ext.draw.Surface-method-add" class="docClass">add</a> method, to add Sprites to
 the surface. For example:</p>
 
-<pre><code>drawComponent.surface.add({
+<pre><code>drawComponent.surface.add(\{
     type: 'circle',
     fill: '#ffc',
     radius: 100,
     x: 100,
     y: 100
-});
+\});
 </code></pre>
 
 <p>The configuration object passed in the <code>add</code> method is the same as described in the
@@ -27,12 +27,12 @@ the surface. For example:</p>
 
 <p>Sprites can also be added to surface by setting their surface config at creation time:</p>
 
-<pre><code>var sprite = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a>', {
+<pre><code>var sprite = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a>', \{
     type: 'circle',
     fill: '#ff0',
     surface: drawComponent.surface,
     radius: 5
-});
+\});
 </code></pre>
 
 <p>In order to properly apply properties and render the sprite we have to
@@ -44,8 +44,8 @@ the surface. For example:</p>
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
   method add : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Adds a Sprite to the surface. See <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a> for the configuration object to be
@@ -53,13 +53,13 @@ passed into this method.</p>
 
 <p>For example:</p>
 
-<pre><code>drawComponent.surface.add({
+<pre><code>drawComponent.surface.add(\{
     type: 'circle',
     fill: '#ffc',
     radius: 100,
     x: 100,
     y: 100
-});
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -109,21 +109,21 @@ configuration object please refer to <a href="#!/api/Ext.chart.Chart" rel="Ext.c
 
 <p>For example:</p>
 
-<p>   drawComponent.surface.addGradient({</p>
+<p>   drawComponent.surface.addGradient(\{</p>
 
 <pre><code>   id: 'gradientId',
    angle: 45,
-   stops: {
-       0: {
+   stops: \{
+       0: \{
            color: '#555'
-       },
-       100: {
+       \},
+       100: \{
            color: '#ddd'
-       }
-   }
+       \}
+   \}
 </code></pre>
 
-<p>   });</p> %}
+<p>   \});</p> %}
     
     {b Parameters}:
     {ul {- gradient: [_ Js.t] {% <p>A gradient config.</p> %}
@@ -236,9 +236,9 @@ sprite.remove();
 
 <p>For example:</p>
 
-<pre><code>drawComponent.surface.setStyle(sprite, {
+<pre><code>drawComponent.surface.setStyle(sprite, \{
     'cursor': 'pointer'
-});
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -271,8 +271,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method height : Js.number Js.t Js.prop
   (** {% <p>The height of this component in pixels (defaults to auto).</p> %}
@@ -288,8 +288,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method click : (Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

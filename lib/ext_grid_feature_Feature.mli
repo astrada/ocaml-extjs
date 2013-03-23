@@ -19,75 +19,92 @@ it should be extended.</p>
 <p>A feature is added to the grid by specifying it an array of features in the configuration:</p>
 
 <pre><code>var groupingFeature = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.feature.Grouping" rel="Ext.grid.feature.Grouping" class="docClass">Ext.grid.feature.Grouping</a>');
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
     // other options
     features: [groupingFeature]
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<h2>Writing Features</h2>
+
+<p>A Feature may add new DOM structure within the structure of a grid.</p>
+
+<p>A grid is essentially a <code>&lt;table&gt;</code> element. A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> instance uses three <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplates</a>
+to render the grid, <code>tableTpl</code>, <code>rowTpl</code>, <code>cellTpl</code>.</p>
+
+<ul>
+<li>A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> uses its <code>tableTpl</code> to emit the <code>&lt;table&gt;</code> and <code>&lt;tbody&gt;</code> HTML tags into its output stream. It also emits a <code>&lt;thead&gt;</code> which contains a
+sizing row. To ender the rows, it invokes <a href="#!/api/Ext.view.Table-method-renderRows" rel="Ext.view.Table-method-renderRows" class="docClass">Ext.view.Table.renderRows</a> passing the <code>rows</code> member of its data object.</li>
+</ul>
+
+
+<p>The <code>tableTpl</code>'s data object Looks like this:</p>
+
+<pre><code>\{
+    view: owningTableView,
+    rows: recordsToRender,
+    viewStartIndex: indexOfFirstRecordInStore,
+    tableStyle: styleString
+\}
+</code></pre>
+
+<ul>
+<li>A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> uses its <code>rowTpl</code> to emit a <code>&lt;tr&gt;</code> HTML tag to its output stream. To render cells,
+it invokes <a href="#!/api/Ext.view.Table-method-renderCell" rel="Ext.view.Table-method-renderCell" class="docClass">Ext.view.Table.renderCell</a> passing the <code>rows</code> member of its data object.</li>
+</ul>
+
+
+<p>The <code>rowTpl</code>'s data object looks like this:</p>
+
+<pre><code>\{
+    view:        owningTableView,
+    record:      recordToRender,
+    recordIndex: indexOfRecordInStore,
+    columns:     arrayOfColumnDefinitions,
+    itemClasses: arrayOfClassNames, // For outermost row in case of wrapping
+    rowClasses:  arrayOfClassNames,  // For internal data bearing row in case of wrapping
+    rowStyle:    styleString
+\}
+</code></pre>
+
+<ul>
+<li>A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> uses its <code>cellTpl</code> to emit a <code>&lt;td&gt;</code> HTML tag to its output stream.</li>
+</ul>
+
+
+<p>The <code>cellTpl's</code> data object looks like this:</p>
+
+<pre><code>\{
+    record: recordToRender
+    column: columnToRender;
+    recordIndex: indexOfRecordInStore,
+    columnIndex: columnIndex,
+    align: columnAlign,
+    tdCls: classForCell
+\}
+</code></pre>
+
+<p>A Feature may inject its own tableTpl or rowTpl or cellTpl into the <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a>'s rendering by
+calling <a href="#!/api/Ext.view.Table-method-addTableTpl" rel="Ext.view.Table-method-addTableTpl" class="docClass">Ext.view.Table.addTableTpl</a> or <a href="#!/api/Ext.view.Table-method-addRowTpl" rel="Ext.view.Table-method-addRowTpl" class="docClass">Ext.view.Table.addRowTpl</a> or <a href="#!/api/Ext.view.Table-method-addCellTpl" rel="Ext.view.Table-method-addCellTpl" class="docClass">Ext.view.Table.addCellTpl</a>.</p>
+
+<p>The passed XTemplate is added <em>upstream</em> of the default template for the table element in a link list of XTemplates which contribute
+to the element's HTML. It may emit appropriate HTML strings into the output stream <em>around</em> a call to</p>
+
+<pre><code>this.nextTpl.apply(values, out, parent);
+</code></pre>
+
+<p>This passes the current value context, output stream and the parent value context to the next XTemplate in the list.</p> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
   
-  method collectData : bool Js.t Js.prop
-  (** {% <p>Most features will not modify the data returned to the view.
-This is limited to one feature that manipulates the data per grid view.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method disabled : bool Js.t Js.prop
-  (** {% <p>True when feature is disabled.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method eventPrefix : Js.js_string Js.t Js.prop
-  (** {% <p>Prefix to use when firing events on the view.
-For example a prefix of group would expose "groupclick", "groupcontextmenu", "groupdblclick".</p> %}
-    *)
-  method eventSelector : Js.js_string Js.t Js.prop
-  (** {% <p>Selector used to determine when to fire the event with the eventPrefix.</p> %}
-    *)
-  method grid : _ Js.t Js.prop
-  (** {% <p>Reference to the grid panel</p> %}
-    *)
-  method hasFeatureEvent : bool Js.t Js.prop
-  (** {% <p>Most features will expose additional events, some may not and will
-need to change this to false.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method view : _ Js.t Js.prop
-  (** {% <p>Reference to the TableView.</p> %}
-    *)
-  method attachEvents : unit Js.meth
-  (** {% <p>Approriate place to attach events to the view, selectionmodel, headerCt, etc</p> %}
-    *)
   method disable : unit Js.meth
   (** {% <p>Disables the feature.</p> %}
     *)
   method enable : unit Js.meth
   (** {% <p>Enables the feature.</p> %}
-    *)
-  method getAdditionalData : _ Js.t -> Js.number Js.t ->
-    Ext_data_Model.t Js.t -> _ Js.t -> unit Js.meth
-  (** {% <p>Provide additional data to the prepareData call within the grid view.</p> %}
-    
-    {b Parameters}:
-    {ul {- data: [_ Js.t]
-    {% <p>The data for this particular record.</p> %}
-    }
-    {- idx: [Js.number Js.t]
-    {% <p>The row index for this record.</p> %}
-    }
-    {- record: [Ext_data_Model.t Js.t]
-    {% <p>The record instance</p> %}
-    }
-    {- orig: [_ Js.t]
-    {% <p>The original result from the prepareData call to massage.</p> %}
-    }
-    }
     *)
   method getFireEventArgs : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
     Js.meth
@@ -114,53 +131,45 @@ to be passed to fireEvent.</p> %}
     }
     }
     *)
-  method getMetaRowTplFragments : unit Js.meth
-  (** {% <p>Allows a feature to inject member methods into the metaRowTpl. This is
-important for embedding functionality which will become part of the proper
-row tpl.</p> %}
-    *)
-  method mutateMetaRowTpl : _ Js.js_array Js.t -> unit Js.meth
-  (** {% <p>Allows a feature to mutate the metaRowTpl.
-The array received as a single argument can be manipulated to add things
-on the end/begining of a particular row.</p> %}
+  method disabled : bool Js.t Js.prop
+  (** {% <p>True when feature is disabled.</p> %}
     
-    {b Parameters}:
-    {ul {- metaRowTplArray: [_ Js.js_array Js.t]
-    {% <p>A String array to be used constructing an <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a>
-to render the rows. This Array may be changed to provide extra DOM structure.</p> %}
-    }
-    }
+    Defaults to: [false]
+    *)
+  method eventPrefix : Js.js_string Js.t Js.prop
+  (** {% <p>Prefix to use when firing events on the view.
+For example a prefix of group would expose "groupclick", "groupcontextmenu", "groupdblclick".</p> %}
+    *)
+  method eventSelector : Js.js_string Js.t Js.prop
+  (** {% <p>Selector used to determine when to fire the event with the eventPrefix.</p> %}
+    *)
+  method grid : _ Js.t Js.prop
+  (** {% <p>Reference to the grid panel</p> %}
+    *)
+  method hasFeatureEvent : bool Js.t Js.prop
+  (** {% <p>Most features will expose additional events, some may not and will
+need to change this to false.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method view : _ Js.t Js.prop
+  (** {% <p>Reference to the TableView.</p> %}
     *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   
-  method attachEvents : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.attachEvents] *)
-  method getAdditionalData : ('self Js.t, _ Js.t -> Js.number Js.t ->
-    Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.getAdditionalData] *)
   method getFireEventArgs : ('self Js.t, _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t
     -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.getFireEventArgs] *)
-  method getMetaRowTplFragments : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.getMetaRowTplFragments] *)
-  method mutateMetaRowTpl : ('self Js.t, _ Js.js_array Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.mutateMetaRowTpl] *)
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
   
@@ -168,7 +177,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_util_Observable.statics
   
   

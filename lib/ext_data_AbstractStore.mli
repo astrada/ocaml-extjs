@@ -25,34 +25,10 @@ or can be completed on the server. This is controlled by the <a href="#!/api/Ext
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
   inherit Ext_util_Sortable.t
+  inherit Ext_Base.t
   
-  method defaultProxyType : Js.js_string Js.t Js.prop
-  (** {% <p>The string type of the Proxy to create if none is specified. This defaults to creating a
-<a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">memory proxy</a>.</p> %}
-    
-    Defaults to: ['memory']
-    *)
-  method filters : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>The collection of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filters</a> currently applied to this Store</p> %}
-    *)
-  method isDestroyed : bool Js.t Js.prop
-  (** {% <p>True if the Store has already been destroyed. If this is true, the reference to Store should be deleted
-as it will not function correctly any more.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method isStore : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Store, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method removed : Ext_data_Model.t Js.js_array Js.t Js.prop
-  (** {% <p>Temporary cache in which removed model instances are kept until successfully synchronised with a Proxy,
-at which point this is cleared.</p> %}
-    *)
   method getModifiedRecords : Ext_data_Model.t Js.js_array Js.t Js.meth
   (** {% <p>Gets all <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">records</a> added or updated since the last commit. Note that the order of records
 returned is not deterministic and does not indicate the order in which records were modified. Note also that
@@ -177,19 +153,42 @@ passed along to the underlying proxy's <a href="#!/api/Ext.data.proxy.Proxy-meth
     }
     }
     *)
+  method defaultProxyType : Js.js_string Js.t Js.prop
+  (** {% <p>The string type of the Proxy to create if none is specified. This defaults to creating a
+<a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">memory proxy</a>.</p> %}
+    
+    Defaults to: ['memory']
+    *)
+  method filters : Ext_util_MixedCollection.t Js.t Js.prop
+  (** {% <p>The collection of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filters</a> currently applied to this Store</p> %}
+    *)
+  method isDestroyed : bool Js.t Js.prop
+  (** {% <p>True if the Store has already been destroyed. If this is true, the reference to Store should be deleted
+as it will not function correctly any more.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method isStore : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Store, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method removed : Ext_data_Model.t Js.js_array Js.t Js.prop
+  (** {% <p>Temporary cache in which removed model instances are kept until successfully synchronised with a Proxy,
+at which point this is cleared.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   inherit Ext_util_Sortable.configs
+  inherit Ext_Base.configs
   
   method autoLoad : _ Js.t Js.prop
   (** {% <p>If data is not specified, and if autoLoad is true or an Object, this store's load method is automatically called
-after creation. If the value of autoLoad is an Object, this Object will be passed to the store's load method.
-Defaults to false.</p> %}
+after creation. If the value of autoLoad is an Object, this Object will be passed to the store's load method.</p> %}
     *)
   method autoSync : bool Js.t Js.prop
   (** {% <p>True to automatically sync the Store with its Proxy after every edit to one of its Records. Defaults to false.</p> %}
@@ -224,9 +223,9 @@ functions which will be used as the <a href="#!/api/Ext.util.Filter-cfg-filterFn
 for filters:</p>
 
 <pre><code>filters: [
-    function(item) {
-        return item.internalId &gt; 0;
-    }
+    function(item) \{
+        return item.weight &gt; 0;
+    \}
 ]
 </code></pre>
 
@@ -256,6 +255,11 @@ Defaults to true, igored if <a href="#!/api/Ext.data.Store-cfg-remoteSort" rel="
     
     Defaults to: [true]
     *)
+  method statefulFilters : bool Js.t Js.prop
+  (** {% <p>Configure as <code>true</code> to have the filters saved when a client <a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">grid</a> saves its state.</p> %}
+    
+    Defaults to: [false]
+    *)
   method storeId : Js.js_string Js.t Js.prop
   (** {% <p>Unique identifier for this store. If present, this Store will be registered with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">Ext.data.StoreManager</a>,
 making it easy to reuse elsewhere.</p>
@@ -267,13 +271,13 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
   inherit Ext_util_Sortable.events
+  inherit Ext_Base.events
   
   method add : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t
     -> _ Js.t -> unit) Js.callback Js.writeonly_prop
-  (** {% <p>Fired when a Model instance has been added to this Store</p> %}
+  (** {% <p>Fired when a Model instance has been added to this Store.</p> %}
     
     {b Parameters}:
     {ul {- store: [Ext_data_Store.t Js.t]
@@ -315,6 +319,32 @@ load the Store</p> %}
     {b Parameters}:
     {ul {- options: [_ Js.t]
     {% <p>Hash of all records to be synchronized, broken down into create, update and destroy</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method bulkremove : (t Js.t -> Ext_data_Model.t Js.js_array Js.t ->
+    Js.number Js.t Js.js_array Js.t -> bool Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
+  (** {% <p>Fired at the <em>end</em> of the <a href="#!/api/Ext.data.Store-method-remove" rel="Ext.data.Store-method-remove" class="docClass">remove</a> method when all records in the passed array have been removed.</p>
+
+<p>If many records may be removed in one go, then it is more efficient to listen for this event
+and perform any processing for a bulk remove than to listen for many <a href="#!/api/Ext.data.AbstractStore-event-remove" rel="Ext.data.AbstractStore-event-remove" class="docClass">remove</a> events.</p> %}
+    
+    {b Parameters}:
+    {ul {- store: [Ext_data_Store.t Js.t]
+    {% <p>The Store object</p> %}
+    }
+    {- records: [Ext_data_Model.t Js.js_array Js.t]
+    {% <p>The array of records that were removed (In the order they appear in the Store)</p> %}
+    }
+    {- indexes: [Js.number Js.t Js.js_array Js.t]
+    {% <p>The indexes of the records that were removed</p> %}
+    }
+    {- isMove: [bool Js.t]
+    {% <p><code>true</code> if the child nodes are being removed so they can be moved to another position in this Store.</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -395,8 +425,11 @@ widget that is using this Store as a Record cache should refresh its view.</p> %
     }
     *)
   method remove : (t Js.t -> Ext_data_Model.t Js.t -> Js.number Js.t ->
-    _ Js.t -> unit) Js.callback Js.writeonly_prop
-  (** {% <p>Fired when a Model instance has been removed from this Store</p> %}
+    bool Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fired when a Model instance has been removed from this Store.</p>
+
+<p><strong>If many records may be removed in one go, then it is more efficient to listen for the <a href="#!/api/Ext.data.AbstractStore-event-bulkremove" rel="Ext.data.AbstractStore-event-bulkremove" class="docClass">bulkremove</a> event
+and perform any processing for a bulk remove than to listen for this <a href="#!/api/Ext.data.AbstractStore-event-remove" rel="Ext.data.AbstractStore-event-remove" class="docClass">remove</a> event.</strong></p> %}
     
     {b Parameters}:
     {ul {- store: [Ext_data_Store.t Js.t]
@@ -408,6 +441,9 @@ widget that is using this Store as a Record cache should refresh its view.</p> %
     {- index: [Js.number Js.t]
     {% <p>The index of the record that was removed</p> %}
     }
+    {- isMove: [bool Js.t]
+    {% <p><code>true</code> if the child node is being removed so it can be moved to another position in this Store.</p> %}
+    }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
@@ -416,7 +452,7 @@ widget that is using this Store as a Record cache should refresh its view.</p> %
   method update : (t Js.t -> Ext_data_Model.t Js.t -> Js.js_string Js.t ->
     Js.js_string Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  (** {% <p>Fires when a Model instance has been updated</p> %}
+  (** {% <p>Fires when a Model instance has been updated.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_data_Store.t Js.t]

@@ -1,6 +1,5 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_data_proxy_Proxy.t
   
   method afterRequest : Ext_data_Request.t Js.t -> bool Js.t -> unit Js.meth
@@ -27,7 +26,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_data_proxy_Proxy.configs
   
   method afterRequest : ('self Js.t, Ext_data_Request.t Js.t -> bool Js.t ->
@@ -39,6 +37,7 @@ object('self)
   method filterParam : Js.js_string Js.t Js.prop
   method groupDirectionParam : Js.js_string Js.t Js.prop
   method groupParam : Js.js_string Js.t Js.prop
+  method idParam : Js.js_string Js.t Js.prop
   method limitParam : Js.js_string Js.t Js.prop
   method noCache : bool Js.t Js.prop
   method pageParam : Js.js_string Js.t Js.prop
@@ -53,7 +52,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_data_proxy_Proxy.events
   
   method _exception : (#Ext_data_proxy_Proxy.t Js.t -> _ Js.t ->
@@ -64,7 +62,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_data_proxy_Proxy.statics
   
   

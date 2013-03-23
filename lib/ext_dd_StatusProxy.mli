@@ -1,13 +1,11 @@
 (** A specialized floating Component that supports a d ...
   
-  {% <p>A specialized floating Component that supports a drop status icon, <a href="#!/api/Ext.Layer" rel="Ext.Layer" class="docClass">Ext.Layer</a> styles
+  {% <p>A specialized floating Component that supports a drop status icon, <a href="#!/api/Ext.dom.Layer" rel="Ext.dom.Layer" class="docClass">Ext.Layer</a> styles
 and auto-repair.  This is the default drag proxy used by all Ext.dd components.</p> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
   inherit Ext_Component.t
   
   method getGhost : Ext_dom_Element.t Js.t Js.meth
@@ -86,8 +84,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
   inherit Ext_Component.configs
   
   method dropAllowed : Js.js_string Js.t Js.prop
@@ -106,7 +102,7 @@ object('self)
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.dd.StatusProxy-method-getEl" rel="Ext.dd.StatusProxy-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -115,15 +111,13 @@ internal structure.</p>
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.dd.StatusProxy-cfg-renderSelectors" rel="Ext.dd.StatusProxy-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.dd.StatusProxy-cfg-childEls" rel="Ext.dd.StatusProxy-cfg-childEls" class="docClass">childEls</a> options.</p> %}
     
-    Defaults to: [['<div class="' + Ext.baseCSSPrefix + 'dd-drop-icon"></div>' + '<div id="{id}-ghost" class="' + Ext.baseCSSPrefix + 'dd-drag-ghost"></div>']]
+    Defaults to: ['<div class=''' + Ext.baseCSSPrefix + 'dd-drop-icon''></div>' + '<div id=''\{id\}-ghost'' class=''' + Ext.baseCSSPrefix + 'dd-drag-ghost''></div>']
     *)
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
   inherit Ext_Component.events
   
   
@@ -131,8 +125,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   
   

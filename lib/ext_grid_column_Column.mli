@@ -6,31 +6,31 @@ both the grid header configuration as well as displaying data within the grid it
 contain other columns inside. In general, this class will not be created directly, rather
 an array of column configurations will be passed to the grid:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     storeId:'employeeStore',
     fields:['firstname', 'lastname', 'seniority', 'dep', 'hired'],
     data:[
-        {firstname:"Michael", lastname:"Scott", seniority:7, dep:"Management", hired:"01/10/2004"},
-        {firstname:"Dwight", lastname:"Schrute", seniority:2, dep:"Sales", hired:"04/01/2004"},
-        {firstname:"Jim", lastname:"Halpert", seniority:3, dep:"Sales", hired:"02/22/2006"},
-        {firstname:"Kevin", lastname:"Malone", seniority:4, dep:"Accounting", hired:"06/10/2007"},
-        {firstname:"Angela", lastname:"Martin", seniority:5, dep:"Accounting", hired:"10/21/2008"}
+        \{firstname:"Michael", lastname:"Scott", seniority:7, dep:"Management", hired:"01/10/2004"\},
+        \{firstname:"Dwight", lastname:"Schrute", seniority:2, dep:"Sales", hired:"04/01/2004"\},
+        \{firstname:"Jim", lastname:"Halpert", seniority:3, dep:"Sales", hired:"02/22/2006"\},
+        \{firstname:"Kevin", lastname:"Malone", seniority:4, dep:"Accounting", hired:"06/10/2007"\},
+        \{firstname:"Angela", lastname:"Martin", seniority:5, dep:"Accounting", hired:"10/21/2008"\}
     ]
-});
+\});
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
     title: 'Column Demo',
     store: <a href="#!/api/Ext.data.StoreManager-method-lookup" rel="Ext.data.StoreManager-method-lookup" class="docClass">Ext.data.StoreManager.lookup</a>('employeeStore'),
     columns: [
-        {text: 'First Name',  dataIndex:'firstname'},
-        {text: 'Last Name',  dataIndex:'lastname'},
-        {text: 'Hired Month',  dataIndex:'hired', xtype:'datecolumn', format:'M'},
-        {text: 'Department (Yrs)', xtype:'templatecolumn', tpl:'{dep} ({seniority})'}
+        \{text: 'First Name',  dataIndex:'firstname'\},
+        \{text: 'Last Name',  dataIndex:'lastname'\},
+        \{text: 'Hired Month',  dataIndex:'hired', xtype:'datecolumn', format:'M'\},
+        \{text: 'Department (Yrs)', xtype:'templatecolumn', tpl:'\{dep\} (\{seniority\})'\}
     ],
     width: 400,
     forceFit: true,
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre>
 
 <h1>Convenience Subclasses</h1>
@@ -75,31 +75,14 @@ the width of the child columns, so a width option should not be specified in tha
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
   inherit Ext_grid_header_Container.t
   
-  method isHeader : bool Js.t Js.prop
-  (** {% <p>Set in this class to identify, at runtime, instances which are not instances of the
-HeaderContainer base class, but are in fact, the subclass: Header.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method textEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>Element that contains the text in column header.</p> %}
-    *)
-  method triggerEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>Element that acts as button for column header dropdown menu.</p> %}
-    *)
-  method afterComponentLayout : Js.number Js.t -> Js.number Js.t ->
-    Js.number Js.t -> Js.number Js.t -> unit Js.meth
+  method afterComponentLayout : Js.number Js.t -> Js.number Js.t -> _ Js.t ->
+    _ Js.t -> unit Js.meth
   (** {% <p>private
 Inform the header container about the resize</p>
 
-<p>Called by the layout system after the Component has been layed out.</p> %}
+<p>Called by the layout system after the Component has been laid out.</p> %}
     
     {b Parameters}:
     {ul {- width: [Js.number Js.t]
@@ -108,11 +91,11 @@ Inform the header container about the resize</p>
     {- height: [Js.number Js.t]
     {% <p>The height that was set</p> %}
     }
-    {- oldWidth: [Js.number Js.t]
-    {% <p>The old width. <code>undefined</code> if this was the initial layout.</p> %}
+    {- oldWidth: [_ Js.t]
+    {% <p>The old width, or <code>undefined</code> if this was the initial layout.</p> %}
     }
-    {- oldHeight: [Js.number Js.t]
-    {% <p>The old height. <code>undefined</code> if this was the initial layout.</p> %}
+    {- oldHeight: [_ Js.t]
+    {% <p>The old height, or <code>undefined</code> if this was the initial layout.</p> %}
     }
     }
     *)
@@ -121,6 +104,17 @@ Inform the header container about the resize</p>
 will have been styled according to the configuration, will have had any configured CSS class
 names added, and will be in the configured visibility and the configured enable state.</p> %}
     *)
+  method autoSize : _ Js.t -> unit Js.meth
+  (** {% <p>Sizes this Column to fit the max content width.
+<em>Note that group columns shrinkwrap around the size of leaf columns. Auto sizing a group column
+autosizes descendant leaf columns.</em></p> %}
+    
+    {b Parameters}:
+    {ul {- the: [_ Js.t]
+    {% <p>header (or index of header) to auto size.</p> %}
+    }
+    }
+    *)
   method defaultRenderer : unit Js.meth
   (** {% <p>When defined this will take precedence over the <a href="#!/api/Ext.grid.column.Column-cfg-renderer" rel="Ext.grid.column.Column-cfg-renderer" class="docClass">renderer</a> config.
 This is meant to be defined in subclasses that wish to supply their own renderer.</p> %}
@@ -128,7 +122,7 @@ This is meant to be defined in subclasses that wish to supply their own renderer
   method getEditor : _ Js.t -> _ Js.t -> #Ext_form_field_Field.t Js.t Js.meth
   (** {% <p>Retrieves the editing field for editing associated with this header. Returns false if there is no field
 associated with the Header the method will return false. If the field has not been instantiated it will be
-created. Note: These methods only has an implementation if a Editing plugin has been enabled on the grid.</p> %}
+created. Note: These methods only have an implementation if an Editing plugin has been enabled on the grid.</p> %}
     
     {b Parameters}:
     {ul {- record: [_ Js.t]
@@ -197,20 +191,46 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
+    *)
+  method initRenderData : _ Js.t Js.meth
+  (** {% <p>Initialized the renderData to be used when rendering the renderTpl.</p> %}
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p>Object with keys and values that are going to be applied to the renderTpl</p> %}
+    }
+    }
+    *)
+  method isHideable : unit Js.meth
+  (** {% <p>Determines whether the UI should be allowed to offer an option to hide this column.</p>
+
+<p>A column may <em>not</em> be hidden if to do so would leave the grid with no visible columns.</p>
+
+<p>This is used to determine the enabled/disabled state of header hide menu items.</p> %}
+    *)
+  method isLockable : unit Js.meth
+  (** {% <p>Determines whether the UI should be allowed to offer an option to lock or unlock this column. Note
+that this includes dragging a column into the opposite side of a <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">lockable</a> grid.</p>
+
+<p>A column may <em>not</em> be moved from one side to the other of a <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">lockable</a> grid
+if to do so would leave one side with no visible columns.</p>
+
+<p>This is used to determine the enabled/disabled state of the lock/unlock
+menu item used in <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">lockable</a> grids, and to determine dropppabilty when dragging a header.</p> %}
     *)
   method onAdd : #Ext_Component.t Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>This method is invoked after a new Component has been added. It
@@ -227,7 +247,7 @@ the state of the child items.</p> %}
     *)
   method onDestroy : unit Js.meth
   (** {% <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method onRemove : #Ext_Component.t Js.t -> bool Js.t -> unit Js.meth
   (** {% <p>This method is invoked after a new Component has been
@@ -290,21 +310,27 @@ Defaults to this Component.</p> %}
     }
     }
     *)
+  method isHeader : bool Js.t Js.prop
+  (** {% <p>Set in this class to identify, at runtime, instances which are not instances of the
+HeaderContainer base class, but are in fact, the subclass: Header.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method textEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>Element that contains the text in column header.</p> %}
+    *)
+  method triggerEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>Element that acts as button for column header dropdown menu.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
   inherit Ext_grid_header_Container.configs
   
   method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterComponentLayout] *)
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -331,12 +357,12 @@ Possible values are: <code>'left'</code>, <code>'center'</code>, and <code>'righ
     Defaults to: ['left']
     *)
   method baseCls : Js.js_string Js.t Js.prop
-  (** {% <p>The base CSS class to apply to this components's element. This will also be prepended to elements within this
-component like Panel's body will get a class x-panel-body. This means that if you create a subclass of Panel, and
-you want it to get all the Panels styling for the element and the body, you leave the baseCls x-panel and use
-componentCls to add specific styling for this component.</p> %}
+  (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
+component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
+you want it to get all the Panels styling for the element and the body, you leave the <code>baseCls</code> <code>x-panel</code> and use
+<code>componentCls</code> to add specific styling for this component.</p> %}
     
-    Defaults to: [Ext.baseCSSPrefix + 'column-header ' + Ext.baseCSSPrefix + 'unselectable']
+    Defaults to: [Ext.baseCSSPrefix + 'column-header']
     *)
   method columns : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>An optional array of sub-column definitions. This column becomes a group, and houses the columns defined in the
@@ -361,6 +387,16 @@ class which simply sizes the Component's encapsulating element to the height and
   method dataIndex : Js.js_string Js.t Js.prop
   (** {% <p>The name of the field in the grid's <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>'s <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> definition from
 which to draw the column's value. <strong>Required.</strong></p> %}
+    *)
+  method detachOnRemove : bool Js.t Js.prop
+  (** {% <p>So that when removing from group headers which are then empty and then get destroyed, there's no child DOM left</p>
+
+<p>True to move any component to the <a href="#!/api/Ext-method-getDetachedBody" rel="Ext-method-getDetachedBody" class="docClass">detachedBody</a> when the component is
+removed from this container. This option is only applicable when the component is not destroyed while
+being removed, see <a href="#!/api/Ext.grid.column.Column-cfg-autoDestroy" rel="Ext.grid.column.Column-cfg-autoDestroy" class="docClass">autoDestroy</a> and <a href="#!/api/Ext.grid.column.Column-method-remove" rel="Ext.grid.column.Column-method-remove" class="docClass">remove</a>. If this option is set to false, the DOM
+of the component will remain in the current place until it is explicitly moved.</p> %}
+    
+    Defaults to: [true]
     *)
   method draggable : bool Js.t Js.prop
   (** {% <p>False to disable drag-drop reordering of this column.</p> %}
@@ -394,6 +430,11 @@ disable (but still show) the group option in the header menu for the column.</p>
     
     Defaults to: [true]
     *)
+  method lockable : bool Js.t Js.prop
+  (** {% <p>If the grid is configured with <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">enableLocking</a>, or has columns which are
+configured with a <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> value, this option may be used to disable user-driven locking or unlocking
+of this column. This column will remain in the side into which its own <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> configuration placed it.</p> %}
+    *)
   method locked : bool Js.t Js.prop
   (** {% <p>True to lock this column in place.  Implicitly enables locking on the grid.
 See also <a href="#!/api/Ext.grid.Panel-cfg-enableLocking" rel="Ext.grid.Panel-cfg-enableLocking" class="docClass">Ext.grid.Panel.enableLocking</a>.</p> %}
@@ -415,7 +456,7 @@ specified, will default to the text value.</p> %}
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -424,27 +465,27 @@ internal structure.</p>
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.grid.column.Column-cfg-renderSelectors" rel="Ext.grid.column.Column-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.grid.column.Column-cfg-childEls" rel="Ext.grid.column.Column-cfg-childEls" class="docClass">childEls</a> options.</p> %}
     
-    Defaults to: ['<div id="{id}-titleEl" {tipMarkup}class="' + Ext.baseCSSPrefix + 'column-header-inner">' + '<span id="{id}-textEl" class="' + Ext.baseCSSPrefix + 'column-header-text">' + '{text}' + '</span>' + '<tpl if="!menuDisabled">' + '<div id="{id}-triggerEl" class="' + Ext.baseCSSPrefix + 'column-header-trigger"></div>' + '</tpl>' + '</div>' + '{%this.renderContainer(out,values)%}']
+    Defaults to: ['<div id="\{id\}-titleEl" \{tipMarkup\}class="' + Ext.baseCSSPrefix + 'column-header-inner">' + '<span id="\{id\}-textEl" class="' + Ext.baseCSSPrefix + 'column-header-text' + '\{childElCls\}">' + '\{text\}' + '</span>' + '<tpl if="!menuDisabled">' + '<div id="\{id\}-triggerEl" class="' + Ext.baseCSSPrefix + 'column-header-trigger' + '\{childElCls\}"></div>' + '</tpl>' + '</div>' + '\{%this.renderContainer(out,values)%\}']
     *)
   method renderer : _ Js.t Js.prop
   (** {% <p>A renderer is an 'interceptor' method which can be used to transform data (value, appearance, etc.)
 before it is rendered. Example:</p>
 
-<pre><code>{
-    renderer: function(value){
-        if (value === 1) {
+<pre><code>\{
+    renderer: function(value)\{
+        if (value === 1) \{
             return '1 person';
-        }
+        \}
         return value + ' people';
-    }
-}
+    \}
+\}
 </code></pre>
 
 <p>Additionally a string naming an <a href="#!/api/Ext.util.Format" rel="Ext.util.Format" class="docClass">Ext.util.Format</a> method can be passed:</p>
 
-<pre><code>{
+<pre><code>\{
     renderer: 'uppercase'
-}
+\}
 </code></pre> %}
     
     Defaults to: [false]
@@ -471,6 +512,8 @@ the owning grid's state.</p> %}
     *)
   method tdCls : Js.js_string Js.t Js.prop
   (** {% <p>A CSS class names to apply to the table cells for this column.</p> %}
+    
+    Defaults to: ['']
     *)
   method text : Js.js_string Js.t Js.prop
   (** {% <p>The header text to be used as innerHTML (html tags are accepted) to display in the Grid.
@@ -491,11 +534,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
   inherit Ext_grid_header_Container.events
   
   
@@ -503,11 +541,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
   inherit Ext_grid_header_Container.statics
   
   

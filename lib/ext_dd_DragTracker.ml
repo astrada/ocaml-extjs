@@ -1,24 +1,25 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method active : bool Js.t Js.readonly_prop
-  method dragTarget : Dom_html.element Js.t Js.readonly_prop
   method getDragTarget : Ext_dom_Element.t Js.t Js.meth
-  method getOffset : _ Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
+  method getOffset : Js.js_string Js.t Js.optdef ->
+    Js.number Js.t Js.js_array Js.t Js.meth
   method initEl : _ Js.t -> unit Js.meth
   method onBeforeStart : Ext_EventObject.t Js.t -> unit Js.meth
   method onDrag : Ext_EventObject.t Js.t -> unit Js.meth
   method onEnd : Ext_EventObject.t Js.t -> unit Js.meth
   method onStart : Ext_EventObject.t Js.t -> unit Js.meth
+  method active : bool Js.t Js.readonly_prop
+  method dragTarget : Dom_html.element Js.t Js.readonly_prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method onBeforeStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
@@ -41,8 +42,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method beforestart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

@@ -12,8 +12,7 @@ may themselves make use of <a href="#!/api/Ext-method-fly" rel="Ext-method-fly" 
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_dom_AbstractElement.t
+  inherit Ext_dom_Element.t
   
   method isFly : bool Js.t Js.prop
   (** {% <p>This is <code>true</code> to identify Element flyweights</p> %}
@@ -25,24 +24,21 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_dom_AbstractElement.configs
+  inherit Ext_dom_Element.configs
   
   
 end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_dom_AbstractElement.events
+  inherit Ext_dom_Element.events
   
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_dom_AbstractElement.statics
+  inherit Ext_dom_Element.statics
   
   
 end

@@ -1,22 +1,12 @@
-(** Base Layout class - extended by ComponentLayout an ...
+(** This class is the base for all layout types: compo ...
   
-  {% <p>Base Layout class - extended by ComponentLayout and ContainerLayout</p> %}
+  {% <p>This class is the base for all layout types: component and container.</p> %}
   *)
 
 class type t =
 object('self)
   inherit Ext_Base.t
   
-  method _done : bool Js.t Js.prop
-  (** {% <p>Used only during a layout run, this value indicates that a
-layout has finished its calculations. This flag is set to true prior to the call to
-<a href="#!/api/Ext.layout.Layout-method-calculate" rel="Ext.layout.Layout-method-calculate" class="docClass">calculate</a> and should be set to false if this layout has more work to do.</p> %}
-    *)
-  method isLayout : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Layout, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method afterRemove : _ Js.t -> unit Js.meth
   (** {% <p>Removes layout's itemCls and owning Container's itemCls.
 Clears the managed dimensions flags</p> %}
@@ -152,7 +142,8 @@ component.</p> %}
     }
     }
     *)
-  method getItemSizePolicy : #Ext_Component.t Js.t -> _ Js.t Js.meth
+  method getItemSizePolicy : #Ext_Component.t Js.t ->
+    Ext_layout_SizePolicy.t Js.t Js.meth
   (** {% <p>Returns an object describing how this layout manages the size of the given component.
 This method must be implemented by any layout that manages components.</p> %}
     
@@ -162,9 +153,9 @@ This method must be implemented by any layout that manages components.</p> %}
     }
     
     {b Returns}:
-    {ul {- [_ Js.t]
-    {% <p>An object describing the sizing done by the layout for this item or
-null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card').</p> %}
+    {ul {- [Ext_layout_SizePolicy.t Js.t]
+    {% <p>An object describing the sizing done by the layout
+for this item.</p> %}
     }
     }
     *)
@@ -233,6 +224,16 @@ also determines if the items are in the proper place in the dom.</p> %}
     {- target: [_ Js.t]
     }
     }
+    *)
+  method _done : bool Js.t Js.prop
+  (** {% <p>Used only during a layout run, this value indicates that a
+layout has finished its calculations. This flag is set to true prior to the call to
+<a href="#!/api/Ext.layout.Layout-method-calculate" rel="Ext.layout.Layout-method-calculate" class="docClass">calculate</a> and should be set to false if this layout has more work to do.</p> %}
+    *)
+  method isLayout : bool Js.t Js.readonly_prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Layout, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
     *)
   
 end

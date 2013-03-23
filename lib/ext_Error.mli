@@ -3,7 +3,7 @@
   {% <p>A wrapper class for the native JavaScript Error object that adds a few useful capabilities for handling
 errors in an Ext application. When you use <a href="#!/api/Ext.Error" rel="Ext.Error" class="docClass">Ext.Error</a> to <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">raise</a> an error from within any class that
 uses the Ext 4 class system, the Error class can automatically add the source class and method from which
-the error was raised. It also includes logic to automatically log the eroor to the console, if available,
+the error was raised. It also includes logic to automatically log the error to the console, if available,
 with additional metadata about the error. In all cases, the error will always be thrown at the end so that
 execution will halt.</p>
 
@@ -27,23 +27,23 @@ added to the error object and, if the console is available, logged to the consol
 
 <p>Example usage:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.Foo', {
-    doSomething: function(option){
-        if (someCondition === false) {
-            <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>({
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.Foo', \{
+    doSomething: function(option)\{
+        if (someCondition === false) \{
+            <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>(\{
                 msg: 'You cannot do that!',
                 option: option,   // whatever was passed into the method
                 'error code': 100 // other arbitrary info
-            });
-        }
-    }
-});
+            \});
+        \}
+    \}
+\});
 </code></pre>
 
 <p>If a console is available (that supports the <code>console.dir</code> function) you'll see console output like:</p>
 
 <pre><code>An error was raised with the following data:
-option:         Object { foo: "bar"}
+option:         Object \{ foo: "bar"\}
     foo:        "bar"
 error code:     100
 msg:            "You cannot do that!"
@@ -62,13 +62,13 @@ and will not be thrown to the browser. If anything but true is returned then the
 
 <p>Example usage:</p>
 
-<pre><code><a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">Ext.Error.handle</a> = function(err) {
-    if (err.someProperty == 'NotReallyAnError') {
+<pre><code><a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">Ext.Error.handle</a> = function(err) \{
+    if (err.someProperty == 'NotReallyAnError') \{
         // maybe log something to the application here if applicable
         return true;
-    }
+    \}
     // any non-true return value (including none) will cause the error to be thrown
-}
+\}
 </code></pre> %}
   *)
 
@@ -109,6 +109,66 @@ end
 class type statics =
 object
   
+  method handle : 'self Js.t -> unit Js.meth
+  (** {% <p>Globally handle any Ext errors that may be raised, optionally providing custom logic to
+handle different errors individually. Return true from the function to bypass throwing the
+error to the browser, otherwise the error will be thrown and execution will halt.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">Ext.Error.handle</a> = function(err) \{
+    if (err.someProperty == 'NotReallyAnError') \{
+        // maybe log something to the application here if applicable
+        return true;
+    \}
+    // any non-true return value (including none) will cause the error to be thrown
+\}
+</code></pre> %}
+    
+    {b Parameters}:
+    {ul {- err: [Ext_Error.t Js.t]
+    {% <p>The <a href="#!/api/Ext.Error" rel="Ext.Error" class="docClass">Ext.Error</a> object being raised. It will contain any attributes that were originally
+raised with it, plus properties about the method and class from which the error originated (if raised from a
+class that uses the Ext 4 class system).</p> %}
+    }
+    }
+    *)
+  method _raise : _ Js.t -> unit Js.meth
+  (** {% <p>Raise an error that can include additional data and supports automatic console logging if available.
+You can pass a string error message or an object with the <code>msg</code> attribute which will be used as the
+error message. The object can contain any other name-value attributes (or objects) to be logged
+along with the error.</p>
+
+<p>Note that after displaying the error message a JavaScript error will ultimately be thrown so that
+execution will halt.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>('A simple string error message');
+
+// or...
+
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.Foo', \{
+    doSomething: function(option)\{
+        if (someCondition === false) \{
+            <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>(\{
+                msg: 'You cannot do that!',
+                option: option,   // whatever was passed into the method
+                'error code': 100 // other arbitrary info
+            \});
+        \}
+    \}
+\});
+</code></pre> %}
+    
+    {b Parameters}:
+    {ul {- err: [_ Js.t]
+    {% <p>The error message string, or an object containing the attribute "msg" that will be
+used as the error message. Any other data included in the object will also be logged to the browser console,
+if available.</p> %}
+    }
+    }
+    *)
   method ignore : bool Js.t Js.prop
   (** {% <p>Static flag that can be used to globally disable error reporting to the browser if set to true
 (defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
@@ -136,66 +196,6 @@ first error occurs prior to displaying the alert.</p>
 
 <pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
 </code></pre> %}
-    *)
-  method handle : 'self Js.t -> unit Js.meth
-  (** {% <p>Globally handle any Ext errors that may be raised, optionally providing custom logic to
-handle different errors individually. Return true from the function to bypass throwing the
-error to the browser, otherwise the error will be thrown and execution will halt.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">Ext.Error.handle</a> = function(err) {
-    if (err.someProperty == 'NotReallyAnError') {
-        // maybe log something to the application here if applicable
-        return true;
-    }
-    // any non-true return value (including none) will cause the error to be thrown
-}
-</code></pre> %}
-    
-    {b Parameters}:
-    {ul {- err: [Ext_Error.t Js.t]
-    {% <p>The <a href="#!/api/Ext.Error" rel="Ext.Error" class="docClass">Ext.Error</a> object being raised. It will contain any attributes that were originally
-raised with it, plus properties about the method and class from which the error originated (if raised from a
-class that uses the Ext 4 class system).</p> %}
-    }
-    }
-    *)
-  method _raise : _ Js.t -> unit Js.meth
-  (** {% <p>Raise an error that can include additional data and supports automatic console logging if available.
-You can pass a string error message or an object with the <code>msg</code> attribute which will be used as the
-error message. The object can contain any other name-value attributes (or objects) to be logged
-along with the error.</p>
-
-<p>Note that after displaying the error message a JavaScript error will ultimately be thrown so that
-execution will halt.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>('A simple string error message');
-
-// or...
-
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.Foo', {
-    doSomething: function(option){
-        if (someCondition === false) {
-            <a href="#!/api/Ext.Error-static-method-raise" rel="Ext.Error-static-method-raise" class="docClass">Ext.Error.raise</a>({
-                msg: 'You cannot do that!',
-                option: option,   // whatever was passed into the method
-                'error code': 100 // other arbitrary info
-            });
-        }
-    }
-});
-</code></pre> %}
-    
-    {b Parameters}:
-    {ul {- err: [_ Js.t]
-    {% <p>The error message string, or an object containing the attribute "msg" that will be
-used as the error message. Any other data included in the object will also be logged to the browser console,
-if available.</p> %}
-    }
-    }
     *)
   
 end

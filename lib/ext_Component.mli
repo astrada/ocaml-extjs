@@ -42,17 +42,17 @@ or augment Ext JS base classes to create custom Components.</p>
 specialized use cases, covering most application needs. However it is possible to instantiate a base
 Component, and it can be rendered to document, or handled by layouts as the child item of a Container:</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>', \{
     html: 'Hello world!',
     width: 300,
     height: 200,
     padding: 20,
-    style: {
+    style: \{
         color: '#FFFFFF',
         backgroundColor:'#000000'
-    },
+    \},
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre>
 
 <p>The Component above creates its encapsulating <code>div</code> upon render, and use the configured HTML as content. More complex
@@ -63,63 +63,12 @@ mass data, it is recommended that an ExtJS data-backed Component such as a <a hr
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
   inherit Ext_util_Floating.t
+  inherit Ext_AbstractComponent.t
   
-  method floatParent : _ Js.t Js.readonly_prop
-  (** {% <p>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which were inserted as child items of Containers.</p>
-
-<p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will not have a <code>floatParent</code>
-property.</p>
-
-<p>For <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which are child items of a Container, the floatParent will be the owning Container.</p>
-
-<p>For example, the dropdown <a href="#!/api/Ext.view.BoundList" rel="Ext.view.BoundList" class="docClass">BoundList</a> of a ComboBox which is in a Window will have the
-Window as its <code>floatParent</code></p>
-
-<p>See <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> and <a href="#!/api/Ext.Component-property-zIndexManager" rel="Ext.Component-property-zIndexManager" class="docClass">zIndexManager</a></p> %}
-    *)
-  method zIndexManager : Ext_ZIndexManager.t Js.t Js.readonly_prop
-  (** {% <p>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components after they have been rendered.</p>
-
-<p>A reference to the ZIndexManager which is managing this Component's z-index.</p>
-
-<p>The <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a> maintains a stack of floating Component z-indices, and also provides
-a single modal mask which is insert just beneath the topmost visible modal floating Component.</p>
-
-<p>Floating Components may be <a href="#!/api/Ext.Component-method-toFront" rel="Ext.Component-method-toFront" class="docClass">brought to the front</a> or <a href="#!/api/Ext.Component-method-toBack" rel="Ext.Component-method-toBack" class="docClass">sent to the back</a> of the
-z-index stack.</p>
-
-<p>This defaults to the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a> for floating Components that are
-programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a>.</p>
-
-<p>For <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which are added to a Container, the ZIndexManager is acquired from the first
-ancestor Container found which is floating. If no floating ancestor is found, the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a> is
-used.</p>
-
-<p>See <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> and <a href="#!/api/Ext.Component-property-zIndexParent" rel="Ext.Component-property-zIndexParent" class="docClass">zIndexParent</a></p> %}
-    *)
-  method zIndexParent : _ Js.t Js.readonly_prop
-  (** {% <p>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which were inserted as child items of Containers, and which have a floating
-Container in their containment ancestry.</p>
-
-<p>For <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which are child items of a Container, the zIndexParent will be a floating
-ancestor Container which is responsible for the base z-index value of all its floating descendants. It provides
-a <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a> which provides z-indexing services for all its descendant floating
-Components.</p>
-
-<p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will not have a <code>zIndexParent</code>
-property.</p>
-
-<p>For example, the dropdown <a href="#!/api/Ext.view.BoundList" rel="Ext.view.BoundList" class="docClass">BoundList</a> of a ComboBox which is in a Window will have the
-Window as its <code>zIndexParent</code>, and will always show above that Window, wherever the Window is placed in the z-index stack.</p>
-
-<p>See <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> and <a href="#!/api/Ext.Component-property-zIndexManager" rel="Ext.Component-property-zIndexManager" class="docClass">zIndexManager</a></p> %}
-    *)
-  method afterComponentLayout : Js.number Js.t -> Js.number Js.t ->
-    Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>Called by the layout system after the Component has been layed out.</p> %}
+  method afterComponentLayout : Js.number Js.t -> Js.number Js.t -> _ Js.t ->
+    _ Js.t -> unit Js.meth
+  (** {% <p>Called by the layout system after the Component has been laid out.</p> %}
     
     {b Parameters}:
     {ul {- width: [Js.number Js.t]
@@ -128,11 +77,11 @@ Window as its <code>zIndexParent</code>, and will always show above that Window,
     {- height: [Js.number Js.t]
     {% <p>The height that was set</p> %}
     }
-    {- oldWidth: [Js.number Js.t]
-    {% <p>The old width. <code>undefined</code> if this was the initial layout.</p> %}
+    {- oldWidth: [_ Js.t]
+    {% <p>The old width, or <code>undefined</code> if this was the initial layout.</p> %}
     }
-    {- oldHeight: [Js.number Js.t]
-    {% <p>The old height. <code>undefined</code> if this was the initial layout.</p> %}
+    {- oldHeight: [_ Js.t]
+    {% <p>The old height, or <code>undefined</code> if this was the initial layout.</p> %}
     }
     }
     *)
@@ -149,13 +98,6 @@ Window as its <code>zIndexParent</code>, and will always show above that Window,
     }
     }
     *)
-  method afterRender : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
-will have been styled according to the configuration, will have had any configured CSS class
-names added, and will be in the configured visibility and the configured enable state.</p> %}
-    *)
   method afterSetPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>Template method called after a Component has been positioned.</p> %}
     
@@ -170,7 +112,7 @@ names added, and will be in the configured visibility and the configured enable 
     _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Invoked after the Component is shown (after <a href="#!/api/Ext.Component-method-onShow" rel="Ext.Component-method-onShow" class="docClass">onShow</a> is called).</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-show" rel="Ext.Component-event-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -282,38 +224,11 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
     }
     }
     *)
-  method getBox : bool Js.t Js.optdef -> _ Js.t Js.meth
-  (** {% <p>Gets the current box measurements of the component's underlying element.</p> %}
-    
-    {b Parameters}:
-    {ul {- local: [bool Js.t] (optional)
-    {% <p>If true the element's left and top are returned instead of page XY.</p> %}
-     Defaults to: false
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [_ Js.t]
-    {% <p>box An object in the format {x, y, width, height}</p> %}
-    }
-    }
-    *)
-  method getBubbleTarget : _ Js.t Js.meth
-  (** {% <p>The up() method uses this to find the immediate owner.</p>
-
-<p>Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.</p> %}
-    
-    {b Returns}:
-    {ul {- [#Ext_container_Container.t Js.t]
-    {% <p>the Container which owns this Component.</p> %}
-    }
-    }
-    *)
   method getEl : Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Retrieves the top level element representing this component.</p> %}
     *)
   method getId : Js.js_string Js.t Js.meth
-  (** {% <p>Retrieves the id of this component. Will autogenerate an id if one has not already been set.</p> %}
+  (** {% <p>Retrieves the <code>id</code> of this component. Will auto-generate an <code>id</code> if one has not already been set.</p> %}
     *)
   method getPosition : bool Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t
     Js.meth
@@ -351,7 +266,7 @@ alert(t.getXType());  // alerts 'textfield'
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -386,24 +301,44 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
+    *)
+  method onAdded : _ Js.t -> Js.number Js.t -> unit Js.meth
+  (** {% <p>Method to manage awareness of when components are added to their
+respective Container, firing an <a href="#!/api/Ext.Component-event-added" rel="Ext.Component-event-added" class="docClass">added</a> event. References are
+established at add time rather than at render time.</p>
+
+<p>Allows addition of behavior when a Component is added to a
+Container. At this stage, the Component is in the parent
+Container's collection of child items. After calling the
+superclass's <code>onAdded</code>, the <code>ownerCt</code> reference will be present,
+and if configured with a ref, the <code>refOwner</code> will be set.</p> %}
+    
+    {b Parameters}:
+    {ul {- container: [#Ext_container_Container.t Js.t]
+    {% <p>Container which holds the component.</p> %}
+    }
+    {- pos: [Js.number Js.t]
+    {% <p>Position at which the component was added.</p> %}
+    }
+    }
     *)
   method onDestroy : unit Js.meth
   (** {% <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
@@ -423,13 +358,6 @@ calling the superclass’s onHide, the Component will be hidden.</p>
     }
     }
     *)
-  method onResize : unit Js.meth
-  (** {% <p>Deprecate 5.0</p>
-
-<p>Allows addition of behavior to the resize operation.</p>
-
-<p>Called when Ext.resizer.Resizer#drag event is fired.</p> %}
-    *)
   method onShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Allows addition of behavior to the show operation. After
@@ -437,7 +365,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <p>Override in subclasses where more complex behaviour is needed.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-show" rel="Ext.Component-event-show" class="docClass">show</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -468,7 +396,7 @@ calling the superclass's onShow, the Component will be visible.</p>
 
 <pre><code> comp.scrollBy(10, 10, true);
  comp.scrollBy([10, 10], true);
- comp.scrollBy({ x: 10, y: 10 }, true);
+ comp.scrollBy(\{ x: 10, y: 10 \}, true);
 </code></pre> %}
     
     {b Parameters}:
@@ -540,20 +468,43 @@ Passing <code>undefined</code> will preserve the current value.</p> %}
     }
     }
     *)
-  method setPagePosition : Js.number Js.t -> Js.number Js.t ->
+  method setPagePosition : _ Js.t -> Js.number Js.t Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the page XY position of the component. To set the left and top instead, use <a href="#!/api/Ext.Component-method-setPosition" rel="Ext.Component-method-setPosition" class="docClass">setPosition</a>.
 This method fires the <a href="#!/api/Ext.Component-event-move" rel="Ext.Component-event-move" class="docClass">move</a> event.</p> %}
     
     {b Parameters}:
-    {ul {- x: [Js.number Js.t]
-    {% <p>The new x position</p> %}
+    {ul {- x: [_ Js.t]
+    {% <p>The new x position or an array of <code>[x,y]</code>.</p> %}
     }
-    {- y: [Js.number Js.t]
-    {% <p>The new y position</p> %}
+    {- y: [Js.number Js.t] (optional)
+    {% <p>The new y position.</p> %}
     }
     {- animate: [_ Js.t] (optional)
     {% <p>True to animate the Component into its new position. You may also pass an
+animation configuration.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [#Ext_Component.t Js.t] {% <p>this</p> %}
+    }
+    }
+    *)
+  method setPosition : _ Js.t -> Js.number Js.t Js.optdef -> _ Js.t Js.optdef
+    -> 'self Js.t Js.meth
+  (** {% <p>Sets the left and top of the component. To set the page XY position instead, use <a href="#!/api/Ext.Component-method-setPagePosition" rel="Ext.Component-method-setPagePosition" class="docClass">setPagePosition</a>. This
+method fires the <a href="#!/api/Ext.Component-event-move" rel="Ext.Component-event-move" class="docClass">move</a> event.</p> %}
+    
+    {b Parameters}:
+    {ul {- x: [_ Js.t]
+    {% <p>The new left, an array of <code>[x,y]</code>, or animation config object containing <code>x</code> and <code>y</code> properties.</p> %}
+    }
+    {- y: [Js.number Js.t] (optional)
+    {% <p>The new top.</p> %}
+    }
+    {- animate: [_ Js.t] (optional)
+    {% <p>If <code>true</code>, the Component is <em>animated</em> into its new position. You may also pass an
 animation configuration.</p> %}
     }
     }
@@ -591,49 +542,40 @@ Defaults to this Component.</p> %}
     }
     }
     *)
-  method showAt : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
-    unit Js.meth
+  method showAt : _ Js.t -> Js.number Js.t Js.optdef -> _ Js.t Js.optdef ->
+    'self Js.t Js.meth
   (** {% <p>Displays component at specific xy position.
 A floating component (like a menu) is positioned relative to its ownerCt if any.
 Useful for popping up a context menu:</p>
 
-<pre><code>listeners: {
-    itemcontextmenu: function(view, record, item, index, event, options) {
-        <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Ext.menu.Menu</a>', {
+<pre><code>listeners: \{
+    itemcontextmenu: function(view, record, item, index, event, options) \{
+        <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Ext.menu.Menu</a>', \{
             width: 100,
             height: 100,
             margin: '0 0 10 0',
-            items: [{
+            items: [\{
                 text: 'regular item 1'
-            },{
+            \},\{
                 text: 'regular item 2'
-            },{
+            \},\{
                 text: 'regular item 3'
-            }]
-        }).showAt(event.getXY());
-    }
-}
+            \}]
+        \}).showAt(event.getXY());
+    \}
+\}
 </code></pre> %}
     
     {b Parameters}:
-    {ul {- x: [Js.number Js.t]
-    {% <p>The new x position</p> %}
+    {ul {- x: [_ Js.t]
+    {% <p>The new x position or array of <code>[x,y]</code>.</p> %}
     }
-    {- y: [Js.number Js.t]
+    {- y: [Js.number Js.t] (optional)
     {% <p>The new y position</p> %}
     }
     {- animate: [_ Js.t] (optional)
     {% <p>True to animate the Component into its new position. You may also pass an
 animation configuration.</p> %}
-    }
-    }
-    *)
-  method updateBox : _ Js.t -> 'self Js.t Js.meth
-  (** {% <p>Sets the current box measurements of the component's underlying element.</p> %}
-    
-    {b Parameters}:
-    {ul {- box: [_ Js.t]
-    {% <p>An object in the format {x, y, width, height}</p> %}
     }
     }
     
@@ -642,25 +584,117 @@ animation configuration.</p> %}
     }
     }
     *)
+  method showBy : _ Js.t -> Js.js_string Js.t Js.optdef ->
+    Js.number Js.t Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
+  (** {% <p>Shows this component by the specified <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a>.
+Used when this component is <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- component: [_ Js.t]
+    {% <p>The <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to show the component by.</p> %}
+    }
+    {- position: [Js.js_string Js.t] (optional)
+    {% <p>Alignment position as used by <a href="#!/api/Ext.util.Positionable-method-getAlignToXY" rel="Ext.util.Positionable-method-getAlignToXY" class="docClass">Ext.util.Positionable.getAlignToXY</a>.
+Defaults to <code><a href="#!/api/Ext.Component-cfg-defaultAlign" rel="Ext.Component-cfg-defaultAlign" class="docClass">defaultAlign</a></code>.</p> %}
+    }
+    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
+    {% <p>Alignment offsets as used by <a href="#!/api/Ext.util.Positionable-method-getAlignToXY" rel="Ext.util.Positionable-method-getAlignToXY" class="docClass">Ext.util.Positionable.getAlignToXY</a>.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [#Ext_Component.t Js.t] {% <p>this</p> %}
+    }
+    }
+    *)
+  method updateBox : _ Js.t -> 'self Js.t Js.meth
+  (** {% <p>Sets the current box measurements of the component's underlying element.</p> %}
+    
+    {b Parameters}:
+    {ul {- box: [_ Js.t]
+    {% <p>An object in the format \{x, y, width, height\}</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [#Ext_Component.t Js.t] {% <p>this</p> %}
+    }
+    }
+    *)
+  method floatParent : _ Js.t Js.readonly_prop
+  (** {% <p><strong>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which were inserted as child items of Containers.</strong></p>
+
+<p>There are other similar relationships such as the <a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">button</a> which activates a <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a>, or the
+<a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu item</a> which activated a <a href="#!/api/Ext.menu.Item-cfg-menu" rel="Ext.menu.Item-cfg-menu" class="docClass">submenu</a>, or the
+<a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">column header</a> which activated the column menu.</p>
+
+<p>These differences are abstracted away by the <a href="#!/api/Ext.Component-method-up" rel="Ext.Component-method-up" class="docClass">up</a> method.</p>
+
+<p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will not have a <code>floatParent</code>
+property.</p>
+
+<p>See <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> and <a href="#!/api/Ext.Component-property-zIndexManager" rel="Ext.Component-property-zIndexManager" class="docClass">zIndexManager</a></p> %}
+    *)
+  method scrollFlags : _ Js.t Js.readonly_prop
+  (** {% <p>An object property which provides unified information as to which dimensions are scrollable based upon
+the <a href="#!/api/Ext.Component-cfg-autoScroll" rel="Ext.Component-cfg-autoScroll" class="docClass">autoScroll</a>, <a href="#!/api/Ext.Component-cfg-overflowX" rel="Ext.Component-cfg-overflowX" class="docClass">overflowX</a> and <a href="#!/api/Ext.Component-cfg-overflowY" rel="Ext.Component-cfg-overflowY" class="docClass">overflowY</a> settings (And for <em>views</em> of trees and grids, the owning panel's <a href="#!/api/Ext.panel.Table-cfg-scroll" rel="Ext.panel.Table-cfg-scroll" class="docClass">scroll</a> setting).</p>
+
+<p>Note that if you set overflow styles using the <a href="#!/api/Ext.Component-cfg-style" rel="Ext.Component-cfg-style" class="docClass">style</a> config or <a href="#!/api/Ext.panel.Panel-cfg-bodyStyle" rel="Ext.panel.Panel-cfg-bodyStyle" class="docClass">bodyStyle</a> config, this object does not include that information;
+it is best to use <a href="#!/api/Ext.Component-cfg-autoScroll" rel="Ext.Component-cfg-autoScroll" class="docClass">autoScroll</a>, <a href="#!/api/Ext.Component-cfg-overflowX" rel="Ext.Component-cfg-overflowX" class="docClass">overflowX</a> and <a href="#!/api/Ext.Component-cfg-overflowY" rel="Ext.Component-cfg-overflowY" class="docClass">overflowY</a> if you need to access these flags.</p>
+
+<p>This object has the following properties:</p> %}
+    *)
+  method zIndexManager : Ext_ZIndexManager.t Js.t Js.readonly_prop
+  (** {% <p>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components after they have been rendered.</p>
+
+<p>A reference to the ZIndexManager which is managing this Component's z-index.</p>
+
+<p>The <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a> maintains a stack of floating Component z-indices, and also provides
+a single modal mask which is insert just beneath the topmost visible modal floating Component.</p>
+
+<p>Floating Components may be <a href="#!/api/Ext.Component-method-toFront" rel="Ext.Component-method-toFront" class="docClass">brought to the front</a> or <a href="#!/api/Ext.Component-method-toBack" rel="Ext.Component-method-toBack" class="docClass">sent to the back</a> of the
+z-index stack.</p>
+
+<p>This defaults to the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a> for floating Components that are
+programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a>.</p>
+
+<p>For <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which are added to a Container, the ZIndexManager is acquired from the first
+ancestor Container found which is floating. If no floating ancestor is found, the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a> is
+used.</p>
+
+<p>See <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> and <a href="#!/api/Ext.Component-property-zIndexParent" rel="Ext.Component-property-zIndexParent" class="docClass">zIndexParent</a></p> %}
+    *)
+  method zIndexParent : _ Js.t Js.readonly_prop
+  (** {% <p>Only present for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which were inserted as child items of Containers, and which have a floating
+Container in their containment ancestry.</p>
+
+<p>For <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components which are child items of a Container, the zIndexParent will be a floating
+ancestor Container which is responsible for the base z-index value of all its floating descendants. It provides
+a <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a> which provides z-indexing services for all its descendant floating
+Components.</p>
+
+<p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will not have a <code>zIndexParent</code>
+property.</p>
+
+<p>For example, the dropdown <a href="#!/api/Ext.view.BoundList" rel="Ext.view.BoundList" class="docClass">BoundList</a> of a ComboBox which is in a Window will have the
+Window as its <code>zIndexParent</code>, and will always show above that Window, wherever the Window is placed in the z-index stack.</p>
+
+<p>See <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> and <a href="#!/api/Ext.Component-property-zIndexManager" rel="Ext.Component-property-zIndexManager" class="docClass">zIndexManager</a></p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
   inherit Ext_util_Floating.configs
+  inherit Ext_AbstractComponent.configs
   
   method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterComponentLayout] *)
   method afterHide : ('self Js.t, _ Js.callback Js.optdef -> _ Js.t Js.optdef
     -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterHide] *)
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
   method afterSetPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t ->
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.afterSetPosition] *)
@@ -673,15 +707,15 @@ object('self)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
+  method onAdded : ('self Js.t, _ Js.t -> Js.number Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onAdded] *)
   method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onDestroy] *)
   method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onHide] *)
-  method onResize : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onResize] *)
   method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
@@ -702,6 +736,16 @@ This should not be combined with <a href="#!/api/Ext.Component-cfg-overflowX" re
     
     Defaults to: [undefined]
     *)
+  method constrainTo : _ Js.t Js.prop
+  (** {% <p>A <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> (or an element from which a Region measurement will be read) which is used
+to constrain the component. Only applies when the component is floating.</p> %}
+    *)
+  method defaultAlign : Js.js_string Js.t Js.prop
+  (** {% <p>The default <a href="#!/api/Ext.util.Positionable-method-getAlignToXY" rel="Ext.util.Positionable-method-getAlignToXY" class="docClass">Ext.Element#getAlignToXY</a> anchor position value for this menu
+relative to its element of origin. Used in conjunction with <a href="#!/api/Ext.Component-method-showBy" rel="Ext.Component-method-showBy" class="docClass">showBy</a>.</p> %}
+    
+    Defaults to: ["tl-bl?"]
+    *)
   method draggable_obj : _ Js.t Js.prop
   (** {% <p>Specify as true to make a <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Component draggable using the Component's encapsulating element as
 the drag handle.</p>
@@ -712,18 +756,18 @@ instantiated to perform dragging.</p>
 <p>For example to create a Component which may only be dragged around using a certain internal element as the drag
 handle, use the delegate option:</p>
 
-<pre><code>new <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>({
+<pre><code>new <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>(\{
     constrain: true,
     floating: true,
-    style: {
+    style: \{
         backgroundColor: '#fff',
         border: '1px solid black'
-    },
+    \},
     html: '&lt;h1 style="cursor:move"&gt;The title&lt;/h1&gt;&lt;p&gt;The content&lt;/p&gt;',
-    draggable: {
+    draggable: \{
         delegate: 'h1'
-    }
-}).show();
+    \}
+\}).show();
 </code></pre> %}
     
     Defaults to: [false]
@@ -780,17 +824,18 @@ The default is overflow-x: 'hidden'. This should not be combined with <a href="#
  * <code>'scroll'</code> to always enable vertical scrollbar (overflow-y: 'scroll').
 The default is overflow-y: 'hidden'. This should not be combined with <a href="#!/api/Ext.Component-cfg-autoScroll" rel="Ext.Component-cfg-autoScroll" class="docClass">autoScroll</a>.</p> %}
     *)
-  method region : Js.js_string Js.t Js.prop
+  method region : _ Js.t Js.prop
   (** {% <p>Defines the region inside <a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">border layout</a>.</p>
 
 <p>Possible values:</p>
 
 <ul>
-<li>center</li>
-<li>north</li>
-<li>south</li>
-<li>east</li>
-<li>west</li>
+<li>north - Positions component at top.</li>
+<li>south - Positions component at bottom.</li>
+<li>east - Positions component at right.</li>
+<li>west - Positions component at left.</li>
+<li>center - Positions component at the remaining space.
+There <strong>must</strong> be a component with <code>region: "center"</code> in every border layout.</li>
 </ul> %}
     
     Defaults to: [undefined]
@@ -818,16 +863,14 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
   inherit Ext_util_Floating.events
+  inherit Ext_AbstractComponent.events
   
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_AbstractComponent.statics
   inherit Ext_util_Floating.statics
   

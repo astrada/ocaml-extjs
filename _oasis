@@ -1,7 +1,7 @@
 OASISFormat: 0.3
 OCamlVersion: >= 3.12.0
 Name: ocaml-extjs
-Version: 0.1
+Version: 0.2
 LicenseFile: LICENSE
 License: MIT
 BuildType: ocamlbuild (0.3)
@@ -10,7 +10,7 @@ Copyrights: (C) 2012 Alessandro Strada
 Plugins: META (0.3)
 BuildTools: ocamlbuild
 
-Synopsis: Ext JS 4.x bindings for the js_of_ocaml compiler
+Synopsis: Ext JS 4.2 bindings for the js_of_ocaml compiler
 
 # Flags
 Flag all
@@ -81,14 +81,15 @@ Library oextjs
     Ext_dd_DragTracker,
     Ext_dd_StatusProxy,
     Ext_dom_AbstractElement,
-    Ext_dom_AbstractElement_Fly,
     Ext_dom_Element,
+    Ext_dom_Element_Fly,
     Ext_draw_Component,
     Ext_draw_Sprite,
     Ext_draw_Surface,
     Ext_ElementLoader,
     Ext_Error,
     Ext_EventObject,
+    Ext_enums_Widget,
     Ext_form_action_Action,
     Ext_form_Basic,
     Ext_form_FieldAncestor,
@@ -106,6 +107,7 @@ Library oextjs
     Ext_layout_container_Container,
     Ext_layout_ContextItem,
     Ext_layout_Layout,
+    Ext_layout_SizePolicy,
     Ext_LoadMask,
     Ext_Loader,
     Ext_MessageBox,
@@ -138,6 +140,7 @@ Library oextjs
     Ext_util_Observable,
     Ext_util_Offset,
     Ext_util_Point,
+    Ext_util_Positionable,
     Ext_util_Region,
     Ext_util_Renderable,
     Ext_util_Sortable,
@@ -154,7 +157,7 @@ Library oextjs
   CompiledObject: byte
   CSources: extUtils_stubs.c
   CCOpt: -D OPTION_PASSED
-  XMETADescription: Ext JS 4.x for js_of_ocaml
+  XMETADescription: Ext JS 4.2 for js_of_ocaml
 
 # ocamldoc extension
 Library generator
@@ -178,7 +181,7 @@ Executable libgen
 # Documentation
 Document oextjs
   Install: false
-  Title: API reference for Ext JS 4.x client library
+  Title: API reference for Ext JS 4.2 client library
   Type: ocamlbuild (0.3)
   DataFiles: doc/style.css
   BuildTools+: ocamldoc

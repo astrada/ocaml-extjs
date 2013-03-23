@@ -14,45 +14,25 @@ grouping, activation, to front, to back and other application-specific behavior.
 and arrange any child Components. Choose an appropriate <a href="#!/api/Ext.window.Window-cfg-layout" rel="Ext.window.Window-cfg-layout" class="docClass">layout</a> configuration which lays out child Components
 in the required manner.</strong></p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', \{
     title: 'Hello',
     height: 200,
     width: 400,
     layout: 'fit',
-    items: {  // Let's put an empty grid in just to illustrate fit layout
+    items: \{  // Let's put an empty grid in just to illustrate fit layout
         xtype: 'grid',
         border: false,
-        columns: [{header: 'World'}],                 // One header just for show. There's no data,
-        store: <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.ArrayStore" rel="Ext.data.ArrayStore" class="docClass">Ext.data.ArrayStore</a>', {}) // A dummy empty data store
-    }
-}).show();
+        columns: [\{header: 'World'\}],                 // One header just for show. There's no data,
+        store: <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.ArrayStore" rel="Ext.data.ArrayStore" class="docClass">Ext.data.ArrayStore</a>', \{\}) // A dummy empty data store
+    \}
+\}).show();
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
   inherit Ext_panel_Panel.t
   
-  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
-  (** {% <p>If this Window is configured <a href="#!/api/Ext.window.Window-cfg-draggable" rel="Ext.window.Window-cfg-draggable" class="docClass">draggable</a>, this property will contain an instance of
-<a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of <a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles dragging
-the Window's DOM Element, and constraining according to the <a href="#!/api/Ext.window.Window-cfg-constrain" rel="Ext.window.Window-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.window.Window-cfg-constrainHeader" rel="Ext.window.Window-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
-
-<p>This has implementations of <code>onBeforeStart</code>, <code>onDrag</code> and <code>onEnd</code> which perform the dragging action. If
-extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-createInterceptor" rel="Ext.Function-method-createInterceptor" class="docClass">createInterceptor</a> or
-<a href="#!/api/Ext.Function-method-createSequence" rel="Ext.Function-method-createSequence" class="docClass">createSequence</a> to augment the existing implementations.</p> %}
-    *)
-  method isWindow : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Window, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method afterCollapse : bool Js.t -> unit Js.meth
   (** {% <p>Invoked after the Panel is Collapsed.</p> %}
     
@@ -69,28 +49,6 @@ extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-c
     }
     }
     *)
-  method afterHide : _ Js.callback Js.optdef -> _ Js.t Js.optdef -> unit
-    Js.meth
-  (** {% <p>private</p>
-
-<p>Invoked after the Component has been hidden.</p>
-
-<p>Gets passed the same <code>callback</code> and <code>scope</code> parameters that <a href="#!/api/Ext.window.Window-method-onHide" rel="Ext.window.Window-method-onHide" class="docClass">onHide</a> received.</p> %}
-    
-    {b Parameters}:
-    {ul {- callback: [_ Js.callback] (optional)
-    }
-    {- scope: [_ Js.t] (optional)
-    }
-    }
-    *)
-  method afterRender : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
-will have been styled according to the configuration, will have had any configured CSS class
-names added, and will be in the configured visibility and the configured enable state.</p> %}
-    *)
   method applyState : _ Js.t -> unit Js.meth
   (** {% <p>Applies the state to the object. This should be overridden in subclasses to do
 more complex state operations. By default it applies the state properties onto
@@ -101,71 +59,27 @@ the current object.</p> %}
     }
     }
     *)
-  method beforeDestroy : unit Js.meth
-  (** {% <p>private</p>
-
-<p>Invoked before the Component is destroyed.</p> %}
-    *)
   method beforeLayout : unit Js.meth
-  (** {% <p>Occurs before componentLayout is run. Returning false from this method
-will prevent the containerLayout from being executed.</p> %}
+  (** {% <p>Occurs before componentLayout is run. In previous releases, this method could
+return <code>false</code> to prevent its layout but that is not supported in Ext JS 4.1 or
+higher. This method is simply a notification of the impending layout to give the
+component a chance to adjust the DOM. Ideally, DOM reads should be avoided at this
+time to reduce expensive document reflows.</p> %}
     *)
   method getDefaultFocus : unit Js.meth
   (** {% <p>Gets the configured default focus item.  If a <a href="#!/api/Ext.window.Window-cfg-defaultFocus" rel="Ext.window.Window-cfg-defaultFocus" class="docClass">defaultFocus</a> is set, it will
 receive focus when the Window's <code>focus</code> method is called, otherwise the
 Window itself will receive focus.</p> %}
     *)
-  method getState : _ Js.t Js.meth
-  (** {% <p>State Management
-private</p>
-
-<p>The supplied default state gathering method for the AbstractComponent class.</p>
-
-<p>This method returns dimension settings such as <code>flex</code>, <code>anchor</code>, <code>width</code> and <code>height</code> along with <code>collapsed</code>
-state.</p>
-
-<p>Subclasses which implement more complex state should call the superclass's implementation, and apply their state
-to the result if this basic state is to be saved.</p>
-
-<p>Note that Component state will only be saved if the Component has a <a href="#!/api/Ext.window.Window-cfg-stateId" rel="Ext.window.Window-cfg-stateId" class="docClass">stateId</a> and there as a StateProvider
-configured for the document.</p> %}
-    *)
-  method initComponent : unit Js.meth
-  (** {% <p>private</p>
-
-<p>The initComponent template method is an important initialization step for a Component. It is intended to be
-implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
-initComponent method of the class being created is called first, with each initComponent method
-up the hierarchy to <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> being called thereafter. This makes it easy to implement and,
-if needed, override the constructor logic of the Component at any step in the hierarchy.</p>
-
-<p>The initComponent method <strong>must</strong> contain a call to <a href="#!/api/Ext.Base-method-callParent" rel="Ext.Base-method-callParent" class="docClass">callParent</a> in order
-to ensure that the parent class' initComponent method is also called.</p>
-
-<p>All config options passed to the constructor are applied to <code>this</code> before initComponent is called,
-so you can simply access them with <code>this.someOption</code>.</p>
-
-<p>The following example demonstrates using a dynamic string for the text of a button at the time of
-instantiation of the class.</p>
-
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
-    extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
-
-    initComponent: function() {
-        this.text = new Date();
-        this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
-        this.callParent();
-    }
-});
-
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
-    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
-</code></pre> %}
-    *)
-  method maximize : 'self Js.t Js.meth
+  method maximize : bool Js.t -> 'self Js.t Js.meth
   (** {% <p>Fits the window within its current container and automatically replaces the <a href="#!/api/Ext.window.Window-cfg-maximizable" rel="Ext.window.Window-cfg-maximizable" class="docClass">'maximize' tool
 button</a> with the 'restore' tool button. Also see <a href="#!/api/Ext.window.Window-method-toggleMaximize" rel="Ext.window.Window-method-toggleMaximize" class="docClass">toggleMaximize</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- animate: [bool Js.t]
+    {% <p><code>true</code> to animate this Window to full size.</p> %}
+    }
+    }
     
     {b Returns}:
     {ul {- [Ext_window_Window.t Js.t] {% <p>this</p> %}
@@ -179,26 +93,6 @@ the minimize event can be handled or this method can be overridden.</p> %}
     
     {b Returns}:
     {ul {- [Ext_window_Window.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
-  method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Template method called when this Component's DOM structure is created.</p>
-
-<p>At this point, this Component's (and all descendants') DOM structure <em>exists</em> but it has not
-been layed out (positioned and sized).</p>
-
-<p>Subclasses which override this to gain access to the structure at render time should
-call the parent class's method before attempting to access any child elements of the Component.</p> %}
-    
-    {b Parameters}:
-    {ul {- parentNode: [Ext_dom_Element.t Js.t]
-    {% <p>The parent Element in which this Component's encapsulating element is contained.</p> %}
-    }
-    {- containerIdx: [Js.number Js.t]
-    {% <p>The index within the parent Container's child collection of this Component.</p> %}
     }
     }
     *)
@@ -220,9 +114,14 @@ calling the superclass's onShow, the Component will be visible.</p>
     }
     }
     *)
-  method restore : 'self Js.t Js.meth
+  method restore : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Restores a <a href="#!/api/Ext.window.Window-cfg-maximizable" rel="Ext.window.Window-cfg-maximizable" class="docClass">maximized</a> window back to its original size and position prior to being maximized
 and also replaces the 'restore' tool button with the 'maximize' tool button. Also see <a href="#!/api/Ext.window.Window-method-toggleMaximize" rel="Ext.window.Window-method-toggleMaximize" class="docClass">toggleMaximize</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- animate: [_ Js.t]
+    }
+    }
     
     {b Returns}:
     {ul {- [Ext_window_Window.t Js.t] {% <p>this</p> %}
@@ -238,17 +137,25 @@ state of the window.</p> %}
     }
     }
     *)
+  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
+  (** {% <p>If this Window is configured <a href="#!/api/Ext.window.Window-cfg-draggable" rel="Ext.window.Window-cfg-draggable" class="docClass">draggable</a>, this property will contain an instance of
+<a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of <a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles dragging
+the Window's DOM Element, and constraining according to the <a href="#!/api/Ext.window.Window-cfg-constrain" rel="Ext.window.Window-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.window.Window-cfg-constrainHeader" rel="Ext.window.Window-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
+
+<p>This has implementations of <code>onBeforeStart</code>, <code>onDrag</code> and <code>onEnd</code> which perform the dragging action. If
+extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-createInterceptor" rel="Ext.Function-method-createInterceptor" class="docClass">createInterceptor</a> or
+<a href="#!/api/Ext.Function-method-createSequence" rel="Ext.Function-method-createSequence" class="docClass">createSequence</a> to augment the existing implementations.</p> %}
+    *)
+  method isWindow : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Window, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
   inherit Ext_panel_Panel.configs
   
   method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
@@ -257,24 +164,9 @@ object('self)
   method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.afterExpand] *)
-  method afterHide : ('self Js.t, _ Js.callback Js.optdef -> _ Js.t Js.optdef
-    -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterHide] *)
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
   method beforeLayout : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.beforeLayout] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRender] *)
   method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
@@ -288,7 +180,7 @@ object('self)
 
 <p>This config is intended mainly for non-<a href="#!/api/Ext.window.Window-cfg-floating" rel="Ext.window.Window-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
 <a href="#!/api/Ext.window.Window-cfg-renderTo" rel="Ext.window.Window-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
-upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.window.Window-cfg-floating" rel="Ext.window.Window-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
+upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.window.Window-cfg-floating" rel="Ext.window.Window-cfg-floating" class="docClass">floating</a> is <code>true</code>, the value of this config is omitted as if it is <code>true</code>.</p>
 
 <p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
 
@@ -325,15 +217,16 @@ expanded when shown.</p> %}
   (** {% <p>inherited docs, same default</p>
 
 <p>True to make the panel collapsible and have an expand/collapse toggle Tool added into the header tool button
-area. False to keep the panel sized either statically, or by an owning layout manager, with no toggle Tool.</p>
-
-<p>See <a href="#!/api/Ext.window.Window-cfg-collapseMode" rel="Ext.window.Window-cfg-collapseMode" class="docClass">collapseMode</a> and <a href="#!/api/Ext.window.Window-cfg-collapseDirection" rel="Ext.window.Window-cfg-collapseDirection" class="docClass">collapseDirection</a></p> %}
+area. False to keep the panel sized either statically, or by an owning layout manager, with no toggle Tool.
+When a panel is used in a <a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">border layout</a>, the <a href="#!/api/Ext.window.Window-cfg-floatable" rel="Ext.window.Window-cfg-floatable" class="docClass">floatable</a> option
+can influence the behavior of collapsing.
+See <a href="#!/api/Ext.window.Window-cfg-collapseMode" rel="Ext.window.Window-cfg-collapseMode" class="docClass">collapseMode</a> and <a href="#!/api/Ext.window.Window-cfg-collapseDirection" rel="Ext.window.Window-cfg-collapseDirection" class="docClass">collapseDirection</a></p> %}
     
     Defaults to: [false]
     *)
   method constrain : bool Js.t Js.prop
   (** {% <p>True to constrain the window within its containing element, false to allow it to fall outside of its containing
-element. By default the window will be rendered to document.body. To render and constrain the window within
+element. By default the window will be rendered to <code>document.body</code>. To render and constrain the window within
 another element specify <a href="#!/api/Ext.window.Window-cfg-renderTo" rel="Ext.window.Window-cfg-renderTo" class="docClass">renderTo</a>. Optionally the header only can be constrained
 using <a href="#!/api/Ext.window.Window-cfg-constrainHeader" rel="Ext.window.Window-cfg-constrainHeader" class="docClass">constrainHeader</a>.</p> %}
     
@@ -345,10 +238,6 @@ its containing element) or false to allow the header to fall outside its contain
 Optionally the entire window can be constrained using <a href="#!/api/Ext.window.Window-cfg-constrain" rel="Ext.window.Window-cfg-constrain" class="docClass">constrain</a>.</p> %}
     
     Defaults to: [false]
-    *)
-  method constrainTo : _ Js.t Js.prop
-  (** {% <p>A <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> (or an element from which a Region measurement will be read) which is used
-to constrain the window.</p> %}
     *)
   method defaultFocus : _ Js.t Js.prop
   (** {% <p>Specifies a Component to receive focus when this Window is focused.</p>
@@ -364,7 +253,7 @@ to constrain the window.</p> %}
   method draggable : bool Js.t Js.prop
   (** {% <p>True to allow the window to be dragged by the header bar, false to disable dragging. Note that
 by default the window will be centered in the viewport, so if dragging is disabled the window may need to be
-positioned programmatically after render (e.g., myWindow.setPosition(100, 100);).</p> %}
+positioned programmatically after render (e.g., <code>myWindow.setPosition(100, 100);</code>).</p> %}
     
     Defaults to: [true]
     *)
@@ -373,6 +262,10 @@ positioned programmatically after render (e.g., myWindow.setPosition(100, 100);)
 <a href="#!/api/Ext.window.Window-cfg-collapsed" rel="Ext.window.Window-cfg-collapsed" class="docClass">collapsed</a>) when displayed.</p> %}
     
     Defaults to: [true]
+    *)
+  method ghost : _ Js.t Js.prop
+  (** {% <p>Set to false to disable the ghost panel during dragging the window.
+Do note that you should not set this to true, by default it is a function.</p> %}
     *)
   method hidden : bool Js.t Js.prop
   (** {% <p>Render this Window hidden. If <code>true</code>, the <a href="#!/api/Ext.window.Window-method-hide" rel="Ext.window.Window-method-hide" class="docClass">hide</a> method will be called internally.</p> %}
@@ -393,6 +286,11 @@ Component having zero dimensions.</li>
 </ul> %}
     
     Defaults to: ['offsets']
+    *)
+  method hideShadowOnDeactivate : bool Js.t Js.prop
+  (** {% <p>True to hide this Window's shadow when another floating item in the same z-index stack is activated.</p> %}
+    
+    Defaults to: [false]
     *)
   method maximizable : bool Js.t Js.prop
   (** {% <p>True to display the 'maximize' tool button and allow the user to maximize the window, false to hide the button
@@ -478,12 +376,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
   method activate_window : (t Js.t -> _ Js.t -> unit) Js.callback
@@ -566,12 +458,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
   inherit Ext_panel_Panel.statics
   
   

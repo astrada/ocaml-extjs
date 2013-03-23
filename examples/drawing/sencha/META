@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: 97af3faaad1319a32099a94ace28f618)
-version = "0.1"
-description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
+# DO NOT EDIT (digest: d80139e61a0c9c076c728e95858c7220)
+version = "0.2"
+description = "Ext JS 4.2 bindings for the js_of_ocaml compiler"
 requires = "oextjs js_of_ocaml pa_extjs"
 archive(byte) = "sencha_logo.cma"
 archive(byte, plugin) = "sencha_logo.cma"

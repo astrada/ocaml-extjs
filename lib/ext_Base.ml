@@ -1,12 +1,12 @@
 class type t =
 object('self)
   
-  method self : Ext_Class.t Js.t Js.prop
   method callParent : _ Js.t -> _ Js.t Js.meth
   method callSuper : _ Js.t -> _ Js.t Js.meth
   method getInitialConfig : Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   method initConfig : _ Js.t -> 'self Js.t Js.meth
   method statics : Ext_Class.t Js.t Js.meth
+  method self : Ext_Class.t Js.t Js.prop
   
 end
 

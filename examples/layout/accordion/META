@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: 4342e9371a7ef930206237619d5f7a97)
-version = "0.1"
-description = "Ext JS 4.x bindings for the js_of_ocaml compiler"
+# DO NOT EDIT (digest: c99582479a8c9499e72bbf4a5ed2f736)
+version = "0.2"
+description = "Ext JS 4.2 bindings for the js_of_ocaml compiler"
 requires = "oextjs js_of_ocaml pa_extjs"
 archive(byte) = "accordion_layout.cma"
 archive(byte, plugin) = "accordion_layout.cma"

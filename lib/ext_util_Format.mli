@@ -26,24 +26,24 @@ all calls to the functions from that point will use the locale settings that wer
 <p>There are two helper functions that return a new function that can be used in conjunction with
 grid renderers:</p>
 
-<pre><code>columns: [{
+<pre><code>columns: [\{
     dataIndex: 'date',
     renderer: <a href="#!/api/Ext.util.Format-method-dateRenderer" rel="Ext.util.Format-method-dateRenderer" class="docClass">Ext.util.Format.dateRenderer</a>('Y-m-d')
-}, {
+\}, \{
     dataIndex: 'time',
     renderer: <a href="#!/api/Ext.util.Format-method-numberRenderer" rel="Ext.util.Format-method-numberRenderer" class="docClass">Ext.util.Format.numberRenderer</a>('0.000')
-}]
+\}]
 </code></pre>
 
 <p>Functions that only take a single argument can also be passed directly:</p>
 
-<pre><code>columns: [{
+<pre><code>columns: [\{
     dataIndex: 'cost',
     renderer: <a href="#!/api/Ext.util.Format-method-usMoney" rel="Ext.util.Format-method-usMoney" class="docClass">Ext.util.Format.usMoney</a>
-}, {
+\}, \{
     dataIndex: 'productCode',
     renderer: <a href="#!/api/Ext.util.Format-method-uppercase" rel="Ext.util.Format-method-uppercase" class="docClass">Ext.util.Format.uppercase</a>
-}]
+\}]
 </code></pre>
 
 <h2>Using with XTemplates</h2>
@@ -51,8 +51,8 @@ grid renderers:</p>
 <p>XTemplates can also directly use <a href="#!/api/Ext.util.Format" rel="Ext.util.Format" class="docClass">Ext.util.Format</a> functions:</p>
 
 <pre><code>new <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a>([
-    'Date: {startDate:date("Y-m-d")}',
-    'Cost: {cost:usMoney}'
+    'Date: \{startDate:date("Y-m-d")\}',
+    'Cost: \{cost:usMoney\}'
 ]);
 </code></pre> %}
   *)
@@ -60,41 +60,14 @@ grid renderers:</p>
 class type t =
 object('self)
   
-  method currencyAtEnd : bool Js.t Js.prop
-  (** {% <p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
-append the currency sign to the formatted value.</p>
-
-<p>This may be overridden in a locale file.</p> %}
+  method attributes : _ Js.t -> unit Js.meth
+  (** {% <p>Formats an object of name value properties as HTML element attribute values suitable for using when creating textual markup.</p> %}
     
-    Defaults to: [false]
-    *)
-  method currencyPrecision : Js.number Js.t Js.prop
-  (** {% <p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: [2]
-    *)
-  method currencySign : Js.js_string Js.t Js.prop
-  (** {% <p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: ['$']
-    *)
-  method decimalSeparator : Js.js_string Js.t Js.prop
-  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: ['.']
-    *)
-  method thousandSeparator : Js.js_string Js.t Js.prop
-  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: [',']
+    {b Parameters}:
+    {ul {- attributes: [_ Js.t]
+    {% <p>An object containing the HTML attributes as properties eg: <code>\{height:40, vAlign:'top'\}</code></p> %}
+    }
+    }
     *)
   method capitalize : Js.js_string Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.String-method-capitalize" rel="Ext.String-method-capitalize" class="docClass">Ext.String.capitalize</a>.</p>
@@ -180,26 +153,27 @@ by the Javascript's built-in Date#parse method.</p> %}
     }
     }
     *)
-  method ellipsis : Js.js_string Js.t -> Js.number Js.t -> bool Js.t ->
-    Js.js_string Js.t Js.meth
+  method ellipsis : Js.js_string Js.t -> Js.number Js.t ->
+    bool Js.t Js.optdef -> Js.js_string Js.t Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.String-method-ellipsis" rel="Ext.String-method-ellipsis" class="docClass">Ext.String.ellipsis</a>.</p>
 
-<p>Truncate a string and add an ellipsis ('...') to the end if it exceeds the specified length</p> %}
+<p>Truncate a string and add an ellipsis ('...') to the end if it exceeds the specified length.</p> %}
     
     {b Parameters}:
     {ul {- value: [Js.js_string Js.t]
-    {% <p>The string to truncate</p> %}
+    {% <p>The string to truncate.</p> %}
     }
     {- length: [Js.number Js.t]
-    {% <p>The maximum length to allow before truncating</p> %}
+    {% <p>The maximum length to allow before truncating.</p> %}
     }
-    {- word: [bool Js.t]
-    {% <p>True to try to find a common word break</p> %}
+    {- word: [bool Js.t] (optional)
+    {% <p><code>true</code> to try to find a common word break.</p> %}
+     Defaults to: false
     }
     }
     
     {b Returns}:
-    {ul {- [Js.js_string Js.t] {% <p>The converted text</p> %}
+    {ul {- [Js.js_string Js.t] {% <p>The converted text.</p> %}
     }
     }
     *)
@@ -225,32 +199,29 @@ by the Javascript's built-in Date#parse method.</p> %}
     }
     }
     *)
-  method format : Js.js_string Js.t -> Js.js_string Js.t -> Js.js_string Js.t
-    -> Js.js_string Js.t Js.meth
+  method format : Js.js_string Js.t -> _ Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>.</p>
 
 <p>Allows you to define a tokenized string and pass an arbitrary number of arguments to replace the tokens.  Each
-token must be unique, and must increment in the format {0}, {1}, etc.  Example usage:</p>
+token must be unique, and must increment in the format \{0\}, \{1\}, etc.  Example usage:</p>
 
-<pre><code>    var cls = 'my-class', text = 'Some text';
-    var s = <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>('&lt;div class="{0}">{1}&lt;/div>', cls, text);
-    // s now contains the string: '&lt;div class="my-class">Some text&lt;/div>'
-           </code></pre> %}
+<pre><code>var cls = 'my-class',
+    text = 'Some text';
+var s = <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>('&lt;div class="\{0\}"&gt;\{1\}&lt;/div&gt;', cls, text);
+// s now contains the string: '&lt;div class="my-class"&gt;Some text&lt;/div&gt;'
+</code></pre> %}
     
     {b Parameters}:
     {ul {- string: [Js.js_string Js.t]
-    {% <p>The tokenized string to be formatted</p> %}
+    {% <p>The tokenized string to be formatted.</p> %}
     }
-    {- value1: [Js.js_string Js.t]
-    {% <p>The value to replace token {0}</p> %}
-    }
-    {- value2: [Js.js_string Js.t]
-    {% <p>Etc...</p> %}
+    {- values: [_ Js.t]
+    {% <p>The values to replace tokens <code>\{0\}</code>, <code>\{1\}</code>, etc in order.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- [Js.js_string Js.t] {% <p>The formatted string</p> %}
+    {ul {- [Js.js_string Js.t] {% <p>The formatted string.</p> %}
     }
     }
     *)
@@ -261,12 +232,12 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
     
     {b Parameters}:
     {ul {- value: [Js.js_string Js.t]
-    {% <p>The string to decode</p> %}
+    {% <p>The string to decode.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- [Js.js_string Js.t] {% <p>The decoded text</p> %}
+    {ul {- [Js.js_string Js.t] {% <p>The decoded text.</p> %}
     }
     }
     *)
@@ -277,12 +248,12 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
     
     {b Parameters}:
     {ul {- value: [Js.js_string Js.t]
-    {% <p>The string to encode</p> %}
+    {% <p>The string to encode.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- [Js.js_string Js.t] {% <p>The encoded text</p> %}
+    {ul {- [Js.js_string Js.t] {% <p>The encoded text.</p> %}
     }
     }
     *)
@@ -293,24 +264,25 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
 <p>Pads the left side of a string with a specified character.  This is especially useful
 for normalizing number and date strings.  Example usage:</p>
 
-<pre><code>    var s = <a href="#!/api/Ext.String-method-leftPad" rel="Ext.String-method-leftPad" class="docClass">Ext.String.leftPad</a>('123', 5, '0');
-    // s now contains the string: '00123'
-           </code></pre> %}
+<pre><code>var s = <a href="#!/api/Ext.String-method-leftPad" rel="Ext.String-method-leftPad" class="docClass">Ext.String.leftPad</a>('123', 5, '0');
+// s now contains the string: '00123'
+</code></pre> %}
     
     {b Parameters}:
     {ul {- string: [Js.js_string Js.t]
-    {% <p>The original string</p> %}
+    {% <p>The original string.</p> %}
     }
     {- size: [Js.number Js.t]
-    {% <p>The total length of the output string</p> %}
+    {% <p>The total length of the output string.</p> %}
     }
     {- character: [Js.js_string Js.t] (optional)
-    {% <p>The character with which to pad the original string (defaults to empty string " ")</p> %}
+    {% <p>The character with which to pad the original string.</p> %}
+     Defaults to: ' '
     }
     }
     
     {b Returns}:
-    {ul {- [Js.js_string Js.t] {% <p>The padded string</p> %}
+    {ul {- [Js.js_string Js.t] {% <p>The padded string.</p> %}
     }
     }
     *)
@@ -331,7 +303,7 @@ for normalizing number and date strings.  Example usage:</p>
   method math : _ Js.callback Js.meth
   (** {% <p>It does simple math for use in a template, for example:</p>
 
-<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('{value} * 10 = {value:math("* 10")}');
+<pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('\{value\} * 10 = \{value:math("* 10")\}');
 </code></pre> %}
     
     {b Returns}:
@@ -344,8 +316,8 @@ for normalizing number and date strings.  Example usage:</p>
   (** {% <p>Converts newline characters to the HTML tag <code>&lt;br/&gt;</code></p> %}
     
     {b Parameters}:
-    {ul {- the: [Js.js_string Js.t]
-    {% <p>string value to format.</p> %}
+    {ul {- v: [Js.js_string Js.t]
+    {% <p>The string value to format.</p> %}
     }
     }
     
@@ -443,7 +415,7 @@ Supports CSS-style margin declarations (e.g. 10, "10", "10 10", "10 10 10" and
   method plural : Js.number Js.t -> Js.js_string Js.t ->
     Js.js_string Js.t Js.optdef -> unit Js.meth
   (** {% <p>Selectively do a plural form of a word based on a numeric value. For example, in a template,
-<code>{commentCount:plural("Comment")}</code>  would result in <code>"1 Comment"</code> if commentCount was 1 or
+<code>\{commentCount:plural("Comment")\}</code>  would result in <code>"1 Comment"</code> if commentCount was 1 or
 would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p> %}
     
     {b Parameters}:
@@ -527,22 +499,21 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p> %}
   method trim : Js.js_string Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Alias for <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim" class="docClass">Ext.String.trim</a>.</p>
 
-<p>Trims whitespace from either end of a string, leaving spaces within the string intact.  Example:
-\@example</p>
+<p>Trims whitespace from either end of a string, leaving spaces within the string intact.  Example:</p>
 
 <pre><code>var s = '  foo bar  ';
-alert('-' + s + '-');         //alerts "- foo bar -"
+alert('-' + s + '-');                   //alerts "- foo bar -"
 alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim" class="docClass">Ext.String.trim</a>(s) + '-');  //alerts "-foo bar-"
 </code></pre> %}
     
     {b Parameters}:
     {ul {- string: [Js.js_string Js.t]
-    {% <p>The string to escape</p> %}
+    {% <p>The string to trim.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- [Js.js_string Js.t] {% <p>The trimmed string</p> %}
+    {ul {- [Js.js_string Js.t] {% <p>The trimmed string.</p> %}
     }
     }
     *)
@@ -588,6 +559,42 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
     {ul {- [Js.js_string Js.t] {% <p>The formatted currency string</p> %}
     }
     }
+    *)
+  method currencyAtEnd : bool Js.t Js.prop
+  (** {% <p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
+append the currency sign to the formatted value.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method currencyPrecision : Js.number Js.t Js.prop
+  (** {% <p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: [2]
+    *)
+  method currencySign : Js.js_string Js.t Js.prop
+  (** {% <p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: ['$']
+    *)
+  method decimalSeparator : Js.js_string Js.t Js.prop
+  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: ['.']
+    *)
+  method thousandSeparator : Js.js_string Js.t Js.prop
+  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: [',']
     *)
   
 end

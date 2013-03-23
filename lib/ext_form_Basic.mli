@@ -23,7 +23,7 @@ form's values to a configured URL. To enable normal browser submission of an Ext
 
 <h2>Example usage:</h2>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', \{
     title: 'Basic Form',
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
     bodyPadding: 5,
@@ -35,42 +35,38 @@ form's values to a configured URL. To enable normal browser submission of an Ext
     // The form will submit an AJAX request to this URL when submitted
     url: 'save-form.php',
 
-    items: [{
+    items: [\{
         xtype: 'textfield',
         fieldLabel: 'Field',
         name: 'theField'
-    }],
+    \}],
 
-    buttons: [{
+    buttons: [\{
         text: 'Submit',
-        handler: function() {
+        handler: function() \{
             // The getForm() method returns the <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">Ext.form.Basic</a> instance:
             var form = this.up('form').getForm();
-            if (form.isValid()) {
+            if (form.isValid()) \{
                 // Submit the Ajax request and handle the response
-                form.submit({
-                    success: function(form, action) {
+                form.submit(\{
+                    success: function(form, action) \{
                        <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Success', action.result.message);
-                    },
-                    failure: function(form, action) {
+                    \},
+                    failure: function(form, action) \{
                         <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failed', action.result ? action.result.message : 'No response');
-                    }
-                });
-            }
-        }
-    }]
-});
+                    \}
+                \});
+            \}
+        \}
+    \}]
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
   
-  method owner : #Ext_container_Container.t Js.t Js.prop
-  (** {% <p>The container component to which this BasicForm is attached.</p> %}
-    *)
   method applyIfToFields : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Calls <a href="#!/api/Ext-method-applyIf" rel="Ext-method-applyIf" class="docClass">Ext.applyIf</a> for all field in this form with the passed object.</p> %}
     
@@ -102,7 +98,7 @@ object('self)
   method checkDirty : unit Js.meth
   (** {% <p>Check whether the dirty state of the entire form has changed since it was last checked, and
 if so fire the <a href="#!/api/Ext.form.Basic-event-dirtychange" rel="Ext.form.Basic-event-dirtychange" class="docClass">dirtychange</a> event. This is automatically invoked
-when an individual field's dirty state changes.</p> %}
+when an individual field's <code>dirty</code> state changes.</p> %}
     *)
   method checkValidity : unit Js.meth
   (** {% <p>Check whether the validity of the entire form has changed since it was last checked, and
@@ -226,8 +222,8 @@ method is used.</p> %}
   (** {% <p>Returns true if the form contains any invalid fields. No fields will be marked as invalid
 as a result of calling this; to trigger marking of fields use <a href="#!/api/Ext.form.Basic-method-isValid" rel="Ext.form.Basic-method-isValid" class="docClass">isValid</a> instead.</p> %}
     *)
-  method hasUpload : unit Js.meth
-  (** {% <p>Returns true if the form contains a file upload field. This is used to determine the method for submitting the
+  method hasUpload : bool Js.t Js.meth
+  (** {% <p>Returns <code>true</code> if the form contains a file upload field. This is used to determine the method for submitting the
 form: File uploads are not performed using normal 'Ajax' techniques, that is they are <strong>not</strong> performed using
 XMLHttpRequests. Instead a hidden <code>&lt;form&gt;</code> element containing all the fields is created temporarily and submitted
 with its <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer to a dynamically generated, hidden <code>&lt;iframe&gt;</code> which is inserted into the document
@@ -246,33 +242,17 @@ responseText property in order to conform to the requirements of event handlers 
 <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a> and some server technologies
 (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from
 the packet content.</p> %}
-    
-    {b Returns}:
-    {ul {- [unit] {% <p>Boolean</p> %}
-    }
-    }
     *)
-  method isDirty : unit Js.meth
-  (** {% <p>Returns true if any fields in this form have changed from their original values.</p>
+  method isDirty : bool Js.t Js.meth
+  (** {% <p>Returns <code>true</code> if any fields in this form have changed from their original values.</p>
 
-<p>Note that if this BasicForm was configured with <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> then the
-Fields' <em>original values</em> are updated when the values are loaded by <a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a>
-or <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a>.</p> %}
-    
-    {b Returns}:
-    {ul {- [unit] {% <p>Boolean</p> %}
-    }
-    }
+<p>Note that if this BasicForm was configured with <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> then the Fields' <em>original values</em> are updated when the values are
+loaded by <a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a> or <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a>.</p> %}
     *)
-  method isValid : unit Js.meth
+  method isValid : bool Js.t Js.meth
   (** {% <p>Returns true if client-side validation on the form is successful. Any invalid fields will be
 marked as invalid. If you only want to determine overall form validity without marking anything,
 use <a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-method-hasInvalidField" class="docClass">hasInvalidField</a> instead.</p> %}
-    
-    {b Returns}:
-    {ul {- [unit] {% <p>Boolean</p> %}
-    }
-    }
     *)
   method load : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Shortcut to <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">do</a> a <a href="#!/api/Ext.form.action.Load" rel="Ext.form.action.Load" class="docClass">load action</a>.</p> %}
@@ -309,8 +289,8 @@ See also <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basi
     
     {b Parameters}:
     {ul {- errors: [_ Js.t]
-    {% <p>Either an array in the form <code>[{id:'fieldId', msg:'The message'}, ...]</code>,
-an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.data.Errors" rel="Ext.data.Errors" class="docClass">Ext.data.Errors</a> object.</p> %}
+    {% <p>Either an array in the form <code>[\{id:'fieldId', msg:'The message'\}, ...]</code>,
+an object hash of <code>\{id: msg, id2: msg2\}</code>, or a <a href="#!/api/Ext.data.Errors" rel="Ext.data.Errors" class="docClass">Ext.data.Errors</a> object.</p> %}
     }
     }
     
@@ -319,8 +299,17 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
     }
     }
     *)
-  method reset : 'self Js.t Js.meth
-  (** {% <p>Resets all fields in this form.</p> %}
+  method reset : bool Js.t Js.optdef -> 'self Js.t Js.meth
+  (** {% <p>Resets all fields in this form. By default, any record bound by <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a>
+will be retained.</p> %}
+    
+    {b Parameters}:
+    {ul {- resetRecord: [bool Js.t] (optional)
+    {% <p>True to unbind any record set
+by <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a></p> %}
+     Defaults to: false
+    }
+    }
     
     {b Returns}:
     {ul {- [Ext_form_Basic.t Js.t] {% <p>this</p> %}
@@ -334,18 +323,18 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
     {ul {- values: [_ Js.t]
     {% <p>Either an array in the form:</p>
 
-<pre><code>[{id:'clientName', value:'Fred. Olsen Lines'},
- {id:'portOfLoading', value:'FXT'},
- {id:'portOfDischarge', value:'OSL'} ]
+<pre><code>[\{id:'clientName', value:'Fred. Olsen Lines'\},
+ \{id:'portOfLoading', value:'FXT'\},
+ \{id:'portOfDischarge', value:'OSL'\} ]
 </code></pre>
 
 <p>or an object hash of the form:</p>
 
-<pre><code>{
+<pre><code>\{
     clientName: 'Fred. Olsen Lines',
     portOfLoading: 'FXT',
     portOfDischarge: 'OSL'
-}
+\}
 </code></pre> %}
     }
     }
@@ -363,44 +352,44 @@ it will use the <a href="#!/api/Ext.form.action.DirectLoad" rel="Ext.form.action
 
 <p>The following code:</p>
 
-<pre><code>myFormPanel.getForm().submit({
+<pre><code>myFormPanel.getForm().submit(\{
     clientValidation: true,
     url: 'updateConsignment.php',
-    params: {
+    params: \{
         newStatus: 'delivered'
-    },
-    success: function(form, action) {
+    \},
+    success: function(form, action) \{
        <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Success', action.result.msg);
-    },
-    failure: function(form, action) {
-        switch (action.failureType) {
-            case <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.CLIENT_INVALID:
+    \},
+    failure: function(form, action) \{
+        switch (action.failureType) \{
+            case <a href="#!/api/Ext.form.action.Action-static-property-CLIENT_INVALID" rel="Ext.form.action.Action-static-property-CLIENT_INVALID" class="docClass">Ext.form.action.Action.CLIENT_INVALID</a>:
                 <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failure', 'Form fields may not be submitted with invalid values');
                 break;
-            case <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.CONNECT_FAILURE:
+            case <a href="#!/api/Ext.form.action.Action-static-property-CONNECT_FAILURE" rel="Ext.form.action.Action-static-property-CONNECT_FAILURE" class="docClass">Ext.form.action.Action.CONNECT_FAILURE</a>:
                 <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failure', 'Ajax communication failed');
                 break;
-            case <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.SERVER_INVALID:
+            case <a href="#!/api/Ext.form.action.Action-static-property-SERVER_INVALID" rel="Ext.form.action.Action-static-property-SERVER_INVALID" class="docClass">Ext.form.action.Action.SERVER_INVALID</a>:
                <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failure', action.result.msg);
-       }
-    }
-});
+       \}
+    \}
+\});
 </code></pre>
 
 <p>would process the following server response for a successful submission:</p>
 
-<pre><code>{
+<pre><code>\{
     "success":true, // note this is Boolean, not string
     "msg":"Consignment updated"
-}
+\}
 </code></pre>
 
 <p>and the following server response for a failed submission:</p>
 
-<pre><code>{
+<pre><code>\{
     "success":false, // note this is Boolean, not string
     "msg":"You do not have permission to perform this operation"
-}
+\}
 </code></pre> %}
     
     {b Parameters}:
@@ -429,12 +418,14 @@ If the record is not specified, it will attempt to update (if it exists) the rec
     }
     }
     *)
+  method owner : #Ext_container_Container.t Js.t Js.prop
+  (** {% <p>The container component to which this BasicForm is attached.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   
   method api : _ Js.t Js.prop
@@ -443,10 +434,10 @@ and <a href="#!/api/Ext.form.action.DirectSubmit" rel="Ext.form.action.DirectSub
 <a href="#!/api/Ext.direct.Manager" rel="Ext.direct.Manager" class="docClass">Ext.direct.Manager</a> can be specified here to load and submit forms. API methods may also be
 specified as strings. See <a href="#!/api/Ext.data.proxy.Direct-cfg-directFn" rel="Ext.data.proxy.Direct-cfg-directFn" class="docClass">Ext.data.proxy.Direct.directFn</a>.  Such as the following:</p>
 
-<pre><code>api: {
+<pre><code>api: \{
     load: App.ss.MyProfile.load,
     submit: App.ss.MyProfile.submit
-}
+\}
 </code></pre>
 
 <p>Load actions can use <a href="#!/api/Ext.form.Basic-cfg-paramOrder" rel="Ext.form.Basic-cfg-paramOrder" class="docClass">paramOrder</a> or <a href="#!/api/Ext.form.Basic-cfg-paramsAsHash" rel="Ext.form.Basic-cfg-paramsAsHash" class="docClass">paramsAsHash</a> to customize how the load method
@@ -455,14 +446,14 @@ is invoked.  Submit actions will always use a standard form submit. The <code>fo
 been imported by <a href="#!/api/Ext.direct.Manager" rel="Ext.direct.Manager" class="docClass">Ext.direct.Manager</a>.</p> %}
     *)
   method baseParams : _ Js.t Js.prop
-  (** {% <p>Parameters to pass with all requests. e.g. baseParams: <code>{id: '123', foo: 'bar'}</code>.</p>
+  (** {% <p>Parameters to pass with all requests. e.g. baseParams: <code>\{id: '123', foo: 'bar'\}</code>.</p>
 
 <p>Parameters are encoded as standard HTTP parameters using <a href="#!/api/Ext.Object-method-toQueryString" rel="Ext.Object-method-toQueryString" class="docClass">Ext.Object.toQueryString</a>.</p> %}
     *)
-  method errorReader : Ext_data_reader_Reader.t Js.t Js.prop
-  (** {% <p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.DataReader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) to be used to
-read field error messages returned from 'submit' actions. This is optional
-as there is built-in support for processing JSON responses.</p>
+  method errorReader : _ Js.t Js.prop
+  (** {% <p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) instance or
+configuration to be used to read field error messages returned from 'submit' actions.
+This is optional as there is built-in support for processing JSON responses.</p>
 
 <p>The Records which provide messages for the invalid Fields must use the
 Field name (or id) as the Record ID, and must contain a field called 'msg'
@@ -473,10 +464,15 @@ Reader. It simply needs to implement a <code>read(xhr)</code> function
 which returns an Array of Records in an object with the following
 structure:</p>
 
-<pre><code>{
+<pre><code>\{
     records: recordArray
-}
+\}
 </code></pre> %}
+    *)
+  method jsonSubmit : bool Js.t Js.prop
+  (** {% <p>If set to true, the field values are sent as JSON in the request body.
+All of the field values, plus any additional params configured via <a href="#!/api/Ext.form.Basic-cfg-baseParams" rel="Ext.form.Basic-cfg-baseParams" class="docClass">baseParams</a>
+and/or the <code>options</code> to <a href="#!/api/Ext.form.Basic-method-submit" rel="Ext.form.Basic-method-submit" class="docClass">submit</a>, will be included in the values POSTed in the body of the request.</p> %}
     *)
   method _method : Js.js_string Js.t Js.prop
   (** {% <p>The request method to use (GET or POST) for form actions if one isn't supplied in the action options.</p> %}
@@ -503,10 +499,10 @@ configuration.</p> %}
     
     Defaults to: [false]
     *)
-  method reader : Ext_data_reader_Reader.t Js.t Js.prop
-  (** {% <p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.DataReader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) to be used to read
-data when executing 'load' actions. This is optional as there is built-in
-support for processing JSON responses.</p> %}
+  method reader : _ Js.t Js.prop
+  (** {% <p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) instance or
+configuration to be used to read data when executing 'load' actions. This
+is optional as there is built-in support for processing JSON responses.</p> %}
     *)
   method standardSubmit : bool Js.t Js.prop
   (** {% <p>If set to true, a standard HTML form submit is used instead of a XHR (Ajax) style form submission.
@@ -542,7 +538,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
   
   method actioncomplete : (t Js.t -> Ext_form_action_Action.t Js.t -> _ Js.t
@@ -625,7 +620,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_util_Observable.statics
   
   

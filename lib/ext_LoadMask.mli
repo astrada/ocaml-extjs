@@ -20,11 +20,9 @@ myMask.show();
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_util_Bindable.t
   inherit Ext_util_Floating.t
+  inherit Ext_Component.t
   
   method afterRender : unit Js.meth
   (** {% <p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
@@ -55,8 +53,14 @@ names added, and will be in the configured visibility and the configured enable 
     }
     }
     *)
-  method getStoreListeners : _ Js.t Js.meth
+  method getStoreListeners : Ext_data_Store.t Js.t -> _ Js.t Js.meth
   (** {% <p>Gets the listeners to bind to a new store.</p> %}
+    
+    {b Parameters}:
+    {ul {- store: [Ext_data_Store.t Js.t]
+    {% <p>The Store which is being bound to for which a listeners object should be returned.</p> %}
+    }
+    }
     
     {b Returns}:
     {ul {- [_ Js.t]
@@ -71,7 +75,7 @@ may be omitted, it is assumed to be the current instance.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.LoadMask-cfg-floating" rel="Ext.LoadMask-cfg-floating" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -92,11 +96,11 @@ Defaults to this Component.</p> %}
     *)
   method onDestroy : unit Js.meth
   (** {% <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method onDisable : unit Js.meth
   (** {% <p>Allows addition of behavior to the disable operation.
-After calling the superclass’s onDisable, the Component will be disabled.</p> %}
+After calling the superclass's <code>onDisable</code>, the Component will be disabled.</p> %}
     *)
   method onHide : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
@@ -105,7 +109,7 @@ After calling the superclass’s onDisable, the Component will be disabled.</p> 
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-event-hide" rel="Ext.LoadMask-event-hide" class="docClass">hide</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-method-hide" rel="Ext.LoadMask-method-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -143,7 +147,7 @@ brought to the front of its <a href="#!/api/Ext.LoadMask-property-zIndexManager"
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.LoadMask-cfg-floating" rel="Ext.LoadMask-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
+    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
      Defaults to: null
     }
@@ -167,11 +171,9 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_util_Bindable.configs
   inherit Ext_util_Floating.configs
+  inherit Ext_Component.configs
   
   method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
@@ -192,55 +194,12 @@ object('self)
     _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onShow] *)
   method baseCls : Js.js_string Js.t Js.prop
-  (** {% <p>The base CSS class to apply to this components's element. This will also be prepended to elements within this
-component like Panel's body will get a class x-panel-body. This means that if you create a subclass of Panel, and
-you want it to get all the Panels styling for the element and the body, you leave the baseCls x-panel and use
-componentCls to add specific styling for this component.</p> %}
+  (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
+component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
+you want it to get all the Panels styling for the element and the body, you leave the <code>baseCls</code> <code>x-panel</code> and use
+<code>componentCls</code> to add specific styling for this component.</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'mask-msg']
-    *)
-  method floating : bool Js.t Js.prop
-  (** {% <p>Private. Obviously, it's floating.</p>
-
-<p>Specify as true to float the Component outside of the document flow using CSS absolute positioning.</p>
-
-<p>Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s and <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a>s are floating by default.</p>
-
-<p>Floating Components that are programatically <a href="#!/api/Ext.Component-method-render" rel="Ext.Component-method-render" class="docClass">rendered</a> will register
-themselves with the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a></p>
-
-<h3>Floating Components as child items of a Container</h3>
-
-<p>A floating Component may be used as a child item of a Container. This just allows the floating Component to seek
-a ZIndexManager by examining the ownerCt chain.</p>
-
-<p>When configured as floating, Components acquire, at render time, a <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a> which
-manages a stack of related floating Components. The ZIndexManager brings a single floating Component to the top
-of its stack when the Component's <a href="#!/api/Ext.LoadMask-method-toFront" rel="Ext.LoadMask-method-toFront" class="docClass">toFront</a> method is called.</p>
-
-<p>The ZIndexManager is found by traversing up the <a href="#!/api/Ext.LoadMask-property-ownerCt" rel="Ext.LoadMask-property-ownerCt" class="docClass">ownerCt</a> chain to find an ancestor which itself is
-floating. This is so that descendant floating Components of floating <em>Containers</em> (Such as a ComboBox dropdown
-within a Window) can have its zIndex managed relative to any siblings, but always <strong>above</strong> that floating
-ancestor Container.</p>
-
-<p>If no floating ancestor is found, a floating Component registers itself with the default <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">ZIndexManager</a>.</p>
-
-<p>Floating components <em>do not participate in the Container's layout</em>. Because of this, they are not rendered until
-you explicitly <a href="#!/api/Ext.LoadMask-method-show" rel="Ext.LoadMask-method-show" class="docClass">show</a> them.</p>
-
-<p>After rendering, the ownerCt reference is deleted, and the <a href="#!/api/Ext.LoadMask-property-floatParent" rel="Ext.LoadMask-property-floatParent" class="docClass">floatParent</a> property is set to the found
-floating ancestor Container. If no floating ancestor Container was found the <a href="#!/api/Ext.LoadMask-property-floatParent" rel="Ext.LoadMask-property-floatParent" class="docClass">floatParent</a> property will
-not be set.</p> %}
-    
-    Defaults to: [\{shadow: 'frame'\}]
-    *)
-  method focusOnToFront : bool Js.t Js.prop
-  (** {% <p>Private. Masks are not focusable</p>
-
-<p>Specifies whether the floated component should be automatically <a href="#!/api/Ext.Component-method-focus" rel="Ext.Component-method-focus" class="docClass">focused</a> when
-it is <a href="#!/api/Ext.LoadMask-method-toFront" rel="Ext.LoadMask-method-toFront" class="docClass">brought to the front</a>.</p> %}
-    
-    Defaults to: [false]
     *)
   method maskCls : Js.js_string Js.t Js.prop
   (** {% <p>The CSS class to apply to the mask element</p> %}
@@ -263,7 +222,7 @@ it is <a href="#!/api/Ext.LoadMask-method-toFront" rel="Ext.LoadMask-method-toFr
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.LoadMask-method-getEl" rel="Ext.LoadMask-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.LoadMask-method-getEl" rel="Ext.LoadMask-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -272,11 +231,15 @@ internal structure.</p>
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.LoadMask-cfg-renderSelectors" rel="Ext.LoadMask-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.LoadMask-cfg-childEls" rel="Ext.LoadMask-cfg-childEls" class="docClass">childEls</a> options.</p> %}
     
-    Defaults to: ['<div id="\{id\}-msgEl" style="position:relative" class="\{[values.$comp.msgCls]\}"></div>']
+    Defaults to: ['<div id=''\{id\}-msgEl'' class=''\{[values.$comp.msgCls]\} ', Ext.baseCSSPrefix, 'mask-msg-inner\{childElCls\}''>', '<div id=''\{id\}-msgTextEl'' class=''', Ext.baseCSSPrefix, 'mask-msg-text', '\{childElCls\}''></div>', '</div>']
     *)
   method store : Ext_data_Store.t Js.t Js.prop
   (** {% <p>Optional Store to which the mask is bound. The mask is displayed when a load request is issued, and
 hidden on either load success, or load fail.</p> %}
+    *)
+  method target : #Ext_Component.t Js.t Js.prop
+  (** {% <p>The Component you wish to mask. The the mask will be automatically sized
+upon Component resize, and the message box will be kept centered.</p> %}
     *)
   method useMsg : bool Js.t Js.prop
   (** {% <p>Whether or not to use a loading message class or simply mask the bound element.</p> %}
@@ -294,19 +257,15 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_util_Bindable.events
   inherit Ext_util_Floating.events
+  inherit Ext_Component.events
   
   
 end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   inherit Ext_util_Bindable.statics
   inherit Ext_util_Floating.statics

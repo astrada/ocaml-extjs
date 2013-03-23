@@ -5,9 +5,6 @@
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_dd_DragDrop.t
-  inherit Ext_dd_DD.t
   inherit Ext_dd_DDProxy.t
   
   method afterDragDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t ->
@@ -119,21 +116,6 @@ location other than where the cursor is.</p> %}
     }
     {- iPageY: [Js.number Js.t]
     {% <p>the Y coordinate of the mousedown or drag event</p> %}
-    }
-    }
-    *)
-  method autoOffset : Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>private - pin to cursor</p>
-
-<p>Sets the pointer offset to the distance between the linked element's top
-left corner and the location the element was clicked.</p> %}
-    
-    {b Parameters}:
-    {ul {- iPageX: [Js.number Js.t]
-    {% <p>the X coordinate of the click</p> %}
-    }
-    {- iPageY: [Js.number Js.t]
-    {% <p>the Y coordinate of the click</p> %}
     }
     }
     *)
@@ -252,16 +234,6 @@ drop has occurred.</p> %}
     }
     }
     *)
-  method endDrag : Dom_html.event Js.t -> unit Js.meth
-  (** {% <p>private - override to prevent moving</p>
-
-<p>Called when we are done dragging the object</p> %}
-    
-    {b Parameters}:
-    {ul {- e: [Dom_html.event Js.t] {% <p>the mouseup event</p> %}
-    }
-    }
-    *)
   method getDragData : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Returns the data object associated with this drag source</p> %}
     
@@ -305,84 +277,6 @@ drag event begins and optionally cancel it.</p> %}
     }
     }
     *)
-  method onDragDrop : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Abstract method called when this item is dropped on another DragDrop
-obj</p> %}
-    
-    {b Parameters}:
-    {ul {- e: [Dom_html.event Js.t]
-    {% <p>the mouseup event</p> %}
-    }
-    {- id: [_ Js.t]
-    {% <p>In POINT mode, the element
-id this was dropped on.  In INTERSECT mode, an array of dd items this
-was dropped on.</p> %}
-    }
-    }
-    *)
-  method onDragEnter : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Abstract method called when this element fist begins hovering over
-another DragDrop obj</p> %}
-    
-    {b Parameters}:
-    {ul {- e: [Dom_html.event Js.t]
-    {% <p>the mousemove event</p> %}
-    }
-    {- id: [_ Js.t]
-    {% <p>In POINT mode, the element
-id this is hovering over.  In INTERSECT mode, an array of one or more
-dragdrop items being hovered over.</p> %}
-    }
-    }
-    *)
-  method onDragOut : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Abstract method called when we are no longer hovering over an element</p> %}
-    
-    {b Parameters}:
-    {ul {- e: [Dom_html.event Js.t]
-    {% <p>the mousemove event</p> %}
-    }
-    {- id: [_ Js.t]
-    {% <p>In POINT mode, the element
-id this was hovering over.  In INTERSECT mode, an array of dd items
-that the mouse is no longer over.</p> %}
-    }
-    }
-    *)
-  method onDragOver : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Abstract method called when this element is hovering over another
-DragDrop obj</p> %}
-    
-    {b Parameters}:
-    {ul {- e: [Dom_html.event Js.t]
-    {% <p>the mousemove event</p> %}
-    }
-    {- id: [_ Js.t]
-    {% <p>In POINT mode, the element
-id this is hovering over.  In INTERSECT mode, an array of dd items
-being hovered over.</p> %}
-    }
-    }
-    *)
-  method onInvalidDrop : Dom_html.event Js.t -> unit Js.meth
-  (** {% <p>private</p>
-
-<p>Abstract method called when this item is dropped on an area with no
-drop target</p> %}
-    
-    {b Parameters}:
-    {ul {- e: [Dom_html.event Js.t] {% <p>the mouseup event</p> %}
-    }
-    }
-    *)
   method onStartDrag : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>An empty function by default, but provided so that you can perform a custom action once the initial
 drag event has begun.  The drag cannot be canceled from this function.</p> %}
@@ -396,28 +290,11 @@ drag event has begun.  The drag cannot be canceled from this function.</p> %}
     }
     }
     *)
-  method startDrag : Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>private override</p>
-
-<p>Abstract method called after a drag/drop object is clicked
-and the drag or mousedown time thresholds have beeen met.</p> %}
-    
-    {b Parameters}:
-    {ul {- x: [Js.number Js.t]
-    {% <p>click location</p> %}
-    }
-    {- y: [Js.number Js.t] {% <p>click location</p> %}
-    }
-    }
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_dd_DragDrop.configs
-  inherit Ext_dd_DD.configs
   inherit Ext_dd_DDProxy.configs
   
   method beforeDragDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
@@ -477,9 +354,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_dd_DragDrop.events
-  inherit Ext_dd_DD.events
   inherit Ext_dd_DDProxy.events
   
   
@@ -487,9 +361,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_dd_DragDrop.statics
-  inherit Ext_dd_DD.statics
   inherit Ext_dd_DDProxy.statics
   
   

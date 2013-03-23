@@ -16,46 +16,49 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method run : unit Js.meth
+  (** {% <p>Invokes this action using the current configuration.</p> %}
+    *)
   method failureType : Js.js_string Js.t Js.prop
   (** {% <p>The type of failure detected will be one of these:
 <a href="#!/api/Ext.form.action.Action-static-property-CLIENT_INVALID" rel="Ext.form.action.Action-static-property-CLIENT_INVALID" class="docClass">CLIENT_INVALID</a>, <a href="#!/api/Ext.form.action.Action-static-property-SERVER_INVALID" rel="Ext.form.action.Action-static-property-SERVER_INVALID" class="docClass">SERVER_INVALID</a>, <a href="#!/api/Ext.form.action.Action-static-property-CONNECT_FAILURE" rel="Ext.form.action.Action-static-property-CONNECT_FAILURE" class="docClass">CONNECT_FAILURE</a>, or <a href="#!/api/Ext.form.action.Action-static-property-LOAD_FAILURE" rel="Ext.form.action.Action-static-property-LOAD_FAILURE" class="docClass">LOAD_FAILURE</a>.</p>
 
 <p>Usage:</p>
 
-<pre><code>var fp = new <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>({
+<pre><code>var fp = new <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>(\{
 ...
-buttons: [{
+buttons: [\{
     text: 'Save',
     formBind: true,
-    handler: function(){
-        if(fp.getForm().isValid()){
-            fp.getForm().submit({
+    handler: function()\{
+        if(fp.getForm().isValid())\{
+            fp.getForm().submit(\{
                 url: 'form-submit.php',
                 waitMsg: 'Submitting your data...',
-                success: function(form, action){
+                success: function(form, action)\{
                     // server responded with success = true
                     var result = action.<a href="#!/api/Ext.form.action.Action-property-result" rel="Ext.form.action.Action-property-result" class="docClass">result</a>;
-                },
-                failure: function(form, action){
-                    if (action.<a href="#!/api/Ext.form.action.Action-property-failureType" rel="Ext.form.action.Action-property-failureType" class="docClass">failureType</a> === <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.CONNECT_FAILURE) {
+                \},
+                failure: function(form, action)\{
+                    if (action.<a href="#!/api/Ext.form.action.Action-property-failureType" rel="Ext.form.action.Action-property-failureType" class="docClass">failureType</a> === <a href="#!/api/Ext.form.action.Action-static-property-CONNECT_FAILURE" rel="Ext.form.action.Action-static-property-CONNECT_FAILURE" class="docClass">Ext.form.action.Action.CONNECT_FAILURE</a>) \{
                         <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Error',
                             'Status:'+action.<a href="#!/api/Ext.form.action.Action-property-response" rel="Ext.form.action.Action-property-response" class="docClass">response</a>.status+': '+
                             action.<a href="#!/api/Ext.form.action.Action-property-response" rel="Ext.form.action.Action-property-response" class="docClass">response</a>.statusText);
-                    }
-                    if (action.failureType === <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.SERVER_INVALID){
+                    \}
+                    if (action.failureType === <a href="#!/api/Ext.form.action.Action-static-property-SERVER_INVALID" rel="Ext.form.action.Action-static-property-SERVER_INVALID" class="docClass">Ext.form.action.Action.SERVER_INVALID</a>)\{
                         // server responded with success = false
                         <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Invalid', action.<a href="#!/api/Ext.form.action.Action-property-result" rel="Ext.form.action.Action-property-result" class="docClass">result</a>.errormsg);
-                    }
-                }
-            });
-        }
-    }
-},{
+                    \}
+                \}
+            \});
+        \}
+    \}
+\},\{
     text: 'Reset',
-    handler: function(){
+    handler: function()\{
         fp.getForm().reset();
-    }
-}]
+    \}
+\}]
 </code></pre> %}
     *)
   method response : _ Js.t Js.prop
@@ -66,9 +69,6 @@ buttons: [{
     *)
   method _type : Js.js_string Js.t Js.prop
   (** {% <p>The type of action this Action instance performs. Currently only "submit" and "load" are supported.</p> %}
-    *)
-  method run : unit Js.meth
-  (** {% <p>Invokes this action using the current configuration.</p> %}
     *)
   
 end
@@ -85,7 +85,9 @@ object('self)
     *)
   method headers : _ Js.t Js.prop
   (** {% <p>Extra headers to be sent in the AJAX request for submit and load actions.
-See <a href="#!/api/Ext.data.proxy.Ajax-cfg-headers" rel="Ext.data.proxy.Ajax-cfg-headers" class="docClass">Ext.data.proxy.Ajax.headers</a>.</p> %}
+See <a href="#!/api/Ext.data.proxy.Ajax-cfg-headers" rel="Ext.data.proxy.Ajax-cfg-headers" class="docClass">Ext.data.proxy.Ajax.headers</a>.</p>
+
+<p><strong>Note:</strong> Headers are not sent during file upload.</p> %}
     *)
   method _method : Js.js_string Js.t Js.prop
   (** {% <p>The HTTP method to use to access the requested URL.

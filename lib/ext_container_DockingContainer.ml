@@ -31,6 +31,10 @@ class type events =
 object
   inherit Ext_Base.events
   
+  method dockedadd : (_ Js.t -> #Ext_Component.t Js.t -> Js.number Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method dockedremove : (_ Js.t -> #Ext_Component.t Js.t -> _ Js.t -> unit)
+    Js.callback Js.writeonly_prop
   
 end
 

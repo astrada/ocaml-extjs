@@ -50,12 +50,12 @@ are:</p>
 <p>Usage:</p>
 
 <pre><code>// Element animation options object
-var opt = {
+var opt = \{
     <a href="#!/api/Ext.fx.Anim-cfg-duration" rel="Ext.fx.Anim-cfg-duration" class="docClass">duration</a>: 1000,
     <a href="#!/api/Ext.fx.Anim-cfg-easing" rel="Ext.fx.Anim-cfg-easing" class="docClass">easing</a>: 'elasticIn',
     <a href="#!/api/Ext.fx.Anim-cfg-callback" rel="Ext.fx.Anim-cfg-callback" class="docClass">callback</a>: this.foo,
     <a href="#!/api/Ext.fx.Anim-cfg-scope" rel="Ext.fx.Anim-cfg-scope" class="docClass">scope</a>: this
-};
+\};
 // animation with some options set
 el.setWidth(100, opt);
 </code></pre>
@@ -64,34 +64,27 @@ el.setWidth(100, opt);
 you to stop or manipulate the animation. Here is an example:</p>
 
 <pre><code>// using the "anim" property to get the Anim object
-if(opt.anim.isAnimated()){
+if(opt.anim.isAnimated())\{
     opt.anim.stop();
-}
+\}
 </code></pre>
 
 <h1>Composite (Collections of) Elements</h1>
 
-<p>For working with collections of Elements, see <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a></p> %}
+<p>For working with collections of Elements, see <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a></p>
+
+<p><strong>From override Ext.rtl.dom.Element_position:</strong> This override adds RTL positioning methods to <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>.</p> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_dom_AbstractElement.t
   
-  method autoBoxAdjust : bool Js.t Js.prop
-  (** {% <p>True to automatically adjust width and height settings for box-model issues.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method originalDisplay : Js.js_string Js.t Js.prop
-  (** {% <p>The element's default display mode.</p> %}
-    
-    Defaults to: [""]
-    *)
   method addClsOnClick : Js.js_string Js.t -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Sets up event handlers to add and remove a css class when the mouse is down and then up on this element (a click effect)</p> %}
+  (** {% <p>Sets up event handlers to add and remove a css class when the mouse is down and then up on this element (a click effect)</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Parameters}:
     {ul {- className: [Js.js_string Js.t]
@@ -113,7 +106,9 @@ will be the Element instance. If this functions returns false, the class will no
     *)
   method addClsOnFocus : Js.js_string Js.t -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Sets up event handlers to add and remove a css class when this element has the focus</p> %}
+  (** {% <p>Sets up event handlers to add and remove a css class when this element has the focus</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Parameters}:
     {ul {- className: [Js.js_string Js.t]
@@ -135,7 +130,9 @@ will be the Element instance. If this functions returns false, the class will no
     *)
   method addClsOnOver : Js.js_string Js.t -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Sets up event handlers to add and remove a css class when the mouse is over this element</p> %}
+  (** {% <p>Sets up event handlers to add and remove a css class when the mouse is over this element</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Parameters}:
     {ul {- className: [Js.js_string Js.t]
@@ -291,12 +288,12 @@ object. The options object is available as the third parameter in the handler fu
 
 
 
-<pre><code>el.on('click', this.onClick, this, {
+<pre><code>el.on('click', this.onClick, this, \{
     single: true,
     delay: 100,
     stopEvent : true,
     forumId: 4
-});
+\});
 </code></pre>
 
 
@@ -318,21 +315,21 @@ specify multiple handlers.</p>
 
 
 
-<pre><code>el.on({
-    'click' : {
+<pre><code>el.on(\{
+    'click' : \{
         fn: this.onClick,
         scope: this,
         delay: 100
-    },
-    'mouseover' : {
+    \},
+    'mouseover' : \{
         fn: this.onMouseOver,
         scope: this
-    },
-    'mouseout' : {
+    \},
+    'mouseout' : \{
         fn: this.onMouseOut,
         scope: this
-    }
-});
+    \}
+\});
 </code></pre>
 
 
@@ -348,12 +345,12 @@ specify multiple handlers.</p>
 
 
 
-<pre><code>el.on({
+<pre><code>el.on(\{
     'click' : this.onClick,
     'mouseover' : this.onMouseOver,
     'mouseout' : this.onMouseOut,
     scope: this
-});
+\});
 </code></pre>
 
 
@@ -384,124 +381,17 @@ descendant of the target. For example:</p>
 el = <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('elId');
 el.on(
     'click',
-    function(e,t) {
+    function(e,t) \{
         // handle click
         console.info(t.id); // 'p2'
-    },
+    \},
     this,
-    {
+    \{
         // filter the target element to be a descendant with the class 'clickable'
         delegate: '.clickable'
-    }
+    \}
 );
 </code></pre> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
-  method alignTo : _ Js.t -> Js.js_string Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef ->
-    'self Js.t Js.meth
-  (** {% <p>Aligns this element with another element relative to the specified anchor points. If the other element is the
-document it aligns it to the viewport. The position parameter is optional, and can be specified in any one of
-the following formats:</p>
-
-<ul>
-<li><strong>Blank</strong>: Defaults to aligning the element's top-left corner to the target's bottom-left corner ("tl-bl").</li>
-<li><strong>One anchor (deprecated)</strong>: The passed anchor position is used as the target element's anchor point.
-The element being aligned will position its top-left corner (tl) to that point. <em>This method has been
-deprecated in favor of the newer two anchor syntax below</em>.</li>
-<li><strong>Two anchors</strong>: If two values from the table below are passed separated by a dash, the first value is used as the
-element's anchor point, and the second value is used as the target's anchor point.</li>
-</ul>
-
-
-<p>In addition to the anchor points, the position parameter also supports the "?" character.  If "?" is passed at the end of
-the position string, the element will attempt to align as specified, but the position will be adjusted to constrain to
-the viewport if necessary.  Note that the element being aligned might be swapped to align to a different position than
-that specified in order to enforce the viewport constraints.
-Following are all of the supported anchor positions:</p>
-
-<pre>Value  Description
------  -----------------------------
-tl     The top left corner (default)
-t      The center of the top edge
-tr     The top right corner
-l      The center of the left edge
-c      In the center of the element
-r      The center of the right edge
-bl     The bottom left corner
-b      The center of the bottom edge
-br     The bottom right corner
-</pre>
-
-
-<p>Example Usage:</p>
-
-<pre><code>// align el to other-el using the default positioning ("tl-bl", non-constrained)
-el.alignTo("other-el");
-
-// align the top left corner of el with the top right corner of other-el (constrained to viewport)
-el.alignTo("other-el", "tr?");
-
-// align the bottom right corner of el with the center left edge of other-el
-el.alignTo("other-el", "br-l?");
-
-// align the center of el with the bottom left corner of other-el and
-// adjust the x position by -6 pixels (and the y position by 0)
-el.alignTo("other-el", "c-bl", [-6, 0]);
-</code></pre> %}
-    
-    {b Parameters}:
-    {ul {- element: [_ Js.t]
-    {% <p>The element to align to.</p> %}
-    }
-    {- position: [Js.js_string Js.t] (optional)
-    {% <p>The position to align to</p> %}
-    
-    Defaults to: "tl-bl?"
-    }
-    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
-    {% <p>Offset the positioning by [x, y]</p> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>true for the default animation or a standard Element animation config object</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
-  method anchorTo : _ Js.t -> Js.js_string Js.t ->
-    Js.number Js.t Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef ->
-    _ Js.t Js.optdef -> _ Js.callback Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Anchors an element to another element and realigns it when the window is resized.</p> %}
-    
-    {b Parameters}:
-    {ul {- element: [_ Js.t]
-    {% <p>The element to align to.</p> %}
-    }
-    {- position: [Js.js_string Js.t]
-    {% <p>The position to align to.</p> %}
-    }
-    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
-    {% <p>Offset the positioning by [x, y]</p> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>True for the default animation or a standard Element animation config object</p> %}
-    }
-    {- monitorScroll: [_ Js.t] (optional)
-    {% <p>True to monitor body scroll and reposition. If this parameter
-is a number, it is used as the buffer delay (defaults to 50ms).</p> %}
-    }
-    {- callback: [_ Js.callback] (optional)
-    {% <p>The function to call after the animation finishes</p> %}
     }
     }
     
@@ -531,7 +421,9 @@ is a number, it is used as the buffer delay (defaults to 50ms).</p> %}
 <p><strong>Be aware</strong> that animating an Element which is being used by an Ext Component without in some way informing the
 Component about the changed element state will result in incorrect Component behaviour. This is because the
 Component will be using the old state of the element. To avoid this problem, it is now possible to directly
-animate certain properties of Components.</p> %}
+animate certain properties of Components.</p>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- config: [_ Js.t]
@@ -562,9 +454,9 @@ a gray container with a gradient background, rounded corners and a 4-way shadow.
 The markup is of this form:</p>
 
 <pre><code>Ext.dom.Element.boxMarkup =
-'&lt;div class="{0}-tl"&gt;&lt;div class="{0}-tr"&gt;&lt;div class="{0}-tc"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class="{0}-ml"&gt;&lt;div class="{0}-mr"&gt;&lt;div class="{0}-mc"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;div class="{0}-bl"&gt;&lt;div class="{0}-br"&gt;&lt;div class="{0}-bc"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;';
+'&lt;div class="\{0\}-tl"&gt;&lt;div class="\{0\}-tr"&gt;&lt;div class="\{0\}-tc"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="\{0\}-ml"&gt;&lt;div class="\{0\}-mr"&gt;&lt;div class="\{0\}-mc"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class="\{0\}-bl"&gt;&lt;div class="\{0\}-br"&gt;&lt;div class="\{0\}-bc"&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;';
 </code></pre>
 
 <p>Example usage:</p>
@@ -576,7 +468,9 @@ The markup is of this form:</p>
 // 'x-box-blue' is a built-in alternative -- look at the related CSS definitions as an example
 // for how to create a custom box wrap style.
 <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>("foo").boxWrap().addCls("x-box-blue");
-</code></pre> %}
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Parameters}:
     {ul {- class: [Js.js_string Js.t] (optional)
@@ -614,12 +508,15 @@ it will drop out of scope, and the reference will be freed.</p> %}
     }
     }
     *)
-  method center : _ Js.t Js.optdef -> unit Js.meth
-  (** {% <p>Centers the Element in either the viewport, or another Element.</p> %}
+  method center : _ Js.t -> unit Js.meth
+  (** {% <p>Centers the Element in either the viewport, or another Element.</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     
     {b Parameters}:
-    {ul {- centerIn: [_ Js.t] (optional)
-    {% <p>The element in which to center the element.</p> %}
+    {ul {- centerIn: [_ Js.t]
+    {% <p>element in
+which to center the element.</p> %}
     }
     }
     *)
@@ -646,31 +543,37 @@ can pass true.</p> %}
     }
     *)
   method clearOpacity : 'self Js.t Js.meth
-  (** {% <p>Clears any opacity settings from this element. Required in some cases for IE.</p> %}
+  (** {% <p>Clears any opacity settings from this element. Required in some cases for IE.</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Returns}:
     {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
     }
     }
     *)
-  method clearPositioning : Js.js_string Js.t Js.optdef ->
-    #Ext_dom_AbstractElement.t Js.t Js.meth
-  (** {% <p>Clears positioning back to the default when the document was loaded.</p> %}
+  method clearPositioning : Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
+  (** {% <p>Clears positioning back to the default when the document was loaded.</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     
     {b Parameters}:
     {ul {- value: [Js.js_string Js.t] (optional)
-    {% <p>The value to use for the left, right, top, bottom. You could use 'auto'.</p> %}
+    {% <p>The value to use for the left, right, top, bottom.
+You could use 'auto'.</p> %}
      Defaults to: ''
     }
     }
     
     {b Returns}:
-    {ul {- [#Ext_dom_AbstractElement.t Js.t] {% <p>this</p> %}
+    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
     }
     }
     *)
   method clip : 'self Js.t Js.meth
-  (** {% <p>Store the current overflow setting and clip overflow on the element - use <a href="#!/api/Ext.dom.Element-method-unclip" rel="Ext.dom.Element-method-unclip" class="docClass">unclip</a> to remove</p> %}
+  (** {% <p>Store the current overflow setting and clip overflow on the element - use <a href="#!/api/Ext.dom.Element-method-unclip" rel="Ext.dom.Element-method-unclip" class="docClass">unclip</a> to remove</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Returns}:
     {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
@@ -731,15 +634,17 @@ config option. Usage:</p>
 el.fadeIn();
 
 // custom: fade in from opacity 0 to 75% over 2 seconds
-el.fadeIn({ opacity: .75, duration: 2000});
+el.fadeIn(\{ opacity: .75, duration: 2000\});
 
 // common config options shown with default values
-el.fadeIn({
+el.fadeIn(\{
     opacity: 1, //can be any value between 0 and 1 (e.g. .5)
     easing: 'easeOut',
     duration: 500
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
@@ -761,17 +666,19 @@ Usage:</p>
 el.fadeOut();
 
 // custom: fade out from the element's current opacity to 25% over 2 seconds
-el.fadeOut({ opacity: .25, duration: 2000});
+el.fadeOut(\{ opacity: .25, duration: 2000\});
 
 // common config options shown with default values
-el.fadeOut({
+el.fadeOut(\{
     opacity: 0, //can be any value between 0 and 1 (e.g. .5)
     easing: 'easeOut',
     duration: 500,
     remove: false,
     useDisplay: false
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
@@ -798,8 +705,15 @@ el.fadeOut({
     }
     }
     *)
-  method focusable : bool Js.t Js.meth
-  (** {% <p>Checks whether this element can be focused.</p> %}
+  method focusable : _ Js.t -> bool Js.t Js.meth
+  (** {% <p>Alias for <a href="#!/api/Ext.dom.Element-method-isFocusable" rel="Ext.dom.Element-method-isFocusable" class="docClass">isFocusable</a>.</p>
+
+<p>Checks whether this element can be focused.</p> %}
+    
+    {b Parameters}:
+    {ul {- asFocusEl: [_ Js.t]
+    }
+    }
     
     {b Returns}:
     {ul {- [bool Js.t] {% <p>True if the element is focusable</p> %}
@@ -814,14 +728,16 @@ el.fadeOut({
 el.frame();
 
 // custom: 3 red ripples lasting 3 seconds total
-el.frame("#ff0000", 3, { duration: 3000 });
+el.frame("#ff0000", 3, \{ duration: 3000 \});
 
 // common config options shown with default values
-el.frame("#C3DAF9", 1, {
+el.frame("#C3DAF9", 1, \{
     duration: 1000 // duration of each individual ripple.
     // Note: Easing is not configurable and will be ignored if included
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- color: [Js.js_string Js.t] (optional)
@@ -839,58 +755,6 @@ el.frame("#C3DAF9", 1, {
     
     {b Returns}:
     {ul {- [Ext_dom_Element.t Js.t] {% <p>The Element</p> %}
-    }
-    }
-    *)
-  method getAlignToXY_number : _ Js.t -> Js.js_string Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.meth
-  (** {% <p>Gets the x,y coordinates to align this element with another element. See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">alignTo</a> for more info on the
-supported position values.</p> %}
-    
-    {b Parameters}:
-    {ul {- element: [_ Js.t]
-    {% <p>The element to align to.</p> %}
-    }
-    {- position: [Js.js_string Js.t] (optional)
-    {% <p>The position to align to (defaults to )</p> %}
-    
-    Defaults to: "tl-bl?"
-    }
-    {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
-    {% <p>Offset the positioning by [x, y]</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Js.number Js.t Js.js_array Js.t] {% <p>[x, y]</p> %}
-    }
-    }
-    *)
-  method getAnchorXY_number : Js.js_string Js.t Js.optdef ->
-    bool Js.t Js.optdef -> _ Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.meth
-  (** {% <p>Gets the x,y coordinates specified by the anchor position on the element.</p> %}
-    
-    {b Parameters}:
-    {ul {- anchor: [Js.js_string Js.t] (optional)
-    {% <p>The specified anchor position.  See <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">alignTo</a>
-for details on supported anchor positions.</p> %}
-     Defaults to: 'c'
-    }
-    {- local: [bool Js.t] (optional)
-    {% <p>True to get the local (element top/left-relative) anchor position instead
-of page coordinates</p> %}
-    }
-    {- size: [_ Js.t] (optional)
-    {% <p>An object containing the size to use for calculating anchor position
-{width: (target width), height: (target height)} (defaults to the element's current size)</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Js.number Js.t Js.js_array Js.t]
-    {% <p>[x, y] An array containing the element's x and y coordinates</p> %}
     }
     }
     *)
@@ -912,19 +776,12 @@ of page coordinates</p> %}
     }
     }
     *)
-  method getCenterXY : Js.number Js.t Js.js_array Js.t Js.meth
-  (** {% <p>Calculates the x, y to center this element on the screen</p> %}
-    
-    {b Returns}:
-    {ul {- [Js.number Js.t Js.js_array Js.t]
-    {% <p>The x, y values [x, y]</p> %}
-    }
-    }
-    *)
   method getColor : Js.js_string Js.t -> Js.js_string Js.t ->
     Js.js_string Js.t Js.optdef -> unit Js.meth
   (** {% <p>Return the CSS color for the specified CSS attribute. rgb, 3 digit (like <code>#fff</code>) and valid values
-are convert to standard 6 digit hex color.</p> %}
+are convert to standard 6 digit hex color.</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Parameters}:
     {ul {- attr: [Js.js_string Js.t]
@@ -942,43 +799,22 @@ color anims.</p> %}
   method getComputedHeight : Js.number Js.t Js.meth
   (** {% <p>Returns either the offsetHeight or the height of this element based on CSS height adjusted by padding or borders
 when needed to simulate offsetHeight when offsets aren't available. This may not work on display:none elements
-if a height has not been set using CSS.</p> %}
+if a height has not been set using CSS.</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     *)
   method getComputedWidth : Js.number Js.t Js.meth
   (** {% <p>Returns either the offsetWidth or the width of this element based on CSS width adjusted by padding or borders
 when needed to simulate offsetWidth when offsets aren't available. This may not work on display:none elements
-if a width has not been set using CSS.</p> %}
-    *)
-  method getConstrainVector : _ Js.t -> Js.number Js.t Js.js_array Js.t ->
-    _ Js.t Js.meth
-  (** {% <p>Returns the <code>[X, Y]</code> vector by which this element must be translated to make a best attempt
-to constrain within the passed constraint. Returns <code>false</code> is this element does not need to be moved.</p>
+if a width has not been set using CSS.</p>
 
-<p>Priority is given to constraining the top and left within the constraint.</p>
-
-<p>The constraint may either be an existing element into which this element is to be constrained, or
-an <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> into which this element is to be constrained.</p> %}
-    
-    {b Parameters}:
-    {ul {- constrainTo: [_ Js.t]
-    {% <p>The Element or Region into which this element is to be constrained.</p> %}
-    }
-    {- proposedPosition: [Js.number Js.t Js.js_array Js.t]
-    {% <p>A proposed <code>[X, Y]</code> position to test for validity and to produce a vector for instead
-of using this Element's current position;</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [_ Js.t]
-    {% <p><strong>If</strong> this element <em>needs</em> to be translated, an <code>[X, Y]</code>
-vector by which this element must be translated. Otherwise, <code>false</code>.</p> %}
-    }
-    }
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     *)
   method getFrameWidth : Js.js_string Js.t -> Js.number Js.t Js.meth
   (** {% <p>Returns the sum width of the padding and borders for the passed "sides". See getBorderWidth()
-for more information about the sides.</p> %}
+for more information about the sides.</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Parameters}:
     {ul {- sides: [Js.js_string Js.t]
@@ -994,70 +830,44 @@ for more information about the sides.</p> %}
     }
     *)
   method getLocalX : Js.number Js.t Js.meth
-  (** {% <p>Returns the x-coordinate of this element reletive to its <code>offsetParent</code>.</p> %}
+  (** {% <p>Gets the local CSS X position for the element</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
+    *)
+  method getLocalXY : _ Js.js_array Js.t Js.meth
+  (** {% <p>Gets the local CSS X and Y position for the element</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     
     {b Returns}:
-    {ul {- [Js.number Js.t]
-    {% <p>The local x-coordinate (relative to the <code>offsetParent</code>).</p> %}
+    {ul {- [_ Js.js_array Js.t] {% <p>[x, y]</p> %}
     }
     }
     *)
   method getLocalY : Js.number Js.t Js.meth
-  (** {% <p>Returns the y-coordinate of this element reletive to its <code>offsetParent</code>.</p> %}
-    
-    {b Returns}:
-    {ul {- [Js.number Js.t]
-    {% <p>The local y-coordinate (relative to the <code>offsetParent</code>).</p> %}
-    }
-    }
-    *)
-  method getOffsetsTo_number : _ Js.t -> Js.number Js.t Js.js_array Js.t
-    Js.meth
-  (** {% <p>Returns the offsets of this element from the passed element. Both element must be part
-of the DOM tree and not have display:none to have page coordinates.</p> %}
-    
-    {b Parameters}:
-    {ul {- element: [_ Js.t]
-    {% <p>The element to get the offsets from.</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Js.number Js.t Js.js_array Js.t]
-    {% <p>The XY page offsets (e.g. <code>[100, -200]</code>)</p> %}
-    }
-    }
-    *)
-  method getPositioning : _ Js.t Js.meth
-  (** {% <p>Gets an object with all CSS positioning properties. Useful along with #setPostioning to get
-snapshot before performing an update and then restoring the element.</p> %}
-    *)
-  method getRegion : Ext_util_Region.t Js.t Js.meth
-  (** {% <p>Returns the region of this element.
-The element must be part of the DOM tree to have a region
-(display:none or elements not appended return false).</p> %}
-    
-    {b Returns}:
-    {ul {- [Ext_util_Region.t Js.t]
-    {% <p>A Region containing "top, left, bottom, right" member data.</p> %}
-    }
-    }
-    *)
-  method getScopeParent : Dom_html.element Js.t Js.meth
-  (** {% <p>Gets the parent node of the current element taking into account <a href="#!/api/Ext-property-scopeResetCSS" rel="Ext-property-scopeResetCSS" class="docClass">Ext.scopeResetCSS</a></p> %}
-    
-    {b Returns}:
-    {ul {- [Dom_html.element Js.t] {% <p>The parent element</p> %}
-    }
-    }
+  (** {% <p>Gets the local CSS Y position for the element</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     *)
   method getScroll : _ Js.t Js.meth
-  (** {% <p>Returns the current scroll position of the element.</p> %}
+  (** {% <p>Returns the current scroll position of the element.</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
     
     {b Returns}:
     {ul {- [_ Js.t]
     {% <p>An object containing the scroll position in the format
-<code>{left: (scrollLeft), top: (scrollTop)}</code></p> %}
+<code>\{left: (scrollLeft), top: (scrollTop)\}</code></p> %}
+    }
+    }
+    *)
+  method getScrollTop : Js.number Js.t Js.meth
+  (** {% <p>Gets the top scroll position</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
+    
+    {b Returns}:
+    {ul {- [Js.number Js.t] {% <p>The top scroll position</p> %}
     }
     }
     *)
@@ -1067,7 +877,9 @@ The element must be part of the DOM tree to have a region
 <p>getStyleSize utilizes prefers style sizing if present, otherwise it chooses the larger of offsetHeight/clientHeight and
 offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSize.</p>
 
-<p>Sizing of the document body is handled at the adapter level which handles special cases for IE and strict modes, etc.</p> %}
+<p>Sizing of the document body is handled at the adapter level which handles special cases for IE and strict modes, etc.</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Returns}:
     {ul {- [_ Js.t] {% <p>Object describing width and height.</p> %}
@@ -1095,25 +907,15 @@ offsetWidth/clientWidth. To obtain the size excluding scrollbars, use getViewSiz
     }
     }
     *)
-  method getViewRegion : Ext_util_Region.t Js.t Js.meth
-  (** {% <p>Returns the <strong>content</strong> region of this element. That is the region within the borders and padding.</p> %}
-    
-    {b Returns}:
-    {ul {- [Ext_util_Region.t Js.t]
-    {% <p>A Region containing "top, left, bottom, right" member data.</p> %}
-    }
-    }
+  method getX : Js.number Js.t Js.meth
+  (** {% <p>Gets element X position in page coordinates</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     *)
-  method getXY_number : Js.number Js.t Js.js_array Js.t Js.meth
-  (** {% <p>Gets the current position of the element based on page coordinates.
-Element must be part of the DOM tree to have page coordinates
-(display:none or elements not appended return false).</p> %}
-    
-    {b Returns}:
-    {ul {- [Js.number Js.t Js.js_array Js.t]
-    {% <p>The XY position of the element</p> %}
-    }
-    }
+  method getY : Js.number Js.t Js.meth
+  (** {% <p>Gets element Y position in page coordinates</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     *)
   method ghost : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
     'self Js.t Js.meth
@@ -1124,14 +926,16 @@ of the effect. Usage:</p>
 el.ghost();
 
 // custom: slide the element out to the right with a 2-second duration
-el.ghost('r', { duration: 2000 });
+el.ghost('r', \{ duration: 2000 \});
 
 // common config options shown with default values
-el.ghost('b', {
+el.ghost('b', \{
     easing: 'easeOut',
     duration: 500
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- anchor: [Js.js_string Js.t] (optional)
@@ -1148,7 +952,9 @@ el.ghost('b', {
     }
     *)
   method hide : _ Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Hide this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.Element-method-setVisible" rel="Ext.dom.Element-method-setVisible" class="docClass">setVisible</a>.</p> %}
+  (** {% <p>Hide this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.Element-method-setVisible" rel="Ext.dom.Element-method-setVisible" class="docClass">setVisible</a>.</p>
+
+<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
     
     {b Parameters}:
     {ul {- animate: [_ Js.t] (optional)
@@ -1171,16 +977,18 @@ should provide the "endColor" config option which will be cleared after the anim
 el.highlight();
 
 // custom: highlight foreground text to blue for 2 seconds
-el.highlight("0000ff", { attr: 'color', duration: 2000 });
+el.highlight("0000ff", \{ attr: 'color', duration: 2000 \});
 
 // common config options shown with default values
-el.highlight("ffff9c", {
+el.highlight("ffff9c", \{
     attr: "backgroundColor", //can be any valid CSS property (attribute) that supports a color value
     endColor: (current color) or "ffffff",
     easing: 'easeIn',
     duration: 1000
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- color: [Js.js_string Js.t] (optional)
@@ -1225,7 +1033,9 @@ options parameter</a>.</p> %}
     *)
   method initDD : Js.js_string Js.t -> _ Js.t -> _ Js.t -> Ext_dd_DD.t Js.t
     Js.meth
-  (** {% <p>Initializes a <a href="#!/api/Ext.dd.DD" rel="Ext.dd.DD" class="docClass">Ext.dd.DD</a> drag drop object for this element.</p> %}
+  (** {% <p>Initializes a <a href="#!/api/Ext.dd.DD" rel="Ext.dd.DD" class="docClass">Ext.dd.DD</a> drag drop object for this element.</p>
+
+<p><strong>Defined in override Ext.dom.Element_dd.</strong></p> %}
     
     {b Parameters}:
     {ul {- group: [Js.js_string Js.t]
@@ -1246,7 +1056,9 @@ options parameter</a>.</p> %}
     *)
   method initDDProxy : Js.js_string Js.t -> _ Js.t -> _ Js.t ->
     Ext_dd_DDProxy.t Js.t Js.meth
-  (** {% <p>Initializes a <a href="#!/api/Ext.dd.DDProxy" rel="Ext.dd.DDProxy" class="docClass">Ext.dd.DDProxy</a> object for this element.</p> %}
+  (** {% <p>Initializes a <a href="#!/api/Ext.dd.DDProxy" rel="Ext.dd.DDProxy" class="docClass">Ext.dd.DDProxy</a> object for this element.</p>
+
+<p><strong>Defined in override Ext.dom.Element_dd.</strong></p> %}
     
     {b Parameters}:
     {ul {- group: [Js.js_string Js.t]
@@ -1267,7 +1079,9 @@ options parameter</a>.</p> %}
     *)
   method initDDTarget : Js.js_string Js.t -> _ Js.t -> _ Js.t ->
     Ext_dd_DDTarget.t Js.t Js.meth
-  (** {% <p>Initializes a <a href="#!/api/Ext.dd.DDTarget" rel="Ext.dd.DDTarget" class="docClass">Ext.dd.DDTarget</a> object for this element.</p> %}
+  (** {% <p>Initializes a <a href="#!/api/Ext.dd.DDTarget" rel="Ext.dd.DDTarget" class="docClass">Ext.dd.DDTarget</a> object for this element.</p>
+
+<p><strong>Defined in override Ext.dom.Element_dd.</strong></p> %}
     
     {b Parameters}:
     {ul {- group: [Js.js_string Js.t]
@@ -1292,11 +1106,26 @@ options parameter</a>.</p> %}
   method isDisplayed : bool Js.t Js.meth
   (** {% <p>Returns true if display is not "none"</p> %}
     *)
+  method isFocusable : _ Js.t -> bool Js.t Js.meth
+  (** {% <p>Checks whether this element can be focused.</p> %}
+    
+    {b Parameters}:
+    {ul {- asFocusEl: [_ Js.t]
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [bool Js.t] {% <p>True if the element is focusable</p> %}
+    }
+    }
+    *)
   method isMasked : bool Js.t Js.meth
   (** {% <p>Returns true if this element is masked. Also re-centers any displayed message within the mask.</p> %}
     *)
   method isScrollable : bool Js.t Js.meth
-  (** {% <p>Returns true if this element is scrollable.</p> %}
+  (** {% <p>Returns true if this element is scrollable.</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
     *)
   method isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth
   (** {% <p>Checks whether the element is currently visible using both visibility and display properties.</p> %}
@@ -1378,54 +1207,6 @@ this.mouseLeaveMonitor = this.menuEl.monitorMouseLeave(250, this.hideMenu, this)
 // Remove mouseleave monitor on menu destroy
 this.menuEl.un(this.mouseLeaveMonitor);
 </code></pre> %}
-    }
-    }
-    *)
-  method move : Js.js_string Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
-    unit Js.meth
-  (** {% <p>Move this element relative to its current position.</p> %}
-    
-    {b Parameters}:
-    {ul {- direction: [Js.js_string Js.t]
-    {% <p>Possible values are:</p>
-
-<ul>
-<li><code>"l"</code> (or <code>"left"</code>)</li>
-<li><code>"r"</code> (or <code>"right"</code>)</li>
-<li><code>"t"</code> (or <code>"top"</code>, or <code>"up"</code>)</li>
-<li><code>"b"</code> (or <code>"bottom"</code>, or <code>"down"</code>)</li>
-</ul> %}
-    }
-    {- distance: [Js.number Js.t]
-    {% <p>How far to move the element in pixels</p> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>true for the default animation or a standard Element
-animation config object</p> %}
-    }
-    }
-    *)
-  method moveTo : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
-    #Ext_dom_AbstractElement.t Js.t Js.meth
-  (** {% <p>Sets the position of the element in page coordinates, regardless of how the element
-is positioned. The element must be part of the DOM tree to have page coordinates
-(<code>display:none</code> or elements not appended return false).</p> %}
-    
-    {b Parameters}:
-    {ul {- x: [Js.number Js.t]
-    {% <p>X value for new position (coordinates are page-based)</p> %}
-    }
-    {- y: [Js.number Js.t]
-    {% <p>Y value for new position (coordinates are page-based)</p> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>True for the default animation, or a standard Element
-animation config object</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [#Ext_dom_AbstractElement.t Js.t] {% <p>this</p> %}
     }
     }
     *)
@@ -1531,12 +1312,12 @@ object. The options object is available as the third parameter in the handler fu
 
 
 
-<pre><code>el.on('click', this.onClick, this, {
+<pre><code>el.on('click', this.onClick, this, \{
     single: true,
     delay: 100,
     stopEvent : true,
     forumId: 4
-});
+\});
 </code></pre>
 
 
@@ -1558,21 +1339,21 @@ specify multiple handlers.</p>
 
 
 
-<pre><code>el.on({
-    'click' : {
+<pre><code>el.on(\{
+    'click' : \{
         fn: this.onClick,
         scope: this,
         delay: 100
-    },
-    'mouseover' : {
+    \},
+    'mouseover' : \{
         fn: this.onMouseOver,
         scope: this
-    },
-    'mouseout' : {
+    \},
+    'mouseout' : \{
         fn: this.onMouseOut,
         scope: this
-    }
-});
+    \}
+\});
 </code></pre>
 
 
@@ -1588,12 +1369,12 @@ specify multiple handlers.</p>
 
 
 
-<pre><code>el.on({
+<pre><code>el.on(\{
     'click' : this.onClick,
     'mouseover' : this.onMouseOver,
     'mouseout' : this.onMouseOut,
     scope: this
-});
+\});
 </code></pre>
 
 
@@ -1624,15 +1405,15 @@ descendant of the target. For example:</p>
 el = <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('elId');
 el.on(
     'click',
-    function(e,t) {
+    function(e,t) \{
         // handle click
         console.info(t.id); // 'p2'
-    },
+    \},
     this,
-    {
+    \{
         // filter the target element to be a descendant with the class 'clickable'
         delegate: '.clickable'
-    }
+    \}
 );
 </code></pre> %}
     }
@@ -1645,8 +1426,10 @@ el.on(
     *)
   method position : Js.js_string Js.t Js.optdef -> Js.number Js.t Js.optdef
     -> Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth
-  (** {% <p>Initializes positioning on this element. If a desired position is not passed, it will make the
-the element positioned relative IF it is not already positioned.</p> %}
+  (** {% <p>Initializes positioning on this element. If a desired position is not passed,
+it will make the the element positioned relative IF it is not already positioned.</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     
     {b Parameters}:
     {ul {- pos: [Js.js_string Js.t] (optional)
@@ -1671,12 +1454,14 @@ be hidden (visibility = 'hidden') but block elements will still take up space in
 el.puff();
 
 // common config options shown with default values
-el.puff({
+el.puff(\{
     easing: 'easeOut',
     duration: 500,
     useDisplay: false
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
@@ -1713,14 +1498,6 @@ for firing the relayed event</p> %}
     *)
   method removeAllListeners : 'self Js.t Js.meth
   (** {% <p>Removes all previous added listeners from this element</p> %}
-    
-    {b Returns}:
-    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
-  method removeAnchor : 'self Js.t Js.meth
-  (** {% <p>Remove any anchor to this element. See <a href="#!/api/Ext.dom.Element-method-anchorTo" rel="Ext.dom.Element-method-anchorTo" class="docClass">anchorTo</a>.</p> %}
     
     {b Returns}:
     {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
@@ -1765,7 +1542,9 @@ refer to the same object.</p> %}
   method scroll : Js.js_string Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
     bool Js.t Js.meth
   (** {% <p>Scrolls this element the specified direction. Does bounds checking to make sure the scroll is
-within this element's scrollable range.</p> %}
+within this element's scrollable range.</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
     
     {b Parameters}:
     {ul {- direction: [Js.js_string Js.t]
@@ -1801,8 +1580,10 @@ was scrolled as far as it could go.</p> %}
 
 <pre><code> el.scrollBy(10, 10, true);
  el.scrollBy([10, 10], true);
- el.scrollBy({ x: 10, y: 10 }, true);
-</code></pre> %}
+ el.scrollBy(\{ x: 10, y: 10 \}, true);
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
     
     {b Parameters}:
     {ul {- deltaX: [_ Js.t]
@@ -1824,7 +1605,9 @@ an object with "x" and "y" properties.</p> %}
     *)
   method scrollIntoView : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Scrolls this element into view within the passed container.</p> %}
+  (** {% <p>Scrolls this element into view within the passed container.</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
     
     {b Parameters}:
     {ul {- container: [_ Js.t] (optional)
@@ -1850,7 +1633,9 @@ animation config object</p> %}
   method scrollTo : Js.js_string Js.t -> Js.number Js.t -> _ Js.t Js.optdef
     -> 'self Js.t Js.meth
   (** {% <p>Scrolls this element the specified scroll point. It does NOT do bounds checking so
-if you scroll to a weird value it will try to do it. For auto bounds checking, use <a href="#!/api/Ext.dom.Element-method-scroll" rel="Ext.dom.Element-method-scroll" class="docClass">scroll</a>.</p> %}
+if you scroll to a weird value it will try to do it. For auto bounds checking, use <a href="#!/api/Ext.dom.Element-event-scroll" rel="Ext.dom.Element-event-scroll" class="docClass">scroll</a>.</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
     
     {b Parameters}:
     {ul {- side: [Js.js_string Js.t]
@@ -1871,54 +1656,19 @@ animation config object</p> %}
     }
     *)
   method selectable : 'self Js.t Js.meth
-  (** {% <p>Enable text selection for this element (normalized across browsers)</p> %}
+  (** {% <p>Enable text selection for this element (normalized across browsers)</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Returns}:
     {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
     }
     }
     *)
-  method setBounds : Js.number Js.t -> Js.number Js.t -> _ Js.t -> _ Js.t ->
-    _ Js.t Js.optdef -> #Ext_dom_AbstractElement.t Js.t Js.meth
-  (** {% <p>Sets the element's position and size in one shot. If animation is true then width, height,
-x and y will be animated concurrently.</p> %}
-    
-    {b Parameters}:
-    {ul {- x: [Js.number Js.t]
-    {% <p>X value for new position (coordinates are page-based)</p> %}
-    }
-    {- y: [Js.number Js.t]
-    {% <p>Y value for new position (coordinates are page-based)</p> %}
-    }
-    {- width: [_ Js.t]
-    {% <p>The new width. This may be one of:</p>
-
-<ul>
-<li>A Number specifying the new width in this Element's <a href="#!/api/Ext.dom.Element-property-defaultUnit" rel="Ext.dom.Element-property-defaultUnit" class="docClass">defaultUnit</a>s (by default, pixels)</li>
-<li>A String used to set the CSS width style. Animation may <strong>not</strong> be used.</li>
-</ul> %}
-    }
-    {- height: [_ Js.t]
-    {% <p>The new height. This may be one of:</p>
-
-<ul>
-<li>A Number specifying the new height in this Element's <a href="#!/api/Ext.dom.Element-property-defaultUnit" rel="Ext.dom.Element-property-defaultUnit" class="docClass">defaultUnit</a>s (by default, pixels)</li>
-<li>A String used to set the CSS height style. Animation may <strong>not</strong> be used.</li>
-</ul> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>true for the default animation or a standard Element
-animation config object</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [#Ext_dom_AbstractElement.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
   method setDisplayed : _ Js.t -> 'self Js.t Js.meth
-  (** {% <p>Sets the CSS display property. Uses originalDisplay if the specified value is a boolean true.</p> %}
+  (** {% <p>Sets the CSS display property. Uses originalDisplay if the specified value is a boolean true.</p>
+
+<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
     
     {b Parameters}:
     {ul {- value: [_ Js.t]
@@ -1931,51 +1681,11 @@ animation config object</p> %}
     }
     }
     *)
-  method setLeftTop : Js.js_string Js.t -> Js.js_string Js.t -> 'self Js.t
-    Js.meth
-  (** {% <p>Conveniently sets left and top adding default units.</p> %}
-    
-    {b Parameters}:
-    {ul {- left: [Js.js_string Js.t]
-    {% <p>The left CSS property value</p> %}
-    }
-    {- top: [Js.js_string Js.t]
-    {% <p>The top CSS property value</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
-  method setLocation : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef
-    -> #Ext_dom_AbstractElement.t Js.t Js.meth
-  (** {% <p>Sets the position of the element in page coordinates, regardless of how the element
-is positioned. The element must be part of the DOM tree to have page coordinates
-(<code>display:none</code> or elements not appended return false).</p> %}
-    
-    {b Parameters}:
-    {ul {- x: [Js.number Js.t]
-    {% <p>X value for new position (coordinates are page-based)</p> %}
-    }
-    {- y: [Js.number Js.t]
-    {% <p>Y value for new position (coordinates are page-based)</p> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>True for the default animation, or a standard Element
-animation config object</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [#Ext_dom_AbstractElement.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
   method setOpacity : Js.number Js.t -> _ Js.t Js.optdef -> 'self Js.t
     Js.meth
-  (** {% <p>Set the opacity of the element</p> %}
+  (** {% <p>Set the opacity of the element</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Parameters}:
     {ul {- opacity: [Js.number Js.t]
@@ -1983,7 +1693,7 @@ animation config object</p> %}
     }
     {- animate: [_ Js.t] (optional)
     {% <p>a standard Element animation config object or <code>true</code> for
-the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p> %}
+the default animation (<code>\{duration: 350, easing: 'easeIn'\}</code>)</p> %}
     }
     }
     
@@ -1992,8 +1702,10 @@ the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p> %}
     }
     }
     *)
-  method setPositioning : _ Js.t -> #Ext_dom_AbstractElement.t Js.t Js.meth
-  (** {% <p>Set positioning with an object returned by <a href="#!/api/Ext.dom.Element-method-getPositioning" rel="Ext.dom.Element-method-getPositioning" class="docClass">getPositioning</a>.</p> %}
+  method setPositioning : _ Js.t -> 'self Js.t Js.meth
+  (** {% <p>Set positioning with an object returned by <a href="#!/api/Ext.dom.Element-method-getPositioning" rel="Ext.dom.Element-method-getPositioning" class="docClass">getPositioning</a>.</p>
+
+<p><strong>Defined in override Ext.dom.Element_position.</strong></p> %}
     
     {b Parameters}:
     {ul {- posCfg: [_ Js.t]
@@ -2001,33 +1713,47 @@ the default animation (<code>{duration: 350, easing: 'easeIn'}</code>)</p> %}
     }
     
     {b Returns}:
-    {ul {- [#Ext_dom_AbstractElement.t Js.t] {% <p>this</p> %}
+    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
     }
     }
     *)
-  method setRegion : Ext_util_Region.t Js.t -> _ Js.t Js.optdef ->
-    #Ext_dom_AbstractElement.t Js.t Js.meth
-  (** {% <p>Sets the element's position and size the specified region. If animation is true then width, height,
-x and y will be animated concurrently.</p> %}
+  method setScrollLeft : Js.number Js.t -> 'self Js.t Js.meth
+  (** {% <p>Sets the left scroll position</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
     
     {b Parameters}:
-    {ul {- region: [Ext_util_Region.t Js.t]
-    {% <p>The region to fill</p> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>true for the default animation or a standard Element
-animation config object</p> %}
+    {ul {- left: [Js.number Js.t]
+    {% <p>The left scroll position</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- [#Ext_dom_AbstractElement.t Js.t] {% <p>this</p> %}
+    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
+    }
+    }
+    *)
+  method setScrollTop : Js.number Js.t -> 'self Js.t Js.meth
+  (** {% <p>Sets the top scroll position</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
+    
+    {b Parameters}:
+    {ul {- top: [Js.number Js.t]
+    {% <p>The top scroll position</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
     }
     }
     *)
   method setVisible : bool Js.t -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets the visibility of the element (see details). If the visibilityMode is set to Element.DISPLAY, it will use
-the display property to hide the element, otherwise it uses visibility. The default is to hide and show using the visibility property.</p> %}
+the display property to hide the element, otherwise it uses visibility. The default is to hide and show using the visibility property.</p>
+
+<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
     
     {b Parameters}:
     {ul {- visible: [bool Js.t]
@@ -2043,29 +1769,10 @@ the display property to hide the element, otherwise it uses visibility. The defa
     }
     }
     *)
-  method setXY_number : Js.number Js.t Js.js_array Js.t -> _ Js.t Js.optdef
-    -> 'self Js.t Js.meth
-  (** {% <p>Sets the position of the element in page coordinates, regardless of how the element
-is positioned. The element must be part of the DOM tree to have page coordinates
-(<code>display:none</code> or elements not appended return false).</p> %}
-    
-    {b Parameters}:
-    {ul {- pos: [Js.number Js.t Js.js_array Js.t]
-    {% <p>Contains X &amp; Y [x, y] values for new position (coordinates are page-based)</p> %}
-    }
-    {- animate: [_ Js.t] (optional)
-    {% <p>True for the default animation, or a standard Element
-animation config object</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
   method show : _ Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Show this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.Element-method-setVisible" rel="Ext.dom.Element-method-setVisible" class="docClass">setVisible</a>.</p> %}
+  (** {% <p>Show this element - Uses display mode to determine whether to use "display" or "visibility". See <a href="#!/api/Ext.dom.Element-method-setVisible" rel="Ext.dom.Element-method-setVisible" class="docClass">setVisible</a>.</p>
+
+<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
     
     {b Parameters}:
     {ul {- animate: [_ Js.t] (optional)
@@ -2088,14 +1795,16 @@ Fx class overview for valid anchor point options. Usage:</p>
 el.slideIn();
 
 // custom: slide the element in from the right with a 2-second duration
-el.slideIn('r', { duration: 2000 });
+el.slideIn('r', \{ duration: 2000 \});
 
 // common config options shown with default values
-el.slideIn('t', {
+el.slideIn('t', \{
     easing: 'easeOut',
     duration: 500
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- anchor: [Js.js_string Js.t] (optional)
@@ -2123,16 +1832,18 @@ Fx class overview for valid anchor point options. Usage:</p>
 el.slideOut();
 
 // custom: slide the element out to the right with a 2-second duration
-el.slideOut('r', { duration: 2000 });
+el.slideOut('r', \{ duration: 2000 \});
 
 // common config options shown with default values
-el.slideOut('t', {
+el.slideOut('t', \{
     easing: 'easeOut',
     duration: 500,
     remove: false,
     useDisplay: false
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- anchor: [Js.js_string Js.t] (optional)
@@ -2175,13 +1886,15 @@ desired. Usage:</p>
 el.switchOff();
 
 // all config options shown with default values
-el.switchOff({
+el.switchOff(\{
     easing: 'easeIn',
     duration: .3,
     remove: false,
     useDisplay: false
-});
-</code></pre> %}
+\});
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.Element_anim.</strong></p> %}
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
@@ -2195,7 +1908,9 @@ el.switchOff({
     }
     *)
   method toggle : _ Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Toggles the element's visibility or display, depending on visibility mode.</p> %}
+  (** {% <p>Toggles the element's visibility or display, depending on visibility mode.</p>
+
+<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
     
     {b Parameters}:
     {ul {- animate: [_ Js.t] (optional)
@@ -2242,7 +1957,9 @@ refer to the same object.</p> %}
     }
     *)
   method unclip : 'self Js.t Js.meth
-  (** {% <p>Return clipping (overflow) to original clipping before <a href="#!/api/Ext.dom.Element-method-clip" rel="Ext.dom.Element-method-clip" class="docClass">clip</a> was called</p> %}
+  (** {% <p>Return clipping (overflow) to original clipping before <a href="#!/api/Ext.dom.Element-method-clip" rel="Ext.dom.Element-method-clip" class="docClass">clip</a> was called</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Returns}:
     {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
@@ -2253,7 +1970,9 @@ refer to the same object.</p> %}
   (** {% <p>Hides a previously applied mask.</p> %}
     *)
   method unselectable : 'self Js.t Js.meth
-  (** {% <p>Disables text selection for this element (normalized across browsers)</p> %}
+  (** {% <p>Disables text selection for this element (normalized across browsers)</p>
+
+<p><strong>Defined in override Ext.dom.Element_style.</strong></p> %}
     
     {b Returns}:
     {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
@@ -2281,12 +2000,23 @@ refer to the same object.</p> %}
     }
     }
     *)
+  method autoBoxAdjust : bool Js.t Js.prop
+  (** {% <p>True to automatically adjust width and height settings for box-model issues.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method originalDisplay : Js.js_string Js.t Js.prop
+  (** {% <p>The element's default display mode.</p>
+
+<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
+    
+    Defaults to: [""]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_dom_AbstractElement.configs
   
   
@@ -2294,7 +2024,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_dom_AbstractElement.events
   
   method _DOMActivate : (Ext_EventObject.t Js.t -> Dom_html.element Js.t ->
@@ -2864,7 +2593,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_dom_AbstractElement.statics
   
   method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t

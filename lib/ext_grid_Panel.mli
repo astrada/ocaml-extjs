@@ -7,36 +7,36 @@
 
 <h2>Basic GridPanel</h2>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     storeId:'simpsonsStore',
     fields:['name', 'email', 'phone'],
-    data:{'items':[
-        { 'name': 'Lisa',  "email":"lisa\@simpsons.com",  "phone":"555-111-1224"  },
-        { 'name': 'Bart',  "email":"bart\@simpsons.com",  "phone":"555-222-1234" },
-        { 'name': 'Homer', "email":"home\@simpsons.com",  "phone":"555-222-1244"  },
-        { 'name': 'Marge', "email":"marge\@simpsons.com", "phone":"555-222-1254"  }
-    ]},
-    proxy: {
+    data:\{'items':[
+        \{ 'name': 'Lisa',  "email":"lisa\@simpsons.com",  "phone":"555-111-1224"  \},
+        \{ 'name': 'Bart',  "email":"bart\@simpsons.com",  "phone":"555-222-1234" \},
+        \{ 'name': 'Homer', "email":"home\@simpsons.com",  "phone":"555-222-1244"  \},
+        \{ 'name': 'Marge', "email":"marge\@simpsons.com", "phone":"555-222-1254"  \}
+    ]\},
+    proxy: \{
         type: 'memory',
-        reader: {
+        reader: \{
             type: 'json',
             root: 'items'
-        }
-    }
-});
+        \}
+    \}
+\});
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
     title: 'Simpsons',
     store: <a href="#!/api/Ext.data.StoreManager-method-lookup" rel="Ext.data.StoreManager-method-lookup" class="docClass">Ext.data.StoreManager.lookup</a>('simpsonsStore'),
     columns: [
-        { text: 'Name',  dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email', flex: 1 },
-        { text: 'Phone', dataIndex: 'phone' }
+        \{ text: 'Name',  dataIndex: 'name' \},
+        \{ text: 'Email', dataIndex: 'email', flex: 1 \},
+        \{ text: 'Phone', dataIndex: 'phone' \}
     ],
     height: 200,
     width: 400,
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre>
 
 <p>The code above produces a simple grid with three columns. We specified a Store which will load JSON data inline.
@@ -54,23 +54,23 @@ column header is also reorderable by default, and each gains a drop-down menu wi
 It's easy to configure each column - here we use the same example as above and just modify the columns config:</p>
 
 <pre><code>columns: [
-    {
+    \{
         text: 'Name',
         dataIndex: 'name',
         sortable: false,
         hideable: false,
         flex: 1
-    },
-    {
+    \},
+    \{
         text: 'Email',
         dataIndex: 'email',
         hidden: true
-    },
-    {
+    \},
+    \{
         text: 'Phone',
         dataIndex: 'phone',
         width: 100
-    }
+    \}
 ]
 </code></pre>
 
@@ -86,13 +86,13 @@ tied to a particular column and is passed the value that would be rendered into 
 we could define a renderer function for the email column to turn each email address into a mailto link:</p>
 
 <pre><code>columns: [
-    {
+    \{
         text: 'Email',
         dataIndex: 'email',
-        renderer: function(value) {
-            return <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>('&lt;a href="mailto:{0}"&gt;{1}&lt;/a&gt;', value, value);
-        }
-    }
+        renderer: function(value) \{
+            return <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>('&lt;a href="mailto:\{0\}"&gt;\{1\}&lt;/a&gt;', value, value);
+        \}
+    \}
 ]
 </code></pre>
 
@@ -107,10 +107,10 @@ CellSelectionModel, where individual cells are selected.</p>
 
 <p>Grids use a Row Selection Model by default, but this is easy to customise like so:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
     selType: 'cellmodel',
     store: ...
-});
+\});
 </code></pre>
 
 <p>Specifying the <code>cellmodel</code> changes a couple of things. Firstly, clicking on a cell now
@@ -123,24 +123,24 @@ conjunction with editing.</p>
 <p>Every grid is attached to a <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a>, which provides multi-sort and filtering capabilities. It's
 easy to set up a grid to be sorted from the start:</p>
 
-<pre><code>var myGrid = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', {
-    store: {
+<pre><code>var myGrid = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Ext.grid.Panel</a>', \{
+    store: \{
         fields: ['name', 'email', 'phone'],
         sorters: ['name', 'phone']
-    },
+    \},
     columns: [
-        { text: 'Name',  dataIndex: 'name' },
-        { text: 'Email', dataIndex: 'email' }
+        \{ text: 'Name',  dataIndex: 'name' \},
+        \{ text: 'Email', dataIndex: 'email' \}
     ]
-});
+\});
 </code></pre>
 
 <p>Sorting at run time is easily accomplished by simply clicking each column header. If you need to perform sorting on
 more than one field at run time it's easy to do so by adding new sorters to the store:</p>
 
 <pre><code>myGrid.store.sort([
-    { property: 'name',  direction: 'ASC' },
-    { property: 'email', direction: 'DESC' }
+    \{ property: 'name',  direction: 'ASC' \},
+    \{ property: 'email', direction: 'DESC' \}
 ]);
 </code></pre>
 
@@ -163,7 +163,7 @@ identifies that column locally within the grid.</p>
 <li><p><a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a> - editing grid contents an entire row at a time.</p></li>
 <li><p><a href="#!/api/Ext.grid.plugin.DragDrop" rel="Ext.grid.plugin.DragDrop" class="docClass">DragDrop</a> - drag-drop reordering of grid rows.</p></li>
 <li><p><a href="#!/api/Ext.toolbar.Paging" rel="Ext.toolbar.Paging" class="docClass">Paging toolbar</a> - paging through large sets of data.</p></li>
-<li><p><a href="#!/api/Ext.grid.PagingScroller" rel="Ext.grid.PagingScroller" class="docClass">Infinite scrolling</a> - another way to handle large sets of data.</p></li>
+<li><p><a href="#!/api/Ext.grid.plugin.BufferedRenderer" rel="Ext.grid.plugin.BufferedRenderer" class="docClass">Infinite scrolling</a> - another way to handle large sets of data.</p></li>
 <li><p><a href="#!/api/Ext.grid.RowNumberer" rel="Ext.grid.RowNumberer" class="docClass">RowNumberer</a> - automatically numbered rows.</p></li>
 <li><p><a href="#!/api/Ext.grid.feature.Grouping" rel="Ext.grid.feature.Grouping" class="docClass">Grouping</a> - grouping together rows having the same value in a particular field.</p></li>
 <li><p><a href="#!/api/Ext.grid.feature.Summary" rel="Ext.grid.feature.Summary" class="docClass">Summary</a> - a summary row at the bottom of a grid.</p></li>
@@ -173,13 +173,6 @@ identifies that column locally within the grid.</p>
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
-  inherit Ext_panel_Panel.t
   inherit Ext_panel_Table.t
   
   method reconfigure : Ext_data_Store.t Js.t Js.optdef ->
@@ -201,13 +194,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
-  inherit Ext_panel_Panel.configs
   inherit Ext_panel_Table.configs
   
   method columns : _ Js.t Js.prop
@@ -215,25 +201,25 @@ object('self)
 grid. Each column definition provides the header text for the column, and a definition of where the data for that
 column comes from.</p>
 
-<p>This can also be a configuration object for a {<a href="#!/api/Ext.grid.header.Container" rel="Ext.grid.header.Container" class="docClass">Ext.grid.header.Container</a> HeaderContainer} which may override
+<p>This can also be a configuration object for a \{<a href="#!/api/Ext.grid.header.Container" rel="Ext.grid.header.Container" class="docClass">Ext.grid.header.Container</a> HeaderContainer\} which may override
 certain default configurations if necessary. For example, the special layout may be overridden to use a simpler
 layout, or one can set default values shared by all columns:</p>
 
-<pre><code>columns: {
+<pre><code>columns: \{
     items: [
-        {
+        \{
             text: "Column A"
             dataIndex: "field_A"
-        },{
+        \},\{
             text: "Column B",
             dataIndex: "field_B"
-        }, 
+        \}, 
         ...
     ],
-    defaults: {
+    defaults: \{
         flex: 1
-    }
-}
+    \}
+\}
 </code></pre> %}
     *)
   method rowLines : bool Js.t Js.prop
@@ -252,17 +238,38 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
-  inherit Ext_panel_Panel.events
   inherit Ext_panel_Table.events
   
+  method beforereconfigure : (t Js.t -> Ext_data_Store.t Js.t ->
+    _ Js.t Js.js_array Js.t -> Ext_data_Store.t Js.t ->
+    Ext_grid_column_Column.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fires before a reconfigure to enable modification of incoming Store and columns.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_grid_Panel.t Js.t]
+    }
+    {- store: [Ext_data_Store.t Js.t]
+    {% <p>The store that was passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> %}
+    }
+    {- columns: [_ Js.t Js.js_array Js.t]
+    {% <p>The column configs that were passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> %}
+    }
+    {- oldStore: [Ext_data_Store.t Js.t]
+    {% <p>The store that will be replaced</p> %}
+    }
+    {- the: [Ext_grid_column_Column.t Js.js_array Js.t]
+    {% <p>column headers that will be replaced.</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
   method reconfigure : (t Js.t -> Ext_data_Store.t Js.t ->
-    _ Js.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+    _ Js.t Js.js_array Js.t -> Ext_data_Store.t Js.t ->
+    Ext_grid_column_Column.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
   (** {% <p>Fires after a reconfigure.</p> %}
     
     {b Parameters}:
@@ -274,6 +281,12 @@ object
     {- columns: [_ Js.t Js.js_array Js.t]
     {% <p>The column configs that were passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> %}
     }
+    {- oldStore: [Ext_data_Store.t Js.t]
+    {% <p>The store that was replaced</p> %}
+    }
+    {- the: [Ext_grid_column_Column.t Js.js_array Js.t]
+    {% <p>column headers that were replaced.</p> %}
+    }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
@@ -284,13 +297,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
-  inherit Ext_panel_Panel.statics
   inherit Ext_panel_Table.statics
   
   

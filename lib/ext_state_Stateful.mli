@@ -6,8 +6,8 @@
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
   method addStateEvents : _ Js.t -> unit Js.meth
   (** {% <p>Add events that will trigger the state to be saved. If the first argument is an
@@ -93,8 +93,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method saveDelay : Js.number Js.t Js.prop
   (** {% <p>A buffer to be applied if many state events are fired within a short period.</p> %}
@@ -122,7 +122,7 @@ internal properties from a saved state on startup. The object must have
 a <a href="#!/api/Ext.state.Stateful-cfg-stateId" rel="Ext.state.Stateful-cfg-stateId" class="docClass">stateId</a> for state to be managed.</p>
 
 <p>Auto-generated ids are not guaranteed to be stable across page loads and
-cannot be relied upon to save and restore the same state for a object.<p></p>
+cannot be relied upon to save and restore the same state for a object.</p>
 
 <p>For state saving to work, the state manager's provider must have been
 set to an implementation of <a href="#!/api/Ext.state.Provider" rel="Ext.state.Provider" class="docClass">Ext.state.Provider</a> which overrides the
@@ -132,12 +132,12 @@ methods to save and recall name/value pairs. A built-in implementation,
 
 <p>To set the state provider for the current page:</p>
 
-<p>   <a href="#!/api/Ext.state.Manager-method-setProvider" rel="Ext.state.Manager-method-setProvider" class="docClass">Ext.state.Manager.setProvider</a>(new <a href="#!/api/Ext.state.CookieProvider" rel="Ext.state.CookieProvider" class="docClass">Ext.state.CookieProvider</a>({</p>
+<p>   <a href="#!/api/Ext.state.Manager-method-setProvider" rel="Ext.state.Manager-method-setProvider" class="docClass">Ext.state.Manager.setProvider</a>(new <a href="#!/api/Ext.state.CookieProvider" rel="Ext.state.CookieProvider" class="docClass">Ext.state.CookieProvider</a>(\{</p>
 
 <pre><code>   expires: new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days from now
 </code></pre>
 
-<p>   }));</p>
+<p>   \}));</p>
 
 <p>A stateful object attempts to save state when one of the events
 listed in the <a href="#!/api/Ext.state.Stateful-cfg-stateEvents" rel="Ext.state.Stateful-cfg-stateEvents" class="docClass">stateEvents</a> configuration fires.</p>
@@ -178,8 +178,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method beforestaterestore : (t Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop

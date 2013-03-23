@@ -5,9 +5,9 @@ for state information if you don't pass them a custom state provider. In order f
 to be useful, it must be initialized with a provider when your application initializes. Example usage:</p>
 
 <pre><code>// in your initialization function
-init : function(){
+init : function()\{
    <a href="#!/api/Ext.state.Manager-method-setProvider" rel="Ext.state.Manager-method-setProvider" class="docClass">Ext.state.Manager.setProvider</a>(new <a href="#!/api/Ext.state.CookieProvider" rel="Ext.state.CookieProvider" class="docClass">Ext.state.CookieProvider</a>());
-}
+\}
  </code></pre>
 
 

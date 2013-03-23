@@ -7,38 +7,48 @@ of the data-bound components in Ext.</p>
 
 <p>Models are defined as a set of fields and any arbitrary methods and properties relevant to the model. For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
-        {name: 'name',  type: 'string'},
-        {name: 'age',   type: 'int', convert: null},
-        {name: 'phone', type: 'string'},
-        {name: 'alive', type: 'boolean', defaultValue: true, convert: null}
+        \{name: 'name',  type: 'string'\},
+        \{name: 'age',   type: 'int', convert: null\},
+        \{name: 'phone', type: 'string'\},
+        \{name: 'alive', type: 'boolean', defaultValue: true, convert: null\}
     ],
 
-    changeName: function() {
+    changeName: function() \{
         var oldName = this.get('name'),
             newName = oldName + " The Barbarian";
 
         this.set('name', newName);
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>The fields array is turned into a <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">MixedCollection</a> automatically by the <a href="#!/api/Ext.ModelManager" rel="Ext.ModelManager" class="docClass">ModelManager</a>, and all other functions and properties are copied to the new Model's prototype.</p>
 
-<p>By default, the built in numeric and boolean field types have a (\@link <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">Ext.data.Field.convert</a>} function which coerces string
+<p>A Model definition always has an <em>identifying field</em> which should yield a unique key for each instance. By default, a field
+named "id" will be created with a <a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a> of "id". This happens because of the default
+<a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a> provided in Model definitions.</p>
+
+<p>To alter which field is the identifying field, use the <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a> config.</p>
+
+<p>If the Model should not have any identifying field (for example if you are defining ab abstract base class for your
+application models), configure the \{\@liknk <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a>\} as <code>null</code>.</p>
+
+<p>By default, the built in numeric and boolean field types have a <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">Ext.data.Field.convert</a> function which coerces string
 values in raw data into the field's type. For better performance with <a href="#!/api/Ext.data.reader.Json" rel="Ext.data.reader.Json" class="docClass">Json</a> or <a href="#!/api/Ext.data.reader.Array" rel="Ext.data.reader.Array" class="docClass">Array</a>
 readers <em>if you are in control of the data fed into this Model</em>, you can null out the default convert function which will cause
 the raw property to be copied directly into the Field's value.</p>
 
 <p>Now we can create instances of our User model and call any model logic we defined:</p>
 
-<pre><code>var user = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', {
+<pre><code>var user = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', \{
+    id   : 'ABCD12345',
     name : 'Conan',
     age  : 24,
     phone: '555-555-5555'
-});
+\});
 
 user.changeName();
 user.get('name'); //returns "Conan The Barbarian"
@@ -49,35 +59,35 @@ user.get('name'); //returns "Conan The Barbarian"
 <p>Models have built-in support for validations, which are executed against the validator functions in <a href="#!/api/Ext.data.validations" rel="Ext.data.validations" class="docClass">Ext.data.validations</a> (<a href="#!/api/Ext.data.validations" rel="Ext.data.validations" class="docClass">see all validation functions</a>). Validations are easy to add to
 models:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
-        {name: 'name',     type: 'string'},
-        {name: 'age',      type: 'int'},
-        {name: 'phone',    type: 'string'},
-        {name: 'gender',   type: 'string'},
-        {name: 'username', type: 'string'},
-        {name: 'alive',    type: 'boolean', defaultValue: true}
+        \{name: 'name',     type: 'string'\},
+        \{name: 'age',      type: 'int'\},
+        \{name: 'phone',    type: 'string'\},
+        \{name: 'gender',   type: 'string'\},
+        \{name: 'username', type: 'string'\},
+        \{name: 'alive',    type: 'boolean', defaultValue: true\}
     ],
 
     validations: [
-        {type: 'presence',  field: 'age'},
-        {type: 'length',    field: 'name',     min: 2},
-        {type: 'inclusion', field: 'gender',   list: ['Male', 'Female']},
-        {type: 'exclusion', field: 'username', list: ['Admin', 'Operator']},
-        {type: 'format',    field: 'username', matcher: /([a-z]+)[0-9]{2,3}/}
+        \{type: 'presence',  field: 'age'\},
+        \{type: 'length',    field: 'name',     min: 2\},
+        \{type: 'inclusion', field: 'gender',   list: ['Male', 'Female']\},
+        \{type: 'exclusion', field: 'username', list: ['Admin', 'Operator']\},
+        \{type: 'format',    field: 'username', matcher: /([a-z]+)[0-9]\{2,3\}/\}
     ]
-});
+\});
 </code></pre>
 
 <p>The validations can be run by simply calling the <a href="#!/api/Ext.data.Model-method-validate" rel="Ext.data.Model-method-validate" class="docClass">validate</a> function, which returns a <a href="#!/api/Ext.data.Errors" rel="Ext.data.Errors" class="docClass">Ext.data.Errors</a>
 object:</p>
 
-<pre><code>var instance = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', {
+<pre><code>var instance = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', \{
     name: 'Ed',
     gender: 'Male',
     username: 'edspencer'
-});
+\});
 
 var errors = instance.validate();
 </code></pre>
@@ -89,45 +99,45 @@ var errors = instance.validate();
 For example, let's say we're writing a blog administration application which deals with Users, Posts and Comments.
 We can express the relationships between these models like this:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Post', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Post', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['id', 'user_id'],
 
     belongsTo: 'User',
-    hasMany  : {model: 'Comment', name: 'comments'}
-});
+    hasMany  : \{model: 'Comment', name: 'comments'\}
+\});
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Comment', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Comment', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['id', 'user_id', 'post_id'],
 
     belongsTo: 'Post'
-});
+\});
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['id'],
 
     hasMany: [
         'Post',
-        {model: 'Comment', name: 'comments'}
+        \{model: 'Comment', name: 'comments'\}
     ]
-});
+\});
 </code></pre>
 
 <p>See the docs for <a href="#!/api/Ext.data.association.HasOne" rel="Ext.data.association.HasOne" class="docClass">Ext.data.association.HasOne</a>, <a href="#!/api/Ext.data.association.BelongsTo" rel="Ext.data.association.BelongsTo" class="docClass">Ext.data.association.BelongsTo</a> and
 <a href="#!/api/Ext.data.association.HasMany" rel="Ext.data.association.HasMany" class="docClass">Ext.data.association.HasMany</a> for details on the usage and configuration of associations.
 Note that associations can also be specified like this:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['id'],
 
     associations: [
-        {type: 'hasMany', model: 'Post',    name: 'posts'},
-        {type: 'hasMany', model: 'Comment', name: 'comments'}
+        \{type: 'hasMany', model: 'Post',    name: 'posts'\},
+        \{type: 'hasMany', model: 'Comment', name: 'comments'\}
     ]
-});
+\});
 </code></pre>
 
 <h1>Using a Proxy</h1>
@@ -136,21 +146,21 @@ Note that associations can also be specified like this:</p>
 save that data somewhere. All loading and saving of data is handled via a <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">Proxy</a>, which
 can be set directly on the Model:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['id', 'name', 'email'],
 
-    proxy: {
+    proxy: \{
         type: 'rest',
         url : '/users'
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>Here we've set up a <a href="#!/api/Ext.data.proxy.Rest" rel="Ext.data.proxy.Rest" class="docClass">Rest Proxy</a>, which knows how to load and save data to and from a
 RESTful backend. Let's see how this works:</p>
 
-<pre><code>var user = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', {name: 'Ed Spencer', email: 'ed\@sencha.com'});
+<pre><code>var user = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', \{name: 'Ed Spencer', email: 'ed\@sencha.com'\});
 
 user.save(); //POST /users
 </code></pre>
@@ -166,11 +176,11 @@ configure any Proxy on any Model and always follow this API - see <a href="#!/ap
 var User = <a href="#!/api/Ext.ModelManager-method-getModel" rel="Ext.ModelManager-method-getModel" class="docClass">Ext.ModelManager.getModel</a>('User');
 
 //Uses the configured RestProxy to make a GET request to /users/123
-User.load(123, {
-    success: function(user) {
+User.load(123, \{
+    success: function(user) \{
         console.log(user.getId()); //logs 123
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>Models can also be updated and destroyed easily:</p>
@@ -179,18 +189,18 @@ User.load(123, {
 user.set('name', 'Edward Spencer');
 
 //tells the Proxy to save the Model. In this case it will perform a PUT request to /users/123 as this Model already has an id
-user.save({
-    success: function() {
+user.save(\{
+    success: function() \{
         console.log('The User was updated');
-    }
-});
+    \}
+\});
 
 //tells the Proxy to destroy the Model. Performs a DELETE request to /users/123
-user.destroy({
-    success: function() {
+user.destroy(\{
+    success: function() \{
         console.log('The User was destroyed!');
-    }
-});
+    \}
+\});
 </code></pre>
 
 <h1>Usage in Stores</h1>
@@ -198,9 +208,9 @@ user.destroy({
 <p>It is very common to want to load a set of Model instances to be displayed and manipulated in the UI. We do this by
 creating a <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a>:</p>
 
-<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code>var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     model: 'User'
-});
+\});
 
 //uses the Proxy we set up on Model to load the Store data
 store.load();
@@ -212,52 +222,9 @@ set of added, updated and removed Model instances to be synchronized with the se
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method dirty : bool Js.t Js.readonly_prop
-  (** {% <p>True if this Record has been modified.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method editing : bool Js.t Js.readonly_prop
-  (** {% <p>Internal flag used to track whether or not the model instance is currently being edited.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method fields : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>A <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Collection</a> of the fields defined for this Model (including fields defined in superclasses)</p>
-
-<p>This is a collection of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Ext.data.Field</a> instances, each of which encapsulates information that the field was configured with.
-By default, you can specify a field as simply a String, representing the <em>name</em> of the field, but a Field encapsulates
-<a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">data type</a>, <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">custom conversion</a> of raw data, and a <a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a>
-property to specify by name of index, how to extract a field's value from a raw data object.</p> %}
-    *)
-  method isModel : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Model, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method modified : _ Js.t Js.prop
-  (** {% <p>Key: value pairs of all fields whose values have changed</p> %}
-    *)
-  method phantom : bool Js.t Js.prop
-  (** {% <p>True when the record does not yet exist in a server-side database (see <a href="#!/api/Ext.data.Model-method-setDirty" rel="Ext.data.Model-method-setDirty" class="docClass">setDirty</a>).
-Any record which has a real database pk set as its id property is NOT a phantom -- it's real.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method raw : _ Js.t Js.prop
-  (** {% <p>The raw data used to create this model if created via a reader.</p> %}
-    *)
-  method store : _ Js.t Js.prop
-  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> to which this instance belongs. NOTE: If this
-instance is bound to multiple stores, this property will reference only the
-first. To examine all the stores, use the <a href="#!/api/Ext.data.Model-property-stores" rel="Ext.data.Model-property-stores" class="docClass">stores</a> property instead.</p> %}
-    *)
-  method stores : _ Js.js_array Js.t Js.prop
-  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Stores</a> to which this instance is bound.</p> %}
-    *)
   method beginEdit : unit Js.meth
   (** {% <p>Begins an edit. While in edit mode, no events (e.g.. the <code>update</code> event) are relayed to the containing store.
 When an edit has begun, it must be followed by either <a href="#!/api/Ext.data.Model-method-endEdit" rel="Ext.data.Model-method-endEdit" class="docClass">endEdit</a> or <a href="#!/api/Ext.data.Model-method-cancelEdit" rel="Ext.data.Model-method-cancelEdit" class="docClass">cancelEdit</a>.</p> %}
@@ -265,7 +232,8 @@ When an edit has begun, it must be followed by either <a href="#!/api/Ext.data.M
   method cancelEdit : unit Js.meth
   (** {% <p>Cancels all changes made in the current edit operation.</p> %}
     *)
-  method commit : bool Js.t Js.optdef -> unit Js.meth
+  method commit : bool Js.t Js.optdef ->
+    Js.js_string Js.t Js.js_array Js.t Js.optdef -> unit Js.meth
   (** {% <p>Usually called by the <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a> which owns the model instance. Commits all changes made to the
 instance since either creation or the last commit operation.</p>
 
@@ -274,7 +242,14 @@ operations.</p> %}
     
     {b Parameters}:
     {ul {- silent: [bool Js.t] (optional)
-    {% <p>True to skip notification of the owning store of the change.
+    {% <p>Pass <code>true</code> to skip notification of the owning store of the change.</p> %}
+    
+    Defaults to: false
+    }
+    {- modifiedFieldNames: [Js.js_string Js.t Js.js_array Js.t] (optional)
+    {% <p>Array of field names changed during sync with server if known.
+Omit or pass <code>null</code> if unknown. An empty array means that it is known that no fields were modified
+by the server's response.
 Defaults to false.</p> %}
     }
     }
@@ -307,16 +282,16 @@ See <code><a href="#!/api/Ext.data.Model-static-method-id" rel="Ext.data.Model-s
     }
     }
     *)
-  method endEdit : bool Js.t -> Js.js_string Js.t Js.js_array Js.t -> unit
-    Js.meth
-  (** {% <p>Ends an edit. If any data was modified, the containing store is notified (ie, the store's <code>update</code> event will
-fire).</p> %}
+  method endEdit : bool Js.t Js.optdef ->
+    Js.js_string Js.t Js.js_array Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Ends an edit. If any data was modified, the containing store is notified
+(ie, the store's <code>update</code> event will fire).</p> %}
     
     {b Parameters}:
-    {ul {- silent: [bool Js.t]
+    {ul {- silent: [bool Js.t] (optional)
     {% <p>True to not notify the store of the change</p> %}
     }
-    {- modifiedFieldNames: [Js.js_string Js.t Js.js_array Js.t]
+    {- modifiedFieldNames: [Js.js_string Js.t Js.js_array Js.t] (optional)
     {% <p>Array of field names changed during edit.</p> %}
     }
     }
@@ -339,17 +314,17 @@ fire).</p> %}
   (** {% <p>Gets all of the data from this Models <em>loaded</em> associations. It does this recursively - for example if we have a
 User which hasMany Orders, and each Order hasMany OrderItems, it will return an object like this:</p>
 
-<pre><code>{
+<pre><code>\{
     orders: [
-        {
+        \{
             id: 123,
             status: 'shipped',
             orderItems: [
                 ...
             ]
-        }
+        \}
     ]
-}
+\}
 </code></pre> %}
     
     {b Returns}:
@@ -434,11 +409,11 @@ Defaults to false.</p> %}
     }
     }
     *)
-  method save : _ Js.t -> 'self Js.t Js.meth
+  method save : _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Saves the model instance using the configured proxy.</p> %}
     
     {b Parameters}:
-    {ul {- options: [_ Js.t]
+    {ul {- options: [_ Js.t] (optional)
     {% <p>Options to pass to the proxy. Config object for <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>.</p> %}
     }
     }
@@ -507,13 +482,56 @@ where it will have a create action composed for it during <a href="#!/api/Ext.da
     }
     }
     *)
+  method dirty : bool Js.t Js.readonly_prop
+  (** {% <p>True if this Record has been modified.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method editing : bool Js.t Js.readonly_prop
+  (** {% <p>Internal flag used to track whether or not the model instance is currently being edited.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method fields : Ext_util_MixedCollection.t Js.t Js.prop
+  (** {% <p>A <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Collection</a> of the fields defined for this Model (including fields defined in superclasses)</p>
+
+<p>This is a collection of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Ext.data.Field</a> instances, each of which encapsulates information that the field was configured with.
+By default, you can specify a field as simply a String, representing the <em>name</em> of the field, but a Field encapsulates
+<a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">data type</a>, <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">custom conversion</a> of raw data, and a <a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a>
+property to specify by name of index, how to extract a field's value from a raw data object.</p> %}
+    *)
+  method isModel : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Model, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method modified : _ Js.t Js.prop
+  (** {% <p>Key: value pairs of all fields whose values have changed</p> %}
+    *)
+  method phantom : bool Js.t Js.prop
+  (** {% <p>True when the record does not yet exist in a server-side database (see <a href="#!/api/Ext.data.Model-method-setDirty" rel="Ext.data.Model-method-setDirty" class="docClass">setDirty</a>).
+Any record which has a real database pk set as its id property is NOT a phantom -- it's real.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method raw : _ Js.t Js.prop
+  (** {% <p>The raw data used to create this model if created via a reader.</p> %}
+    *)
+  method store : _ Js.t Js.prop
+  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> to which this instance belongs. NOTE: If this
+instance is bound to multiple stores, this property will reference only the
+first. To examine all the stores, use the <a href="#!/api/Ext.data.Model-property-stores" rel="Ext.data.Model-property-stores" class="docClass">stores</a> property instead.</p> %}
+    *)
+  method stores : _ Js.js_array Js.t Js.prop
+  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Stores</a> to which this instance is bound.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method associations : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>An array of <a href="#!/api/Ext.data.association.Association" rel="Ext.data.association.Association" class="docClass">associations</a> for this model.</p> %}
@@ -543,8 +561,18 @@ to specify a full set of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" cl
   method hasMany : _ Js.t Js.prop
   (** {% <p>One or more <a href="#!/api/Ext.data.association.HasMany" rel="Ext.data.association.HasMany" class="docClass">HasMany associations</a> for this model.</p> %}
     *)
-  method idProperty : Js.js_string Js.t Js.prop
-  (** {% <p>The name of the field treated as this Model's unique id. Defaults to 'id'.</p> %}
+  method idProperty : _ Js.t Js.prop
+  (** {% <p>The name of the field treated as this Model's unique id. Defaults to 'id'.</p>
+
+<p>This may also be specified as a Field config object. This means that the identifying field can be calculated
+using a <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">convert</a> function which might aggregate several values from the
+raw data object to use as an identifier.</p>
+
+<p>The resulting <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Field</a> is added to the Model's field collection unless there is already
+a configured field with a mapping that reads the same property.</p>
+
+<p>If defining an <strong>abstract</strong> base Model class, the <code>idProperty</code> may be configured as <code>null</code> which will mean that
+no identifying field will be generated.</p> %}
     
     Defaults to: ['id']
     *)
@@ -555,12 +583,12 @@ values for the <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Mode
 <p>This can be overridden at the model level to provide a custom generator for a model.
 The simplest form of this would be:</p>
 
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModel', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModel', \{
      extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
      requires: ['<a href="#!/api/Ext.data.SequentialIdGenerator" rel="Ext.data.SequentialIdGenerator" class="docClass">Ext.data.SequentialIdGenerator</a>'],
      idgen: 'sequential',
      ...
- });
+ \});
 </code></pre>
 
 <p>The above would generate <a href="#!/api/Ext.data.SequentialIdGenerator" rel="Ext.data.SequentialIdGenerator" class="docClass">sequential</a> id's such
@@ -568,55 +596,49 @@ as 1, 2, 3 etc..</p>
 
 <p>Another useful id generator is <a href="#!/api/Ext.data.UuidGenerator" rel="Ext.data.UuidGenerator" class="docClass">Ext.data.UuidGenerator</a>:</p>
 
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModel', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModel', \{
      extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
      requires: ['<a href="#!/api/Ext.data.UuidGenerator" rel="Ext.data.UuidGenerator" class="docClass">Ext.data.UuidGenerator</a>'],
      idgen: 'uuid',
      ...
- });
+ \});
 </code></pre>
 
 <p>An id generation can also be further configured:</p>
 
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModel', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModel', \{
      extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
-     idgen: {
+     idgen: \{
          type: 'sequential',
          seed: 1000,
          prefix: 'ID_'
-     }
- });
+     \}
+ \});
 </code></pre>
 
 <p>The above would generate id's such as ID_1000, ID_1001, ID_1002 etc..</p>
 
 <p>If multiple models share an id space, a single generator can be shared:</p>
 
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModelX', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModelX', \{
      extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
-     idgen: {
+     idgen: \{
          type: 'sequential',
          id: 'xy'
-     }
- });
+     \}
+ \});
 
- <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModelY', {
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.data.MyModelY', \{
      extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
-     idgen: {
+     idgen: \{
          type: 'sequential',
          id: 'xy'
-     }
- });
+     \}
+ \});
 </code></pre>
 
 <p>For more complex, shared id generators, a custom generator is the best approach.
 See <a href="#!/api/Ext.data.IdGenerator" rel="Ext.data.IdGenerator" class="docClass">Ext.data.IdGenerator</a> for details on creating custom id generators.</p> %}
-    *)
-  method persistenceProperty : Js.js_string Js.t Js.prop
-  (** {% <p>The name of the property on this Persistable object that its data is saved to. Defaults to 'data'
-(i.e: all persistable data resides in <code>this.data</code>.)</p> %}
-    
-    Defaults to: ['data']
     *)
   method proxy : _ Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">proxy</a> to use for this model.</p> %}
@@ -629,8 +651,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method idchanged : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
@@ -656,21 +678,6 @@ object
   inherit Ext_Base.statics
   inherit Ext_util_Observable.statics
   
-  method _COMMIT : Js.js_string Js.t Js.prop
-  (** {% <p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
-    
-    Defaults to: ['commit']
-    *)
-  method _EDIT : Js.js_string Js.t Js.prop
-  (** {% <p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
-    
-    Defaults to: ['edit']
-    *)
-  method _REJECT : Js.js_string Js.t Js.prop
-  (** {% <p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
-    
-    Defaults to: ['reject']
-    *)
   method getFields : Ext_data_Field.t Js.js_array Js.t Js.meth
   (** {% <p>Returns an Array of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Field</a> definitions which define this Model's structure</p>
 
@@ -693,12 +700,13 @@ field values will be able to read those field values.</p> %}
     }
     *)
   method id : 'self Js.t -> Js.js_string Js.t Js.meth
-  (** {% <p>Generates a sequential id. This method is typically called when a record is <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">create</a>d and <a href="#!/api/Ext.data.Model-method-constructor" rel="Ext.data.Model-method-constructor" class="docClass">no id has been specified</a>. The id will automatically be assigned to the
-record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
+  (** {% <p>Generates a sequential id. This method is typically called when a record is <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">create</a>d and <a href="#!/api/Ext.data.Model-method-constructor" rel="Ext.data.Model-method-constructor" class="docClass">no id has been specified</a> either as a parameter, or through the <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a>
+in the passed data. The generated id will automatically be assigned to the
+record. The returned id takes the form: \{PREFIX\}-\{AUTO_ID\}.</p>
 
 <ul>
 <li><strong>PREFIX</strong> : String - <a href="#!/api/Ext.data.Model-static-property-PREFIX" rel="Ext.data.Model-static-property-PREFIX" class="docClass">Ext.data.Model.PREFIX</a> (defaults to 'ext-record')</li>
-<li><strong>AUTO_ID</strong> : String - <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>.AUTO_ID (defaults to 1 initially)</li>
+<li><strong>AUTO_ID</strong> : String - <a href="#!/api/Ext.data.Model-static-property-AUTO_ID" rel="Ext.data.Model-static-property-AUTO_ID" class="docClass">Ext.data.Model.AUTO_ID</a> (defaults to 1 initially)</li>
 </ul> %}
     
     {b Parameters}:
@@ -716,26 +724,26 @@ record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
   method load : _ Js.t -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Asynchronously loads a model instance by id. Sample usage:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
-        {name: 'id', type: 'int'},
-        {name: 'name', type: 'string'}
+        \{name: 'id', type: 'int'\},
+        \{name: 'name', type: 'string'\}
     ]
-});
+\});
 
-MyApp.User.load(10, {
+MyApp.User.load(10, \{
     scope: this,
-    failure: function(record, operation) {
+    failure: function(record, operation) \{
         //do something if the load failed
-    },
-    success: function(record, operation) {
+    \},
+    success: function(record, operation) \{
         //do something if the load succeeded
-    },
-    callback: function(record, operation) {
+    \},
+    callback: function(record, operation) \{
         //do something whether the load succeeded or failed
-    }
-});
+    \}
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -770,6 +778,21 @@ model based on changes in meta data (called from Reader's onMetaChange method).<
     {ul {- proxy: [_ Js.t] {% <p>The proxy</p> %}
     }
     }
+    *)
+  method _COMMIT : Js.js_string Js.t Js.prop
+  (** {% <p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
+    
+    Defaults to: ['commit']
+    *)
+  method _EDIT : Js.js_string Js.t Js.prop
+  (** {% <p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
+    
+    Defaults to: ['edit']
+    *)
+  method _REJECT : Js.js_string Js.t Js.prop
+  (** {% <p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
+    
+    Defaults to: ['reject']
     *)
   
 end

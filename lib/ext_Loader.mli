@@ -28,7 +28,7 @@ approaches, and leverage their advantages for the best development flow. We'll d
 <h3>Method 1: Explicitly include what you need:</h3>
 
 <pre><code>// Syntax
-<a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a>({String/Array} expressions);
+<a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a>(\{String/Array\} expressions);
 
 // Example: Single alias
 <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a>('widget.window');
@@ -46,8 +46,8 @@ approaches, and leverage their advantages for the best development flow. We'll d
 <h3>Method 2: Explicitly exclude what you don't need:</h3>
 
 <pre><code>// Syntax: Note that it must be in this chaining format.
-<a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>({String/Array} expressions)
-   .require({String/Array} expressions);
+<a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>(\{String/Array\} expressions)
+   .require(\{String/Array\} expressions);
 
 // Include everything except Ext.data.*
 <a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>('Ext.data.*').require('*');
@@ -80,11 +80,11 @@ before</li>
 
 <p>There's one simple rule to follow: Instantiate everything with <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a> instead of the <code>new</code> keyword</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.window', { ... }); // Instead of new <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>({...});
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.window', \{ ... \}); // Instead of new <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>(\{...\});
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', {}); // Same as above, using full class name instead of alias
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', \{\}); // Same as above, using full class name instead of alias
 
-<a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('window', {}); // Same as above, all you need is the traditional `xtype`
+<a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('window', \{\}); // Same as above, all you need is the traditional `xtype`
 </code></pre>
 
 <p>Behind the scene, <a href="#!/api/Ext.ClassManager" rel="Ext.ClassManager" class="docClass">Ext.ClassManager</a> will automatically check whether the given class name / alias has already
@@ -99,30 +99,30 @@ before</li>
 
 <p><a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> will automatically fetch all dependencies on demand as they're needed during run-time. For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function(){
-    var window = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('window', {
+<pre><code><a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function()\{
+    var window = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('window', \{
         width: 500,
         height: 300,
-        layout: {
+        layout: \{
             type: 'border',
             padding: 5
-        },
+        \},
         title: 'Hello Dialog',
-        items: [{
+        items: [\{
             title: 'Navigation',
             collapsible: true,
             region: 'west',
             width: 200,
             html: 'Hello',
             split: true
-        }, {
+        \}, \{
             title: 'TabPanel',
             region: 'center'
-        }]
-    });
+        \}]
+    \});
 
     window.show();
-})
+\})
 </code></pre>
 
 <h3>Step 2: Along the way, when you need better debugging ability, watch the console for warnings like these:</h3>
@@ -157,11 +157,6 @@ then include it on top of your application.</p>
 class type t =
 object('self)
   
-  method history : _ Js.js_array Js.t Js.prop
-  (** {% <p>An array of class names to keep track of the dependency loading order.
-This is not guaranteed to be the same everytime due to the asynchronous
-nature of the Loader.</p> %}
-    *)
   method addClassPathMappings : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets a batch of path entries</p> %}
     
@@ -183,7 +178,9 @@ Can be chained with more <code>require</code> and <code>exclude</code> methods, 
 <pre><code><a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>('Ext.data.*').require('*');
 
 <a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>('widget.button*').require('widget.*');
-</code></pre> %}
+</code></pre>
+
+<p><a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a> is alias for <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">exclude</a>.</p> %}
     
     {b Parameters}:
     {ul {- excludes: [_ Js.js_array Js.t]
@@ -216,11 +213,11 @@ alert(<a href="#!/api/Ext.Loader-method-getPath" rel="Ext.Loader-method-getPath"
 
 <p>Note that the deeper namespace levels, if explicitly set, are always resolved first. For example:</p>
 
-<pre><code><a href="#!/api/Ext.Loader-method-setPath" rel="Ext.Loader-method-setPath" class="docClass">Ext.Loader.setPath</a>({
+<pre><code><a href="#!/api/Ext.Loader-method-setPath" rel="Ext.Loader-method-setPath" class="docClass">Ext.Loader.setPath</a>(\{
     'My': '/path/to/lib',
     'My.awesome': '/other/path/for/awesome/stuff',
     'My.awesome.more': '/more/awesome/path'
-});
+\});
 
 alert(<a href="#!/api/Ext.Loader-method-getPath" rel="Ext.Loader-method-getPath" class="docClass">Ext.Loader.getPath</a>('My.awesome.Class')); // alerts '/other/path/for/awesome/stuff/Class.js'
 
@@ -270,8 +267,10 @@ to ready. This can be used to load arbitrary scripts that may contain further
     *)
   method require : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
-  (** {% <p>Loads all classes by the given names and all their direct dependencies; optionally executes the given callback function when
-finishes, within the optional scope. This method is aliased by <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a> for convenience</p> %}
+  (** {% <p>Loads all classes by the given names and all their direct dependencies; optionally executes
+the given callback function when finishes, within the optional scope.</p>
+
+<p><a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a> is alias for <a href="#!/api/Ext.Loader-method-require" rel="Ext.Loader-method-require" class="docClass">require</a>.</p> %}
     
     {b Parameters}:
     {ul {- expressions: [_ Js.t]
@@ -294,19 +293,19 @@ is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext
 
 <pre><code>&lt;script type="text/javascript" src="ext-core-debug.js"&gt;&lt;/script&gt;
 &lt;script type="text/javascript"&gt;
-    <a href="#!/api/Ext.Loader-method-setConfig" rel="Ext.Loader-method-setConfig" class="docClass">Ext.Loader.setConfig</a>({
+    <a href="#!/api/Ext.Loader-method-setConfig" rel="Ext.Loader-method-setConfig" class="docClass">Ext.Loader.setConfig</a>(\{
       enabled: true,
-      paths: {
+      paths: \{
           'My': 'my_own_path'
-      }
-    });
+      \}
+    \});
 &lt;/script&gt;
 &lt;script type="text/javascript"&gt;
     <a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">Ext.require</a>(...);
 
-    <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+    <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
       // application code here
-    });
+    \});
 &lt;/script&gt;
 </code></pre>
 
@@ -323,7 +322,8 @@ is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext
     }
     }
     *)
-  method setPath : _ Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
+  method setPath : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
+    Js.meth
   (** {% <p>Sets the path of a namespace.
 For Example:</p>
 
@@ -334,7 +334,7 @@ For Example:</p>
     {ul {- name: [_ Js.t]
     {% <p>See <a href="#!/api/Ext.Function-method-flexSetter" rel="Ext.Function-method-flexSetter" class="docClass">flexSetter</a></p> %}
     }
-    {- path: [Js.js_string Js.t]
+    {- path: [Js.js_string Js.t] (optional)
     {% <p>See <a href="#!/api/Ext.Function-method-flexSetter" rel="Ext.Function-method-flexSetter" class="docClass">flexSetter</a></p> %}
     }
     }
@@ -346,7 +346,10 @@ For Example:</p>
     *)
   method syncRequire : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
     -> _ Js.t Js.optdef -> unit Js.meth
-  (** {% <p>Synchronously loads all classes by the given names and all their direct dependencies; optionally executes the given callback function when finishes, within the optional scope. This method is aliased by <a href="#!/api/Ext-method-syncRequire" rel="Ext-method-syncRequire" class="docClass">Ext.syncRequire</a> for convenience</p> %}
+  (** {% <p>Synchronously loads all classes by the given names and all their direct dependencies; optionally
+executes the given callback function when finishes, within the optional scope.</p>
+
+<p><a href="#!/api/Ext-method-syncRequire" rel="Ext-method-syncRequire" class="docClass">Ext.syncRequire</a> is alias for <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">syncRequire</a>.</p> %}
     
     {b Parameters}:
     {ul {- expressions: [_ Js.t]
@@ -362,6 +365,11 @@ For Example:</p>
     {% <p>Classes to be excluded, useful when being used with expressions</p> %}
     }
     }
+    *)
+  method history : _ Js.js_array Js.t Js.prop
+  (** {% <p>An array of class names to keep track of the dependency loading order.
+This is not guaranteed to be the same everytime due to the asynchronous
+nature of the Loader.</p> %}
     *)
   
 end
@@ -393,20 +401,20 @@ if <a href="#!/api/Ext.Loader-cfg-preserveScripts" rel="Ext.Loader-cfg-preserveS
   method paths : _ Js.t Js.prop
   (** {% <p>The mapping from namespaces to file paths</p>
 
-<pre><code>{
+<pre><code>\{
     'Ext': '.', // This is set by default, <a href="#!/api/Ext.layout.container.Container" rel="Ext.layout.container.Container" class="docClass">Ext.layout.container.Container</a> will be
                 // loaded from ./layout/Container.js
 
     'My': './src/my_own_folder' // My.layout.Container will be loaded from
                                 // ./src/my_own_folder/layout/Container.js
-}
+\}
 </code></pre>
 
 <p>Note that all relative paths are relative to the current HTML document.
 If not being specified, for example, <code>Other.awesome.Class</code>
 will simply be loaded from <code>./Other/awesome/Class.js</code></p> %}
     
-    Defaults to: [{'Ext': '.'}]
+    Defaults to: [\{'Ext': '.'\}]
     *)
   method preserveScripts : bool Js.t Js.prop
   (** {% <p>False to remove and optionally <a href="#!/api/Ext.Loader-cfg-garbageCollect" rel="Ext.Loader-cfg-garbageCollect" class="docClass">garbage-collect</a> asynchronously loaded scripts,

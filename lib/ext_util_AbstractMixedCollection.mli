@@ -4,14 +4,9 @@
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method isMixedCollection : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated MixedCollection, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method add : _ Js.t -> _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Adds an item to the collection. Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-add" rel="Ext.util.AbstractMixedCollection-event-add" class="docClass">add</a> event when complete.</p> %}
     
@@ -24,7 +19,7 @@ or if the key of the stored items is in a property called <code>id</code>,
 the MixedCollection will be able to <em>derive</em> the key for the new item.
 In this case just pass the new item in this parameter.</p> %}
     }
-    {- o: [_ Js.t] (optional)
+    {- obj: [_ Js.t] (optional)
     {% <p>The item to add.</p> %}
     }
     }
@@ -141,18 +136,20 @@ property/value pair with optional parameters for substring matching and case sen
 MixedCollection can be easily filtered by property like this:</p>
 
 
-<pre><code>//create a simple store with a few people defined
-var people = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
-people.addAll([
-    {id: 1, age: 25, name: 'Ed'},
-    {id: 2, age: 24, name: 'Tommy'},
-    {id: 3, age: 24, name: 'Arne'},
-    {id: 4, age: 26, name: 'Aaron'}
-]);
+<p>   //create a simple store with a few people defined
+   var people = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
+   people.addAll([</p>
 
-//a new MixedCollection containing only the items where age == 24
-var middleAged = people.filter('age', 24);
-</code></pre> %}
+<pre><code>   \{id: 1, age: 25, name: 'Ed'\},
+   \{id: 2, age: 24, name: 'Tommy'\},
+   \{id: 3, age: 24, name: 'Arne'\},
+   \{id: 4, age: 26, name: 'Aaron'\}
+</code></pre>
+
+<p>   ]);</p>
+
+<p>   //a new MixedCollection containing only the items where age == 24
+   var middleAged = people.filter('age', 24);</p> %}
     
     {b Parameters}:
     {ul {- property: [_ Js.t]
@@ -338,9 +335,18 @@ If an item was found, but is a Class, returns <code>null</code>.</p> %}
     }
     *)
   method getKey : _ Js.t -> _ Js.t Js.meth
-  (** {% <p>MixedCollection has a generic way to fetch keys if you implement getKey.  The default implementation
-simply returns <b><code>item.id</code></b> but you can provide your own implementation
-to return a different value as in the following examples:</p>
+  (** {% <p>A function which will be called, passing a newly added object
+when the object is added without a separate id.  The function
+should yield the key by which that object will be indexed.</p>
+
+<p>If no key is yielded, then the object will be added, but it
+cannot be accessed or removed quickly. Finding it in this
+collection for interrogation or removal will require a linear
+scan of this collection's items.</p>
+
+<p>The default implementation simply returns <code>item.id</code> but you can
+provide your own implementation to return a different value as
+in the following examples:</p>
 
 <pre><code>// normal way
 var mc = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
@@ -349,17 +355,11 @@ mc.add(otherEl.dom.id, otherEl);
 //and so on
 
 // using getKey
-var mc = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
-mc.getKey = function(el){
-   return el.dom.id;
-};
-mc.add(someEl);
-mc.add(otherEl);
-
-// or via the constructor
-var mc = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>(false, function(el){
-   return el.dom.id;
-});
+var mc = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>(\{
+    getKey: function(el)\{
+        return el.dom.id;
+    \}
+\});
 mc.add(someEl);
 mc.add(otherEl);
 </code></pre> %}
@@ -422,24 +422,27 @@ mc.add(otherEl);
     }
     }
     *)
-  method insert : Js.number Js.t -> Js.js_string Js.t -> _ Js.t Js.optdef ->
-    _ Js.t Js.meth
+  method insert : Js.number Js.t -> _ Js.t -> _ Js.t Js.optdef -> _ Js.t
+    Js.meth
   (** {% <p>Inserts an item at the specified index in the collection. Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-add" rel="Ext.util.AbstractMixedCollection-event-add" class="docClass">add</a> event when complete.</p> %}
     
     {b Parameters}:
     {ul {- index: [Js.number Js.t]
     {% <p>The index to insert the item at.</p> %}
     }
-    {- key: [Js.js_string Js.t]
-    {% <p>The key to associate with the new item, or the item itself.</p> %}
+    {- key: [_ Js.t]
+    {% <p>The key to associate with the new item, or the item itself.
+May also be an array of either to insert multiple items at once.</p> %}
     }
     {- o: [_ Js.t] (optional)
-    {% <p>If the second parameter was a key, the new item.</p> %}
+    {% <p>If the second parameter was a key, the new item.
+May also be an array to insert multiple items at once.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- [_ Js.t] {% <p>The item inserted.</p> %}
+    {ul {- [_ Js.t]
+    {% <p>The item inserted or an array of items inserted.</p> %}
     }
     }
     *)
@@ -466,11 +469,12 @@ mc.add(otherEl);
     }
     }
     *)
-  method removeAll : _ Js.js_array Js.t -> 'self Js.t Js.meth
-  (** {% <p>Remove all items in the passed array from the collection.</p> %}
+  method removeAll : _ Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
+  (** {% <p>Remove all items in the collection. Can also be used
+to remove only the items in the passed array.</p> %}
     
     {b Parameters}:
-    {ul {- items: [_ Js.js_array Js.t]
+    {ul {- items: [_ Js.js_array Js.t] (optional)
     {% <p>An array of items to be removed.</p> %}
     }
     }
@@ -496,17 +500,39 @@ mc.add(otherEl);
     }
     *)
   method removeAtKey : Js.js_string Js.t -> _ Js.t Js.meth
-  (** {% <p>Removed an item associated with the passed key fom the collection.</p> %}
+  (** {% <p>Removes an item associated with the passed key fom the collection.</p> %}
     
     {b Parameters}:
     {ul {- key: [Js.js_string Js.t]
-    {% <p>The key of the item to remove.</p> %}
+    {% <p>The key of the item to remove. If <code>null</code> is passed,
+all objects which yielded no key from the configured <a href="#!/api/Ext.util.AbstractMixedCollection-method-getKey" rel="Ext.util.AbstractMixedCollection-method-getKey" class="docClass">getKey</a> function are removed.</p> %}
     }
     }
     
     {b Returns}:
     {ul {- [_ Js.t]
-    {% <p>The item removed or false if no item was removed.</p> %}
+    {% <p>Only returned if removing at a specified key. The item removed or false if no item was removed.</p> %}
+    }
+    }
+    *)
+  method removeRange : Js.number Js.t -> Js.number Js.t Js.optdef -> _ Js.t
+    Js.meth
+  (** {% <p>Remove a range of items starting at a specified index in the collection.
+Does not fire the remove event.</p> %}
+    
+    {b Parameters}:
+    {ul {- index: [Js.number Js.t]
+    {% <p>The index within the collection of the item to remove.</p> %}
+    }
+    {- removeCount: [Js.number Js.t] (optional)
+    {% <p>The nuber of items to remove beginning at the specified index.</p> %}
+     Defaults to: 1
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p>The last item removed or false if no item was removed.</p> %}
     }
     }
     *)
@@ -517,14 +543,13 @@ mc.add(otherEl);
     {ul {- key: [Js.js_string Js.t]
     {% <p>The key associated with the item to replace, or the replacement item.</p>
 
-
 <p>If you supplied a <a href="#!/api/Ext.util.AbstractMixedCollection-method-getKey" rel="Ext.util.AbstractMixedCollection-method-getKey" class="docClass">getKey</a> implementation for this MixedCollection, or if the key
-of your stored items is in a property called <code><b>id</b></code>, then the MixedCollection
+of your stored items is in a property called <em><code>id</code></em>, then the MixedCollection
 will be able to <i>derive</i> the key of the replacement item. If you want to replace an item
 with one having the same key value, then just pass the replacement item in this parameter.</p> %}
     }
     {- o: [_ Js.t]
-    {% <p>{Object} o (optional) If the first parameter passed was a key, the item to associate
+    {% <p>\{Object\} o (optional) If the first parameter passed was a key, the item to associate
 with that key.</p> %}
     }
     }
@@ -562,14 +587,33 @@ summing fields in records, where the fields are all stored inside the 'data' obj
     }
     }
     *)
+  method updateKey : _ Js.t -> _ Js.t -> unit Js.meth
+  (** {% <p>Change the key for an existing item in the collection. If the old key
+does not exist this is a no-op.</p> %}
+    
+    {b Parameters}:
+    {ul {- oldKey: [_ Js.t] {% <p>The old key</p> %}
+    }
+    {- newKey: [_ Js.t] {% <p>The new key</p> %}
+    }
+    }
+    *)
+  method isMixedCollection : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated MixedCollection, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
+  method getKey : ('self Js.t, _ Js.t -> _ Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.getKey] *)
   method allowFunctions : bool Js.t Js.prop
   (** {% <p>Specify <code>true</code> if the <a href="#!/api/Ext.util.AbstractMixedCollection-method-addAll" rel="Ext.util.AbstractMixedCollection-method-addAll" class="docClass">addAll</a>
 function should add function references to the collection. Defaults to
@@ -582,8 +626,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method add : (Js.number Js.t -> _ Js.t -> Js.js_string Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop

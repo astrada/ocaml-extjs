@@ -25,15 +25,6 @@ object('self)
   (** {% <p>Initializes the FieldAncestor's state; this must be called from the initComponent method of any components
 importing this mixin.</p> %}
     *)
-  method onFieldAdded : #Ext_form_field_Field.t Js.t -> unit Js.meth
-  (** {% <p>Called when a <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Ext.form.field.Field</a> instance is added to the container's subtree.</p> %}
-    
-    {b Parameters}:
-    {ul {- field: [#Ext_form_field_Field.t Js.t]
-    {% <p>The field which was added</p> %}
-    }
-    }
-    *)
   method onFieldErrorChange : Ext_form_Labelable.t Js.t -> Js.js_string Js.t
     -> unit Js.meth
   (** {% <p>Fired when the error message of any field within the container changes.</p> %}
@@ -47,15 +38,6 @@ importing this mixin.</p> %}
     }
     }
     *)
-  method onFieldRemoved : #Ext_form_field_Field.t Js.t -> unit Js.meth
-  (** {% <p>Called when a <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Ext.form.field.Field</a> instance is removed from the container's subtree.</p> %}
-    
-    {b Parameters}:
-    {ul {- field: [#Ext_form_field_Field.t Js.t]
-    {% <p>The field which was removed</p> %}
-    }
-    }
-    *)
   method onFieldValidityChange : #Ext_form_field_Field.t Js.t -> bool Js.t ->
     unit Js.meth
   (** {% <p>Fired when the validity of any field within the container changes.</p> %}
@@ -65,24 +47,6 @@ importing this mixin.</p> %}
     {% <p>The sub-field whose validity changed</p> %}
     }
     {- valid: [bool Js.t] {% <p>The new validity state</p> %}
-    }
-    }
-    *)
-  method onLabelableAdded : Ext_form_Labelable.t Js.t -> unit Js.meth
-  (** {% <p>Called when a <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" class="docClass">Ext.form.Labelable</a> instance is added to the container's subtree.</p> %}
-    
-    {b Parameters}:
-    {ul {- labelable: [Ext_form_Labelable.t Js.t]
-    {% <p>The instance that was added</p> %}
-    }
-    }
-    *)
-  method onLabelableRemoved : Ext_form_Labelable.t Js.t -> unit Js.meth
-  (** {% <p>Called when a <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" class="docClass">Ext.form.Labelable</a> instance is removed from the container's subtree.</p> %}
-    
-    {b Parameters}:
-    {ul {- labelable: [Ext_form_Labelable.t Js.t]
-    {% <p>The instance that was removed</p> %}
     }
     }
     *)
@@ -101,31 +65,31 @@ documentation for <a href="#!/api/Ext.form.Labelable" rel="Ext.form.Labelable" c
 
 <p>Example:</p>
 
-<pre><code>new <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>({
-    fieldDefaults: {
+<pre><code>new <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>(\{
+    fieldDefaults: \{
         labelAlign: 'left',
         labelWidth: 100
-    },
-    items: [{
+    \},
+    items: [\{
         xtype: 'fieldset',
-        defaults: {
+        defaults: \{
             labelAlign: 'top'
-        },
-        items: [{
+        \},
+        items: [\{
             name: 'field1'
-        }, {
+        \}, \{
             name: 'field2'
-        }]
-    }, {
+        \}]
+    \}, \{
         xtype: 'fieldset',
-        items: [{
+        items: [\{
             name: 'field3',
             labelWidth: 150
-        }, {
+        \}, \{
             name: 'field4'
-        }]
-    }]
-});
+        \}]
+    \}]
+\});
 </code></pre>
 
 <p>In this example, field1 and field2 will get labelAlign:'top' (from the fieldset's defaults) and labelWidth:100

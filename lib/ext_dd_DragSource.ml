@@ -1,8 +1,5 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_dd_DragDrop.t
-  inherit Ext_dd_DD.t
   inherit Ext_dd_DDProxy.t
   
   method afterDragDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t ->
@@ -19,7 +16,6 @@ object('self)
     -> unit Js.meth
   method alignElWithMouse : Dom_html.element Js.t -> Js.number Js.t ->
     Js.number Js.t -> unit Js.meth
-  method autoOffset : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method beforeDragDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t ->
     Js.js_string Js.t -> bool Js.t Js.meth
   method beforeDragEnter : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t ->
@@ -30,26 +26,16 @@ object('self)
     Js.js_string Js.t -> bool Js.t Js.meth
   method beforeInvalidDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t
     -> Js.js_string Js.t -> bool Js.t Js.meth
-  method endDrag : Dom_html.event Js.t -> unit Js.meth
   method getDragData : _ Js.t -> _ Js.t Js.meth
   method getProxy : Ext_dd_StatusProxy.t Js.t Js.meth
   method hideProxy : unit Js.meth
   method onBeforeDrag : _ Js.t -> Dom_html.event Js.t -> bool Js.t Js.meth
-  method onDragDrop : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  method onDragEnter : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  method onDragOut : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  method onDragOver : Dom_html.event Js.t -> _ Js.t -> unit Js.meth
-  method onInvalidDrop : Dom_html.event Js.t -> unit Js.meth
   method onStartDrag : Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  method startDrag : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_dd_DragDrop.configs
-  inherit Ext_dd_DD.configs
   inherit Ext_dd_DDProxy.configs
   
   method beforeDragDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
@@ -81,9 +67,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_dd_DragDrop.events
-  inherit Ext_dd_DD.events
   inherit Ext_dd_DDProxy.events
   
   
@@ -91,9 +74,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_dd_DragDrop.statics
-  inherit Ext_dd_DD.statics
   inherit Ext_dd_DDProxy.statics
   
   

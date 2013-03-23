@@ -11,21 +11,9 @@ See <a href="#!/api/Ext.slider.Multi" rel="Ext.slider.Multi" class="docClass">Ex
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method active : bool Js.t Js.readonly_prop
-  (** {% <p>Indicates whether the user is currently dragging this tracker.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method dragTarget : Dom_html.element Js.t Js.readonly_prop
-  (** {% <p>The element being dragged.</p>
-
-<p>Only valid during drag operations.</p>
-
-<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> %}
-    *)
   method getDragTarget : Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Returns the drag target. This is usually the DragTracker's encapsulating element.</p>
 
@@ -38,7 +26,8 @@ object('self)
     }
     }
     *)
-  method getOffset : _ Js.t -> Js.number Js.t Js.js_array Js.t Js.meth
+  method getOffset : Js.js_string Js.t Js.optdef ->
+    Js.number Js.t Js.js_array Js.t Js.meth
   (** {% <p>Returns the X, Y offset of the current mouse position from the mousedown point.</p>
 
 <p>This method may optionally constrain the real offset values, and returns a point coerced in one
@@ -54,8 +43,8 @@ mouse position is then adjusted by the same delta as was used to coerce the regi
 </ul> %}
     
     {b Parameters}:
-    {ul {- constrainMode: [_ Js.t]
-    {% <p>{String} (Optional) If omitted the true mouse position is returned. May be passed
+    {ul {- constrainMode: [Js.js_string Js.t] (optional)
+    {% <p>If omitted the true mouse position is returned. May be passed
 as <code>point</code> or <code>dragTarget</code>. See above.</p> %}
     }
     }
@@ -109,13 +98,25 @@ holds the mouse button down. Return false to disallow the drag</p> %}
     }
     }
     *)
+  method active : bool Js.t Js.readonly_prop
+  (** {% <p>Indicates whether the user is currently dragging this tracker.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method dragTarget : Dom_html.element Js.t Js.readonly_prop
+  (** {% <p>The element being dragged.</p>
+
+<p>Only valid during drag operations.</p>
+
+<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method onBeforeStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
@@ -183,8 +184,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method beforestart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -200,7 +201,7 @@ object
 drag operation begins after either the mouse has been moved by <a href="#!/api/Ext.dd.DragTracker-cfg-tolerance" rel="Ext.dd.DragTracker-cfg-tolerance" class="docClass">tolerance</a> pixels,
 or after the <a href="#!/api/Ext.dd.DragTracker-cfg-autoStart" rel="Ext.dd.DragTracker-cfg-autoStart" class="docClass">autoStart</a> timer fires.</p>
 
-<p>Return false to veto the drag operation.</p> %}
+<p>Return <code>false</code> to veto the drag operation.</p> %}
     
     {b Parameters}:
     {ul {- this: [_ Js.t]

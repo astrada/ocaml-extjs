@@ -2,8 +2,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method alignTo : _ Js.t -> Js.js_string Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.optdef -> _ Js.t Js.meth
   method center : _ Js.t Js.meth
   method doConstrain : _ Js.t Js.optdef -> unit Js.meth
   method setActive : bool Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
@@ -16,9 +14,11 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method constrain : bool Js.t Js.prop
+  method fixed : bool Js.t Js.prop
   method focusOnToFront : bool Js.t Js.prop
   method shadow : _ Js.t Js.prop
-  method shadowOffset : _ Js.t Js.prop
+  method shadowOffset : Js.number Js.t Js.prop
   
 end
 

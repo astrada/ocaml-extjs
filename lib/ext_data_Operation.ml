@@ -2,8 +2,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method actionCommitRecordsRe : Regexp.regexp Js.t Js.prop
-  method actionSkipSyncRe : Regexp.regexp Js.t Js.prop
   method allowWrite : bool Js.t Js.meth
   method commitRecords : Ext_data_Model.t Js.js_array Js.t -> unit Js.meth
   method getError : _ Js.t Js.meth
@@ -18,6 +16,8 @@ object('self)
   method setStarted : unit Js.meth
   method setSuccessful : unit Js.meth
   method wasSuccessful : bool Js.t Js.meth
+  method actionCommitRecordsRe : Regexp.regexp Js.t Js.prop
+  method actionSkipSyncRe : Regexp.regexp Js.t Js.prop
   
 end
 

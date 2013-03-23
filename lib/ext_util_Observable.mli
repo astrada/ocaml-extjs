@@ -5,12 +5,12 @@
 
 <p>For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Employee', {
-    mixins: {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Employee', \{
+    mixins: \{
         observable: '<a href="#!/api/Ext.util.Observable" rel="Ext.util.Observable" class="docClass">Ext.util.Observable</a>'
-    },
+    \},
 
-    constructor: function (config) {
+    constructor: function (config) \{
         // The Observable constructor copies all of the properties of `config` on
         // to `this` using <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a>. Further, the `listeners` property is
         // processed to add listeners.
@@ -21,21 +21,21 @@
             'fired',
             'quit'
         );
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>This could then be used like this:</p>
 
-<pre><code>var newEmployee = new Employee({
+<pre><code>var newEmployee = new Employee(\{
     name: employeeName,
-    listeners: {
-        quit: function() {
+    listeners: \{
+        quit: function() \{
             // By default, "this" will be the object that fired the event.
             alert(this.name + " has quit!");
-        }
-    }
-});
+        \}
+    \}
+\});
 </code></pre> %}
   *)
 
@@ -43,28 +43,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method hasListeners : _ Js.t Js.readonly_prop
-  (** {% <p>This object holds a key for any event that has a listener. The listener may be set
-directly on the instance, or on its class or a super class (via <a href="#!/api/Ext.util.Observable-static-method-observe" rel="Ext.util.Observable-static-method-observe" class="docClass">observe</a>) or
-on the <a href="#!/api/Ext.app.EventBus" rel="Ext.app.EventBus" class="docClass">MVC EventBus</a>. The values of this object are truthy
-(a non-zero number) and falsy (0 or undefined). They do not represent an exact count
-of listeners. The value for an event is truthy if the event must be fired and is
-falsy if there is no need to fire the event.</p>
-
-<p>The intended use of this property is to avoid the expense of fireEvent calls when
-there are no listeners. This can be particularly helpful when one would otherwise
-have to call fireEvent hundreds or thousands of times. It is used like this:</p>
-
-<pre><code> if (this.hasListeners.foo) {
-     this.fireEvent('foo', this, arg1);
- }
-</code></pre> %}
-    *)
-  method isObservable : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Observable, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method addEvents : _ Js.t -> unit Js.meth
   (** {% <p>Adds the specified events to the list of events which this Observable may fire.</p> %}
     
@@ -73,10 +51,10 @@ have to call fireEvent hundreds or thousands of times. It is used like this:</p>
     {% <p>Either an object with event names as properties with
 a value of <code>true</code>. For example:</p>
 
-<pre><code>this.addEvents({
+<pre><code>this.addEvents(\{
     storeloaded: true,
     storecleared: true
-});
+\});
 </code></pre>
 
 <p>Or any number of event names as separate parameters. For example:</p>
@@ -87,7 +65,7 @@ a value of <code>true</code>. For example:</p>
     }
     *)
   method addListener : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
-    -> _ Js.t Js.optdef -> unit Js.meth
+    -> _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Appends an event handler to this object.  For example:</p>
 
 <pre><code>myGridPanel.on("mouseover", this.onMouseOver, this);
@@ -96,29 +74,29 @@ a value of <code>true</code>. For example:</p>
 <p>The method also allows for a single argument to be passed which is a config object
 containing properties which specify multiple events. For example:</p>
 
-<pre><code>myGridPanel.on({
+<pre><code>myGridPanel.on(\{
     cellClick: this.onCellClick,
     mouseover: this.onMouseOver,
     mouseout: this.onMouseOut,
     scope: this // Important. Ensure "this" is correct during handler execution
-});
+\});
 </code></pre>
 
 <p>One can also specify options for each event handler separately:</p>
 
-<pre><code>myGridPanel.on({
-    cellClick: {fn: this.onCellClick, scope: this, single: true},
-    mouseover: {fn: panel.onMouseOver, scope: panel}
-});
+<pre><code>myGridPanel.on(\{
+    cellClick: \{fn: this.onCellClick, scope: this, single: true\},
+    mouseover: \{fn: panel.onMouseOver, scope: panel\}
+\});
 </code></pre>
 
 <p><em>Names</em> of methods in a specified scope may also be used. Note that
 <code>scope</code> MUST be specified to use this option:</p>
 
-<pre><code>myGridPanel.on({
-    cellClick: {fn: 'onCellClick', scope: this, single: true},
-    mouseover: {fn: 'onMouseOver', scope: panel}
-});
+<pre><code>myGridPanel.on(\{
+    cellClick: \{fn: 'onCellClick', scope: this, single: true\},
+    mouseover: \{fn: 'onMouseOver', scope: panel\}
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -150,9 +128,53 @@ argument to every event handler.</p>
 <p>This object may contain any of the following properties:</p> %}
     }
     }
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p><strong>Only when the <code>destroyable</code> option is specified. </strong></p>
+
+
+
+
+<p> A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which removes all listeners added in this call. For example:</p>
+
+
+
+
+<pre><code>this.btnListeners =  = myButton.on(\{
+    destroyable: true
+    mouseover:   function() \{ console.log('mouseover'); \},
+    mouseout:    function() \{ console.log('mouseout'); \},
+    click:       function() \{ console.log('click'); \}
+\});
+</code></pre>
+
+
+
+
+<p>And when those listeners need to be removed:</p>
+
+
+
+
+<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.btnListeners);
+</code></pre>
+
+
+
+
+<p>or</p>
+
+
+
+
+<pre><code>this.btnListeners.destroy();
+</code></pre> %}
+    }
+    }
     *)
   method addManagedListener : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Adds listeners to any Observable object (or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>) which are automatically removed when this Component is
 destroyed.</p> %}
     
@@ -170,9 +192,53 @@ destroyed.</p> %}
     {% <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> %}
     }
-    {- opt: [_ Js.t] (optional)
+    {- options: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> options.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p><strong>Only when the <code>destroyable</code> option is specified. </strong></p>
+
+
+
+
+<p> A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which removes all listeners added in this call. For example:</p>
+
+
+
+
+<pre><code>this.btnListeners =  = myButton.mon(\{
+    destroyable: true
+    mouseover:   function() \{ console.log('mouseover'); \},
+    mouseout:    function() \{ console.log('mouseout'); \},
+    click:       function() \{ console.log('click'); \}
+\});
+</code></pre>
+
+
+
+
+<p>And when those listeners need to be removed:</p>
+
+
+
+
+<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.btnListeners);
+</code></pre>
+
+
+
+
+<p>or</p>
+
+
+
+
+<pre><code>this.btnListeners.destroy();
+</code></pre> %}
     }
     }
     *)
@@ -193,33 +259,28 @@ required target more quickly.</p>
 
 <p>Example:</p>
 
-<pre><code><a href="#!/api/Ext-method-override" rel="Ext-method-override" class="docClass">Ext.override</a>(<a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a>, {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.overrides.form.field.Base', \{
+    override: '<a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a>',
+
     //  Add functionality to Field's initComponent to enable the change event to bubble
-    initComponent : <a href="#!/api/Ext.Function-method-createSequence" rel="Ext.Function-method-createSequence" class="docClass">Ext.Function.createSequence</a>(Ext.form.field.Base.prototype.initComponent, function() {
+    initComponent: function () \{
+        this.callParent();
         this.enableBubble('change');
-    }),
+    \}
+\});
 
-    //  We know that we want Field's events to bubble directly to the FormPanel.
-    getBubbleTarget : function() {
-        if (!this.formPanel) {
-            this.formPanel = this.findParentByType('form');
-        }
-        return this.formPanel;
-    }
-});
-
-var myForm = new Ext.formPanel({
+var myForm = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', \{
     title: 'User Details',
-    items: [{
+    items: [\{
         ...
-    }],
-    listeners: {
-        change: function() {
+    \}],
+    listeners: \{
+        change: function() \{
             // Title goes red if form has been modified.
             myForm.header.setStyle('color', 'red');
-        }
-    }
-});
+        \}
+    \}
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -250,6 +311,28 @@ calling <a href="#!/api/Ext.util.Observable-method-enableBubble" rel="Ext.util.O
     }
     }
     *)
+  method fireEventArgs : Js.js_string Js.t -> _ Js.t Js.js_array Js.t ->
+    bool Js.t Js.meth
+  (** {% <p>Fires the specified event with the passed parameter list.</p>
+
+<p>An event may be set to bubble up an Observable parent hierarchy (See <a href="#!/api/Ext.Component-method-getBubbleTarget" rel="Ext.Component-method-getBubbleTarget" class="docClass">Ext.Component.getBubbleTarget</a>) by
+calling <a href="#!/api/Ext.util.Observable-method-enableBubble" rel="Ext.util.Observable-method-enableBubble" class="docClass">enableBubble</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- eventName: [Js.js_string Js.t]
+    {% <p>The name of the event to fire.</p> %}
+    }
+    {- args: [_ Js.t Js.js_array Js.t]
+    {% <p>An array of parameters which are passed to handlers.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [bool Js.t]
+    {% <p>returns false if any of the handlers return false otherwise it returns true.</p> %}
+    }
+    }
+    *)
   method hasListener : Js.js_string Js.t -> bool Js.t Js.meth
   (** {% <p>Checks to see if this object has any listeners for a specified event, or whether the event bubbles. The answer
 indicates whether the event needs firing or not.</p> %}
@@ -267,7 +350,7 @@ indicates whether the event needs firing or not.</p> %}
     }
     *)
   method mon : _ Js.t -> _ Js.t -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> _ Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.util.Observable-method-addManagedListener" rel="Ext.util.Observable-method-addManagedListener" class="docClass">addManagedListener</a>.</p>
 
 <p>Adds listeners to any Observable object (or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>) which are automatically removed when this Component is
@@ -287,9 +370,53 @@ destroyed.</p> %}
     {% <p>If the <code>ename</code> parameter was an event name, this is the scope (<code>this</code> reference)
 in which the handler function is executed.</p> %}
     }
-    {- opt: [_ Js.t] (optional)
+    {- options: [_ Js.t] (optional)
     {% <p>If the <code>ename</code> parameter was an event name, this is the
 <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> options.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p><strong>Only when the <code>destroyable</code> option is specified. </strong></p>
+
+
+
+
+<p> A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which removes all listeners added in this call. For example:</p>
+
+
+
+
+<pre><code>this.btnListeners =  = myButton.mon(\{
+    destroyable: true
+    mouseover:   function() \{ console.log('mouseover'); \},
+    mouseout:    function() \{ console.log('mouseout'); \},
+    click:       function() \{ console.log('click'); \}
+\});
+</code></pre>
+
+
+
+
+<p>And when those listeners need to be removed:</p>
+
+
+
+
+<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.btnListeners);
+</code></pre>
+
+
+
+
+<p>or</p>
+
+
+
+
+<pre><code>this.btnListeners.destroy();
+</code></pre> %}
     }
     }
     *)
@@ -316,7 +443,7 @@ in which the handler function is executed.</p> %}
     }
     *)
   method on : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
-    _ Js.t Js.optdef -> unit Js.meth
+    _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Shorthand for <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a>.</p>
 
 <p>Appends an event handler to this object.  For example:</p>
@@ -327,29 +454,29 @@ in which the handler function is executed.</p> %}
 <p>The method also allows for a single argument to be passed which is a config object
 containing properties which specify multiple events. For example:</p>
 
-<pre><code>myGridPanel.on({
+<pre><code>myGridPanel.on(\{
     cellClick: this.onCellClick,
     mouseover: this.onMouseOver,
     mouseout: this.onMouseOut,
     scope: this // Important. Ensure "this" is correct during handler execution
-});
+\});
 </code></pre>
 
 <p>One can also specify options for each event handler separately:</p>
 
-<pre><code>myGridPanel.on({
-    cellClick: {fn: this.onCellClick, scope: this, single: true},
-    mouseover: {fn: panel.onMouseOver, scope: panel}
-});
+<pre><code>myGridPanel.on(\{
+    cellClick: \{fn: this.onCellClick, scope: this, single: true\},
+    mouseover: \{fn: panel.onMouseOver, scope: panel\}
+\});
 </code></pre>
 
 <p><em>Names</em> of methods in a specified scope may also be used. Note that
 <code>scope</code> MUST be specified to use this option:</p>
 
-<pre><code>myGridPanel.on({
-    cellClick: {fn: 'onCellClick', scope: this, single: true},
-    mouseover: {fn: 'onMouseOver', scope: panel}
-});
+<pre><code>myGridPanel.on(\{
+    cellClick: \{fn: 'onCellClick', scope: this, single: true\},
+    mouseover: \{fn: 'onMouseOver', scope: panel\}
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -381,9 +508,53 @@ argument to every event handler.</p>
 <p>This object may contain any of the following properties:</p> %}
     }
     }
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p><strong>Only when the <code>destroyable</code> option is specified. </strong></p>
+
+
+
+
+<p> A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which removes all listeners added in this call. For example:</p>
+
+
+
+
+<pre><code>this.btnListeners =  = myButton.on(\{
+    destroyable: true
+    mouseover:   function() \{ console.log('mouseover'); \},
+    mouseout:    function() \{ console.log('mouseout'); \},
+    click:       function() \{ console.log('click'); \}
+\});
+</code></pre>
+
+
+
+
+<p>And when those listeners need to be removed:</p>
+
+
+
+
+<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.btnListeners);
+</code></pre>
+
+
+
+
+<p>or</p>
+
+
+
+
+<pre><code>this.btnListeners.destroy();
+</code></pre> %}
+    }
+    }
     *)
   method relayEvents : _ Js.t -> Js.js_string Js.t Js.js_array Js.t ->
-    Js.js_string Js.t Js.optdef -> unit Js.meth
+    Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Relays selected events from the specified Observable as if the events were fired by <code>this</code>.</p>
 
 <p>For example if you are extending Grid, you might decide to forward some events from store.
@@ -410,6 +581,25 @@ would have access to the grid using the <code>this</code> keyword.</p> %}
 </code></pre>
 
 <p>Now the grid will forward 'load' and 'clear' events of store as 'storeload' and 'storeclear'.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p>A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which, when destroyed, removes all relayers. For example:</p>
+
+<pre><code>this.storeRelayers = this.relayEvents(this.getStore(), ['load', 'clear'], 'store');
+</code></pre>
+
+<p>Can be undone by calling</p>
+
+<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.storeRelayers);
+</code></pre>
+
+<p>or</p>
+
+<pre><code>this.store.relayers.destroy();
+</code></pre> %}
     }
     }
     *)
@@ -451,11 +641,39 @@ in which the handler function is executed.</p> %}
     }
     }
     *)
+  method resumeEvent : Js.js_string Js.t -> unit Js.meth
+  (** {% <p>Resumes firing of the named event(s).</p>
+
+<p>After calling this method to resume events, the events will fire when requested to fire.</p>
+
+<p><strong>Note that if the <a href="#!/api/Ext.util.Observable-method-suspendEvent" rel="Ext.util.Observable-method-suspendEvent" class="docClass">suspendEvent</a> method is called multiple times for a certain event,
+this converse method will have to be called the same number of times for it to resume firing.</strong></p> %}
+    
+    {b Parameters}:
+    {ul {- eventName: [Js.js_string Js.t]
+    {% <p>Multiple event names to resume.</p> %}
+    }
+    }
+    *)
   method resumeEvents : unit Js.meth
   (** {% <p>Resumes firing events (see <a href="#!/api/Ext.util.Observable-method-suspendEvents" rel="Ext.util.Observable-method-suspendEvents" class="docClass">suspendEvents</a>).</p>
 
 <p>If events were suspended using the <code>queueSuspended</code> parameter, then all events fired
 during event suspension will be sent to any listeners now.</p> %}
+    *)
+  method suspendEvent : Js.js_string Js.t -> unit Js.meth
+  (** {% <p>Suspends firing of the named event(s).</p>
+
+<p>After calling this method to suspend events, the events will no longer fire when requested to fire.</p>
+
+<p><strong>Note that if this is called multiple times for a certain event, the converse method
+<a href="#!/api/Ext.util.Observable-method-resumeEvent" rel="Ext.util.Observable-method-resumeEvent" class="docClass">resumeEvent</a> will have to be called the same number of times for it to resume firing.</strong></p> %}
+    
+    {b Parameters}:
+    {ul {- eventName: [Js.js_string Js.t]
+    {% <p>Multiple event names to suspend.</p> %}
+    }
+    }
     *)
   method suspendEvents : bool Js.t -> unit Js.meth
   (** {% <p>Suspends the firing of all events. (see <a href="#!/api/Ext.util.Observable-method-resumeEvents" rel="Ext.util.Observable-method-resumeEvents" class="docClass">resumeEvents</a>)</p> %}
@@ -487,6 +705,28 @@ scope argument specified in the original call to <a href="#!/api/Ext.util.Observ
     }
     }
     *)
+  method hasListeners : _ Js.t Js.readonly_prop
+  (** {% <p>This object holds a key for any event that has a listener. The listener may be set
+directly on the instance, or on its class or a super class (via <a href="#!/api/Ext.util.Observable-static-method-observe" rel="Ext.util.Observable-static-method-observe" class="docClass">observe</a>) or
+on the <a href="#!/api/Ext.app.EventBus" rel="Ext.app.EventBus" class="docClass">MVC EventBus</a>. The values of this object are truthy
+(a non-zero number) and falsy (0 or undefined). They do not represent an exact count
+of listeners. The value for an event is truthy if the event must be fired and is
+falsy if there is no need to fire the event.</p>
+
+<p>The intended use of this property is to avoid the expense of fireEvent calls when
+there are no listeners. This can be particularly helpful when one would otherwise
+have to call fireEvent hundreds or thousands of times. It is used like this:</p>
+
+<pre><code> if (this.hasListeners.foo) \{
+     this.fireEvent('foo', this, arg1);
+ \}
+</code></pre> %}
+    *)
+  method isObservable : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Observable, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
@@ -506,23 +746,23 @@ only done when extra value can be added. For example the <a href="#!/api/Ext.vie
 child element of a Component, we need to specify the <code>element</code> option to identify the Component property to add a
 DOM listener to:</p>
 
-<pre><code>new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>({
+<pre><code>new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>(\{
     width: 400,
     height: 200,
-    dockedItems: [{
+    dockedItems: [\{
         xtype: 'toolbar'
-    }],
-    listeners: {
-        click: {
+    \}],
+    listeners: \{
+        click: \{
             element: 'el', //bind to the underlying el property on the panel
-            fn: function(){ console.log('click el'); }
-        },
-        dblclick: {
+            fn: function()\{ console.log('click el'); \}
+        \},
+        dblclick: \{
             element: 'body', //bind to the underlying body property on the panel
-            fn: function(){ console.log('dblclick body'); }
-        }
-    }
-});
+            fn: function()\{ console.log('dblclick body'); \}
+        \}
+    \}
+\});
 </code></pre> %}
     *)
   
@@ -567,9 +807,9 @@ the <strong>class</strong> allowing for central handling of events on many insta
 <p>Usage:</p>
 
 <pre><code><a href="#!/api/Ext.util.Observable-static-method-observe" rel="Ext.util.Observable-static-method-observe" class="docClass">Ext.util.Observable.observe</a>(<a href="#!/api/Ext.data.Connection" rel="Ext.data.Connection" class="docClass">Ext.data.Connection</a>);
-<a href="#!/api/Ext.data.Connection-method-on" rel="Ext.data.Connection-method-on" class="docClass">Ext.data.Connection.on</a>('beforerequest', function(con, options) {
+<a href="#!/api/Ext.data.Connection-method-on" rel="Ext.data.Connection-method-on" class="docClass">Ext.data.Connection.on</a>('beforerequest', function(con, options) \{
     console.log('Ajax request made to ' + options.url);
-});
+\});
 </code></pre> %}
     
     {b Parameters}:

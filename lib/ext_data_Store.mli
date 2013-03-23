@@ -4,31 +4,31 @@
 <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">Proxy</a>, and also provide functions for <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sorting</a>, <a href="#!/api/Ext.data.Store-method-filter" rel="Ext.data.Store-method-filter" class="docClass">filtering</a>
 and querying the <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">model</a> instances contained within it.</p>
 
-<p>Creating a Store is easy - we just tell it the Model and the Proxy to use to load and save its data:</p>
+<p>Creating a Store is easy - we just tell it the Model and the Proxy to use for loading and saving its data:</p>
 
 <pre><code> // Set up a <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">model</a> to use in our Store
- <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
      extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
      fields: [
-         {name: 'firstName', type: 'string'},
-         {name: 'lastName',  type: 'string'},
-         {name: 'age',       type: 'int'},
-         {name: 'eyeColor',  type: 'string'}
+         \{name: 'firstName', type: 'string'\},
+         \{name: 'lastName',  type: 'string'\},
+         \{name: 'age',       type: 'int'\},
+         \{name: 'eyeColor',  type: 'string'\}
      ]
- });
+ \});
 
- var myStore = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+ var myStore = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
      model: 'User',
-     proxy: {
+     proxy: \{
          type: 'ajax',
          url: '/users.json',
-         reader: {
+         reader: \{
              type: 'json',
              root: 'users'
-         }
-     },
+         \}
+     \},
      autoLoad: true
- });
+ \});
 </code></pre>
 
 <p>In the example above we configured an AJAX proxy to load data from the url '/users.json'. We told our Proxy to use a
@@ -39,15 +39,15 @@ and querying the <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="doc
 <p>Stores can also load data inline. Internally, Store converts each of the objects we pass in as <a href="#!/api/Ext.data.Store-cfg-data" rel="Ext.data.Store-cfg-data" class="docClass">data</a> into
 Model instances:</p>
 
-<pre><code> <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code> <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
      model: 'User',
      data : [
-         {firstName: 'Ed',    lastName: 'Spencer'},
-         {firstName: 'Tommy', lastName: 'Maintz'},
-         {firstName: 'Aaron', lastName: 'Conran'},
-         {firstName: 'Jamie', lastName: 'Avins'}
+         \{firstName: 'Ed',    lastName: 'Spencer'\},
+         \{firstName: 'Tommy', lastName: 'Maintz'\},
+         \{firstName: 'Aaron', lastName: 'Conran'\},
+         \{firstName: 'Jamie', lastName: 'Avins'\}
      ]
- });
+ \});
 </code></pre>
 
 <p>Loading inline data using the method above is great if the data is in the correct format already (e.g. it doesn't
@@ -60,16 +60,16 @@ the data structure, use a <a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.p
 
 <p>Stores can be dynamically updated by calling the <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a> method:</p>
 
-<pre><code>store.load({
-    params: {
+<pre><code>store.load(\{
+    params: \{
         group: 3,
         type: 'user'
-    },
-    callback: function(records, operation, success) {
+    \},
+    callback: function(records, operation, success) \{
         // do something after the load finishes
-    },
+    \},
     scope: this
-});
+\});
 </code></pre>
 
 <p>Here a bunch of arbitrary parameters is passed along with the load request and a callback function is set
@@ -82,63 +82,63 @@ Instead of issuing an AJAX request for the User and a series of additional AJAX 
 a nested dataset and allow the Reader to automatically populate the associated models. Below is a brief example, see
 the <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> intro docs for a full explanation:</p>
 
-<pre><code> var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code> var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
      autoLoad: true,
      model: "User",
-     proxy: {
+     proxy: \{
          type: 'ajax',
          url: 'users.json',
-         reader: {
+         reader: \{
              type: 'json',
              root: 'users'
-         }
-     }
- });
+         \}
+     \}
+ \});
 </code></pre>
 
 <p>Which would consume a response like this:</p>
 
-<pre><code> {
-     "users": [{
+<pre><code> \{
+     "users": [\{
          "id": 1,
          "name": "Ed",
-         "orders": [{
+         "orders": [\{
              "id": 10,
              "total": 10.76,
              "status": "invoiced"
-        },{
+        \},\{
              "id": 11,
              "total": 13.45,
              "status": "shipped"
-        }]
-     }]
- }
+        \}]
+     \}]
+ \}
 </code></pre>
 
 <p>See the <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> intro docs for a full explanation.</p>
 
 <h2>Filtering and Sorting</h2>
 
-<p>Stores can be sorted and filtered - in both cases either remotely or locally. The <a href="#!/api/Ext.data.Store-property-sorters" rel="Ext.data.Store-property-sorters" class="docClass">sorters</a> and
+<p>Stores can be sorted and filtered - in both cases either remotely or locally. The <a href="#!/api/Ext.data.Store-cfg-sorters" rel="Ext.data.Store-cfg-sorters" class="docClass">sorters</a> and
 <a href="#!/api/Ext.data.Store-cfg-filters" rel="Ext.data.Store-cfg-filters" class="docClass">filters</a> are held inside <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">MixedCollection</a> instances to make them easy to manage.
 Usually it is sufficient to either just specify sorters and filters in the Store configuration or call <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a>
 or <a href="#!/api/Ext.data.Store-method-filter" rel="Ext.data.Store-method-filter" class="docClass">filter</a>:</p>
 
-<pre><code> var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code> var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
      model: 'User',
-     sorters: [{
+     sorters: [\{
          property: 'age',
          direction: 'DESC'
-     }, {
+     \}, \{
          property: 'firstName',
          direction: 'ASC'
-     }],
+     \}],
 
-     filters: [{
+     filters: [\{
          property: 'firstName',
          value: /Ed/
-     }]
- });
+     \}]
+ \});
 </code></pre>
 
 <p>The new Store will keep the configured sorters and filters in the MixedCollection instances mentioned above. By
@@ -150,45 +150,45 @@ to the Store and automatically filters the dataset (calling <a href="#!/api/Ext.
 existing filters). Note that by default <a href="#!/api/Ext.data.Store-cfg-sortOnFilter" rel="Ext.data.Store-cfg-sortOnFilter" class="docClass">sortOnFilter</a> is set to true, which means that your sorters are
 automatically reapplied if using local sorting.</p>
 
-<pre><code> store.filter('eyeColor', 'Brown');
+<pre><code>store.filter('eyeColor', 'Brown');
 </code></pre>
 
 <p>Change the sorting at any time by calling <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a>:</p>
 
-<pre><code> store.sort('height', 'ASC');
+<pre><code>store.sort('height', 'ASC');
 </code></pre>
 
 <p>Note that all existing sorters will be removed in favor of the new sorter data (if <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a> is called with no
 arguments, the existing sorters are just reapplied instead of being removed). To keep existing sorters and add new
 ones, just add them to the MixedCollection:</p>
 
-<pre><code> store.sorters.add(new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>({
-     property : 'shoeSize',
-     direction: 'ASC'
- }));
+<pre><code>store.sorters.add(new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>(\{
+    property : 'shoeSize',
+    direction: 'ASC'
+\}));
 
- store.sort();
+store.sort();
 </code></pre>
 
 <h2>Registering with StoreManager</h2>
 
-<p>Any Store that is instantiated with a <a href="#!/api/Ext.data.Store-cfg-storeId" rel="Ext.data.Store-cfg-storeId" class="docClass">storeId</a> will automatically be registed with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">StoreManager</a>. This makes it easy to reuse the same store in multiple views:</p>
+<p>Any Store that is instantiated with a <a href="#!/api/Ext.data.Store-cfg-storeId" rel="Ext.data.Store-cfg-storeId" class="docClass">storeId</a> will automatically be registered with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">StoreManager</a>. This makes it easy to reuse the same store in multiple views:</p>
 
-<pre><code> //this store can be used several times
- <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
-     model: 'User',
-     storeId: 'usersStore'
- });
+<pre><code>//this store can be used several times
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
+    model: 'User',
+    storeId: 'usersStore'
+\});
 
- new Ext.List({
-     store: 'usersStore',
-     //other config goes here
- });
+new Ext.List(\{
+    store: 'usersStore',
+    //other config goes here
+\});
 
- new <a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">Ext.view.View</a>({
-     store: 'usersStore',
-     //other config goes here
- });
+new <a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">Ext.view.View</a>(\{
+    store: 'usersStore',
+    //other config goes here
+\});
 </code></pre>
 
 <h2>Further Reading</h2>
@@ -205,24 +205,8 @@ pieces and how they fit together, see:</p>
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_data_AbstractStore.t
   
-  method currentPage : Js.number Js.t Js.prop
-  (** {% <p>The page that the Store has most recently loaded (see <a href="#!/api/Ext.data.Store-method-loadPage" rel="Ext.data.Store-method-loadPage" class="docClass">loadPage</a>)</p> %}
-    
-    Defaults to: [1]
-    *)
-  method data : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>The MixedCollection that holds this store's local cache of records.</p> %}
-    *)
-  method groupers : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>The collection of <a href="#!/api/Ext.util.Grouper" rel="Ext.util.Grouper" class="docClass">Groupers</a> currently applied to this Store.</p> %}
-    *)
-  method snapshot : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>A pristine (unfiltered) collection of the records in this store. This is used to reinstate
-records when a filter is removed or changed</p> %}
-    *)
   method add : _ Js.t -> Ext_data_Model.t Js.js_array Js.t Js.meth
   (** {% <p>Adds Model instance to the Store. This method accepts either:</p>
 
@@ -236,7 +220,7 @@ records when a filter is removed or changed</p> %}
 
 <p>Sample usage:</p>
 
-<pre><code>myStore.add({some: 'data'}, {some: 'other data'});
+<pre><code>myStore.add(\{some: 'data'\}, \{some: 'other data'\});
 </code></pre>
 
 <p>Note that if this Store is sorted, the new Model instances will be inserted
@@ -252,6 +236,20 @@ or Model configuration objects, or variable number of Model instance or config a
     {b Returns}:
     {ul {- [Ext_data_Model.t Js.js_array Js.t]
     {% <p>The model instances that were added</p> %}
+    }
+    }
+    *)
+  method addFilter : _ Js.t -> bool Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Adds a new Filter to this Store's <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">filter set</a> and
+by default, applys the updated filter set to the Store's unfiltered dataset.</p> %}
+    
+    {b Parameters}:
+    {ul {- filters: [_ Js.t]
+    {% <p>The set of filters to add to the current <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">filter set</a>.</p> %}
+    }
+    {- applyFilters: [bool Js.t] (optional)
+    {% <p>Pass as <code>false</code> to add the filter but not apply the updated filter set.</p> %}
+     Defaults to: true
     }
     }
     *)
@@ -317,11 +315,11 @@ the store has a groupField.</p> %}
     }
     }
     *)
-  method clearFilter : bool Js.t -> unit Js.meth
+  method clearFilter : bool Js.t Js.optdef -> unit Js.meth
   (** {% <p>Reverts to a view of the Record cache with no filtering applied.</p> %}
     
     {b Parameters}:
-    {ul {- suppressEvent: [bool Js.t]
+    {ul {- suppressEvent: [bool Js.t] (optional)
     {% <p>If <code>true</code> the filter is cleared silently.</p>
 
 <p>For a locally filtered Store, this means that the filter collection is cleared without firing the
@@ -397,7 +395,8 @@ Defaults to the current <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" cla
     }
     }
     *)
-  method filter : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
+  method filter : _ Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit
+    Js.meth
   (** {% <p>Filters the loaded set of records by a given set of filters.</p>
 
 <p>By default, the passed filter(s) are <em>added</em> to the collection of filters being used to filter this Store.</p>
@@ -421,8 +420,8 @@ filters having the same <code>id</code>.</p>
 <p>Using multiple filters:</p>
 
 <pre><code>store.filter([
-    {property: "email", value: /\.com$/},
-    {filterFn: function(item) { return item.get("age") &gt; 10; }}
+    \{property: "email", value: /\.com$/\},
+    \{filterFn: function(item) \{ return item.get("age") &gt; 10; \}\}
 ]);
 </code></pre>
 
@@ -430,8 +429,8 @@ filters having the same <code>id</code>.</p>
 (note that we need to specify the <a href="#!/api/Ext.util.Filter-cfg-root" rel="Ext.util.Filter-cfg-root" class="docClass">root</a> config option in this case):</p>
 
 <pre><code>store.filter([
-    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Ext.util.Filter</a>', {property: "email", value: /\.com$/, root: 'data'}),
-    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Ext.util.Filter</a>', {filterFn: function(item) { return item.get("age") &gt; 10; }, root: 'data'})
+    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Ext.util.Filter</a>', \{property: "email", value: /\.com$/, root: 'data'\}),
+    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Ext.util.Filter</a>', \{filterFn: function(item) \{ return item.get("age") &gt; 10; \}, root: 'data'\})
 ]);
 </code></pre>
 
@@ -440,12 +439,14 @@ within the set of filtered records. Two notable exceptions are <a href="#!/api/E
 <a href="#!/api/Ext.data.Store-method-getById" rel="Ext.data.Store-method-getById" class="docClass">getById</a>.</p> %}
     
     {b Parameters}:
-    {ul {- filters: [_ Js.t]
+    {ul {- filters: [_ Js.t] (optional)
     {% <p>The set of filters to apply to the data.
 These are stored internally on the store, but the filtering itself is done on the Store's
 <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">MixedCollection</a>. See MixedCollection's
 <a href="#!/api/Ext.util.MixedCollection-method-filter" rel="Ext.util.MixedCollection-method-filter" class="docClass">filter</a> method for filter syntax.
-Alternatively, pass in a property string</p> %}
+Alternatively, pass in a property string.</p>
+
+<p>If no parameters are passed, the Store's existing filter set is applied.</p> %}
     }
     {- value: [Js.js_string Js.t] (optional)
     {% <p>value to filter by (only if using a property string as the first argument)</p> %}
@@ -673,12 +674,12 @@ the dataset size.  <strong>Note</strong>: see the Important note in <a href="#!/
 the model's <a href="#!/api/Ext.data.Store-cfg-groupField" rel="Ext.data.Store-cfg-groupField" class="docClass">groupField</a>, but this can be overridden to group by an arbitrary string. For example, to
 group by the first letter of a model's 'name' field, use the following code:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     groupDir: 'ASC',
-    getGroupString: function(instance) {
+    getGroupString: function(instance) \{
         return instance.get('name')[0];
-    }
-});
+    \}
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -698,25 +699,25 @@ group by the first letter of a model's 'name' field, use the following code:</p>
 See <a href="#!/api/Ext.data.Store-cfg-groupField" rel="Ext.data.Store-cfg-groupField" class="docClass">groupField</a>, <a href="#!/api/Ext.data.Store-cfg-groupDir" rel="Ext.data.Store-cfg-groupDir" class="docClass">groupDir</a> and <a href="#!/api/Ext.data.Store-method-getGroupString" rel="Ext.data.Store-method-getGroupString" class="docClass">getGroupString</a>. Example for a store
 containing records with a color field:</p>
 
-<pre><code>var myStore = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<pre><code>var myStore = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     groupField: 'color',
     groupDir  : 'DESC'
-});
+\});
 
 myStore.getGroups(); // returns:
 [
-    {
+    \{
         name: 'yellow',
         children: [
             // all records where the color field is 'yellow'
         ]
-    },
-    {
+    \},
+    \{
         name: 'red',
         children: [
             // all records where the color field is 'red'
         ]
-    }
+    \}
 ]
 </code></pre>
 
@@ -760,25 +761,33 @@ yet been saved on this Store (this happens when adding a non-phantom record from
     }
     }
     *)
-  method getRange : Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef ->
+  method getRange : Js.number Js.t -> Js.number Js.t -> _ Js.t Js.optdef ->
     Ext_data_Model.t Js.js_array Js.t Js.meth
-  (** {% <p>Returns a range of Records between specified indices.</p>
+  (** {% <p>Gathers a range of Records between specified indices.</p>
 
-<p>This method is effected by filtering.</p> %}
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the indices are relative to the entire dataset, not the local record cache.</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, then the requested data range <em>may</em> not be immediately available, and will
+be returned through a passed callback function.</p>
+
+<p>This method is affected by filtering.</p> %}
     
     {b Parameters}:
-    {ul {- startIndex: [Js.number Js.t] (optional)
-    {% <p>The starting index</p> %}
-     Defaults to: 0
+    {ul {- start: [Js.number Js.t]
+    {% <p>The starting index. Defaults to zero for non <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a> Stores.</p> %}
     }
-    {- endIndex: [Js.number Js.t] (optional)
-    {% <p>The ending index. Defaults to the last Record in the Store.</p> %}
+    {- _end: [Js.number Js.t]
+    {% <p>The ending index. Defaults to the last Record for non <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a> Stores.</p> %}
+    }
+    {- options: [_ Js.t] (optional)
+    {% <p>Used when the Store is \{\@link <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>] and the range may not be available synchronously.</p> %}
     }
     }
     
     {b Returns}:
     {ul {- [Ext_data_Model.t Js.js_array Js.t]
-    {% <p>An array of Records</p> %}
+    {% <p>An array of records <strong>if the records are immediately available</strong>. For <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>
+stores, you should pass the callback option <strong>unless you know that the range will be present</strong> - see <a href="#!/api/Ext.data.Store-method-rangeCached" rel="Ext.data.Store-method-rangeCached" class="docClass">rangeCached</a>.</p> %}
     }
     }
     *)
@@ -817,23 +826,6 @@ configured <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass"
     {- direction: [Js.js_string Js.t] (optional)
     {% <p>The overall direction to group the data by.</p> %}
      Defaults to: "ASC"
-    }
-    }
-    *)
-  method guaranteeRange : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
-    Js.meth
-  (** {% <p>Guarantee a specific range, this will load the store with a range (that
-must be the pageSize or smaller) and take care of any loading that may
-be necessary.</p> %}
-    
-    {b Parameters}:
-    {ul {- start: [_ Js.t]
-    }
-    {- _end: [_ Js.t]
-    }
-    {- cb: [_ Js.t]
-    }
-    {- scope: [_ Js.t]
     }
     }
     *)
@@ -888,8 +880,8 @@ be necessary.</p> %}
     }
     }
     *)
-  method insert : Js.number Js.t -> Ext_data_Model.t Js.js_array Js.t -> unit
-    Js.meth
+  method insert : Js.number Js.t -> Ext_data_Model.t Js.js_array Js.t ->
+    Ext_data_Model.t Js.js_array Js.t Js.meth
   (** {% <p>Inserts Model instances into the Store at the given index and fires the <a href="#!/api/Ext.data.Store-event-add" rel="Ext.data.Store-event-add" class="docClass">add</a> event.
 See also <a href="#!/api/Ext.data.Store-method-add" rel="Ext.data.Store-method-add" class="docClass">add</a>.</p> %}
     
@@ -901,15 +893,22 @@ See also <a href="#!/api/Ext.data.Store-method-add" rel="Ext.data.Store-method-a
     {% <p>An Array of <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> objects to add to the store.</p> %}
     }
     }
+    
+    {b Returns}:
+    {ul {- [Ext_data_Model.t Js.js_array Js.t]
+    {% <p>records The added records</p> %}
+    }
+    }
     *)
   method isFiltered : bool Js.t Js.meth
-  (** {% <p>Returns true if this store is currently filtered</p> %}
+  (** {% <p>Returns <code>true</code> if this store is currently filtered</p> %}
     *)
   method isGrouped : bool Js.t Js.meth
   (** {% <p>Checks if the store is currently grouped</p> %}
     
     {b Returns}:
-    {ul {- [bool Js.t] {% <p>True if the store is grouped.</p> %}
+    {ul {- [bool Js.t]
+    {% <p><code>true</code> if the store is grouped.</p> %}
     }
     }
     *)
@@ -938,21 +937,21 @@ the store has a groupField.</p> %}
 asynchronous call to whatever storage backend the Proxy uses, automatically adding the retrieved
 instances into the Store and calling an optional callback if required. Example usage:</p>
 
-<pre><code>store.load({
+<pre><code>store.load(\{
     scope: this,
-    callback: function(records, operation, success) {
+    callback: function(records, operation, success) \{
         // the <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">operation</a> object
         // contains all of the details of the load operation
         console.log(records);
-    }
-});
+    \}
+\});
 </code></pre>
 
 <p>If the callback scope does not need to be set, a function can simply be passed:</p>
 
-<pre><code>store.load(function(records, operation, success) {
+<pre><code>store.load(function(records, operation, success) \{
     console.log('loaded records');
-});
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -968,7 +967,7 @@ to remove the Store's existing records first.</p> %}
 
 <p>Using this method is great if the data is in the correct format already (e.g. it doesn't need to be
 processed by a reader). If your data requires processing to decode the data structure, use a
-<a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">MemoryProxy</a> instead.</p> %}
+<a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">MemoryProxy</a> or <a href="#!/api/Ext.data.Store-method-loadRawData" rel="Ext.data.Store-method-loadRawData" class="docClass">loadRawData</a>.</p> %}
     
     {b Parameters}:
     {ul {- data: [_ Js.t]
@@ -976,22 +975,22 @@ processed by a reader). If your data requires processing to decode the data stru
 into model instances first.</p> %}
     }
     {- append: [bool Js.t] (optional)
-    {% <p>True to add the records to the existing records in the store, false
+    {% <p><code>true</code> to add the records to the existing records in the store, <code>false</code>
 to remove the old ones first.</p> %}
      Defaults to: false
     }
     }
     *)
-  method loadPage : Js.number Js.t -> _ Js.t -> unit Js.meth
+  method loadPage : Js.number Js.t -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just causes a normal
-load operation, passing in calculated 'start' and 'limit' params</p> %}
+load operation, passing in calculated 'start' and 'limit' params.</p> %}
     
     {b Parameters}:
     {ul {- page: [Js.number Js.t]
-    {% <p>The number of the page to load</p> %}
+    {% <p>The number of the page to load.</p> %}
     }
-    {- options: [_ Js.t]
-    {% <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a></p> %}
+    {- options: [_ Js.t] (optional)
+    {% <p>See options for <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a>.</p> %}
     }
     }
     *)
@@ -1006,7 +1005,7 @@ load operation, passing in calculated 'start' and 'limit' params</p> %}
     {% <p>The full JSON object you'd like to load into the Data store.</p> %}
     }
     {- append: [bool Js.t] (optional)
-    {% <p>True to add the records to the existing records in the store, false
+    {% <p><code>true</code> to add the records to the existing records in the store, <code>false</code>
 to remove the old ones first.</p> %}
      Defaults to: false
     }
@@ -1142,16 +1141,16 @@ to the queryBy method.</p>
     {% <p>The string/regex to compare the property value to</p> %}
     }
     {- anyMatch: [bool Js.t] (optional)
-    {% <p>True if we don't care if the filter value is not the full value.</p> %}
+    {% <p><code>true</code> if we don't care if the filter value is not the full value.</p> %}
      Defaults to: false
     }
     {- caseSensitive: [bool Js.t] (optional)
-    {% <p>True to create a case-sensitive regex.</p> %}
+    {% <p><code>true</code> to create a case-sensitive regex.</p> %}
      Defaults to: false
     }
     {- exactMatch: [bool Js.t] (optional)
-    {% <p>True to force exact match (^ and $ characters added to the regex).
-Ignored if anyMatch is true.</p> %}
+    {% <p><code>true</code> to force exact match (^ and $ characters added to the regex).
+Ignored if <code>anyMatch</code> is <code>true</code>.</p> %}
      Defaults to: false
     }
     }
@@ -1201,29 +1200,57 @@ and re-insert any records that were removed locally. Any phantom records will be
     }
     *)
   method remove : _ Js.t -> unit Js.meth
-  (** {% <p>Removes the given record from the Store, firing the 'remove' event for each instance that is removed,
+  (** {% <p>Removes the specified record(s) from the Store, firing the <a href="#!/api/Ext.data.Store-event-remove" rel="Ext.data.Store-event-remove" class="docClass">remove</a> event for each instance that is removed.</p>
+
+<p>A <a href="#!/api/Ext.data.Store-event-bulkremove" rel="Ext.data.Store-event-bulkremove" class="docClass">bulkremove</a> event is called at the end passing all removed records and their indices.
 plus a single 'datachanged' event after removal.</p> %}
     
     {b Parameters}:
     {ul {- records: [_ Js.t]
-    {% <p>Model instance or array of instances to remove.</p> %}
+    {% <p>Model instance or array of instances to remove or an array of indices from which to remove records.</p> %}
     }
     }
     *)
-  method removeAll_bool : bool Js.t -> unit Js.meth
-  (** {% <p>Removes all items from the store.</p> %}
+  method removeAll_bool : bool Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Removes all items from the store.</p>
+
+<p>Individual record <code><a href="#!/api/Ext.data.Store-event-remove" rel="Ext.data.Store-event-remove" class="docClass">remove</a></code> events are not fired by this method.</p> %}
     
     {b Parameters}:
-    {ul {- silent: [bool Js.t]
-    {% <p>Prevent the <code>clear</code> event from being fired.</p> %}
+    {ul {- silent: [bool Js.t] (optional)
+    {% <p>Pass <code>true</code> to prevent the record <code><a href="#!/api/Ext.data.Store-event-bulkremove" rel="Ext.data.Store-event-bulkremove" class="docClass">bulkremove</a></code>
+and <code><a href="#!/api/Ext.data.Store-event-clear" rel="Ext.data.Store-event-clear" class="docClass">clear</a></code> events from being fired.</p> %}
+     Defaults to: false
     }
     }
     *)
-  method removeAt : Js.number Js.t -> unit Js.meth
-  (** {% <p>Removes the model instance at the given index</p> %}
+  method removeAt : Js.number Js.t -> Js.number Js.t Js.optdef -> unit
+    Js.meth
+  (** {% <p>Removes the model instance(s) at the given index</p> %}
     
     {b Parameters}:
-    {ul {- index: [Js.number Js.t] {% <p>The record index</p> %}
+    {ul {- index: [Js.number Js.t]
+    {% <p>The record index</p> %}
+    }
+    {- count: [Js.number Js.t] (optional)
+    {% <p>The number of records to delete</p> %}
+     Defaults to: 1
+    }
+    }
+    *)
+  method removeFilter : _ Js.t -> bool Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Removes an individual Filter from the current <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">filter set</a> using the passed Filter/Filter id and
+by default, applys the updated filter set to the Store's unfiltered dataset.</p> %}
+    
+    {b Parameters}:
+    {ul {- toRemove: [_ Js.t]
+    {% <p>The id of a Filter to remove from the filter set, or a Filter instance to remove.</p> %}
+    }
+    {- applyFilters: [bool Js.t] (optional)
+    {% <p>Pass as <code>false</code> to remove the filter but not apply the updated filter set.</p>
+
+<p>If <code>null</code> is passed, all anonymous Filters (Filters with no <code>id</code> property) will be removed.</p> %}
+     Defaults to: true
     }
     }
     *)
@@ -1239,14 +1266,14 @@ myStore.sort('myField', 'DESC');
 
 //sorting by multiple fields
 myStore.sort([
-    {
+    \{
         property : 'age',
         direction: 'ASC'
-    },
-    {
+    \},
+    \{
         property : 'name',
         direction: 'DESC'
-    }
+    \}
 ]);
 </code></pre>
 
@@ -1278,8 +1305,8 @@ store.sort('myField', 'DESC');
     *)
   method sum : Js.js_string Js.t -> bool Js.t Js.optdef -> Js.number Js.t
     Js.meth
-  (** {% <p>Sums the value of <code>property</code> for each <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">record</a> between <code>start</code>
-and <code>end</code> and returns the result.</p>
+  (** {% <p>Sums the value of <code>field</code> for each <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">record</a> in store
+and returns the result.</p>
 
 <p>When store is filtered, only sums items within the filter.</p> %}
     
@@ -1300,14 +1327,41 @@ the store has a groupField.</p> %}
     }
     }
     *)
+  method currentPage : Js.number Js.t Js.prop
+  (** {% <p>The page that the Store has most recently loaded (see <a href="#!/api/Ext.data.Store-method-loadPage" rel="Ext.data.Store-method-loadPage" class="docClass">loadPage</a>)</p> %}
+    
+    Defaults to: [1]
+    *)
+  method data : _ Js.t Js.prop
+  (** {% <p>When this Store is not <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a MixedCollection which holds this store's local cache of records.</p>
+
+<p>When this store <em>is</em> <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a cache of <em>pages</em> of records used to satisfy load requests from the Store when the associated view
+scrolls. Depending on how the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> and <a href="#!/api/Ext.data.Store-cfg-purgePageCount" rel="Ext.data.Store-cfg-purgePageCount" class="docClass">purgePageCount</a> are configured,
+pages which are scrolled out of view may be evicted from the cache, and need to be re-requested from the server
+when scrolled back into view. For this reason, if using <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, it is recommended that you configure
+your Model definitions with a unique <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">Ext.data.Model.idProperty</a> so that records which return to the page
+cache may be matched against previously selected records.</p>
+
+<p>Pages in the direction of scroll are prefetched from the remote server and loaded into this cache <em>before</em>
+they are needed based upon the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> so that scrolling can proceed without visible pauses for data loading.</p> %}
+    *)
+  method snapshot : Ext_util_MixedCollection.t Js.t Js.prop
+  (** {% <p>A pristine (unfiltered) collection of the records in this store. This is used to reinstate
+records when a filter is removed or changed</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_data_AbstractStore.configs
   
+  method autoDestroy : bool Js.t Js.prop
+  (** {% <p>When a Store is used by only one <a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">DataView</a>, and should only exist for the lifetime of that view, then
+configure the autoDestroy flag as <code>true</code>. This causes the destruction of the view to trigger the destruction of its Store.</p> %}
+    
+    Defaults to: [false]
+    *)
   method buffered : bool Js.t Js.prop
   (** {% <p>Allows the Store to prefetch and cache in a <strong>page cache</strong>, pages of Records, and to then satisfy
 loading requirements from this page cache.</p>
@@ -1317,20 +1371,20 @@ determined automatically, and the range of pages needed to keep the cache primed
 requested and cached.
 Example:</p>
 
-<p>   // Load page 1
-   myStore.loadPage(1);</p>
+<pre><code>myStore.loadPage(1); // Load page 1
+</code></pre>
 
-<p>A <a href="#!/api/Ext.grid.PagingScroller" rel="Ext.grid.PagingScroller" class="docClass">PagingScroller</a> is instantiated which will monitor the scrolling in the grid, and
+<p>A <a href="#!/api/Ext.grid.plugin.BufferedRenderer" rel="Ext.grid.plugin.BufferedRenderer" class="docClass">BufferedRenderer</a> is instantiated which will monitor the scrolling in the grid, and
 refresh the view's rows from the page cache as needed. It will also pull new data into the page
 cache when scrolling of the view draws upon data near either end of the prefetched data.</p>
 
-<p>The margins which trigger view refreshing from the prefetched data are <a href="#!/api/Ext.grid.PagingScroller-cfg-numFromEdge" rel="Ext.grid.PagingScroller-cfg-numFromEdge" class="docClass">Ext.grid.PagingScroller.numFromEdge</a>,
-<a href="#!/api/Ext.grid.PagingScroller-cfg-leadingBufferZone" rel="Ext.grid.PagingScroller-cfg-leadingBufferZone" class="docClass">Ext.grid.PagingScroller.leadingBufferZone</a> and <a href="#!/api/Ext.grid.PagingScroller-cfg-trailingBufferZone" rel="Ext.grid.PagingScroller-cfg-trailingBufferZone" class="docClass">Ext.grid.PagingScroller.trailingBufferZone</a>.</p>
+<p>The margins which trigger view refreshing from the prefetched data are <a href="#!/api/Ext.grid.plugin.BufferedRenderer-cfg-numFromEdge" rel="Ext.grid.plugin.BufferedRenderer-cfg-numFromEdge" class="docClass">Ext.grid.plugin.BufferedRenderer.numFromEdge</a>,
+<a href="#!/api/Ext.grid.plugin.BufferedRenderer-cfg-leadingBufferZone" rel="Ext.grid.plugin.BufferedRenderer-cfg-leadingBufferZone" class="docClass">Ext.grid.plugin.BufferedRenderer.leadingBufferZone</a> and <a href="#!/api/Ext.grid.plugin.BufferedRenderer-cfg-trailingBufferZone" rel="Ext.grid.plugin.BufferedRenderer-cfg-trailingBufferZone" class="docClass">Ext.grid.plugin.BufferedRenderer.trailingBufferZone</a>.</p>
 
 <p>The margins which trigger loading more data into the page cache are, <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">leadingBufferZone</a> and
 <a href="#!/api/Ext.data.Store-cfg-trailingBufferZone" rel="Ext.data.Store-cfg-trailingBufferZone" class="docClass">trailingBufferZone</a>.</p>
 
-<p>By defult, only 5 pages of data are cached in the page cache, with pages "scrolling" out of the buffer
+<p>By default, only 5 pages of data are cached in the page cache, with pages "scrolling" out of the buffer
 as the view moves down through the dataset.
 Setting this value to zero means that no pages are <em>ever</em> scrolled out of the page cache, and
 that eventually the whole dataset may become present in the page cache. This is sometimes desirable
@@ -1340,12 +1394,10 @@ as long as datasets do not reach astronomical proportions.</p>
 records from its collection when those Records cycle out of the Store's primary collection. This is done
 by configuring the SelectionModel like this:</p>
 
-<p>   selModel: {</p>
-
-<pre><code>   pruneRemoved: false
-</code></pre>
-
-<p>   }</p> %}
+<pre><code>selModel: \{
+    pruneRemoved: false
+\}
+</code></pre> %}
     
     Defaults to: [false]
     *)
@@ -1357,7 +1409,7 @@ large data sets to be loaded one page at a time but rendered all together.</p> %
     Defaults to: [true]
     *)
   method clearRemovedOnLoad : bool Js.t Js.prop
-  (** {% <p>True to clear anything in the <a href="#!/api/Ext.data.Store-property-removed" rel="Ext.data.Store-property-removed" class="docClass">removed</a> record collection when the store loads.</p> %}
+  (** {% <p><code>true</code> to clear anything in the <a href="#!/api/Ext.data.Store-property-removed" rel="Ext.data.Store-property-removed" class="docClass">removed</a> record collection when the store loads.</p> %}
     
     Defaults to: [true]
     *)
@@ -1374,6 +1426,9 @@ large data sets to be loaded one page at a time but rendered all together.</p> %
 groupField and <a href="#!/api/Ext.data.Store-cfg-groupDir" rel="Ext.data.Store-cfg-groupDir" class="docClass">groupDir</a> are injected as the first sorter (see <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a>). Stores support a single
 level of grouping, and groups can be fetched via the <a href="#!/api/Ext.data.Store-method-getGroups" rel="Ext.data.Store-method-getGroups" class="docClass">getGroups</a> method.</p> %}
     *)
+  method groupers : Ext_util_MixedCollection.t Js.t Js.prop
+  (** {% <p>The collection of <a href="#!/api/Ext.util.Grouper" rel="Ext.util.Grouper" class="docClass">Groupers</a> currently applied to this Store.</p> %}
+    *)
   method leadingBufferZone : Js.number Js.t Js.prop
   (** {% <p>When <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the number of extra rows to keep cached on the leading side of scrolling buffer
 as scrolling proceeds. A larger number means fewer replenishments from the server.</p> %}
@@ -1383,7 +1438,7 @@ as scrolling proceeds. A larger number means fewer replenishments from the serve
   method pageSize : Js.number Js.t Js.prop
   (** {% <p>The number of records considered to form a 'page'. This is used to power the built-in
 paging using the nextPage and previousPage functions when the grid is paged using a
-<a href="#!/api/Ext.toolbar.Paging" rel="Ext.toolbar.Paging" class="docClass">PagingScroller</a> Defaults to 25.</p>
+<a href="#!/api/Ext.toolbar.Paging" rel="Ext.toolbar.Paging" class="docClass">PagingToolbar</a> Defaults to 25.</p>
 
 <p>If this Store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, pages are loaded into a page cache before the Store's
 data is updated from the cache. The pageSize is the number of rows loaded into the cache in one request.
@@ -1416,25 +1471,37 @@ are three pages in the cache, then a <code>purgePageCount</code> of 5 ensures th
     Defaults to: [5]
     *)
   method remoteFilter : bool Js.t Js.prop
-  (** {% <p>True to defer any filtering operation to the server. If false, filtering is done locally on the client.</p> %}
+  (** {% <p><code>true</code> if the grouping should be performed on the server side, false if it is local only.</p>
+
+<p><a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">Buffered</a> stores automatically set this to <code>true</code>. Buffered stores contain an abitrary
+subset of the full dataset which depends upon various configurations and which pages have been requested
+for rendering. Such <em>sparse</em> datasets are ineligible for local filtering.</p> %}
     
     Defaults to: [false]
     *)
   method remoteGroup : bool Js.t Js.prop
-  (** {% <p>True if the grouping should apply on the server side, false if it is local only.  If the
+  (** {% <p><code>true</code> if the grouping should apply on the server side, false if it is local only.  If the
 grouping is local, it can be applied immediately to the data.  If it is remote, then it will simply act as a
-helper, automatically sending the grouping information to the server.</p> %}
+helper, automatically sending the grouping information to the server.</p>
+
+<p><a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">Buffered</a> stores automatically set this to <code>true</code>. Buffered stores contain an abitrary
+subset of the full dataset which depends upon various configurations and which pages have been requested
+for rendering. Such <em>sparse</em> datasets are ineligible for local grouping.</p> %}
     
     Defaults to: [false]
     *)
   method remoteSort : bool Js.t Js.prop
-  (** {% <p>True to defer any sorting operation to the server. If false, sorting is done locally on the client.</p> %}
+  (** {% <p><code>true</code> if the sorting should be performed on the server side, false if it is local only.</p>
+
+<p><a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">Buffered</a> stores automatically set this to <code>true</code>. Buffered stores contain an abitrary
+subset of the full dataset which depends upon various configurations and which pages have been requested
+for rendering. Such <em>sparse</em> datasets are ineligible for local sorting.</p> %}
     
     Defaults to: [false]
     *)
   method sortOnFilter : bool Js.t Js.prop
   (** {% <p>For local filtering only, causes <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a> to be called whenever <a href="#!/api/Ext.data.Store-method-filter" rel="Ext.data.Store-method-filter" class="docClass">filter</a> is called,
-causing the sorters to be reapplied after filtering. Defaults to true</p> %}
+causing the sorters to be reapplied after filtering.</p> %}
     
     Defaults to: [true]
     *)
@@ -1449,18 +1516,33 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_data_AbstractStore.events
   
   method beforeprefetch : (t Js.t -> Ext_data_Operation.t Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop
-  (** {% <p>Fires before a prefetch occurs. Return false to cancel.</p> %}
+  (** {% <p>Fires before a prefetch occurs. Return <code>false</code> to cancel.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_data_Store.t Js.t]
     }
     {- operation: [Ext_data_Operation.t Js.t]
-    {% <p>The associated operation</p> %}
+    {% <p>The associated operation.</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method filterchange : (t Js.t -> Ext_util_Filter.t Js.js_array Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fired whenever the filter set changes.</p> %}
+    
+    {b Parameters}:
+    {ul {- store: [Ext_data_Store.t Js.t]
+    {% <p>The store.</p> %}
+    }
+    {- filters: [Ext_util_Filter.t Js.js_array Js.t]
+    {% <p>The array of Filter objects.</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -1469,14 +1551,14 @@ object
     *)
   method groupchange : (t Js.t -> Ext_util_Grouper.t Js.js_array Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop
-  (** {% <p>Fired whenever the grouping in the grid changes</p> %}
+  (** {% <p>Fired whenever the grouping in the grid changes.</p> %}
     
     {b Parameters}:
     {ul {- store: [Ext_data_Store.t Js.t]
-    {% <p>The store</p> %}
+    {% <p>The store.</p> %}
     }
     {- groupers: [Ext_util_Grouper.t Js.js_array Js.t]
-    {% <p>The array of grouper objects</p> %}
+    {% <p>The array of Grouper objects.</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -1486,7 +1568,7 @@ object
   method prefetch : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> bool Js.t
     -> Ext_data_Operation.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  (** {% <p>Fires whenever records have been prefetched</p> %}
+  (** {% <p>Fires whenever records have been prefetched.</p> %}
     
     {b Parameters}:
     {ul {- this: [Ext_data_Store.t Js.t]
@@ -1495,10 +1577,10 @@ object
     {% <p>An array of records.</p> %}
     }
     {- successful: [bool Js.t]
-    {% <p>True if the operation was successful.</p> %}
+    {% <p><code>true</code> if the operation was successful.</p> %}
     }
     {- operation: [Ext_data_Operation.t Js.t]
-    {% <p>The associated operation</p> %}
+    {% <p>The associated operation.</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -1510,7 +1592,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_data_AbstractStore.statics
   
   

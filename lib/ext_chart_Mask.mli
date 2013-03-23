@@ -12,20 +12,20 @@ other tasks like zooming on that region, etc.</p>
 <code>true</code>, <code>vertical</code> or <code>horizontal</code>. Then a possible configuration for the
 listener could be:</p>
 
-<pre><code>items: {
+<pre><code>items: \{
     xtype: 'chart',
     animate: true,
     store: store1,
     mask: 'horizontal',
-    listeners: {
-        select: {
-            fn: function(me, selection) {
+    listeners: \{
+        select: \{
+            fn: function(me, selection) \{
                 me.setZoom(selection);
                 me.mask.hide();
-            }
-        }
-    }
-}
+            \}
+        \}
+    \}
+\}
 </code></pre>
 
 <p>In this example we zoom the chart to that particular region. You can also get

@@ -20,20 +20,20 @@ the previous zoom state set by <code>setZoom</code>. For example:</p>
   (** {% <p>Zooms the chart to the specified selection range.
 Can be used with a selection mask. For example:</p>
 
-<pre><code>items: {
+<pre><code>items: \{
     xtype: 'chart',
     animate: true,
     store: store1,
     mask: 'horizontal',
-    listeners: {
-        select: {
-            fn: function(me, selection) {
+    listeners: \{
+        select: \{
+            fn: function(me, selection) \{
                 me.setZoom(selection);
                 me.mask.hide();
-            }
-        }
-    }
-}
+            \}
+        \}
+    \}
+\}
 </code></pre> %}
     
     {b Parameters}:

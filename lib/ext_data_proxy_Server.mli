@@ -10,7 +10,6 @@ an alias of AjaxProxy).</p> %}
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_data_proxy_Proxy.t
   
   method afterRequest : Ext_data_Request.t Js.t -> bool Js.t -> unit Js.meth
@@ -193,7 +192,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_data_proxy_Proxy.configs
   
   method afterRequest : ('self Js.t, Ext_data_Request.t Js.t -> bool Js.t ->
@@ -202,12 +200,12 @@ object('self)
   method api : _ Js.t Js.prop
   (** {% <p>Specific urls to call on CRUD action methods "create", "read", "update" and "destroy". Defaults to:</p>
 
-<pre><code>api: {
+<pre><code>api: \{
     create  : undefined,
     read    : undefined,
     update  : undefined,
     destroy : undefined
-}
+\}
 </code></pre>
 
 <p>The url is built based upon the action being executed [create|read|update|destroy] using the commensurate
@@ -216,12 +214,12 @@ object('self)
 
 <p>For example:</p>
 
-<pre><code>api: {
+<pre><code>api: \{
     create  : '/controller/new',
     read    : '/controller/load',
     update  : '/controller/update',
     destroy : '/controller/destroy_action'
-}
+\}
 </code></pre>
 
 <p>If the specific URL for a given CRUD action is undefined, the CRUD action request will be directed to the
@@ -234,9 +232,9 @@ configured <a href="#!/api/Ext.data.proxy.Server-cfg-url" rel="Ext.data.proxy.Se
     *)
   method directionParam : Js.js_string Js.t Js.prop
   (** {% <p>The name of the direction parameter to send in a request. <strong>This is only used when simpleSortMode is set to
-true.</strong> Defaults to 'dir'.</p> %}
+true.</strong></p> %}
     
-    Defaults to: ['dir']
+    Defaults to: ["dir"]
     *)
   method extraParams : _ Js.t Js.prop
   (** {% <p>Extra parameters that will be included on every request. Individual requests with params of the same name
@@ -246,25 +244,30 @@ will override these params when they are in conflict.</p> %}
   (** {% <p>The name of the 'filter' parameter to send in a request. Defaults to 'filter'. Set this to undefined if you don't
 want to send a filter parameter.</p> %}
     
-    Defaults to: ['filter']
+    Defaults to: ["filter"]
     *)
   method groupDirectionParam : Js.js_string Js.t Js.prop
   (** {% <p>The name of the direction parameter to send in a request. <strong>This is only used when simpleGroupMode is set to
-true.</strong> Defaults to 'groupDir'.</p> %}
+true.</strong></p> %}
     
-    Defaults to: ['groupDir']
+    Defaults to: ["groupDir"]
     *)
   method groupParam : Js.js_string Js.t Js.prop
   (** {% <p>The name of the 'group' parameter to send in a request. Defaults to 'group'. Set this to undefined if you don't
 want to send a group parameter.</p> %}
     
-    Defaults to: ['group']
+    Defaults to: ["group"]
+    *)
+  method idParam : Js.js_string Js.t Js.prop
+  (** {% <p>The name of the parameter which carries the id of the entity being operated upon.</p> %}
+    
+    Defaults to: ["id"]
     *)
   method limitParam : Js.js_string Js.t Js.prop
   (** {% <p>The name of the 'limit' parameter to send in a request. Defaults to 'limit'. Set this to undefined if you don't
 want to send a limit parameter.</p> %}
     
-    Defaults to: ['limit']
+    Defaults to: ["limit"]
     *)
   method noCache : bool Js.t Js.prop
   (** {% <p>Disable caching by adding a unique parameter name to the request. Set to false to allow caching. Defaults to true.</p> %}
@@ -275,7 +278,7 @@ want to send a limit parameter.</p> %}
   (** {% <p>The name of the 'page' parameter to send in a request. Defaults to 'page'. Set this to undefined if you don't
 want to send a page parameter.</p> %}
     
-    Defaults to: ['page']
+    Defaults to: ["page"]
     *)
   method simpleGroupMode : bool Js.t Js.prop
   (** {% <p>Enabling simpleGroupMode in conjunction with remoteGroup will only send one group property and a direction when a
@@ -295,13 +298,13 @@ and either 'ASC' or 'DESC'.</p> %}
   (** {% <p>The name of the 'sort' parameter to send in a request. Defaults to 'sort'. Set this to undefined if you don't
 want to send a sort parameter.</p> %}
     
-    Defaults to: ['sort']
+    Defaults to: ["sort"]
     *)
   method startParam : Js.js_string Js.t Js.prop
   (** {% <p>The name of the 'start' parameter to send in a request. Defaults to 'start'. Set this to undefined if you don't
 want to send a start parameter.</p> %}
     
-    Defaults to: ['start']
+    Defaults to: ["start"]
     *)
   method timeout : Js.number Js.t Js.prop
   (** {% <p>The number of milliseconds to wait for a response. Defaults to 30000 milliseconds (30 seconds).</p> %}
@@ -316,13 +319,13 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_data_proxy_Proxy.events
   
   method _exception : (#Ext_data_proxy_Proxy.t Js.t -> _ Js.t ->
     Ext_data_Operation.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
-  (** {% <p>Fires when the server returns an exception</p> %}
+  (** {% <p>Fires when the server returns an exception. This event may also be listened
+to in the event that a request has timed out or has been aborted.</p> %}
     
     {b Parameters}:
     {ul {- this: [#Ext_data_proxy_Proxy.t Js.t]
@@ -343,7 +346,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_data_proxy_Proxy.statics
   
   

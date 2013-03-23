@@ -89,7 +89,7 @@ let _ =
          let button_element : Ext_dom_Element.t Js.t =
            Js.Unsafe.coerce button in
          let win_element =
-           button_element##up(Js.string "window", Js.undefined) in
+           button_element##up(Js.string "window", Js.undefined, Js.undefined) in
          let form_element =
            win_element##down(Js.string "form", Js.undefined) in
 

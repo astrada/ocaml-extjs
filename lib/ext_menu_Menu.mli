@@ -5,80 +5,47 @@
 <p>Menus may contain either <a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu items</a>, or general <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Components</a>.
 Menus may also contain <a href="#!/api/Ext.panel.AbstractPanel-cfg-dockedItems" rel="Ext.panel.AbstractPanel-cfg-dockedItems" class="docClass">docked items</a> because it extends <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>.</p>
 
-<p>To make a contained general <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> line up with other <a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu items</a>,
-specify <code><a href="#!/api/Ext.menu.Item-cfg-plain" rel="Ext.menu.Item-cfg-plain" class="docClass">plain</a>: true</code>. This reserves a space for an icon, and indents the Component
-in line with the other menu items.</p>
+<p>By default, non <a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu items</a> are indented so that they line up with the text of menu items. clearing
+the icon column. To make a contained general <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> left aligned configure the child
+Component with `indent: false.</p>
 
 <p>By default, Menus are absolutely positioned, floating Components. By configuring a Menu with <code><a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a>: false</code>,
 a Menu may be used as a child of a <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a>.</p>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Ext.menu.Menu</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Ext.menu.Menu</a>', \{
     width: 100,
     margin: '0 0 10 0',
     floating: false,  // usually you want this set to True (default)
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),  // usually rendered by it's containing component
-    items: [{
+    items: [\{
         text: 'regular item 1'
-    },{
+    \},\{
         text: 'regular item 2'
-    },{
+    \},\{
         text: 'regular item 3'
-    }]
-});
+    \}]
+\});
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Ext.menu.Menu</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Ext.menu.Menu</a>', \{
     width: 100,
     plain: true,
     floating: false,  // usually you want this set to True (default)
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),  // usually rendered by it's containing component
-    items: [{
+    items: [\{
         text: 'plain item 1'
-    },{
+    \},\{
         text: 'plain item 2'
-    },{
+    \},\{
         text: 'plain item 3'
-    }]
-});
+    \}]
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
   inherit Ext_panel_Panel.t
   
-  method isMenu : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Menu, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method parentMenu : 'self Js.t Js.prop
-  (** {% <p>The parent Menu of this Menu.</p> %}
-    *)
-  method afterComponentLayout : Js.number Js.t -> Js.number Js.t ->
-    Js.number Js.t -> Js.number Js.t -> unit Js.meth
-  (** {% <p>Called by the layout system after the Component has been layed out.</p> %}
-    
-    {b Parameters}:
-    {ul {- width: [Js.number Js.t]
-    {% <p>The width that was set</p> %}
-    }
-    {- height: [Js.number Js.t]
-    {% <p>The height that was set</p> %}
-    }
-    {- oldWidth: [Js.number Js.t]
-    {% <p>The old width. <code>undefined</code> if this was the initial layout.</p> %}
-    }
-    {- oldHeight: [Js.number Js.t]
-    {% <p>The old height. <code>undefined</code> if this was the initial layout.</p> %}
-    }
-    }
-    *)
   method canActivateItem : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether a menu item can be activated or not.</p> %}
     
@@ -95,24 +62,13 @@ object('self)
     }
     }
     *)
-  method getBubbleTarget_container : #Ext_container_Container.t Js.t Js.meth
-  (** {% <p>Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.</p> %}
-    
-    {b Returns}:
-    {ul {- [#Ext_container_Container.t Js.t]
-    {% <p>the Container which owns this Component.</p> %}
-    }
-    }
-    *)
   method hide_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
-  (** {% <p>inherit docs</p>
-
-<p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.menu.Menu-cfg-hideMode" rel="Ext.menu.Menu-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
+  (** {% <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.menu.Menu-cfg-hideMode" rel="Ext.menu.Menu-cfg-hideMode" class="docClass">hideMode</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -131,9 +87,31 @@ Defaults to this Component.</p> %}
     }
     }
     *)
+  method isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth
+  (** {% <p>Menus are never contained, and must not ascertain their visibility from the ancestor hierarchy</p>
+
+<p>Returns <code>true</code> if this component is visible.</p> %}
+    
+    {b Parameters}:
+    {ul {- deep: [bool Js.t] (optional)
+    {% <p>Pass <code>true</code> to interrogate the visibility status of all parent Containers to
+determine whether this Component is truly visible to the user.</p>
+
+<p>Generally, to determine whether a Component is hidden, the no argument form is needed. For example when creating
+dynamically laid out UIs in a hidden Container before showing them.</p> %}
+     Defaults to: false
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [bool Js.t]
+    {% <p><code>true</code> if this component is visible, <code>false</code> otherwise.</p> %}
+    }
+    }
+    *)
   method onDestroy : unit Js.meth
   (** {% <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> %}
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method show_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
@@ -144,7 +122,7 @@ brought to the front of its <a href="#!/api/Ext.menu.Menu-property-zIndexManager
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
+    {% <p><strong>only valid for <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
      Defaults to: null
     }
@@ -163,45 +141,45 @@ Defaults to this Component.</p> %}
     }
     }
     *)
-  method showBy : _ Js.t -> Js.js_string Js.t Js.optdef ->
-    Js.number Js.t Js.js_array Js.t Js.optdef -> 'self Js.t Js.meth
-  (** {% <p>Shows the floating menu by the specified <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a>.</p> %}
+  method showBy_menu : _ Js.t -> Js.js_string Js.t Js.optdef ->
+    Js.number Js.t Js.js_array Js.t Js.optdef -> #Ext_Component.t Js.t
+    Js.meth
+  (** {% <p>Shows this component by the specified <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a>.
+Used when this component is <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a>.</p> %}
     
     {b Parameters}:
     {ul {- component: [_ Js.t]
-    {% <p>The <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to show the menu by.</p> %}
+    {% <p>The <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to show the component by.</p> %}
     }
     {- position: [Js.js_string Js.t] (optional)
-    {% <p>Alignment position as used by <a href="#!/api/Ext.dom.Element-method-getAlignToXY" rel="Ext.dom.Element-method-getAlignToXY" class="docClass">Ext.Element.getAlignToXY</a>.
+    {% <p>Alignment position as used by <a href="#!/api/Ext.util.Positionable-method-getAlignToXY" rel="Ext.util.Positionable-method-getAlignToXY" class="docClass">Ext.util.Positionable.getAlignToXY</a>.
 Defaults to <code><a href="#!/api/Ext.menu.Menu-cfg-defaultAlign" rel="Ext.menu.Menu-cfg-defaultAlign" class="docClass">defaultAlign</a></code>.</p> %}
     }
     {- offsets: [Js.number Js.t Js.js_array Js.t] (optional)
-    {% <p>Alignment offsets as used by <a href="#!/api/Ext.dom.Element-method-getAlignToXY" rel="Ext.dom.Element-method-getAlignToXY" class="docClass">Ext.Element.getAlignToXY</a>.</p> %}
+    {% <p>Alignment offsets as used by <a href="#!/api/Ext.util.Positionable-method-getAlignToXY" rel="Ext.util.Positionable-method-getAlignToXY" class="docClass">Ext.util.Positionable.getAlignToXY</a>.</p> %}
     }
     }
     
     {b Returns}:
-    {ul {- [Ext_menu_Menu.t Js.t] {% <p>This Menu.</p> %}
+    {ul {- [#Ext_Component.t Js.t] {% <p>this</p> %}
     }
     }
+    *)
+  method isMenu : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Menu, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method parentMenu : 'self Js.t Js.prop
+  (** {% <p>The parent Menu of this Menu.</p> %}
     *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
   inherit Ext_panel_Panel.configs
   
-  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterComponentLayout] *)
   method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.onDestroy] *)
@@ -209,12 +187,6 @@ object('self)
   (** {% <p>True to allow multiple menus to be displayed at the same time.</p> %}
     
     Defaults to: [false]
-    *)
-  method defaultAlign : Js.js_string Js.t Js.prop
-  (** {% <p>The default <a href="#!/api/Ext.dom.Element-method-getAlignToXY" rel="Ext.dom.Element-method-getAlignToXY" class="docClass">Ext.Element#getAlignToXY</a> anchor position value for this menu
-relative to its element of origin.</p> %}
-    
-    Defaults to: ["tl-bl?"]
     *)
   method enableKeyNav : bool Js.t Js.prop
   (** {% <p>True to enable keyboard navigation for controlling the menu.
@@ -262,7 +234,15 @@ so that the submenu is not dismissed when clicking the parent item.</p> %}
     Defaults to: [120]
     *)
   method plain : bool Js.t Js.prop
-  (** {% <p>True to remove the incised line down the left side of the menu and to not indent general Component items.</p> %}
+  (** {% <p>True to remove the incised line down the left side of the menu and to not indent general Component items.</p>
+
+<p><a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">MenuItem</a>s will <em>always</em> have space at their start for an icon. With the <code>plain</code> setting,
+non <a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">MenuItem</a> child components will not be indented to line up.</p>
+
+<p>Basically, <code>plain:true</code> makes a Menu behave more like a regular <a href="#!/api/Ext.layout.container.HBox" rel="Ext.layout.container.HBox" class="docClass">HBox layout</a>
+<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Panel</a> which just has the same background as a Menu.</p>
+
+<p>See also the <a href="#!/api/Ext.menu.Menu-cfg-showSeparator" rel="Ext.menu.Menu-cfg-showSeparator" class="docClass">showSeparator</a> config.</p> %}
     
     Defaults to: [false]
     *)
@@ -276,12 +256,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
   method click : (t Js.t -> #Ext_Component.t Js.t -> Ext_EventObject.t Js.t
@@ -359,12 +333,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
   inherit Ext_panel_Panel.statics
   
   

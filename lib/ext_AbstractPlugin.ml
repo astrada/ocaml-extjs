@@ -6,6 +6,7 @@ object('self)
   method disable : unit Js.meth
   method enable : unit Js.meth
   method init : _ Js.t -> unit Js.meth
+  method isPlugin : bool Js.t Js.prop
   
 end
 

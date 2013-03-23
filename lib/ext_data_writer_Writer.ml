@@ -12,8 +12,10 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method dateFormat : Js.js_string Js.t Js.prop
   method nameProperty : Js.js_string Js.t Js.prop
   method writeAllFields : bool Js.t Js.prop
+  method writeRecordId : bool Js.t Js.prop
   
 end
 

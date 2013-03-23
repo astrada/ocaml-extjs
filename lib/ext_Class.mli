@@ -23,22 +23,22 @@ object('self)
   method alias : Js.js_string Js.t Js.js_array Js.t Js.prop
   (** {% <p>List of short aliases for class names.  Most useful for defining xtypes for widgets:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.CoolPanel', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.CoolPanel', \{
     extend: '<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>',
     alias: ['widget.coolpanel'],
     title: 'Yeah!'
-});
+\});
 
 // Using <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>
 <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.coolpanel');
 
 // Using the shorthand for defining widgets by xtype
-<a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('panel', {
+<a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('panel', \{
     items: [
-        {xtype: 'coolpanel', html: 'Foo'},
-        {xtype: 'coolpanel', html: 'Bar'}
+        \{xtype: 'coolpanel', html: 'Foo'\},
+        \{xtype: 'coolpanel', html: 'Bar'\}
     ]
-});
+\});
 </code></pre>
 
 <p>Besides "widget" for xtype there are alias namespaces like "feature" for ftype and "plugin" for ptype.</p> %}
@@ -46,12 +46,12 @@ object('self)
   method alternateClassName : _ Js.t Js.prop
   (** {% <p>Defines alternate names for this class.  For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Developer', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Developer', \{
     alternateClassName: ['Coder', 'Hacker'],
-    code: function(msg) {
+    code: function(msg) \{
         alert('Typing... ' + msg);
-    }
-});
+    \}
+\});
 
 var joe = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('Developer');
 joe.code('stackoverflow');
@@ -64,38 +64,48 @@ rms.code('hack hack');
   (** {% <p>List of configuration options with their default values, for which automatically
 accessor methods are generated.  For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('SmartPhone', {
-     config: {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('SmartPhone', \{
+     config: \{
          hasTouchScreen: false,
          operatingSystem: 'Other',
          price: 500
-     },
-     constructor: function(cfg) {
+     \},
+     constructor: function(cfg) \{
          this.initConfig(cfg);
-     }
-});
+     \}
+\});
 
-var iPhone = new SmartPhone({
+var iPhone = new SmartPhone(\{
      hasTouchScreen: true,
      operatingSystem: 'iOS'
-});
+\});
 
 iPhone.getPrice(); // 500;
 iPhone.getOperatingSystem(); // 'iOS'
 iPhone.getHasTouchScreen(); // true;
-</code></pre> %}
+</code></pre>
+
+<p>NOTE for when configs are reference types, the getter and setter methods do not make copies.</p>
+
+<p>For example, when a config value is set, the reference is stored on the instance. All instances that set
+the same reference type will share it.</p>
+
+<p>In the case of the getter, the value with either come from the prototype if the setter was never called or from
+the instance as the last value passed to the setter.</p>
+
+<p>For some config properties, the value passed to the setter is transformed prior to being stored on the instance.</p> %}
     *)
   method extend : Js.js_string Js.t Js.prop
   (** {% <p>The parent class that this class extends. For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Person', {
-    say: function(text) { alert(text); }
-});
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Person', \{
+    say: function(text) \{ alert(text); \}
+\});
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Developer', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Developer', \{
     extend: 'Person',
-    say: function(text) { this.callParent(["print "+text]); }
-});
+    say: function(text) \{ this.callParent(["print "+text]); \}
+\});
 </code></pre> %}
     *)
   method inheritableStatics : _ Js.t Js.prop
@@ -105,15 +115,15 @@ Otherwise just like <a href="#!/api/Ext.Class-cfg-statics" rel="Ext.Class-cfg-st
   method mixins : _ Js.t Js.prop
   (** {% <p>List of classes to mix into this class. For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('CanSing', {
-     sing: function() {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('CanSing', \{
+     sing: function() \{
          alert("I'm on the highway to hell...")
-     }
-});
+     \}
+\});
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Musician', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Musician', \{
      mixins: ['CanSing']
-})
+\})
 </code></pre>
 
 <p>In this case the Musician class will get a <code>sing</code> method from CanSing mixin.</p>
@@ -122,16 +132,16 @@ Otherwise just like <a href="#!/api/Ext.Class-cfg-statics" rel="Ext.Class-cfg-st
 in two classes, both of which define <code>sing</code>?  In such a cases it's good
 to define mixins as an object, where you assign a name to each mixin:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Musician', {
-     mixins: {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Musician', \{
+     mixins: \{
          canSing: 'CanSing'
-     },
+     \},
 
-     sing: function() {
+     sing: function() \{
          // delegate singing operation to mixin
          this.mixins.canSing.sing.call(this);
-     }
-})
+     \}
+\})
 </code></pre>
 
 <p>In this case the <code>sing</code> method of Musician will overwrite the
@@ -142,24 +152,24 @@ through special <code>mixins</code> property.</p> %}
   (** {% <p>List of classes that have to be loaded before instantiating this class.
 For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Mother', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Mother', \{
     requires: ['Child'],
-    giveBirth: function() {
+    giveBirth: function() \{
         // we can be sure that child class is available.
         return new Child();
-    }
-});
+    \}
+\});
 </code></pre> %}
     *)
   method singleton : bool Js.t Js.prop
   (** {% <p>When set to true, the class will be instantiated as singleton.  For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Logger', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Logger', \{
     singleton: true,
-    log: function(msg) {
+    log: function(msg) \{
         console.log(msg);
-    }
-});
+    \}
+\});
 
 Logger.log('Hello');
 </code></pre> %}
@@ -167,16 +177,16 @@ Logger.log('Hello');
   method statics : _ Js.t Js.prop
   (** {% <p>List of static methods for this class. For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Computer', {
-     statics: {
-         factory: function(brand) {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Computer', \{
+     statics: \{
+         factory: function(brand) \{
              // 'this' in static methods refer to the class itself
              return new this(brand);
-         }
-     },
+         \}
+     \},
 
-     constructor: function() { ... }
-});
+     constructor: function() \{ ... \}
+\});
 
 var dellComputer = Computer.factory('Dell');
 </code></pre> %}
@@ -186,16 +196,16 @@ var dellComputer = Computer.factory('Dell');
 this class is created, but are guaranteed to be available before <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a> listeners are
 invoked. For example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Mother', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Mother', \{
     uses: ['Child'],
-    giveBirth: function() {
+    giveBirth: function() \{
         // This code might, or might not work:
         // return new Child();
 
         // Instead use <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>() to load the class at the spot if not loaded already:
         return <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('Child');
-    }
-});
+    \}
+\});
 </code></pre> %}
     *)
   

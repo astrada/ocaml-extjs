@@ -34,68 +34,56 @@ field renderings.</p>
 
 <pre class='inline-example '><code>// A simple subclass of Base that creates a HTML5 search field. Redirects to the
 // searchUrl when the Enter key is pressed.222
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.form.SearchField', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.form.SearchField', \{
     extend: '<a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a>',
     alias: 'widget.searchfield',
 
     inputType: 'search',
 
     // Config defining the search URL
-    searchUrl: 'http://www.google.com/search?q={0}',
+    searchUrl: 'http://www.google.com/search?q=\{0\}',
 
     // Add specialkey listener
-    initComponent: function() {
+    initComponent: function() \{
         this.callParent();
         this.on('specialkey', this.checkEnterKey, this);
-    },
+    \},
 
     // Handle enter key presses, execute the search if the field has a value
-    checkEnterKey: function(field, e) {
+    checkEnterKey: function(field, e) \{
         var value = this.getValue();
-        if (e.getKey() === e.ENTER &amp;&amp; !<a href="#!/api/Ext-method-isEmpty" rel="Ext-method-isEmpty" class="docClass">Ext.isEmpty</a>(value)) {
+        if (e.getKey() === e.ENTER &amp;&amp; !<a href="#!/api/Ext-method-isEmpty" rel="Ext-method-isEmpty" class="docClass">Ext.isEmpty</a>(value)) \{
             location.href = <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>(this.searchUrl, value);
-        }
-    }
-});
+        \}
+    \}
+\});
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', \{
     title: 'Base Example',
     bodyPadding: 5,
     width: 250,
 
     // Fields will be arranged vertically, stretched to full width
     layout: 'anchor',
-    defaults: {
+    defaults: \{
         anchor: '100%'
-    },
-    items: [{
+    \},
+    items: [\{
         xtype: 'searchfield',
         fieldLabel: 'Search',
         name: 'query'
-    }],
+    \}],
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
   inherit Ext_form_Labelable.t
   inherit Ext_form_field_Field.t
+  inherit Ext_Component.t
   
-  method inputEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The input Element for this Field. Only available after the field has been rendered.</p> %}
-    *)
-  method maskOnDisable : bool Js.t Js.prop
-  (** {% <p>This is an internal flag that you use when creating custom components. By default this is set to true which means
-that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
-override this property to false since they want to implement custom disable logic.</p> %}
-    
-    Defaults to: [false]
-    *)
   method clearInvalid : unit Js.meth
   (** {% <p>Clear any invalid styles/messages for this field.</p>
 
@@ -112,11 +100,6 @@ layout to be recalculated.</p> %}
     {ul {- [#Ext_container_Container.t Js.t] {% <p>this</p> %}
     }
     }
-    *)
-  method extractFileInput : Dom_html.element Js.t Js.meth
-  (** {% <p>Only relevant if the instance's <a href="#!/api/Ext.form.field.Base-method-isFileUpload" rel="Ext.form.field.Base-method-isFileUpload" class="docClass">isFileUpload</a> method returns true. Returns a reference to the file input
-DOM element holding the user's selected file. The input will be appended into the submission form and will not be
-returned, so this method should also create a replacement.</p> %}
     *)
   method getRawValue : Js.js_string Js.t Js.meth
   (** {% <p>Returns the raw value of the field, without performing any normalization, conversion, or validation. To get a
@@ -195,20 +178,34 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
+    *)
+  method initEvents : unit Js.meth
+  (** {% <p>private</p>
+
+<p>Initialize any events on this component</p> %}
+    *)
+  method initRenderData : _ Js.t Js.meth
+  (** {% <p>Initialized the renderData to be used when rendering the renderTpl.</p> %}
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p>Object with keys and values that are going to be applied to the renderTpl</p> %}
+    }
+    }
     *)
   method isFileUpload : bool Js.t Js.meth
   (** {% <p>Returns whether this Field is a file upload field; if it returns true, forms will use special techniques for
@@ -245,13 +242,13 @@ submitted with the <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" 
   (** {% <p>private</p>
 
 <p>Allows addition of behavior to the disable operation.
-After calling the superclass’s onDisable, the Component will be disabled.</p> %}
+After calling the superclass's <code>onDisable</code>, the Component will be disabled.</p> %}
     *)
   method onEnable : unit Js.meth
   (** {% <p>private</p>
 
 <p>Allows addition of behavior to the enable operation.
-After calling the superclass’s onEnable, the Component will be enabled.</p> %}
+After calling the superclass's <code>onEnable</code>, the Component will be enabled.</p> %}
     *)
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
   (** {% <p>private</p>
@@ -414,16 +411,24 @@ to an empty string.</p> %}
     }
     }
     *)
+  method inputEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The input Element for this Field. Only available after the field has been rendered.</p> %}
+    *)
+  method maskOnDisable : bool Js.t Js.prop
+  (** {% <p>This is an internal flag that you use when creating custom components. By default this is set to <code>true</code> which means
+that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
+override this property to <code>false</code> since they want to implement custom disable logic.</p> %}
+    
+    Defaults to: [false]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
   inherit Ext_form_Labelable.configs
   inherit Ext_form_field_Field.configs
+  inherit Ext_Component.configs
   
   method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
     Js.writeonly_prop
@@ -441,10 +446,10 @@ object('self)
     unit) Js.meth_callback Js.writeonly_prop
   (** See method [t.onRender] *)
   method baseCls : Js.js_string Js.t Js.prop
-  (** {% <p>The base CSS class to apply to this components's element. This will also be prepended to elements within this
-component like Panel's body will get a class x-panel-body. This means that if you create a subclass of Panel, and
-you want it to get all the Panels styling for the element and the body, you leave the baseCls x-panel and use
-componentCls to add specific styling for this component.</p> %}
+  (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
+component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
+you want it to get all the Panels styling for the element and the body, you leave the <code>baseCls</code> <code>x-panel</code> and use
+<code>componentCls</code> to add specific styling for this component.</p> %}
     
     Defaults to: [Ext.baseCSSPrefix + 'field']
     *)
@@ -459,7 +464,7 @@ Defaults to 50 milliseconds.</p> %}
 the field's value to be checked for changes. If a change is detected, the <a href="#!/api/Ext.form.field.Base-event-change" rel="Ext.form.field.Base-event-change" class="docClass">change event</a> will be
 fired, followed by validation if the <a href="#!/api/Ext.form.field.Base-cfg-validateOnChange" rel="Ext.form.field.Base-cfg-validateOnChange" class="docClass">validateOnChange</a> option is enabled.</p>
 
-<p>Defaults to ['change', 'propertychange'] in Internet Explorer, and ['change', 'input', 'textInput', 'keyup',
+<p>Defaults to ['change', 'propertychange', 'keyup'] in Internet Explorer, and ['change', 'input', 'textInput', 'keyup',
 'dragdrop'] in other browsers. This catches all the ways that field values can be changed in most supported
 browsers; the only known exceptions at the time of writing are:</p>
 
@@ -472,7 +477,7 @@ and textareas</li>
 
 
 <p>If you need to guarantee on-the-fly change notifications including these edge cases, you can call the
-<a href="#!/api/Ext.form.field.Base-method-checkChange" rel="Ext.form.field.Base-method-checkChange" class="docClass">checkChange</a> method on a repeating interval, e.g. using <a href="#!/api/Ext.TaskManager" rel="Ext.TaskManager" class="docClass">Ext.TaskManager</a>, or if the field is within
+<a href="#!/api/Ext.form.field.Base-method-checkChange" rel="Ext.form.field.Base-method-checkChange" class="docClass">checkChange</a> method on a repeating interval, e.g. using <a href="#!/api/Ext.util.TaskManager" rel="Ext.util.TaskManager" class="docClass">Ext.TaskManager</a>, or if the field is within
 a <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>, you can use the FormPanel's <a href="#!/api/Ext.form.Panel-cfg-pollForChanges" rel="Ext.form.Panel-cfg-pollForChanges" class="docClass">Ext.form.Panel.pollForChanges</a> configuration to set up
 such a task automatically.</p> %}
     *)
@@ -569,11 +574,9 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
   inherit Ext_form_Labelable.events
   inherit Ext_form_field_Field.events
+  inherit Ext_Component.events
   
   method specialkey : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
@@ -581,29 +584,29 @@ object
 see <a href="#!/api/Ext.util.KeyMap" rel="Ext.util.KeyMap" class="docClass">Ext.util.KeyMap</a>. You can check <a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">Ext.EventObject.getKey</a> to determine which key was
 pressed. For example:</p>
 
-<pre><code>var form = new <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>({
+<pre><code>var form = new <a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>(\{
     ...
-    items: [{
+    items: [\{
             fieldLabel: 'Field 1',
             name: 'field1',
             allowBlank: false
-        },{
+        \},\{
             fieldLabel: 'Field 2',
             name: 'field2',
-            listeners: {
-                specialkey: function(field, e){
+            listeners: \{
+                specialkey: function(field, e)\{
                     // e.HOME, e.END, e.PAGE_UP, e.PAGE_DOWN,
                     // e.TAB, e.ESC, arrow keys: e.LEFT, e.RIGHT, e.UP, e.DOWN
-                    if (e.<a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">getKey()</a> == e.ENTER) {
+                    if (e.<a href="#!/api/Ext.EventObject-method-getKey" rel="Ext.EventObject-method-getKey" class="docClass">getKey()</a> == e.ENTER) \{
                         var form = field.up('form').getForm();
                         form.submit();
-                    }
-                }
-            }
-        }
+                    \}
+                \}
+            \}
+        \}
     ],
     ...
-});
+\});
 </code></pre> %}
     
     {b Parameters}:
@@ -636,8 +639,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
   inherit Ext_Component.statics
   inherit Ext_form_Labelable.statics
   inherit Ext_form_field_Field.statics

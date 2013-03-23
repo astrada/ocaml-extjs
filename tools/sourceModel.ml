@@ -189,7 +189,7 @@ struct
       [("Ext_dom_AbstractElement",
         [("Ext_dom_Element", self_type_variable);
          ("Ext_dom_CompositeElement", type_variable);
-         ("Ext_dom_AbstractElement_Fly", self_type_variable);
+         ("Ext_dom_Element_Fly", self_type_variable);
         ]);
        ("Ext_ElementLoader",
         [("Ext_Component", type_variable)]);
@@ -201,6 +201,7 @@ struct
        ("Ext_AbstractComponent",
         [("Ext_Component", self_type_variable);
          ("Ext_container_Container", type_variable);
+         ("Ext_util_Positionable", self_type_variable);
         ]);
        ("Ext_util_Floating",
         [("Ext_Component", type_variable);
@@ -226,6 +227,9 @@ struct
         ]);
        ("Ext_panel_AbstractPanel",
         [("Ext_panel_Panel", self_type_variable);
+        ]);
+       ("Ext_container_DockingContainer",
+        [("Ext_panel_Panel", type_variable);
         ]);
        ("Ext_data_Model",
         [("Ext_data_Store", type_variable);
@@ -465,6 +469,12 @@ struct
     (* Undefined types *)
     add_type table "Error" "" "" |> ignore;
     add_symbol table "Mixed" Symbol.js_object |> ignore;
+    (* Map enumerations to strings, because enum types exist primarily for
+     * documentation purposes. *)
+    add_type table "Ext.enums.Feature" "Js" "js_string" |> ignore;
+    add_type table "Ext.enums.Layout" "Js" "js_string" |> ignore;
+    add_type table "Ext.enums.Plugin" "Js" "js_string" |> ignore;
+    add_type table "Ext.enums.Widget" "Js" "js_string" |> ignore;
     table
 
   let rec lookup_type table id =

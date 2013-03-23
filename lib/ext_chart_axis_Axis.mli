@@ -6,32 +6,32 @@ field, grid and other configuration options can be set. To know more about how
 to create a Chart please check the Chart class documentation. Here's an example for the axes part:
 An example of axis for a series (in this case for an area chart that has multiple layers of yFields) could be:</p>
 
-<pre><code>axes: [{
+<pre><code>axes: [\{
     type: 'Numeric',
     position: 'left',
     fields: ['data1', 'data2', 'data3'],
     title: 'Number of Hits',
-    grid: {
-        odd: {
+    grid: \{
+        odd: \{
             opacity: 1,
             fill: '#ddd',
             stroke: '#bbb',
             'stroke-width': 1
-        }
-    },
+        \}
+    \},
     minimum: 0
-}, {
+\}, \{
     type: 'Category',
     position: 'bottom',
     fields: ['name'],
     title: 'Month of the Year',
     grid: true,
-    label: {
-        rotate: {
+    label: \{
+        rotate: \{
             degrees: 315
-        }
-    }
-}]
+        \}
+    \}
+\}]
 </code></pre>
 
 <p>In this case we use a <code>Numeric</code> axis for displaying the values of the Area series and a <code>Category</code> axis for displaying the names of
@@ -42,7 +42,6 @@ category axis the labels will be rotated so they can fit the space better.</p> %
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_chart_axis_Abstract.t
   
   method drawAxis : _ Js.t -> unit Js.meth
@@ -72,7 +71,6 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_chart_axis_Abstract.configs
   
   method adjustEnd : bool Js.t Js.prop
@@ -94,33 +92,34 @@ If both are set, a proper grid with horizontal and vertical lines will be drawn.
 <p>You can set specific options for the grid configuration for odd and/or even lines/rows.
 Since the rows being drawn are rectangle sprites, you can set to an odd or even property
 all styles that apply to <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a>. For more information on all the style
-properties you can set please take a look at <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a>. Some useful style properties are <code>opacity</code>, <code>fill</code>, <code>stroke</code>, <code>stroke-width</code>, etc.</p>
+properties you can set please take a look at <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a>. Some useful style
+properties are <code>opacity</code>, <code>fill</code>, <code>stroke</code>, <code>stroke-width</code>, etc.</p>
 
-<p>The possible values for a grid option are then <em>true</em>, <em>false</em>, or an object with <code>{ odd, even }</code> properties
+<p>The possible values for a grid option are then <em>true</em>, <em>false</em>, or an object with <code>\{ odd, even \}</code> properties
 where each property contains a sprite style descriptor object that is defined in <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a>.</p>
 
 <p>For example:</p>
 
-<pre><code>axes: [{
+<pre><code>axes: [\{
     type: 'Numeric',
     position: 'left',
     fields: ['data1', 'data2', 'data3'],
     title: 'Number of Hits',
-    grid: {
-        odd: {
+    grid: \{
+        odd: \{
             opacity: 1,
             fill: '#ddd',
             stroke: '#bbb',
             'stroke-width': 1
-        }
-    }
-}, {
+        \}
+    \}
+\}, \{
     type: 'Category',
     position: 'bottom',
     fields: ['name'],
     title: 'Month of the Year',
     grid: true
-}]
+\}]
 </code></pre> %}
     *)
   method length : Js.number Js.t Js.prop
@@ -153,7 +152,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_chart_axis_Abstract.events
   
   
@@ -161,7 +159,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
   inherit Ext_chart_axis_Abstract.statics
   
   

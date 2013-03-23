@@ -65,7 +65,7 @@ any component type.</p>
 
 <h1>Example usage</h1>
 
-<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.form.Panel" rel="Ext.form.Panel" class="docClass">Ext.form.Panel</a>', \{
     title: 'Simple Form',
     bodyPadding: 5,
     width: 350,
@@ -75,65 +75,56 @@ any component type.</p>
 
     // Fields will be arranged vertically, stretched to full width
     layout: 'anchor',
-    defaults: {
+    defaults: \{
         anchor: '100%'
-    },
+    \},
 
     // The fields
     defaultType: 'textfield',
-    items: [{
+    items: [\{
         fieldLabel: 'First Name',
         name: 'first',
         allowBlank: false
-    },{
+    \},\{
         fieldLabel: 'Last Name',
         name: 'last',
         allowBlank: false
-    }],
+    \}],
 
     // Reset and Submit buttons
-    buttons: [{
+    buttons: [\{
         text: 'Reset',
-        handler: function() {
+        handler: function() \{
             this.up('form').getForm().reset();
-        }
-    }, {
+        \}
+    \}, \{
         text: 'Submit',
         formBind: true, //only enabled once the form is valid
         disabled: true,
-        handler: function() {
+        handler: function() \{
             var form = this.up('form').getForm();
-            if (form.isValid()) {
-                form.submit({
-                    success: function(form, action) {
+            if (form.isValid()) \{
+                form.submit(\{
+                    success: function(form, action) \{
                        <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Success', action.result.msg);
-                    },
-                    failure: function(form, action) {
+                    \},
+                    failure: function(form, action) \{
                         <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failed', action.result.msg);
-                    }
-                });
-            }
-        }
-    }],
+                    \}
+                \});
+            \}
+        \}
+    \}],
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
-});
+\});
 </code></pre> %}
   *)
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
-  inherit Ext_panel_Panel.t
   inherit Ext_form_FieldAncestor.t
+  inherit Ext_panel_Panel.t
   
-  method beforeDestroy : unit Js.meth
-  (** {% <p>Invoked before the Component is destroyed.</p> %}
-    *)
   method checkChange : unit Js.meth
   (** {% <p>Forces each field within the form panel to
 <a href="#!/api/Ext.form.field.Field-method-checkChange" rel="Ext.form.field.Field-method-checkChange" class="docClass">check if its value has changed</a>.</p> %}
@@ -189,6 +180,13 @@ method is used.</p> %}
     }
     }
     *)
+  method hasInvalidField : unit Js.meth
+  (** {% <p>Convenience function to check if the form has any invalid fields. This is the same as calling
+<a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-method-hasInvalidField" class="docClass">this.getForm().hasInvalidField()</a>.</p>
+
+<p>Returns true if the form contains any invalid fields. No fields will be marked as invalid
+as a result of calling this; to trigger marking of fields use <a href="#!/api/Ext.form.Panel-method-isValid" rel="Ext.form.Panel-method-isValid" class="docClass">isValid</a> instead.</p> %}
+    *)
   method initComponent : unit Js.meth
   (** {% <p>The initComponent template method is an important initialization step for a Component. It is intended to be
 implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
@@ -205,20 +203,37 @@ so you can simply access them with <code>this.someOption</code>.</p>
 <p>The following example demonstrates using a dynamic string for the text of a button at the time of
 instantiation of the class.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
     extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
 
-    initComponent: function() {
+    initComponent: function() \{
         this.text = new Date();
         this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
         this.callParent();
-    }
-});
+    \}
+\});
 
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
+\});
 </code></pre> %}
+    *)
+  method isDirty : bool Js.t Js.meth
+  (** {% <p>Convenience function to check if the form has any dirty fields. This is the same as calling
+<a href="#!/api/Ext.form.Basic-method-isDirty" rel="Ext.form.Basic-method-isDirty" class="docClass">this.getForm().isDirty()</a>.</p>
+
+<p>Returns <code>true</code> if any fields in this form have changed from their original values.</p>
+
+<p>Note that if this BasicForm was configured with <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> then the Fields' <em>original values</em> are updated when the values are
+loaded by <a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a> or <a href="#!/api/Ext.form.Panel-method-loadRecord" rel="Ext.form.Panel-method-loadRecord" class="docClass">loadRecord</a>.</p> %}
+    *)
+  method isValid : bool Js.t Js.meth
+  (** {% <p>Convenience function to check if the form has all valid fields. This is the same as calling
+<a href="#!/api/Ext.form.Basic-method-isValid" rel="Ext.form.Basic-method-isValid" class="docClass">this.getForm().isValid()</a>.</p>
+
+<p>Returns true if client-side validation on the form is successful. Any invalid fields will be
+marked as invalid. If you only want to determine overall form validity without marking anything,
+use <a href="#!/api/Ext.form.Panel-method-hasInvalidField" rel="Ext.form.Panel-method-hasInvalidField" class="docClass">hasInvalidField</a> instead.</p> %}
     *)
   method load : _ Js.t -> unit Js.meth
   (** {% <p>This is a proxy for the underlying BasicForm's <a href="#!/api/Ext.form.Basic-method-load" rel="Ext.form.Basic-method-load" class="docClass">Ext.form.Basic.load</a> call.</p> %}
@@ -274,24 +289,14 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
-  inherit Ext_panel_Panel.configs
   inherit Ext_form_FieldAncestor.configs
+  inherit Ext_panel_Panel.configs
   
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)
-  method layout_str : Js.js_string Js.t Js.prop
-  (** {% <p>The <a href="#!/api/Ext.container.Container-cfg-layout" rel="Ext.container.Container-cfg-layout" class="docClass">Ext.container.Container.layout</a> for the form panel's immediate child items.
-Defaults to <code>'anchor'</code>.</p> %}
+  method layout_str : _ Js.t Js.prop
+  (** {% <p>The <a href="#!/api/Ext.container.Container-cfg-layout" rel="Ext.container.Container-cfg-layout" class="docClass">Ext.container.Container.layout</a> for the form panel's immediate child items.</p> %}
     
     Defaults to: ['anchor']
     *)
@@ -311,14 +316,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
-  inherit Ext_panel_Panel.events
   inherit Ext_form_FieldAncestor.events
+  inherit Ext_panel_Panel.events
   
   method actioncomplete : (Ext_form_Basic.t Js.t ->
     Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback
@@ -403,12 +402,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
   inherit Ext_panel_Panel.statics
   inherit Ext_form_FieldAncestor.statics
   

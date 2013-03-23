@@ -2,6 +2,9 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method setFilterFn : _ Js.callback -> unit Js.meth
+  method setValue : _ Js.t -> unit Js.meth
+  method disabled : bool Js.t Js.prop
   
 end
 
@@ -13,8 +16,11 @@ object('self)
   method caseSensitive : bool Js.t Js.prop
   method exactMatch : bool Js.t Js.prop
   method filterFn : _ Js.callback Js.prop
+  method id : Js.js_string Js.t Js.prop
+  method operator : Js.js_string Js.t Js.prop
   method property : Js.js_string Js.t Js.prop
   method root : Js.js_string Js.t Js.prop
+  method value : _ Js.t Js.prop
   
 end
 

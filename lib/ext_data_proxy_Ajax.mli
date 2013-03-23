@@ -4,19 +4,19 @@
 data from the server, usually to be placed into a <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a>. Let's take a look at a typical setup.
 Here we're going to set up a Store that has an AjaxProxy. To prepare, we'll also set up a <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a>:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['id', 'name', 'email']
-});
+\});
 
 //The Store contains the AjaxProxy as an inline configuration
-var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     model: 'User',
-    proxy: {
+    proxy: \{
         type: 'ajax',
         url : 'users.json'
-    }
-});
+    \}
+\});
 
 store.load();
 </code></pre>
@@ -27,11 +27,11 @@ the fields that we expect the server to return. Next we set up the Store itself,
 <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a> instance, with the url we specified being passed into AjaxProxy's constructor.
 It's as if we'd done this:</p>
 
-<pre><code>new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+<pre><code>new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
     url: 'users.json',
     model: 'User',
     reader: 'json'
-});
+\});
 </code></pre>
 
 <p>A couple of extra configurations appeared here - <a href="#!/api/Ext.data.proxy.Ajax-cfg-model" rel="Ext.data.proxy.Ajax-cfg-model" class="docClass">model</a> and <a href="#!/api/Ext.data.proxy.Ajax-cfg-reader" rel="Ext.data.proxy.Ajax-cfg-reader" class="docClass">reader</a>. These are set by default when we
@@ -60,13 +60,13 @@ JSON-P responses. See <a href="#!/api/Ext.data.proxy.JsonP" rel="Ext.data.proxy.
 If no Reader is supplied, AjaxProxy will default to using a <a href="#!/api/Ext.data.reader.Json" rel="Ext.data.reader.Json" class="docClass">JsonReader</a>. Reader
 configuration can be passed in as a simple object, which the Proxy automatically turns into a <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Reader</a> instance:</p>
 
-<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
     model: 'User',
-    reader: {
+    reader: \{
         type: 'xml',
         root: 'users'
-    }
-});
+    \}
+\});
 
 proxy.getReader(); //returns an <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">XmlReader</a> instance based on the config we supplied
 </code></pre>
@@ -87,17 +87,17 @@ each request. These are controlled with the following configuration options:</p>
 <p>Each request sent by AjaxProxy is described by an <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Operation</a>. To see how we can customize
 the generated urls, let's say we're loading the Proxy with the following Operation:</p>
 
-<pre><code>var operation = new <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>({
+<pre><code>var operation = new <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>(\{
     action: 'read',
     page  : 2
-});
+\});
 </code></pre>
 
 <p>Now we'll issue the request for this Operation by calling <a href="#!/api/Ext.data.proxy.Ajax-method-read" rel="Ext.data.proxy.Ajax-method-read" class="docClass">read</a>:</p>
 
-<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
     url: '/users'
-});
+\});
 
 proxy.read(operation); //GET /users?page=2
 </code></pre>
@@ -105,36 +105,36 @@ proxy.read(operation); //GET /users?page=2
 <p>Easy enough - the Proxy just copied the page property from the Operation. We can customize how this page data is sent
 to the server:</p>
 
-<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
     url: '/users',
     pageParam: 'pageNumber'
-});
+\});
 
 proxy.read(operation); //GET /users?pageNumber=2
 </code></pre>
 
 <p>Alternatively, our Operation could have been configured to send start and limit parameters instead of page:</p>
 
-<pre><code>var operation = new <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>({
+<pre><code>var operation = new <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>(\{
     action: 'read',
     start : 50,
     limit : 25
-});
+\});
 
-var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
     url: '/users'
-});
+\});
 
 proxy.read(operation); //GET /users?start=50&amp;limit;=25
 </code></pre>
 
 <p>Again we can customize this url:</p>
 
-<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
     url: '/users',
     startParam: 'startIndex',
     limitParam: 'limitIndex'
-});
+\});
 
 proxy.read(operation); //GET /users?startIndex=50&amp;limitIndex;=25
 </code></pre>
@@ -142,64 +142,64 @@ proxy.read(operation); //GET /users?startIndex=50&amp;limitIndex;=25
 <p>AjaxProxy will also send sort and filter information to the server. Let's take a look at how this looks with a more
 expressive Operation object:</p>
 
-<pre><code>var operation = new <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>({
+<pre><code>var operation = new <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Ext.data.Operation</a>(\{
     action: 'read',
     sorters: [
-        new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>({
+        new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>(\{
             property : 'name',
             direction: 'ASC'
-        }),
-        new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>({
+        \}),
+        new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>(\{
             property : 'age',
             direction: 'DESC'
-        })
+        \})
     ],
     filters: [
-        new <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Ext.util.Filter</a>({
+        new <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Ext.util.Filter</a>(\{
             property: 'eyeColor',
             value   : 'brown'
-        })
+        \})
     ]
-});
+\});
 </code></pre>
 
 <p>This is the type of object that is generated internally when loading a <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> with sorters and
 filters defined. By default the AjaxProxy will JSON encode the sorters and filters, resulting in something like this
 (note that the url is escaped before sending the request, but is left unescaped here for clarity):</p>
 
-<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+<pre><code>var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
     url: '/users'
-});
+\});
 
-proxy.read(operation); //GET /users?sort=[{"property":"name","direction":"ASC"},{"property":"age","direction":"DESC"}]&amp;filter;=[{"property":"eyeColor","value":"brown"}]
+proxy.read(operation); //GET /users?sort=[\{"property":"name","direction":"ASC"\},\{"property":"age","direction":"DESC"\}]&amp;filter;=[\{"property":"eyeColor","value":"brown"\}]
 </code></pre>
 
 <p>We can again customize how this is created by supplying a few configuration options. Let's say our server is set up
 to receive sorting information is a format like "sortBy=name#ASC,age#DESC". We can configure AjaxProxy to provide
 that format like this:</p>
 
-<pre><code> var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>({
+<pre><code> var proxy = new <a href="#!/api/Ext.data.proxy.Ajax" rel="Ext.data.proxy.Ajax" class="docClass">Ext.data.proxy.Ajax</a>(\{
      url: '/users',
      sortParam: 'sortBy',
      filterParam: 'filterBy',
 
      //our custom implementation of sorter encoding - turns our sorters into "name#ASC,age#DESC"
-     encodeSorters: function(sorters) {
+     encodeSorters: function(sorters) \{
          var length   = sorters.length,
              sortStrs = [],
              sorter, i;
 
-         for (i = 0; i &lt; length; i++) {
+         for (i = 0; i &lt; length; i++) \{
              sorter = sorters[i];
 
              sortStrs[i] = sorter.property + '#' + sorter.direction
-         }
+         \}
 
          return sortStrs.join(",");
-     }
- });
+     \}
+ \});
 
- proxy.read(operation); //GET /users?sortBy=name#ASC,age#DESC&amp;filterBy;=[{"property":"eyeColor","value":"brown"}]
+ proxy.read(operation); //GET /users?sortBy=name#ASC,age#DESC&amp;filterBy;=[\{"property":"eyeColor","value":"brown"\}]
 </code></pre>
 
 <p>We can also provide a custom <a href="#!/api/Ext.data.proxy.Ajax-method-encodeFilters" rel="Ext.data.proxy.Ajax-method-encodeFilters" class="docClass">encodeFilters</a> function to encode our filters.</p> %}
@@ -207,17 +207,8 @@ that format like this:</p>
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_data_proxy_Proxy.t
   inherit Ext_data_proxy_Server.t
   
-  method actionMethods : _ Js.t Js.prop
-  (** {% <p>Mapping of action name to HTTP request method. In the basic AjaxProxy these are set to 'GET' for 'read' actions
-and 'POST' for 'create', 'update' and 'destroy' actions. The <a href="#!/api/Ext.data.proxy.Rest" rel="Ext.data.proxy.Rest" class="docClass">Ext.data.proxy.Rest</a> maps these to the
-correct RESTful methods.</p> %}
-    
-    Defaults to: [{create: 'POST', read: 'GET', update: 'POST', destroy: 'POST'}]
-    *)
   method getMethod : Ext_data_Request.t Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Returns the HTTP method name for a given request. By default this returns based on a lookup on
 <a href="#!/api/Ext.data.proxy.Ajax-property-actionMethods" rel="Ext.data.proxy.Ajax-property-actionMethods" class="docClass">actionMethods</a>.</p> %}
@@ -234,15 +225,26 @@ correct RESTful methods.</p> %}
     }
     }
     *)
+  method actionMethods : _ Js.t Js.prop
+  (** {% <p>Mapping of action name to HTTP request method. In the basic AjaxProxy these are set to 'GET' for 'read' actions
+and 'POST' for 'create', 'update' and 'destroy' actions. The <a href="#!/api/Ext.data.proxy.Rest" rel="Ext.data.proxy.Rest" class="docClass">Ext.data.proxy.Rest</a> maps these to the
+correct RESTful methods.</p> %}
+    
+    Defaults to: [\{create: 'POST', read: 'GET', update: 'POST', destroy: 'POST'\}]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_data_proxy_Proxy.configs
   inherit Ext_data_proxy_Server.configs
   
+  method binary : bool Js.t Js.prop
+  (** {% <p>True to request binary data from the server.  This feature requires
+the use of a binary reader such as AMF Reader</p> %}
+    
+    Defaults to: [false]
+    *)
   method headers : _ Js.t Js.prop
   (** {% <p>Any headers to add to the Ajax request. Defaults to undefined.</p> %}
     *)
@@ -251,8 +253,6 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_data_proxy_Proxy.events
   inherit Ext_data_proxy_Server.events
   
   
@@ -260,8 +260,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_data_proxy_Proxy.statics
   inherit Ext_data_proxy_Server.statics
   
   

@@ -11,28 +11,12 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method defaultSortDirection : Js.js_string Js.t Js.prop
-  (** {% <p>The default sort direction to use if one is not specified.</p> %}
-    
-    Defaults to: ["ASC"]
-    *)
-  method isSortable : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Sortable, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method sortRoot : Js.js_string Js.t Js.prop
-  (** {% <p>The property in each item that contains the data to sort.</p> %}
-    *)
-  method sorters : _ Js.t Js.prop
-  (** {% <p>The collection of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a> currently applied to this Store</p> %}
-    *)
   method generateComparator : unit Js.meth
   (** {% <p>Returns a comparator function which compares two items and returns -1, 0, or 1 depending
-on the currently defined set of <a href="#!/api/Ext.util.Sortable-property-sorters" rel="Ext.util.Sortable-property-sorters" class="docClass">sorters</a>.</p>
+on the currently defined set of <a href="#!/api/Ext.util.Sortable-cfg-sorters" rel="Ext.util.Sortable-cfg-sorters" class="docClass">sorters</a>.</p>
 
-
-<p>If there are no <a href="#!/api/Ext.util.Sortable-property-sorters" rel="Ext.util.Sortable-property-sorters" class="docClass">sorters</a> defined, it returns a function which returns <code>0</code> meaning that no sorting will occur.</p> %}
+<p>If there are no <a href="#!/api/Ext.util.Sortable-cfg-sorters" rel="Ext.util.Sortable-cfg-sorters" class="docClass">sorters</a> defined, it returns a function which returns <code>0</code> meaning
+that no sorting will occur.</p> %}
     *)
   method getFirstSorter : Ext_util_Sorter.t Js.t Js.meth
   (** {% <p>Gets the first sorter from the sorters collection, excluding
@@ -57,14 +41,14 @@ myStore.sort('myField', 'DESC');
 
 //sorting by multiple fields
 myStore.sort([
-    {
+    \{
         property : 'age',
         direction: 'ASC'
-    },
-    {
+    \},
+    \{
         property : 'name',
         direction: 'DESC'
-    }
+    \}
 ]);
 </code></pre>
 
@@ -94,6 +78,14 @@ store.sort('myField', 'DESC');
     }
     }
     *)
+  method isSortable : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Sortable, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method sorters : _ Js.t Js.prop
+  (** {% <p>The collection of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a> currently applied to this Store</p> %}
+    *)
   
 end
 
@@ -101,6 +93,17 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method defaultSortDirection : Js.js_string Js.t Js.prop
+  (** {% <p>The default sort direction to use if one is not specified.</p> %}
+    
+    Defaults to: ["ASC"]
+    *)
+  method sortRoot : Js.js_string Js.t Js.prop
+  (** {% <p>The property in each item that contains the data to sort.</p> %}
+    *)
+  method sorters : _ Js.t Js.prop
+  (** {% <p>The initial set of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a></p> %}
+    *)
   
 end
 
@@ -115,8 +118,34 @@ class type statics =
 object
   inherit Ext_Base.statics
   
+  method createComparator : Ext_util_Sorter.t Js.js_array Js.t ->
+    _ Js.callback Js.meth
+  (** {% <p>Creates a single comparator function which encapsulates the passed Sorter array.</p> %}
+    
+    {b Parameters}:
+    {ul {- sorters: [Ext_util_Sorter.t Js.js_array Js.t]
+    {% <p>The sorter set for which to create a comparator function</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [_ Js.callback]
+    {% <p>a function, which when passed two comparable objects returns the result
+of the whole sorter comparator functions.</p> %}
+    }
+    }
+    *)
   
 end
+
+val get_static : unit -> statics Js.t
+(** Static instance for lazy-loaded modules. *)
+
+val static : statics Js.t
+(** Static instance. *)
+
+val createComparator : Ext_util_Sorter.t Js.js_array Js.t -> _ Js.callback
+(** See method [statics.createComparator] *)
 
 val of_configs : configs Js.t -> t Js.t
 (** [of_configs c] casts a config object [c] to an instance of class [t] *)

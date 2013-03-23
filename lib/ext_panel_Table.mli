@@ -15,26 +15,8 @@
 
 class type t =
 object('self)
-  inherit Ext_Base.t
-  inherit Ext_AbstractComponent.t
-  inherit Ext_Component.t
-  inherit Ext_container_AbstractContainer.t
-  inherit Ext_container_Container.t
-  inherit Ext_panel_AbstractPanel.t
   inherit Ext_panel_Panel.t
   
-  method hasView : bool Js.t Js.prop
-  (** {% <p>True to indicate that a view has been injected into the panel.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method optimizedColumnMove : bool Js.t Js.prop
-  (** {% <p>If you are writing a grid plugin or a {<a href="#!/api/Ext.grid.feature.Feature" rel="Ext.grid.feature.Feature" class="docClass">Ext.grid.feature.Feature</a> Feature} which creates a column-based structure which
-needs a view refresh when columns are moved, then set this property in the grid.</p>
-
-<p>An example is the built in <a href="#!/api/Ext.grid.feature.AbstractSummary" rel="Ext.grid.feature.AbstractSummary" class="docClass">Summary</a> Feature. This creates summary rows, and the
-summary columns must be in the same order as the data columns. This plugin sets the <code>optimizedColumnMove</code> to `false.</p> %}
-    *)
   method afterCollapse : bool Js.t -> unit Js.meth
   (** {% <p>Invoked after the Panel is Collapsed.</p> %}
     
@@ -95,17 +77,58 @@ configured for the document.</p> %}
   method getView : Ext_view_Table.t Js.t Js.meth
   (** {% <p>Gets the view for this panel.</p> %}
     *)
+  method initComponent : unit Js.meth
+  (** {% <p>The initComponent template method is an important initialization step for a Component. It is intended to be
+implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
+initComponent method of the class being created is called first, with each initComponent method
+up the hierarchy to <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> being called thereafter. This makes it easy to implement and,
+if needed, override the constructor logic of the Component at any step in the hierarchy.</p>
+
+<p>The initComponent method <strong>must</strong> contain a call to <a href="#!/api/Ext.Base-method-callParent" rel="Ext.Base-method-callParent" class="docClass">callParent</a> in order
+to ensure that the parent class' initComponent method is also called.</p>
+
+<p>All config options passed to the constructor are applied to <code>this</code> before initComponent is called,
+so you can simply access them with <code>this.someOption</code>.</p>
+
+<p>The following example demonstrates using a dynamic string for the text of a button at the time of
+instantiation of the class.</p>
+
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', \{
+    extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
+
+    initComponent: function() \{
+        this.text = new Date();
+        this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
+        this.callParent();
+    \}
+\});
+
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() \{
+    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
+\});
+</code></pre> %}
+    *)
+  method onDestroy : unit Js.meth
+  (** {% <p>Allows addition of behavior to the destroy operation.
+After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
+    *)
+  method hasView : bool Js.t Js.prop
+  (** {% <p>True to indicate that a view has been injected into the panel.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method optimizedColumnMove : bool Js.t Js.prop
+  (** {% <p>If you are writing a grid plugin or a \{<a href="#!/api/Ext.grid.feature.Feature" rel="Ext.grid.feature.Feature" class="docClass">Ext.grid.feature.Feature</a> Feature\} which creates a column-based structure which
+needs a view refresh when columns are moved, then set this property in the grid.</p>
+
+<p>An example is the built in <a href="#!/api/Ext.grid.feature.AbstractSummary" rel="Ext.grid.feature.AbstractSummary" class="docClass">Summary</a> Feature. This creates summary rows, and the
+summary columns must be in the same order as the data columns. This plugin sets the <code>optimizedColumnMove</code> to `false.</p> %}
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
-  inherit Ext_AbstractComponent.configs
-  inherit Ext_Component.configs
-  inherit Ext_container_AbstractContainer.configs
-  inherit Ext_container_Container.configs
-  inherit Ext_panel_AbstractPanel.configs
   inherit Ext_panel_Panel.configs
   
   method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
@@ -117,6 +140,12 @@ object('self)
   method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.beforeDestroy] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
   method allowDeselect : bool Js.t Js.prop
   (** {% <p>True to allow deselecting a record. This config is forwarded to <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">Ext.selection.Model.allowDeselect</a>.</p> %}
     
@@ -130,25 +159,25 @@ object('self)
 grid. Each column definition provides the header text for the column, and a definition of where the data for that
 column comes from.</p>
 
-<p>This can also be a configuration object for a {<a href="#!/api/Ext.grid.header.Container" rel="Ext.grid.header.Container" class="docClass">Ext.grid.header.Container</a> HeaderContainer} which may override
+<p>This can also be a configuration object for a \{<a href="#!/api/Ext.grid.header.Container" rel="Ext.grid.header.Container" class="docClass">Ext.grid.header.Container</a> HeaderContainer\} which may override
 certain default configurations if necessary. For example, the special layout may be overridden to use a simpler
 layout, or one can set default values shared by all columns:</p>
 
-<pre><code>columns: {
+<pre><code>columns: \{
     items: [
-        {
+        \{
             text: "Column A"
             dataIndex: "field_A"
-        },{
+        \},\{
             text: "Column B",
             dataIndex: "field_B"
-        }, 
+        \}, 
         ...
     ],
-    defaults: {
+    defaults: \{
         flex: 1
-    }
-}
+    \}
+\}
 </code></pre> %}
     *)
   method deferRowRender : bool Js.t Js.prop
@@ -182,16 +211,57 @@ is empty. When specified, and the Store is empty, the text will be rendered insi
     Defaults to: [true]
     *)
   method enableLocking : bool Js.t Js.prop
-  (** {% <p>True to enable locking support for this grid. Alternatively, locking will also be automatically
-enabled if any of the columns in the column configuration contain the locked config option.</p> %}
+  (** {% <p>Configure as <code>true</code> to enable locking support for this grid. Alternatively, locking will also be automatically
+enabled if any of the columns in the <a href="#!/api/Ext.panel.Table-cfg-columns" rel="Ext.panel.Table-cfg-columns" class="docClass">columns</a> configuration contain a <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> config option.</p>
+
+<p>A locking grid is processed in a special way. The configuration options are cloned and <em>two</em> grids are created to be the locked (left) side
+and the normal (right) side. This Panel becomes merely a <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">container</a> which arranges both in an <a href="#!/api/Ext.layout.container.HBox" rel="Ext.layout.container.HBox" class="docClass">HBox</a> layout.</p>
+
+<p><a href="#!/api/Ext.panel.Table-cfg-plugins" rel="Ext.panel.Table-cfg-plugins" class="docClass">Plugins</a> may be targeted at either locked, or unlocked grid, or, both, in which case the plugin is cloned and used on both sides.</p>
+
+<p>Plugins may also be targeted at the containing locking Panel.</p>
+
+<p>This is configured by specifying a <code>lockableScope</code> property in your plugin which may have the following values:</p>
+
+<ul>
+<li><code>"both"</code> (the default) - The plugin is added to both grids</li>
+<li><code>"top"</code> - The plugin is added to the containing Panel</li>
+<li><code>"locked"</code> - The plugin is added to the locked (left) grid</li>
+<li><code>"normal"</code> - The plugin is added to the normal (right) grid</li>
+</ul>
+
+
+<p>If <code>both</code> is specified, then each copy of the plugin gains a property <code>lockingPartner</code> which references its sibling on the other side so that they
+can synchronize operations is necessary.</p>
+
+<p><a href="#!/api/Ext.panel.Table-cfg-features" rel="Ext.panel.Table-cfg-features" class="docClass">Features</a> may also be configured with <code>lockableScope</code> and may target the locked grid, the normal grid or both grids. Features
+also get a <code>lockingPartner</code> reference injected.</p> %}
     
     Defaults to: [false]
     *)
-  method features : Ext_grid_feature_Feature.t Js.js_array Js.t Js.prop
-  (** {% <p>An array of grid Features to be added to this grid. See <a href="#!/api/Ext.grid.feature.Feature" rel="Ext.grid.feature.Feature" class="docClass">Ext.grid.feature.Feature</a> for usage.</p> %}
+  method features : _ Js.t Js.prop
+  (** {% <p>An array of grid Features to be added to this grid. Can also be just a single feature instead of array.</p>
+
+<p>Features config behaves much like <a href="#!/api/Ext.panel.Table-cfg-plugins" rel="Ext.panel.Table-cfg-plugins" class="docClass">plugins</a>.
+A feature can be added by either directly referencing the instance:</p>
+
+<pre><code>features: [<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.feature.GroupingSummary" rel="Ext.grid.feature.GroupingSummary" class="docClass">Ext.grid.feature.GroupingSummary</a>', \{groupHeaderTpl: 'Subject: \{name\}'\})],
+</code></pre>
+
+<p>By using config object with ftype:</p>
+
+<pre><code>features: [\{ftype: 'groupingsummary', groupHeaderTpl: 'Subject: \{name\}'\}],
+</code></pre>
+
+<p>Or with just a ftype:</p>
+
+<pre><code>features: ['grouping', 'groupingsummary'],
+</code></pre>
+
+<p>See <a href="#!/api/Ext.enums.Feature" rel="Ext.enums.Feature" class="docClass">Ext.enums.Feature</a> for list of all ftypes.</p> %}
     *)
   method forceFit : bool Js.t Js.prop
-  (** {% <p>Ttrue to force the columns to fit into the available width. Headers are first sized according to configuration,
+  (** {% <p>True to force the columns to fit into the available width. Headers are first sized according to configuration,
 whether that be a specific width, or flex. Then they are all proportionally changed in width so that the entire
 content width is used. For more accurate control, it is more optimal to specify a flex setting on the columns
 that are to be stretched &amp; explicit widths on columns that are not.</p> %}
@@ -210,7 +280,7 @@ the <code>layout</code> configuration option.</p>
 the Container's layout manager which creates and manages the type of layout
 you have in mind.  For example:</p>
 
-<p>If the <a href="#!/api/Ext.panel.Table-cfg-layout" rel="Ext.panel.Table-cfg-layout" class="docClass">layout</a> configuration is not explicitly specified for
+<p>If the layout configuration is not explicitly specified for
 a general purpose container (e.g. Container or Panel) the
 <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used
 which does nothing but render child components sequentially into the
@@ -218,14 +288,14 @@ Container (no sizing or positioning will be performed in this situation).</p>
 
 <p><strong>layout</strong> may be specified as either as an Object or as a String:</p>
 
-<h1>Specify as an Object</h1>
+<h2>Specify as an Object</h2>
 
 <p>Example usage:</p>
 
-<pre><code>layout: {
+<pre><code>layout: \{
     type: 'vbox',
     align: 'left'
-}
+\}
 </code></pre>
 
 <ul>
@@ -234,18 +304,7 @@ Container (no sizing or positioning will be performed in this situation).</p>
 <p>The layout type to be used for this container.  If not specified,
 a default <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">Ext.layout.container.Auto</a> will be created and used.</p>
 
-<p>Valid layout <code>type</code> values are:</p>
-
-<ul>
-<li><a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">Auto</a> - <strong>Default</strong></li>
-<li><a href="#!/api/Ext.layout.container.Card" rel="Ext.layout.container.Card" class="docClass">card</a></li>
-<li><a href="#!/api/Ext.layout.container.Fit" rel="Ext.layout.container.Fit" class="docClass">fit</a></li>
-<li><a href="#!/api/Ext.layout.container.HBox" rel="Ext.layout.container.HBox" class="docClass">hbox</a></li>
-<li><a href="#!/api/Ext.layout.container.VBox" rel="Ext.layout.container.VBox" class="docClass">vbox</a></li>
-<li><a href="#!/api/Ext.layout.container.Anchor" rel="Ext.layout.container.Anchor" class="docClass">anchor</a></li>
-<li><a href="#!/api/Ext.layout.container.Table" rel="Ext.layout.container.Table" class="docClass">table</a></li>
-</ul>
-</li>
+<p>Valid layout <code>type</code> values are listed in <a href="#!/api/Ext.enums.Layout" rel="Ext.enums.Layout" class="docClass">Ext.enums.Layout</a>.</p></li>
 <li><p>Layout specific configuration properties</p>
 
 <p>Additional layout specific configuration properties may also be
@@ -255,7 +314,7 @@ specified.</p></li>
 </ul>
 
 
-<h1>Specify as a String</h1>
+<h2>Specify as a String</h2>
 
 <p>Example usage:</p>
 
@@ -265,8 +324,8 @@ specified.</p></li>
 <ul>
 <li><p><strong>layout</strong></p>
 
-<p>The layout <code>type</code> to be used for this container (see list
-of valid layout type values above).</p>
+<p>The layout <code>type</code> to be used for this container (see <a href="#!/api/Ext.enums.Layout" rel="Ext.enums.Layout" class="docClass">Ext.enums.Layout</a>
+for list of valid values).</p>
 
 <p>Additional layout specific configuration properties. For complete
 details regarding the valid config options for each layout type, see the
@@ -274,17 +333,16 @@ layout class corresponding to the <code>layout</code> specified.</p></li>
 </ul>
 
 
-<h1>Configuring the default layout type</h1>
+<h2>Configuring the default layout type</h2>
 
-<pre><code>If a certain Container class has a default layout (For example a <a href="#!/api/Ext.toolbar.Toolbar" rel="Ext.toolbar.Toolbar" class="docClass">Toolbar</a>
-with a default `Box` layout), then to simply configure the default layout,
-use an object, but without the `type` property:
+<p>If a certain Container class has a default layout (For example a <a href="#!/api/Ext.toolbar.Toolbar" rel="Ext.toolbar.Toolbar" class="docClass">Toolbar</a>
+with a default <code>Box</code> layout), then to simply configure the default layout,
+use an object, but without the <code>type</code> property:</p>
 
-
-xtype: 'toolbar',
-layout: {
+<pre><code>xtype: 'toolbar',
+layout: \{
     pack: 'center'
-}
+\}
 </code></pre> %}
     
     Defaults to: ['fit']
@@ -325,7 +383,7 @@ a config object or nothing at all given in <a href="#!/api/Ext.panel.Table-cfg-s
   (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> the grid should use as its data source.</p> %}
     *)
   method verticalScroller : _ Js.t Js.prop
-  (** {% <p>A config object to be used when configuring the <a href="#!/api/Ext.grid.PagingScroller" rel="Ext.grid.PagingScroller" class="docClass">scroll monitor</a> to control
+  (** {% <p>A config object to be used when configuring the <a href="#!/api/Ext.grid.plugin.BufferedRenderer" rel="Ext.grid.plugin.BufferedRenderer" class="docClass">scroll monitor</a> to control
 refreshing of data in an "infinite grid".</p>
 
 <p>Configurations of this object allow fine tuning of data caching which can improve performance and usability
@@ -348,14 +406,176 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
-  inherit Ext_AbstractComponent.events
-  inherit Ext_Component.events
-  inherit Ext_container_AbstractContainer.events
-  inherit Ext_container_Container.events
-  inherit Ext_panel_AbstractPanel.events
   inherit Ext_panel_Panel.events
   
+  method beforecellclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired before the cell click is processed. Return false to cancel the default action.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method beforecellcontextmenu : (Ext_view_Table.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fired before the cell right click is processed. Return false to cancel the default action.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method beforecelldblclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t
+    -> Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired before the cell double click is processed. Return false to cancel the default action.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method beforecellkeydown : (Ext_view_Table.t Js.t -> Dom_html.element Js.t
+    -> Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired before the cell key down is processed. Return false to cancel the default action.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method beforecellmousedown : (Ext_view_Table.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_data_Model.t Js.t ->
+    Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
+    _ Js.t -> unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fired before the cell mouse down is processed. Return false to cancel the default action.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method beforecellmouseup : (Ext_view_Table.t Js.t -> Dom_html.element Js.t
+    -> Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired before the cell mouse up is processed. Return false to cancel the default action.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
   method beforecontainerclick : (Ext_view_View.t Js.t ->
     Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires before the click event on the container is processed. Returns false to cancel the default action.</p> %}
@@ -475,36 +695,6 @@ deselection is cancelled.</p> %}
     }
     {- index: [Js.number Js.t]
     {% <p>The row index deselected</p> %}
-    }
-    {- eOpts: [_ Js.t]
-    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
-    }
-    }
-    *)
-  method beforeedit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t ->
-    unit) Js.callback Js.writeonly_prop
-  (** {% <p>Forwarded event from <a href="#!/api/Ext.grid.plugin.Editing" rel="Ext.grid.plugin.Editing" class="docClass">Ext.grid.plugin.Editing</a>.</p>
-
-<p>Fires before editing is triggered. Return false from event handler to stop the editing.</p> %}
-    
-    {b Parameters}:
-    {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
-    }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record being edited</li>
-<li>field * The field name being edited</li>
-<li>value * The value for the field being edited.</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that is being edited.</li>
-<li>rowIdx * The row index that is being edited</li>
-<li>colIdx * The column index that is being edited</li>
-<li>cancel * Set this to true to cancel the edit or return false from your handler.</li>
-<li>originalValue * Alias for value (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>).</li>
-</ul> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
@@ -706,36 +896,6 @@ selection is cancelled.</p> %}
     }
     }
     *)
-  method canceledit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t ->
-    unit) Js.callback Js.writeonly_prop
-  (** {% <p>Forwarded event from <a href="#!/api/Ext.grid.plugin.Editing" rel="Ext.grid.plugin.Editing" class="docClass">Ext.grid.plugin.Editing</a>.</p>
-
-<p>Fires when the user started editing but then cancelled the edit.</p> %}
-    
-    {b Parameters}:
-    {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
-    }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record that was edited</li>
-<li>field * The field name that was edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that was edited.</li>
-<li>rowIdx * The row index that was edited</li>
-<li>colIdx * The column index that was edited</li>
-<li>view * The grid view</li>
-<li>store * The grid store</li>
-</ul> %}
-    }
-    {- eOpts: [_ Js.t]
-    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
-    }
-    }
-    *)
   method cellclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
@@ -746,14 +906,42 @@ selection is cancelled.</p> %}
     {ul {- this: [Ext_view_Table.t Js.t]
     }
     {- td: [Dom_html.element Js.t]
-    {% <p>The TD element that was clicked.</p> %}
+    {% <p>The TD element for the cell.</p> %}
     }
     {- cellIndex: [Js.number Js.t]
     }
     {- record: [Ext_data_Model.t Js.t]
     }
     {- tr: [Dom_html.element Js.t]
-    {% <p>The TR element that was clicked.</p> %}
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method cellcontextmenu : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired when table cell is right clicked.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
     }
     {- rowIndex: [Js.number Js.t]
     }
@@ -774,14 +962,98 @@ selection is cancelled.</p> %}
     {ul {- this: [Ext_view_Table.t Js.t]
     }
     {- td: [Dom_html.element Js.t]
-    {% <p>The TD element that was clicked.</p> %}
+    {% <p>The TD element for the cell.</p> %}
     }
     {- cellIndex: [Js.number Js.t]
     }
     {- record: [Ext_data_Model.t Js.t]
     }
     {- tr: [Dom_html.element Js.t]
-    {% <p>The TR element that was clicked.</p> %}
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method cellkeydown : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired when the keydown event is captured on the cell.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method cellmousedown : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired when the mousedown event is captured on the cell.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
+    }
+    {- rowIndex: [Js.number Js.t]
+    }
+    {- e: [Ext_EventObject.t Js.t]
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
+  method cellmouseup : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
+    Js.number Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired when the mouseup event is captured on the cell.</p> %}
+    
+    {b Parameters}:
+    {ul {- this: [Ext_view_Table.t Js.t]
+    }
+    {- td: [Dom_html.element Js.t]
+    {% <p>The TD element for the cell.</p> %}
+    }
+    {- cellIndex: [Js.number Js.t]
+    }
+    {- record: [Ext_data_Model.t Js.t]
+    }
+    {- tr: [Dom_html.element Js.t]
+    {% <p>The TR element for the cell.</p> %}
     }
     {- rowIndex: [Js.number Js.t]
     }
@@ -801,6 +1073,20 @@ selection is cancelled.</p> %}
   method columnresize : (Ext_grid_header_Container.t Js.t ->
     Ext_grid_column_Column.t Js.t -> Js.number Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
+  method columnschanged : (Ext_grid_header_Container.t Js.t -> _ Js.t ->
+    unit) Js.callback Js.writeonly_prop
+  (** {% <p>Fired after the columns change in any way, when a column has been hidden or shown, or when a column
+is added to or removed from this header container.</p> %}
+    
+    {b Parameters}:
+    {ul {- ct: [Ext_grid_header_Container.t Js.t]
+    {% <p>The grid's header Container which encapsulates all column headers.</p> %}
+    }
+    {- eOpts: [_ Js.t]
+    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
+    }
+    }
+    *)
   method columnshow : (Ext_grid_header_Container.t Js.t ->
     Ext_grid_column_Column.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop
@@ -912,45 +1198,32 @@ selection is cancelled.</p> %}
     }
     }
     *)
-  method edit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t -> unit)
-    Js.callback Js.writeonly_prop
-  (** {% <p>Forwarded event from <a href="#!/api/Ext.grid.plugin.Editing" rel="Ext.grid.plugin.Editing" class="docClass">Ext.grid.plugin.Editing</a>.</p>
-
-<p>Fires after a editing. Usage example:</p>
-
-<pre><code>grid.on('edit', function(editor, e) {
-    // commit the changes right after editing finished
-    e.record.commit();
-});
-</code></pre> %}
+  method filterchange : (Ext_data_Store.t Js.t ->
+    Ext_util_Filter.t Js.js_array Js.t -> _ Js.t -> unit) Js.callback
+    Js.writeonly_prop
+  (** {% <p>Fired whenever the filter set changes.</p> %}
     
     {b Parameters}:
-    {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
+    {ul {- store: [Ext_data_Store.t Js.t]
+    {% <p>The store.</p> %}
     }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record that was edited</li>
-<li>field * The field name that was edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that was edited.</li>
-<li>rowIdx * The row index that was edited</li>
-<li>colIdx * The column index that was edited</li>
-<li>originalValue * The original value for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>)</li>
-<li>originalValues * The original values for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>newValues * The new values being set (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>view * The grid view (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-</ul> %}
+    {- filters: [Ext_util_Filter.t Js.js_array Js.t]
+    {% <p>The array of Filter objects.</p> %}
     }
     {- eOpts: [_ Js.t]
     {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
     }
     }
     *)
+  method headerclick : (Ext_grid_header_Container.t Js.t ->
+    Ext_grid_column_Column.t Js.t -> Ext_EventObject.t Js.t ->
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method headercontextmenu : (Ext_grid_header_Container.t Js.t ->
+    Ext_grid_column_Column.t Js.t -> Ext_EventObject.t Js.t ->
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
+  method headertriggerclick : (Ext_grid_header_Container.t Js.t ->
+    Ext_grid_column_Column.t Js.t -> Ext_EventObject.t Js.t ->
+    Dom_html.element Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   method itemclick : (Ext_view_View.t Js.t -> Ext_data_Model.t Js.t ->
     Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop
@@ -1163,55 +1436,6 @@ selection is cancelled.</p> %}
   method sortchange : (Ext_grid_header_Container.t Js.t ->
     Ext_grid_column_Column.t Js.t -> Js.js_string Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
-  method validateedit : (Ext_grid_plugin_Editing.t Js.t -> _ Js.t -> _ Js.t
-    -> unit) Js.callback Js.writeonly_prop
-  (** {% <p>Forwarded event from <a href="#!/api/Ext.grid.plugin.Editing" rel="Ext.grid.plugin.Editing" class="docClass">Ext.grid.plugin.Editing</a>.</p>
-
-<p>Fires after editing, but before the value is set in the record. Return false from event handler to
-cancel the change.</p>
-
-<p>Usage example showing how to remove the red triangle (dirty record indicator) from some records (not all). By
-observing the grid's validateedit event, it can be cancelled if the edit occurs on a targeted row (for example)
-and then setting the field's new value in the Record directly:</p>
-
-<pre><code>grid.on('validateedit', function(editor, e) {
-  var myTargetRow = 6;
-
-  if (e.rowIdx == myTargetRow) {
-    e.cancel = true;
-    e.record.data[e.field] = e.value;
-  }
-});
-</code></pre> %}
-    
-    {b Parameters}:
-    {ul {- editor: [Ext_grid_plugin_Editing.t Js.t]
-    }
-    {- e: [_ Js.t]
-    {% <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record being edited</li>
-<li>field * The field name being edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that is being edited.</li>
-<li>rowIdx * The row index that is being edited</li>
-<li>colIdx * The column index that is being edited</li>
-<li>cancel * Set this to true to cancel the edit or return false from your handler.</li>
-<li>originalValue * The original value for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>)</li>
-<li>originalValues * The original values for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>newValues * The new values being set (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>view * The grid view (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-</ul> %}
-    }
-    {- eOpts: [_ Js.t]
-    {% <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> %}
-    }
-    }
-    *)
   method viewready : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires when the grid view is available (use this for selecting a default row).</p> %}
     
@@ -1228,12 +1452,6 @@ end
 
 class type statics =
 object
-  inherit Ext_Base.statics
-  inherit Ext_AbstractComponent.statics
-  inherit Ext_Component.statics
-  inherit Ext_container_AbstractContainer.statics
-  inherit Ext_container_Container.statics
-  inherit Ext_panel_AbstractPanel.statics
   inherit Ext_panel_Panel.statics
   
   

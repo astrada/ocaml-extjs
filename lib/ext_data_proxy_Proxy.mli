@@ -40,23 +40,18 @@ method.</p> %}
 
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method isProxy : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Proxy, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   method batch : _ Js.t -> Ext_data_Batch.t Js.t Js.meth
   (** {% <p>Performs a batch of <a href="#!/api/Ext.data.Operation" rel="Ext.data.Operation" class="docClass">Operations</a>, in the order specified by <a href="#!/api/Ext.data.proxy.Proxy-cfg-batchOrder" rel="Ext.data.proxy.Proxy-cfg-batchOrder" class="docClass">batchOrder</a>. Used
 internally by <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>'s <a href="#!/api/Ext.data.Store-method-sync" rel="Ext.data.Store-method-sync" class="docClass">sync</a> method. Example usage:</p>
 
-<pre><code>myProxy.batch({
+<pre><code>myProxy.batch(\{
     create : [myModel1, myModel2],
     update : [myModel3],
     destroy: [myModel4, myModel5]
-});
+\});
 </code></pre>
 
 <p>Where the myModel* above are <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a> instances - in this case 1 and 2 are new instances and
@@ -217,13 +212,18 @@ successful or not)</p> %}
     }
     }
     *)
+  method isProxy : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Proxy, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method batchActions : bool Js.t Js.prop
   (** {% <p>True to batch actions of a particular type when synchronizing the store. Defaults to true.</p> %}
@@ -253,8 +253,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method metachange : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

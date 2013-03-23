@@ -12,47 +12,47 @@ is achieved by specifying either:</p>
 
 <p>As a contrived example, we can specify a custom sorter that sorts by rank:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Person', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Person', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: ['name', 'rank']
-});
+\});
 
-<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
     model: 'Person',
     proxy: 'memory',
-    sorters: [{
-        sorterFn: function(o1, o2){
-            var getRank = function(o){
+    sorters: [\{
+        sorterFn: function(o1, o2)\{
+            var getRank = function(o)\{
                 var name = o.get('rank');
-                if (name === 'first') {
+                if (name === 'first') \{
                     return 1;
-                } else if (name === 'second') {
+                \} else if (name === 'second') \{
                     return 2;
-                } else {
+                \} else \{
                     return 3;
-                }
-            },
+                \}
+            \},
             rank1 = getRank(o1),
             rank2 = getRank(o2);
 
-            if (rank1 === rank2) {
+            if (rank1 === rank2) \{
                 return 0;
-            }
+            \}
 
             return rank1 &lt; rank2 ? -1 : 1;
-        }
-    }],
-    data: [{
+        \}
+    \}],
+    data: [\{
         name: 'Person1',
         rank: 'second'
-    }, {
+    \}, \{
         name: 'Person2',
         rank: 'third'
-    }, {
+    \}, \{
         name: 'Person3',
         rank: 'first'
-    }]
-});
+    \}]
+\});
 </code></pre> %}
   *)
 

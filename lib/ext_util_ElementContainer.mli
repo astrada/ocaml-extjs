@@ -9,7 +9,7 @@ manage their child elements.</p>
 
 <p>A typical component that uses these features might look something like this:</p>
 
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.ux.SomeComponent', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.ux.SomeComponent', \{
      extend: '<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>',
 
      childEls: [
@@ -17,11 +17,11 @@ manage their child elements.</p>
      ],
 
      renderTpl: [
-         '&lt;div id="{id}-bodyEl"&gt;&lt;/div&gt;'
+         '&lt;div id="\{id\}-bodyEl"&gt;&lt;/div&gt;'
      ],
 
      // ...
- });
+ \});
 </code></pre>
 
 <p>The <code>childEls</code> array lists one or more relationships to child elements managed by the
@@ -48,7 +48,7 @@ one of the following additional properties:
 <p>The example above could have used this instead to achieve the same result:</p>
 
 <pre><code> childEls: [
-     { name: 'bodyEl', itemId: 'bodyEl' }
+     \{ name: 'bodyEl', itemId: 'bodyEl' \}
  ]
 </code></pre>
 
@@ -75,7 +75,7 @@ up the class hierarchy so that they are effectively inherited. In other words, i
 class where to derive from <code>Ext.ux.SomeComponent</code> in the example above, it could also
 have a <code>childEls</code> property in the same way as <code>Ext.ux.SomeComponent</code>.</p>
 
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.ux.AnotherComponent', {
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Ext.ux.AnotherComponent', \{
      extend: 'Ext.ux.SomeComponent',
 
      childEls: [
@@ -84,13 +84,13 @@ have a <code>childEls</code> property in the same way as <code>Ext.ux.SomeCompon
      ],
 
      renderTpl: [
-         '&lt;div id="{id}-bodyEl"&gt;'
-             '&lt;div id="{id}-innerEl"&gt;&lt;/div&gt;'
+         '&lt;div id="\{id\}-bodyEl"&gt;'
+             '&lt;div id="\{id\}-innerEl"&gt;&lt;/div&gt;'
          '&lt;/div&gt;'
      ],
 
      // ...
- });
+ \});
 </code></pre>
 
 <p>The <code>renderTpl</code> contains both child elements and unites them in the desired markup, but

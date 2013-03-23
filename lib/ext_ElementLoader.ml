@@ -1,9 +1,8 @@
 class type t =
 object('self)
-  inherit Ext_Base.t
   inherit Ext_util_Observable.t
+  inherit Ext_Base.t
   
-  method isLoader : bool Js.t Js.prop
   method abort : unit Js.meth
   method destroy : unit Js.meth
   method getTarget : _ Js.t Js.meth
@@ -13,13 +12,14 @@ object('self)
   method startAutoRefresh : Js.number Js.t -> _ Js.t Js.optdef -> unit
     Js.meth
   method stopAutoRefresh : unit Js.meth
+  method isLoader : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_Base.configs
   
   method ajaxOptions : _ Js.t Js.prop
   method autoLoad : _ Js.t Js.prop
@@ -39,8 +39,8 @@ end
 
 class type events =
 object
-  inherit Ext_Base.events
   inherit Ext_util_Observable.events
+  inherit Ext_Base.events
   
   method beforeload : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

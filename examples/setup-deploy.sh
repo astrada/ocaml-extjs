@@ -1,6 +1,6 @@
 WWWROOT=/var/www
-EXTJS=/usr/local/src/ext-4.1.1a
-SENCHA=/usr/local/SenchaSDKTools-2.0.0-beta3/sencha
+EXTJS=/usr/local/src/ext-4.2.0.663
+SENCHA=/usr/local/Sencha/Cmd/3.0.2.288/sencha
 
 function create_dir {
   if [ ! -d "$1" ]; then

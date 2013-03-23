@@ -1,7 +1,6 @@
 class type t =
 object('self)
   
-  method history : _ Js.js_array Js.t Js.prop
   method addClassPathMappings : _ Js.t -> 'self Js.t Js.meth
   method exclude : _ Js.js_array Js.t -> _ Js.t Js.meth
   method getConfig : Js.js_string Js.t -> _ Js.t Js.meth
@@ -11,9 +10,11 @@ object('self)
   method require : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
   method setConfig : _ Js.t -> 'self Js.t Js.meth
-  method setPath : _ Js.t -> Js.js_string Js.t -> 'self Js.t Js.meth
+  method setPath : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
+    Js.meth
   method syncRequire : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
     -> _ Js.t Js.optdef -> unit Js.meth
+  method history : _ Js.js_array Js.t Js.prop
   
 end
 

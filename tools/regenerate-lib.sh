@@ -39,8 +39,8 @@ echo Ext.EventObject
 ./libgen.byte tools/jsduck/Ext.EventObject.json
 echo Ext.dom.AbstractElement
 ./libgen.byte tools/jsduck/Ext.dom.AbstractElement.json 
-echo Ext.dom.AbstractElement.Fly
-./libgen.byte tools/jsduck/Ext.dom.AbstractElement.Fly.json 
+echo Ext.dom.Element.Fly
+./libgen.byte tools/jsduck/Ext.dom.Element.Fly.json 
 echo Ext.ElementLoader
 ./libgen.byte tools/jsduck/Ext.ElementLoader.json 
 echo Ext.dom.Element
@@ -235,4 +235,10 @@ echo Ext.chart.theme.Theme
 ./libgen.byte tools/jsduck/Ext.chart.theme.Theme.json
 echo Ext.chart.Chart
 ./libgen.byte tools/jsduck/Ext.chart.Chart.json
+echo Ext.util.Positionable
+./libgen.byte tools/jsduck/Ext.util.Positionable.json
+echo Ext.enums.Widget
+./libgen.byte tools/jsduck/Ext.enums.Widget.json
+echo Ext.layout.SizePolicy
+./libgen.byte tools/jsduck/Ext.layout.SizePolicy.json
 

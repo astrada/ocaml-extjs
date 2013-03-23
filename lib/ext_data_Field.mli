@@ -3,29 +3,29 @@
   {% <p>Fields are used to define what a Model is. They aren't instantiated directly - instead, when we create a class that
 extends <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>, it will automatically create a Field instance for each field configured in a <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Model</a>. For example, we might set up a model like this:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
         'name', 'email',
-        {name: 'age', type: 'int'},
-        {name: 'gender', type: 'string', defaultValue: 'Unknown'}
+        \{name: 'age', type: 'int'\},
+        \{name: 'gender', type: 'string', defaultValue: 'Unknown'\}
     ]
-});
+\});
 </code></pre>
 
 <p>Four fields will have been created for the User Model - name, email, age and gender. Note that we specified a couple
 of different formats here; if we only pass in the string name of the field (as with name and email), the field is set
 up with the 'auto' type. It's as if we'd done this instead:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
-        {name: 'name', type: 'auto'},
-        {name: 'email', type: 'auto'},
-        {name: 'age', type: 'int'},
-        {name: 'gender', type: 'string', defaultValue: 'Unknown'}
+        \{name: 'name', type: 'auto'\},
+        \{name: 'email', type: 'auto'\},
+        \{name: 'age', type: 'int'\},
+        \{name: 'gender', type: 'string', defaultValue: 'Unknown'\}
     ]
-});
+\});
 </code></pre>
 
 <h1>Types and conversion</h1>
@@ -37,29 +37,29 @@ into them. The 'age' field had an 'int' type however, so if we passed 25.4 this 
 <p>Sometimes a simple type isn't enough, or we want to perform some processing when we load a Field's data. We can do
 this using a <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">convert</a> function. Here, we're going to create a new field based on another:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
-        {
+        \{
             name: 'firstName',
-            convert: function(value, record) {
+            convert: function(value, record) \{
                 var fullName  = record.get('name'),
                     splits    = fullName.split(" "),
                     firstName = splits[0];
 
                 return firstName;
-            }
-        },
+            \}
+        \},
         'name', 'email',
-        {name: 'age', type: 'int'},
-        {name: 'gender', type: 'string', defaultValue: 'Unknown'}
+        \{name: 'age', type: 'int'\},
+        \{name: 'gender', type: 'string', defaultValue: 'Unknown'\}
     ]
-});
+\});
 </code></pre>
 
 <p>Now when we create a new User, the firstName is populated automatically based on the name:</p>
 
-<pre><code>var ed = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', {name: 'Ed Spencer'});
+<pre><code>var ed = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', \{name: 'Ed Spencer'\});
 
 console.log(ed.get('firstName')); //logs 'Ed', based on our convert function
 </code></pre>
@@ -73,13 +73,13 @@ when constructing and reading records, so that if convert functions rely on othe
 <pre><code>console.log(ed.data);
 
 //outputs this:
-{
+\{
     age: 0,
     email: "",
     firstName: "Ed",
     gender: "Unknown",
     name: "Ed Spencer"
-}
+\}
 </code></pre>
 
 <p>The age field has been given a default of zero because we made it an int type. As an auto field, email has defaulted
@@ -128,61 +128,102 @@ at this point as the fields are read in the order that they are defined in your
 
 <p>Example of convert functions:</p>
 
-<pre><code>function fullName(v, record){
+<pre><code>function fullName(v, record)\{
     return record.data.last + ', ' + record.data.first;
-}
+\}
 
-function location(v, record){
+function location(v, record)\{
     return !record.data.city ? '' : (record.data.city + ', ' + record.data.state);
-}
+\}
 
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Dude', {
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Dude', \{
     extend: '<a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>',
     fields: [
-        {name: 'fullname',  convert: fullName},
-        {name: 'firstname', mapping: 'name.first'},
-        {name: 'lastname',  mapping: 'name.last'},
-        {name: 'city', defaultValue: 'homeless'},
+        \{name: 'fullname',  convert: fullName\},
+        \{name: 'firstname', mapping: 'name.first'\},
+        \{name: 'lastname',  mapping: 'name.last'\},
+        \{name: 'city', defaultValue: 'homeless'\},
         'state',
-        {name: 'location',  convert: location}
+        \{name: 'location',  convert: location\}
     ]
-});
+\});
 
 // create the data store
-var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
-    reader: {
+var store = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', \{
+    reader: \{
         type: 'json',
         model: 'Dude',
         idProperty: 'key',
         root: 'daRoot',
         totalProperty: 'total'
-    }
-});
+    \}
+\});
 
 var myData = [
-    { key: 1,
-      name: { first: 'Fat',    last:  'Albert' }
+    \{ key: 1,
+      name: \{ first: 'Fat',    last:  'Albert' \}
       // notice no city, state provided in data object
-    },
-    { key: 2,
-      name: { first: 'Barney', last:  'Rubble' },
+    \},
+    \{ key: 2,
+      name: \{ first: 'Barney', last:  'Rubble' \},
       city: 'Bedrock', state: 'Stoneridge'
-    },
-    { key: 3,
-      name: { first: 'Cliff',  last:  'Claven' },
+    \},
+    \{ key: 3,
+      name: \{ first: 'Cliff',  last:  'Claven' \},
       city: 'Boston',  state: 'MA'
-    }
+    \}
 ];
 </code></pre> %}
     *)
   method dateFormat : Js.js_string Js.t Js.prop
-  (** {% <p>Used when converting received data into a Date when the <a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">type</a> is specified as <code>"date"</code>.</p>
-
-<p>The format dtring is also used when serializing Date fields for use by <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Writers</a>.</p>
+  (** {% <p>Serves as a default for the <a href="#!/api/Ext.data.Field-cfg-dateReadFormat" rel="Ext.data.Field-cfg-dateReadFormat" class="docClass">dateReadFormat</a> and <a href="#!/api/Ext.data.Field-cfg-dateWriteFormat" rel="Ext.data.Field-cfg-dateWriteFormat" class="docClass">dateWriteFormat</a> config options. This
+will be used in place of those other configurations if not specified.</p>
 
 <p>A format string for the <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">Ext.Date.parse</a> function, or "timestamp" if the value provided by
 the Reader is a UNIX timestamp, or "time" if the value provided by the Reader is a javascript millisecond
-timestamp. See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a>.</p> %}
+timestamp. See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a>.</p>
+
+<p>It is quite important to note that while this config is optional, it will default to using the base
+JavaScript Date object's <code>parse</code> function if not specified, rather than <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">Ext.Date.parse</a>.
+This can cause unexpected issues, especially when converting between timezones, or when converting dates that
+do not have a timezone specified. The behavior of the native <code>Date.parse</code> is implementation-specific, and
+depending on the value of the date string, it might return the UTC date or the local date. <strong>For this reason
+it is strongly recommended that you always specify an explicit date format when parsing dates.</strong></p> %}
+    *)
+  method dateReadFormat : Js.js_string Js.t Js.prop
+  (** {% <p>Used when converting received data into a Date when the <a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">type</a> is specified as <code>"date"</code>.
+This configuration takes precedence over <a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">dateFormat</a>.
+See <a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">dateFormat</a> for more information.</p> %}
+    *)
+  method dateWriteFormat : Js.js_string Js.t Js.prop
+  (** {% <p>Used to provide a custom format when serializing dates with a <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a>.
+If this is not specified, the <a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">dateFormat</a> will be used. See the <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a>
+docs for more information on writing dates.</p>
+
+<p><strong>Note that to use a <a href="#!/api/Ext.data.writer.Json" rel="Ext.data.writer.Json" class="docClass">JsonWriter</a> to send Microsoft format "JSON" dates, which are in fact
+invalid JSON, it is not possible to use the standard date serialization pathway or
+<a href="#!/api/Ext-property-USE_NATIVE_JSON" rel="Ext-property-USE_NATIVE_JSON" class="docClass">native browser JSON production</a>.</strong></p>
+
+<p>To use a <a href="#!/api/Ext.data.writer.Json" rel="Ext.data.writer.Json" class="docClass">JsonWriter</a> to write dates in a JSON packet in the form <code>"\/Date(1357372800000)\/"</code>
+configure the field like this:</p>
+
+<p>   \{</p>
+
+<pre><code>   type: 'date',
+   dateFormat: 'MS',             // To parse incoming dates from server correctly
+   serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
+</code></pre>
+
+<p>   \}</p>
+
+<p>Then override ExtJS's JSON date serialize function:</p>
+
+<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) \{</p>
+
+<pre><code>   return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
+</code></pre>
+
+<p>   \};</p> %}
     *)
   method defaultValue : _ Js.t Js.prop
   (** {% <p>The default value used when the creating an instance from a raw data object, and the property referenced by the
@@ -255,7 +296,7 @@ is being used to sync data with the server.</p>
     
     Defaults to: ["ASC"]
     *)
-  method sortType : _ Js.callback Js.prop
+  method sortType : _ Js.t Js.prop
   (** {% <p>A function which converts a Field's value to a comparable value in order to ensure correct sort ordering.
 Predefined functions are provided in <a href="#!/api/Ext.data.SortTypes" rel="Ext.data.SortTypes" class="docClass">Ext.data.SortTypes</a>. A custom sort example:</p>
 
@@ -266,15 +307,17 @@ Predefined functions are provided in <a href="#!/api/Ext.data.SortTypes" rel="Ex
 // |3|Second|          |2|Last  |
 // +-+------+          +-+------+
 
-sortType: function(value) {
+sortType: function(value) \{
    switch (value.toLowerCase()) // native toLowerCase():
-   {
+   \{
       case 'first': return 1;
       case 'second': return 2;
       default: return 3;
-   }
-}
-</code></pre> %}
+   \}
+\}
+</code></pre>
+
+<p>May also be set to a String value, corresponding to one of the named sort types in <a href="#!/api/Ext.data.SortTypes" rel="Ext.data.SortTypes" class="docClass">Ext.data.SortTypes</a>.</p> %}
     *)
   method _type : _ Js.t Js.prop
   (** {% <p>The data type for automatic conversion from received data to the <em>stored</em> value if

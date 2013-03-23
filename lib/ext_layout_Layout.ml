@@ -2,8 +2,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method _done : bool Js.t Js.prop
-  method isLayout : bool Js.t Js.prop
   method afterRemove : _ Js.t -> unit Js.meth
   method beginLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth
   method beginLayoutCycle : Ext_layout_ContextItem.t Js.t -> unit Js.meth
@@ -13,13 +11,16 @@ object('self)
   method destroy : unit Js.meth
   method finalizeLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth
   method finishedLayout : Ext_layout_ContextItem.t Js.t -> unit Js.meth
-  method getItemSizePolicy : #Ext_Component.t Js.t -> _ Js.t Js.meth
+  method getItemSizePolicy : #Ext_Component.t Js.t ->
+    Ext_layout_SizePolicy.t Js.t Js.meth
   method getLayoutItems_empty : unit Js.meth
   method initLayout : unit Js.meth
   method isValidParent : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   method notifyOwner : Ext_layout_ContextItem.t Js.t -> unit Js.meth
   method onContentChange : #Ext_Component.t Js.t -> bool Js.t Js.meth
   method renderItems : _ Js.t -> _ Js.t -> unit Js.meth
+  method _done : bool Js.t Js.prop
+  method isLayout : bool Js.t Js.readonly_prop
   
 end
 
