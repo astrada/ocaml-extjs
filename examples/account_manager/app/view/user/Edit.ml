@@ -11,6 +11,7 @@ let _ =
     |}
   in
   view##layout <- Js.string "fit";
+
   let view_class = ExtUtils.to_class_configs view in
   view_class##extend <- Js.string "Ext.window.Window";
   view_class##alias <- Js.array [|Js.string "widget.useredit"|];

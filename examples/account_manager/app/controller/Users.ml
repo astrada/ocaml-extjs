@@ -27,11 +27,10 @@ object
   method itemdblclick :
     (t Js.t, Ext_grid_Panel.t Js.t -> Ext_data_Model.t Js.t ->
        Dom_html.element Js.t -> Js.number Js.t -> Ext_EventObject.t Js.t ->
-       'a Js.t -> unit)
+       unit)
       Js.meth_callback Js.writeonly_prop
   method click :
-    (t Js.t, Ext_button_Button.t Js.t -> Dom_html.event Js.t -> 'a Js.t ->
-       unit)
+    (t Js.t, Ext_button_Button.t Js.t -> Dom_html.event Js.t -> unit)
       Js.meth_callback Js.writeonly_prop
 
 end
@@ -42,13 +41,13 @@ let _ =
   let userlist_listeners : events Js.t = {| |} in
   userlist_listeners##itemdblclick <-
     Js.wrap_meth_callback
-      (fun (this : t Js.t) grid record item index e eOpts ->
+      (fun (this : t Js.t) grid record item index e ->
          this##editUser(grid, record));
 
   let useredit_listeners : events Js.t = {| |} in
   useredit_listeners##click <-
     Js.wrap_meth_callback
-      (fun (this : t Js.t) button e eOpts ->
+      (fun (this : t Js.t) button e ->
          this##updateUser(button));
 
   let controller : configs Js.t =
@@ -66,7 +65,7 @@ let _ =
       (fun (this : configs Js.t) _ ->
          let selectors_listeners =
            Js.Unsafe.obj
-             [| ("viewport > userlist",
+             [| ("viewport userlist",
                  Js.Unsafe.inject userlist_listeners);
                 ("useredit button[action=save]",
                  Js.Unsafe.inject useredit_listeners);
