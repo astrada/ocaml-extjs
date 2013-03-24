@@ -8,14 +8,19 @@ SITEROOT="$WWWROOT/$SITENAME"
 set -e
 
 # build
+create_dir js
 cd ../..
 ocaml setup.ml -build
-cp "_build/examples/$SITENAME/app.js" "examples/$SITENAME"
+cp "_build/examples/$SITENAME/app.js" "examples/$SITENAME/js"
 cd -
+
+# append dependencies
+echo "//@require Ext.container.Viewport//@require Ext.app.Application" >> js/app.js
 
 # minify
 link_extjs extjs
 $SENCHA compile \
+  -classpath=extjs/src,js \
   page \
   -compress \
   -in index-prod.html \
@@ -28,5 +33,6 @@ cp index-out.html "$SITEROOT/index.html"
 cp all-classes.js $SITEROOT
 
 # clean up
-rm extjs app.js all-classes.js index-out.html
+rm extjs js/app.js all-classes.js index-out.html
+rmdir js
 
