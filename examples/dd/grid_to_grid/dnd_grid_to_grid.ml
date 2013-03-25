@@ -3,7 +3,8 @@ let () =
     Js.array [|
       Js.string "Ext.grid.*";
       Js.string "Ext.data.*";
-      Js.string "Ext.dd.*"
+      Js.string "Ext.dd.*";
+      Js.string "Ext.util.Point"
     |],
     Js.undefined,
     Js.undefined,
@@ -66,7 +67,7 @@ let () =
             listeners = {|
               drop = Js.wrap_callback (fun node data dropRec dropPosition _ ->
                 let dropOn =
-                  if Js.Optdef.test (Js.Optdef.return dropRec) then
+                  if Js.Opt.test (Js.Opt.return dropRec) then
                     (Js.string " ")##concat_3(dropPosition, Js.string " ", dropRec##get(Js.string "name"))
                   else Js.string " on empty view" in
                 let opt_record = Js.array_get (data##records) 0 in
@@ -103,7 +104,7 @@ let () =
             listeners = {|
               drop = Js.wrap_callback (fun node data dropRec dropPosition _ ->
                 let dropOn =
-                  if Js.Optdef.test (Js.Optdef.return dropRec) then
+                  if Js.Opt.test (Js.Opt.return dropRec) then
                     (Js.string " ")##concat_3(dropPosition, Js.string " ", dropRec##get(Js.string "name"))
                   else Js.string " on empty view" in
                 let opt_record = Js.array_get (data##records) 0 in
@@ -146,7 +147,7 @@ let () =
               Js.Unsafe.inject (Js.string "->"); (* Fill *)
               Js.Unsafe.inject {|
                 text = Js.string "Reset both grids";
-                handler = Js.wrap_callback (fun () ->
+                handler = Js.wrap_callback (fun _ () ->
                   (* refresh source grid *)
                   firstGridStore##loadData(myData);
 
