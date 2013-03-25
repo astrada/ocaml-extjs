@@ -5,17 +5,21 @@
     <title>Combo Boxes</title>
 
     <!-- ExtJS -->
-    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
-    <script type="text/javascript" src="extjs/ext.js"></script>
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all-neptune.css">
+    <script type="text/javascript" src="extjs/packages/ext-theme-neptune/build/ext-theme-neptune.js" defer></script>
 
     <!-- Shared -->
     <link rel="stylesheet" type="text/css" href="extjs/examples/shared/example.css" />
 
-    <!-- GC -->
+    <!-- <x-compile> -->
+      <!-- <x-bootstrap> -->
+        <script type="text/javascript" src="extjs/ext-dev.js"></script>
+      <!-- </x-bootstrap> -->
 
+        <script type="text/javascript" src="js/combos.js"></script>
+    <!-- </x-compile> -->
 
     <!-- Example -->
-    <script type="text/javascript" src="app-all.js"></script>
     <style type="text/css">
         .example {
             width: 600px;
@@ -36,7 +40,7 @@
 <body>
 
 <h1>Combo Boxes</h1>
-<p>The js is not minified so it is readable. See <a href="app-all.js">combos.js</a>.</p>
+<p>The js is not minified so it is readable. See <a href="all-classes.js">combos.js</a>.</p>
 
 <div class="example">
     <h2>Data Sources</h2>
