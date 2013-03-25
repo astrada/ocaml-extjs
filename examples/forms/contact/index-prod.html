@@ -4,8 +4,16 @@
     <title>Contact Form</title>
 
     <!-- ExtJS -->
-    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
-    <script type="text/javascript" src="extjs/ext.js"></script>
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all-neptune.css">
+    <script type="text/javascript" src="extjs/packages/ext-theme-neptune/build/ext-theme-neptune.js" defer></script>
+
+    <!-- <x-compile> -->
+      <!-- <x-bootstrap> -->
+        <script type="text/javascript" src="extjs/ext-dev.js"></script>
+      <!-- </x-bootstrap> -->
+
+        <script type="text/javascript" src="js/contact_form.js"></script>
+    <!-- </x-compile> -->
 
     <!-- Shared -->
     <link rel="stylesheet" type="text/css" href="extjs/examples/shared/example.css" />
@@ -14,7 +22,6 @@
 
 
     <!-- Example -->
-    <script type="text/javascript" src="app-all.js"></script>
     <style type="text/css">
         .contactBtn button {
             padding: 0 5px;
@@ -31,7 +38,7 @@
         layouts to acheive a uniform flexible layout even when the window is resized.
     </p>
 
-    <p>The js is not minified so it is readable. See <a href="app-all.js">contact-form.js</a>.</p>
+    <p>The js is not minified so it is readable. See <a href="all-classes.js">contact-form.js</a>.</p>
 
 </body>
 </html>
