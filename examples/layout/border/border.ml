@@ -1,6 +1,9 @@
 let () =
   Ext.instance##require(
-    Js.array [|Js.string "*"|],
+    Js.array [|
+      Js.string "Ext.window.Window";
+      Js.string "Ext.container.Viewport"
+    |],
     Js.undefined,
     Js.undefined,
     Js.undefined)
