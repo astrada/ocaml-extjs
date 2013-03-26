@@ -5,20 +5,26 @@
 
     <title>Templates Example</title>
 
-    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all-neptune.css">
+    <script type="text/javascript" src="extjs/packages/ext-theme-neptune/build/ext-theme-neptune.js" defer></script>
+
     <link rel="stylesheet" type="text/css" href="extjs/examples/shared/example.css" />
 
     <!-- GC -->
 
+    <!-- <x-compile> -->
+      <!-- <x-bootstrap> -->
+        <script type="text/javascript" src="extjs/ext-dev.js"></script>
+      <!-- </x-bootstrap> -->
 
-    <script type="text/javascript" src="extjs/ext.js"></script>
-    <script type="text/javascript" src="app-all.js"></script>
+        <script type="text/javascript" src="js/templates.js"></script>
+    <!-- </x-compile> -->
 
 </head>
 <body>
     <h1>Templates</h1>
     <p>This example shows how to use Ext.Template and Ext.XTemplate.</p>
-    <p>Note that the js is not minified so it is readable. See <a href="app-all.js">templates.js</a>.</p>
+    <p>Note that the js is not minified so it is readable. See <a href="all-classes.js">templates.js</a>.</p>
     <div id="template-example"></div>
     <div id="xtemplate-example"></div>
 </body>
