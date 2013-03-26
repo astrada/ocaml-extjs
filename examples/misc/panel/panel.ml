@@ -1,6 +1,6 @@
 let () =
   Ext.instance##require(
-    Js.array [| Js.string "*"; |],
+    Js.array [| Js.string "Ext.panel.Panel"; |],
     Js.undefined,
     Js.undefined,
     Js.undefined)
