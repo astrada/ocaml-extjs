@@ -1,6 +1,10 @@
 let () =
   Ext.instance##require(
-    Js.array [|Js.string "*"|],
+    Js.array [|
+      Js.string "Ext.data.*";
+      Js.string "Ext.grid.*";
+      Js.string "Ext.container.Viewport";
+    |],
     Js.undefined,
     Js.undefined,
     Js.undefined)
