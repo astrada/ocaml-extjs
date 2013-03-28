@@ -3,13 +3,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Windows Example</title>
-    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all-neptune.css">
+    <script type="text/javascript" src="extjs/packages/ext-theme-neptune/build/ext-theme-neptune.js" defer></script>
     <link rel="stylesheet" type="text/css" href="extjs/examples/shared/example.css"/>
 
     <!-- GC -->
 
-    <script type="text/javascript" src="extjs/ext.js"></script>
-    <script language="javascript" src="app-all.js"></script>
+    <!-- <x-compile> -->
+      <!-- <x-bootstrap> -->
+        <script type="text/javascript" src="extjs/ext-dev.js"></script>
+      <!-- </x-bootstrap> -->
+
+        <script type="text/javascript" src="js/window.js"></script>
+    <!-- </x-compile> -->
     <style type="text/css">
         .x-panel-body p {
             margin: 10px;
@@ -20,7 +26,7 @@
 <body>
 <!-- EXAMPLES -->
 <h1>Windows Example</h1>
-<p>Note that the js is not minified so it is readable. See <a href="app-all.js">window.js</a> for the full source code.</p>
+<p>Note that the js is not minified so it is readable. See <a href="all-classes.js">window.js</a> for the full source code.</p>
 <p>This illustrates the <code>headerPosition</code> config of Panels, and also relative z-index management.</p>
 <p>The third Window owns two floating Windows who's z-indices are managed relative to <i>its</i> z-index. When that Window
 is occluded by another Window, and you click to bring it to the front, both its dependent Windows move to the front too.
