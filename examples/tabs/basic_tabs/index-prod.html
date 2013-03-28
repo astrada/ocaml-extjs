@@ -4,8 +4,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
     <title>Tabs Example</title>
     <!-- Ext includes -->
-    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all.css" />
-    <script type="text/javascript" src="extjs/ext.js"></script>
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all-neptune.css">
+    <script type="text/javascript" src="extjs/packages/ext-theme-neptune/build/ext-theme-neptune.js" defer></script>
 
     <!-- Shared example includes -->
     <link rel="stylesheet" type="text/css" href="extjs/examples/shared/example.css" />
@@ -15,11 +15,17 @@
 
     <!-- GC -->
 
-    <script type="text/javascript" src="app-all.js"></script>
+    <!-- <x-compile> -->
+      <!-- <x-bootstrap> -->
+        <script type="text/javascript" src="extjs/ext-dev.js"></script>
+      <!-- </x-bootstrap> -->
+
+        <script type="text/javascript" src="js/tabs.js"></script>
+    <!-- </x-compile> -->
 </head>
 <body>
     <h1>Tab Panel Examples</h1>
-    <p>Note that the js and css is not minified so it is readable. See <a href="app-all.js">tabs.js</a> for the tab creation code
+    <p>Note that the js and css is not minified so it is readable. See <a href="all-classes.js">tabs.js</a> for the tab creation code
     and <a href="tabs.css">tabs.css</a> for the css.</p>
 
     <h2>Tabs with auto height that resize to the content. Built from existing markup.</h2><br>
