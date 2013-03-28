@@ -3,14 +3,20 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 <title>Toolbar with Menus</title>
-    <script type="text/javascript" src="extjs/ext.js"></script>
-    <script type="text/javascript" src="extjs/examples/shared/include-theme.js"></script>
+    <link rel="stylesheet" type="text/css" href="extjs/resources/css/ext-all-neptune.css">
+    <script type="text/javascript" src="extjs/packages/ext-theme-neptune/build/ext-theme-neptune.js" defer></script>
 
     <link rel="stylesheet" type="text/css" href="extjs/examples/shared/example.css" />
+    <!-- <x-compile> -->
+      <!-- <x-bootstrap> -->
+        <script type="text/javascript" src="extjs/ext-dev.js"></script>
+      <!-- </x-bootstrap> -->
+
+        <script type="text/javascript" src="js/menus.js"></script>
+    <!-- </x-compile> -->
     <script type="text/javascript" src="extjs/examples/shared/examples.js"></script>
     <script type="text/javascript" src="extjs/examples/shared/states.js"></script>
 
-    <script type="text/javascript" src="app-all.js"></script>
     <link rel="stylesheet" type="text/css" href="menus.css" />
 
     <!-- GC -->
@@ -18,7 +24,7 @@
 </head>
 <body>
     <h1>Toolbar with Menus</h1>
-    <p>The js is not minified so it is readable. See <a href="app-all.js">menus.js</a>.</p>
+    <p>The js is not minified so it is readable. See <a href="all-classes.js">menus.js</a>.</p>
 
     <div id="container">
         <div id="toolbar"></div>
