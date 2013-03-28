@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,14 +138,10 @@
 <center><h1>Class type <a href="type_Ext_form_Basic.t.html">Ext_form_Basic.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_form_Basic.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 <li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODowner"><span class="keyword">method</span> owner</span> : <code class="type">'a. (#<a href="Ext_container_Container.t-c.html">Ext_container_Container.t</a> as 'a) Js.t Js.prop</code></pre><div class="info">
-<p>The container component to which this BasicForm is attached.</p> <br>
-</div>
-<pre><span id="METHODapplyIfToFields"><span class="keyword">method</span> applyIfToFields</span> : <code class="type">'b.<br>         'b Js.t -><br>         (< addEvents : 'e. 'e Js.t -> unit Js.meth;<br>            addListener : 'f 'g 'h 'i.<br>                            'f Js.t -><br>                            'g Js.callback Js.optdef -><br>                            'h Js.t Js.optdef -> 'i Js.t Js.optdef -> unit Js.meth;<br>            addManagedListener : 'j 'k 'l 'm 'n.<br>                                   'j Js.t -><br>                                   'k Js.t -><br>                                   'l Js.callback Js.optdef -><br>                                   'm Js.t Js.optdef -><br>                                   'n Js.t Js.optdef -> unit Js.meth;<br>            applyIfToFields : 'b. 'c;<br>            applyToFields : 'o. 'o Js.t -> 'd Js.t Js.meth;<br>            callParent : 'p 'q. 'p Js.t -> 'q Js.t Js.meth;<br>            callSuper : 'r 's. 'r Js.t -> 's Js.t Js.meth;<br>            checkDirty : unit Js.meth; checkValidity : unit Js.meth;<br>            clearInvalid : 'd Js.t Js.meth; clearListeners : unit Js.meth;<br>            clearManagedListeners : unit Js.meth; destroy : unit Js.meth;<br>            doAction : 't 'u. 't Js.t -> 'u Js.t Js.optdef -> 'd Js.t Js.meth;<br>            enableBubble : 'v. 'v Js.t -> unit Js.meth;<br>            findField : 'w.<br>                          Js.js_string Js.t -><br>                          (#<a href="Ext_form_field_Field.t-c.html">Ext_form_field_Field.t</a> as 'w) Js.t Js.meth;<br>            fireEvent : 'x. Js.js_string Js.t -> 'x Js.t -> bool Js.t Js.meth;<br>            getFieldValues : 'y. bool Js.t Js.optdef -> 'y Js.t Js.meth;<br>            getFields : <a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.meth;<br>            getInitialConfig : 'z. Js.js_string Js.t Js.optdef -> 'z Js.t Js.meth;<br>            getRecord : <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth;<br>            getValues : 'a1.<br>                          bool Js.t Js.optdef -><br>                          bool Js.t Js.optdef -><br>                          bool Js.t Js.optdef -><br>                          bool Js.t Js.optdef -> 'a1 Js.t Js.meth;<br>            hasInvalidField : unit Js.meth;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'b1. 'b1 Js.t Js.readonly_prop; hasUpload : unit Js.meth;<br>            initConfig : 'c1. 'c1 Js.t -> 'd Js.t Js.meth; isDirty : unit Js.meth;<br>            isObservable : bool Js.t Js.prop; isValid : unit Js.meth;<br>            load : 'd1. 'd1 Js.t -> 'd Js.t Js.meth;<br>            loadRecord : <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> 'd Js.t Js.meth;<br>            markInvalid : 'e1. 'e1 Js.t -> 'd Js.t Js.meth;<br>            mon : 'f1 'g1 'h1 'i1 'j1.<br>                    'f1 Js.t -><br>                    'g1 Js.t -><br>                    'h1 Js.callback Js.optdef -><br>                    'i1 Js.t Js.optdef -> 'j1 Js.t Js.optdef -> unit Js.meth;<br>            mun : 'k1 'l1 'm1 'n1.<br>                    'k1 Js.t -><br>                    'l1 Js.t -><br>                    'm1 Js.callback Js.optdef -> 'n1 Js.t Js.optdef -> unit Js.meth;<br>            on : 'o1 'p1 'q1 'r1.<br>                   'o1 Js.t -><br>                   'p1 Js.callback Js.optdef -><br>                   'q1 Js.t Js.optdef -> 'r1 Js.t Js.optdef -> unit Js.meth;<br>            owner : 'a. (#<a href="Ext_container_Container.t-c.html">Ext_container_Container.t</a> as 'a) Js.t Js.prop;<br>            relayEvents : 's1.<br>                            's1 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> unit Js.meth;<br>            removeListener : 't1 'u1.<br>                               Js.js_string Js.t -><br>                               't1 Js.callback -> 'u1 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'v1 'w1 'x1 'y1.<br>                                      'v1 Js.t -><br>                                      'w1 Js.t -><br>                                      'x1 Js.callback Js.optdef -><br>                                      'y1 Js.t Js.optdef -> unit Js.meth;<br>            reset : 'd Js.t Js.meth; resumeEvents : unit Js.meth;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            setValues : 'z1. 'z1 Js.t -> 'd Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            submit : 'a2. 'a2 Js.t -> 'd Js.t Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            un : 'b2 'c2.<br>                   Js.js_string Js.t -><br>                   'b2 Js.callback -> 'c2 Js.t Js.optdef -> unit Js.meth;<br>            updateRecord : <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.optdef -> 'd Js.t Js.meth; .. ><br>          as 'd)<br>         Js.t Js.meth as 'c</code></pre><div class="info">
+<pre><span id="METHODapplyIfToFields"><span class="keyword">method</span> applyIfToFields</span> : <code class="type">'a.<br>         'a Js.t -><br>         (< addEvents : 'd. 'd Js.t -> unit Js.meth;<br>            addListener : 'e 'f 'g 'h 'i.<br>                            'e Js.t -><br>                            'f Js.callback Js.optdef -><br>                            'g Js.t Js.optdef -><br>                            'h Js.t Js.optdef -> 'i Js.t Js.meth;<br>            addManagedListener : 'j 'k 'l 'm 'n 'o.<br>                                   'j Js.t -><br>                                   'k Js.t -><br>                                   'l Js.callback Js.optdef -><br>                                   'm Js.t Js.optdef -><br>                                   'n Js.t Js.optdef -> 'o Js.t Js.meth;<br>            applyIfToFields : 'a. 'b;<br>            applyToFields : 'p. 'p Js.t -> 'c Js.t Js.meth;<br>            callParent : 'q 'r. 'q Js.t -> 'r Js.t Js.meth;<br>            callSuper : 's 't. 's Js.t -> 't Js.t Js.meth;<br>            checkDirty : unit Js.meth; checkValidity : unit Js.meth;<br>            clearInvalid : 'c Js.t Js.meth; clearListeners : unit Js.meth;<br>            clearManagedListeners : unit Js.meth; destroy : unit Js.meth;<br>            doAction : 'u 'v. 'u Js.t -> 'v Js.t Js.optdef -> 'c Js.t Js.meth;<br>            enableBubble : 'w. 'w Js.t -> unit Js.meth;<br>            findField : 'x.<br>                          Js.js_string Js.t -><br>                          (#<a href="Ext_form_field_Field.t-c.html">Ext_form_field_Field.t</a> as 'x) Js.t Js.meth;<br>            fireEvent : 'y. Js.js_string Js.t -> 'y Js.t -> bool Js.t Js.meth;<br>            fireEventArgs : 'z.<br>                              Js.js_string Js.t -><br>                              'z Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>            getFieldValues : 'a1. bool Js.t Js.optdef -> 'a1 Js.t Js.meth;<br>            getFields : <a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.meth;<br>            getInitialConfig : 'b1. Js.js_string Js.t Js.optdef -> 'b1 Js.t Js.meth;<br>            getRecord : <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth;<br>            getValues : 'c1.<br>                          bool Js.t Js.optdef -><br>                          bool Js.t Js.optdef -><br>                          bool Js.t Js.optdef -><br>                          bool Js.t Js.optdef -> 'c1 Js.t Js.meth;<br>            hasInvalidField : unit Js.meth;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'd1. 'd1 Js.t Js.readonly_prop;<br>            hasUpload : bool Js.t Js.meth;<br>            initConfig : 'e1. 'e1 Js.t -> 'c Js.t Js.meth;<br>            isDirty : bool Js.t Js.meth; isObservable : bool Js.t Js.prop;<br>            isValid : bool Js.t Js.meth; load : 'f1. 'f1 Js.t -> 'c Js.t Js.meth;<br>            loadRecord : <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> 'c Js.t Js.meth;<br>            markInvalid : 'g1. 'g1 Js.t -> 'c Js.t Js.meth;<br>            mon : 'h1 'i1 'j1 'k1 'l1 'm1.<br>                    'h1 Js.t -><br>                    'i1 Js.t -><br>                    'j1 Js.callback Js.optdef -><br>                    'k1 Js.t Js.optdef -> 'l1 Js.t Js.optdef -> 'm1 Js.t Js.meth;<br>            mun : 'n1 'o1 'p1 'q1.<br>                    'n1 Js.t -><br>                    'o1 Js.t -><br>                    'p1 Js.callback Js.optdef -> 'q1 Js.t Js.optdef -> unit Js.meth;<br>            on : 'r1 's1 't1 'u1 'v1.<br>                   'r1 Js.t -><br>                   's1 Js.callback Js.optdef -><br>                   't1 Js.t Js.optdef -> 'u1 Js.t Js.optdef -> 'v1 Js.t Js.meth;<br>            owner : 'w1. (#<a href="Ext_container_Container.t-c.html">Ext_container_Container.t</a> as 'w1) Js.t Js.prop;<br>            relayEvents : 'x1 'y1.<br>                            'x1 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> 'y1 Js.t Js.meth;<br>            removeListener : 'z1 'a2.<br>                               Js.js_string Js.t -><br>                               'z1 Js.callback -> 'a2 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'b2 'c2 'd2 'e2.<br>                                      'b2 Js.t -><br>                                      'c2 Js.t -><br>                                      'd2 Js.callback Js.optdef -><br>                                      'e2 Js.t Js.optdef -> unit Js.meth;<br>            reset : bool Js.t Js.optdef -> 'c Js.t Js.meth;<br>            resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>            resumeEvents : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            setValues : 'f2. 'f2 Js.t -> 'c Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            submit : 'g2. 'g2 Js.t -> 'c Js.t Js.meth;<br>            suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            un : 'h2 'i2.<br>                   Js.js_string Js.t -><br>                   'h2 Js.callback -> 'i2 Js.t Js.optdef -> unit Js.meth;<br>            updateRecord : <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.optdef -> 'c Js.t Js.meth; .. ><br>          as 'c)<br>         Js.t Js.meth as 'b</code></pre><div class="info">
 <p>Calls <a href="#!/api/Ext-method-applyIf" rel="Ext-method-applyIf" class="docClass">Ext.applyIf</a> for all field in this form with the passed object.</p> 
 <p>
 
@@ -162,7 +161,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODapplyToFields"><span class="keyword">method</span> applyToFields</span> : <code class="type">'o. 'o Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODapplyToFields"><span class="keyword">method</span> applyToFields</span> : <code class="type">'p. 'p Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Calls <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a> for all fields in this form with the passed object.</p> 
 <p>
 
@@ -185,14 +184,14 @@
 <pre><span id="METHODcheckDirty"><span class="keyword">method</span> checkDirty</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Check whether the dirty state of the entire form has changed since it was last checked, and
 if so fire the <a href="#!/api/Ext.form.Basic-event-dirtychange" rel="Ext.form.Basic-event-dirtychange" class="docClass">dirtychange</a> event. This is automatically invoked
-when an individual field's dirty state changes.</p> <br>
+when an individual field's <code>dirty</code> state changes.</p> <br>
 </div>
 <pre><span id="METHODcheckValidity"><span class="keyword">method</span> checkValidity</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Check whether the validity of the entire form has changed since it was last checked, and
 if so fire the <a href="#!/api/Ext.form.Basic-event-validitychange" rel="Ext.form.Basic-event-validitychange" class="docClass">validitychange</a> event. This is automatically invoked
 when an individual field's validity changes.</p> <br>
 </div>
-<pre><span id="METHODclearInvalid"><span class="keyword">method</span> clearInvalid</span> : <code class="type">'d Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODclearInvalid"><span class="keyword">method</span> clearInvalid</span> : <code class="type">'c Js.t Js.meth</code></pre><div class="info">
 <p>Clears all invalid field messages in this form.</p> 
 <p>
 
@@ -206,7 +205,7 @@ when an individual field's validity changes.</p> <br>
 <pre><span id="METHODdestroy"><span class="keyword">method</span> destroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Destroys this object.</p> <br>
 </div>
-<pre><span id="METHODdoAction"><span class="keyword">method</span> doAction</span> : <code class="type">'t 'u. 't Js.t -> 'u Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdoAction"><span class="keyword">method</span> doAction</span> : <code class="type">'u 'v. 'u Js.t -> 'v Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Performs a predefined action (an implementation of <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>) to perform application-
 specific processing.</p> 
 <p>
@@ -235,7 +234,7 @@ config options):</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfindField"><span class="keyword">method</span> findField</span> : <code class="type">'w. Js.js_string Js.t -> (#<a href="Ext_form_field_Field.t-c.html">Ext_form_field_Field.t</a> as 'w) Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfindField"><span class="keyword">method</span> findField</span> : <code class="type">'x. Js.js_string Js.t -> (#<a href="Ext_form_field_Field.t-c.html">Ext_form_field_Field.t</a> as 'x) Js.t Js.meth</code></pre><div class="info">
 <p>Find a specific <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Ext.form.field.Field</a> in this form by id or name.</p> 
 <p>
 
@@ -257,7 +256,7 @@ config options):</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetFieldValues"><span class="keyword">method</span> getFieldValues</span> : <code class="type">'y. bool Js.t Js.optdef -> 'y Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetFieldValues"><span class="keyword">method</span> getFieldValues</span> : <code class="type">'a1. bool Js.t Js.optdef -> 'a1 Js.t Js.meth</code></pre><div class="info">
 <p>Retrieves the fields in the form as a set of key/value pairs, using their
 <a href="#!/api/Ext.form.field.Field-method-getModelData" rel="Ext.form.field.Field-method-getModelData" class="docClass">getModelData()</a> method to collect the values.
 If multiple fields return values under the same name those values will be combined into an Array.
@@ -297,7 +296,7 @@ This is similar to <a href="#!/api/Ext.form.Basic-method-getValues" rel="Ext.for
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetValues"><span class="keyword">method</span> getValues</span> : <code class="type">'a1.<br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'a1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetValues"><span class="keyword">method</span> getValues</span> : <code class="type">'c1.<br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'c1 Js.t Js.meth</code></pre><div class="info">
 <p>Retrieves the fields in the form as a set of key/value pairs, using their
 <a href="#!/api/Ext.form.field.Field-method-getSubmitData" rel="Ext.form.field.Field-method-getSubmitData" class="docClass">getSubmitData()</a> method to collect the values.
 If multiple fields return values under the same name those values will be combined into an Array.
@@ -334,8 +333,8 @@ method is used.</p>
 <p>Returns true if the form contains any invalid fields. No fields will be marked as invalid
 as a result of calling this; to trigger marking of fields use <a href="#!/api/Ext.form.Basic-method-isValid" rel="Ext.form.Basic-method-isValid" class="docClass">isValid</a> instead.</p> <br>
 </div>
-<pre><span id="METHODhasUpload"><span class="keyword">method</span> hasUpload</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Returns true if the form contains a file upload field. This is used to determine the method for submitting the
+<pre><span id="METHODhasUpload"><span class="keyword">method</span> hasUpload</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns <code>true</code> if the form contains a file upload field. This is used to determine the method for submitting the
 form: File uploads are not performed using normal 'Ajax' techniques, that is they are <strong>not</strong> performed using
 XMLHttpRequests. Instead a hidden <code>&lt;form&gt;</code> element containing all the fields is created temporarily and submitted
 with its <a href="http://www.w3.org/TR/REC-html40/present/frames.html#adef-target">target</a> set to refer to a dynamically generated, hidden <code>&lt;iframe&gt;</code> which is inserted into the document
@@ -353,45 +352,20 @@ responseText property in order to conform to the requirements of event handlers 
 
 <p>Be aware that file upload packets are sent with the content type <a href="http://www.faqs.org/rfcs/rfc2388.html">multipart/form</a> and some server technologies
 (notably JEE) may require some custom processing in order to retrieve parameter names and parameter values from
-the packet content.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">unit</code> <p>Boolean</p> 
-    </li>
-</ul>
-<br>
+the packet content.</p> <br>
 </div>
-<pre><span id="METHODisDirty"><span class="keyword">method</span> isDirty</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Returns true if any fields in this form have changed from their original values.</p>
+<pre><span id="METHODisDirty"><span class="keyword">method</span> isDirty</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns <code>true</code> if any fields in this form have changed from their original values.</p>
 
-<p>Note that if this BasicForm was configured with <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> then the
-Fields' <em>original values</em> are updated when the values are loaded by <a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a>
-or <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a>.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">unit</code> <p>Boolean</p> 
-    </li>
-</ul>
-<br>
+<p>Note that if this BasicForm was configured with <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> then the Fields' <em>original values</em> are updated when the values are
+loaded by <a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a> or <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a>.</p> <br>
 </div>
-<pre><span id="METHODisValid"><span class="keyword">method</span> isValid</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODisValid"><span class="keyword">method</span> isValid</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if client-side validation on the form is successful. Any invalid fields will be
 marked as invalid. If you only want to determine overall form validity without marking anything,
-use <a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-method-hasInvalidField" class="docClass">hasInvalidField</a> instead.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">unit</code> <p>Boolean</p> 
-    </li>
-</ul>
-<br>
+use <a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-method-hasInvalidField" class="docClass">hasInvalidField</a> instead.</p> <br>
 </div>
-<pre><span id="METHODload"><span class="keyword">method</span> load</span> : <code class="type">'d1. 'd1 Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODload"><span class="keyword">method</span> load</span> : <code class="type">'f1. 'f1 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Shortcut to <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">do</a> a <a href="#!/api/Ext.form.action.Load" rel="Ext.form.action.Load" class="docClass">load action</a>.</p> 
 <p>
 
@@ -411,7 +385,7 @@ use <a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-m
 </ul>
 <br>
 </div>
-<pre><span id="METHODloadRecord"><span class="keyword">method</span> loadRecord</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODloadRecord"><span class="keyword">method</span> loadRecord</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Loads an <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> into this form by calling <a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a> with the
 <a href="#!/api/Ext.data.Model-property-raw" rel="Ext.data.Model-property-raw" class="docClass">record data</a>.
 See also <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a>.</p> 
@@ -433,7 +407,7 @@ See also <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basi
 </ul>
 <br>
 </div>
-<pre><span id="METHODmarkInvalid"><span class="keyword">method</span> markInvalid</span> : <code class="type">'e1. 'e1 Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODmarkInvalid"><span class="keyword">method</span> markInvalid</span> : <code class="type">'g1. 'g1 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Mark fields in this form invalid in bulk.</p> 
 <p>
 
@@ -454,8 +428,20 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
 </ul>
 <br>
 </div>
-<pre><span id="METHODreset"><span class="keyword">method</span> reset</span> : <code class="type">'d Js.t Js.meth</code></pre><div class="info">
-<p>Resets all fields in this form.</p> 
+<pre><span id="METHODreset"><span class="keyword">method</span> reset</span> : <code class="type">bool Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
+<p>Resets all fields in this form. By default, any record bound by <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a>
+will be retained.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>resetRecord: <code class="code">bool Js.t</code> (optional)
+    <p>True to unbind any record set
+by <a href="#!/api/Ext.form.Basic-method-loadRecord" rel="Ext.form.Basic-method-loadRecord" class="docClass">loadRecord</a></p> 
+     Defaults to: false
+    </li>
+</ul>
+
 <p>
 
     <b>Returns</b>:
@@ -465,7 +451,7 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetValues"><span class="keyword">method</span> setValues</span> : <code class="type">'z1. 'z1 Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetValues"><span class="keyword">method</span> setValues</span> : <code class="type">'f2. 'f2 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Set values for fields in this form in bulk.</p> 
 <p>
 
@@ -499,7 +485,7 @@ an object hash of <code>{id: msg, id2: msg2}</code>, or a <a href="#!/api/Ext.da
 </ul>
 <br>
 </div>
-<pre><span id="METHODsubmit"><span class="keyword">method</span> submit</span> : <code class="type">'a2. 'a2 Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsubmit"><span class="keyword">method</span> submit</span> : <code class="type">'g2. 'g2 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Shortcut to <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">do</a> a <a href="#!/api/Ext.form.action.Submit" rel="Ext.form.action.Submit" class="docClass">submit action</a>. This will use the
 <a href="#!/api/Ext.form.action.Submit" rel="Ext.form.action.Submit" class="docClass">AJAX submit action</a> by default. If the <a href="#!/api/Ext.form.Basic-cfg-standardSubmit" rel="Ext.form.Basic-cfg-standardSubmit" class="docClass">standardSubmit</a> config
 is enabled it will use a standard form element to submit, or if the <a href="#!/api/Ext.form.Basic-cfg-api" rel="Ext.form.Basic-cfg-api" class="docClass">api</a> config is present
@@ -518,13 +504,13 @@ it will use the <a href="#!/api/Ext.form.action.DirectLoad" rel="Ext.form.action
     },
     failure: function(form, action) {
         switch (action.failureType) {
-            case <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.CLIENT_INVALID:
+            case <a href="#!/api/Ext.form.action.Action-static-property-CLIENT_INVALID" rel="Ext.form.action.Action-static-property-CLIENT_INVALID" class="docClass">Ext.form.action.Action.CLIENT_INVALID</a>:
                 <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failure', 'Form fields may not be submitted with invalid values');
                 break;
-            case <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.CONNECT_FAILURE:
+            case <a href="#!/api/Ext.form.action.Action-static-property-CONNECT_FAILURE" rel="Ext.form.action.Action-static-property-CONNECT_FAILURE" class="docClass">Ext.form.action.Action.CONNECT_FAILURE</a>:
                 <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failure', 'Ajax communication failed');
                 break;
-            case <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.SERVER_INVALID:
+            case <a href="#!/api/Ext.form.action.Action-static-property-SERVER_INVALID" rel="Ext.form.action.Action-static-property-SERVER_INVALID" class="docClass">Ext.form.action.Action.SERVER_INVALID</a>:
                <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Failure', action.result.msg);
        }
     }
@@ -564,7 +550,7 @@ it will use the <a href="#!/api/Ext.form.action.DirectLoad" rel="Ext.form.action
 </ul>
 <br>
 </div>
-<pre><span id="METHODupdateRecord"><span class="keyword">method</span> updateRecord</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODupdateRecord"><span class="keyword">method</span> updateRecord</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Persists the values in this form into the passed <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> object in a beginEdit/endEdit block.
 If the record is not specified, it will attempt to update (if it exists) the record provided to loadRecord.</p> 
 <p>
@@ -584,5 +570,8 @@ If the record is not specified, it will attempt to update (if it exists) the rec
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODowner"><span class="keyword">method</span> owner</span> : <code class="type">'w1. (#<a href="Ext_container_Container.t-c.html">Ext_container_Container.t</a> as 'w1) Js.t Js.prop</code></pre><div class="info">
+<p>The container component to which this BasicForm is attached.</p> <br>
 </div>
 </body></html>

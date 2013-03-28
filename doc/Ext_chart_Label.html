@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -145,30 +148,8 @@ in each of the Series (Pie, Bar, etc) for label creation and placement.</p>
 <p>The methods implemented by the Series are:</p>
 
 <ul>
-<li><p><strong><code>onCreateLabel(storeItem, item, i, display)</code></strong> Called each time a new label is created.
-The arguments of the method are:</p>
-
-<ul>
-<li><em><code>storeItem</code></em> The element of the store that is related to the label sprite.</li>
-<li><em><code>item</code></em> The item related to the label sprite. An item is an object containing the position of the shape
-used to describe the visualization and also pointing to the actual shape (circle, rectangle, path, etc).</li>
-<li><em><code>i</code></em> The index of the element created (i.e the first created label, second created label, etc)</li>
-<li><em><code>display</code></em> The display type. May be <b>false</b> if the label is hidden</li>
-</ul>
-</li>
-<li><p><strong><code>onPlaceLabel(label, storeItem, item, i, display, animate)</code></strong> Called for updating the position of the label.
-The arguments of the method are:</p>
-
-<ul>
-<li><em><code>label</code></em> The sprite label.</li></li>
-<li><em><code>storeItem</code></em> The element of the store that is related to the label sprite</li></li>
-<li><em><code>item</code></em> The item related to the label sprite. An item is an object containing the position of the shape
-used to describe the visualization and also pointing to the actual shape (circle, rectangle, path, etc).</li>
-<li><em><code>i</code></em> The index of the element to be updated (i.e. whether it is the first, second, third from the labelGroup)</li>
-<li><em><code>display</code></em> The display type. May be <b>false</b> if the label is hidden.</li>
-<li><em><code>animate</code></em> A boolean value to set or unset animations for the labels.</li>
-</ul>
-</li>
+<li><a href="#!/api/Ext.chart.Label-method-onCreateLabel" rel="Ext.chart.Label-method-onCreateLabel" class="docClass">onCreateLabel</a></li>
+<li><a href="#!/api/Ext.chart.Label-method-onPlaceLabel" rel="Ext.chart.Label-method-onPlaceLabel" class="docClass">onPlaceLabel</a></li>
 </ul> <br>
 <hr width="100%">
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Ext_chart_Label.t-c.html">t</a></span> = <code class="code">object</code> <a href="Ext_chart_Label.t-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEconfigs"><span class="keyword">class type</span> <a href="Ext_chart_Label.configs-c.html">configs</a></span> = <code class="code">object</code> <a href="Ext_chart_Label.configs-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEevents"><span class="keyword">class type</span> <a href="Ext_chart_Label.events-c.html">events</a></span> = <code class="code">object</code> <a href="Ext_chart_Label.events-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEstatics"><span class="keyword">class type</span> <a href="Ext_chart_Label.statics-c.html">statics</a></span> = <code class="code">object</code> <a href="Ext_chart_Label.statics-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALof_configs"><span class="keyword">val</span> of_configs</span> : <code class="type"><a href="Ext_chart_Label.configs-c.html">configs</a> Js.t -> <a href="Ext_chart_Label.t-c.html">t</a> Js.t</code></pre><div class="info">

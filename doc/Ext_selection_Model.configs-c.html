@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,9 +140,8 @@
 <center><h1>Class type <a href="type_Ext_selection_Model.configs.html">Ext_selection_Model.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_selection_Model.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
-<li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 <li><a href="Ext_util_Bindable.configs-c.html"><code class="code">Ext_util_Bindable.configs</code></a></li>
+<li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODallowDeselect"><span class="keyword">method</span> allowDeselect</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
@@ -149,21 +151,29 @@ Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-mode" rel="Ext.
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODmode"><span class="keyword">method</span> mode</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODmode"><span class="keyword">method</span> mode</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
 <p>Mode of selection.  Valid values are:</p>
 
 <ul>
-<li><strong>SINGLE</strong> - Only allows selecting one item at a time.  Use <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> to allow
+<li><strong>"SINGLE"</strong> - Only allows selecting one item at a time.  Use <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> to allow
 deselecting that item.  This is the default.</li>
-<li><strong>SIMPLE</strong> - Allows simple selection of multiple items one-by-one. Each click in grid will either
+<li><strong>"SIMPLE"</strong> - Allows simple selection of multiple items one-by-one. Each click in grid will either
 select or deselect an item.</li>
-<li><strong>MULTI</strong> - Allows complex selection of multiple items using Ctrl and Shift keys.</li>
+<li><strong>"MULTI"</strong> - Allows complex selection of multiple items using Ctrl and Shift keys.</li>
 </ul> <br>
 </div>
 <pre><span id="METHODpruneRemoved"><span class="keyword">method</span> pruneRemoved</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Prune records when they are removed from the store from the selection.
-This is a private flag. For an example of its usage, take a look at
-<a href="#!/api/Ext.selection.TreeModel" rel="Ext.selection.TreeModel" class="docClass">Ext.selection.TreeModel</a>.</p> 
+<p>Remove records from the selection when they are removed from the store.</p>
+
+<p><strong>Important:</strong> When using <a href="#!/api/Ext.toolbar.Paging" rel="Ext.toolbar.Paging" class="docClass">paging</a> or a <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">sparsely populated (buffered) Store</a>,
+records which are cached in the Store's <a href="#!/api/Ext.data.Store-property-data" rel="Ext.data.Store-property-data" class="docClass">data collection</a> may be removed from the Store when pages change,
+or when rows are scrolled out of view. For this reason <code>pruneRemoved</code> should be set to <code>false</code> when using a buffered Store.</p>
+
+<p>Also, when previously pruned pages are returned to the cache, the records objects in the page will be
+<em>new instances</em>, and will not match the instances in the selection model's collection. For this reason,
+you MUST ensure that the Model definition's <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a> references a unique
+key because in this situation, records in the Store have their <strong>IDs</strong> compared to records in the SelectionModel
+in order to re-select a record which is scrolled back into view.</p> 
 <p>
 
     Defaults to: <code class="code">true</code><br>

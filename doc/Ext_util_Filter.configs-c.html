@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -160,7 +163,25 @@
 </div>
 <pre><span id="METHODfilterFn"><span class="keyword">method</span> filterFn</span> : <code class="type">'a. 'a Js.callback Js.prop</code></pre><div class="info">
 <p>A custom filter function which is passed each item in the <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a> in turn. Should return
-true to accept each item or false to reject it</p> <br>
+<code>true</code> to accept each item or <code>false</code> to reject it.</p> <br>
+</div>
+<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>An identifier by which this Filter is indexed in a <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">Store's filters collection</a></p>
+
+<p>Identified Filters may be individually removed from a Store's filter set by using <a href="#!/api/Ext.data.Store-method-removeFilter" rel="Ext.data.Store-method-removeFilter" class="docClass">Ext.data.Store.removeFilter</a>.</p>
+
+<p>Anonymous Filters may be removed en masse by passing <code>null</code> to <a href="#!/api/Ext.data.Store-method-removeFilter" rel="Ext.data.Store-method-removeFilter" class="docClass">Ext.data.Store.removeFilter</a>.</p> <br>
+</div>
+<pre><span id="METHODoperator"><span class="keyword">method</span> operator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The operator to use to compare the <a href="#!/api/Ext.util.Filter-cfg-property" rel="Ext.util.Filter-cfg-property" class="docClass">property</a> to this Filter's <a href="#!/api/Ext.util.Filter-cfg-value" rel="Ext.util.Filter-cfg-value" class="docClass">value</a></p>
+
+<p>Possible values are:
+   * &lt;
+   * &lt;=
+   * =
+   * >=
+   * >
+   * !=</p> <br>
 </div>
 <pre><span id="METHODproperty"><span class="keyword">method</span> property</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The property to filter on. Required unless a <a href="#!/api/Ext.util.Filter-cfg-filterFn" rel="Ext.util.Filter-cfg-filterFn" class="docClass">filterFn</a> is passed</p> <br>
@@ -168,5 +189,8 @@ true to accept each item or false to reject it</p> <br>
 <pre><span id="METHODroot"><span class="keyword">method</span> root</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>Optional root property. This is mostly useful when filtering a Store, in which case we set the root to 'data' to
 make the filter pull the <a href="#!/api/Ext.util.Filter-cfg-property" rel="Ext.util.Filter-cfg-property" class="docClass">property</a> out of the data object of each item</p> <br>
+</div>
+<pre><span id="METHODvalue"><span class="keyword">method</span> value</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
+<p>The value to filter on. Required unless a <a href="#!/api/Ext.util.Filter-cfg-filterFn" rel="Ext.util.Filter-cfg-filterFn" class="docClass">filterFn</a> is passed.</p> <br>
 </div>
 </body></html>

@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,13 +140,13 @@
 <center><h1>Class type <a href="type_Ext_data_AbstractStore.events.html">Ext_data_AbstractStore.events</a></h1></center>
 <br>
 <pre><span id="TYPEevents"><span class="keyword">class type</span> events</span> = <code class="code">object</code> <a href="Ext_data_AbstractStore.events-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
 <li><a href="Ext_util_Observable.events-c.html"><code class="code">Ext_util_Observable.events</code></a></li>
 <li><a href="Ext_util_Sortable.events-c.html"><code class="code">Ext_util_Sortable.events</code></a></li>
+<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODadd"><span class="keyword">method</span> add</span> : <code class="type">'a.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -> Js.number Js.t -> 'a Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
-<p>Fired when a Model instance has been added to this Store</p> 
+<p>Fired when a Model instance has been added to this Store.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -198,7 +201,34 @@ load the Store</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODclear"><span class="keyword">method</span> clear</span> : <code class="type">'e.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'e Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODbulkremove"><span class="keyword">method</span> bulkremove</span> : <code class="type">'e.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -><br>          Js.number Js.t Js.js_array Js.t -> bool Js.t -> 'e Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired at the <em>end</em> of the <a href="#!/api/Ext.data.Store-method-remove" rel="Ext.data.Store-method-remove" class="docClass">remove</a> method when all records in the passed array have been removed.</p>
+
+<p>If many records may be removed in one go, then it is more efficient to listen for this event
+and perform any processing for a bulk remove than to listen for many <a href="#!/api/Ext.data.AbstractStore-event-remove" rel="Ext.data.AbstractStore-event-remove" class="docClass">remove</a> events.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>store: <code class="code">Ext_data_Store.t Js.t</code>
+    <p>The Store object</p> 
+    </li>
+<li>records: <code class="code">Ext_data_Model.t Js.js_array Js.t</code>
+    <p>The array of records that were removed (In the order they appear in the Store)</p> 
+    </li>
+<li>indexes: <code class="code">Js.number Js.t Js.js_array Js.t</code>
+    <p>The indexes of the records that were removed</p> 
+    </li>
+<li>isMove: <code class="code">bool Js.t</code>
+    <p><code>true</code> if the child nodes are being removed so they can be moved to another position in this Store.</p> 
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODclear"><span class="keyword">method</span> clear</span> : <code class="type">'f.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'f Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
 <p>Fired after the <a href="#!/api/Ext.data.AbstractStore-method-removeAll" rel="Ext.data.AbstractStore-method-removeAll" class="docClass">removeAll</a> method is called.</p> 
 <p>
 
@@ -212,7 +242,7 @@ load the Store</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdatachanged"><span class="keyword">method</span> datachanged</span> : <code class="type">'f.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'f Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODdatachanged"><span class="keyword">method</span> datachanged</span> : <code class="type">'g.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'g Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
 <p>Fires whenever the records in the Store have changed in some way - this could include adding or removing
 records, or updating the data in existing records</p> 
 <p>
@@ -228,7 +258,7 @@ records, or updating the data in existing records</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODload"><span class="keyword">method</span> load</span> : <code class="type">'g.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -> bool Js.t -> 'g Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODload"><span class="keyword">method</span> load</span> : <code class="type">'h.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -> bool Js.t -> 'h Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires whenever the store reads data from a remote data source.</p> 
 <p>
 
@@ -248,7 +278,7 @@ records, or updating the data in existing records</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODmetachange"><span class="keyword">method</span> metachange</span> : <code class="type">'h 'i.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'h Js.t -> 'i Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODmetachange"><span class="keyword">method</span> metachange</span> : <code class="type">'i 'j.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'i Js.t -> 'j Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
 <p>Fires when this store's underlying reader (available via the proxy) provides new metadata.
 Metadata usually consists of new field definitions, but can include any configuration data
 required by an application, and can be processed as needed in the event handler.
@@ -267,7 +297,7 @@ This event is currently only fired for JsonReaders.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODrefresh"><span class="keyword">method</span> refresh</span> : <code class="type">'j.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'j Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODrefresh"><span class="keyword">method</span> refresh</span> : <code class="type">'k.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -> 'k Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
 <p>Fires when the data cache has changed in a bulk manner (e.g., it has been sorted, filtered, etc.) and a
 widget that is using this Store as a Record cache should refresh its view.</p> 
 <p>
@@ -283,8 +313,11 @@ widget that is using this Store as a Record cache should refresh its view.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODremove"><span class="keyword">method</span> remove</span> : <code class="type">'k.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> Js.number Js.t -> 'k Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
-<p>Fired when a Model instance has been removed from this Store</p> 
+<pre><span id="METHODremove"><span class="keyword">method</span> remove</span> : <code class="type">'l.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> Js.number Js.t -> bool Js.t -> 'l Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when a Model instance has been removed from this Store.</p>
+
+<p><strong>If many records may be removed in one go, then it is more efficient to listen for the <a href="#!/api/Ext.data.AbstractStore-event-bulkremove" rel="Ext.data.AbstractStore-event-bulkremove" class="docClass">bulkremove</a> event
+and perform any processing for a bulk remove than to listen for this <a href="#!/api/Ext.data.AbstractStore-event-remove" rel="Ext.data.AbstractStore-event-remove" class="docClass">remove</a> event.</strong></p> 
 <p>
 
     <b>Parameters</b>:
@@ -298,14 +331,17 @@ widget that is using this Store as a Record cache should refresh its view.</p>
 <li>index: <code class="code">Js.number Js.t</code>
     <p>The index of the record that was removed</p> 
     </li>
+<li>isMove: <code class="code">bool Js.t</code>
+    <p><code>true</code> if the child node is being removed so it can be moved to another position in this Store.</p> 
+    </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODupdate"><span class="keyword">method</span> update</span> : <code class="type">'l.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t Js.js_array Js.t -> 'l Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
-<p>Fires when a Model instance has been updated</p> 
+<pre><span id="METHODupdate"><span class="keyword">method</span> update</span> : <code class="type">'m.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t Js.js_array Js.t -> 'm Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fires when a Model instance has been updated.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -332,7 +368,7 @@ widget that is using this Store as a Record cache should refresh its view.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODwrite"><span class="keyword">method</span> write</span> : <code class="type">'m.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.t -> 'm Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODwrite"><span class="keyword">method</span> write</span> : <code class="type">'n.<br>         (<a href="Ext_data_AbstractStore.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.t -> 'n Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires whenever a successful write has been made via the configured <a href="#!/api/Ext.data.AbstractStore-cfg-proxy" rel="Ext.data.AbstractStore-cfg-proxy" class="docClass">Proxy</a></p> 
 <p>
 

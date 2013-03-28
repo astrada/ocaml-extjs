@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,18 +138,11 @@
 <center><h1>Class type <a href="type_Ext_selection_Model.t.html">Ext_selection_Model.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_selection_Model.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
-<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 <li><a href="Ext_util_Bindable.t-c.html"><code class="code">Ext_util_Bindable.t</code></a></li>
+<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODselected"><span class="keyword">method</span> selected</span> : <code class="type"><a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.readonly_prop</code></pre><div class="info">
-<p>A MixedCollection that maintains all of the currently selected records.</p> 
-<p>
-
-    Defaults to: <code class="code">undefined</code><br>
-</div>
-<pre><span id="METHODbindStore"><span class="keyword">method</span> bindStore</span> : <code class="type">'a. 'a Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODbindStore"><span class="keyword">method</span> bindStore</span> : <code class="type">'a. 'a Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>binds the store to the selModel.</p>
 
 <p>Binds a store to this instance.</p> 
@@ -157,10 +153,6 @@
 <li>store: <code class="code">_ Js.t</code> (optional)
     <p>The store to bind or ID of the store.
 When no store given (or when <code>null</code> or <code>undefined</code> passed), unbinds the existing store.</p> 
-    </li>
-<li>initial: <code class="code">bool Js.t</code> (optional)
-    <p>True to not remove listeners from existing store.</p> 
-     Defaults to: false
     </li>
 </ul>
 <br>
@@ -181,14 +173,29 @@ When no store given (or when <code>null</code> or <code>undefined</code> passed)
 </ul>
 <br>
 </div>
-<pre><span id="METHODdeselectAll"><span class="keyword">method</span> deselectAll</span> : <code class="type">bool Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODdeselectAll"><span class="keyword">method</span> deselectAll</span> : <code class="type">bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Deselects all records in the view.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>suppressEvent: <code class="code">bool Js.t</code>
+<li>suppressEvent: <code class="code">bool Js.t</code> (optional)
     <p>True to suppress any deselect events</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdeselectRange"><span class="keyword">method</span> deselectRange</span> : <code class="type">'c 'd. 'c Js.t -> 'd Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Deselects a range of rows if the selection model <a href="#!/api/Ext.selection.Model-method-isLocked" rel="Ext.selection.Model-method-isLocked" class="docClass">is not locked</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>startRow: <code class="code">_ Js.t</code>
+    <p>The record or index of the first row in the range</p> 
+    </li>
+<li>endRow: <code class="code">_ Js.t</code>
+    <p>The record or index of the last row in the range</p> 
     </li>
 </ul>
 <br>
@@ -204,10 +211,7 @@ When no store given (or when <code>null</code> or <code>undefined</code> passed)
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetLastSelected"><span class="keyword">method</span> getLastSelected</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Returns the last selected record.</p> <br>
-</div>
-<pre><span id="METHODgetSelection"><span class="keyword">method</span> getSelection</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetLastSelected"><span class="keyword">method</span> getLastSelected</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><pre><span id="METHODgetSelection"><span class="keyword">method</span> getSelection</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Returns an array of the currently selected records.</p> 
 <p>
 
@@ -231,8 +235,17 @@ When no store given (or when <code>null</code> or <code>undefined</code> passed)
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetStoreListeners"><span class="keyword">method</span> getStoreListeners</span> : <code class="type">'c. 'c Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetStoreListeners"><span class="keyword">method</span> getStoreListeners</span> : <code class="type">'e. <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
 <p>Gets the listeners to bind to a new store.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>store: <code class="code">Ext_data_Store.t Js.t</code>
+    <p>The Store which is being bound to for which a listeners object should be returned.</p> 
+    </li>
+</ul>
+
 <p>
 
     <b>Returns</b>:
@@ -261,7 +274,21 @@ may be omitted, it is assumed to be the current instance.</p>
 <pre><span id="METHODisLocked"><span class="keyword">method</span> isLocked</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the selections are locked.</p> <br>
 </div>
-<pre><span id="METHODisSelected"><span class="keyword">method</span> isSelected</span> : <code class="type">'d. 'd Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisRangeSelected"><span class="keyword">method</span> isRangeSelected</span> : <code class="type">'f 'g. 'f Js.t -> 'g Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the specified row is selected.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>from: <code class="code">_ Js.t</code>
+    <p>The start of the range to check.</p> 
+    </li>
+<li>to: <code class="code">_ Js.t</code> <p>The end of the range to check.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisSelected"><span class="keyword">method</span> isSelected</span> : <code class="type">'h. 'h Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns true if the specified row is selected.</p> 
 <p>
 
@@ -273,7 +300,7 @@ may be omitted, it is assumed to be the current instance.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODselect"><span class="keyword">method</span> select</span> : <code class="type">'e. 'e Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODselect"><span class="keyword">method</span> select</span> : <code class="type">'i. 'i Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Selects a record instance by record instance or index.</p> 
 <p>
 
@@ -305,7 +332,7 @@ may be omitted, it is assumed to be the current instance.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODselectRange"><span class="keyword">method</span> selectRange</span> : <code class="type">'f 'g. 'f Js.t -> 'g Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODselectRange"><span class="keyword">method</span> selectRange</span> : <code class="type">'j 'k. 'j Js.t -> 'k Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Selects a range of rows if the selection model <a href="#!/api/Ext.selection.Model-method-isLocked" rel="Ext.selection.Model-method-isLocked" class="docClass">is not locked</a>.
 All rows in between startRow and endRow are also selected.</p> 
 <p>
@@ -359,5 +386,11 @@ that the record has been selected.</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODselected"><span class="keyword">method</span> selected</span> : <code class="type"><a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.readonly_prop</code></pre><div class="info">
+<p>A MixedCollection that maintains all of the currently selected records.</p> 
+<p>
+
+    Defaults to: <code class="code">undefined</code><br>
 </div>
 </body></html>

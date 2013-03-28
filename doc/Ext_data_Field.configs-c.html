@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -211,13 +214,54 @@ var myData = [
 </code></pre> <br>
 </div>
 <pre><span id="METHODdateFormat"><span class="keyword">method</span> dateFormat</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Used when converting received data into a Date when the <a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">type</a> is specified as <code>"date"</code>.</p>
-
-<p>The format dtring is also used when serializing Date fields for use by <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Writers</a>.</p>
+<p>Serves as a default for the <a href="#!/api/Ext.data.Field-cfg-dateReadFormat" rel="Ext.data.Field-cfg-dateReadFormat" class="docClass">dateReadFormat</a> and <a href="#!/api/Ext.data.Field-cfg-dateWriteFormat" rel="Ext.data.Field-cfg-dateWriteFormat" class="docClass">dateWriteFormat</a> config options. This
+will be used in place of those other configurations if not specified.</p>
 
 <p>A format string for the <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">Ext.Date.parse</a> function, or "timestamp" if the value provided by
 the Reader is a UNIX timestamp, or "time" if the value provided by the Reader is a javascript millisecond
-timestamp. See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a>.</p> <br>
+timestamp. See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a>.</p>
+
+<p>It is quite important to note that while this config is optional, it will default to using the base
+JavaScript Date object's <code>parse</code> function if not specified, rather than <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">Ext.Date.parse</a>.
+This can cause unexpected issues, especially when converting between timezones, or when converting dates that
+do not have a timezone specified. The behavior of the native <code>Date.parse</code> is implementation-specific, and
+depending on the value of the date string, it might return the UTC date or the local date. <strong>For this reason
+it is strongly recommended that you always specify an explicit date format when parsing dates.</strong></p> <br>
+</div>
+<pre><span id="METHODdateReadFormat"><span class="keyword">method</span> dateReadFormat</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Used when converting received data into a Date when the <a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">type</a> is specified as <code>"date"</code>.
+This configuration takes precedence over <a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">dateFormat</a>.
+See <a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">dateFormat</a> for more information.</p> <br>
+</div>
+<pre><span id="METHODdateWriteFormat"><span class="keyword">method</span> dateWriteFormat</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Used to provide a custom format when serializing dates with a <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a>.
+If this is not specified, the <a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">dateFormat</a> will be used. See the <a href="#!/api/Ext.data.writer.Writer" rel="Ext.data.writer.Writer" class="docClass">Ext.data.writer.Writer</a>
+docs for more information on writing dates.</p>
+
+<p><strong>Note that to use a <a href="#!/api/Ext.data.writer.Json" rel="Ext.data.writer.Json" class="docClass">JsonWriter</a> to send Microsoft format "JSON" dates, which are in fact
+invalid JSON, it is not possible to use the standard date serialization pathway or
+<a href="#!/api/Ext-property-USE_NATIVE_JSON" rel="Ext-property-USE_NATIVE_JSON" class="docClass">native browser JSON production</a>.</strong></p>
+
+<p>To use a <a href="#!/api/Ext.data.writer.Json" rel="Ext.data.writer.Json" class="docClass">JsonWriter</a> to write dates in a JSON packet in the form <code>"\/Date(1357372800000)\/"</code>
+configure the field like this:</p>
+
+<p>   {</p>
+
+<pre><code>   type: 'date',
+   dateFormat: 'MS',             // To parse incoming dates from server correctly
+   serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
+</code></pre>
+
+<p>   }</p>
+
+<p>Then override ExtJS's JSON date serialize function:</p>
+
+<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) {</p>
+
+<pre><code>   return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
+</code></pre>
+
+<p>   };</p> <br>
 </div>
 <pre><span id="METHODdefaultValue"><span class="keyword">method</span> defaultValue</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
 <p>The default value used when the creating an instance from a raw data object, and the property referenced by the
@@ -293,7 +337,7 @@ is being used to sync data with the server.</p>
 
     Defaults to: <code class="code">"ASC"</code><br>
 </div>
-<pre><span id="METHODsortType"><span class="keyword">method</span> sortType</span> : <code class="type">'e. 'e Js.callback Js.prop</code></pre><div class="info">
+<pre><span id="METHODsortType"><span class="keyword">method</span> sortType</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
 <p>A function which converts a Field's value to a comparable value in order to ensure correct sort ordering.
 Predefined functions are provided in <a href="#!/api/Ext.data.SortTypes" rel="Ext.data.SortTypes" class="docClass">Ext.data.SortTypes</a>. A custom sort example:</p>
 
@@ -312,7 +356,9 @@ sortType: function(value) {
       default: return 3;
    }
 }
-</code></pre> <br>
+</code></pre>
+
+<p>May also be set to a String value, corresponding to one of the named sort types in <a href="#!/api/Ext.data.SortTypes" rel="Ext.data.SortTypes" class="docClass">Ext.data.SortTypes</a>.</p> <br>
 </div>
 <pre><span id="METHOD_type"><span class="keyword">method</span> _type</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
 <p>The data type for automatic conversion from received data to the <em>stored</em> value if

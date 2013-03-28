@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -147,7 +150,19 @@ the Operations.</p>
 the config options passed to the JsonWriter's constructor.</p>
 
 <p>Writers are not needed for any kind of local storage - whether via a <a href="#!/api/Ext.data.proxy.WebStorage" rel="Ext.data.proxy.WebStorage" class="docClass">Web Storage
-proxy</a> (see <a href="#!/api/Ext.data.proxy.LocalStorage" rel="Ext.data.proxy.LocalStorage" class="docClass">localStorage</a> and <a href="#!/api/Ext.data.proxy.SessionStorage" rel="Ext.data.proxy.SessionStorage" class="docClass">sessionStorage</a>) or just in memory via a <a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">MemoryProxy</a>.</p> <br>
+proxy</a> (see <a href="#!/api/Ext.data.proxy.LocalStorage" rel="Ext.data.proxy.LocalStorage" class="docClass">localStorage</a> and <a href="#!/api/Ext.data.proxy.SessionStorage" rel="Ext.data.proxy.SessionStorage" class="docClass">sessionStorage</a>) or just in memory via a <a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">MemoryProxy</a>.</p>
+
+<h1>Dates</h1>
+
+<p>Before sending dates to the server, they can be formatted using one of the <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a> formats.
+These formats can be specified both on the field and the writer itself. In terms of precedence, from highest to lowest:</p>
+
+<ul>
+<li><a href="#!/api/Ext.data.writer.Writer-cfg-dateFormat" rel="Ext.data.writer.Writer-cfg-dateFormat" class="docClass">Writer.dateFormat</a> The writer dateFormat will always have the highest precedence</li>
+<li><a href="#!/api/Ext.data.Field-cfg-dateWriteFormat" rel="Ext.data.Field-cfg-dateWriteFormat" class="docClass">Ext.data.Field.dateWriteFormat</a> The dateWriteFormat will be used if no format is specified on the writer</li>
+<li><a href="#!/api/Ext.data.Field-cfg-dateFormat" rel="Ext.data.Field-cfg-dateFormat" class="docClass">Field.dateFormat</a>/<a href="#!/api/Ext.data.Field-cfg-dateReadFormat" rel="Ext.data.Field-cfg-dateReadFormat" class="docClass">Field.dateReadFormat</a>
+Finally, if none of the above options are specified the field will be formatted using the format that was used to read the date from the server.</li>
+</ul> <br>
 <hr width="100%">
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Ext_data_writer_Writer.t-c.html">t</a></span> = <code class="code">object</code> <a href="Ext_data_writer_Writer.t-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEconfigs"><span class="keyword">class type</span> <a href="Ext_data_writer_Writer.configs-c.html">configs</a></span> = <code class="code">object</code> <a href="Ext_data_writer_Writer.configs-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEevents"><span class="keyword">class type</span> <a href="Ext_data_writer_Writer.events-c.html">events</a></span> = <code class="code">object</code> <a href="Ext_data_writer_Writer.events-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEstatics"><span class="keyword">class type</span> <a href="Ext_data_writer_Writer.statics-c.html">statics</a></span> = <code class="code">object</code> <a href="Ext_data_writer_Writer.statics-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALof_configs"><span class="keyword">val</span> of_configs</span> : <code class="type"><a href="Ext_data_writer_Writer.configs-c.html">configs</a> Js.t -> <a href="Ext_data_writer_Writer.t-c.html">t</a> Js.t</code></pre><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code><br>

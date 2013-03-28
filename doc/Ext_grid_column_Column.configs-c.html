@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,33 +140,28 @@
 <center><h1>Class type <a href="type_Ext_grid_column_Column.configs.html">Ext_grid_column_Column.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_grid_column_Column.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
-<li><a href="Ext_AbstractComponent.configs-c.html"><code class="code">Ext_AbstractComponent.configs</code></a></li>
-<li><a href="Ext_Component.configs-c.html"><code class="code">Ext_Component.configs</code></a></li>
-<li><a href="Ext_container_AbstractContainer.configs-c.html"><code class="code">Ext_container_AbstractContainer.configs</code></a></li>
-<li><a href="Ext_container_Container.configs-c.html"><code class="code">Ext_container_Container.configs</code></a></li>
 <li><a href="Ext_grid_header_Container.configs-c.html"><code class="code">Ext_grid_header_Container.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">((< activeItem : 'c. 'c Js.t Js.prop; afterComponentLayout : 'a;<br>           afterHide : 'd 'e.<br>                         ('b Js.t,<br>                          'd Js.callback Js.optdef -> 'e Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           afterLayout : 'f.<br>                           ('b Js.t,<br>                            (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 'f) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           afterRender : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           afterSetPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           afterShow : 'g 'h 'i.<br>                         ('b Js.t,<br>                          'g Js.t Js.optdef -><br>                          'h Js.callback Js.optdef -> 'i Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           align : Js.js_string Js.t Js.prop; anchorSize : 'j. 'j Js.t Js.prop;<br>           autoDestroy : bool Js.t Js.prop; autoEl : 'k. 'k Js.t Js.prop;<br>           autoRender : 'l. 'l Js.t Js.prop; autoScroll : bool Js.t Js.prop;<br>           autoShow : bool Js.t Js.prop; baseCls : Js.js_string Js.t Js.prop;<br>           beforeComponentLayout : ('b Js.t,<br>                                    Js.number Js.t -> Js.number Js.t -> unit)<br>                                   Js.meth_callback Js.writeonly_prop;<br>           beforeDestroy : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           beforeLayout : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           beforeShow : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           border : 'm. 'm Js.t Js.prop;<br>           bubbleEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           childEls : 'n. 'n Js.t Js.js_array Js.t Js.prop;<br>           cls : Js.js_string Js.t Js.prop; columnWidth : 'o. 'o Js.t Js.prop;<br>           columns : 'p. 'p Js.t Js.js_array Js.t Js.prop;<br>           componentCls : Js.js_string Js.t Js.prop;<br>           componentLayout : 'q. 'q Js.t Js.prop;<br>           contentEl : Js.js_string Js.t Js.prop; data : 'r. 'r Js.t Js.prop;<br>           dataIndex : Js.js_string Js.t Js.prop;<br>           defaultRenderer : ('b Js.t, unit -> unit) Js.meth_callback<br>                             Js.writeonly_prop;<br>           defaultType : Js.js_string Js.t Js.prop;<br>           defaultWidth : Js.number Js.t Js.prop; defaults : 's. 's Js.t Js.prop;<br>           detachOnRemove : bool Js.t Js.prop; disabled : bool Js.t Js.prop;<br>           disabledCls : Js.js_string Js.t Js.prop; draggable : bool Js.t Js.prop;<br>           draggable_obj : 't. 't Js.t Js.prop;<br>           editRenderer : 'u. 'u Js.callback Js.prop; editor : 'v. 'v Js.t Js.prop;<br>           emptyCellText : Js.js_string Js.t Js.prop; floating : bool Js.t Js.prop;<br>           focusOnToFront : bool Js.t Js.prop; formBind : bool Js.t Js.prop;<br>           frame : bool Js.t Js.prop; groupable : bool Js.t Js.prop;<br>           height : Js.number Js.t Js.prop; hidden : bool Js.t Js.prop;<br>           hideMode : Js.js_string Js.t Js.prop; hideable : bool Js.t Js.prop;<br>           html : 'w. 'w Js.t Js.prop; id : Js.js_string Js.t Js.prop;<br>           initComponent : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           itemId : Js.js_string Js.t Js.prop; items : 'x. 'x Js.t Js.prop;<br>           layout : 'y. 'y Js.t Js.prop; listeners : 'z. 'z Js.t Js.prop;<br>           loader : 'a1. 'a1 Js.t Js.prop; locked : bool Js.t Js.prop;<br>           margin : 'b1. 'b1 Js.t Js.prop; maxHeight : Js.number Js.t Js.prop;<br>           maxWidth : Js.number Js.t Js.prop; menuDisabled : bool Js.t Js.prop;<br>           menuText : Js.js_string Js.t Js.prop; minHeight : Js.number Js.t Js.prop;<br>           minWidth : Js.number Js.t Js.prop;<br>           onAdd : 'c1.<br>                     ('b Js.t,<br>                      (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'c1) Js.t -> Js.number Js.t -> unit)<br>                     Js.meth_callback Js.writeonly_prop;<br>           onAdded : 'd1.<br>                       ('b Js.t, 'd1 Js.t -> Js.number Js.t -> unit)<br>                       Js.meth_callback Js.writeonly_prop;<br>           onAdded_container : ('b Js.t, 'b Js.t -> Js.number Js.t -> unit)<br>                               Js.meth_callback Js.writeonly_prop;<br>           onBeforeAdd : 'e1.<br>                           ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'e1) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           onDestroy : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDisable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onEnable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onHide : 'f1 'g1 'h1.<br>                      ('b Js.t,<br>                       'f1 Js.t Js.optdef -><br>                       'g1 Js.callback Js.optdef -> 'h1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemove : 'i1.<br>                        ('b Js.t,<br>                         (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'i1) Js.t -> bool Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemoved : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onRender : ('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onResize : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onShow : 'j1 'k1 'l1.<br>                      ('b Js.t,<br>                       'j1 Js.t Js.optdef -><br>                       'k1 Js.callback Js.optdef -> 'l1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onShowComplete : 'm1 'n1.<br>                              ('b Js.t,<br>                               'm1 Js.callback Js.optdef -><br>                               'n1 Js.t Js.optdef -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop;<br>           overflowX : Js.js_string Js.t Js.prop;<br>           overflowY : Js.js_string Js.t Js.prop; padding : 'o1. 'o1 Js.t Js.prop;<br>           plugins : 'p1. 'p1 Js.t Js.prop; region : Js.js_string Js.t Js.prop;<br>           renderData : 'q1. 'q1 Js.t Js.prop;<br>           renderSelectors : 'r1. 'r1 Js.t Js.prop;<br>           renderTo : 's1. 's1 Js.t Js.prop; renderTpl : 't1. 't1 Js.t Js.prop;<br>           renderer : 'u1. 'u1 Js.t Js.prop; resizable : 'v1. 'v1 Js.t Js.prop;<br>           resizable_bool : bool Js.t Js.prop;<br>           resizeHandles : Js.js_string Js.t Js.prop;<br>           saveDelay : Js.number Js.t Js.prop; scope : 'w1. 'w1 Js.t Js.prop;<br>           sealed : bool Js.t Js.prop; shadow : 'x1. 'x1 Js.t Js.prop;<br>           shadowOffset : 'y1. 'y1 Js.t Js.prop; shrinkWrap : 'z1. 'z1 Js.t Js.prop;<br>           sortable : bool Js.t Js.prop;<br>           stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>           style : 'a2. 'a2 Js.t Js.prop; styleHtmlCls : Js.js_string Js.t Js.prop;<br>           styleHtmlContent : bool Js.t Js.prop; suspendLayout : bool Js.t Js.prop;<br>           tdCls : Js.js_string Js.t Js.prop; text : Js.js_string Js.t Js.prop;<br>           toFrontOnShow : bool Js.t Js.prop; tooltip : Js.js_string Js.t Js.prop;<br>           tooltipType : Js.js_string Js.t Js.prop; tpl : 'b2. 'b2 Js.t Js.prop;<br>           tplWriteMode : Js.js_string Js.t Js.prop; ui : Js.js_string Js.t Js.prop;<br>           weight : Js.number Js.t Js.prop; width : Js.number Js.t Js.prop;<br>           xtype : Js.js_string Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t,<br>        Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
+<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">'a 'b.<br>         ((< activeItem : 'e. 'e Js.t Js.prop; afterComponentLayout : 'a 'b. 'c;<br>             afterHide : 'f 'g.<br>                           ('d Js.t,<br>                            'f Js.callback Js.optdef -> 'g Js.t Js.optdef -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>             afterLayout : 'h.<br>                             ('d Js.t,<br>                              (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 'h) Js.t -> unit)<br>                             Js.meth_callback Js.writeonly_prop;<br>             afterRender : ('d Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>             afterSetPosition : ('d Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                                Js.meth_callback Js.writeonly_prop;<br>             afterShow : 'i 'j 'k.<br>                           ('d Js.t,<br>                            'i Js.t Js.optdef -><br>                            'j Js.callback Js.optdef -> 'k Js.t Js.optdef -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>             align : Js.js_string Js.t Js.prop; anchorSize : 'l. 'l Js.t Js.prop;<br>             autoDestroy : bool Js.t Js.prop; autoEl : 'm. 'm Js.t Js.prop;<br>             autoRender : 'n. 'n Js.t Js.prop; autoScroll : bool Js.t Js.prop;<br>             autoShow : bool Js.t Js.prop; baseCls : Js.js_string Js.t Js.prop;<br>             beforeComponentLayout : ('d Js.t,<br>                                      Js.number Js.t -> Js.number Js.t -> unit)<br>                                     Js.meth_callback Js.writeonly_prop;<br>             beforeDestroy : ('d Js.t, unit -> unit) Js.meth_callback<br>                             Js.writeonly_prop;<br>             beforeLayout : ('d Js.t, unit -> unit) Js.meth_callback<br>                            Js.writeonly_prop;<br>             beforeShow : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             border : 'o. 'o Js.t Js.prop;<br>             bubbleEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>             childEls : 'p. 'p Js.t Js.js_array Js.t Js.prop;<br>             cls : Js.js_string Js.t Js.prop; columnWidth : 'q. 'q Js.t Js.prop;<br>             columns : 'r. 'r Js.t Js.js_array Js.t Js.prop;<br>             componentCls : Js.js_string Js.t Js.prop;<br>             componentLayout : 's. 's Js.t Js.prop; constrain : bool Js.t Js.prop;<br>             constrainTo : 't. 't Js.t Js.prop;<br>             contentEl : Js.js_string Js.t Js.prop; data : 'u. 'u Js.t Js.prop;<br>             dataIndex : Js.js_string Js.t Js.prop;<br>             defaultAlign : Js.js_string Js.t Js.prop;<br>             defaultRenderer : ('d Js.t, unit -> unit) Js.meth_callback<br>                               Js.writeonly_prop;<br>             defaultType : Js.js_string Js.t Js.prop;<br>             defaultWidth : Js.number Js.t Js.prop; defaults : 'v. 'v Js.t Js.prop;<br>             detachOnRemove : bool Js.t Js.prop; disabled : bool Js.t Js.prop;<br>             disabledCls : Js.js_string Js.t Js.prop; draggable : bool Js.t Js.prop;<br>             draggable_obj : 'w. 'w Js.t Js.prop;<br>             editRenderer : 'x. 'x Js.callback Js.prop;<br>             editor : 'y. 'y Js.t Js.prop;<br>             emptyCellText : Js.js_string Js.t Js.prop;<br>             enableColumnHide : bool Js.t Js.prop; fixed : bool Js.t Js.prop;<br>             floating : bool Js.t Js.prop; focusOnToFront : bool Js.t Js.prop;<br>             formBind : bool Js.t Js.prop; frame : bool Js.t Js.prop;<br>             groupable : bool Js.t Js.prop; height : Js.number Js.t Js.prop;<br>             hidden : bool Js.t Js.prop; hideMode : Js.js_string Js.t Js.prop;<br>             hideable : bool Js.t Js.prop; html : 'z. 'z Js.t Js.prop;<br>             id : Js.js_string Js.t Js.prop;<br>             initComponent : ('d Js.t, unit -> unit) Js.meth_callback<br>                             Js.writeonly_prop;<br>             itemId : Js.js_string Js.t Js.prop; items : 'a1. 'a1 Js.t Js.prop;<br>             layout : 'b1. 'b1 Js.t Js.prop; listeners : 'c1. 'c1 Js.t Js.prop;<br>             loader : 'd1. 'd1 Js.t Js.prop; lockable : bool Js.t Js.prop;<br>             locked : bool Js.t Js.prop; margin : 'e1. 'e1 Js.t Js.prop;<br>             maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>             menuDisabled : bool Js.t Js.prop; menuText : Js.js_string Js.t Js.prop;<br>             minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>             onAdd : 'f1.<br>                       ('d Js.t,<br>                        (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'f1) Js.t -> Js.number Js.t -> unit)<br>                       Js.meth_callback Js.writeonly_prop;<br>             onAdded : 'g1.<br>                         ('d Js.t, 'g1 Js.t -> Js.number Js.t -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>             onBeforeAdd : 'h1.<br>                             ('d Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'h1) Js.t -> unit)<br>                             Js.meth_callback Js.writeonly_prop;<br>             onDestroy : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onDisable : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onEnable : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onHide : 'i1 'j1 'k1.<br>                        ('d Js.t,<br>                         'i1 Js.t Js.optdef -><br>                         'j1 Js.callback Js.optdef -> 'k1 Js.t Js.optdef -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>             onPosition : ('d Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                          Js.meth_callback Js.writeonly_prop;<br>             onRemove : 'l1.<br>                          ('d Js.t,<br>                           (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'l1) Js.t -> bool Js.t -> unit)<br>                          Js.meth_callback Js.writeonly_prop;<br>             onRemoved : ('d Js.t, bool Js.t -> unit) Js.meth_callback<br>                         Js.writeonly_prop;<br>             onRender : ('d Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>             onResize : 'm1 'n1 'o1 'p1.<br>                          ('d Js.t,<br>                           'm1 Js.t -> 'n1 Js.t -> 'o1 Js.t -> 'p1 Js.t -> unit)<br>                          Js.meth_callback Js.writeonly_prop;<br>             onShow : 'q1 'r1 's1.<br>                        ('d Js.t,<br>                         'q1 Js.t Js.optdef -><br>                         'r1 Js.callback Js.optdef -> 's1 Js.t Js.optdef -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>             onShowComplete : 't1 'u1.<br>                                ('d Js.t,<br>                                 't1 Js.callback Js.optdef -><br>                                 'u1 Js.t Js.optdef -> unit)<br>                                Js.meth_callback Js.writeonly_prop;<br>             overCls : Js.js_string Js.t Js.prop;<br>             overflowX : Js.js_string Js.t Js.prop;<br>             overflowY : Js.js_string Js.t Js.prop; padding : 'v1. 'v1 Js.t Js.prop;<br>             plugins : 'w1. 'w1 Js.t Js.prop; region : 'x1. 'x1 Js.t Js.prop;<br>             renderData : 'y1. 'y1 Js.t Js.prop;<br>             renderSelectors : 'z1. 'z1 Js.t Js.prop;<br>             renderTo : 'a2. 'a2 Js.t Js.prop; renderTpl : 'b2. 'b2 Js.t Js.prop;<br>             renderer : 'c2. 'c2 Js.t Js.prop; resizable : 'd2. 'd2 Js.t Js.prop;<br>             resizable_bool : bool Js.t Js.prop;<br>             resizeHandles : Js.js_string Js.t Js.prop; rtl : bool Js.t Js.prop;<br>             saveDelay : Js.number Js.t Js.prop; scope : 'e2. 'e2 Js.t Js.prop;<br>             sealed : bool Js.t Js.prop; shadow : 'f2. 'f2 Js.t Js.prop;<br>             shadowOffset : Js.number Js.t Js.prop;<br>             shrinkWrap : 'g2. 'g2 Js.t Js.prop; sortable : bool Js.t Js.prop;<br>             stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>             stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>             style : 'h2. 'h2 Js.t Js.prop; suspendLayout : bool Js.t Js.prop;<br>             tdCls : Js.js_string Js.t Js.prop; text : Js.js_string Js.t Js.prop;<br>             toFrontOnShow : bool Js.t Js.prop; tooltip : Js.js_string Js.t Js.prop;<br>             tooltipType : Js.js_string Js.t Js.prop; tpl : 'i2. 'i2 Js.t Js.prop;<br>             tplWriteMode : Js.js_string Js.t Js.prop;<br>             ui : Js.js_string Js.t Js.prop; weight : Js.number Js.t Js.prop;<br>             width : Js.number Js.t Js.prop; xtype : Js.js_string Js.t Js.prop; .. ><br>           as 'd)<br>          Js.t, Js.number Js.t -> Js.number Js.t -> 'a Js.t -> 'b Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop as 'c</code></pre><div class="info">
 See method <code class="code">t.afterComponentLayout</code><br>
 </div>
-<pre><span id="METHODafterRender"><span class="keyword">method</span> afterRender</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODafterRender"><span class="keyword">method</span> afterRender</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.afterRender</code><br>
 </div>
-<pre><span id="METHODdefaultRenderer"><span class="keyword">method</span> defaultRenderer</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODdefaultRenderer"><span class="keyword">method</span> defaultRenderer</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.defaultRenderer</code><br>
 </div>
-<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.initComponent</code><br>
 </div>
-<pre><span id="METHODonAdd"><span class="keyword">method</span> onAdd</span> : <code class="type">'c1.<br>         ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'c1) Js.t -> Js.number Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonAdd"><span class="keyword">method</span> onAdd</span> : <code class="type">'f1.<br>         ('d Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'f1) Js.t -> Js.number Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onAdd</code><br>
 </div>
-<pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onDestroy</code><br>
 </div>
-<pre><span id="METHODonRemove"><span class="keyword">method</span> onRemove</span> : <code class="type">'i1.<br>         ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'i1) Js.t -> bool Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonRemove"><span class="keyword">method</span> onRemove</span> : <code class="type">'l1.<br>         ('d Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'l1) Js.t -> bool Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onRemove</code><br>
 </div>
 <pre><span id="METHODalign"><span class="keyword">method</span> align</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
@@ -174,22 +172,22 @@ Possible values are: <code>'left'</code>, <code>'center'</code>, and <code>'righ
     Defaults to: <code class="code">'left'</code><br>
 </div>
 <pre><span id="METHODbaseCls"><span class="keyword">method</span> baseCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The base CSS class to apply to this components's element. This will also be prepended to elements within this
-component like Panel's body will get a class x-panel-body. This means that if you create a subclass of Panel, and
-you want it to get all the Panels styling for the element and the body, you leave the baseCls x-panel and use
-componentCls to add specific styling for this component.</p> 
+<p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
+component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
+you want it to get all the Panels styling for the element and the body, you leave the <code>baseCls</code> <code>x-panel</code> and use
+<code>componentCls</code> to add specific styling for this component.</p> 
 <p>
 
-    Defaults to: <code class="code">Ext.baseCSSPrefix + 'column-header ' + Ext.baseCSSPrefix + 'unselectable'</code><br>
+    Defaults to: <code class="code">Ext.baseCSSPrefix + 'column-header'</code><br>
 </div>
-<pre><span id="METHODcolumns"><span class="keyword">method</span> columns</span> : <code class="type">'p. 'p Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODcolumns"><span class="keyword">method</span> columns</span> : <code class="type">'r. 'r Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
 <p>An optional array of sub-column definitions. This column becomes a group, and houses the columns defined in the
 <code>columns</code> config.</p>
 
 <p>Group columns may not be sortable. But they may be hideable and moveable. And you may move headers into and out
 of a group. Note that if all sub columns are dragged out of a group, the group is destroyed.</p> <br>
 </div>
-<pre><span id="METHODcomponentLayout"><span class="keyword">method</span> componentLayout</span> : <code class="type">'q. 'q Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODcomponentLayout"><span class="keyword">method</span> componentLayout</span> : <code class="type">'s. 's Js.t Js.prop</code></pre><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -207,20 +205,31 @@ class which simply sizes the Component's encapsulating element to the height and
 <p>The name of the field in the grid's <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>'s <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> definition from
 which to draw the column's value. <strong>Required.</strong></p> <br>
 </div>
+<pre><span id="METHODdetachOnRemove"><span class="keyword">method</span> detachOnRemove</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>So that when removing from group headers which are then empty and then get destroyed, there's no child DOM left</p>
+
+<p>True to move any component to the <a href="#!/api/Ext-method-getDetachedBody" rel="Ext-method-getDetachedBody" class="docClass">detachedBody</a> when the component is
+removed from this container. This option is only applicable when the component is not destroyed while
+being removed, see <a href="#!/api/Ext.grid.column.Column-cfg-autoDestroy" rel="Ext.grid.column.Column-cfg-autoDestroy" class="docClass">autoDestroy</a> and <a href="#!/api/Ext.grid.column.Column-method-remove" rel="Ext.grid.column.Column-method-remove" class="docClass">remove</a>. If this option is set to false, the DOM
+of the component will remain in the current place until it is explicitly moved.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
 <pre><span id="METHODdraggable"><span class="keyword">method</span> draggable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>False to disable drag-drop reordering of this column.</p> 
 <p>
 
     Defaults to: <code class="code">true</code><br>
 </div>
-<pre><span id="METHODeditRenderer"><span class="keyword">method</span> editRenderer</span> : <code class="type">'u. 'u Js.callback Js.prop</code></pre><div class="info">
+<pre><span id="METHODeditRenderer"><span class="keyword">method</span> editRenderer</span> : <code class="type">'x. 'x Js.callback Js.prop</code></pre><div class="info">
 <p>A renderer to be used in conjunction with <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>. This renderer is used to
 display a custom value for non-editable fields.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODeditor"><span class="keyword">method</span> editor</span> : <code class="type">'v. 'v Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODeditor"><span class="keyword">method</span> editor</span> : <code class="type">'y. 'y Js.t Js.prop</code></pre><div class="info">
 <p>An optional xtype or config object for a <a href="#!/api/Ext.form.field.Field" rel="Ext.form.field.Field" class="docClass">Field</a> to use for editing.
 Only applicable if the grid is using an <a href="#!/api/Ext.grid.plugin.Editing" rel="Ext.grid.plugin.Editing" class="docClass">Editing</a> plugin.</p> <br>
 </div>
@@ -243,6 +252,11 @@ disable (but still show) the group option in the header menu for the column.</p>
 
     Defaults to: <code class="code">true</code><br>
 </div>
+<pre><span id="METHODlockable"><span class="keyword">method</span> lockable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>If the grid is configured with <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">enableLocking</a>, or has columns which are
+configured with a <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> value, this option may be used to disable user-driven locking or unlocking
+of this column. This column will remain in the side into which its own <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> configuration placed it.</p> <br>
+</div>
 <pre><span id="METHODlocked"><span class="keyword">method</span> locked</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>True to lock this column in place.  Implicitly enables locking on the grid.
 See also <a href="#!/api/Ext.grid.Panel-cfg-enableLocking" rel="Ext.grid.Panel-cfg-enableLocking" class="docClass">Ext.grid.Panel.enableLocking</a>.</p> 
@@ -260,13 +274,13 @@ See also <a href="#!/api/Ext.grid.Panel-cfg-enableLocking" rel="Ext.grid.Panel-c
 <p>The text to render in the column visibility selection menu for this column.  If not
 specified, will default to the text value.</p> <br>
 </div>
-<pre><span id="METHODrenderTpl"><span class="keyword">method</span> renderTpl</span> : <code class="type">'t1. 't1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrenderTpl"><span class="keyword">method</span> renderTpl</span> : <code class="type">'b2. 'b2 Js.t Js.prop</code></pre><div class="info">
 <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a>.</p>
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.grid.column.Column-method-getEl" rel="Ext.grid.column.Column-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -276,9 +290,9 @@ internal structure.</p>
 <a href="#!/api/Ext.grid.column.Column-cfg-renderSelectors" rel="Ext.grid.column.Column-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.grid.column.Column-cfg-childEls" rel="Ext.grid.column.Column-cfg-childEls" class="docClass">childEls</a> options.</p> 
 <p>
 
-    Defaults to: <code class="code">'&lt;div id="{id}-titleEl" {tipMarkup}class="' + Ext.baseCSSPrefix + 'column-header-inner"&gt;' + '&lt;span id="{id}-textEl" class="' + Ext.baseCSSPrefix + 'column-header-text"&gt;' + '{text}' + '&lt;/span&gt;' + '&lt;tpl if="!menuDisabled"&gt;' + '&lt;div id="{id}-triggerEl" class="' + Ext.baseCSSPrefix + 'column-header-trigger"&gt;&lt;/div&gt;' + '&lt;/tpl&gt;' + '&lt;/div&gt;' + '{%this.renderContainer(out,values)%}'</code><br>
+    Defaults to: <code class="code">'&lt;div id="{id}-titleEl" {tipMarkup}class="' + Ext.baseCSSPrefix + 'column-header-inner"&gt;' + '&lt;span id="{id}-textEl" class="' + Ext.baseCSSPrefix + 'column-header-text' + '{childElCls}"&gt;' + '{text}' + '&lt;/span&gt;' + '&lt;tpl if="!menuDisabled"&gt;' + '&lt;div id="{id}-triggerEl" class="' + Ext.baseCSSPrefix + 'column-header-trigger' + '{childElCls}"&gt;&lt;/div&gt;' + '&lt;/tpl&gt;' + '&lt;/div&gt;' + '{%this.renderContainer(out,values)%}'</code><br>
 </div>
-<pre><span id="METHODrenderer"><span class="keyword">method</span> renderer</span> : <code class="type">'u1. 'u1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrenderer"><span class="keyword">method</span> renderer</span> : <code class="type">'c2. 'c2 Js.t Js.prop</code></pre><div class="info">
 <p>A renderer is an 'interceptor' method which can be used to transform data (value, appearance, etc.)
 before it is rendered. Example:</p>
 
@@ -308,7 +322,7 @@ before it is rendered. Example:</p>
 
     Defaults to: <code class="code">true</code><br>
 </div>
-<pre><span id="METHODscope"><span class="keyword">method</span> scope</span> : <code class="type">'w1. 'w1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODscope"><span class="keyword">method</span> scope</span> : <code class="type">'e2. 'e2 Js.t Js.prop</code></pre><div class="info">
 <p>The scope to use when calling the <a href="#!/api/Ext.grid.column.Column-cfg-renderer" rel="Ext.grid.column.Column-cfg-renderer" class="docClass">renderer</a> function.</p> <br>
 </div>
 <pre><span id="METHODsortable"><span class="keyword">method</span> sortable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
@@ -325,7 +339,10 @@ before it is rendered. Example:</p>
 the owning grid's state.</p> <br>
 </div>
 <pre><span id="METHODtdCls"><span class="keyword">method</span> tdCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>A CSS class names to apply to the table cells for this column.</p> <br>
+<p>A CSS class names to apply to the table cells for this column.</p> 
+<p>
+
+    Defaults to: <code class="code">''</code><br>
 </div>
 <pre><span id="METHODtext"><span class="keyword">method</span> text</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The header text to be used as innerHTML (html tags are accepted) to display in the Grid.

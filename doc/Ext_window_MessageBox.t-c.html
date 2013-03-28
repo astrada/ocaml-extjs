@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,16 +138,361 @@
 <center><h1>Class type <a href="type_Ext_window_MessageBox.t.html">Ext_window_MessageBox.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_window_MessageBox.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
-<li><a href="Ext_AbstractComponent.t-c.html"><code class="code">Ext_AbstractComponent.t</code></a></li>
-<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
-<li><a href="Ext_container_AbstractContainer.t-c.html"><code class="code">Ext_container_AbstractContainer.t</code></a></li>
-<li><a href="Ext_container_Container.t-c.html"><code class="code">Ext_container_Container.t</code></a></li>
-<li><a href="Ext_panel_AbstractPanel.t-c.html"><code class="code">Ext_panel_AbstractPanel.t</code></a></li>
-<li><a href="Ext_panel_Panel.t-c.html"><code class="code">Ext_panel_Panel.t</code></a></li>
 <li><a href="Ext_window_Window.t-c.html"><code class="code">Ext_window_Window.t</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODalert"><span class="keyword">method</span> alert</span> : <code class="type">'a 'b.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -><br>         'a Js.callback Js.optdef -><br>         'b Js.t Js.optdef -><br>         (< _CANCEL : Js.number Js.t Js.prop; _ERROR : Js.js_string Js.t Js.prop;<br>            _INFO : Js.js_string Js.t Js.prop; _NO : Js.number Js.t Js.prop;<br>            _OK : Js.number Js.t Js.prop; _OKCANCEL : Js.number Js.t Js.prop;<br>            _QUESTION : Js.js_string Js.t Js.prop;<br>            _WARNING : Js.js_string Js.t Js.prop; _YES : Js.number Js.t Js.prop;<br>            _YESNO : Js.number Js.t Js.prop; _YESNOCANCEL : Js.number Js.t Js.prop;<br>            _isLayoutRoot : bool Js.t Js.prop;<br>            add : 'e 'f. 'e Js.t -> 'f Js.t Js.meth;<br>            addBodyCls : Js.js_string Js.t -> 'd Js.t Js.meth;<br>            addChildEls : unit Js.meth; addCls : 'g. 'g Js.t -> 'd Js.t Js.meth;<br>            addClsWithUI : 'h 'i. 'h Js.t -> 'i Js.t -> unit Js.meth;<br>            addDocked : 'j.<br>                          'j Js.t -><br>                          Js.number Js.t Js.optdef -><br>                          <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            addEvents : 'k. 'k Js.t -> unit Js.meth;<br>            addListener : 'l 'm 'n 'o 'p.<br>                            'l Js.t -><br>                            'm Js.callback Js.optdef -><br>                            'n Js.t Js.optdef -><br>                            'o Js.t Js.optdef -> 'p Js.t Js.meth;<br>            addManagedListener : 'q 'r 's 't 'u 'v.<br>                                   'q Js.t -><br>                                   'r Js.t -><br>                                   's Js.callback Js.optdef -><br>                                   't Js.t Js.optdef -><br>                                   'u Js.t Js.optdef -> 'v Js.t Js.meth;<br>            addPropertyToState : 'w.<br>                                   'w Js.t -><br>                                   Js.js_string Js.t -><br>                                   Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            addStateEvents : 'x. 'x Js.t -> unit Js.meth;<br>            addTool : 'y. 'y Js.t -> unit Js.meth;<br>            addUIClsToElement : Js.js_string Js.t -> unit Js.meth;<br>            afterCollapse : bool Js.t -> unit Js.meth;<br>            afterComponentLayout : 'z 'a1.<br>                                     Js.number Js.t -><br>                                     Js.number Js.t -><br>                                     'z Js.t -> 'a1 Js.t -> unit Js.meth;<br>            afterExpand : bool Js.t -> unit Js.meth;<br>            afterHide : 'b1 'c1.<br>                          'b1 Js.callback Js.optdef -><br>                          'c1 Js.t Js.optdef -> unit Js.meth;<br>            afterLayout : 'd1.<br>                            (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 'd1) Js.t -><br>                            unit Js.meth;<br>            afterRender : unit Js.meth;<br>            afterSetPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            afterShow : 'e1 'f1 'g1.<br>                          'e1 Js.t Js.optdef -><br>                          'f1 Js.callback Js.optdef -><br>                          'g1 Js.t Js.optdef -> unit Js.meth;<br>            alert : 'a 'b. 'c;<br>            alignTo : 'h1 'i1.<br>                        'h1 Js.t -><br>                        Js.js_string Js.t Js.optdef -><br>                        Js.number Js.t Js.js_array Js.t Js.optdef -><br>                        'i1 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            anchorTo : 'j1 'k1 'l1 'm1.<br>                         'j1 Js.t -><br>                         Js.js_string Js.t Js.optdef -><br>                         Js.number Js.t Js.js_array Js.t Js.optdef -><br>                         'k1 Js.t Js.optdef -><br>                         'l1 Js.t Js.optdef -><br>                         'm1 Js.callback Js.optdef -> 'd Js.t Js.meth;<br>            animate : 'n1 'o1. 'n1 Js.t -> 'o1 Js.t Js.meth;<br>            applyState : 'p1. 'p1 Js.t -> unit Js.meth;<br>            beforeBlur : <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth;<br>            beforeComponentLayout : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            beforeDestroy : unit Js.meth;<br>            beforeFocus : <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth;<br>            beforeLayout : unit Js.meth; beforeShow : unit Js.meth;<br>            body : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.readonly_prop;<br>            bubble : 'q1 'r1 's1.<br>                       'q1 Js.callback -><br>                       'r1 Js.t Js.optdef -><br>                       's1 Js.js_array Js.t Js.optdef -> 'd Js.t Js.meth;<br>            buttonText : 't1. 't1 Js.t Js.prop;<br>            calculateConstrainedPosition : 'u1.<br>                                             'u1 Js.t Js.optdef -><br>                                             Js.number Js.t Js.js_array Js.t<br>                                             Js.optdef -><br>                                             bool Js.t Js.optdef -><br>                                             Js.number Js.t Js.js_array Js.t<br>                                             Js.optdef -><br>                                             Js.number Js.t Js.js_array Js.t Js.meth;<br>            callParent : 'v1 'w1. 'v1 Js.t -> 'w1 Js.t Js.meth;<br>            callSuper : 'x1 'y1. 'x1 Js.t -> 'y1 Js.t Js.meth;<br>            cancelFocus : unit Js.meth;<br>            cascade : 'z1 'a2 'b2.<br>                        'z1 Js.callback -><br>                        'a2 Js.t Js.optdef -><br>                        'b2 Js.js_array Js.t Js.optdef -> 'd Js.t Js.meth;<br>            center : 'c2. 'c2 Js.t Js.meth;<br>            child : 'd2 'e2. 'd2 Js.t Js.optdef -> 'e2 Js.t Js.meth;<br>            clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>            cloneConfig : 'f2. 'f2 Js.t -> 'd Js.t Js.meth; close : unit Js.meth;<br>            collapse : Js.js_string Js.t Js.optdef -><br>                       bool Js.t Js.optdef -> 'd Js.t Js.meth;<br>            confirm : 'g2 'h2.<br>                        Js.js_string Js.t -><br>                        Js.js_string Js.t -><br>                        'g2 Js.callback Js.optdef -><br>                        'h2 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            contains : 'i2.<br>                         (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'i2) Js.t -><br>                         bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            contentPaddingProperty : Js.js_string Js.t Js.prop;<br>            convertCollapseDir : 'j2. 'j2 Js.t -> unit Js.meth;<br>            dd : 'k2. 'k2 Js.t Js.prop;<br>            dd_dragger : <a href="Ext_util_ComponentDragger.t-c.html">Ext_util_ComponentDragger.t</a> Js.t Js.prop;<br>            defaultTextHeight : Js.number Js.t Js.prop; destroy : unit Js.meth;<br>            disable : bool Js.t Js.optdef -> unit Js.meth;<br>            disable_chainable : bool Js.t Js.optdef -> 'd Js.t Js.meth;<br>            doAutoRender : unit Js.meth; doComponentLayout : 'l2. 'l2 Js.t Js.meth;<br>            doConstrain : 'm2. 'm2 Js.t Js.optdef -> unit Js.meth;<br>            doLayout : 'd Js.t Js.meth;<br>            down : 'n2 'o2. 'n2 Js.t Js.optdef -> 'o2 Js.t Js.meth;<br>            draggable : bool Js.t Js.readonly_prop;<br>            enable : bool Js.t Js.optdef -> unit Js.meth;<br>            enableBubble : 'p2. 'p2 Js.t -> unit Js.meth;<br>            ensureAttachedToBody : bool Js.t Js.optdef -> unit Js.meth;<br>            expand : bool Js.t Js.optdef -> 'd Js.t Js.meth;<br>            findParentBy : 'q2 'r2. 'q2 Js.callback -> 'r2 Js.t Js.meth;<br>            findParentByType : 's2 't2. 's2 Js.t -> 't2 Js.t Js.meth;<br>            fireEvent : 'u2. Js.js_string Js.t -> 'u2 Js.t -> bool Js.t Js.meth;<br>            fireEventArgs : 'v2.<br>                              Js.js_string Js.t -><br>                              'v2 Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>            floatParent : 'w2. 'w2 Js.t Js.readonly_prop;<br>            focus : 'x2.<br>                      bool Js.t Js.optdef -> 'x2 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            frameSize : 'y2. 'y2 Js.t Js.readonly_prop;<br>            getActiveAnimation : 'z2. 'z2 Js.t Js.meth;<br>            getAlignToXY : 'a3.<br>                             'a3 Js.t -><br>                             Js.js_string Js.t Js.optdef -><br>                             Js.number Js.t Js.js_array Js.t Js.optdef -><br>                             Js.number Js.t Js.js_array Js.t Js.meth;<br>            getAnchorXY : 'b3.<br>                            Js.js_string Js.t Js.optdef -><br>                            bool Js.t Js.optdef -><br>                            'b3 Js.t Js.optdef -><br>                            Js.number Js.t Js.js_array Js.t Js.meth;<br>            getBox : 'c3.<br>                       bool Js.t Js.optdef -><br>                       bool Js.t Js.optdef -> 'c3 Js.t Js.meth;<br>            getBubbleTarget : 'd3. 'd3 Js.t Js.meth;<br>            getChildByElement : 'e3 'f3.<br>                                  'e3 Js.t -><br>                                  bool Js.t -><br>                                  (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'f3) Js.t Js.meth;<br>            getCollapsed : 'g3. 'g3 Js.t Js.meth;<br>            getComponent : 'h3 'i3.<br>                             'h3 Js.t -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'i3) Js.t Js.meth;<br>            getConstrainVector : 'j3 'k3.<br>                                   'j3 Js.t Js.optdef -><br>                                   Js.number Js.t Js.js_array Js.t Js.optdef -><br>                                   Js.number Js.t Js.js_array Js.t Js.optdef -><br>                                   'k3 Js.t Js.meth;<br>            getDefaultFocus : unit Js.meth;<br>            getDockedComponent : 'l3 'm3.<br>                                   'l3 Js.t -><br>                                   (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'm3) Js.t Js.meth;<br>            getDockedItems : Js.js_string Js.t -><br>                             bool Js.t -> <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            getEl : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth; getHeader : unit Js.meth;<br>            getHeight : Js.number Js.t Js.meth; getId : Js.js_string Js.t Js.meth;<br>            getInitialConfig : 'n3. Js.js_string Js.t Js.optdef -> 'n3 Js.t Js.meth;<br>            getInsertPosition : 'o3. 'o3 Js.t -> Dom_html.element Js.t Js.meth;<br>            getItemId : Js.js_string Js.t Js.meth;<br>            getLayout : 'p3. (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 'p3) Js.t Js.meth;<br>            getLoader : <a href="Ext_ComponentLoader.t-c.html">Ext_ComponentLoader.t</a> Js.t Js.meth;<br>            getLocalX : Js.number Js.t Js.meth;<br>            getLocalXY : Js.number Js.t Js.js_array Js.t Js.meth;<br>            getLocalY : Js.number Js.t Js.meth;<br>            getOffsetsTo : 'q3. 'q3 Js.t -> Js.number Js.t Js.js_array Js.t Js.meth;<br>            getPlugin : Js.js_string Js.t -> <a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a> Js.t Js.meth;<br>            getPosition : bool Js.t Js.optdef -><br>                          Js.number Js.t Js.js_array Js.t Js.meth;<br>            getRefItems : 'r3. 'r3 Js.t -> unit Js.meth;<br>            getRegion : <a href="Ext_util_Region.t-c.html">Ext_util_Region.t</a> Js.t Js.meth;<br>            getSize : 's3. 's3 Js.t Js.meth;<br>            getSizeModel : 't3 'u3. 't3 Js.t -> 'u3 Js.t Js.meth;<br>            getState : 'v3. 'v3 Js.t Js.meth;<br>            getViewRegion : <a href="Ext_util_Region.t-c.html">Ext_util_Region.t</a> Js.t Js.meth;<br>            getWidth : Js.number Js.t Js.meth; getX : Js.number Js.t Js.meth;<br>            getXType : Js.js_string Js.t Js.meth;<br>            getXTypes : Js.js_string Js.t Js.meth;<br>            getXY : Js.number Js.t Js.js_array Js.t Js.meth;<br>            getY : Js.number Js.t Js.meth;<br>            hasCls : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'w3. 'w3 Js.t Js.readonly_prop;<br>            hasUICls : Js.js_string Js.t -> unit Js.meth;<br>            hide : 'x3 'y3 'z3.<br>                     'x3 Js.t Js.optdef -><br>                     'y3 Js.callback Js.optdef -><br>                     'z3 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            hide_component : 'a4 'b4 'c4 'd4.<br>                               'a4 Js.t Js.optdef -><br>                               'b4 Js.callback Js.optdef -><br>                               'c4 Js.t Js.optdef -><br>                               (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'd4) Js.t Js.meth;<br>            initComponent : unit Js.meth;<br>            initConfig : 'e4. 'e4 Js.t -> 'd Js.t Js.meth;<br>            initEvents : unit Js.meth; initRenderData : 'f4. 'f4 Js.t Js.meth;<br>            insert : 'g4 'h4.<br>                       Js.number Js.t -><br>                       'g4 Js.t -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'h4) Js.t Js.meth;<br>            insertDocked : 'i4. Js.number Js.t -> 'i4 Js.t -> unit Js.meth;<br>            is : Js.js_string Js.t -> bool Js.t Js.meth;<br>            isAncestor : 'j4. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'j4) Js.t -> unit Js.meth;<br>            isComponent : bool Js.t Js.prop;<br>            isDescendantOf : 'k4. 'k4 Js.t -> bool Js.t Js.meth;<br>            isDisabled : bool Js.t Js.meth; isDraggable : bool Js.t Js.meth;<br>            isDroppable : bool Js.t Js.meth; isFloating : bool Js.t Js.meth;<br>            isHidden : bool Js.t Js.meth; isLayoutRoot : unit Js.meth;<br>            isLayoutSuspended : bool Js.t Js.meth; isObservable : bool Js.t Js.prop;<br>            isPanel : bool Js.t Js.prop;<br>            isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            isWindow : bool Js.t Js.prop;<br>            isXType : Js.js_string Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            items : 'l4. (#<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a> as 'l4) Js.t Js.prop;<br>            maskOnDisable : bool Js.t Js.prop;<br>            maximize : bool Js.t -> 'd Js.t Js.meth;<br>            minProgressWidth : Js.number Js.t Js.prop;<br>            minPromptWidth : Js.number Js.t Js.prop; minimize : 'd Js.t Js.meth;<br>            mon : 'm4 'n4 'o4 'p4 'q4 'r4.<br>                    'm4 Js.t -><br>                    'n4 Js.t -><br>                    'o4 Js.callback Js.optdef -><br>                    'p4 Js.t Js.optdef -> 'q4 Js.t Js.optdef -> 'r4 Js.t Js.meth;<br>            move : 's4.<br>                     Js.js_string Js.t -><br>                     Js.number Js.t -> 's4 Js.t Js.optdef -> unit Js.meth;<br>            move_container : 't4.<br>                               Js.number Js.t -><br>                               Js.number Js.t -><br>                               (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 't4) Js.t Js.meth;<br>            mun : 'u4 'v4 'w4 'x4.<br>                    'u4 Js.t -><br>                    'v4 Js.t -><br>                    'w4 Js.callback Js.optdef -> 'x4 Js.t Js.optdef -> unit Js.meth;<br>            nextNode : Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            nextSibling : Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            on : 'y4 'z4 'a5 'b5 'c5.<br>                   'y4 Js.t -><br>                   'z4 Js.callback Js.optdef -><br>                   'a5 Js.t Js.optdef -> 'b5 Js.t Js.optdef -> 'c5 Js.t Js.meth;<br>            onAdd : 'd5.<br>                      (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'd5) Js.t -><br>                      Js.number Js.t -> unit Js.meth;<br>            onAdded : 'e5. 'e5 Js.t -> Js.number Js.t -> unit Js.meth;<br>            onBeforeAdd : 'f5. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'f5) Js.t -> unit Js.meth;<br>            onDestroy : unit Js.meth; onDisable : unit Js.meth;<br>            onDockedAdd : 'g5. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'g5) Js.t -> unit Js.meth;<br>            onDockedRemove : 'h5. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'h5) Js.t -> unit Js.meth;<br>            onEnable : unit Js.meth;<br>            onHide : 'i5 'j5 'k5.<br>                       'i5 Js.t Js.optdef -><br>                       'j5 Js.callback Js.optdef -><br>                       'k5 Js.t Js.optdef -> unit Js.meth;<br>            onPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            onRemove : 'l5.<br>                         (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'l5) Js.t -> bool Js.t -> unit Js.meth;<br>            onRemoved : bool Js.t -> unit Js.meth;<br>            onRender : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit Js.meth;<br>            onResize : 'm5 'n5 'o5 'p5.<br>                         'm5 Js.t -><br>                         'n5 Js.t -> 'o5 Js.t -> 'p5 Js.t -> unit Js.meth;<br>            onShow : 'q5 'r5 's5.<br>                       'q5 Js.t Js.optdef -><br>                       'r5 Js.callback Js.optdef -><br>                       's5 Js.t Js.optdef -> unit Js.meth;<br>            onShowComplete : 't5 'u5.<br>                               't5 Js.callback Js.optdef -><br>                               'u5 Js.t Js.optdef -> unit Js.meth;<br>            ownerCt : 'v5. 'v5 Js.t Js.readonly_prop;<br>            postBlur : <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth;<br>            previousNode : Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            previousSibling : Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            progress : Js.js_string Js.t -><br>                       Js.js_string Js.t -><br>                       Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            prompt : 'w5 'x5 'y5.<br>                       Js.js_string Js.t -><br>                       Js.js_string Js.t -><br>                       'w5 Js.callback Js.optdef -><br>                       'x5 Js.t Js.optdef -><br>                       'y5 Js.t Js.optdef -><br>                       Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            query : Js.js_string Js.t Js.optdef -><br>                    <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            queryBy : 'z5 'a6.<br>                        'z5 Js.callback -><br>                        'a6 Js.t Js.optdef -><br>                        <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            queryById : 'b6.<br>                          Js.js_string Js.t -><br>                          (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'b6) Js.t Js.meth;<br>            registerFloatingItem : 'c6. 'c6 Js.t -> unit Js.meth;<br>            relayEvents : 'd6 'e6.<br>                            'd6 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> 'e6 Js.t Js.meth;<br>            remove : 'f6 'g6.<br>                       'f6 Js.t -><br>                       bool Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'g6) Js.t Js.meth;<br>            removeAll : bool Js.t Js.optdef -><br>                        <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            removeAnchor : 'd Js.t Js.meth;<br>            removeBodyCls : Js.js_string Js.t -> 'd Js.t Js.meth;<br>            removeChildEls : 'h6. 'h6 Js.callback -> unit Js.meth;<br>            removeCls : 'i6. 'i6 Js.t -> 'd Js.t Js.meth;<br>            removeClsWithUI : 'j6. 'j6 Js.t -> unit Js.meth;<br>            removeDocked : 'k6.<br>                             (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'k6) Js.t -><br>                             bool Js.t Js.optdef -> unit Js.meth;<br>            removeListener : 'l6 'm6.<br>                               Js.js_string Js.t -><br>                               'l6 Js.callback -> 'm6 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'n6 'o6 'p6 'q6.<br>                                      'n6 Js.t -><br>                                      'o6 Js.t -><br>                                      'p6 Js.callback Js.optdef -><br>                                      'q6 Js.t Js.optdef -> unit Js.meth;<br>            removeUIClsFromElement : Js.js_string Js.t -> unit Js.meth;<br>            render : 'r6 's6.<br>                       'r6 Js.t Js.optdef -> 's6 Js.t Js.optdef -> unit Js.meth;<br>            rendered : bool Js.t Js.readonly_prop;<br>            restore : 't6. 't6 Js.t -> 'd Js.t Js.meth;<br>            resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>            resumeEvents : unit Js.meth;<br>            savePropToState : 'u6.<br>                                Js.js_string Js.t -><br>                                'u6 Js.t -><br>                                Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            savePropsToState : 'v6 'w6 'x6. 'v6 Js.t -> 'w6 Js.t -> 'x6 Js.t Js.meth;<br>            saveState : unit Js.meth;<br>            scrollBy : 'y6 'z6 'a7. 'y6 Js.t -> 'z6 Js.t -> 'a7 Js.t -> unit Js.meth;<br>            scrollFlags : 'b7. 'b7 Js.t Js.readonly_prop;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop; sequenceFx : 'c7. 'c7 Js.t Js.meth;<br>            setActive : 'd7.<br>                          bool Js.t Js.optdef -> 'd7 Js.t Js.optdef -> unit Js.meth;<br>            setAutoScroll : bool Js.t -> 'd Js.t Js.meth;<br>            setBodyStyle : 'e7. 'e7 Js.t -> Js.js_string Js.t -> 'd Js.t Js.meth;<br>            setBorder : 'f7. 'f7 Js.t -> unit Js.meth;<br>            setBox : 'g7 'h7. 'g7 Js.t -> 'h7 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setDisabled : bool Js.t -> unit Js.meth;<br>            setDocked : 'i7. 'i7 Js.t -> bool Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setGlyph : 'j7. 'j7 Js.t -> unit Js.meth;<br>            setHeight : Js.number Js.t -> 'd Js.t Js.meth;<br>            setIcon : Js.js_string Js.t -> unit Js.meth;<br>            setIconCls : Js.js_string Js.t -> unit Js.meth;<br>            setIcon_chainable : Js.js_string Js.t -><br>                                Js.number Js.t Js.optdef -><br>                                Js.number Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setLoading : 'k7 'l7.<br>                           'k7 Js.t -> bool Js.t Js.optdef -> 'l7 Js.t Js.meth;<br>            setLocalX : Js.number Js.t -> 'd Js.t Js.meth;<br>            setLocalXY : 'm7.<br>                           'm7 Js.t -> Js.number Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setLocalY : Js.number Js.t -> 'd Js.t Js.meth;<br>            setMargin : 'n7. 'n7 Js.t -> unit Js.meth;<br>            setOverflowXY : Js.js_string Js.t -><br>                            Js.js_string Js.t -> 'd Js.t Js.meth;<br>            setPagePosition : 'o7 'p7.<br>                                'o7 Js.t -><br>                                Js.number Js.t Js.optdef -><br>                                'p7 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setPosition : 'q7 'r7.<br>                            'q7 Js.t -><br>                            Js.number Js.t Js.optdef -><br>                            'r7 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setRegion : 's7.<br>                          <a href="Ext_util_Region.t-c.html">Ext_util_Region.t</a> Js.t -><br>                          's7 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setSize : 't7 'u7. 't7 Js.t -> 'u7 Js.t -> 'd Js.t Js.meth;<br>            setTitle : Js.js_string Js.t -> unit Js.meth;<br>            setUI : Js.js_string Js.t -> unit Js.meth;<br>            setVisible : bool Js.t -> 'd Js.t Js.meth;<br>            setWidth : Js.number Js.t -> 'd Js.t Js.meth;<br>            setX : 'v7. Js.number Js.t -> 'v7 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setXY : 'w7.<br>                      Js.number Js.t Js.js_array Js.t -><br>                      'w7 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            setY : 'x7. Js.number Js.t -> 'x7 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            show : 'y7 'z7 'a8.<br>                     'y7 Js.t Js.optdef -><br>                     'z7 Js.callback Js.optdef -><br>                     'a8 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            showAt : 'b8 'c8.<br>                       'b8 Js.t -><br>                       Js.number Js.t Js.optdef -><br>                       'c8 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            showBy : 'd8.<br>                       'd8 Js.t -><br>                       Js.js_string Js.t Js.optdef -><br>                       Js.number Js.t Js.js_array Js.t Js.optdef -> 'd Js.t Js.meth;<br>            show_messagebox : 'e8. 'e8 Js.t -> 'd Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            stopAnimation : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth;<br>            suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            syncFx : 'f8. 'f8 Js.t Js.meth; toBack : 'g8. 'g8 Js.t Js.meth;<br>            toFront : 'h8. bool Js.t Js.optdef -> 'h8 Js.t Js.meth;<br>            toggleCollapse : 'd Js.t Js.meth; toggleMaximize : 'd Js.t Js.meth;<br>            translatePoints : 'i8 'j8.<br>                                'i8 Js.t -><br>                                Js.number Js.t Js.optdef -> 'j8 Js.t Js.meth;<br>            un : 'k8 'l8.<br>                   Js.js_string Js.t -><br>                   'k8 Js.callback -> 'l8 Js.t Js.optdef -> unit Js.meth;<br>            up : 'm8 'n8. 'm8 Js.t Js.optdef -> 'n8 Js.t Js.meth;<br>            update : 'o8 'p8.<br>                       'o8 Js.t -><br>                       bool Js.t Js.optdef -><br>                       'p8 Js.callback Js.optdef -> unit Js.meth;<br>            updateBox : 'q8. 'q8 Js.t -> 'd Js.t Js.meth;<br>            updateLayout : 'r8. 'r8 Js.t Js.optdef -> unit Js.meth;<br>            updateProgress : Js.number Js.t Js.optdef -><br>                             Js.js_string Js.t Js.optdef -><br>                             Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            wait : 's8.<br>                     Js.js_string Js.t -><br>                     Js.js_string Js.t Js.optdef -><br>                     's8 Js.t Js.optdef -> 'd Js.t Js.meth;<br>            zIndexManager : <a href="Ext_ZIndexManager.t-c.html">Ext_ZIndexManager.t</a> Js.t Js.readonly_prop;<br>            zIndexParent : 't8. 't8 Js.t Js.readonly_prop; .. ><br>          as 'd)<br>         Js.t Js.meth as 'c</code></pre><div class="info">
+<p>Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt).
+If a callback function is passed it will be called after the user clicks the button, and the
+id of the button that was clicked will be passed as the only parameter to the callback
+(could also be the top-right close button, which will always report as "cancel").</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>title: <code class="code">Js.js_string Js.t</code>
+    <p>The title bar text</p> 
+    </li>
+<li>msg: <code class="code">Js.js_string Js.t</code>
+    <p>The message box body text</p> 
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    <p>The callback function invoked after the message box is closed.
+See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the callback is executed.</p> 
+     Defaults to: window
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODconfirm"><span class="keyword">method</span> confirm</span> : <code class="type">'g2 'h2.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -><br>         'g2 Js.callback Js.optdef -> 'h2 Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<p>Displays a confirmation message box with Yes and No buttons (comparable to JavaScript's confirm).
+If a callback function is passed it will be called after the user clicks either button,
+and the id of the button that was clicked will be passed as the only parameter to the callback
+(could also be the top-right close button, which will always report as "cancel").</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>title: <code class="code">Js.js_string Js.t</code>
+    <p>The title bar text</p> 
+    </li>
+<li>msg: <code class="code">Js.js_string Js.t</code>
+    <p>The message box body text</p> 
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    <p>The callback function invoked after the message box is closed.
+See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the callback is executed.</p> 
+     Defaults to: window
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODhide_component"><span class="keyword">method</span> hide_component</span> : <code class="type">'a4 'b4 'c4 'd4.<br>         'a4 Js.t Js.optdef -><br>         'b4 Js.callback Js.optdef -><br>         'c4 Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'd4) Js.t Js.meth</code></pre><div class="info">
+<p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.window.MessageBox-cfg-hideMode" rel="Ext.window.MessageBox-cfg-hideMode" class="docClass">hideMode</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
+    <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
+such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
+been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> 
+     Defaults to: null
+    </li>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
+    <p>A callback function to call after the Component is hidden.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the callback is executed.
+Defaults to this Component.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">#Ext_Component.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>The initComponent template method is an important initialization step for a Component. It is intended to be
+implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
+initComponent method of the class being created is called first, with each initComponent method
+up the hierarchy to <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> being called thereafter. This makes it easy to implement and,
+if needed, override the constructor logic of the Component at any step in the hierarchy.</p>
+
+<p>The initComponent method <strong>must</strong> contain a call to <a href="#!/api/Ext.Base-method-callParent" rel="Ext.Base-method-callParent" class="docClass">callParent</a> in order
+to ensure that the parent class' initComponent method is also called.</p>
+
+<p>All config options passed to the constructor are applied to <code>this</code> before initComponent is called,
+so you can simply access them with <code>this.someOption</code>.</p>
+
+<p>The following example demonstrates using a dynamic string for the text of a button at the time of
+instantiation of the class.</p>
+
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
+    extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
+
+    initComponent: function() {
+        this.text = new Date();
+        this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
+        this.callParent();
+    }
+});
+
+<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
+    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
+});
+</code></pre> <br>
+</div>
+<pre><span id="METHODonShow"><span class="keyword">method</span> onShow</span> : <code class="type">'q5 'r5 's5.<br>         'q5 Js.t Js.optdef -><br>         'r5 Js.callback Js.optdef -> 's5 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Allows addition of behavior to the show operation. After
+calling the superclass's onShow, the Component will be visible.</p>
+
+<p>Override in subclasses where more complex behaviour is needed.</p>
+
+<p>Gets passed the same parameters as <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>animateTarget: <code class="code">_ Js.t</code> (optional)
+    </li>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODprogress"><span class="keyword">method</span> progress</span> : <code class="type">Js.js_string Js.t -><br>       Js.js_string Js.t -> Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<p>Displays a message box with a progress bar.</p>
+
+<p>You are responsible for updating the progress bar as needed via <a href="#!/api/Ext.window.MessageBox-method-updateProgress" rel="Ext.window.MessageBox-method-updateProgress" class="docClass">updateProgress</a>
+and closing the message box when the process is complete.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>title: <code class="code">Js.js_string Js.t</code>
+    <p>The title bar text</p> 
+    </li>
+<li>msg: <code class="code">Js.js_string Js.t</code>
+    <p>The message box body text</p> 
+    </li>
+<li>progressText: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The text to display inside the progress bar</p> 
+     Defaults to: ''
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODprompt"><span class="keyword">method</span> prompt</span> : <code class="type">'w5 'x5 'y5.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -><br>         'w5 Js.callback Js.optdef -><br>         'x5 Js.t Js.optdef -><br>         'y5 Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<p>Displays a message box with OK and Cancel buttons prompting the user to enter some text (comparable to JavaScript's prompt).
+The prompt can be a single-line or multi-line textbox.  If a callback function is passed it will be called after the user
+clicks either button, and the id of the button that was clicked (could also be the top-right
+close button, which will always report as "cancel") and the text that was entered will be passed as the two parameters to the callback.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>title: <code class="code">Js.js_string Js.t</code>
+    <p>The title bar text</p> 
+    </li>
+<li>msg: <code class="code">Js.js_string Js.t</code>
+    <p>The message box body text</p> 
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    <p>The callback function invoked after the message box is closed.
+See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the callback is executed.</p> 
+     Defaults to: window
+    </li>
+<li>multiline: <code class="code">_ Js.t</code> (optional)
+    <p>True to create a multiline textbox using the defaultTextHeight
+property, or the height in pixels to create the textbox/</p> 
+     Defaults to: false
+    </li>
+<li>value: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>Default value of the text input element</p> 
+     Defaults to: ''
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetIcon_chainable"><span class="keyword">method</span> setIcon_chainable</span> : <code class="type">Js.js_string Js.t -><br>       Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<p>Adds the specified icon to the dialog.  By default, the class 'x-messagebox-icon' is applied for default
+styling, and the class passed in is expected to supply the background image url. Pass in empty string ('')
+to clear any existing icon. This method must be called before the MessageBox is shown.
+The following built-in icon classes are supported, but you can also pass in a custom class name:</p>
+
+<pre><code><a href="#!/api/Ext.window.MessageBox-property-INFO" rel="Ext.window.MessageBox-property-INFO" class="docClass">Ext.window.MessageBox.INFO</a>
+<a href="#!/api/Ext.window.MessageBox-property-WARNING" rel="Ext.window.MessageBox-property-WARNING" class="docClass">Ext.window.MessageBox.WARNING</a>
+<a href="#!/api/Ext.window.MessageBox-property-QUESTION" rel="Ext.window.MessageBox-property-QUESTION" class="docClass">Ext.window.MessageBox.QUESTION</a>
+<a href="#!/api/Ext.window.MessageBox-property-ERROR" rel="Ext.window.MessageBox-property-ERROR" class="docClass">Ext.window.MessageBox.ERROR</a>
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>icon: <code class="code">Js.js_string Js.t</code>
+    <p>A CSS classname specifying the icon's background image url, or empty string to clear the icon</p> 
+    </li>
+<li>width: <code class="code">Js.number Js.t</code> (optional)
+    <p>The width of the icon. If not specified, the default is used</p> 
+    </li>
+<li>height: <code class="code">Js.number Js.t</code> (optional)
+    <p>The height of the icon. If not specified, the default is used</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODshow_messagebox"><span class="keyword">method</span> show_messagebox</span> : <code class="type">'e8. 'e8 Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<p>Displays a new message box, or reinitializes an existing message box, based on the config options passed in. All
+display functions (e.g. prompt, alert, etc.) on MessageBox call this function internally, although those calls
+are basic shortcuts and do not support all of the config options allowed here.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>({
+    title: 'Address',
+    msg: 'Please enter your address:',
+    width: 300,
+    buttons: <a href="#!/api/Ext.MessageBox-property-OKCANCEL" rel="Ext.MessageBox-property-OKCANCEL" class="docClass">Ext.Msg.OKCANCEL</a>,
+    multiline: true,
+    fn: saveAddress,
+    animateTarget: 'addAddressBtn',
+    icon: <a href="#!/api/Ext.window.MessageBox-property-INFO" rel="Ext.window.MessageBox-property-INFO" class="docClass">Ext.window.MessageBox.INFO</a>
+});
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>config: <code class="code">_ Js.t</code>
+    <p>The following config options are supported:</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODupdateProgress"><span class="keyword">method</span> updateProgress</span> : <code class="type">Js.number Js.t Js.optdef -><br>       Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<p>Updates a progress-style message box's text and progress bar. Only relevant on message boxes
+initiated via <a href="#!/api/Ext.window.MessageBox-method-progress" rel="Ext.window.MessageBox-method-progress" class="docClass">progress</a> or <a href="#!/api/Ext.window.MessageBox-method-wait" rel="Ext.window.MessageBox-method-wait" class="docClass">wait</a>,
+or by calling <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> with progress: true.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">Js.number Js.t</code> (optional)
+    <p>Any number between 0 and 1 (e.g., .5)</p> 
+     Defaults to: 0
+    </li>
+<li>progressText: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The progress text to display inside the progress bar.</p> 
+     Defaults to: ''
+    </li>
+<li>msg: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The message box's body text is replaced with the specified string (defaults to undefined
+so that any existing body text will not get overwritten by default unless a new value is passed in)</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODwait"><span class="keyword">method</span> wait</span> : <code class="type">'s8.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t Js.optdef -> 's8 Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
+<p>Displays a message box with an infinitely auto-updating progress bar.  This can be used to block user
+interaction while waiting for a long-running process to complete that does not have defined intervals.
+You are responsible for closing the message box when the process is complete.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>msg: <code class="code">Js.js_string Js.t</code>
+    <p>The message box body text</p> 
+    </li>
+<li>title: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The title bar text</p> 
+    </li>
+<li>config: <code class="code">_ Js.t</code> (optional)
+    <p>A <a href="#!/api/Ext.ProgressBar-method-wait" rel="Ext.ProgressBar-method-wait" class="docClass">Ext.ProgressBar.wait</a> config object</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
 <pre><span id="METHOD_CANCEL"><span class="keyword">method</span> _CANCEL</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>Button config that displays a single Cancel button</p> 
 <p>
@@ -211,7 +559,7 @@
 
     Defaults to: <code class="code">14</code><br>
 </div>
-<pre><span id="METHODbuttonText"><span class="keyword">method</span> buttonText</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODbuttonText"><span class="keyword">method</span> buttonText</span> : <code class="type">'t1. 't1 Js.t Js.prop</code></pre><div class="info">
 <p>An object containing the default button text strings that can be overriden for localized language support.
 Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
 resource file for handling language support across the framework.
@@ -242,351 +590,5 @@ for setting a different minimum width than text-only dialogs may need.</p>
 <p>
 
     Defaults to: <code class="code">250</code><br>
-</div>
-<pre><span id="METHODalert"><span class="keyword">method</span> alert</span> : <code class="type">'b 'c.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -><br>         'b Js.callback Js.optdef -><br>         'c Js.t Js.optdef -><br>         (< _CANCEL : Js.number Js.t Js.prop; _ERROR : Js.js_string Js.t Js.prop;<br>            _INFO : Js.js_string Js.t Js.prop; _NO : Js.number Js.t Js.prop;<br>            _OK : Js.number Js.t Js.prop; _OKCANCEL : Js.number Js.t Js.prop;<br>            _QUESTION : Js.js_string Js.t Js.prop;<br>            _WARNING : Js.js_string Js.t Js.prop; _YES : Js.number Js.t Js.prop;<br>            _YESNO : Js.number Js.t Js.prop; _YESNOCANCEL : Js.number Js.t Js.prop;<br>            _isLayoutRoot : bool Js.t Js.prop;<br>            add : 'f 'g. 'f Js.t -> 'g Js.t Js.meth;<br>            addBodyCls : Js.js_string Js.t -> 'e Js.t Js.meth;<br>            addChildEls : unit Js.meth; addCls : 'h. 'h Js.t -> 'e Js.t Js.meth;<br>            addClsWithUI : 'i 'j. 'i Js.t -> 'j Js.t -> unit Js.meth;<br>            addDocked : 'k.<br>                          'k Js.t -><br>                          Js.number Js.t Js.optdef -><br>                          <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            addEvents : 'l. 'l Js.t -> unit Js.meth;<br>            addListener : 'm 'n 'o 'p.<br>                            'm Js.t -><br>                            'n Js.callback Js.optdef -><br>                            'o Js.t Js.optdef -> 'p Js.t Js.optdef -> unit Js.meth;<br>            addManagedListener : 'q 'r 's 't 'u.<br>                                   'q Js.t -><br>                                   'r Js.t -><br>                                   's Js.callback Js.optdef -><br>                                   't Js.t Js.optdef -><br>                                   'u Js.t Js.optdef -> unit Js.meth;<br>            addPropertyToState : 'v.<br>                                   'v Js.t -><br>                                   Js.js_string Js.t -><br>                                   Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            addStateEvents : 'w. 'w Js.t -> unit Js.meth;<br>            addUIClsToElement : Js.js_string Js.t -> unit Js.meth;<br>            afterCollapse : bool Js.t -> unit Js.meth;<br>            afterComponentLayout : Js.number Js.t -><br>                                   Js.number Js.t -><br>                                   Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            afterExpand : bool Js.t -> unit Js.meth;<br>            afterHide : 'x 'y.<br>                          'x Js.callback Js.optdef -><br>                          'y Js.t Js.optdef -> unit Js.meth;<br>            afterLayout : 'z.<br>                            (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 'z) Js.t -><br>                            unit Js.meth;<br>            afterRender : unit Js.meth;<br>            afterSetPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            afterShow : 'a1 'b1 'c1.<br>                          'a1 Js.t Js.optdef -><br>                          'b1 Js.callback Js.optdef -><br>                          'c1 Js.t Js.optdef -> unit Js.meth;<br>            alert : 'b 'c. 'd;<br>            alignTo : 'd1 'e1.<br>                        'd1 Js.t -><br>                        Js.js_string Js.t Js.optdef -><br>                        Js.number Js.t Js.js_array Js.t Js.optdef -><br>                        'e1 Js.t Js.meth;<br>            animate : 'f1 'g1. 'f1 Js.t -> 'g1 Js.t Js.meth;<br>            applyState : 'h1. 'h1 Js.t -> unit Js.meth;<br>            beforeComponentLayout : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            beforeDestroy : unit Js.meth; beforeLayout : unit Js.meth;<br>            beforeShow : unit Js.meth;<br>            bubble : 'i1 'j1 'k1.<br>                       'i1 Js.callback -><br>                       'j1 Js.t Js.optdef -><br>                       'k1 Js.js_array Js.t Js.optdef -> 'e Js.t Js.meth;<br>            buttonText : 'a. 'a Js.t Js.prop;<br>            callParent : 'l1 'm1. 'l1 Js.t -> 'm1 Js.t Js.meth;<br>            callSuper : 'n1 'o1. 'n1 Js.t -> 'o1 Js.t Js.meth;<br>            cancelFocus : unit Js.meth;<br>            cascade : 'p1 'q1 'r1.<br>                        'p1 Js.callback -><br>                        'q1 Js.t Js.optdef -><br>                        'r1 Js.js_array Js.t Js.optdef -> 'e Js.t Js.meth;<br>            center : 's1. 's1 Js.t Js.meth;<br>            child : Js.js_string Js.t Js.optdef -> unit Js.meth;<br>            clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>            cloneConfig : 't1. 't1 Js.t -> 'e Js.t Js.meth; close : unit Js.meth;<br>            collapse : Js.js_string Js.t Js.optdef -><br>                       bool Js.t Js.optdef -> 'e Js.t Js.meth;<br>            confirm : 'u1 'v1.<br>                        Js.js_string Js.t -><br>                        Js.js_string Js.t -><br>                        'u1 Js.callback Js.optdef -><br>                        'v1 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            dd : <a href="Ext_dd_DragSource.t-c.html">Ext_dd_DragSource.t</a> Js.t Js.prop;<br>            dd_dragger : <a href="Ext_util_ComponentDragger.t-c.html">Ext_util_ComponentDragger.t</a> Js.t Js.prop;<br>            defaultTextHeight : Js.number Js.t Js.prop; destroy : unit Js.meth;<br>            disable : bool Js.t Js.optdef -> unit Js.meth;<br>            disable_chainable : bool Js.t Js.optdef -> 'e Js.t Js.meth;<br>            doAutoRender : unit Js.meth; doComponentLayout : 'w1. 'w1 Js.t Js.meth;<br>            doConstrain : 'x1. 'x1 Js.t Js.optdef -> unit Js.meth;<br>            doLayout : 'e Js.t Js.meth;<br>            down : Js.js_string Js.t Js.optdef -> unit Js.meth;<br>            draggable : bool Js.t Js.readonly_prop;<br>            enable : bool Js.t Js.optdef -> unit Js.meth;<br>            enableBubble : 'y1. 'y1 Js.t -> unit Js.meth;<br>            ensureAttachedToBody : bool Js.t Js.optdef -> unit Js.meth;<br>            expand : bool Js.t Js.optdef -> 'e Js.t Js.meth;<br>            findParentBy : 'z1 'a2. 'z1 Js.callback -> 'a2 Js.t Js.meth;<br>            findParentByType : 'b2 'c2. 'b2 Js.t -> 'c2 Js.t Js.meth;<br>            fireEvent : 'd2. Js.js_string Js.t -> 'd2 Js.t -> bool Js.t Js.meth;<br>            floatParent : 'e2. 'e2 Js.t Js.readonly_prop;<br>            focus : 'f2.<br>                      bool Js.t Js.optdef -> 'f2 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            frameSize : 'g2. 'g2 Js.t Js.readonly_prop;<br>            getActiveAnimation : 'h2. 'h2 Js.t Js.meth;<br>            getBox : 'i2. bool Js.t Js.optdef -> 'i2 Js.t Js.meth;<br>            getBubbleTarget : 'j2. 'j2 Js.t Js.meth;<br>            getChildByElement : 'k2 'l2.<br>                                  'k2 Js.t -><br>                                  bool Js.t -><br>                                  (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'l2) Js.t Js.meth;<br>            getCollapsed : 'm2. 'm2 Js.t Js.meth;<br>            getComponent : 'n2 'o2.<br>                             'n2 Js.t -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'o2) Js.t Js.meth;<br>            getDefaultFocus : unit Js.meth;<br>            getDockedComponent : 'p2 'q2.<br>                                   'p2 Js.t -><br>                                   (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'q2) Js.t Js.meth;<br>            getDockedItems : Js.js_string Js.t -><br>                             bool Js.t -> <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            getEl : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth; getHeader : unit Js.meth;<br>            getHeight : Js.number Js.t Js.meth; getId : Js.js_string Js.t Js.meth;<br>            getInitialConfig : 'r2. Js.js_string Js.t Js.optdef -> 'r2 Js.t Js.meth;<br>            getInsertPosition : 's2. 's2 Js.t -> Dom_html.element Js.t Js.meth;<br>            getItemId : Js.js_string Js.t Js.meth;<br>            getLayout : 't2. (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 't2) Js.t Js.meth;<br>            getLoader : <a href="Ext_ComponentLoader.t-c.html">Ext_ComponentLoader.t</a> Js.t Js.meth;<br>            getPlugin : Js.js_string Js.t -> <a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a> Js.t Js.meth;<br>            getPosition : bool Js.t Js.optdef -><br>                          Js.number Js.t Js.js_array Js.t Js.meth;<br>            getSize : 'u2. 'u2 Js.t Js.meth;<br>            getSizeModel : 'v2 'w2. 'v2 Js.t -> 'w2 Js.t Js.meth;<br>            getState : 'x2. 'x2 Js.t Js.meth; getWidth : Js.number Js.t Js.meth;<br>            getXType : Js.js_string Js.t Js.meth;<br>            getXTypes : Js.js_string Js.t Js.meth;<br>            hasCls : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'y2. 'y2 Js.t Js.readonly_prop;<br>            hasUICls : Js.js_string Js.t -> unit Js.meth;<br>            hide : 'z2 'a3 'b3.<br>                     'z2 Js.t Js.optdef -><br>                     'a3 Js.callback Js.optdef -><br>                     'b3 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            hide_component : 'c3 'd3 'e3 'f3.<br>                               'c3 Js.t Js.optdef -><br>                               'd3 Js.callback Js.optdef -><br>                               'e3 Js.t Js.optdef -><br>                               (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'f3) Js.t Js.meth;<br>            initComponent : unit Js.meth;<br>            initConfig : 'g3. 'g3 Js.t -> 'e Js.t Js.meth;<br>            insert : 'h3 'i3.<br>                       Js.number Js.t -><br>                       (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'h3) Js.t -><br>                       (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'i3) Js.t Js.meth;<br>            insertDocked : 'j3. Js.number Js.t -> 'j3 Js.t -> unit Js.meth;<br>            is : Js.js_string Js.t -> bool Js.t Js.meth;<br>            isAncestor : 'k3. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'k3) Js.t -> unit Js.meth;<br>            isComponent : bool Js.t Js.prop;<br>            isDescendantOf : 'l3. 'l3 Js.t -> bool Js.t Js.meth;<br>            isDisabled : bool Js.t Js.meth; isDraggable : bool Js.t Js.meth;<br>            isDroppable : bool Js.t Js.meth; isFloating : bool Js.t Js.meth;<br>            isHidden : bool Js.t Js.meth; isLayoutRoot : unit Js.meth;<br>            isLayoutSuspended : bool Js.t Js.meth; isObservable : bool Js.t Js.prop;<br>            isPanel : bool Js.t Js.prop;<br>            isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            isWindow : bool Js.t Js.prop;<br>            isXType : Js.js_string Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            items : 'm3. (#<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a> as 'm3) Js.t Js.prop;<br>            maskOnDisable : bool Js.t Js.prop; maximize : 'e Js.t Js.meth;<br>            minProgressWidth : Js.number Js.t Js.prop;<br>            minPromptWidth : Js.number Js.t Js.prop; minimize : 'e Js.t Js.meth;<br>            mon : 'n3 'o3 'p3 'q3 'r3.<br>                    'n3 Js.t -><br>                    'o3 Js.t -><br>                    'p3 Js.callback Js.optdef -><br>                    'q3 Js.t Js.optdef -> 'r3 Js.t Js.optdef -> unit Js.meth;<br>            move : 's3.<br>                     Js.number Js.t -><br>                     Js.number Js.t -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 's3) Js.t Js.meth;<br>            mun : 't3 'u3 'v3 'w3.<br>                    't3 Js.t -><br>                    'u3 Js.t -><br>                    'v3 Js.callback Js.optdef -> 'w3 Js.t Js.optdef -> unit Js.meth;<br>            nextNode : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            nextSibling : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            on : 'x3 'y3 'z3 'a4.<br>                   'x3 Js.t -><br>                   'y3 Js.callback Js.optdef -><br>                   'z3 Js.t Js.optdef -> 'a4 Js.t Js.optdef -> unit Js.meth;<br>            onAdd : 'b4.<br>                      (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'b4) Js.t -><br>                      Js.number Js.t -> unit Js.meth;<br>            onAdded : 'c4. 'c4 Js.t -> Js.number Js.t -> unit Js.meth;<br>            onAdded_container : 'e Js.t -> Js.number Js.t -> unit Js.meth;<br>            onBeforeAdd : 'd4. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'd4) Js.t -> unit Js.meth;<br>            onDestroy : unit Js.meth; onDisable : unit Js.meth;<br>            onDockedAdd : 'e4. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'e4) Js.t -> unit Js.meth;<br>            onDockedRemove : 'f4. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'f4) Js.t -> unit Js.meth;<br>            onEnable : unit Js.meth;<br>            onHide : 'g4 'h4 'i4.<br>                       'g4 Js.t Js.optdef -><br>                       'h4 Js.callback Js.optdef -><br>                       'i4 Js.t Js.optdef -> unit Js.meth;<br>            onPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            onRemove : 'j4.<br>                         (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'j4) Js.t -> bool Js.t -> unit Js.meth;<br>            onRemoved : bool Js.t -> unit Js.meth;<br>            onRender : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit Js.meth;<br>            onResize : unit Js.meth;<br>            onShow : 'k4 'l4 'm4.<br>                       'k4 Js.t Js.optdef -><br>                       'l4 Js.callback Js.optdef -><br>                       'm4 Js.t Js.optdef -> unit Js.meth;<br>            onShowComplete : 'n4 'o4.<br>                               'n4 Js.callback Js.optdef -><br>                               'o4 Js.t Js.optdef -> unit Js.meth;<br>            ownerCt : 'p4. 'p4 Js.t Js.readonly_prop;<br>            previousNode : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            previousSibling : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            progress : Js.js_string Js.t -><br>                       Js.js_string Js.t -><br>                       Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            prompt : 'q4 'r4 's4.<br>                       Js.js_string Js.t -><br>                       Js.js_string Js.t -><br>                       'q4 Js.callback Js.optdef -><br>                       'r4 Js.t Js.optdef -><br>                       's4 Js.t Js.optdef -><br>                       Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            query : Js.js_string Js.t Js.optdef -><br>                    <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            queryBy : 't4 'u4.<br>                        't4 Js.callback -><br>                        'u4 Js.t Js.optdef -><br>                        <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            queryById : 'v4.<br>                          Js.js_string Js.t -><br>                          (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'v4) Js.t Js.meth;<br>            registerFloatingItem : 'w4. 'w4 Js.t -> unit Js.meth;<br>            relayEvents : 'x4.<br>                            'x4 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> unit Js.meth;<br>            remove : 'y4 'z4.<br>                       'y4 Js.t -><br>                       bool Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'z4) Js.t Js.meth;<br>            removeAll : bool Js.t Js.optdef -><br>                        <a href="Ext_Component.t-c.html">Ext_Component.t</a> Js.js_array Js.t Js.meth;<br>            removeBodyCls : Js.js_string Js.t -> 'e Js.t Js.meth;<br>            removeChildEls : 'a5. 'a5 Js.callback -> unit Js.meth;<br>            removeCls : 'b5. 'b5 Js.t -> 'e Js.t Js.meth;<br>            removeClsWithUI : 'c5. 'c5 Js.t -> unit Js.meth;<br>            removeDocked : 'd5.<br>                             (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'd5) Js.t -><br>                             bool Js.t Js.optdef -> unit Js.meth;<br>            removeListener : 'e5 'f5.<br>                               Js.js_string Js.t -><br>                               'e5 Js.callback -> 'f5 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'g5 'h5 'i5 'j5.<br>                                      'g5 Js.t -><br>                                      'h5 Js.t -><br>                                      'i5 Js.callback Js.optdef -><br>                                      'j5 Js.t Js.optdef -> unit Js.meth;<br>            removeUIClsFromElement : Js.js_string Js.t -> unit Js.meth;<br>            render : 'k5 'l5.<br>                       'k5 Js.t Js.optdef -> 'l5 Js.t Js.optdef -> unit Js.meth;<br>            rendered : bool Js.t Js.readonly_prop; restore : 'e Js.t Js.meth;<br>            resumeEvents : unit Js.meth;<br>            savePropToState : 'm5.<br>                                Js.js_string Js.t -><br>                                'm5 Js.t -><br>                                Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            savePropsToState : 'n5 'o5 'p5. 'n5 Js.t -> 'o5 Js.t -> 'p5 Js.t Js.meth;<br>            saveState : unit Js.meth;<br>            scrollBy : 'q5 'r5 's5. 'q5 Js.t -> 'r5 Js.t -> 's5 Js.t -> unit Js.meth;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop; sequenceFx : 't5. 't5 Js.t Js.meth;<br>            setActive : 'u5.<br>                          bool Js.t Js.optdef -> 'u5 Js.t Js.optdef -> unit Js.meth;<br>            setAutoScroll : bool Js.t -> 'e Js.t Js.meth;<br>            setBodyStyle : 'v5. 'v5 Js.t -> Js.js_string Js.t -> 'e Js.t Js.meth;<br>            setBorder : 'w5. 'w5 Js.t -> unit Js.meth;<br>            setDisabled : bool Js.t -> unit Js.meth;<br>            setDocked : 'x5. 'x5 Js.t -> bool Js.t Js.optdef -> 'e Js.t Js.meth;<br>            setHeight : Js.number Js.t -> 'e Js.t Js.meth;<br>            setIcon : Js.js_string Js.t -> unit Js.meth;<br>            setIconCls : Js.js_string Js.t -> unit Js.meth;<br>            setIcon_chainable : Js.js_string Js.t -> 'e Js.t Js.meth;<br>            setLoading : 'y5 'z5.<br>                           'y5 Js.t -> bool Js.t Js.optdef -> 'z5 Js.t Js.meth;<br>            setOverflowXY : Js.js_string Js.t -><br>                            Js.js_string Js.t -> 'e Js.t Js.meth;<br>            setPagePosition : 'a6.<br>                                Js.number Js.t -><br>                                Js.number Js.t -><br>                                'a6 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            setPosition : 'b6.<br>                            Js.number Js.t -><br>                            Js.number Js.t -> 'b6 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            setSize : 'c6 'd6. 'c6 Js.t -> 'd6 Js.t -> 'e Js.t Js.meth;<br>            setTitle : Js.js_string Js.t -> unit Js.meth;<br>            setUI : Js.js_string Js.t -> unit Js.meth;<br>            setVisible : bool Js.t -> 'e Js.t Js.meth;<br>            setWidth : Js.number Js.t -> 'e Js.t Js.meth;<br>            show : 'e6 'f6 'g6.<br>                     'e6 Js.t Js.optdef -><br>                     'f6 Js.callback Js.optdef -><br>                     'g6 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            showAt : 'h6.<br>                       Js.number Js.t -><br>                       Js.number Js.t -> 'h6 Js.t Js.optdef -> unit Js.meth;<br>            show_messagebox : 'i6. 'i6 Js.t -> 'e Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            stopAnimation : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            syncFx : 'j6. 'j6 Js.t Js.meth; toBack : 'k6. 'k6 Js.t Js.meth;<br>            toFront : 'l6. bool Js.t Js.optdef -> 'l6 Js.t Js.meth;<br>            toggleCollapse : 'e Js.t Js.meth; toggleMaximize : 'e Js.t Js.meth;<br>            un : 'm6 'n6.<br>                   Js.js_string Js.t -><br>                   'm6 Js.callback -> 'n6 Js.t Js.optdef -> unit Js.meth;<br>            up : 'o6. Js.js_string Js.t Js.optdef -> 'o6 Js.t Js.meth;<br>            update : 'p6 'q6.<br>                       'p6 Js.t -><br>                       bool Js.t Js.optdef -><br>                       'q6 Js.callback Js.optdef -> unit Js.meth;<br>            updateBox : 'r6. 'r6 Js.t -> 'e Js.t Js.meth;<br>            updateLayout : 's6. 's6 Js.t -> unit Js.meth;<br>            updateProgress : Js.number Js.t Js.optdef -><br>                             Js.js_string Js.t Js.optdef -><br>                             Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            wait : 't6.<br>                     Js.js_string Js.t -><br>                     Js.js_string Js.t Js.optdef -><br>                     't6 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            zIndexManager : <a href="Ext_ZIndexManager.t-c.html">Ext_ZIndexManager.t</a> Js.t Js.readonly_prop;<br>            zIndexParent : 'u6. 'u6 Js.t Js.readonly_prop; .. ><br>          as 'e)<br>         Js.t Js.meth as 'd</code></pre><div class="info">
-<p>Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt).
-If a callback function is passed it will be called after the user clicks the button, and the
-id of the button that was clicked will be passed as the only parameter to the callback
-(could also be the top-right close button, which will always report as "cancel").</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>title: <code class="code">Js.js_string Js.t</code>
-    <p>The title bar text</p> 
-    </li>
-<li>msg: <code class="code">Js.js_string Js.t</code>
-    <p>The message box body text</p> 
-    </li>
-<li>fn: <code class="code">_ Js.callback</code> (optional)
-    <p>The callback function invoked after the message box is closed.
-See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the callback is executed.</p> 
-     Defaults to: window
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODconfirm"><span class="keyword">method</span> confirm</span> : <code class="type">'u1 'v1.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -><br>         'u1 Js.callback Js.optdef -> 'v1 Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Displays a confirmation message box with Yes and No buttons (comparable to JavaScript's confirm).
-If a callback function is passed it will be called after the user clicks either button,
-and the id of the button that was clicked will be passed as the only parameter to the callback
-(could also be the top-right close button, which will always report as "cancel").</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>title: <code class="code">Js.js_string Js.t</code>
-    <p>The title bar text</p> 
-    </li>
-<li>msg: <code class="code">Js.js_string Js.t</code>
-    <p>The message box body text</p> 
-    </li>
-<li>fn: <code class="code">_ Js.callback</code> (optional)
-    <p>The callback function invoked after the message box is closed.
-See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the callback is executed.</p> 
-     Defaults to: window
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODhide_component"><span class="keyword">method</span> hide_component</span> : <code class="type">'c3 'd3 'e3 'f3.<br>         'c3 Js.t Js.optdef -><br>         'd3 Js.callback Js.optdef -><br>         'e3 Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'f3) Js.t Js.meth</code></pre><div class="info">
-<p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.window.MessageBox-cfg-hideMode" rel="Ext.window.MessageBox-cfg-hideMode" class="docClass">hideMode</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>animateTarget: <code class="code">_ Js.t</code> (optional)
-    <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
-such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
-been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> 
-     Defaults to: null
-    </li>
-<li>callback: <code class="code">_ Js.callback</code> (optional)
-    <p>A callback function to call after the Component is hidden.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the callback is executed.
-Defaults to this Component.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">#Ext_Component.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>The initComponent template method is an important initialization step for a Component. It is intended to be
-implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
-initComponent method of the class being created is called first, with each initComponent method
-up the hierarchy to <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> being called thereafter. This makes it easy to implement and,
-if needed, override the constructor logic of the Component at any step in the hierarchy.</p>
-
-<p>The initComponent method <strong>must</strong> contain a call to <a href="#!/api/Ext.Base-method-callParent" rel="Ext.Base-method-callParent" class="docClass">callParent</a> in order
-to ensure that the parent class' initComponent method is also called.</p>
-
-<p>All config options passed to the constructor are applied to <code>this</code> before initComponent is called,
-so you can simply access them with <code>this.someOption</code>.</p>
-
-<p>The following example demonstrates using a dynamic string for the text of a button at the time of
-instantiation of the class.</p>
-
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('DynamicButtonText', {
-    extend: '<a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">Ext.button.Button</a>',
-
-    initComponent: function() {
-        this.text = new Date();
-        this.renderTo = <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>();
-        this.callParent();
-    }
-});
-
-<a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>(function() {
-    <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
-});
-</code></pre> <br>
-</div>
-<pre><span id="METHODonShow"><span class="keyword">method</span> onShow</span> : <code class="type">'k4 'l4 'm4.<br>         'k4 Js.t Js.optdef -><br>         'l4 Js.callback Js.optdef -> 'm4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Allows addition of behavior to the show operation. After
-calling the superclass's onShow, the Component will be visible.</p>
-
-<p>Override in subclasses where more complex behaviour is needed.</p>
-
-<p>Gets passed the same parameters as <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>animateTarget: <code class="code">_ Js.t</code> (optional)
-    </li>
-<li>callback: <code class="code">_ Js.callback</code> (optional)
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODprogress"><span class="keyword">method</span> progress</span> : <code class="type">Js.js_string Js.t -><br>       Js.js_string Js.t -> Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Displays a message box with a progress bar.</p>
-
-<p>You are responsible for updating the progress bar as needed via <a href="#!/api/Ext.window.MessageBox-method-updateProgress" rel="Ext.window.MessageBox-method-updateProgress" class="docClass">updateProgress</a>
-and closing the message box when the process is complete.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>title: <code class="code">Js.js_string Js.t</code>
-    <p>The title bar text</p> 
-    </li>
-<li>msg: <code class="code">Js.js_string Js.t</code>
-    <p>The message box body text</p> 
-    </li>
-<li>progressText: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The text to display inside the progress bar</p> 
-     Defaults to: ''
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODprompt"><span class="keyword">method</span> prompt</span> : <code class="type">'q4 'r4 's4.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -><br>         'q4 Js.callback Js.optdef -><br>         'r4 Js.t Js.optdef -><br>         's4 Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Displays a message box with OK and Cancel buttons prompting the user to enter some text (comparable to JavaScript's prompt).
-The prompt can be a single-line or multi-line textbox.  If a callback function is passed it will be called after the user
-clicks either button, and the id of the button that was clicked (could also be the top-right
-close button, which will always report as "cancel") and the text that was entered will be passed as the two parameters to the callback.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>title: <code class="code">Js.js_string Js.t</code>
-    <p>The title bar text</p> 
-    </li>
-<li>msg: <code class="code">Js.js_string Js.t</code>
-    <p>The message box body text</p> 
-    </li>
-<li>fn: <code class="code">_ Js.callback</code> (optional)
-    <p>The callback function invoked after the message box is closed.
-See <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> method for details.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the callback is executed.</p> 
-     Defaults to: window
-    </li>
-<li>multiline: <code class="code">_ Js.t</code> (optional)
-    <p>True to create a multiline textbox using the defaultTextHeight
-property, or the height in pixels to create the textbox/</p> 
-     Defaults to: false
-    </li>
-<li>value: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>Default value of the text input element</p> 
-     Defaults to: ''
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODsetIcon_chainable"><span class="keyword">method</span> setIcon_chainable</span> : <code class="type">Js.js_string Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Adds the specified icon to the dialog.  By default, the class 'x-messagebox-icon' is applied for default
-styling, and the class passed in is expected to supply the background image url. Pass in empty string ('')
-to clear any existing icon. This method must be called before the MessageBox is shown.
-The following built-in icon classes are supported, but you can also pass in a custom class name:</p>
-
-<pre><code><a href="#!/api/Ext.window.MessageBox-property-INFO" rel="Ext.window.MessageBox-property-INFO" class="docClass">Ext.window.MessageBox.INFO</a>
-<a href="#!/api/Ext.window.MessageBox-property-WARNING" rel="Ext.window.MessageBox-property-WARNING" class="docClass">Ext.window.MessageBox.WARNING</a>
-<a href="#!/api/Ext.window.MessageBox-property-QUESTION" rel="Ext.window.MessageBox-property-QUESTION" class="docClass">Ext.window.MessageBox.QUESTION</a>
-<a href="#!/api/Ext.window.MessageBox-property-ERROR" rel="Ext.window.MessageBox-property-ERROR" class="docClass">Ext.window.MessageBox.ERROR</a>
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>icon: <code class="code">Js.js_string Js.t</code>
-    <p>A CSS classname specifying the icon's background image url, or empty string to clear the icon</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODshow_messagebox"><span class="keyword">method</span> show_messagebox</span> : <code class="type">'i6. 'i6 Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Displays a new message box, or reinitializes an existing message box, based on the config options passed in. All
-display functions (e.g. prompt, alert, etc.) on MessageBox call this function internally, although those calls
-are basic shortcuts and do not support all of the config options allowed here.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.MessageBox-method-show" rel="Ext.MessageBox-method-show" class="docClass">Ext.Msg.show</a>({
-    title: 'Address',
-    msg: 'Please enter your address:',
-    width: 300,
-    buttons: <a href="#!/api/Ext.MessageBox-property-OKCANCEL" rel="Ext.MessageBox-property-OKCANCEL" class="docClass">Ext.Msg.OKCANCEL</a>,
-    multiline: true,
-    fn: saveAddress,
-    animateTarget: 'addAddressBtn',
-    icon: <a href="#!/api/Ext.window.MessageBox-property-INFO" rel="Ext.window.MessageBox-property-INFO" class="docClass">Ext.window.MessageBox.INFO</a>
-});
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>config: <code class="code">_ Js.t</code>
-    <p>The following config options are supported:</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODupdateProgress"><span class="keyword">method</span> updateProgress</span> : <code class="type">Js.number Js.t Js.optdef -><br>       Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Updates a progress-style message box's text and progress bar. Only relevant on message boxes
-initiated via <a href="#!/api/Ext.window.MessageBox-method-progress" rel="Ext.window.MessageBox-method-progress" class="docClass">progress</a> or <a href="#!/api/Ext.window.MessageBox-method-wait" rel="Ext.window.MessageBox-method-wait" class="docClass">wait</a>,
-or by calling <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> with progress: true.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">Js.number Js.t</code> (optional)
-    <p>Any number between 0 and 1 (e.g., .5)</p> 
-     Defaults to: 0
-    </li>
-<li>progressText: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The progress text to display inside the progress bar.</p> 
-     Defaults to: ''
-    </li>
-<li>msg: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The message box's body text is replaced with the specified string (defaults to undefined
-so that any existing body text will not get overwritten by default unless a new value is passed in)</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODwait"><span class="keyword">method</span> wait</span> : <code class="type">'t6.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t Js.optdef -> 't6 Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Displays a message box with an infinitely auto-updating progress bar.  This can be used to block user
-interaction while waiting for a long-running process to complete that does not have defined intervals.
-You are responsible for closing the message box when the process is complete.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>msg: <code class="code">Js.js_string Js.t</code>
-    <p>The message box body text</p> 
-    </li>
-<li>title: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The title bar text</p> 
-    </li>
-<li>config: <code class="code">_ Js.t</code> (optional)
-    <p>A <a href="#!/api/Ext.ProgressBar-method-wait" rel="Ext.ProgressBar-method-wait" class="docClass">Ext.ProgressBar.wait</a> config object</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_window_MessageBox.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
 </div>
 </body></html>

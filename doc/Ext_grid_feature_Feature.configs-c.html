@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,23 +140,10 @@
 <center><h1>Class type <a href="type_Ext_grid_feature_Feature.configs.html">Ext_grid_feature_Feature.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_grid_feature_Feature.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 <li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODattachEvents"><span class="keyword">method</span> attachEvents</span> : <code class="type">((< attachEvents : 'a;<br>           getAdditionalData : 'c 'd.<br>                                 ('b Js.t,<br>                                  'c Js.t -><br>                                  Js.number Js.t -><br>                                  <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> 'd Js.t -> unit)<br>                                 Js.meth_callback Js.writeonly_prop;<br>           getFireEventArgs : 'e 'f 'g 'h.<br>                                ('b Js.t,<br>                                 'e Js.t -> 'f Js.t -> 'g Js.t -> 'h Js.t -> unit)<br>                                Js.meth_callback Js.writeonly_prop;<br>           getMetaRowTplFragments : ('b Js.t, unit -> unit) Js.meth_callback<br>                                    Js.writeonly_prop;<br>           listeners : 'i. 'i Js.t Js.prop;<br>           mutateMetaRowTpl : 'j.<br>                                ('b Js.t, 'j Js.js_array Js.t -> unit)<br>                                Js.meth_callback Js.writeonly_prop;<br>           .. ><br>         as 'b)<br>        Js.t, unit -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
-See method <code class="code">t.attachEvents</code><br>
-</div>
-<pre><span id="METHODgetAdditionalData"><span class="keyword">method</span> getAdditionalData</span> : <code class="type">'c 'd.<br>         ('b Js.t,<br>          'c Js.t -> Js.number Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> 'd Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.getAdditionalData</code><br>
-</div>
-<pre><span id="METHODgetFireEventArgs"><span class="keyword">method</span> getFireEventArgs</span> : <code class="type">'e 'f 'g 'h.<br>         ('b Js.t, 'e Js.t -> 'f Js.t -> 'g Js.t -> 'h Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODgetFireEventArgs"><span class="keyword">method</span> getFireEventArgs</span> : <code class="type">'a 'b 'c 'd.<br>         (< getFireEventArgs : 'a 'b 'c 'd. 'e; listeners : 'f. 'f Js.t Js.prop;<br>            .. ><br>          Js.t, 'a Js.t -> 'b Js.t -> 'c Js.t -> 'd Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop as 'e</code></pre><div class="info">
 See method <code class="code">t.getFireEventArgs</code><br>
-</div>
-<pre><span id="METHODgetMetaRowTplFragments"><span class="keyword">method</span> getMetaRowTplFragments</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.getMetaRowTplFragments</code><br>
-</div>
-<pre><span id="METHODmutateMetaRowTpl"><span class="keyword">method</span> mutateMetaRowTpl</span> : <code class="type">'j. ('b Js.t, 'j Js.js_array Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.mutateMetaRowTpl</code><br>
 </div>
 </body></html>

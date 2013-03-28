@@ -4,8 +4,8 @@
 <link rel="stylesheet" href="css/style.css" type="text/css">
 <meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
 <link rel="Start" href="index.html">
-<link rel="previous" href="Ext_dom_AbstractElement_Fly.html">
-<link rel="next" href="Ext_draw_Component.html">
+<link rel="previous" href="Ext_dom_AbstractElement.html">
+<link rel="next" href="Ext_dom_Element_Fly.html">
 <link rel="Up" href="index.html">
 <link title="Index of values" rel=Appendix href="index_values.html">
 <link title="Index of class methods" rel=Appendix href="index_methods.html">
@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -130,9 +133,9 @@
 <link title="ExtUtils" rel="Chapter" href="ExtUtils.html"><title>Ext_dom_Element</title>
 </head>
 <body>
-<div class="navbar"><a href="Ext_dom_AbstractElement_Fly.html">Previous</a>
+<div class="navbar"><a href="Ext_dom_AbstractElement.html">Previous</a>
 &nbsp;<a href="index.html">Up</a>
-&nbsp;<a href="Ext_draw_Component.html">Next</a>
+&nbsp;<a href="Ext_dom_Element_Fly.html">Next</a>
 </div>
 <center><h1>Module <a href="type_Ext_dom_Element.html">Ext_dom_Element</a></h1></center>
 <br>
@@ -210,7 +213,9 @@ if(opt.anim.isAnimated()){
 
 <h1>Composite (Collections of) Elements</h1>
 
-<p>For working with collections of Elements, see <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a></p> <br>
+<p>For working with collections of Elements, see <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a></p>
+
+<p><strong>From override Ext.rtl.dom.Element_position:</strong> This override adds RTL positioning methods to <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>.</p> <br>
 <hr width="100%">
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Ext_dom_Element.t-c.html">t</a></span> = <code class="code">object</code> <a href="Ext_dom_Element.t-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEconfigs"><span class="keyword">class type</span> <a href="Ext_dom_Element.configs-c.html">configs</a></span> = <code class="code">object</code> <a href="Ext_dom_Element.configs-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEevents"><span class="keyword">class type</span> <a href="Ext_dom_Element.events-c.html">events</a></span> = <code class="code">object</code> <a href="Ext_dom_Element.events-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEstatics"><span class="keyword">class type</span> <a href="Ext_dom_Element.statics-c.html">statics</a></span> = <code class="code">object</code> <a href="Ext_dom_Element.statics-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALget_static"><span class="keyword">val</span> get_static</span> : <code class="type">unit -> <a href="Ext_dom_Element.statics-c.html">statics</a> Js.t</code></pre><div class="info">
 Static instance for lazy-loaded modules.<br>

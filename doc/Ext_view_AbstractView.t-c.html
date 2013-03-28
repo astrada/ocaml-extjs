@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,10 +138,8 @@
 <center><h1>Class type <a href="type_Ext_view_AbstractView.t.html">Ext_view_AbstractView.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_view_AbstractView.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
-<li><a href="Ext_AbstractComponent.t-c.html"><code class="code">Ext_AbstractComponent.t</code></a></li>
-<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
 <li><a href="Ext_util_Bindable.t-c.html"><code class="code">Ext_util_Bindable.t</code></a></li>
+<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODafterRender"><span class="keyword">method</span> afterRender</span> : <code class="type">unit Js.meth</code></pre><div class="info">
@@ -162,9 +163,8 @@ names added, and will be in the configured visibility and the configured enable 
 <p>Function which can be overridden which returns the data object passed to this
 DataView's <a href="#!/api/Ext.view.AbstractView-cfg-tpl" rel="Ext.view.AbstractView-cfg-tpl" class="docClass">template</a> to render the whole DataView.</p>
 
-
 <p>This is usually an Array of data objects, each element of which is processed by an
-<a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> which uses <tt>'&lt;tpl for="."&gt;'</tt> to iterate over its supplied
+<a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> which uses <code>'&amp;lt;tpl for="."&amp;gt;'</code> to iterate over its supplied
 data object as an Array. However, <i>named</i> properties may be placed into the data object to
 provide non-repeating data such as headings, totals etc.</p> 
 <p>
@@ -357,8 +357,17 @@ the id of a template node or the record associated with the node.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetStoreListeners"><span class="keyword">method</span> getStoreListeners</span> : <code class="type">'f. 'f Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetStoreListeners"><span class="keyword">method</span> getStoreListeners</span> : <code class="type">'f. <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> 'f Js.t Js.meth</code></pre><div class="info">
 <p>Gets the listeners to bind to a new store.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>store: <code class="code">Ext_data_Store.t Js.t</code>
+    <p>The Store which is being bound to for which a listeners object should be returned.</p> 
+    </li>
+</ul>
+
 <p>
 
     <b>Returns</b>:
@@ -462,7 +471,7 @@ to the current instance.</p>
 </div>
 <pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> <br>
+After calling the superclass's onDestroy, the Component will be destroyed.</p> <br>
 </div>
 <pre><span id="METHODonRender"><span class="keyword">method</span> onRender</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Template method called when this Component's DOM structure is created.</p>

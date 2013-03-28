@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,7 +140,6 @@
 <center><h1>Class type <a href="type_Ext_form_Basic.configs.html">Ext_form_Basic.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_form_Basic.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 <li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 </ul>
 <hr width="100%">
@@ -163,10 +165,10 @@ been imported by <a href="#!/api/Ext.direct.Manager" rel="Ext.direct.Manager" cl
 
 <p>Parameters are encoded as standard HTTP parameters using <a href="#!/api/Ext.Object-method-toQueryString" rel="Ext.Object-method-toQueryString" class="docClass">Ext.Object.toQueryString</a>.</p> <br>
 </div>
-<pre><span id="METHODerrorReader"><span class="keyword">method</span> errorReader</span> : <code class="type"><a href="Ext_data_reader_Reader.t-c.html">Ext_data_reader_Reader.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.DataReader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) to be used to
-read field error messages returned from 'submit' actions. This is optional
-as there is built-in support for processing JSON responses.</p>
+<pre><span id="METHODerrorReader"><span class="keyword">method</span> errorReader</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
+<p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) instance or
+configuration to be used to read field error messages returned from 'submit' actions.
+This is optional as there is built-in support for processing JSON responses.</p>
 
 <p>The Records which provide messages for the invalid Fields must use the
 Field name (or id) as the Record ID, and must contain a field called 'msg'
@@ -182,10 +184,15 @@ structure:</p>
 }
 </code></pre> <br>
 </div>
+<pre><span id="METHODjsonSubmit"><span class="keyword">method</span> jsonSubmit</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>If set to true, the field values are sent as JSON in the request body.
+All of the field values, plus any additional params configured via <a href="#!/api/Ext.form.Basic-cfg-baseParams" rel="Ext.form.Basic-cfg-baseParams" class="docClass">baseParams</a>
+and/or the <code>options</code> to <a href="#!/api/Ext.form.Basic-method-submit" rel="Ext.form.Basic-method-submit" class="docClass">submit</a>, will be included in the values POSTed in the body of the request.</p> <br>
+</div>
 <pre><span id="METHOD_method"><span class="keyword">method</span> _method</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The request method to use (GET or POST) for form actions if one isn't supplied in the action options.</p> <br>
 </div>
-<pre><span id="METHODparamOrder"><span class="keyword">method</span> paramOrder</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODparamOrder"><span class="keyword">method</span> paramOrder</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
 <p>A list of params to be executed server side. Only used for the <a href="#!/api/Ext.form.Basic-cfg-api" rel="Ext.form.Basic-cfg-api" class="docClass">api</a> <code>load</code>
 configuration.</p>
 
@@ -208,10 +215,10 @@ configuration.</p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODreader"><span class="keyword">method</span> reader</span> : <code class="type"><a href="Ext_data_reader_Reader.t-c.html">Ext_data_reader_Reader.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.DataReader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) to be used to read
-data when executing 'load' actions. This is optional as there is built-in
-support for processing JSON responses.</p> <br>
+<pre><span id="METHODreader"><span class="keyword">method</span> reader</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
+<p>An <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="docClass">Ext.data.reader.Reader</a> (e.g. <a href="#!/api/Ext.data.reader.Xml" rel="Ext.data.reader.Xml" class="docClass">Ext.data.reader.Xml</a>) instance or
+configuration to be used to read data when executing 'load' actions. This
+is optional as there is built-in support for processing JSON responses.</p> <br>
 </div>
 <pre><span id="METHODstandardSubmit"><span class="keyword">method</span> standardSubmit</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>If set to true, a standard HTML form submit is used instead of a XHR (Ajax) style form submission.
@@ -235,7 +242,7 @@ when the form was first created.</p>
 <p>The URL to use for form actions if one isn't supplied in the
 <a href="#!/api/Ext.form.Basic-method-doAction" rel="Ext.form.Basic-method-doAction" class="docClass">doAction</a> options.</p> <br>
 </div>
-<pre><span id="METHODwaitMsgTarget"><span class="keyword">method</span> waitMsgTarget</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODwaitMsgTarget"><span class="keyword">method</span> waitMsgTarget</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
 <p>By default wait messages are displayed with <a href="#!/api/Ext.MessageBox-method-wait" rel="Ext.MessageBox-method-wait" class="docClass">Ext.MessageBox.wait</a>. You can target a specific
 element by passing it or its id or mask the form itself by passing in true.</p> <br>
 </div>

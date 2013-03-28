@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -166,7 +169,16 @@ of the data-bound components in Ext.</p>
 
 <p>The fields array is turned into a <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">MixedCollection</a> automatically by the <a href="#!/api/Ext.ModelManager" rel="Ext.ModelManager" class="docClass">ModelManager</a>, and all other functions and properties are copied to the new Model's prototype.</p>
 
-<p>By default, the built in numeric and boolean field types have a (@link <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">Ext.data.Field.convert</a>} function which coerces string
+<p>A Model definition always has an <em>identifying field</em> which should yield a unique key for each instance. By default, a field
+named "id" will be created with a <a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a> of "id". This happens because of the default
+<a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a> provided in Model definitions.</p>
+
+<p>To alter which field is the identifying field, use the <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a> config.</p>
+
+<p>If the Model should not have any identifying field (for example if you are defining ab abstract base class for your
+application models), configure the {@liknk <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a>} as <code>null</code>.</p>
+
+<p>By default, the built in numeric and boolean field types have a <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">Ext.data.Field.convert</a> function which coerces string
 values in raw data into the field's type. For better performance with <a href="#!/api/Ext.data.reader.Json" rel="Ext.data.reader.Json" class="docClass">Json</a> or <a href="#!/api/Ext.data.reader.Array" rel="Ext.data.reader.Array" class="docClass">Array</a>
 readers <em>if you are in control of the data fed into this Model</em>, you can null out the default convert function which will cause
 the raw property to be copied directly into the Field's value.</p>
@@ -174,6 +186,7 @@ the raw property to be copied directly into the Field's value.</p>
 <p>Now we can create instances of our User model and call any model logic we defined:</p>
 
 <pre><code>var user = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('User', {
+    id   : 'ABCD12345',
     name : 'Conan',
     age  : 24,
     phone: '555-555-5555'

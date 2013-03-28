@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,12 +140,13 @@
 <center><h1>Class type <a href="type_Ext_AbstractComponent.events.html">Ext_AbstractComponent.events</a></h1></center>
 <br>
 <pre><span id="TYPEevents"><span class="keyword">class type</span> events</span> = <code class="code">object</code> <a href="Ext_AbstractComponent.events-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
 <li><a href="Ext_state_Stateful.events-c.html"><code class="code">Ext_state_Stateful.events</code></a></li>
 <li><a href="Ext_util_Animate.events-c.html"><code class="code">Ext_util_Animate.events</code></a></li>
 <li><a href="Ext_util_ElementContainer.events-c.html"><code class="code">Ext_util_ElementContainer.events</code></a></li>
 <li><a href="Ext_util_Observable.events-c.html"><code class="code">Ext_util_Observable.events</code></a></li>
+<li><a href="Ext_util_Positionable.events-c.html"><code class="code">Ext_util_Positionable.events</code></a></li>
 <li><a href="Ext_util_Renderable.events-c.html"><code class="code">Ext_util_Renderable.events</code></a></li>
+<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODactivate"><span class="keyword">method</span> activate</span> : <code class="type">'a.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'a Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
@@ -182,8 +186,8 @@
 <pre><span id="METHODafterrender"><span class="keyword">method</span> afterrender</span> : <code class="type">'d.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'd Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
 <p>Fires after the component rendering is finished.</p>
 
-<p>The afterrender event is fired after this Component has been <a href="#!/api/Ext.AbstractComponent-property-rendered" rel="Ext.AbstractComponent-property-rendered" class="docClass">rendered</a>, been postprocesed by any
-afterRender method defined for the Component.</p> 
+<p>The <code>afterrender</code> event is fired after this Component has been <a href="#!/api/Ext.AbstractComponent-property-rendered" rel="Ext.AbstractComponent-property-rendered" class="docClass">rendered</a>, been postprocessed by any
+<code>afterRender</code> method defined for the Component.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -197,7 +201,7 @@ afterRender method defined for the Component.</p>
 <br>
 </div>
 <pre><span id="METHODbeforeactivate"><span class="keyword">method</span> beforeactivate</span> : <code class="type">'e.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'e Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
-<p>Fires before a Component has been visually activated. Returning false from an event listener can prevent
+<p>Fires before a Component has been visually activated. Returning <code>false</code> from an event listener can prevent
 the activate from occurring.</p> 
 <p>
 
@@ -212,7 +216,7 @@ the activate from occurring.</p>
 <br>
 </div>
 <pre><span id="METHODbeforedeactivate"><span class="keyword">method</span> beforedeactivate</span> : <code class="type">'f.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'f Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
-<p>Fires before a Component has been visually deactivated. Returning false from an event listener can
+<p>Fires before a Component has been visually deactivated. Returning <code>false</code> from an event listener can
 prevent the deactivate from occurring.</p> 
 <p>
 
@@ -227,7 +231,7 @@ prevent the deactivate from occurring.</p>
 <br>
 </div>
 <pre><span id="METHODbeforedestroy"><span class="keyword">method</span> beforedestroy</span> : <code class="type">'g.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'g Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
-<p>Fires before the component is <a href="#!/api/Ext.AbstractComponent-method-destroy" rel="Ext.AbstractComponent-method-destroy" class="docClass">destroy</a>ed. Return false from an event handler to stop the
+<p>Fires before the component is <a href="#!/api/Ext.AbstractComponent-method-destroy" rel="Ext.AbstractComponent-method-destroy" class="docClass">destroy</a>ed. Return <code>false</code> from an event handler to stop the
 <a href="#!/api/Ext.AbstractComponent-method-destroy" rel="Ext.AbstractComponent-method-destroy" class="docClass">destroy</a>.</p> 
 <p>
 
@@ -242,7 +246,7 @@ prevent the deactivate from occurring.</p>
 <br>
 </div>
 <pre><span id="METHODbeforehide"><span class="keyword">method</span> beforehide</span> : <code class="type">'h.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'h Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
-<p>Fires before the component is hidden when calling the <a href="#!/api/Ext.Component-method-hide" rel="Ext.Component-method-hide" class="docClass">hide</a> method. Return false from an event
+<p>Fires before the component is hidden when calling the <a href="#!/api/Ext.Component-method-hide" rel="Ext.Component-method-hide" class="docClass">hide</a> method. Return <code>false</code> from an event
 handler to stop the hide.</p> 
 <p>
 
@@ -257,7 +261,7 @@ handler to stop the hide.</p>
 <br>
 </div>
 <pre><span id="METHODbeforerender"><span class="keyword">method</span> beforerender</span> : <code class="type">'i.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'i Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
-<p>Fires before the component is <a href="#!/api/Ext.AbstractComponent-property-rendered" rel="Ext.AbstractComponent-property-rendered" class="docClass">rendered</a>. Return false from an event handler to stop the
+<p>Fires before the component is <a href="#!/api/Ext.AbstractComponent-property-rendered" rel="Ext.AbstractComponent-property-rendered" class="docClass">rendered</a>. Return <code>false</code> from an event handler to stop the
 <a href="#!/api/Ext.AbstractComponent-method-render" rel="Ext.AbstractComponent-method-render" class="docClass">render</a>.</p> 
 <p>
 
@@ -272,7 +276,7 @@ handler to stop the hide.</p>
 <br>
 </div>
 <pre><span id="METHODbeforeshow"><span class="keyword">method</span> beforeshow</span> : <code class="type">'j.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -> 'j Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
-<p>Fires before the component is shown when calling the <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a> method. Return false from an event
+<p>Fires before the component is shown when calling the <a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a> method. Return <code>false</code> from an event
 handler to stop the show.</p> 
 <p>
 
@@ -304,7 +308,7 @@ handler to stop the show.</p>
 <br>
 </div>
 <pre><span id="METHODboxready"><span class="keyword">method</span> boxready</span> : <code class="type">'l.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -><br>          Js.number Js.t -> Js.number Js.t -> 'l Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
-<p>Fires <em>one time</em> - after the component has been layed out for the first time at its initial size.</p> 
+<p>Fires <em>one time</em> - after the component has been laid out for the first time at its initial size.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -312,10 +316,10 @@ handler to stop the show.</p>
 <li>this: <code class="code">#Ext_Component.t Js.t</code>
     </li>
 <li>width: <code class="code">Js.number Js.t</code>
-    <p>The initial width</p> 
+    <p>The initial width.</p> 
     </li>
 <li>height: <code class="code">Js.number Js.t</code>
-    <p>The initial height</p> 
+    <p>The initial height.</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
@@ -420,9 +424,10 @@ method.</p>
 <li>this: <code class="code">#Ext_Component.t Js.t</code>
     </li>
 <li>x: <code class="code">Js.number Js.t</code>
-    <p>The new x position</p> 
+    <p>The new x position.</p> 
     </li>
-<li>y: <code class="code">Js.number Js.t</code> <p>The new y position</p> 
+<li>y: <code class="code">Js.number Js.t</code>
+    <p>The new y position.</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
@@ -462,8 +467,8 @@ method.</p>
 <br>
 </div>
 <pre><span id="METHODresize"><span class="keyword">method</span> resize</span> : <code class="type">'w.<br>         (<a href="Ext_AbstractComponent.t-c.html">t</a> Js.t -><br>          Js.number Js.t -><br>          Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> 'w Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
-<p>Fires after the component is resized. Note that this does <em>not</em> fire when the component is first layed out at its initial
-size. To hook that point in the lifecycle, use the <a href="#!/api/Ext.AbstractComponent-event-boxready" rel="Ext.AbstractComponent-event-boxready" class="docClass">boxready</a> event.</p> 
+<p>Fires after the component is resized. Note that this does <em>not</em> fire when the component is first laid out at its initial
+size. To hook that point in the life cycle, use the <a href="#!/api/Ext.AbstractComponent-event-boxready" rel="Ext.AbstractComponent-event-boxready" class="docClass">boxready</a> event.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -471,16 +476,16 @@ size. To hook that point in the lifecycle, use the <a href="#!/api/Ext.AbstractC
 <li>this: <code class="code">#Ext_Component.t Js.t</code>
     </li>
 <li>width: <code class="code">Js.number Js.t</code>
-    <p>The new width that was set</p> 
+    <p>The new width that was set.</p> 
     </li>
 <li>height: <code class="code">Js.number Js.t</code>
-    <p>The new height that was set</p> 
+    <p>The new height that was set.</p> 
     </li>
 <li>oldWidth: <code class="code">Js.number Js.t</code>
-    <p>The previous width</p> 
+    <p>The previous width.</p> 
     </li>
 <li>oldHeight: <code class="code">Js.number Js.t</code>
-    <p>The previous height</p> 
+    <p>The previous height.</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 

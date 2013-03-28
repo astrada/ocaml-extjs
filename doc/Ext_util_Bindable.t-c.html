@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,7 +141,7 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODbindStore"><span class="keyword">method</span> bindStore</span> : <code class="type">'a. 'a Js.t Js.optdef -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODbindStore"><span class="keyword">method</span> bindStore</span> : <code class="type">'a. 'a Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Binds a store to this instance.</p> 
 <p>
 
@@ -147,10 +150,6 @@
 <li>store: <code class="code">_ Js.t</code> (optional)
     <p>The store to bind or ID of the store.
 When no store given (or when <code>null</code> or <code>undefined</code> passed), unbinds the existing store.</p> 
-    </li>
-<li>initial: <code class="code">bool Js.t</code> (optional)
-    <p>True to not remove listeners from existing store.</p> 
-     Defaults to: false
     </li>
 </ul>
 <br>
@@ -181,8 +180,17 @@ in a subclass to provide any more complicated handling.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetStoreListeners"><span class="keyword">method</span> getStoreListeners</span> : <code class="type">'d. 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetStoreListeners"><span class="keyword">method</span> getStoreListeners</span> : <code class="type">'d. <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
 <p>Gets the listeners to bind to a new store.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>store: <code class="code">Ext_data_Store.t Js.t</code>
+    <p>The Store which is being bound to for which a listeners object should be returned.</p> 
+    </li>
+</ul>
+
 <p>
 
     <b>Returns</b>:

@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,11 +140,6 @@
 <center><h1>Class type <a href="type_Ext_panel_Panel.events.html">Ext_panel_Panel.events</a></h1></center>
 <br>
 <pre><span id="TYPEevents"><span class="keyword">class type</span> events</span> = <code class="code">object</code> <a href="Ext_panel_Panel.events-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
-<li><a href="Ext_AbstractComponent.events-c.html"><code class="code">Ext_AbstractComponent.events</code></a></li>
-<li><a href="Ext_Component.events-c.html"><code class="code">Ext_Component.events</code></a></li>
-<li><a href="Ext_container_AbstractContainer.events-c.html"><code class="code">Ext_container_AbstractContainer.events</code></a></li>
-<li><a href="Ext_container_Container.events-c.html"><code class="code">Ext_container_Container.events</code></a></li>
 <li><a href="Ext_panel_AbstractPanel.events-c.html"><code class="code">Ext_panel_AbstractPanel.events</code></a></li>
 </ul>
 <hr width="100%">
@@ -174,10 +172,10 @@ fired</p>
     <p>. The direction of the collapse. One of</p>
 
 <ul>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_TOP</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_RIGHT</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_BOTTOM</li>
-<li><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.DIRECTION_LEFT</li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_TOP" rel="Ext.Component-property-DIRECTION_TOP" class="docClass">Ext.Component.DIRECTION_TOP</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_RIGHT" rel="Ext.Component-property-DIRECTION_RIGHT" class="docClass">Ext.Component.DIRECTION_RIGHT</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_BOTTOM" rel="Ext.Component-property-DIRECTION_BOTTOM" class="docClass">Ext.Component.DIRECTION_BOTTOM</a></li>
+<li><a href="#!/api/Ext.Component-property-DIRECTION_LEFT" rel="Ext.Component-property-DIRECTION_LEFT" class="docClass">Ext.Component.DIRECTION_LEFT</a></li>
 </ul> 
     </li>
 <li>animate: <code class="code">bool Js.t</code>
@@ -223,7 +221,7 @@ fired</p>
 <br>
 </div>
 <pre><span id="METHODcollapse"><span class="keyword">method</span> collapse</span> : <code class="type">'e. (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -> 'e Js.t -> unit) Js.callback Js.writeonly_prop</code></pre><div class="info">
-<p>Fires after this Panel hass collapsed.</p> 
+<p>Fires after this Panel has collapsed.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -252,7 +250,39 @@ fired</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODiconchange"><span class="keyword">method</span> iconchange</span> : <code class="type">'g.<br>         (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'g Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODfloat"><span class="keyword">method</span> float</span> : <code class="type">'g. ('g Js.t -> unit) Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fires after a collapsed Panel has been "floated" by clicking on
+it's header. Only applicable when the Panel is an item in a
+<a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">Border Layout</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODglyphchange"><span class="keyword">method</span> glyphchange</span> : <code class="type">'h 'i 'j.<br>         (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -> 'h Js.t -> 'i Js.t -> 'j Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when the Panel glyph has been changed by the <a href="#!/api/Ext.panel.Panel-method-setGlyph" rel="Ext.panel.Panel-method-setGlyph" class="docClass">setGlyph</a> method.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">#Ext_panel_Panel.t Js.t</code>
+    </li>
+<li>newGlyph: <code class="code">_ Js.t</code>
+    </li>
+<li>oldGlyph: <code class="code">_ Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODiconchange"><span class="keyword">method</span> iconchange</span> : <code class="type">'k.<br>         (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'k Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires after the Panel icon has been set or changed.</p> 
 <p>
 
@@ -273,7 +303,7 @@ fired</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODiconclschange"><span class="keyword">method</span> iconclschange</span> : <code class="type">'h.<br>         (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'h Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODiconclschange"><span class="keyword">method</span> iconclschange</span> : <code class="type">'l.<br>         (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'l Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires after the Panel iconCls has been set or changed.</p> 
 <p>
 
@@ -294,7 +324,7 @@ fired</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODtitlechange"><span class="keyword">method</span> titlechange</span> : <code class="type">'i.<br>         (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'i Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODtitlechange"><span class="keyword">method</span> titlechange</span> : <code class="type">'m.<br>         (<a href="Ext_panel_Panel.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'm Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires after the Panel title has been set or changed.</p> 
 <p>
 
@@ -309,6 +339,21 @@ fired</p>
 <li>oldTitle: <code class="code">Js.js_string Js.t</code>
     <p>The previous panel title.</p> 
     </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODunfloat"><span class="keyword">method</span> unfloat</span> : <code class="type">'n. ('n Js.t -> unit) Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fires after a "floated" Panel has returned to it's collapsed state
+as a result of the mouse leaving the Panel. Only applicable when
+the Panel is an item in a
+<a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">Border Layout</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
     </li>

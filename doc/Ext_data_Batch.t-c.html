@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,45 +138,11 @@
 <center><h1>Class type <a href="type_Ext_data_Batch.t.html">Ext_data_Batch.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_data_Batch.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 <li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
+<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODcurrent"><span class="keyword">method</span> current</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>The index of the current operation being executed. Read only</p> <br>
-</div>
-<pre><span id="METHODexceptions"><span class="keyword">method</span> exceptions</span> : <code class="type"><a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop</code></pre><div class="info">
-<p>Ordered array of operations that raised an exception during the most recent
-batch execution and did not successfully complete</p> <br>
-</div>
-<pre><span id="METHODhasException"><span class="keyword">method</span> hasException</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True if this batch has encountered an exception. This is cleared at the start of each operation. Read only</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODisComplete"><span class="keyword">method</span> isComplete</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True if this batch has been executed completely. Read only</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODisRunning"><span class="keyword">method</span> isRunning</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True if the batch is currently running. Read only</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODoperations"><span class="keyword">method</span> operations</span> : <code class="type"><a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop</code></pre><div class="info">
-<p>Ordered array of operations that will be executed by this batch</p> <br>
-</div>
-<pre><span id="METHODtotal"><span class="keyword">method</span> total</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>The total number of operations in this batch. Read only</p> 
-<p>
-
-    Defaults to: <code class="code">0</code><br>
-</div>
-<pre><span id="METHODadd"><span class="keyword">method</span> add</span> : <code class="type">'a.<br>         'a Js.t -><br>         (< add : 'a. 'b; addEvents : 'd. 'd Js.t -> unit Js.meth;<br>            addListener : 'e 'f 'g 'h.<br>                            'e Js.t -><br>                            'f Js.callback Js.optdef -><br>                            'g Js.t Js.optdef -> 'h Js.t Js.optdef -> unit Js.meth;<br>            addManagedListener : 'i 'j 'k 'l 'm.<br>                                   'i Js.t -><br>                                   'j Js.t -><br>                                   'k Js.callback Js.optdef -><br>                                   'l Js.t Js.optdef -><br>                                   'm Js.t Js.optdef -> unit Js.meth;<br>            callParent : 'n 'o. 'n Js.t -> 'o Js.t Js.meth;<br>            callSuper : 'p 'q. 'p Js.t -> 'q Js.t Js.meth;<br>            clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>            current : Js.number Js.t Js.prop;<br>            enableBubble : 'r. 'r Js.t -> unit Js.meth;<br>            exceptions : <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop;<br>            fireEvent : 's. Js.js_string Js.t -> 's Js.t -> bool Js.t Js.meth;<br>            getInitialConfig : 't. Js.js_string Js.t Js.optdef -> 't Js.t Js.meth;<br>            hasException : bool Js.t Js.prop;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'u. 'u Js.t Js.readonly_prop;<br>            initConfig : 'v. 'v Js.t -> 'c Js.t Js.meth;<br>            isComplete : bool Js.t Js.prop; isObservable : bool Js.t Js.prop;<br>            isRunning : bool Js.t Js.prop;<br>            mon : 'w 'x 'y 'z 'a1.<br>                    'w Js.t -><br>                    'x Js.t -><br>                    'y Js.callback Js.optdef -><br>                    'z Js.t Js.optdef -> 'a1 Js.t Js.optdef -> unit Js.meth;<br>            mun : 'b1 'c1 'd1 'e1.<br>                    'b1 Js.t -><br>                    'c1 Js.t -><br>                    'd1 Js.callback Js.optdef -> 'e1 Js.t Js.optdef -> unit Js.meth;<br>            on : 'f1 'g1 'h1 'i1.<br>                   'f1 Js.t -><br>                   'g1 Js.callback Js.optdef -><br>                   'h1 Js.t Js.optdef -> 'i1 Js.t Js.optdef -> unit Js.meth;<br>            operations : <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop;<br>            pause : 'c Js.t Js.meth;<br>            relayEvents : 'j1.<br>                            'j1 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> unit Js.meth;<br>            removeListener : 'k1 'l1.<br>                               Js.js_string Js.t -><br>                               'k1 Js.callback -> 'l1 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'm1 'n1 'o1 'p1.<br>                                      'm1 Js.t -><br>                                      'n1 Js.t -><br>                                      'o1 Js.callback Js.optdef -><br>                                      'p1 Js.t Js.optdef -> unit Js.meth;<br>            resumeEvents : unit Js.meth; retry : 'c Js.t Js.meth;<br>            runOperation : Js.number Js.t -> 'c Js.t Js.meth;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            start : 'q1. 'q1 Js.t -> 'c Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            total : Js.number Js.t Js.prop;<br>            un : 'r1 's1.<br>                   Js.js_string Js.t -><br>                   'r1 Js.callback -> 's1 Js.t Js.optdef -> unit Js.meth;<br>            .. ><br>          as 'c)<br>         Js.t Js.meth as 'b</code></pre><div class="info">
+<pre><span id="METHODadd"><span class="keyword">method</span> add</span> : <code class="type">'a.<br>         'a Js.t -><br>         (< add : 'a. 'b; addEvents : 'd. 'd Js.t -> unit Js.meth;<br>            addListener : 'e 'f 'g 'h 'i.<br>                            'e Js.t -><br>                            'f Js.callback Js.optdef -><br>                            'g Js.t Js.optdef -><br>                            'h Js.t Js.optdef -> 'i Js.t Js.meth;<br>            addManagedListener : 'j 'k 'l 'm 'n 'o.<br>                                   'j Js.t -><br>                                   'k Js.t -><br>                                   'l Js.callback Js.optdef -><br>                                   'm Js.t Js.optdef -><br>                                   'n Js.t Js.optdef -> 'o Js.t Js.meth;<br>            callParent : 'p 'q. 'p Js.t -> 'q Js.t Js.meth;<br>            callSuper : 'r 's. 'r Js.t -> 's Js.t Js.meth;<br>            clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>            current : Js.number Js.t Js.prop;<br>            enableBubble : 't. 't Js.t -> unit Js.meth;<br>            exceptions : <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop;<br>            fireEvent : 'u. Js.js_string Js.t -> 'u Js.t -> bool Js.t Js.meth;<br>            fireEventArgs : 'v.<br>                              Js.js_string Js.t -><br>                              'v Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>            getInitialConfig : 'w. Js.js_string Js.t Js.optdef -> 'w Js.t Js.meth;<br>            hasException : bool Js.t Js.prop;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'x. 'x Js.t Js.readonly_prop;<br>            initConfig : 'y. 'y Js.t -> 'c Js.t Js.meth;<br>            isComplete : bool Js.t Js.prop; isObservable : bool Js.t Js.prop;<br>            isRunning : bool Js.t Js.prop;<br>            mon : 'z 'a1 'b1 'c1 'd1 'e1.<br>                    'z Js.t -><br>                    'a1 Js.t -><br>                    'b1 Js.callback Js.optdef -><br>                    'c1 Js.t Js.optdef -> 'd1 Js.t Js.optdef -> 'e1 Js.t Js.meth;<br>            mun : 'f1 'g1 'h1 'i1.<br>                    'f1 Js.t -><br>                    'g1 Js.t -><br>                    'h1 Js.callback Js.optdef -> 'i1 Js.t Js.optdef -> unit Js.meth;<br>            on : 'j1 'k1 'l1 'm1 'n1.<br>                   'j1 Js.t -><br>                   'k1 Js.callback Js.optdef -><br>                   'l1 Js.t Js.optdef -> 'm1 Js.t Js.optdef -> 'n1 Js.t Js.meth;<br>            operations : <a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop;<br>            pause : 'c Js.t Js.meth;<br>            relayEvents : 'o1 'p1.<br>                            'o1 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> 'p1 Js.t Js.meth;<br>            removeListener : 'q1 'r1.<br>                               Js.js_string Js.t -><br>                               'q1 Js.callback -> 'r1 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 's1 't1 'u1 'v1.<br>                                      's1 Js.t -><br>                                      't1 Js.t -><br>                                      'u1 Js.callback Js.optdef -><br>                                      'v1 Js.t Js.optdef -> unit Js.meth;<br>            resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>            resumeEvents : unit Js.meth; retry : 'c Js.t Js.meth;<br>            runOperation : Js.number Js.t -> 'c Js.t Js.meth;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            start : 'w1. 'w1 Js.t -> 'c Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            total : Js.number Js.t Js.prop;<br>            un : 'x1 'y1.<br>                   Js.js_string Js.t -><br>                   'x1 Js.callback -> 'y1 Js.t Js.optdef -> unit Js.meth;<br>            .. ><br>          as 'c)<br>         Js.t Js.meth as 'b</code></pre><div class="info">
 <p>Adds a new operation to this batch at the end of the <a href="#!/api/Ext.data.Batch-property-operations" rel="Ext.data.Batch-property-operations" class="docClass">operations</a> array</p> 
 <p>
 
@@ -240,7 +209,7 @@ all operations are complete or another exception is encountered.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODstart"><span class="keyword">method</span> start</span> : <code class="type">'q1. 'q1 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODstart"><span class="keyword">method</span> start</span> : <code class="type">'w1. 'w1 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Kicks off execution of the batch, continuing from the next operation if the previous
 operation encountered an exception, or if execution was paused. Use this method to start
 the batch for the first time or to restart a paused batch by skipping the current
@@ -266,5 +235,39 @@ because you explicitly handled the operation's exception), call <a href="#!/api/
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODcurrent"><span class="keyword">method</span> current</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>The index of the current operation being executed. Read only</p> <br>
+</div>
+<pre><span id="METHODexceptions"><span class="keyword">method</span> exceptions</span> : <code class="type"><a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop</code></pre><div class="info">
+<p>Ordered array of operations that raised an exception during the most recent
+batch execution and did not successfully complete</p> <br>
+</div>
+<pre><span id="METHODhasException"><span class="keyword">method</span> hasException</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>True if this batch has encountered an exception. This is cleared at the start of each operation. Read only</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODisComplete"><span class="keyword">method</span> isComplete</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>True if this batch has been executed completely. Read only</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODisRunning"><span class="keyword">method</span> isRunning</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>True if the batch is currently running. Read only</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODoperations"><span class="keyword">method</span> operations</span> : <code class="type"><a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a> Js.js_array Js.t Js.prop</code></pre><div class="info">
+<p>Ordered array of operations that will be executed by this batch</p> <br>
+</div>
+<pre><span id="METHODtotal"><span class="keyword">method</span> total</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>The total number of operations in this batch. Read only</p> 
+<p>
+
+    Defaults to: <code class="code">0</code><br>
 </div>
 </body></html>

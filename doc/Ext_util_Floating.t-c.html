@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,38 +141,7 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODalignTo"><span class="keyword">method</span> alignTo</span> : <code class="type">'a 'b.<br>         'a Js.t -><br>         Js.js_string Js.t Js.optdef -><br>         Js.number Js.t Js.js_array Js.t Js.optdef -> 'b Js.t Js.meth</code></pre><div class="info">
-<p>Aligns this floating Component to the specified element</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>element: <code class="code">_ Js.t</code>
-    <p>The element or <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to align to. If passing a component, it must be a
-component instance. If a string id is passed, it will be used as an element id.</p> 
-    </li>
-<li>position: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The position to align to
-(see <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> for more details).</p> 
-<p>
-
-    Defaults to: "tl-bl?"
-    </li>
-<li>offsets: <code class="code">Js.number Js.t Js.js_array Js.t</code> (optional)
-    <p>Offset the positioning by [x, y]</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">#Ext_Component.t Js.t</code> <p>this</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODcenter"><span class="keyword">method</span> center</span> : <code class="type">'c. 'c Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODcenter"><span class="keyword">method</span> center</span> : <code class="type">'a. 'a Js.t Js.meth</code></pre><div class="info">
 <p>Center this Component in its container.</p> 
 <p>
 
@@ -180,7 +152,7 @@ component instance. If a string id is passed, it will be used as an element id.<
 </ul>
 <br>
 </div>
-<pre><span id="METHODdoConstrain"><span class="keyword">method</span> doConstrain</span> : <code class="type">'d. 'd Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODdoConstrain"><span class="keyword">method</span> doConstrain</span> : <code class="type">'b. 'b Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Moves this floating Component into a constrain region.</p>
 
 <p>By default, this Component is constrained to be within the container it was added to, or the element it was
@@ -199,7 +171,7 @@ was rendered.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetActive"><span class="keyword">method</span> setActive</span> : <code class="type">'e. bool Js.t Js.optdef -> 'e Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetActive"><span class="keyword">method</span> setActive</span> : <code class="type">'c. bool Js.t Js.optdef -> 'c Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>This method is called internally by <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">Ext.ZIndexManager</a> to signal that a floating Component has either been
 moved to the top of its zIndex stack, or pushed from the top of its zIndex stack.</p>
 
@@ -221,7 +193,7 @@ moved to the top of its zIndex stack, or pushed from the top of its zIndex stack
 </ul>
 <br>
 </div>
-<pre><span id="METHODtoBack"><span class="keyword">method</span> toBack</span> : <code class="type">'f. 'f Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODtoBack"><span class="keyword">method</span> toBack</span> : <code class="type">'d. 'd Js.t Js.meth</code></pre><div class="info">
 <p>Sends this Component to the back of (lower z-index than) any other visible windows</p> 
 <p>
 
@@ -232,7 +204,7 @@ moved to the top of its zIndex stack, or pushed from the top of its zIndex stack
 </ul>
 <br>
 </div>
-<pre><span id="METHODtoFront"><span class="keyword">method</span> toFront</span> : <code class="type">'g. bool Js.t Js.optdef -> 'g Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODtoFront"><span class="keyword">method</span> toFront</span> : <code class="type">'e. bool Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
 <p>Brings this floating Component to the front of any other visible, floating Components managed by the same
 <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a></p>
 

@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -162,7 +165,77 @@ it should be extended.</p>
     // other options
     features: [groupingFeature]
 });
-</code></pre> <br>
+</code></pre>
+
+<h2>Writing Features</h2>
+
+<p>A Feature may add new DOM structure within the structure of a grid.</p>
+
+<p>A grid is essentially a <code>&lt;table&gt;</code> element. A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> instance uses three <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplates</a>
+to render the grid, <code>tableTpl</code>, <code>rowTpl</code>, <code>cellTpl</code>.</p>
+
+<ul>
+<li>A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> uses its <code>tableTpl</code> to emit the <code>&lt;table&gt;</code> and <code>&lt;tbody&gt;</code> HTML tags into its output stream. It also emits a <code>&lt;thead&gt;</code> which contains a
+sizing row. To ender the rows, it invokes <a href="#!/api/Ext.view.Table-method-renderRows" rel="Ext.view.Table-method-renderRows" class="docClass">Ext.view.Table.renderRows</a> passing the <code>rows</code> member of its data object.</li>
+</ul>
+
+
+<p>The <code>tableTpl</code>'s data object Looks like this:</p>
+
+<pre><code>{
+    view: owningTableView,
+    rows: recordsToRender,
+    viewStartIndex: indexOfFirstRecordInStore,
+    tableStyle: styleString
+}
+</code></pre>
+
+<ul>
+<li>A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> uses its <code>rowTpl</code> to emit a <code>&lt;tr&gt;</code> HTML tag to its output stream. To render cells,
+it invokes <a href="#!/api/Ext.view.Table-method-renderCell" rel="Ext.view.Table-method-renderCell" class="docClass">Ext.view.Table.renderCell</a> passing the <code>rows</code> member of its data object.</li>
+</ul>
+
+
+<p>The <code>rowTpl</code>'s data object looks like this:</p>
+
+<pre><code>{
+    view:        owningTableView,
+    record:      recordToRender,
+    recordIndex: indexOfRecordInStore,
+    columns:     arrayOfColumnDefinitions,
+    itemClasses: arrayOfClassNames, // For outermost row in case of wrapping
+    rowClasses:  arrayOfClassNames,  // For internal data bearing row in case of wrapping
+    rowStyle:    styleString
+}
+</code></pre>
+
+<ul>
+<li>A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> uses its <code>cellTpl</code> to emit a <code>&lt;td&gt;</code> HTML tag to its output stream.</li>
+</ul>
+
+
+<p>The <code>cellTpl's</code> data object looks like this:</p>
+
+<pre><code>{
+    record: recordToRender
+    column: columnToRender;
+    recordIndex: indexOfRecordInStore,
+    columnIndex: columnIndex,
+    align: columnAlign,
+    tdCls: classForCell
+}
+</code></pre>
+
+<p>A Feature may inject its own tableTpl or rowTpl or cellTpl into the <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a>'s rendering by
+calling <a href="#!/api/Ext.view.Table-method-addTableTpl" rel="Ext.view.Table-method-addTableTpl" class="docClass">Ext.view.Table.addTableTpl</a> or <a href="#!/api/Ext.view.Table-method-addRowTpl" rel="Ext.view.Table-method-addRowTpl" class="docClass">Ext.view.Table.addRowTpl</a> or <a href="#!/api/Ext.view.Table-method-addCellTpl" rel="Ext.view.Table-method-addCellTpl" class="docClass">Ext.view.Table.addCellTpl</a>.</p>
+
+<p>The passed XTemplate is added <em>upstream</em> of the default template for the table element in a link list of XTemplates which contribute
+to the element's HTML. It may emit appropriate HTML strings into the output stream <em>around</em> a call to</p>
+
+<pre><code>this.nextTpl.apply(values, out, parent);
+</code></pre>
+
+<p>This passes the current value context, output stream and the parent value context to the next XTemplate in the list.</p> <br>
 <hr width="100%">
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Ext_grid_feature_Feature.t-c.html">t</a></span> = <code class="code">object</code> <a href="Ext_grid_feature_Feature.t-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEconfigs"><span class="keyword">class type</span> <a href="Ext_grid_feature_Feature.configs-c.html">configs</a></span> = <code class="code">object</code> <a href="Ext_grid_feature_Feature.configs-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEevents"><span class="keyword">class type</span> <a href="Ext_grid_feature_Feature.events-c.html">events</a></span> = <code class="code">object</code> <a href="Ext_grid_feature_Feature.events-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEstatics"><span class="keyword">class type</span> <a href="Ext_grid_feature_Feature.statics-c.html">statics</a></span> = <code class="code">object</code> <a href="Ext_grid_feature_Feature.statics-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALof_configs"><span class="keyword">val</span> of_configs</span> : <code class="type"><a href="Ext_grid_feature_Feature.configs-c.html">configs</a> Js.t -> <a href="Ext_grid_feature_Feature.t-c.html">t</a> Js.t</code></pre><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code><br>

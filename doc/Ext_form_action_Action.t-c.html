@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,6 +141,9 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODrun"><span class="keyword">method</span> run</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Invokes this action using the current configuration.</p> <br>
+</div>
 <pre><span id="METHODfailureType"><span class="keyword">method</span> failureType</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The type of failure detected will be one of these:
 <a href="#!/api/Ext.form.action.Action-static-property-CLIENT_INVALID" rel="Ext.form.action.Action-static-property-CLIENT_INVALID" class="docClass">CLIENT_INVALID</a>, <a href="#!/api/Ext.form.action.Action-static-property-SERVER_INVALID" rel="Ext.form.action.Action-static-property-SERVER_INVALID" class="docClass">SERVER_INVALID</a>, <a href="#!/api/Ext.form.action.Action-static-property-CONNECT_FAILURE" rel="Ext.form.action.Action-static-property-CONNECT_FAILURE" class="docClass">CONNECT_FAILURE</a>, or <a href="#!/api/Ext.form.action.Action-static-property-LOAD_FAILURE" rel="Ext.form.action.Action-static-property-LOAD_FAILURE" class="docClass">LOAD_FAILURE</a>.</p>
@@ -159,12 +165,12 @@ buttons: [{
                     var result = action.<a href="#!/api/Ext.form.action.Action-property-result" rel="Ext.form.action.Action-property-result" class="docClass">result</a>;
                 },
                 failure: function(form, action){
-                    if (action.<a href="#!/api/Ext.form.action.Action-property-failureType" rel="Ext.form.action.Action-property-failureType" class="docClass">failureType</a> === <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.CONNECT_FAILURE) {
+                    if (action.<a href="#!/api/Ext.form.action.Action-property-failureType" rel="Ext.form.action.Action-property-failureType" class="docClass">failureType</a> === <a href="#!/api/Ext.form.action.Action-static-property-CONNECT_FAILURE" rel="Ext.form.action.Action-static-property-CONNECT_FAILURE" class="docClass">Ext.form.action.Action.CONNECT_FAILURE</a>) {
                         <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Error',
                             'Status:'+action.<a href="#!/api/Ext.form.action.Action-property-response" rel="Ext.form.action.Action-property-response" class="docClass">response</a>.status+': '+
                             action.<a href="#!/api/Ext.form.action.Action-property-response" rel="Ext.form.action.Action-property-response" class="docClass">response</a>.statusText);
                     }
-                    if (action.failureType === <a href="#!/api/Ext.form.action.Action" rel="Ext.form.action.Action" class="docClass">Ext.form.action.Action</a>.SERVER_INVALID){
+                    if (action.failureType === <a href="#!/api/Ext.form.action.Action-static-property-SERVER_INVALID" rel="Ext.form.action.Action-static-property-SERVER_INVALID" class="docClass">Ext.form.action.Action.SERVER_INVALID</a>){
                         // server responded with success = false
                         <a href="#!/api/Ext.MessageBox-method-alert" rel="Ext.MessageBox-method-alert" class="docClass">Ext.Msg.alert</a>('Invalid', action.<a href="#!/api/Ext.form.action.Action-property-result" rel="Ext.form.action.Action-property-result" class="docClass">result</a>.errormsg);
                     }
@@ -188,8 +194,5 @@ buttons: [{
 </div>
 <pre><span id="METHOD_type"><span class="keyword">method</span> _type</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The type of action this Action instance performs. Currently only "submit" and "load" are supported.</p> <br>
-</div>
-<pre><span id="METHODrun"><span class="keyword">method</span> run</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Invokes this action using the current configuration.</p> <br>
 </div>
 </body></html>

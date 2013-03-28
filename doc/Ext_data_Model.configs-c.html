@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,8 +140,8 @@
 <center><h1>Class type <a href="type_Ext_data_Model.configs.html">Ext_data_Model.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_data_Model.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 <li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
+<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODassociations"><span class="keyword">method</span> associations</span> : <code class="type">'a. 'a Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
@@ -170,13 +173,23 @@ to specify a full set of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" cl
 <pre><span id="METHODhasMany"><span class="keyword">method</span> hasMany</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
 <p>One or more <a href="#!/api/Ext.data.association.HasMany" rel="Ext.data.association.HasMany" class="docClass">HasMany associations</a> for this model.</p> <br>
 </div>
-<pre><span id="METHODidProperty"><span class="keyword">method</span> idProperty</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The name of the field treated as this Model's unique id. Defaults to 'id'.</p> 
+<pre><span id="METHODidProperty"><span class="keyword">method</span> idProperty</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
+<p>The name of the field treated as this Model's unique id. Defaults to 'id'.</p>
+
+<p>This may also be specified as a Field config object. This means that the identifying field can be calculated
+using a <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">convert</a> function which might aggregate several values from the
+raw data object to use as an identifier.</p>
+
+<p>The resulting <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Field</a> is added to the Model's field collection unless there is already
+a configured field with a mapping that reads the same property.</p>
+
+<p>If defining an <strong>abstract</strong> base Model class, the <code>idProperty</code> may be configured as <code>null</code> which will mean that
+no identifying field will be generated.</p> 
 <p>
 
     Defaults to: <code class="code">'id'</code><br>
 </div>
-<pre><span id="METHODidgen"><span class="keyword">method</span> idgen</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODidgen"><span class="keyword">method</span> idgen</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
 <p>The id generator to use for this model. The default id generator does not generate
 values for the <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a>.</p>
 
@@ -240,17 +253,10 @@ as 1, 2, 3 etc..</p>
 <p>For more complex, shared id generators, a custom generator is the best approach.
 See <a href="#!/api/Ext.data.IdGenerator" rel="Ext.data.IdGenerator" class="docClass">Ext.data.IdGenerator</a> for details on creating custom id generators.</p> <br>
 </div>
-<pre><span id="METHODpersistenceProperty"><span class="keyword">method</span> persistenceProperty</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The name of the property on this Persistable object that its data is saved to. Defaults to 'data'
-(i.e: all persistable data resides in <code>this.data</code>.)</p> 
-<p>
-
-    Defaults to: <code class="code">'data'</code><br>
-</div>
-<pre><span id="METHODproxy"><span class="keyword">method</span> proxy</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODproxy"><span class="keyword">method</span> proxy</span> : <code class="type">'g. 'g Js.t Js.prop</code></pre><div class="info">
 <p>The <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">proxy</a> to use for this model.</p> <br>
 </div>
-<pre><span id="METHODvalidations"><span class="keyword">method</span> validations</span> : <code class="type">'g. 'g Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODvalidations"><span class="keyword">method</span> validations</span> : <code class="type">'h. 'h Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
 <p>An array of <a href="#!/api/Ext.data.validations" rel="Ext.data.validations" class="docClass">validations</a> for this model.</p> <br>
 </div>
 </body></html>

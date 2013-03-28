@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,17 +141,6 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHOD_done"><span class="keyword">method</span> _done</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Used only during a layout run, this value indicates that a
-layout has finished its calculations. This flag is set to true prior to the call to
-<a href="#!/api/Ext.layout.Layout-method-calculate" rel="Ext.layout.Layout-method-calculate" class="docClass">calculate</a> and should be set to false if this layout has more work to do.</p> <br>
-</div>
-<pre><span id="METHODisLayout"><span class="keyword">method</span> isLayout</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p><code>true</code> in this class to identify an object as an instantiated Layout, or subclass thereof.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
-</div>
 <pre><span id="METHODafterRemove"><span class="keyword">method</span> afterRemove</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Removes layout's itemCls and owning Container's itemCls.
 Clears the managed dimensions flags</p> 
@@ -308,7 +300,7 @@ component.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetItemSizePolicy"><span class="keyword">method</span> getItemSizePolicy</span> : <code class="type">'c 'd. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'c) Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetItemSizePolicy"><span class="keyword">method</span> getItemSizePolicy</span> : <code class="type">'c. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'c) Js.t -> <a href="Ext_layout_SizePolicy.t-c.html">Ext_layout_SizePolicy.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Returns an object describing how this layout manages the size of the given component.
 This method must be implemented by any layout that manages components.</p> 
 <p>
@@ -323,9 +315,9 @@ This method must be implemented by any layout that manages components.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">_ Js.t</code>
-    <p>An object describing the sizing done by the layout for this item or
-null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card').</p> 
+<li><code class="code">Ext_layout_SizePolicy.t Js.t</code>
+    <p>An object describing the sizing done by the layout
+for this item.</p> 
     </li>
 </ul>
 <br>
@@ -336,7 +328,7 @@ null if the layout mimics the size policy of its ownerCt (e.g., 'fit' and 'card'
 <pre><span id="METHODinitLayout"><span class="keyword">method</span> initLayout</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>A one-time initialization method called just before rendering.</p> <br>
 </div>
-<pre><span id="METHODisValidParent"><span class="keyword">method</span> isValidParent</span> : <code class="type">'e 'f 'g. 'e Js.t -> 'f Js.t -> 'g Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODisValidParent"><span class="keyword">method</span> isValidParent</span> : <code class="type">'d 'e 'f. 'd Js.t -> 'e Js.t -> 'f Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Validates item is in the proper place in the dom.</p> 
 <p>
 
@@ -375,7 +367,7 @@ component.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODonContentChange"><span class="keyword">method</span> onContentChange</span> : <code class="type">'h. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'h) Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODonContentChange"><span class="keyword">method</span> onContentChange</span> : <code class="type">'g. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'g) Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>This method is called when a child item changes in some way. By default this calls
 <a href="#!/api/Ext.AbstractComponent-method-updateLayout" rel="Ext.AbstractComponent-method-updateLayout" class="docClass">Ext.AbstractComponent.updateLayout</a> on this layout's owner.</p> 
 <p>
@@ -397,7 +389,7 @@ component.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODrenderItems"><span class="keyword">method</span> renderItems</span> : <code class="type">'i 'j. 'i Js.t -> 'j Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODrenderItems"><span class="keyword">method</span> renderItems</span> : <code class="type">'h 'i. 'h Js.t -> 'i Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Iterates over all passed items, ensuring they are rendered.  If the items are already rendered,
 also determines if the items are in the proper place in the dom.</p> 
 <p>
@@ -410,5 +402,16 @@ also determines if the items are in the proper place in the dom.</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHOD_done"><span class="keyword">method</span> _done</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Used only during a layout run, this value indicates that a
+layout has finished its calculations. This flag is set to true prior to the call to
+<a href="#!/api/Ext.layout.Layout-method-calculate" rel="Ext.layout.Layout-method-calculate" class="docClass">calculate</a> and should be set to false if this layout has more work to do.</p> <br>
+</div>
+<pre><span id="METHODisLayout"><span class="keyword">method</span> isLayout</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
+<p><code>true</code> in this class to identify an object as an instantiated Layout, or subclass thereof.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
 </div>
 </body></html>

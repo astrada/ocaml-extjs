@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,11 +140,10 @@
 <center><h1>Class type <a href="type_Ext_app_Application.configs.html">Ext_app_Application.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_app_Application.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 <li><a href="Ext_app_Controller.configs-c.html"><code class="code">Ext_app_Controller.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODlaunch"><span class="keyword">method</span> launch</span> : <code class="type">((< appFolder : Js.js_string Js.t Js.prop;<br>           autoCreateViewport : bool Js.t Js.prop;<br>           controllers : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           enableQuickTips : bool Js.t Js.prop; id : Js.js_string Js.t Js.prop;<br>           init : 'c. ('b Js.t, 'c Js.t -> unit) Js.meth_callback Js.writeonly_prop;<br>           launch : 'a; listeners : 'd. 'd Js.t Js.prop;<br>           models : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           name : Js.js_string Js.t Js.prop;<br>           onLaunch : 'e.<br>                        ('b Js.t, 'e Js.t -> unit) Js.meth_callback<br>                        Js.writeonly_prop;<br>           paths : 'f. 'f Js.t Js.prop; refs : 'g. 'g Js.t Js.js_array Js.t Js.prop;<br>           scope : 'h. 'h Js.t Js.prop;<br>           stores : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           views : Js.js_string Js.t Js.js_array Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t, Js.js_string Js.t -> bool Js.t)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
+<pre><span id="METHODlaunch"><span class="keyword">method</span> launch</span> : <code class="type">((< appFolder : Js.js_string Js.t Js.prop;<br>           appProperty : Js.js_string Js.t Js.prop;<br>           autoCreateViewport : bool Js.t Js.prop;<br>           controllers : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           enableQuickTips : bool Js.t Js.prop; id : Js.js_string Js.t Js.prop;<br>           init : 'c. ('b Js.t, 'c Js.t -> unit) Js.meth_callback Js.writeonly_prop;<br>           launch : 'a; listeners : 'd. 'd Js.t Js.prop;<br>           models : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           name : Js.js_string Js.t Js.prop;<br>           namespaces : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           onLaunch : 'e.<br>                        ('b Js.t, 'e Js.t -> unit) Js.meth_callback<br>                        Js.writeonly_prop;<br>           paths : 'f. 'f Js.t Js.prop; refs : 'g. 'g Js.t Js.js_array Js.t Js.prop;<br>           scope : 'h. 'h Js.t Js.prop;<br>           stores : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           views : Js.js_string Js.t Js.js_array Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t, Js.js_string Js.t -> bool Js.t)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
 See method <code class="code">t.launch</code><br>
 </div>
 <pre><span id="METHODappFolder"><span class="keyword">method</span> appFolder</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
@@ -152,8 +154,27 @@ in the <a href="#!/api/Ext.app.Application-cfg-name" rel="Ext.app.Application-cf
 
     Defaults to: <code class="code">'app'</code><br>
 </div>
+<pre><span id="METHODappProperty"><span class="keyword">method</span> appProperty</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The name of a property to be assigned to the main namespace to gain a reference to
+this application. Can be set to an empty value to prevent the reference from
+being created</p>
+
+<pre><code><a href="#!/api/Ext-method-application" rel="Ext-method-application" class="docClass">Ext.application</a>({
+    name: 'MyApp',
+    appProperty: 'myProp',
+
+    launch: function() {
+        console.log(MyApp.myProp === this);
+    }
+});
+</code></pre> 
+<p>
+
+    Defaults to: <code class="code">'app'</code><br>
+</div>
 <pre><span id="METHODautoCreateViewport"><span class="keyword">method</span> autoCreateViewport</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to automatically load and instantiate AppName.view.Viewport before firing the launch function.</p> 
+<p>True to automatically load and instantiate AppName.view.Viewport before firing the launch
+function.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
@@ -170,6 +191,39 @@ in the <a href="#!/api/Ext.app.Application-cfg-name" rel="Ext.app.Application-cf
 <pre><span id="METHODname"><span class="keyword">method</span> name</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The name of your application. This will also be the namespace for your views, controllers
 models and stores. Don't use spaces or special characters in the name.</p> <br>
+</div>
+<pre><span id="METHODnamespaces"><span class="keyword">method</span> namespaces</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<p>The list of namespace prefixes used in the application to resolve dependencies
+like Views and Stores:</p>
+
+<pre><code> <a href="#!/api/Ext-method-application" rel="Ext-method-application" class="docClass">Ext.application</a>({
+     name: 'MyApp',
+
+     namespaces: ['Common.code'],
+
+     controllers: [ 'Common.code.controller.Foo', 'Bar' ]
+ });
+
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('Common.code.controller.Foo', {
+     extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
+
+     models: ['Foo'],    // Loads Common.code.model.Foo
+     views:  ['Bar']     // Loads Common.code.view.Bar
+ });
+
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Bar', {
+     extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
+
+     models: ['Foo'],    // Loads MyApp.model.Foo
+     views:  ['Bar']     // Loads MyApp.view.Bar
+ });
+</code></pre>
+
+<p>You don't need to include main namespace (MyApp), it will be added to the list
+automatically.</p> 
+<p>
+
+    Defaults to: []<br>
 </div>
 <pre><span id="METHODpaths"><span class="keyword">method</span> paths</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
 <p>Additional load paths to add to <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a>.

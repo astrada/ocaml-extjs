@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -143,7 +146,7 @@
 <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">Proxy</a>, and also provide functions for <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sorting</a>, <a href="#!/api/Ext.data.Store-method-filter" rel="Ext.data.Store-method-filter" class="docClass">filtering</a>
 and querying the <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">model</a> instances contained within it.</p>
 
-<p>Creating a Store is easy - we just tell it the Model and the Proxy to use to load and save its data:</p>
+<p>Creating a Store is easy - we just tell it the Model and the Proxy to use for loading and saving its data:</p>
 
 <pre><code> // Set up a <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">model</a> to use in our Store
  <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('User', {
@@ -258,7 +261,7 @@ the <a href="#!/api/Ext.data.reader.Reader" rel="Ext.data.reader.Reader" class="
 
 <h2>Filtering and Sorting</h2>
 
-<p>Stores can be sorted and filtered - in both cases either remotely or locally. The <a href="#!/api/Ext.data.Store-property-sorters" rel="Ext.data.Store-property-sorters" class="docClass">sorters</a> and
+<p>Stores can be sorted and filtered - in both cases either remotely or locally. The <a href="#!/api/Ext.data.Store-cfg-sorters" rel="Ext.data.Store-cfg-sorters" class="docClass">sorters</a> and
 <a href="#!/api/Ext.data.Store-cfg-filters" rel="Ext.data.Store-cfg-filters" class="docClass">filters</a> are held inside <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">MixedCollection</a> instances to make them easy to manage.
 Usually it is sufficient to either just specify sorters and filters in the Store configuration or call <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a>
 or <a href="#!/api/Ext.data.Store-method-filter" rel="Ext.data.Store-method-filter" class="docClass">filter</a>:</p>
@@ -289,45 +292,45 @@ to the Store and automatically filters the dataset (calling <a href="#!/api/Ext.
 existing filters). Note that by default <a href="#!/api/Ext.data.Store-cfg-sortOnFilter" rel="Ext.data.Store-cfg-sortOnFilter" class="docClass">sortOnFilter</a> is set to true, which means that your sorters are
 automatically reapplied if using local sorting.</p>
 
-<pre><code> store.filter('eyeColor', 'Brown');
+<pre><code>store.filter('eyeColor', 'Brown');
 </code></pre>
 
 <p>Change the sorting at any time by calling <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a>:</p>
 
-<pre><code> store.sort('height', 'ASC');
+<pre><code>store.sort('height', 'ASC');
 </code></pre>
 
 <p>Note that all existing sorters will be removed in favor of the new sorter data (if <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a> is called with no
 arguments, the existing sorters are just reapplied instead of being removed). To keep existing sorters and add new
 ones, just add them to the MixedCollection:</p>
 
-<pre><code> store.sorters.add(new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>({
-     property : 'shoeSize',
-     direction: 'ASC'
- }));
+<pre><code>store.sorters.add(new <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Ext.util.Sorter</a>({
+    property : 'shoeSize',
+    direction: 'ASC'
+}));
 
- store.sort();
+store.sort();
 </code></pre>
 
 <h2>Registering with StoreManager</h2>
 
-<p>Any Store that is instantiated with a <a href="#!/api/Ext.data.Store-cfg-storeId" rel="Ext.data.Store-cfg-storeId" class="docClass">storeId</a> will automatically be registed with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">StoreManager</a>. This makes it easy to reuse the same store in multiple views:</p>
+<p>Any Store that is instantiated with a <a href="#!/api/Ext.data.Store-cfg-storeId" rel="Ext.data.Store-cfg-storeId" class="docClass">storeId</a> will automatically be registered with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">StoreManager</a>. This makes it easy to reuse the same store in multiple views:</p>
 
-<pre><code> //this store can be used several times
- <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
-     model: 'User',
-     storeId: 'usersStore'
- });
+<pre><code>//this store can be used several times
+<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Ext.data.Store</a>', {
+    model: 'User',
+    storeId: 'usersStore'
+});
 
- new Ext.List({
-     store: 'usersStore',
-     //other config goes here
- });
+new Ext.List({
+    store: 'usersStore',
+    //other config goes here
+});
 
- new <a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">Ext.view.View</a>({
-     store: 'usersStore',
-     //other config goes here
- });
+new <a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">Ext.view.View</a>({
+    store: 'usersStore',
+    //other config goes here
+});
 </code></pre>
 
 <h2>Further Reading</h2>

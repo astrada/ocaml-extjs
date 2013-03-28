@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -159,7 +162,7 @@ attributes of each target element.</p>
 });
 </code></pre>
 
-<p><p><img src="images/Ext.tip.ToolTip/Ext.tip.ToolTip1.png" alt="Basic Ext.tip.ToolTip"></p></p>
+<p><p><img src="" alt="Basic Ext.tip.ToolTip" width="" height=""></p></p>
 
 <h1>Delegation</h1>
 
@@ -198,27 +201,26 @@ var grid = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="doc
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>()
 });
 
-grid.getView().on('render', function(view) {
-    view.tip = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>', {
-        // The overall target element.
-        target: view.el,
-        // Each grid row causes its own separate show and hide.
-        delegate: view.itemSelector,
-        // Moving within the row should not hide the tip.
-        trackMouse: true,
-        // Render immediately so that tip.body can be referenced prior to the first show.
-        renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
-        listeners: {
-            // Change content dynamically depending on which element triggered the show.
-            beforeshow: function updateTipBody(tip) {
-                tip.update('Over company "' + view.getRecord(tip.triggerElement).get('company') + '"');
-            }
+var view = grid.getView();
+var tip = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>', {
+    // The overall target element.
+    target: view.el,
+    // Each grid row causes its own separate show and hide.
+    delegate: view.itemSelector,
+    // Moving within the row should not hide the tip.
+    trackMouse: true,
+    // Render immediately so that tip.body can be referenced prior to the first show.
+    renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
+    listeners: {
+        // Change content dynamically depending on which element triggered the show.
+        beforeshow: function updateTipBody(tip) {
+            tip.update('Over company "' + view.getRecord(tip.triggerElement).get('company') + '"');
         }
-    });
+    }
 });
 </code></pre>
 
-<p><p><img src="images/Ext.tip.ToolTip/Ext.tip.ToolTip2.png" alt="Ext.tip.ToolTip with delegation"></p></p>
+<p><p><img src="" alt="Ext.tip.ToolTip with delegation" width="" height=""></p></p>
 
 <h1>Alignment</h1>
 

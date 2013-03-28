@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,8 +140,6 @@
 <center><h1>Class type <a href="type_Ext_button_Button.events.html">Ext_button_Button.events</a></h1></center>
 <br>
 <pre><span id="TYPEevents"><span class="keyword">class type</span> events</span> = <code class="code">object</code> <a href="Ext_button_Button.events-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
-<li><a href="Ext_AbstractComponent.events-c.html"><code class="code">Ext_AbstractComponent.events</code></a></li>
 <li><a href="Ext_Component.events-c.html"><code class="code">Ext_Component.events</code></a></li>
 </ul>
 <hr width="100%">
@@ -160,7 +161,43 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODmenuhide"><span class="keyword">method</span> menuhide</span> : <code class="type">'b.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> 'b Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODglyphchange"><span class="keyword">method</span> glyphchange</span> : <code class="type">'b 'c 'd.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> 'b Js.t -> 'c Js.t -> 'd Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when the button's glyph is changed by the <a href="#!/api/Ext.button.Button-method-setGlyph" rel="Ext.button.Button-method-setGlyph" class="docClass">setGlyph</a> method.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_button_Button.t Js.t</code>
+    </li>
+<li>newGlyph: <code class="code">_ Js.t</code>
+    </li>
+<li>oldGlyph: <code class="code">_ Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODiconchange"><span class="keyword">method</span> iconchange</span> : <code class="type">'e.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'e Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when the button's icon is changed by the <a href="#!/api/Ext.button.Button-method-setIcon" rel="Ext.button.Button-method-setIcon" class="docClass">setIcon</a> or <a href="#!/api/Ext.button.Button-method-setIconCls" rel="Ext.button.Button-method-setIconCls" class="docClass">setIconCls</a> methods.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_button_Button.t Js.t</code>
+    </li>
+<li>oldIcon: <code class="code">Js.js_string Js.t</code>
+    </li>
+<li>newIcon: <code class="code">Js.js_string Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODmenuhide"><span class="keyword">method</span> menuhide</span> : <code class="type">'f.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> 'f Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>If this button has a menu, this event fires when it is hidden</p> 
 <p>
 
@@ -176,7 +213,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODmenushow"><span class="keyword">method</span> menushow</span> : <code class="type">'c.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> 'c Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODmenushow"><span class="keyword">method</span> menushow</span> : <code class="type">'g.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> 'g Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>If this button has a menu, this event fires when it is shown</p> 
 <p>
 
@@ -192,7 +229,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODmenutriggerout"><span class="keyword">method</span> menutriggerout</span> : <code class="type">'d.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -><br>          <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> Dom_html.event Js.t -> 'd Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODmenutriggerout"><span class="keyword">method</span> menutriggerout</span> : <code class="type">'h.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -><br>          <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> Dom_html.event Js.t -> 'h Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>If this button has a menu, this event fires when the mouse leaves the menu triggering element</p> 
 <p>
 
@@ -210,7 +247,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODmenutriggerover"><span class="keyword">method</span> menutriggerover</span> : <code class="type">'e.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -><br>          <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> Dom_html.event Js.t -> 'e Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODmenutriggerover"><span class="keyword">method</span> menutriggerover</span> : <code class="type">'i.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -><br>          <a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a> Js.t -> Dom_html.event Js.t -> 'i Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>If this button has a menu, this event fires when the mouse enters the menu triggering element</p> 
 <p>
 
@@ -228,7 +265,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODmouseout"><span class="keyword">method</span> mouseout</span> : <code class="type">'f.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> Dom_html.event Js.t -> 'f Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODmouseout"><span class="keyword">method</span> mouseout</span> : <code class="type">'j.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> Dom_html.event Js.t -> 'j Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires when the mouse exits the button</p> 
 <p>
 
@@ -245,7 +282,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODmouseover"><span class="keyword">method</span> mouseover</span> : <code class="type">'g.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> Dom_html.event Js.t -> 'g Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODmouseover"><span class="keyword">method</span> mouseover</span> : <code class="type">'k.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> Dom_html.event Js.t -> 'k Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires when the mouse hovers over the button</p> 
 <p>
 
@@ -262,7 +299,25 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODtoggle"><span class="keyword">method</span> toggle</span> : <code class="type">'h.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> bool Js.t -> 'h Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODtextchange"><span class="keyword">method</span> textchange</span> : <code class="type">'l.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -><br>          Js.js_string Js.t -> Js.js_string Js.t -> 'l Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when the button's text is changed by the <a href="#!/api/Ext.button.Button-method-setText" rel="Ext.button.Button-method-setText" class="docClass">setText</a> method.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_button_Button.t Js.t</code>
+    </li>
+<li>oldText: <code class="code">Js.js_string Js.t</code>
+    </li>
+<li>newText: <code class="code">Js.js_string Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODtoggle"><span class="keyword">method</span> toggle</span> : <code class="type">'m.<br>         (<a href="Ext_button_Button.t-c.html">t</a> Js.t -> bool Js.t -> 'm Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
 <p>Fires when the 'pressed' state of this button changes (only if enableToggle = true)</p> 
 <p>
 

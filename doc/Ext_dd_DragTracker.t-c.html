@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,23 +138,10 @@
 <center><h1>Class type <a href="type_Ext_dd_DragTracker.t.html">Ext_dd_DragTracker.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_dd_DragTracker.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 <li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
+<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODactive"><span class="keyword">method</span> active</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
-<p>Indicates whether the user is currently dragging this tracker.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODdragTarget"><span class="keyword">method</span> dragTarget</span> : <code class="type">Dom_html.element Js.t Js.readonly_prop</code></pre><div class="info">
-<p>The element being dragged.</p>
-
-<p>Only valid during drag operations.</p>
-
-<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> <br>
-</div>
 <pre><span id="METHODgetDragTarget"><span class="keyword">method</span> getDragTarget</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Returns the drag target. This is usually the DragTracker's encapsulating element.</p>
 
@@ -167,7 +157,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetOffset"><span class="keyword">method</span> getOffset</span> : <code class="type">'a. 'a Js.t -> Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetOffset"><span class="keyword">method</span> getOffset</span> : <code class="type">Js.js_string Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Returns the X, Y offset of the current mouse position from the mousedown point.</p>
 
 <p>This method may optionally constrain the real offset values, and returns a point coerced in one
@@ -185,8 +175,8 @@ mouse position is then adjusted by the same delta as was used to coerce the regi
 
     <b>Parameters</b>:
     <ul>
-<li>constrainMode: <code class="code">_ Js.t</code>
-    <p>{String} (Optional) If omitted the true mouse position is returned. May be passed
+<li>constrainMode: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>If omitted the true mouse position is returned. May be passed
 as <code>point</code> or <code>dragTarget</code>. See above.</p> 
     </li>
 </ul>
@@ -201,7 +191,7 @@ as <code>point</code> or <code>dragTarget</code>. See above.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODinitEl"><span class="keyword">method</span> initEl</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODinitEl"><span class="keyword">method</span> initEl</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Initializes the DragTracker on a given element.</p> 
 <p>
 
@@ -258,5 +248,18 @@ holds the mouse button down. Return false to disallow the drag</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODactive"><span class="keyword">method</span> active</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
+<p>Indicates whether the user is currently dragging this tracker.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODdragTarget"><span class="keyword">method</span> dragTarget</span> : <code class="type">Dom_html.element Js.t Js.readonly_prop</code></pre><div class="info">
+<p>The element being dragged.</p>
+
+<p>Only valid during drag operations.</p>
+
+<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> <br>
 </div>
 </body></html>

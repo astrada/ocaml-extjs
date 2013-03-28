@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,10 +140,16 @@
 <center><h1>Class type <a href="type_Ext_data_Store.configs.html">Ext_data_Store.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_data_Store.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 <li><a href="Ext_data_AbstractStore.configs-c.html"><code class="code">Ext_data_AbstractStore.configs</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODautoDestroy"><span class="keyword">method</span> autoDestroy</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>When a Store is used by only one <a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">DataView</a>, and should only exist for the lifetime of that view, then
+configure the autoDestroy flag as <code>true</code>. This causes the destruction of the view to trigger the destruction of its Store.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
 <pre><span id="METHODbuffered"><span class="keyword">method</span> buffered</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>Allows the Store to prefetch and cache in a <strong>page cache</strong>, pages of Records, and to then satisfy
 loading requirements from this page cache.</p>
@@ -150,20 +159,20 @@ determined automatically, and the range of pages needed to keep the cache primed
 requested and cached.
 Example:</p>
 
-<p>   // Load page 1
-   myStore.loadPage(1);</p>
+<pre><code>myStore.loadPage(1); // Load page 1
+</code></pre>
 
-<p>A <a href="#!/api/Ext.grid.PagingScroller" rel="Ext.grid.PagingScroller" class="docClass">PagingScroller</a> is instantiated which will monitor the scrolling in the grid, and
+<p>A <a href="#!/api/Ext.grid.plugin.BufferedRenderer" rel="Ext.grid.plugin.BufferedRenderer" class="docClass">BufferedRenderer</a> is instantiated which will monitor the scrolling in the grid, and
 refresh the view's rows from the page cache as needed. It will also pull new data into the page
 cache when scrolling of the view draws upon data near either end of the prefetched data.</p>
 
-<p>The margins which trigger view refreshing from the prefetched data are <a href="#!/api/Ext.grid.PagingScroller-cfg-numFromEdge" rel="Ext.grid.PagingScroller-cfg-numFromEdge" class="docClass">Ext.grid.PagingScroller.numFromEdge</a>,
-<a href="#!/api/Ext.grid.PagingScroller-cfg-leadingBufferZone" rel="Ext.grid.PagingScroller-cfg-leadingBufferZone" class="docClass">Ext.grid.PagingScroller.leadingBufferZone</a> and <a href="#!/api/Ext.grid.PagingScroller-cfg-trailingBufferZone" rel="Ext.grid.PagingScroller-cfg-trailingBufferZone" class="docClass">Ext.grid.PagingScroller.trailingBufferZone</a>.</p>
+<p>The margins which trigger view refreshing from the prefetched data are <a href="#!/api/Ext.grid.plugin.BufferedRenderer-cfg-numFromEdge" rel="Ext.grid.plugin.BufferedRenderer-cfg-numFromEdge" class="docClass">Ext.grid.plugin.BufferedRenderer.numFromEdge</a>,
+<a href="#!/api/Ext.grid.plugin.BufferedRenderer-cfg-leadingBufferZone" rel="Ext.grid.plugin.BufferedRenderer-cfg-leadingBufferZone" class="docClass">Ext.grid.plugin.BufferedRenderer.leadingBufferZone</a> and <a href="#!/api/Ext.grid.plugin.BufferedRenderer-cfg-trailingBufferZone" rel="Ext.grid.plugin.BufferedRenderer-cfg-trailingBufferZone" class="docClass">Ext.grid.plugin.BufferedRenderer.trailingBufferZone</a>.</p>
 
 <p>The margins which trigger loading more data into the page cache are, <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">leadingBufferZone</a> and
 <a href="#!/api/Ext.data.Store-cfg-trailingBufferZone" rel="Ext.data.Store-cfg-trailingBufferZone" class="docClass">trailingBufferZone</a>.</p>
 
-<p>By defult, only 5 pages of data are cached in the page cache, with pages "scrolling" out of the buffer
+<p>By default, only 5 pages of data are cached in the page cache, with pages "scrolling" out of the buffer
 as the view moves down through the dataset.
 Setting this value to zero means that no pages are <em>ever</em> scrolled out of the page cache, and
 that eventually the whole dataset may become present in the page cache. This is sometimes desirable
@@ -173,12 +182,10 @@ as long as datasets do not reach astronomical proportions.</p>
 records from its collection when those Records cycle out of the Store's primary collection. This is done
 by configuring the SelectionModel like this:</p>
 
-<p>   selModel: {</p>
-
-<pre><code>   pruneRemoved: false
-</code></pre>
-
-<p>   }</p> 
+<pre><code>selModel: {
+    pruneRemoved: false
+}
+</code></pre> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
@@ -192,7 +199,7 @@ large data sets to be loaded one page at a time but rendered all together.</p>
     Defaults to: <code class="code">true</code><br>
 </div>
 <pre><span id="METHODclearRemovedOnLoad"><span class="keyword">method</span> clearRemovedOnLoad</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to clear anything in the <a href="#!/api/Ext.data.Store-property-removed" rel="Ext.data.Store-property-removed" class="docClass">removed</a> record collection when the store loads.</p> 
+<p><code>true</code> to clear anything in the <a href="#!/api/Ext.data.Store-property-removed" rel="Ext.data.Store-property-removed" class="docClass">removed</a> record collection when the store loads.</p> 
 <p>
 
     Defaults to: <code class="code">true</code><br>
@@ -211,6 +218,9 @@ large data sets to be loaded one page at a time but rendered all together.</p>
 groupField and <a href="#!/api/Ext.data.Store-cfg-groupDir" rel="Ext.data.Store-cfg-groupDir" class="docClass">groupDir</a> are injected as the first sorter (see <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a>). Stores support a single
 level of grouping, and groups can be fetched via the <a href="#!/api/Ext.data.Store-method-getGroups" rel="Ext.data.Store-method-getGroups" class="docClass">getGroups</a> method.</p> <br>
 </div>
+<pre><span id="METHODgroupers"><span class="keyword">method</span> groupers</span> : <code class="type"><a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>The collection of <a href="#!/api/Ext.util.Grouper" rel="Ext.util.Grouper" class="docClass">Groupers</a> currently applied to this Store.</p> <br>
+</div>
 <pre><span id="METHODleadingBufferZone"><span class="keyword">method</span> leadingBufferZone</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>When <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the number of extra rows to keep cached on the leading side of scrolling buffer
 as scrolling proceeds. A larger number means fewer replenishments from the server.</p> 
@@ -221,7 +231,7 @@ as scrolling proceeds. A larger number means fewer replenishments from the serve
 <pre><span id="METHODpageSize"><span class="keyword">method</span> pageSize</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>The number of records considered to form a 'page'. This is used to power the built-in
 paging using the nextPage and previousPage functions when the grid is paged using a
-<a href="#!/api/Ext.toolbar.Paging" rel="Ext.toolbar.Paging" class="docClass">PagingScroller</a> Defaults to 25.</p>
+<a href="#!/api/Ext.toolbar.Paging" rel="Ext.toolbar.Paging" class="docClass">PagingToolbar</a> Defaults to 25.</p>
 
 <p>If this Store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, pages are loaded into a page cache before the Store's
 data is updated from the cache. The pageSize is the number of rows loaded into the cache in one request.
@@ -255,28 +265,40 @@ are three pages in the cache, then a <code>purgePageCount</code> of 5 ensures th
     Defaults to: <code class="code">5</code><br>
 </div>
 <pre><span id="METHODremoteFilter"><span class="keyword">method</span> remoteFilter</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to defer any filtering operation to the server. If false, filtering is done locally on the client.</p> 
+<p><code>true</code> if the grouping should be performed on the server side, false if it is local only.</p>
+
+<p><a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">Buffered</a> stores automatically set this to <code>true</code>. Buffered stores contain an abitrary
+subset of the full dataset which depends upon various configurations and which pages have been requested
+for rendering. Such <em>sparse</em> datasets are ineligible for local filtering.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
 <pre><span id="METHODremoteGroup"><span class="keyword">method</span> remoteGroup</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True if the grouping should apply on the server side, false if it is local only.  If the
+<p><code>true</code> if the grouping should apply on the server side, false if it is local only.  If the
 grouping is local, it can be applied immediately to the data.  If it is remote, then it will simply act as a
-helper, automatically sending the grouping information to the server.</p> 
+helper, automatically sending the grouping information to the server.</p>
+
+<p><a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">Buffered</a> stores automatically set this to <code>true</code>. Buffered stores contain an abitrary
+subset of the full dataset which depends upon various configurations and which pages have been requested
+for rendering. Such <em>sparse</em> datasets are ineligible for local grouping.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
 <pre><span id="METHODremoteSort"><span class="keyword">method</span> remoteSort</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to defer any sorting operation to the server. If false, sorting is done locally on the client.</p> 
+<p><code>true</code> if the sorting should be performed on the server side, false if it is local only.</p>
+
+<p><a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">Buffered</a> stores automatically set this to <code>true</code>. Buffered stores contain an abitrary
+subset of the full dataset which depends upon various configurations and which pages have been requested
+for rendering. Such <em>sparse</em> datasets are ineligible for local sorting.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
 <pre><span id="METHODsortOnFilter"><span class="keyword">method</span> sortOnFilter</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>For local filtering only, causes <a href="#!/api/Ext.data.Store-method-sort" rel="Ext.data.Store-method-sort" class="docClass">sort</a> to be called whenever <a href="#!/api/Ext.data.Store-method-filter" rel="Ext.data.Store-method-filter" class="docClass">filter</a> is called,
-causing the sorters to be reapplied after filtering. Defaults to true</p> 
+causing the sorters to be reapplied after filtering.</p> 
 <p>
 
     Defaults to: <code class="code">true</code><br>

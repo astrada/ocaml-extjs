@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,41 +138,48 @@
 <center><h1>Class type <a href="type_Ext_app_Controller.t.html">Ext_app_Controller.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_app_Controller.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 <li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
+<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODaddRef"><span class="keyword">method</span> addRef</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Registers a <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">reference</a>.</p> 
+<p>Registers one or more <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">references</a>.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>_ref: <code class="code">_ Js.t</code>
+<li>refs: <code class="code">_ Js.t</code>
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODcontrol"><span class="keyword">method</span> control</span> : <code class="type">'b 'c. 'b Js.t -> 'c Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODcontrol"><span class="keyword">method</span> control</span> : <code class="type">'b 'c. 'b Js.t -> 'c Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Adds listeners to components selected via <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a>. Accepts an
 object containing component paths mapped to a hash of listener functions.</p>
 
 <p>In the following example the <code>updateUser</code> function is mapped to to the <code>click</code>
 event on a button component, which is a child of the <code>useredit</code> component.</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
-    init: function() {
-        this.control({
-            'useredit button[action=save]': {
-                click: this.updateUser
-            }
-        });
-    },
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
+     init: function() {
+         this.control({
+             'useredit button[action=save]': {
+                 click: this.updateUser
+             }
+         });
+     },
 
-    updateUser: function(button) {
-        console.log('clicked the Save button');
-    }
-});
+     updateUser: function(button) {
+         console.log('clicked the Save button');
+     }
+ });
+</code></pre>
+
+<p>Or alternatively one call <code>control</code> with two arguments:</p>
+
+<pre><code> this.control('useredit button[action=save]', {
+     click: this.updateUser
+ });
 </code></pre>
 
 <p>See <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> for more information on component selectors.</p> 
@@ -181,19 +191,33 @@ event on a button component, which is a child of the <code>useredit</code> compo
     <p>If a String, the second argument is used as the
 listeners, otherwise an object of selectors -> listeners is assumed</p> 
     </li>
-<li>listeners: <code class="code">_ Js.t</code>
+<li>listeners: <code class="code">_ Js.t</code> (optional) <p>Config for listeners.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetController"><span class="keyword">method</span> getController</span> : <code class="type">Js.js_string Js.t -><br>       (< addEvents : 'f. 'f Js.t -> unit Js.meth;<br>          addListener : 'g 'h 'i 'j.<br>                          'g Js.t -><br>                          'h Js.callback Js.optdef -><br>                          'i Js.t Js.optdef -> 'j Js.t Js.optdef -> unit Js.meth;<br>          addManagedListener : 'k 'l 'm 'n 'o.<br>                                 'k Js.t -><br>                                 'l Js.t -><br>                                 'm Js.callback Js.optdef -><br>                                 'n Js.t Js.optdef -><br>                                 'o Js.t Js.optdef -> unit Js.meth;<br>          addRef : 'a. 'a Js.t -> unit Js.meth;<br>          callParent : 'p 'q. 'p Js.t -> 'q Js.t Js.meth;<br>          callSuper : 'r 's. 'r Js.t -> 's Js.t Js.meth;<br>          clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>          control : 'b 'c. 'b Js.t -> 'c Js.t -> unit Js.meth;<br>          enableBubble : 't. 't Js.t -> unit Js.meth;<br>          fireEvent : 'u. Js.js_string Js.t -> 'u Js.t -> bool Js.t Js.meth;<br>          getController : 'd;<br>          getInitialConfig : 'v. Js.js_string Js.t Js.optdef -> 'v Js.t Js.meth;<br>          getModel : Js.js_string Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth;<br>          getStore : Js.js_string Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth;<br>          getView : 'w. Js.js_string Js.t -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'w) Js.t Js.meth;<br>          hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>          hasListeners : 'x. 'x Js.t Js.readonly_prop;<br>          hasRef : 'y. 'y Js.t -> bool Js.t Js.meth;<br>          init : 'z. 'z Js.t -> unit Js.meth;<br>          initConfig : 'a1. 'a1 Js.t -> 'e Js.t Js.meth;<br>          isObservable : bool Js.t Js.prop;<br>          mon : 'b1 'c1 'd1 'e1 'f1.<br>                  'b1 Js.t -><br>                  'c1 Js.t -><br>                  'd1 Js.callback Js.optdef -><br>                  'e1 Js.t Js.optdef -> 'f1 Js.t Js.optdef -> unit Js.meth;<br>          mun : 'g1 'h1 'i1 'j1.<br>                  'g1 Js.t -><br>                  'h1 Js.t -><br>                  'i1 Js.callback Js.optdef -> 'j1 Js.t Js.optdef -> unit Js.meth;<br>          on : 'k1 'l1 'm1 'n1.<br>                 'k1 Js.t -><br>                 'l1 Js.callback Js.optdef -><br>                 'm1 Js.t Js.optdef -> 'n1 Js.t Js.optdef -> unit Js.meth;<br>          onLaunch : 'o1. 'o1 Js.t -> unit Js.meth;<br>          relayEvents : 'p1.<br>                          'p1 Js.t -><br>                          Js.js_string Js.t Js.js_array Js.t -><br>                          Js.js_string Js.t Js.optdef -> unit Js.meth;<br>          removeListener : 'q1 'r1.<br>                             Js.js_string Js.t -><br>                             'q1 Js.callback -> 'r1 Js.t Js.optdef -> unit Js.meth;<br>          removeManagedListener : 's1 't1 'u1 'v1.<br>                                    's1 Js.t -><br>                                    't1 Js.t -><br>                                    'u1 Js.callback Js.optdef -><br>                                    'v1 Js.t Js.optdef -> unit Js.meth;<br>          resumeEvents : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>          statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>          suspendEvents : bool Js.t -> unit Js.meth;<br>          un : 'w1 'x1.<br>                 Js.js_string Js.t -><br>                 'w1 Js.callback -> 'x1 Js.t Js.optdef -> unit Js.meth;<br>          .. ><br>        as 'e)<br>       Js.t Js.meth as 'd</code></pre><div class="info">
-<p>Returns instance of a <a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">controller</a> with the given name.
-When controller doesn't exist yet, it's created.</p> 
+<pre><span id="METHODgetApplication"><span class="keyword">method</span> getApplication</span> : <code class="type">'d. 'd Js.t Js.meth</code></pre><div class="info">
+<p>Returns the base <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for this controller.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_app_Application.t Js.t</code> <p>the application</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetController"><span class="keyword">method</span> getController</span> : <code class="type">Js.js_string Js.t -><br>       (< addEvents : 'g. 'g Js.t -> unit Js.meth;<br>          addListener : 'h 'i 'j 'k 'l.<br>                          'h Js.t -><br>                          'i Js.callback Js.optdef -><br>                          'j Js.t Js.optdef -> 'k Js.t Js.optdef -> 'l Js.t Js.meth;<br>          addManagedListener : 'm 'n 'o 'p 'q 'r.<br>                                 'm Js.t -><br>                                 'n Js.t -><br>                                 'o Js.callback Js.optdef -><br>                                 'p Js.t Js.optdef -><br>                                 'q Js.t Js.optdef -> 'r Js.t Js.meth;<br>          addRef : 'a. 'a Js.t -> unit Js.meth;<br>          application : 's. 's Js.t Js.readonly_prop;<br>          callParent : 't 'u. 't Js.t -> 'u Js.t Js.meth;<br>          callSuper : 'v 'w. 'v Js.t -> 'w Js.t Js.meth;<br>          clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>          control : 'b 'c. 'b Js.t -> 'c Js.t Js.optdef -> unit Js.meth;<br>          enableBubble : 'x. 'x Js.t -> unit Js.meth;<br>          fireEvent : 'y. Js.js_string Js.t -> 'y Js.t -> bool Js.t Js.meth;<br>          fireEventArgs : 'z.<br>                            Js.js_string Js.t -><br>                            'z Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>          getApplication : 'd. 'd Js.t Js.meth; getController : 'e;<br>          getInitialConfig : 'a1. Js.js_string Js.t Js.optdef -> 'a1 Js.t Js.meth;<br>          getModel : Js.js_string Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth;<br>          getStore : Js.js_string Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth;<br>          getView : 'b1. Js.js_string Js.t -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'b1) Js.t Js.meth;<br>          hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>          hasListeners : 'c1. 'c1 Js.t Js.readonly_prop;<br>          hasRef : 'd1. 'd1 Js.t -> bool Js.t Js.meth;<br>          init : 'e1. 'e1 Js.t -> unit Js.meth;<br>          initConfig : 'f1. 'f1 Js.t -> 'f Js.t Js.meth;<br>          isObservable : bool Js.t Js.prop; listen : 'g1. 'g1 Js.t -> unit Js.meth;<br>          mon : 'h1 'i1 'j1 'k1 'l1 'm1.<br>                  'h1 Js.t -><br>                  'i1 Js.t -><br>                  'j1 Js.callback Js.optdef -><br>                  'k1 Js.t Js.optdef -> 'l1 Js.t Js.optdef -> 'm1 Js.t Js.meth;<br>          mun : 'n1 'o1 'p1 'q1.<br>                  'n1 Js.t -><br>                  'o1 Js.t -><br>                  'p1 Js.callback Js.optdef -> 'q1 Js.t Js.optdef -> unit Js.meth;<br>          on : 'r1 's1 't1 'u1 'v1.<br>                 'r1 Js.t -><br>                 's1 Js.callback Js.optdef -><br>                 't1 Js.t Js.optdef -> 'u1 Js.t Js.optdef -> 'v1 Js.t Js.meth;<br>          onLaunch : 'w1. 'w1 Js.t -> unit Js.meth;<br>          relayEvents : 'x1 'y1.<br>                          'x1 Js.t -><br>                          Js.js_string Js.t Js.js_array Js.t -><br>                          Js.js_string Js.t Js.optdef -> 'y1 Js.t Js.meth;<br>          removeListener : 'z1 'a2.<br>                             Js.js_string Js.t -><br>                             'z1 Js.callback -> 'a2 Js.t Js.optdef -> unit Js.meth;<br>          removeManagedListener : 'b2 'c2 'd2 'e2.<br>                                    'b2 Js.t -><br>                                    'c2 Js.t -><br>                                    'd2 Js.callback Js.optdef -><br>                                    'e2 Js.t Js.optdef -> unit Js.meth;<br>          resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>          resumeEvents : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>          statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>          suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>          suspendEvents : bool Js.t -> unit Js.meth;<br>          un : 'f2 'g2.<br>                 Js.js_string Js.t -><br>                 'f2 Js.callback -> 'g2 Js.t Js.optdef -> unit Js.meth;<br>          .. ><br>        as 'f)<br>       Js.t Js.meth as 'e</code></pre><div class="info">
+<p>Returns instance of a <a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Controller</a> with the given id.
+When controller doesn't exist yet, it's created. Note that this method depends
+on Application instance and will return undefined when Application is not
+accessible. The only exception is when this Controller instance's id is requested;
+in that case we always return the instance even if Application is no available.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>name: <code class="code">Js.js_string Js.t</code>
+<li>id: <code class="code">Js.js_string Js.t</code>
     </li>
 </ul>
 
@@ -202,7 +226,7 @@ When controller doesn't exist yet, it's created.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">Ext_app_Controller.t Js.t</code>
-    <p>a controller instance.</p> 
+    <p>controller instance or undefined.</p> 
     </li>
 </ul>
 <br>
@@ -247,7 +271,7 @@ When store doesn't exist yet, it's created.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetView"><span class="keyword">method</span> getView</span> : <code class="type">'w. Js.js_string Js.t -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'w) Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetView"><span class="keyword">method</span> getView</span> : <code class="type">'b1. Js.js_string Js.t -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'b1) Js.t Js.meth</code></pre><div class="info">
 <p>Returns a View class with the given name.  To create an instance of the view,
 you can use it like it's used by Application to create the Viewport:</p>
 
@@ -270,8 +294,8 @@ you can use it like it's used by Application to create the Viewport:</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODhasRef"><span class="keyword">method</span> hasRef</span> : <code class="type">'y. 'y Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if a <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">reference</a> is registered.</p> 
+<pre><span id="METHODhasRef"><span class="keyword">method</span> hasRef</span> : <code class="type">'d1. 'd1 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns <code>true</code> if a <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">reference</a> is registered.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -281,10 +305,10 @@ you can use it like it's used by Application to create the Viewport:</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODinit"><span class="keyword">method</span> init</span> : <code class="type">'z. 'z Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODinit"><span class="keyword">method</span> init</span> : <code class="type">'e1. 'e1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>A template method that is called when your application boots. It is called before the
-<a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Application</a>'s launch function is executed so gives a hook point to run any code before
-your Viewport is created.</p> 
+<a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Application</a>'s launch function is executed so gives a hook point
+to run any code before your Viewport is created.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -294,9 +318,144 @@ your Viewport is created.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODonLaunch"><span class="keyword">method</span> onLaunch</span> : <code class="type">'o1. 'o1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODlisten"><span class="keyword">method</span> listen</span> : <code class="type">'g1. 'g1 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Adds listeners to different event sources (also called "event domains"). The
+primary event domain is that of components, but there are also other event domains:
+<a href="#!/api/Ext.app.domain.Global" rel="Ext.app.domain.Global" class="docClass">Global</a> domain that intercepts events fired from
+<a href="#!/api/Ext-property-globalEvents" rel="Ext-property-globalEvents" class="docClass">Ext.globalEvents</a> Observable instance, <a href="#!/api/Ext.app.domain.Controller" rel="Ext.app.domain.Controller" class="docClass">Controller</a>
+domain can be used to listen to events fired by other Controllers,
+<a href="#!/api/Ext.app.domain.Store" rel="Ext.app.domain.Store" class="docClass">Store</a> domain gives access to Store events, and
+<a href="#!/api/Ext.app.domain.Direct" rel="Ext.app.domain.Direct" class="docClass">Direct</a> domain can be used with <a href="#!/api/Ext.direct.Manager" rel="Ext.direct.Manager" class="docClass">Ext.Direct</a> Providers
+to listen to their events.</p>
+
+<p>To listen to "bar" events fired by a controller with id="foo":</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
+     init: function() {
+         this.listen({
+             controller: {
+                 '#foo': {
+                    bar: this.onFooBar
+                 }
+             }
+         });
+     },
+     ...
+ });
+</code></pre>
+
+<p>To listen to "bar" events fired by any controller, and "baz" events
+fired by Store with storeId="baz":</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
+     init: function() {
+         this.listen({
+             controller: {
+                 '*': {
+                    bar: this.onAnyControllerBar
+                 }
+             },
+             store: {
+                 '#baz': {
+                     baz: this.onStoreBaz
+                 }
+             }
+         });
+     },
+     ...
+ });
+</code></pre>
+
+<p>To listen to "idle" events fired by <a href="#!/api/Ext-property-globalEvents" rel="Ext-property-globalEvents" class="docClass">Ext.globalEvents</a> when other event
+processing is complete and Ext JS is about to return control to the browser:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
+     init: function() {
+         this.listen({
+             global: {               // Global events are always fired
+                 idle: this.onIdle   // from the same object, so there
+             }                       // are no selectors
+         });
+     }
+ });
+</code></pre>
+
+<p>As this relates to components, the following example:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
+     init: function() {
+         this.listen({
+             component: {
+                 'useredit button[action=save]': {
+                    click: this.updateUser
+                 }
+             }
+         });
+     },
+     ...
+ });
+</code></pre>
+
+<p>Is equivalent to:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
+     init: function() {
+         this.control({
+             'useredit button[action=save]': {
+                click: this.updateUser
+             }
+         });
+     },
+     ...
+ });
+</code></pre>
+
+<p>Of course, these can all be combined in a single call and used instead of
+<code>control</code>, like so:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('AM.controller.Users', {
+     init: function() {
+         this.listen({
+             global: {
+                 idle: this.onIdle
+             },
+             controller: {
+                 '*': {
+                    foobar: this.onAnyFooBar
+                 },
+                 '#foo': {
+                    bar: this.onFooBar
+                 }
+             },
+             component: {
+                 'useredit button[action=save]': {
+                    click: this.updateUser
+                 }
+             },
+             store: {
+                 '#qux': {
+                     load: this.onQuxLoad
+                 }
+             }
+         });
+     },
+     ...
+ });
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>to: <code class="code">_ Js.t</code>
+    <p>Config object containing domains, selectors and listeners.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODonLaunch"><span class="keyword">method</span> onLaunch</span> : <code class="type">'w1. 'w1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>A template method like <a href="#!/api/Ext.app.Controller-method-init" rel="Ext.app.Controller-method-init" class="docClass">init</a>, but called after the viewport is created.
-This is called after the <a href="#!/api/Ext.app.Application-method-launch" rel="Ext.app.Application-method-launch" class="docClass">launch</a> method of Application is executed.</p> 
+This is called after the <a href="#!/api/Ext.app.Application-method-launch" rel="Ext.app.Application-method-launch" class="docClass">launch</a> method of Application
+is executed.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -305,5 +464,8 @@ This is called after the <a href="#!/api/Ext.app.Application-method-launch" rel=
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODapplication"><span class="keyword">method</span> application</span> : <code class="type">'s. 's Js.t Js.readonly_prop</code></pre><div class="info">
+<p>The <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for this controller.</p> <br>
 </div>
 </body></html>

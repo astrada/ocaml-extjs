@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,4 +141,82 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODonCreateLabel"><span class="keyword">method</span> onCreateLabel</span> : <code class="type">'a.<br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>         'a Js.t -> Js.number Js.t -> bool Js.t -> <a href="Ext_draw_Sprite.t-c.html">Ext_draw_Sprite.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Called each time a new label is created.</p>
+
+<p><strong>Note:</strong> This method must be implemented in Series that mixes
+in this Label mixin.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>storeItem: <code class="code">Ext_data_Model.t Js.t</code>
+    <p>The element of the store that is
+related to the label sprite.</p> 
+    </li>
+<li>item: <code class="code">_ Js.t</code>
+    <p>The item related to the label sprite.
+An item is an object containing the position of the shape
+used to describe the visualization and also pointing to the
+actual shape (circle, rectangle, path, etc).</p> 
+    </li>
+<li>i: <code class="code">Js.number Js.t</code>
+    <p>The index of the element created
+(i.e the first created label, second created label, etc).</p> 
+    </li>
+<li>display: <code class="code">bool Js.t</code>
+    <p>The display type.
+May be <code>false</code> if the label is hidden</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_draw_Sprite.t Js.t</code> <p>The created label.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODonPlaceLabel"><span class="keyword">method</span> onPlaceLabel</span> : <code class="type">'b.<br>         <a href="Ext_draw_Sprite.t-c.html">Ext_draw_Sprite.t</a> Js.t -><br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>         'b Js.t -><br>         Js.number Js.t -> bool Js.t -> bool Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Called for updating the position of the label.</p>
+
+<p><strong>Note:</strong> This method must be implemented in Series that mixes
+in this Label mixin.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>label: <code class="code">Ext_draw_Sprite.t Js.t</code>
+    <p>The sprite label.</p> 
+    </li>
+<li>storeItem: <code class="code">Ext_data_Model.t Js.t</code>
+    <p>The element of the store
+that is related to the label sprite.</p> 
+    </li>
+<li>item: <code class="code">_ Js.t</code>
+    <p>The item related to the label
+sprite. An item is an object containing the position of
+the shape used to describe the visualization and also
+pointing to the actual shape (circle, rectangle, path, etc).</p> 
+    </li>
+<li>i: <code class="code">Js.number Js.t</code>
+    <p>The index of the element to be updated
+(i.e. whether it is the first, second, third from the
+labelGroup)</p> 
+    </li>
+<li>display: <code class="code">bool Js.t</code>
+    <p>The display type.
+May be <code>false</code> if the label is hidden</p> 
+    </li>
+<li>animate: <code class="code">bool Js.t</code>
+    <p>A boolean value to set or unset
+animations for the labels.</p> 
+    </li>
+<li>index: <code class="code">Js.number Js.t</code> <p>The series index.</p> 
+    </li>
+</ul>
+<br>
+</div>
 </body></html>

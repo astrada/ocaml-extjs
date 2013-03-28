@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,40 +141,8 @@
 <li><a href="Ext_Base.statics-c.html"><code class="code">Ext_Base.statics</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHOD_ASCLASS"><span class="keyword">method</span> _ASCLASS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Add or remove the <a href="#!/api/Ext.Layer-cfg-visibilityCls" rel="Ext.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> 
-<p>
-
-    Defaults to: <code class="code">4</code><br>
-</div>
-<pre><span id="METHOD_DISPLAY"><span class="keyword">method</span> _DISPLAY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use the CSS 'display' property to hide the element.</p> 
-<p>
-
-    Defaults to: <code class="code">2</code><br>
-</div>
-<pre><span id="METHOD_OFFSETS"><span class="keyword">method</span> _OFFSETS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use CSS absolute positioning and top/left offsets to hide the element.</p> 
-<p>
-
-    Defaults to: <code class="code">3</code><br>
-</div>
-<pre><span id="METHOD_VISIBILITY"><span class="keyword">method</span> _VISIBILITY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use the CSS 'visibility' property to hide the element.</p>
-
-<p>Note that in this mode, <a href="#!/api/Ext.dom.Element-method-isVisible" rel="Ext.dom.Element-method-isVisible" class="docClass">isVisible</a> may return true
-for an element even though it actually has a parent element that is hidden. For this
-reason, and in most cases, using the <a href="#!/api/Ext.dom.AbstractElement-static-property-OFFSETS" rel="Ext.dom.AbstractElement-static-property-OFFSETS" class="docClass">OFFSETS</a> mode is a better choice.</p> 
-<p>
-
-    Defaults to: <code class="code">1</code><br>
-</div>
 <pre><span id="METHODfly"><span class="keyword">method</span> fly</span> : <code class="type">'a 'b. 'a Js.t -> Js.js_string Js.t Js.optdef -> 'b Js.t Js.meth</code></pre><div class="info">
-<p>Gets the singleton <a href="#!/api/Ext.dom.AbstractElement.Fly" rel="Ext.dom.AbstractElement.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
+<p>Gets the singleton <a href="#!/api/Ext.dom.Element.Fly" rel="Ext.dom.Element.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
 
 <p>Because it is a singleton, this Flyweight does not have an ID, and must be used and discarded in a single line.
 You may not keep and use the reference to this singleton over multiple lines because methods that you call
@@ -199,14 +170,16 @@ internally Ext uses "_global")</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">Ext_dom_AbstractElement_Fly.t Js.t</code>
+<li><code class="code">Ext_dom_Element_Fly.t Js.t</code>
     <p>The singleton flyweight object (or null if no matching element was found)</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODfromPoint"><span class="keyword">method</span> fromPoint</span> : <code class="type">Js.number Js.t -> Js.number Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Returns the top Element that is located at the passed coordinates</p> 
+<p>Returns the top Element that is located at the passed coordinates</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Parameters</b>:
@@ -256,7 +229,9 @@ the same id via AJAX or DOM.</p>
 <br>
 </div>
 <pre><span id="METHODgetDocumentHeight"><span class="keyword">method</span> getDocumentHeight</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves the document height</p> 
+<p>Retrieves the document height</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Returns</b>:
@@ -267,7 +242,9 @@ the same id via AJAX or DOM.</p>
 <br>
 </div>
 <pre><span id="METHODgetDocumentWidth"><span class="keyword">method</span> getDocumentWidth</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves the document width</p> 
+<p>Retrieves the document width</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Returns</b>:
@@ -279,7 +256,9 @@ the same id via AJAX or DOM.</p>
 </div>
 <pre><span id="METHODgetOrientation"><span class="keyword">method</span> getOrientation</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Retrieves the current orientation of the window. This is calculated by
-determing if the height is greater than the width.</p> 
+determing if the height is greater than the width.</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Returns</b>:
@@ -291,7 +270,9 @@ determing if the height is greater than the width.</p>
 <br>
 </div>
 <pre><span id="METHODgetViewSize"><span class="keyword">method</span> getViewSize</span> : <code class="type">'e. 'e Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves the viewport size of the window.</p> 
+<p>Retrieves the viewport size of the window.</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Returns</b>:
@@ -303,7 +284,9 @@ determing if the height is greater than the width.</p>
 <br>
 </div>
 <pre><span id="METHODgetViewportHeight"><span class="keyword">method</span> getViewportHeight</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves the viewport height of the window.</p> 
+<p>Retrieves the viewport height of the window.</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Returns</b>:
@@ -314,7 +297,9 @@ determing if the height is greater than the width.</p>
 <br>
 </div>
 <pre><span id="METHODgetViewportWidth"><span class="keyword">method</span> getViewportWidth</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves the viewport width of the window.</p> 
+<p>Retrieves the viewport width of the window.</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Returns</b>:
@@ -334,14 +319,9 @@ determing if the height is greater than the width.</p>
 <p>Example</p>
 
 
-<p><code></p>
-
-<pre>// Add x-invalid and x-mandatory classes, do not duplicate
+<pre><code>// Add x-invalid and x-mandatory classes, do not duplicate
 myElement.dom.className = <a href="#!/api/Ext.dom.Element-static-method-mergeClsList" rel="Ext.dom.Element-static-method-mergeClsList" class="docClass">Ext.core.Element.mergeClsList</a>(this.initialClasses, 'x-invalid x-mandatory');
-</pre>
-
-
-<p></code></p> 
+</code></pre> 
 <p>
 
     <b>Parameters</b>:
@@ -371,7 +351,10 @@ For example:</p>
 <ul>
 <li>border-width -> borderWidth</li>
 <li>padding-top -> paddingTop</li>
-</ul> 
+</ul>
+
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Parameters</b>:
@@ -392,7 +375,9 @@ For example:</p>
 </div>
 <pre><span id="METHODparseBox"><span class="keyword">method</span> parseBox</span> : <code class="type">'i 'j. 'i Js.t -> 'j Js.t Js.meth</code></pre><div class="info">
 <p>Parses a number or string representing margin sizes into an object. Supports CSS-style margin declarations
-(e.g. 10, "10", "10 10", "10 10 10" and "10 10 10 10" are all valid options and would return the same result)</p> 
+(e.g. 10, "10", "10 10", "10 10 10" and "10 10 10 10" are all valid options and would return the same result)</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Parameters</b>:
@@ -419,8 +404,10 @@ For example:</p>
 for background-color and one for color.</p>
 
 <pre><code>var css = 'background-color: red;color: blue; ';
-console.log(Ext.dom.Element.parseStyles(css));
-</code></pre> 
+console.log(<a href="#!/api/Ext.dom.Element-static-method-parseStyles" rel="Ext.dom.Element-static-method-parseStyles" class="docClass">Ext.dom.Element.parseStyles</a>(css));
+</code></pre>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Parameters</b>:
@@ -447,14 +434,9 @@ from the second parameter removed.</p>
 <p>Example</p>
 
 
-<p><code></p>
-
-<pre>// Remove x-invalid and x-mandatory classes if present.
+<pre><code>// Remove x-invalid and x-mandatory classes if present.
 myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel="Ext.dom.Element-method-removeCls" class="docClass">Ext.core.Element.removeCls</a>(this.initialClasses, 'x-invalid x-mandatory');
-</pre>
-
-
-<p></code></p> 
+</code></pre> 
 <p>
 
     <b>Parameters</b>:
@@ -479,13 +461,16 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel=
 </div>
 <pre><span id="METHODunitizeBox"><span class="keyword">method</span> unitizeBox</span> : <code class="type">'o. 'o Js.t -> Js.js_string Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Parses a number or string representing margin sizes into an object. Supports CSS-style margin declarations
-(e.g. 10, "10", "10 10", "10 10 10" and "10 10 10 10" are all valid options and would return the same result)</p> 
+(e.g. 10, "10", "10 10", "10 10 10" and "10 10 10 10" are all valid options and would return the same result)</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_static.</strong></p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>box: <code class="code">_ Js.t</code>
-    <p>The encoded margins</p> 
+    <p>The encoded margins, or an object with top, right,
+bottom, and left properties</p> 
     </li>
 <li>units: <code class="code">Js.js_string Js.t</code>
     <p>The type of units to add</p> 
@@ -501,5 +486,37 @@ myElement.dom.className = <a href="#!/api/Ext.dom.Element-method-removeCls" rel=
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHOD_ASCLASS"><span class="keyword">method</span> _ASCLASS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Add or remove the <a href="#!/api/Ext.dom.Layer-cfg-visibilityCls" rel="Ext.dom.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> 
+<p>
+
+    Defaults to: <code class="code">4</code><br>
+</div>
+<pre><span id="METHOD_DISPLAY"><span class="keyword">method</span> _DISPLAY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use the CSS 'display' property to hide the element.</p> 
+<p>
+
+    Defaults to: <code class="code">2</code><br>
+</div>
+<pre><span id="METHOD_OFFSETS"><span class="keyword">method</span> _OFFSETS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use CSS absolute positioning and top/left offsets to hide the element.</p> 
+<p>
+
+    Defaults to: <code class="code">3</code><br>
+</div>
+<pre><span id="METHOD_VISIBILITY"><span class="keyword">method</span> _VISIBILITY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use the CSS 'visibility' property to hide the element.</p>
+
+<p>Note that in this mode, <a href="#!/api/Ext.dom.Element-method-isVisible" rel="Ext.dom.Element-method-isVisible" class="docClass">isVisible</a> may return true
+for an element even though it actually has a parent element that is hidden. For this
+reason, and in most cases, using the <a href="#!/api/Ext.dom.AbstractElement-static-property-OFFSETS" rel="Ext.dom.AbstractElement-static-property-OFFSETS" class="docClass">OFFSETS</a> mode is a better choice.</p> 
+<p>
+
+    Defaults to: <code class="code">1</code><br>
 </div>
 </body></html>

@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,19 +138,10 @@
 <center><h1>Class type <a href="type_Ext_form_Panel.t.html">Ext_form_Panel.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_form_Panel.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
-<li><a href="Ext_AbstractComponent.t-c.html"><code class="code">Ext_AbstractComponent.t</code></a></li>
-<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
-<li><a href="Ext_container_AbstractContainer.t-c.html"><code class="code">Ext_container_AbstractContainer.t</code></a></li>
-<li><a href="Ext_container_Container.t-c.html"><code class="code">Ext_container_Container.t</code></a></li>
-<li><a href="Ext_panel_AbstractPanel.t-c.html"><code class="code">Ext_panel_AbstractPanel.t</code></a></li>
-<li><a href="Ext_panel_Panel.t-c.html"><code class="code">Ext_panel_Panel.t</code></a></li>
 <li><a href="Ext_form_FieldAncestor.t-c.html"><code class="code">Ext_form_FieldAncestor.t</code></a></li>
+<li><a href="Ext_panel_Panel.t-c.html"><code class="code">Ext_panel_Panel.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODbeforeDestroy"><span class="keyword">method</span> beforeDestroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Invoked before the Component is destroyed.</p> <br>
-</div>
 <pre><span id="METHODcheckChange"><span class="keyword">method</span> checkChange</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Forces each field within the form panel to
 <a href="#!/api/Ext.form.field.Field-method-checkChange" rel="Ext.form.field.Field-method-checkChange" class="docClass">check if its value has changed</a>.</p> <br>
@@ -211,6 +205,13 @@ method is used.</p>
 </ul>
 <br>
 </div>
+<pre><span id="METHODhasInvalidField"><span class="keyword">method</span> hasInvalidField</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Convenience function to check if the form has any invalid fields. This is the same as calling
+<a href="#!/api/Ext.form.Basic-method-hasInvalidField" rel="Ext.form.Basic-method-hasInvalidField" class="docClass">this.getForm().hasInvalidField()</a>.</p>
+
+<p>Returns true if the form contains any invalid fields. No fields will be marked as invalid
+as a result of calling this; to trigger marking of fields use <a href="#!/api/Ext.form.Panel-method-isValid" rel="Ext.form.Panel-method-isValid" class="docClass">isValid</a> instead.</p> <br>
+</div>
 <pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>The initComponent template method is an important initialization step for a Component. It is intended to be
 implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
@@ -241,6 +242,23 @@ instantiation of the class.</p>
     <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('DynamicButtonText');
 });
 </code></pre> <br>
+</div>
+<pre><span id="METHODisDirty"><span class="keyword">method</span> isDirty</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
+<p>Convenience function to check if the form has any dirty fields. This is the same as calling
+<a href="#!/api/Ext.form.Basic-method-isDirty" rel="Ext.form.Basic-method-isDirty" class="docClass">this.getForm().isDirty()</a>.</p>
+
+<p>Returns <code>true</code> if any fields in this form have changed from their original values.</p>
+
+<p>Note that if this BasicForm was configured with <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> then the Fields' <em>original values</em> are updated when the values are
+loaded by <a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a> or <a href="#!/api/Ext.form.Panel-method-loadRecord" rel="Ext.form.Panel-method-loadRecord" class="docClass">loadRecord</a>.</p> <br>
+</div>
+<pre><span id="METHODisValid"><span class="keyword">method</span> isValid</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
+<p>Convenience function to check if the form has all valid fields. This is the same as calling
+<a href="#!/api/Ext.form.Basic-method-isValid" rel="Ext.form.Basic-method-isValid" class="docClass">this.getForm().isValid()</a>.</p>
+
+<p>Returns true if client-side validation on the form is successful. Any invalid fields will be
+marked as invalid. If you only want to determine overall form validity without marking anything,
+use <a href="#!/api/Ext.form.Panel-method-hasInvalidField" rel="Ext.form.Panel-method-hasInvalidField" class="docClass">hasInvalidField</a> instead.</p> <br>
 </div>
 <pre><span id="METHODload"><span class="keyword">method</span> load</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
 <p>This is a proxy for the underlying BasicForm's <a href="#!/api/Ext.form.Basic-method-load" rel="Ext.form.Basic-method-load" class="docClass">Ext.form.Basic.load</a> call.</p> 

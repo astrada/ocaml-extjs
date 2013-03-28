@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,4 +141,38 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODsetFilterFn"><span class="keyword">method</span> setFilterFn</span> : <code class="type">'a. 'a Js.callback -> unit Js.meth</code></pre><div class="info">
+<p>Changes the filtering function which this Filter uses to choose items to include.</p>
+
+<p>This replaces any configured <a href="#!/api/Ext.util.Filter-cfg-filterFn" rel="Ext.util.Filter-cfg-filterFn" class="docClass">filterFn</a> and overrides any <a href="#!/api/Ext.util.Filter-cfg-property" rel="Ext.util.Filter-cfg-property" class="docClass">property</a> and {@link #cfg-value) settings.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>filterFn: <code class="code">_ Js.callback</code>
+    <p>A function which returns <code>true</code> or <code>false</code> to either include or exclude the passed object.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetValue"><span class="keyword">method</span> setValue</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Changes the value that this filter tests its configured (@link #cfg-property} with.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code>
+    <p>The new value to compare the property with.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdisabled"><span class="keyword">method</span> disabled</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Setting this property to <code>true</code> disables this individual Filter so that it no longer contributes to a <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">Store's filter set</a></p>
+
+<p>When disabled, the next time the store is filtered, the Filter plays no part in filtering and records eliminated by it may rejoin the dataset.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
 </body></html>

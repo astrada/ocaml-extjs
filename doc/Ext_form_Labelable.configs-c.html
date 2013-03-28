@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -149,10 +152,8 @@ See method <code class="code">t.getFieldLabel</code><br>
 </div>
 <pre><span id="METHODactiveErrorsTpl"><span class="keyword">method</span> activeErrorsTpl</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
 <p>The template used to format the Array of error messages passed to <a href="#!/api/Ext.form.Labelable-method-setActiveErrors" rel="Ext.form.Labelable-method-setActiveErrors" class="docClass">setActiveErrors</a> into a single HTML
-string. By default this renders each message as an item in an unordered list.</p> 
-<p>
-
-    Defaults to: <code class="code">['&lt;tpl if="errors &amp;&amp; errors.length"&gt;', '&lt;ul&gt;&lt;tpl for="errors"&gt;&lt;li&gt;{.}&lt;/li&gt;&lt;/tpl&gt;&lt;/ul&gt;', '&lt;/tpl&gt;']</code><br>
+string. if the <a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a> is title, it defaults to a list separated by new lines. Otherwise, it
+renders each message as an item in an unordered list.</p> <br>
 </div>
 <pre><span id="METHODafterBodyEl"><span class="keyword">method</span> afterBodyEl</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup

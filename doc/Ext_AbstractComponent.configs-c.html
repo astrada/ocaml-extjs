@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,45 +140,49 @@
 <center><h1>Class type <a href="type_Ext_AbstractComponent.configs.html">Ext_AbstractComponent.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_AbstractComponent.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 <li><a href="Ext_state_Stateful.configs-c.html"><code class="code">Ext_state_Stateful.configs</code></a></li>
 <li><a href="Ext_util_Animate.configs-c.html"><code class="code">Ext_util_Animate.configs</code></a></li>
 <li><a href="Ext_util_ElementContainer.configs-c.html"><code class="code">Ext_util_ElementContainer.configs</code></a></li>
 <li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
+<li><a href="Ext_util_Positionable.configs-c.html"><code class="code">Ext_util_Positionable.configs</code></a></li>
 <li><a href="Ext_util_Renderable.configs-c.html"><code class="code">Ext_util_Renderable.configs</code></a></li>
+<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">((< afterComponentLayout : 'a;<br>           afterRender : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           afterSetPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           autoEl : 'c. 'c Js.t Js.prop; autoRender : 'd. 'd Js.t Js.prop;<br>           autoShow : bool Js.t Js.prop; baseCls : Js.js_string Js.t Js.prop;<br>           beforeComponentLayout : ('b Js.t,<br>                                    Js.number Js.t -> Js.number Js.t -> unit)<br>                                   Js.meth_callback Js.writeonly_prop;<br>           beforeDestroy : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           border : 'e. 'e Js.t Js.prop;<br>           childEls : 'f. 'f Js.t Js.js_array Js.t Js.prop;<br>           cls : Js.js_string Js.t Js.prop;<br>           componentCls : Js.js_string Js.t Js.prop;<br>           componentLayout : 'g. 'g Js.t Js.prop;<br>           contentEl : Js.js_string Js.t Js.prop; data : 'h. 'h Js.t Js.prop;<br>           disabled : bool Js.t Js.prop; disabledCls : Js.js_string Js.t Js.prop;<br>           draggable : bool Js.t Js.prop; floating : bool Js.t Js.prop;<br>           frame : bool Js.t Js.prop; height : Js.number Js.t Js.prop;<br>           hidden : bool Js.t Js.prop; hideMode : Js.js_string Js.t Js.prop;<br>           html : 'i. 'i Js.t Js.prop; id : Js.js_string Js.t Js.prop;<br>           itemId : Js.js_string Js.t Js.prop; listeners : 'j. 'j Js.t Js.prop;<br>           loader : 'k. 'k Js.t Js.prop; margin : 'l. 'l Js.t Js.prop;<br>           maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>           minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>           onAdded : 'm.<br>                       ('b Js.t, 'm Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onDisable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onEnable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemoved : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onRender : ('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onResize : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop; padding : 'n. 'n Js.t Js.prop;<br>           plugins : 'o. 'o Js.t Js.prop; renderData : 'p. 'p Js.t Js.prop;<br>           renderSelectors : 'q. 'q Js.t Js.prop; renderTo : 'r. 'r Js.t Js.prop;<br>           renderTpl : 's. 's Js.t Js.prop; saveDelay : Js.number Js.t Js.prop;<br>           shrinkWrap : 't. 't Js.t Js.prop;<br>           stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>           style : 'u. 'u Js.t Js.prop; styleHtmlCls : Js.js_string Js.t Js.prop;<br>           styleHtmlContent : bool Js.t Js.prop; tpl : 'v. 'v Js.t Js.prop;<br>           tplWriteMode : Js.js_string Js.t Js.prop; ui : Js.js_string Js.t Js.prop;<br>           width : Js.number Js.t Js.prop; xtype : Js.js_string Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t,<br>        Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
+<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">'a 'b.<br>         ((< afterComponentLayout : 'a 'b. 'c;<br>             afterRender : ('d Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>             afterSetPosition : ('d Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                                Js.meth_callback Js.writeonly_prop;<br>             autoEl : 'e. 'e Js.t Js.prop; autoRender : 'f. 'f Js.t Js.prop;<br>             autoShow : bool Js.t Js.prop; baseCls : Js.js_string Js.t Js.prop;<br>             beforeComponentLayout : ('d Js.t,<br>                                      Js.number Js.t -> Js.number Js.t -> unit)<br>                                     Js.meth_callback Js.writeonly_prop;<br>             beforeDestroy : ('d Js.t, unit -> unit) Js.meth_callback<br>                             Js.writeonly_prop;<br>             beforeLayout : ('d Js.t, unit -> unit) Js.meth_callback<br>                            Js.writeonly_prop;<br>             border : 'g. 'g Js.t Js.prop;<br>             childEls : 'h. 'h Js.t Js.js_array Js.t Js.prop;<br>             cls : Js.js_string Js.t Js.prop;<br>             componentCls : Js.js_string Js.t Js.prop;<br>             componentLayout : 'i. 'i Js.t Js.prop;<br>             contentEl : Js.js_string Js.t Js.prop; data : 'j. 'j Js.t Js.prop;<br>             disabled : bool Js.t Js.prop; disabledCls : Js.js_string Js.t Js.prop;<br>             draggable : bool Js.t Js.prop; floating : bool Js.t Js.prop;<br>             frame : bool Js.t Js.prop; height : Js.number Js.t Js.prop;<br>             hidden : bool Js.t Js.prop; hideMode : Js.js_string Js.t Js.prop;<br>             html : 'k. 'k Js.t Js.prop; id : Js.js_string Js.t Js.prop;<br>             itemId : Js.js_string Js.t Js.prop; listeners : 'l. 'l Js.t Js.prop;<br>             loader : 'm. 'm Js.t Js.prop; margin : 'n. 'n Js.t Js.prop;<br>             maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>             minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>             onAdded : 'o.<br>                         ('d Js.t, 'o Js.t -> Js.number Js.t -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>             onDisable : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onEnable : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onPosition : ('d Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                          Js.meth_callback Js.writeonly_prop;<br>             onRemoved : ('d Js.t, bool Js.t -> unit) Js.meth_callback<br>                         Js.writeonly_prop;<br>             onRender : ('d Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>             onResize : 'p 'q 'r 's.<br>                          ('d Js.t,<br>                           'p Js.t -> 'q Js.t -> 'r Js.t -> 's Js.t -> unit)<br>                          Js.meth_callback Js.writeonly_prop;<br>             overCls : Js.js_string Js.t Js.prop; padding : 't. 't Js.t Js.prop;<br>             plugins : 'u. 'u Js.t Js.prop; renderData : 'v. 'v Js.t Js.prop;<br>             renderSelectors : 'w. 'w Js.t Js.prop; renderTo : 'x. 'x Js.t Js.prop;<br>             renderTpl : 'y. 'y Js.t Js.prop; rtl : bool Js.t Js.prop;<br>             saveDelay : Js.number Js.t Js.prop; shrinkWrap : 'z. 'z Js.t Js.prop;<br>             stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>             stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>             style : 'a1. 'a1 Js.t Js.prop; tpl : 'b1. 'b1 Js.t Js.prop;<br>             tplWriteMode : Js.js_string Js.t Js.prop;<br>             ui : Js.js_string Js.t Js.prop; width : Js.number Js.t Js.prop;<br>             xtype : Js.js_string Js.t Js.prop; .. ><br>           as 'd)<br>          Js.t, Js.number Js.t -> Js.number Js.t -> 'a Js.t -> 'b Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop as 'c</code></pre><div class="info">
 See method <code class="code">t.afterComponentLayout</code><br>
 </div>
-<pre><span id="METHODafterSetPosition"><span class="keyword">method</span> afterSetPosition</span> : <code class="type">('b Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODafterSetPosition"><span class="keyword">method</span> afterSetPosition</span> : <code class="type">('d Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.afterSetPosition</code><br>
 </div>
-<pre><span id="METHODbeforeComponentLayout"><span class="keyword">method</span> beforeComponentLayout</span> : <code class="type">('b Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODbeforeComponentLayout"><span class="keyword">method</span> beforeComponentLayout</span> : <code class="type">('d Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.beforeComponentLayout</code><br>
 </div>
-<pre><span id="METHODbeforeDestroy"><span class="keyword">method</span> beforeDestroy</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODbeforeDestroy"><span class="keyword">method</span> beforeDestroy</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.beforeDestroy</code><br>
 </div>
-<pre><span id="METHODonAdded"><span class="keyword">method</span> onAdded</span> : <code class="type">'m.<br>         ('b Js.t, 'm Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>         Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODbeforeLayout"><span class="keyword">method</span> beforeLayout</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.beforeLayout</code><br>
+</div>
+<pre><span id="METHODonAdded"><span class="keyword">method</span> onAdded</span> : <code class="type">'o.<br>         ('d Js.t, 'o Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>         Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onAdded</code><br>
 </div>
-<pre><span id="METHODonDisable"><span class="keyword">method</span> onDisable</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonDisable"><span class="keyword">method</span> onDisable</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onDisable</code><br>
 </div>
-<pre><span id="METHODonEnable"><span class="keyword">method</span> onEnable</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonEnable"><span class="keyword">method</span> onEnable</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onEnable</code><br>
 </div>
-<pre><span id="METHODonPosition"><span class="keyword">method</span> onPosition</span> : <code class="type">('b Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonPosition"><span class="keyword">method</span> onPosition</span> : <code class="type">('d Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onPosition</code><br>
 </div>
-<pre><span id="METHODonRemoved"><span class="keyword">method</span> onRemoved</span> : <code class="type">('b Js.t, bool Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonRemoved"><span class="keyword">method</span> onRemoved</span> : <code class="type">('d Js.t, bool Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onRemoved</code><br>
 </div>
-<pre><span id="METHODonResize"><span class="keyword">method</span> onResize</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonResize"><span class="keyword">method</span> onResize</span> : <code class="type">'p 'q 'r 's.<br>         ('d Js.t, 'p Js.t -> 'q Js.t -> 'r Js.t -> 's Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onResize</code><br>
 </div>
-<pre><span id="METHODautoEl"><span class="keyword">method</span> autoEl</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODautoEl"><span class="keyword">method</span> autoEl</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
 <p>A tag name or <a href="#!/api/Ext.DomHelper" rel="Ext.DomHelper" class="docClass">DomHelper</a> spec used to create the <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a> which will
 encapsulate this Component.</p>
 
@@ -210,10 +217,10 @@ different DOM elements. Example usage:</p>
 }
 </code></pre> <br>
 </div>
-<pre><span id="METHODautoRender"><span class="keyword">method</span> autoRender</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODautoRender"><span class="keyword">method</span> autoRender</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
 <p>This config is intended mainly for non-<a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> Components which may or may not be shown. Instead of using
 <a href="#!/api/Ext.AbstractComponent-cfg-renderTo" rel="Ext.AbstractComponent-cfg-renderTo" class="docClass">renderTo</a> in the configuration, and rendering upon construction, this allows a Component to render itself
-upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> is true, the value of this config is omited as if it is <code>true</code>.</p>
+upon first <em><a href="#!/api/Ext.Component-method-show" rel="Ext.Component-method-show" class="docClass">show</a></em>. If <a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> is <code>true</code>, the value of this config is omitted as if it is <code>true</code>.</p>
 
 <p>Specify as <code>true</code> to have this Component render to the document body upon first show.</p>
 
@@ -224,24 +231,24 @@ show.</p>
     Defaults to: <code class="code">false</code><br>
 </div>
 <pre><span id="METHODautoShow"><span class="keyword">method</span> autoShow</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to automatically show the component upon creation. This config option may only be used for
-<a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> components or components that use <a href="#!/api/Ext.AbstractComponent-cfg-autoRender" rel="Ext.AbstractComponent-cfg-autoRender" class="docClass">autoRender</a>. Defaults to false.</p> 
+<p><code>true</code> to automatically show the component upon creation. This config option may only be used for
+<a href="#!/api/Ext.AbstractComponent-cfg-floating" rel="Ext.AbstractComponent-cfg-floating" class="docClass">floating</a> components or components that use <a href="#!/api/Ext.AbstractComponent-cfg-autoRender" rel="Ext.AbstractComponent-cfg-autoRender" class="docClass">autoRender</a>.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
 <pre><span id="METHODbaseCls"><span class="keyword">method</span> baseCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The base CSS class to apply to this components's element. This will also be prepended to elements within this
-component like Panel's body will get a class x-panel-body. This means that if you create a subclass of Panel, and
-you want it to get all the Panels styling for the element and the body, you leave the baseCls x-panel and use
-componentCls to add specific styling for this component.</p> 
+<p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
+component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
+you want it to get all the Panels styling for the element and the body, you leave the <code>baseCls</code> <code>x-panel</code> and use
+<code>componentCls</code> to add specific styling for this component.</p> 
 <p>
 
     Defaults to: <code class="code">'x-component'</code><br>
 </div>
-<pre><span id="METHODborder"><span class="keyword">method</span> border</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODborder"><span class="keyword">method</span> border</span> : <code class="type">'g. 'g Js.t Js.prop</code></pre><div class="info">
 <p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
-be a CSS style specification for each style, for example: '10 5 3 10'.</p>
+be a CSS style specification for each style, for example: '10 5 3 10' (top, right, bottom, left).</p>
 
 <p>For components that have no border by default, setting this won't make the border appear by itself.
 You also need to specify border color and style:</p>
@@ -255,7 +262,7 @@ style: {
 
 <p>To turn off the border, use <code>border: false</code>.</p> <br>
 </div>
-<pre><span id="METHODchildEls"><span class="keyword">method</span> childEls</span> : <code class="type">'f. 'f Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODchildEls"><span class="keyword">method</span> childEls</span> : <code class="type">'h. 'h Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
 <p>An array describing the child elements of the Component. Each member of the array
 is an object with these properties:</p>
 
@@ -270,7 +277,7 @@ is an object with these properties:</p>
 
 <p>For example, a Component which renders a title and body text:</p>
 
-<pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>', {
+<pre class='inline-example '><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>', {
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
     renderTpl: [
         '&lt;h1 id="{id}-title"&gt;{title}&lt;/h1&gt;',
@@ -302,7 +309,7 @@ for adding customized styles to the component or any of its children using stand
 <pre><span id="METHODcomponentCls"><span class="keyword">method</span> componentCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>CSS Class to be added to a components root level element to give distinction to it via styling.</p> <br>
 </div>
-<pre><span id="METHODcomponentLayout"><span class="keyword">method</span> componentLayout</span> : <code class="type">'g. 'g Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODcomponentLayout"><span class="keyword">method</span> componentLayout</span> : <code class="type">'i. 'i Js.t Js.prop</code></pre><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -332,17 +339,17 @@ scheme that the Component may use. It is just HTML. Layouts operate on child
 <p>Add either the <code>x-hidden</code> or the <code>x-hide-display</code> CSS class to prevent a brief flicker of the content before it
 is rendered to the panel.</p> <br>
 </div>
-<pre><span id="METHODdata"><span class="keyword">method</span> data</span> : <code class="type">'h. 'h Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODdata"><span class="keyword">method</span> data</span> : <code class="type">'j. 'j Js.t Js.prop</code></pre><div class="info">
 <p>The initial set of data to apply to the <code><a href="#!/api/Ext.AbstractComponent-cfg-tpl" rel="Ext.AbstractComponent-cfg-tpl" class="docClass">tpl</a></code> to update the content area of the Component.</p> <br>
 </div>
 <pre><span id="METHODdisabled"><span class="keyword">method</span> disabled</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to disable the component.</p> 
+<p><code>true</code> to disable the component.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
 <pre><span id="METHODdisabledCls"><span class="keyword">method</span> disabledCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>CSS class to add when the Component is disabled. Defaults to 'x-item-disabled'.</p> 
+<p>CSS class to add when the Component is disabled.</p> 
 <p>
 
     Defaults to: <code class="code">'x-item-disabled'</code><br>
@@ -359,7 +366,7 @@ is rendered to the panel.</p> <br>
 <p>The z-index of floating Components is handled by a ZIndexManager. If you simply render a floating Component into the DOM, it will be managed
 by the global <a href="#!/api/Ext.WindowManager" rel="Ext.WindowManager" class="docClass">WindowManager</a>.</p>
 
-<p>If you include a floating Component as a child item of a Container, then upon render, ExtJS will seek an ancestor floating Component to house a new
+<p>If you include a floating Component as a child item of a Container, then upon render, Ext JS will seek an ancestor floating Component to house a new
 ZIndexManager instance to manage its descendant floaters. If no floating ancestor can be found, the global WindowManager will be used.</p>
 
 <p>When a floating Component which has a ZindexManager managing descendant floaters is destroyed, those descendant floaters will also be destroyed.</p> 
@@ -380,7 +387,7 @@ Explorer prior to version 9 which do not support rounded corners natively.</p>
 <p>The height of this component in pixels.</p> <br>
 </div>
 <pre><span id="METHODhidden"><span class="keyword">method</span> hidden</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to hide the component.</p> 
+<p><code>true</code> to hide the component.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
@@ -399,7 +406,7 @@ Component having zero dimensions.</li>
 
     Defaults to: <code class="code">'display'</code><br>
 </div>
-<pre><span id="METHODhtml"><span class="keyword">method</span> html</span> : <code class="type">'i. 'i Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODhtml"><span class="keyword">method</span> html</span> : <code class="type">'k. 'k Js.t Js.prop</code></pre><div class="info">
 <p>An HTML fragment, or a <a href="#!/api/Ext.DomHelper" rel="Ext.DomHelper" class="docClass">DomHelper</a> specification to use as the layout element content.
 The HTML content is added after the component is rendered, so the document will not contain this HTML at the time
 the <a href="#!/api/Ext.AbstractComponent-event-render" rel="Ext.AbstractComponent-event-render" class="docClass">render</a> event is fired. This content is inserted into the body <em>before</em> any configured <a href="#!/api/Ext.AbstractComponent-cfg-contentEl" rel="Ext.AbstractComponent-cfg-contentEl" class="docClass">contentEl</a>
@@ -412,24 +419,24 @@ is appended.</p>
 <p>The <strong>unique id of this component instance.</strong></p>
 
 <p>It should not be necessary to use this configuration except for singleton objects in your application. Components
-created with an id may be accessed globally using <a href="#!/api/Ext-method-getCmp" rel="Ext-method-getCmp" class="docClass">Ext.getCmp</a>.</p>
+created with an <code>id</code> may be accessed globally using <a href="#!/api/Ext-method-getCmp" rel="Ext-method-getCmp" class="docClass">Ext.getCmp</a>.</p>
 
 <p>Instead of using assigned ids, use the <a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a> config, and <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a>
 which provides selector-based searching for Sencha Components analogous to DOM querying. The <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> class contains <a href="#!/api/Ext.container.Container-method-down" rel="Ext.container.Container-method-down" class="docClass">shortcut methods</a> to query
 its descendant Components by selector.</p>
 
-<p>Note that this id will also be used as the element id for the containing HTML element that is rendered to the
+<p>Note that this <code>id</code> will also be used as the element id for the containing HTML element that is rendered to the
 page for this component. This allows you to write id-based CSS rules to style the specific instance of this
-component uniquely, and also to select sub-elements using this component's id as the parent.</p>
+component uniquely, and also to select sub-elements using this component's <code>id</code> as the parent.</p>
 
-<p><strong>Note</strong>: to avoid complications imposed by a unique id also see <code><a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a></code>.</p>
+<p><strong>Note:</strong> To avoid complications imposed by a unique <code>id</code> also see <code><a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a></code>.</p>
 
-<p><strong>Note</strong>: to access the container of a Component see <code><a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.AbstractComponent-property-ownerCt" class="docClass">ownerCt</a></code>.</p>
+<p><strong>Note:</strong> To access the container of a Component see <code><a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.AbstractComponent-property-ownerCt" class="docClass">ownerCt</a></code>.</p>
 
 <p>Defaults to an <a href="#!/api/Ext.AbstractComponent-method-getId" rel="Ext.AbstractComponent-method-getId" class="docClass">auto-assigned id</a>.</p> <br>
 </div>
 <pre><span id="METHODitemId"><span class="keyword">method</span> itemId</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>An itemId can be used as an alternative way to get a reference to a component when no object reference is
+<p>An <code>itemId</code> can be used as an alternative way to get a reference to a component when no object reference is
 available. Instead of using an <code><a href="#!/api/Ext.AbstractComponent-cfg-id" rel="Ext.AbstractComponent-cfg-id" class="docClass">id</a></code> with <a href="#!/api/Ext" rel="Ext" class="docClass">Ext</a>.<a href="#!/api/Ext-method-getCmp" rel="Ext-method-getCmp" class="docClass">getCmp</a>, use <code>itemId</code> with
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>.<a href="#!/api/Ext.container.Container-method-getComponent" rel="Ext.container.Container-method-getComponent" class="docClass">getComponent</a> which will retrieve
 <code>itemId</code>'s or <a href="#!/api/Ext.AbstractComponent-cfg-id" rel="Ext.AbstractComponent-cfg-id" class="docClass">id</a>'s. Since <code>itemId</code>'s are an index to the container's internal MixedCollection, the
@@ -462,7 +469,7 @@ p2 = p1.<a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.Abstrac
 
 <p><strong>Note</strong>: to access the container of an item see <a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.AbstractComponent-property-ownerCt" class="docClass">ownerCt</a>.</p> <br>
 </div>
-<pre><span id="METHODloader"><span class="keyword">method</span> loader</span> : <code class="type">'k. 'k Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODloader"><span class="keyword">method</span> loader</span> : <code class="type">'m. 'm Js.t Js.prop</code></pre><div class="info">
 <p>A configuration object or an instance of a <a href="#!/api/Ext.ComponentLoader" rel="Ext.ComponentLoader" class="docClass">Ext.ComponentLoader</a> to load remote content
 for this Component.</p>
 
@@ -475,9 +482,9 @@ for this Component.</p>
 });
 </code></pre> <br>
 </div>
-<pre><span id="METHODmargin"><span class="keyword">method</span> margin</span> : <code class="type">'l. 'l Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODmargin"><span class="keyword">method</span> margin</span> : <code class="type">'n. 'n Js.t Js.prop</code></pre><div class="info">
 <p>Specifies the margin for this component. The margin can be a single numeric value to apply to all sides or it can
-be a CSS style specification for each style, for example: '10 5 3 10'.</p> <br>
+be a CSS style specification for each style, for example: '10 5 3 10' (top, right, bottom, left).</p> <br>
 </div>
 <pre><span id="METHODmaxHeight"><span class="keyword">method</span> maxHeight</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>The maximum value in pixels which this Component will set its height to.</p>
@@ -507,18 +514,37 @@ component or any of its children using standard CSS rules.</p>
 
     Defaults to: <code class="code">''</code><br>
 </div>
-<pre><span id="METHODpadding"><span class="keyword">method</span> padding</span> : <code class="type">'n. 'n Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODpadding"><span class="keyword">method</span> padding</span> : <code class="type">'t. 't Js.t Js.prop</code></pre><div class="info">
 <p>Specifies the padding for this component. The padding can be a single numeric value to apply to all sides or it
-can be a CSS style specification for each style, for example: '10 5 3 10'.</p> <br>
+can be a CSS style specification for each style, for example: '10 5 3 10' (top, right, bottom, left).</p> <br>
 </div>
-<pre><span id="METHODplugins"><span class="keyword">method</span> plugins</span> : <code class="type">'o. 'o Js.t Js.prop</code></pre><div class="info">
-<p>An object or array of objects that will provide custom functionality for this component. The only requirement for
-a valid plugin is that it contain an init method that accepts a reference of type <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>. When a component
+<pre><span id="METHODplugins"><span class="keyword">method</span> plugins</span> : <code class="type">'u. 'u Js.t Js.prop</code></pre><div class="info">
+<p>An array of plugins to be added to this component. Can also be just a single plugin instead of array.</p>
+
+<p>Plugins provide custom functionality for a component. The only requirement for
+a valid plugin is that it contain an <code>init</code> method that accepts a reference of type <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>. When a component
 is created, if any plugins are available, the component will call the init method on each plugin, passing a
 reference to itself. Each plugin can then call methods or respond to events on the component as needed to provide
-its functionality.</p> <br>
+its functionality.</p>
+
+<p>Plugins can be added to component by either directly referencing the plugin instance:</p>
+
+<pre><code>plugins: [<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">Ext.grid.plugin.CellEditing</a>', {clicksToEdit: 1})],
+</code></pre>
+
+<p>By using config object with ptype:</p>
+
+<pre><code>plugins: [{ptype: 'cellediting', clicksToEdit: 1}],
+</code></pre>
+
+<p>Or with just a ptype:</p>
+
+<pre><code>plugins: ['cellediting', 'gridviewdragdrop'],
+</code></pre>
+
+<p>See <a href="#!/api/Ext.enums.Plugin" rel="Ext.enums.Plugin" class="docClass">Ext.enums.Plugin</a> for list of all ptypes.</p> <br>
 </div>
-<pre><span id="METHODrenderData"><span class="keyword">method</span> renderData</span> : <code class="type">'p. 'p Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrenderData"><span class="keyword">method</span> renderData</span> : <code class="type">'v. 'v Js.t Js.prop</code></pre><div class="info">
 <p>The data used by <a href="#!/api/Ext.AbstractComponent-cfg-renderTpl" rel="Ext.AbstractComponent-cfg-renderTpl" class="docClass">renderTpl</a> in addition to the following property values of the component:</p>
 
 <ul>
@@ -533,14 +559,14 @@ its functionality.</p> <br>
 
 <p>See <a href="#!/api/Ext.AbstractComponent-cfg-renderSelectors" rel="Ext.AbstractComponent-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.AbstractComponent-cfg-childEls" rel="Ext.AbstractComponent-cfg-childEls" class="docClass">childEls</a> for usage examples.</p> <br>
 </div>
-<pre><span id="METHODrenderSelectors"><span class="keyword">method</span> renderSelectors</span> : <code class="type">'q. 'q Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrenderSelectors"><span class="keyword">method</span> renderSelectors</span> : <code class="type">'w. 'w Js.t Js.prop</code></pre><div class="info">
 <p>An object containing properties specifying <a href="#!/api/Ext.dom.Query" rel="Ext.dom.Query" class="docClass">DomQuery</a> selectors which identify child elements
 created by the render process.</p>
 
 <p>After the Component's internal structure is rendered according to the <a href="#!/api/Ext.AbstractComponent-cfg-renderTpl" rel="Ext.AbstractComponent-cfg-renderTpl" class="docClass">renderTpl</a>, this object is iterated through,
 and the found Elements are added as properties to the Component using the <code>renderSelector</code> property name.</p>
 
-<p>For example, a Component which renderes a title and description into its element:</p>
+<p>For example, a Component which renders a title and description into its element:</p>
 
 <pre><code><a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>', {
     renderTo: <a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>(),
@@ -568,8 +594,8 @@ and the found Elements are added as properties to the Component using the <code>
 <p>For a faster, but less flexible, alternative that achieves the same end result (properties for child elements on the
 Component after render), see <a href="#!/api/Ext.AbstractComponent-cfg-childEls" rel="Ext.AbstractComponent-cfg-childEls" class="docClass">childEls</a> and <a href="#!/api/Ext.AbstractComponent-method-addChildEls" rel="Ext.AbstractComponent-method-addChildEls" class="docClass">addChildEls</a>.</p> <br>
 </div>
-<pre><span id="METHODrenderTo"><span class="keyword">method</span> renderTo</span> : <code class="type">'r. 'r Js.t Js.prop</code></pre><div class="info">
-<p>Specify the id of the element, a DOM element or an existing Element that this component will be rendered into.</p>
+<pre><span id="METHODrenderTo"><span class="keyword">method</span> renderTo</span> : <code class="type">'x. 'x Js.t Js.prop</code></pre><div class="info">
+<p>Specify the <code>id</code> of the element, a DOM element or an existing Element that this component will be rendered into.</p>
 
 <p><strong>Notes:</strong></p>
 
@@ -577,17 +603,17 @@ Component after render), see <a href="#!/api/Ext.AbstractComponent-cfg-childEls"
 It is the responsibility of the <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a>'s
 <a href="#!/api/Ext.container.Container-cfg-layout" rel="Ext.container.Container-cfg-layout" class="docClass">layout manager</a> to render and manage its child items.</p>
 
-<p>When using this config, a call to render() is not required.</p>
+<p>When using this config, a call to <code>render()</code> is not required.</p>
 
 <p>See also: <a href="#!/api/Ext.AbstractComponent-method-render" rel="Ext.AbstractComponent-method-render" class="docClass">render</a>.</p> <br>
 </div>
-<pre><span id="METHODrenderTpl"><span class="keyword">method</span> renderTpl</span> : <code class="type">'s. 's Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrenderTpl"><span class="keyword">method</span> renderTpl</span> : <code class="type">'y. 'y Js.t Js.prop</code></pre><div class="info">
 <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a>.</p>
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -599,7 +625,13 @@ internal structure.</p>
 
     Defaults to: <code class="code">'{%this.renderContent(out,values)%}'</code><br>
 </div>
-<pre><span id="METHODshrinkWrap"><span class="keyword">method</span> shrinkWrap</span> : <code class="type">'t. 't Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrtl"><span class="keyword">method</span> rtl</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>True to layout this component and its descendants in "rtl" (right-to-left) mode.
+Can be explicitly set to false to override a true value inherited from an ancestor.</p>
+
+<p><strong>Defined in override Ext.rtl.AbstractComponent.</strong></p> <br>
+</div>
+<pre><span id="METHODshrinkWrap"><span class="keyword">method</span> shrinkWrap</span> : <code class="type">'z. 'z Js.t Js.prop</code></pre><div class="info">
 <p>If this property is a number, it is interpreted as follows:</p>
 
 <ul>
@@ -618,7 +650,7 @@ effectively ignoring this property (e.g., <a href="#!/api/Ext.layout.container.H
 
     Defaults to: <code class="code">2</code><br>
 </div>
-<pre><span id="METHODstyle"><span class="keyword">method</span> style</span> : <code class="type">'u. 'u Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODstyle"><span class="keyword">method</span> style</span> : <code class="type">'a1. 'a1 Js.t Js.prop</code></pre><div class="info">
 <p>A custom style specification to be applied to this component's Element. Should be a valid argument to
 <a href="#!/api/Ext.dom.Element-method-applyStyles" rel="Ext.dom.Element-method-applyStyles" class="docClass">Ext.Element.applyStyles</a>.</p>
 
@@ -645,19 +677,7 @@ effectively ignoring this property (e.g., <a href="#!/api/Ext.layout.container.H
 });
 </code></pre> <br>
 </div>
-<pre><span id="METHODstyleHtmlCls"><span class="keyword">method</span> styleHtmlCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The class that is added to the content target when you set styleHtmlContent to true.</p> 
-<p>
-
-    Defaults to: <code class="code">'x-html'</code><br>
-</div>
-<pre><span id="METHODstyleHtmlContent"><span class="keyword">method</span> styleHtmlContent</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to automatically style the html inside the content target of this component (body for panels).</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODtpl"><span class="keyword">method</span> tpl</span> : <code class="type">'v. 'v Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODtpl"><span class="keyword">method</span> tpl</span> : <code class="type">'b1. 'b1 Js.t Js.prop</code></pre><div class="info">
 <p>An <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>, <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a> or an array of strings to form an <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">Ext.XTemplate</a>. Used in
 conjunction with the <code><a href="#!/api/Ext.AbstractComponent-cfg-data" rel="Ext.AbstractComponent-cfg-data" class="docClass">data</a></code> and <code><a href="#!/api/Ext.AbstractComponent-cfg-tplWriteMode" rel="Ext.AbstractComponent-cfg-tplWriteMode" class="docClass">tplWriteMode</a></code> configurations.</p> <br>
 </div>
@@ -765,6 +785,8 @@ a prefix to avoid collisions.</p>
     xtype: 'ux-coolbutton',
     text: 'Cool!'
 });
-</code></pre> <br>
+</code></pre>
+
+<p>See <a href="#!/api/Ext.enums.Widget" rel="Ext.enums.Widget" class="docClass">Ext.enums.Widget</a> for list of all available xtypes.</p> <br>
 </div>
 </body></html>

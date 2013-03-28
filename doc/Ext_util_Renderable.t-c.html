@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -186,6 +189,18 @@ to put this component before.</p>
 </ul>
 <br>
 </div>
+<pre><span id="METHODinitRenderData"><span class="keyword">method</span> initRenderData</span> : <code class="type">'b. 'b Js.t Js.meth</code></pre><div class="info">
+<p>Initialized the renderData to be used when rendering the renderTpl.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p>Object with keys and values that are going to be applied to the renderTpl</p> 
+    </li>
+</ul>
+<br>
+</div>
 <pre><span id="METHODonRender"><span class="keyword">method</span> onRender</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Template method called when this Component's DOM structure is created.</p>
 
@@ -207,7 +222,7 @@ call the parent class's method before attempting to access any child elements of
 </ul>
 <br>
 </div>
-<pre><span id="METHODrender"><span class="keyword">method</span> render</span> : <code class="type">'b 'c. 'b Js.t Js.optdef -> 'c Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODrender"><span class="keyword">method</span> render</span> : <code class="type">'c 'd. 'c Js.t Js.optdef -> 'd Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Renders the Component into the passed HTML element.</p>
 
 <p><strong>If you are using a <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> object to house this

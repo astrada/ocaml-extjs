@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,46 +138,17 @@
 <center><h1>Class type <a href="type_Ext_util_Format.t.html">Ext_util_Format.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_util_Format.t-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="METHODcurrencyAtEnd"><span class="keyword">method</span> currencyAtEnd</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
-append the currency sign to the formatted value.</p>
-
-<p>This may be overridden in a locale file.</p> 
+<pre><span id="METHODattributes"><span class="keyword">method</span> attributes</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Formats an object of name value properties as HTML element attribute values suitable for using when creating textual markup.</p> 
 <p>
 
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODcurrencyPrecision"><span class="keyword">method</span> currencyPrecision</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">2</code><br>
-</div>
-<pre><span id="METHODcurrencySign"><span class="keyword">method</span> currencySign</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">'$'</code><br>
-</div>
-<pre><span id="METHODdecimalSeparator"><span class="keyword">method</span> decimalSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">'.'</code><br>
-</div>
-<pre><span id="METHODthousandSeparator"><span class="keyword">method</span> thousandSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">','</code><br>
+    <b>Parameters</b>:
+    <ul>
+<li>attributes: <code class="code">_ Js.t</code>
+    <p>An object containing the HTML attributes as properties eg: <code>{height:40, vAlign:'top'}</code></p> 
+    </li>
+</ul>
+<br>
 </div>
 <pre><span id="METHODcapitalize"><span class="keyword">method</span> capitalize</span> : <code class="type">Js.js_string Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Alias for <a href="#!/api/Ext.String-method-capitalize" rel="Ext.String-method-capitalize" class="docClass">Ext.String.capitalize</a>.</p>
@@ -189,7 +163,7 @@ append the currency sign to the formatted value.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODcurrency"><span class="keyword">method</span> currency</span> : <code class="type">'a.<br>         'a Js.t -><br>         Js.js_string Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -><br>         bool Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODcurrency"><span class="keyword">method</span> currency</span> : <code class="type">'b.<br>         'b Js.t -><br>         Js.js_string Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -><br>         bool Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Format a number as a currency.</p> 
 <p>
 
@@ -220,7 +194,7 @@ append the currency sign to the formatted value.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdate"><span class="keyword">method</span> date</span> : <code class="type">'b. 'b Js.t -> Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdate"><span class="keyword">method</span> date</span> : <code class="type">'c. 'c Js.t -> Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Formats the passed date using the specified format pattern.</p> 
 <p>
 
@@ -244,7 +218,7 @@ by the Javascript's built-in Date#parse method.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdateRenderer"><span class="keyword">method</span> dateRenderer</span> : <code class="type">'c. Js.js_string Js.t -> 'c Js.callback Js.meth</code></pre><div class="info">
+<pre><span id="METHODdateRenderer"><span class="keyword">method</span> dateRenderer</span> : <code class="type">'d. Js.js_string Js.t -> 'd Js.callback Js.meth</code></pre><div class="info">
 <p>Returns a date rendering function that can be reused to apply a date format multiple times efficiently.</p> 
 <p>
 
@@ -264,7 +238,7 @@ by the Javascript's built-in Date#parse method.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdefaultValue"><span class="keyword">method</span> defaultValue</span> : <code class="type">'d. 'd Js.t -> Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdefaultValue"><span class="keyword">method</span> defaultValue</span> : <code class="type">'e. 'e Js.t -> Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Checks a reference and converts it to the default value if it's empty.</p> 
 <p>
 
@@ -280,22 +254,23 @@ by the Javascript's built-in Date#parse method.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODellipsis"><span class="keyword">method</span> ellipsis</span> : <code class="type">Js.js_string Js.t -> Js.number Js.t -> bool Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODellipsis"><span class="keyword">method</span> ellipsis</span> : <code class="type">Js.js_string Js.t -><br>       Js.number Js.t -> bool Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Alias for <a href="#!/api/Ext.String-method-ellipsis" rel="Ext.String-method-ellipsis" class="docClass">Ext.String.ellipsis</a>.</p>
 
-<p>Truncate a string and add an ellipsis ('...') to the end if it exceeds the specified length</p> 
+<p>Truncate a string and add an ellipsis ('...') to the end if it exceeds the specified length.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>value: <code class="code">Js.js_string Js.t</code>
-    <p>The string to truncate</p> 
+    <p>The string to truncate.</p> 
     </li>
 <li>length: <code class="code">Js.number Js.t</code>
-    <p>The maximum length to allow before truncating</p> 
+    <p>The maximum length to allow before truncating.</p> 
     </li>
-<li>word: <code class="code">bool Js.t</code>
-    <p>True to try to find a common word break</p> 
+<li>word: <code class="code">bool Js.t</code> (optional)
+    <p><code>true</code> to try to find a common word break.</p> 
+     Defaults to: false
     </li>
 </ul>
 
@@ -303,7 +278,7 @@ by the Javascript's built-in Date#parse method.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The converted text</p> 
+<li><code class="code">Js.js_string Js.t</code> <p>The converted text.</p> 
     </li>
 </ul>
 <br>
@@ -319,7 +294,7 @@ by the Javascript's built-in Date#parse method.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfileSize"><span class="keyword">method</span> fileSize</span> : <code class="type">'e. 'e Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfileSize"><span class="keyword">method</span> fileSize</span> : <code class="type">'f. 'f Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Simple format for a file size (xxx bytes, xxx KB, xxx MB).</p> 
 <p>
 
@@ -339,28 +314,26 @@ by the Javascript's built-in Date#parse method.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODformat"><span class="keyword">method</span> format</span> : <code class="type">Js.js_string Js.t -><br>       Js.js_string Js.t -> Js.js_string Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODformat"><span class="keyword">method</span> format</span> : <code class="type">'g. Js.js_string Js.t -> 'g Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Alias for <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>.</p>
 
 <p>Allows you to define a tokenized string and pass an arbitrary number of arguments to replace the tokens.  Each
 token must be unique, and must increment in the format {0}, {1}, etc.  Example usage:</p>
 
-<pre><code>    var cls = 'my-class', text = 'Some text';
-    var s = <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>('&lt;div class="{0}">{1}&lt;/div>', cls, text);
-    // s now contains the string: '&lt;div class="my-class">Some text&lt;/div>'
-           </code></pre> 
+<pre><code>var cls = 'my-class',
+    text = 'Some text';
+var s = <a href="#!/api/Ext.String-method-format" rel="Ext.String-method-format" class="docClass">Ext.String.format</a>('&lt;div class="{0}"&gt;{1}&lt;/div&gt;', cls, text);
+// s now contains the string: '&lt;div class="my-class"&gt;Some text&lt;/div&gt;'
+</code></pre> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>string: <code class="code">Js.js_string Js.t</code>
-    <p>The tokenized string to be formatted</p> 
+    <p>The tokenized string to be formatted.</p> 
     </li>
-<li>value1: <code class="code">Js.js_string Js.t</code>
-    <p>The value to replace token {0}</p> 
-    </li>
-<li>value2: <code class="code">Js.js_string Js.t</code>
-    <p>Etc...</p> 
+<li>values: <code class="code">_ Js.t</code>
+    <p>The values to replace tokens <code>{0}</code>, <code>{1}</code>, etc in order.</p> 
     </li>
 </ul>
 
@@ -368,7 +341,7 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The formatted string</p> 
+<li><code class="code">Js.js_string Js.t</code> <p>The formatted string.</p> 
     </li>
 </ul>
 <br>
@@ -382,7 +355,7 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
     <b>Parameters</b>:
     <ul>
 <li>value: <code class="code">Js.js_string Js.t</code>
-    <p>The string to decode</p> 
+    <p>The string to decode.</p> 
     </li>
 </ul>
 
@@ -390,7 +363,7 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The decoded text</p> 
+<li><code class="code">Js.js_string Js.t</code> <p>The decoded text.</p> 
     </li>
 </ul>
 <br>
@@ -404,7 +377,7 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
     <b>Parameters</b>:
     <ul>
 <li>value: <code class="code">Js.js_string Js.t</code>
-    <p>The string to encode</p> 
+    <p>The string to encode.</p> 
     </li>
 </ul>
 
@@ -412,7 +385,7 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The encoded text</p> 
+<li><code class="code">Js.js_string Js.t</code> <p>The encoded text.</p> 
     </li>
 </ul>
 <br>
@@ -423,21 +396,22 @@ token must be unique, and must increment in the format {0}, {1}, etc.  Example u
 <p>Pads the left side of a string with a specified character.  This is especially useful
 for normalizing number and date strings.  Example usage:</p>
 
-<pre><code>    var s = <a href="#!/api/Ext.String-method-leftPad" rel="Ext.String-method-leftPad" class="docClass">Ext.String.leftPad</a>('123', 5, '0');
-    // s now contains the string: '00123'
-           </code></pre> 
+<pre><code>var s = <a href="#!/api/Ext.String-method-leftPad" rel="Ext.String-method-leftPad" class="docClass">Ext.String.leftPad</a>('123', 5, '0');
+// s now contains the string: '00123'
+</code></pre> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>string: <code class="code">Js.js_string Js.t</code>
-    <p>The original string</p> 
+    <p>The original string.</p> 
     </li>
 <li>size: <code class="code">Js.number Js.t</code>
-    <p>The total length of the output string</p> 
+    <p>The total length of the output string.</p> 
     </li>
 <li>character: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The character with which to pad the original string (defaults to empty string " ")</p> 
+    <p>The character with which to pad the original string.</p> 
+     Defaults to: ' '
     </li>
 </ul>
 
@@ -445,7 +419,7 @@ for normalizing number and date strings.  Example usage:</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The padded string</p> 
+<li><code class="code">Js.js_string Js.t</code> <p>The padded string.</p> 
     </li>
 </ul>
 <br>
@@ -470,7 +444,7 @@ for normalizing number and date strings.  Example usage:</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODmath"><span class="keyword">method</span> math</span> : <code class="type">'f. 'f Js.callback Js.meth</code></pre><div class="info">
+<pre><span id="METHODmath"><span class="keyword">method</span> math</span> : <code class="type">'h. 'h Js.callback Js.meth</code></pre><div class="info">
 <p>It does simple math for use in a template, for example:</p>
 
 <pre><code>var tpl = new <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Ext.Template</a>('{value} * 10 = {value:math("* 10")}');
@@ -491,8 +465,8 @@ for normalizing number and date strings.  Example usage:</p>
 
     <b>Parameters</b>:
     <ul>
-<li>the: <code class="code">Js.js_string Js.t</code>
-    <p>string value to format.</p> 
+<li>v: <code class="code">Js.js_string Js.t</code>
+    <p>The string value to format.</p> 
     </li>
 </ul>
 
@@ -564,7 +538,7 @@ decimal (.) for international numbers, add /i to the end. For example: 0.000,00/
 </ul>
 <br>
 </div>
-<pre><span id="METHODnumberRenderer"><span class="keyword">method</span> numberRenderer</span> : <code class="type">'g. Js.js_string Js.t -> 'g Js.callback Js.meth</code></pre><div class="info">
+<pre><span id="METHODnumberRenderer"><span class="keyword">method</span> numberRenderer</span> : <code class="type">'i. Js.js_string Js.t -> 'i Js.callback Js.meth</code></pre><div class="info">
 <p>Returns a number rendering function that can be reused to apply a number format multiple
 times efficiently.</p> 
 <p>
@@ -585,7 +559,7 @@ times efficiently.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODparseBox"><span class="keyword">method</span> parseBox</span> : <code class="type">'h 'i. 'h Js.t -> 'i Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODparseBox"><span class="keyword">method</span> parseBox</span> : <code class="type">'j 'k. 'j Js.t -> 'k Js.t Js.meth</code></pre><div class="info">
 <p>Parses a number or string representing margin sizes into an object.
 Supports CSS-style margin declarations (e.g. 10, "10", "10 10", "10 10 10" and
 "10 10 10 10" are all valid options and would return the same result).</p> 
@@ -628,7 +602,7 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODround"><span class="keyword">method</span> round</span> : <code class="type">'j. 'j Js.t -> Js.number Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODround"><span class="keyword">method</span> round</span> : <code class="type">'l. 'l Js.t -> Js.number Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Rounds the passed number to the required decimal precision.</p> 
 <p>
 
@@ -651,7 +625,7 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODstripScripts"><span class="keyword">method</span> stripScripts</span> : <code class="type">'k. 'k Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODstripScripts"><span class="keyword">method</span> stripScripts</span> : <code class="type">'m. 'm Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Strips all script tags.</p> 
 <p>
 
@@ -671,7 +645,7 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODstripTags"><span class="keyword">method</span> stripTags</span> : <code class="type">'l. 'l Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODstripTags"><span class="keyword">method</span> stripTags</span> : <code class="type">'n. 'n Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Strips all HTML tags.</p> 
 <p>
 
@@ -720,11 +694,10 @@ would be <code>"x Comments"</code> if the value is 0 or greater than 1.</p>
 <pre><span id="METHODtrim"><span class="keyword">method</span> trim</span> : <code class="type">Js.js_string Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Alias for <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim" class="docClass">Ext.String.trim</a>.</p>
 
-<p>Trims whitespace from either end of a string, leaving spaces within the string intact.  Example:
-@example</p>
+<p>Trims whitespace from either end of a string, leaving spaces within the string intact.  Example:</p>
 
 <pre><code>var s = '  foo bar  ';
-alert('-' + s + '-');         //alerts "- foo bar -"
+alert('-' + s + '-');                   //alerts "- foo bar -"
 alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim" class="docClass">Ext.String.trim</a>(s) + '-');  //alerts "-foo bar-"
 </code></pre> 
 <p>
@@ -732,7 +705,7 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
     <b>Parameters</b>:
     <ul>
 <li>string: <code class="code">Js.js_string Js.t</code>
-    <p>The string to escape</p> 
+    <p>The string to trim.</p> 
     </li>
 </ul>
 
@@ -740,12 +713,12 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The trimmed string</p> 
+<li><code class="code">Js.js_string Js.t</code> <p>The trimmed string.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODundef"><span class="keyword">method</span> undef</span> : <code class="type">'m 'n. 'm Js.t -> 'n Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODundef"><span class="keyword">method</span> undef</span> : <code class="type">'o 'p. 'o Js.t -> 'p Js.t Js.meth</code></pre><div class="info">
 <p>Checks a reference and converts it to empty string if it is undefined.</p> 
 <p>
 
@@ -786,7 +759,7 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
 </ul>
 <br>
 </div>
-<pre><span id="METHODusMoney"><span class="keyword">method</span> usMoney</span> : <code class="type">'o. 'o Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODusMoney"><span class="keyword">method</span> usMoney</span> : <code class="type">'q. 'q Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Format a number as US currency.</p> 
 <p>
 
@@ -805,5 +778,46 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODcurrencyAtEnd"><span class="keyword">method</span> currencyAtEnd</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
+append the currency sign to the formatted value.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODcurrencyPrecision"><span class="keyword">method</span> currencyPrecision</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">2</code><br>
+</div>
+<pre><span id="METHODcurrencySign"><span class="keyword">method</span> currencySign</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">'$'</code><br>
+</div>
+<pre><span id="METHODdecimalSeparator"><span class="keyword">method</span> decimalSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">'.'</code><br>
+</div>
+<pre><span id="METHODthousandSeparator"><span class="keyword">method</span> thousandSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">','</code><br>
 </div>
 </body></html>

@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,26 +141,6 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODbodyEl"><span class="keyword">method</span> bodyEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>The div Element wrapping the component's contents. Only available after the component has been rendered.</p> <br>
-</div>
-<pre><span id="METHODerrorEl"><span class="keyword">method</span> errorEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>The div Element that will contain the component's error message(s). Note that depending on the configured
-<a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a>, this element may be hidden in favor of some other form of presentation, but will always
-be present in the DOM for use by assistive technologies.</p> <br>
-</div>
-<pre><span id="METHODisFieldLabelable"><span class="keyword">method</span> isFieldLabelable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Flag denoting that this object is labelable as a field. Always true.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
-</div>
-<pre><span id="METHODlabelCell"><span class="keyword">method</span> labelCell</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>The <code>&lt;TD&gt;</code> Element which contains the label Element for this component. Only available after the component has been rendered.</p> <br>
-</div>
-<pre><span id="METHODlabelEl"><span class="keyword">method</span> labelEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>The label Element for this component. Only available after the component has been rendered.</p> <br>
-</div>
 <pre><span id="METHODgetActiveError"><span class="keyword">method</span> getActiveError</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Gets the active error message for this component, if any. This does not trigger validation on its own, it merely
 returns any message that the component may already hold.</p> 
@@ -206,6 +189,17 @@ Implementing subclasses may also use this as e.g. the id for their own input ele
     <b>Returns</b>:
     <ul>
 <li><code class="code">Js.js_string Js.t</code> <p>The input id</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetLabelWidth"><span class="keyword">method</span> getLabelWidth</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Gets the width of the label (if visible)</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The label width</p> 
     </li>
 </ul>
 <br>
@@ -324,5 +318,25 @@ string.</p>
 <pre><span id="METHODunsetActiveError"><span class="keyword">method</span> unsetActiveError</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Clears the active error message(s). Note that this only clears the error message element's text and attributes,
 you'll have to call doComponentLayout to actually update the field's layout to match. If the field extends <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a> you should call <a href="#!/api/Ext.form.field.Base-method-clearInvalid" rel="Ext.form.field.Base-method-clearInvalid" class="docClass">clearInvalid</a> instead.</p> <br>
+</div>
+<pre><span id="METHODbodyEl"><span class="keyword">method</span> bodyEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>The div Element wrapping the component's contents. Only available after the component has been rendered.</p> <br>
+</div>
+<pre><span id="METHODerrorEl"><span class="keyword">method</span> errorEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>The div Element that will contain the component's error message(s). Note that depending on the configured
+<a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a>, this element may be hidden in favor of some other form of presentation, but will always
+be present in the DOM for use by assistive technologies.</p> <br>
+</div>
+<pre><span id="METHODisFieldLabelable"><span class="keyword">method</span> isFieldLabelable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Flag denoting that this object is labelable as a field. Always true.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODlabelCell"><span class="keyword">method</span> labelCell</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>The <code>&lt;TD&gt;</code> Element which contains the label Element for this component. Only available after the component has been rendered.</p> <br>
+</div>
+<pre><span id="METHODlabelEl"><span class="keyword">method</span> labelEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>The label Element for this component. Only available after the component has been rendered.</p> <br>
 </div>
 </body></html>

@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,9 +140,8 @@
 <center><h1>Class type <a href="type_Ext_grid_plugin_Editing.events.html">Ext_grid_plugin_Editing.events</a></h1></center>
 <br>
 <pre><span id="TYPEevents"><span class="keyword">class type</span> events</span> = <code class="code">object</code> <a href="Ext_grid_plugin_Editing.events-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
-<li><a href="Ext_AbstractPlugin.events-c.html"><code class="code">Ext_AbstractPlugin.events</code></a></li>
 <li><a href="Ext_util_Observable.events-c.html"><code class="code">Ext_util_Observable.events</code></a></li>
+<li><a href="Ext_AbstractPlugin.events-c.html"><code class="code">Ext_AbstractPlugin.events</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODbeforeedit"><span class="keyword">method</span> beforeedit</span> : <code class="type">'a 'b.<br>         (<a href="Ext_grid_plugin_Editing.t-c.html">t</a> Js.t -> 'a Js.t -> 'b Js.t -> unit) Js.callback<br>         Js.writeonly_prop</code></pre><div class="info">
@@ -150,21 +152,8 @@
     <ul>
 <li>editor: <code class="code">Ext_grid_plugin_Editing.t Js.t</code>
     </li>
-<li>e: <code class="code">_ Js.t</code>
-    <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record being edited</li>
-<li>field * The field name being edited</li>
-<li>value * The value for the field being edited.</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that is being edited.</li>
-<li>rowIdx * The row index that is being edited</li>
-<li>colIdx * The column index that is being edited</li>
-<li>cancel * Set this to true to cancel the edit or return false from your handler.</li>
-<li>originalValue * Alias for value (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>).</li>
-</ul> 
+<li>context: <code class="code">_ Js.t</code>
+    <p>The editing context with the following properties:</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
@@ -180,21 +169,8 @@
     <ul>
 <li>editor: <code class="code">Ext_grid_plugin_Editing.t Js.t</code>
     </li>
-<li>e: <code class="code">_ Js.t</code>
-    <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record that was edited</li>
-<li>field * The field name that was edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that was edited.</li>
-<li>rowIdx * The row index that was edited</li>
-<li>colIdx * The column index that was edited</li>
-<li>view * The grid view</li>
-<li>store * The grid store</li>
-</ul> 
+<li>context: <code class="code">_ Js.t</code>
+    <p>The editing context with the following properties:</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
@@ -216,24 +192,8 @@
     <ul>
 <li>editor: <code class="code">Ext_grid_plugin_Editing.t Js.t</code>
     </li>
-<li>e: <code class="code">_ Js.t</code>
-    <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record that was edited</li>
-<li>field * The field name that was edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that was edited.</li>
-<li>rowIdx * The row index that was edited</li>
-<li>colIdx * The column index that was edited</li>
-<li>originalValue * The original value for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>)</li>
-<li>originalValues * The original values for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>newValues * The new values being set (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>view * The grid view (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-</ul> 
+<li>context: <code class="code">_ Js.t</code>
+    <p>The editing context with the following properties:</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
@@ -264,25 +224,8 @@ and then setting the field's new value in the Record directly:</p>
     <ul>
 <li>editor: <code class="code">Ext_grid_plugin_Editing.t Js.t</code>
     </li>
-<li>e: <code class="code">_ Js.t</code>
-    <p>An edit event with the following properties:</p>
-
-<ul>
-<li>grid * The grid</li>
-<li>record * The record being edited</li>
-<li>field * The field name being edited</li>
-<li>value * The value being set</li>
-<li>row * The grid table row</li>
-<li>column * The grid <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">Column</a> defining the column that is being edited.</li>
-<li>rowIdx * The row index that is being edited</li>
-<li>colIdx * The column index that is being edited</li>
-<li>cancel * Set this to true to cancel the edit or return false from your handler.</li>
-<li>originalValue * The original value for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.CellEditing" rel="Ext.grid.plugin.CellEditing" class="docClass">CellEditing</a>)</li>
-<li>originalValues * The original values for the field, before the edit (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>newValues * The new values being set (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>view * The grid view (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-<li>store * The grid store (only when using <a href="#!/api/Ext.grid.plugin.RowEditing" rel="Ext.grid.plugin.RowEditing" class="docClass">RowEditing</a>)</li>
-</ul> 
+<li>context: <code class="code">_ Js.t</code>
+    <p>The editing context with the following properties:</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 

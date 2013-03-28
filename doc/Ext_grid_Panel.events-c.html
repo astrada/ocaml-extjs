@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,17 +140,36 @@
 <center><h1>Class type <a href="type_Ext_grid_Panel.events.html">Ext_grid_Panel.events</a></h1></center>
 <br>
 <pre><span id="TYPEevents"><span class="keyword">class type</span> events</span> = <code class="code">object</code> <a href="Ext_grid_Panel.events-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
-<li><a href="Ext_AbstractComponent.events-c.html"><code class="code">Ext_AbstractComponent.events</code></a></li>
-<li><a href="Ext_Component.events-c.html"><code class="code">Ext_Component.events</code></a></li>
-<li><a href="Ext_container_AbstractContainer.events-c.html"><code class="code">Ext_container_AbstractContainer.events</code></a></li>
-<li><a href="Ext_container_Container.events-c.html"><code class="code">Ext_container_Container.events</code></a></li>
-<li><a href="Ext_panel_AbstractPanel.events-c.html"><code class="code">Ext_panel_AbstractPanel.events</code></a></li>
-<li><a href="Ext_panel_Panel.events-c.html"><code class="code">Ext_panel_Panel.events</code></a></li>
 <li><a href="Ext_panel_Table.events-c.html"><code class="code">Ext_panel_Table.events</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODreconfigure"><span class="keyword">method</span> reconfigure</span> : <code class="type">'a 'b.<br>         (<a href="Ext_grid_Panel.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> 'a Js.t Js.js_array Js.t -> 'b Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODbeforereconfigure"><span class="keyword">method</span> beforereconfigure</span> : <code class="type">'a 'b.<br>         (<a href="Ext_grid_Panel.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -><br>          'a Js.t Js.js_array Js.t -><br>          <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -><br>          <a href="Ext_grid_column_Column.t-c.html">Ext_grid_column_Column.t</a> Js.js_array Js.t -> 'b Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fires before a reconfigure to enable modification of incoming Store and columns.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_grid_Panel.t Js.t</code>
+    </li>
+<li>store: <code class="code">Ext_data_Store.t Js.t</code>
+    <p>The store that was passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> 
+    </li>
+<li>columns: <code class="code">_ Js.t Js.js_array Js.t</code>
+    <p>The column configs that were passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> 
+    </li>
+<li>oldStore: <code class="code">Ext_data_Store.t Js.t</code>
+    <p>The store that will be replaced</p> 
+    </li>
+<li>the: <code class="code">Ext_grid_column_Column.t Js.js_array Js.t</code>
+    <p>column headers that will be replaced.</p> 
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODreconfigure"><span class="keyword">method</span> reconfigure</span> : <code class="type">'c 'd.<br>         (<a href="Ext_grid_Panel.t-c.html">t</a> Js.t -><br>          <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -><br>          'c Js.t Js.js_array Js.t -><br>          <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -><br>          <a href="Ext_grid_column_Column.t-c.html">Ext_grid_column_Column.t</a> Js.js_array Js.t -> 'd Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
 <p>Fires after a reconfigure.</p> 
 <p>
 
@@ -160,6 +182,12 @@
     </li>
 <li>columns: <code class="code">_ Js.t Js.js_array Js.t</code>
     <p>The column configs that were passed to the <a href="#!/api/Ext.grid.Panel-method-reconfigure" rel="Ext.grid.Panel-method-reconfigure" class="docClass">reconfigure</a> method</p> 
+    </li>
+<li>oldStore: <code class="code">Ext_data_Store.t Js.t</code>
+    <p>The store that was replaced</p> 
+    </li>
+<li>the: <code class="code">Ext_grid_column_Column.t Js.js_array Js.t</code>
+    <p>column headers that were replaced.</p> 
     </li>
 <li>eOpts: <code class="code">_ Js.t</code>
     <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 

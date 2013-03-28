@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,11 +140,10 @@
 <center><h1>Class type <a href="type_Ext_data_proxy_Server.configs.html">Ext_data_proxy_Server.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_data_proxy_Server.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 <li><a href="Ext_data_proxy_Proxy.configs-c.html"><code class="code">Ext_data_proxy_Proxy.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODafterRequest"><span class="keyword">method</span> afterRequest</span> : <code class="type">(< afterRequest : 'a; api : 'b. 'b Js.t Js.prop;<br>          batchActions : bool Js.t Js.prop; batchOrder : Js.js_string Js.t Js.prop;<br>          cacheString : Js.js_string Js.t Js.prop;<br>          directionParam : Js.js_string Js.t Js.prop;<br>          extraParams : 'c. 'c Js.t Js.prop;<br>          filterParam : Js.js_string Js.t Js.prop;<br>          groupDirectionParam : Js.js_string Js.t Js.prop;<br>          groupParam : Js.js_string Js.t Js.prop;<br>          limitParam : Js.js_string Js.t Js.prop; listeners : 'd. 'd Js.t Js.prop;<br>          model : 'e. 'e Js.t Js.prop; noCache : bool Js.t Js.prop;<br>          pageParam : Js.js_string Js.t Js.prop; reader : 'f. 'f Js.t Js.prop;<br>          simpleGroupMode : bool Js.t Js.prop; simpleSortMode : bool Js.t Js.prop;<br>          sortParam : Js.js_string Js.t Js.prop;<br>          startParam : Js.js_string Js.t Js.prop; timeout : Js.number Js.t Js.prop;<br>          url : Js.js_string Js.t Js.prop; writer : 'g. 'g Js.t Js.prop; .. ><br>        Js.t, <a href="Ext_data_Request.t-c.html">Ext_data_Request.t</a> Js.t -> bool Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
+<pre><span id="METHODafterRequest"><span class="keyword">method</span> afterRequest</span> : <code class="type">(< afterRequest : 'a; api : 'b. 'b Js.t Js.prop;<br>          batchActions : bool Js.t Js.prop; batchOrder : Js.js_string Js.t Js.prop;<br>          cacheString : Js.js_string Js.t Js.prop;<br>          directionParam : Js.js_string Js.t Js.prop;<br>          extraParams : 'c. 'c Js.t Js.prop;<br>          filterParam : Js.js_string Js.t Js.prop;<br>          groupDirectionParam : Js.js_string Js.t Js.prop;<br>          groupParam : Js.js_string Js.t Js.prop;<br>          idParam : Js.js_string Js.t Js.prop;<br>          limitParam : Js.js_string Js.t Js.prop; listeners : 'd. 'd Js.t Js.prop;<br>          model : 'e. 'e Js.t Js.prop; noCache : bool Js.t Js.prop;<br>          pageParam : Js.js_string Js.t Js.prop; reader : 'f. 'f Js.t Js.prop;<br>          simpleGroupMode : bool Js.t Js.prop; simpleSortMode : bool Js.t Js.prop;<br>          sortParam : Js.js_string Js.t Js.prop;<br>          startParam : Js.js_string Js.t Js.prop; timeout : Js.number Js.t Js.prop;<br>          url : Js.js_string Js.t Js.prop; writer : 'g. 'g Js.t Js.prop; .. ><br>        Js.t, <a href="Ext_data_Request.t-c.html">Ext_data_Request.t</a> Js.t -> bool Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
 See method <code class="code">t.afterRequest</code><br>
 </div>
 <pre><span id="METHODapi"><span class="keyword">method</span> api</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
@@ -180,10 +182,10 @@ configured <a href="#!/api/Ext.data.proxy.Server-cfg-url" rel="Ext.data.proxy.Se
 </div>
 <pre><span id="METHODdirectionParam"><span class="keyword">method</span> directionParam</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The name of the direction parameter to send in a request. <strong>This is only used when simpleSortMode is set to
-true.</strong> Defaults to 'dir'.</p> 
+true.</strong></p> 
 <p>
 
-    Defaults to: <code class="code">'dir'</code><br>
+    Defaults to: <code class="code">"dir"</code><br>
 </div>
 <pre><span id="METHODextraParams"><span class="keyword">method</span> extraParams</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
 <p>Extra parameters that will be included on every request. Individual requests with params of the same name
@@ -194,28 +196,34 @@ will override these params when they are in conflict.</p> <br>
 want to send a filter parameter.</p> 
 <p>
 
-    Defaults to: <code class="code">'filter'</code><br>
+    Defaults to: <code class="code">"filter"</code><br>
 </div>
 <pre><span id="METHODgroupDirectionParam"><span class="keyword">method</span> groupDirectionParam</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The name of the direction parameter to send in a request. <strong>This is only used when simpleGroupMode is set to
-true.</strong> Defaults to 'groupDir'.</p> 
+true.</strong></p> 
 <p>
 
-    Defaults to: <code class="code">'groupDir'</code><br>
+    Defaults to: <code class="code">"groupDir"</code><br>
 </div>
 <pre><span id="METHODgroupParam"><span class="keyword">method</span> groupParam</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The name of the 'group' parameter to send in a request. Defaults to 'group'. Set this to undefined if you don't
 want to send a group parameter.</p> 
 <p>
 
-    Defaults to: <code class="code">'group'</code><br>
+    Defaults to: <code class="code">"group"</code><br>
+</div>
+<pre><span id="METHODidParam"><span class="keyword">method</span> idParam</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The name of the parameter which carries the id of the entity being operated upon.</p> 
+<p>
+
+    Defaults to: <code class="code">"id"</code><br>
 </div>
 <pre><span id="METHODlimitParam"><span class="keyword">method</span> limitParam</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The name of the 'limit' parameter to send in a request. Defaults to 'limit'. Set this to undefined if you don't
 want to send a limit parameter.</p> 
 <p>
 
-    Defaults to: <code class="code">'limit'</code><br>
+    Defaults to: <code class="code">"limit"</code><br>
 </div>
 <pre><span id="METHODnoCache"><span class="keyword">method</span> noCache</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>Disable caching by adding a unique parameter name to the request. Set to false to allow caching. Defaults to true.</p> 
@@ -228,7 +236,7 @@ want to send a limit parameter.</p>
 want to send a page parameter.</p> 
 <p>
 
-    Defaults to: <code class="code">'page'</code><br>
+    Defaults to: <code class="code">"page"</code><br>
 </div>
 <pre><span id="METHODsimpleGroupMode"><span class="keyword">method</span> simpleGroupMode</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>Enabling simpleGroupMode in conjunction with remoteGroup will only send one group property and a direction when a
@@ -251,14 +259,14 @@ and either 'ASC' or 'DESC'.</p>
 want to send a sort parameter.</p> 
 <p>
 
-    Defaults to: <code class="code">'sort'</code><br>
+    Defaults to: <code class="code">"sort"</code><br>
 </div>
 <pre><span id="METHODstartParam"><span class="keyword">method</span> startParam</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The name of the 'start' parameter to send in a request. Defaults to 'start'. Set this to undefined if you don't
 want to send a start parameter.</p> 
 <p>
 
-    Defaults to: <code class="code">'start'</code><br>
+    Defaults to: <code class="code">"start"</code><br>
 </div>
 <pre><span id="METHODtimeout"><span class="keyword">method</span> timeout</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>The number of milliseconds to wait for a response. Defaults to 30000 milliseconds (30 seconds).</p> 

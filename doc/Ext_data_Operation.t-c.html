@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,19 +141,6 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODactionCommitRecordsRe"><span class="keyword">method</span> actionCommitRecordsRe</span> : <code class="type">Regexp.regexp Js.t Js.prop</code></pre><div class="info">
-<p>The RegExp used to categorize actions that require record commits.</p> 
-<p>
-
-    Defaults to: <code class="code">/^(?:create|update)$/i</code><br>
-</div>
-<pre><span id="METHODactionSkipSyncRe"><span class="keyword">method</span> actionSkipSyncRe</span> : <code class="type">Regexp.regexp Js.t Js.prop</code></pre><div class="info">
-<p>The RegExp used to categorize actions that skip local record synchronization. This defaults
-to match 'destroy'.</p> 
-<p>
-
-    Defaults to: <code class="code">/^destroy$/i</code><br>
-</div>
 <pre><span id="METHODallowWrite"><span class="keyword">method</span> allowWrite</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
 <p>Checks whether this operation should cause writing to occur.</p> 
 <p>
@@ -284,5 +274,18 @@ instances as well as meta data such as number of instances fetched, number avail
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODactionCommitRecordsRe"><span class="keyword">method</span> actionCommitRecordsRe</span> : <code class="type">Regexp.regexp Js.t Js.prop</code></pre><div class="info">
+<p>The RegExp used to categorize actions that require record commits.</p> 
+<p>
+
+    Defaults to: <code class="code">/^(?:create|update)$/i</code><br>
+</div>
+<pre><span id="METHODactionSkipSyncRe"><span class="keyword">method</span> actionSkipSyncRe</span> : <code class="type">Regexp.regexp Js.t Js.prop</code></pre><div class="info">
+<p>The RegExp used to categorize actions that skip local record synchronization. This defaults
+to match 'destroy'.</p> 
+<p>
+
+    Defaults to: <code class="code">/^destroy$/i</code><br>
 </div>
 </body></html>

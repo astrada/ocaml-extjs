@@ -2,7 +2,8 @@
 <head>
     <title>Accordion Layout</title>
     <!-- Ext -->
-    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all.css" />
+    <link rel="stylesheet" type="text/css" href="../../extjs/resources/css/ext-all-neptune.css">
+    <script type="text/javascript" src="../../extjs/packages/ext-theme-neptune/build/ext-theme-neptune.js" defer></script>
 
     <!-- GC -->
 
@@ -22,9 +23,31 @@
             color: gray;
             font-size:11px;
         }
+        /* custom icon for the "buy" ActionColumn icon */
+        .x-action-col-cell img.buy-col {
+            background-image: url(../../extjs/examples/shared/icons/fam/accept.png);
+        }
+        /* custom icon for the "alert" ActionColumn icon */
+        .x-action-col-cell img.alert-col {
+            background-image: url(../../extjs/examples/shared/icons/fam/error.png);
+        }
+
+        .x-ie6 .x-action-col-cell img.buy-col {
+            background-image: url(../../extjs/examples/shared/icons/fam/accept.gif);
+        }
+        .x-ie6.x-action-col-cell img.alert-col {
+            background-image: url(../../extjs/examples/shared/icons/fam/error.gif);
+        }
+
+        .x-ie6 .x-action-col-cell img {
+            position:relative;
+            top:-1px;
+        }
     </style>
-<script type="text/javascript" src="../../extjs/ext-all.js"></script>
-<script type="text/javascript" src="app-all.js"></script>
+
+<script type="text/javascript" src="all-classes.js"></script>
+
+<script type="text/javascript" src="../../extjs/examples/shared/examples.js"></script><!-- EXAMPLES -->
 
 <script type="text/javascript">
 
@@ -41,6 +64,5 @@
 </script>
 </head>
 <body>
-<script type="text/javascript" src="../../extjs/examples/shared/examples.js"></script><!-- EXAMPLES -->
 </body>
 </html>

@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,35 +138,6 @@
 <center><h1>Class type <a href="type_Ext_Error.statics.html">Ext_Error.statics</a></h1></center>
 <br>
 <pre><span id="TYPEstatics"><span class="keyword">class type</span> statics</span> = <code class="code">object</code> <a href="Ext_Error.statics-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="METHODignore"><span class="keyword">method</span> ignore</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Static flag that can be used to globally disable error reporting to the browser if set to true
-(defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
-and throw a native JavaScript error thereafter, so use with caution. In most cases it will probably
-be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">handling</a> function instead.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-property-ignore" rel="Ext.Error-static-property-ignore" class="docClass">Ext.Error.ignore</a> = true;
-</code></pre> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODnotify"><span class="keyword">method</span> notify</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Static flag that can be used to globally control error notification to the user. Unlike
-Ex.Error.ignore, this does not effect exceptions. They are still thrown. This value can be
-set to false to disable the alert notification (default is true for IE6 and IE7).</p>
-
-<p>Only the first error will generate an alert. Internally this flag is set to false when the
-first error occurs prior to displaying the alert.</p>
-
-<p>This flag is not used in a release build.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
-</code></pre> <br>
-</div>
 <pre><span id="METHODhandle"><span class="keyword">method</span> handle</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Globally handle any Ext errors that may be raised, optionally providing custom logic to
 handle different errors individually. Return true from the function to bypass throwing the
@@ -229,5 +203,34 @@ if available.</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODignore"><span class="keyword">method</span> ignore</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Static flag that can be used to globally disable error reporting to the browser if set to true
+(defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
+and throw a native JavaScript error thereafter, so use with caution. In most cases it will probably
+be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">handling</a> function instead.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-property-ignore" rel="Ext.Error-static-property-ignore" class="docClass">Ext.Error.ignore</a> = true;
+</code></pre> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODnotify"><span class="keyword">method</span> notify</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Static flag that can be used to globally control error notification to the user. Unlike
+Ex.Error.ignore, this does not effect exceptions. They are still thrown. This value can be
+set to false to disable the alert notification (default is true for IE6 and IE7).</p>
+
+<p>Only the first error will generate an alert. Internally this flag is set to false when the
+first error occurs prior to displaying the alert.</p>
+
+<p>This flag is not used in a release build.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
+</code></pre> <br>
 </div>
 </body></html>

@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,71 +138,23 @@
 <center><h1>Class type <a href="type_Ext_AbstractComponent.t.html">Ext_AbstractComponent.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_AbstractComponent.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 <li><a href="Ext_state_Stateful.t-c.html"><code class="code">Ext_state_Stateful.t</code></a></li>
 <li><a href="Ext_util_Animate.t-c.html"><code class="code">Ext_util_Animate.t</code></a></li>
 <li><a href="Ext_util_ElementContainer.t-c.html"><code class="code">Ext_util_ElementContainer.t</code></a></li>
 <li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
+<li><a href="Ext_util_Positionable.t-c.html"><code class="code">Ext_util_Positionable.t</code></a></li>
 <li><a href="Ext_util_Renderable.t-c.html"><code class="code">Ext_util_Renderable.t</code></a></li>
+<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHOD_isLayoutRoot"><span class="keyword">method</span> _isLayoutRoot</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Setting this property to <code>true</code> causes the <a href="#!/api/Ext.AbstractComponent-method-isLayoutRoot" rel="Ext.AbstractComponent-method-isLayoutRoot" class="docClass">isLayoutRoot</a> method to return
-<code>true</code> and stop the search for the top-most component for a layout.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODdraggable"><span class="keyword">method</span> draggable</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
-<p>Indicates whether or not the component can be dragged.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODframeSize"><span class="keyword">method</span> frameSize</span> : <code class="type">'a. 'a Js.t Js.readonly_prop</code></pre><div class="info">
-<p>Indicates the width of any framing elements which were added within the encapsulating element
-to provide graphical, rounded borders. See the <a href="#!/api/Ext.AbstractComponent-cfg-frame" rel="Ext.AbstractComponent-cfg-frame" class="docClass">frame</a> config.</p>
-
-<p>This is an object containing the frame width in pixels for all four sides of the Component containing the
-following properties:</p> 
-<p>
-
-    Defaults to: <code class="code">{left: 0, top: 0, right: 0, bottom: 0, width: 0, height: 0}</code><br>
-</div>
-<pre><span id="METHODisComponent"><span class="keyword">method</span> isComponent</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p><code>true</code> in this class to identify an object as an instantiated Component, or subclass thereof.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
-</div>
-<pre><span id="METHODmaskOnDisable"><span class="keyword">method</span> maskOnDisable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>This is an internal flag that you use when creating custom components. By default this is set to true which means
-that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
-override this property to false since they want to implement custom disable logic.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
-</div>
-<pre><span id="METHODownerCt"><span class="keyword">method</span> ownerCt</span> : <code class="type">'b. 'b Js.t Js.readonly_prop</code></pre><div class="info">
-<p>This Component's owner <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> (is set automatically
-when this Component is added to a Container).</p>
-
-<p><strong>Note</strong>: to access items within the Container see <a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a>.</p> <br>
-</div>
-<pre><span id="METHODrendered"><span class="keyword">method</span> rendered</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
-<p>Indicates whether or not the component has been rendered.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODaddCls"><span class="keyword">method</span> addCls</span> : <code class="type">'c.<br>         'c Js.t -><br>         (< _isLayoutRoot : bool Js.t Js.prop; addChildEls : unit Js.meth;<br>            addCls : 'c. 'd;<br>            addClsWithUI : 'f 'g. 'f Js.t -> 'g Js.t -> unit Js.meth;<br>            addEvents : 'h. 'h Js.t -> unit Js.meth;<br>            addListener : 'i 'j 'k 'l.<br>                            'i Js.t -><br>                            'j Js.callback Js.optdef -><br>                            'k Js.t Js.optdef -> 'l Js.t Js.optdef -> unit Js.meth;<br>            addManagedListener : 'm 'n 'o 'p 'q.<br>                                   'm Js.t -><br>                                   'n Js.t -><br>                                   'o Js.callback Js.optdef -><br>                                   'p Js.t Js.optdef -><br>                                   'q Js.t Js.optdef -> unit Js.meth;<br>            addPropertyToState : 'r.<br>                                   'r Js.t -><br>                                   Js.js_string Js.t -><br>                                   Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            addStateEvents : 's. 's Js.t -> unit Js.meth;<br>            addUIClsToElement : Js.js_string Js.t -> unit Js.meth;<br>            afterComponentLayout : Js.number Js.t -><br>                                   Js.number Js.t -><br>                                   Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            afterRender : unit Js.meth;<br>            afterSetPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            animate : 't 'u. 't Js.t -> 'u Js.t Js.meth;<br>            applyState : 'v. 'v Js.t -> unit Js.meth;<br>            beforeComponentLayout : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            beforeDestroy : unit Js.meth;<br>            callParent : 'w 'x. 'w Js.t -> 'x Js.t Js.meth;<br>            callSuper : 'y 'z. 'y Js.t -> 'z Js.t Js.meth;<br>            clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>            destroy : unit Js.meth; disable : bool Js.t Js.optdef -> unit Js.meth;<br>            doAutoRender : unit Js.meth; doComponentLayout : 'a1. 'a1 Js.t Js.meth;<br>            draggable : bool Js.t Js.readonly_prop;<br>            enable : bool Js.t Js.optdef -> unit Js.meth;<br>            enableBubble : 'b1. 'b1 Js.t -> unit Js.meth;<br>            ensureAttachedToBody : bool Js.t Js.optdef -> unit Js.meth;<br>            fireEvent : 'c1. Js.js_string Js.t -> 'c1 Js.t -> bool Js.t Js.meth;<br>            frameSize : 'a. 'a Js.t Js.readonly_prop;<br>            getActiveAnimation : 'd1. 'd1 Js.t Js.meth;<br>            getBubbleTarget : 'e1. 'e1 Js.t Js.meth;<br>            getEl : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth;<br>            getHeight : Js.number Js.t Js.meth; getId : Js.js_string Js.t Js.meth;<br>            getInitialConfig : 'f1. Js.js_string Js.t Js.optdef -> 'f1 Js.t Js.meth;<br>            getInsertPosition : 'g1. 'g1 Js.t -> Dom_html.element Js.t Js.meth;<br>            getItemId : Js.js_string Js.t Js.meth;<br>            getLoader : <a href="Ext_ComponentLoader.t-c.html">Ext_ComponentLoader.t</a> Js.t Js.meth;<br>            getPlugin : Js.js_string Js.t -> <a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a> Js.t Js.meth;<br>            getSize : 'h1. 'h1 Js.t Js.meth;<br>            getSizeModel : 'i1 'j1. 'i1 Js.t -> 'j1 Js.t Js.meth;<br>            getState : 'k1. 'k1 Js.t Js.meth; getWidth : Js.number Js.t Js.meth;<br>            getXTypes : Js.js_string Js.t Js.meth;<br>            hasCls : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'l1. 'l1 Js.t Js.readonly_prop;<br>            hasUICls : Js.js_string Js.t -> unit Js.meth;<br>            initConfig : 'm1. 'm1 Js.t -> 'e Js.t Js.meth;<br>            is : Js.js_string Js.t -> bool Js.t Js.meth;<br>            isComponent : bool Js.t Js.prop;<br>            isDescendantOf : 'n1. 'n1 Js.t -> bool Js.t Js.meth;<br>            isDisabled : bool Js.t Js.meth; isDraggable : bool Js.t Js.meth;<br>            isDroppable : bool Js.t Js.meth; isFloating : bool Js.t Js.meth;<br>            isHidden : bool Js.t Js.meth; isLayoutRoot : unit Js.meth;<br>            isLayoutSuspended : bool Js.t Js.meth; isObservable : bool Js.t Js.prop;<br>            isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            isXType : Js.js_string Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            maskOnDisable : bool Js.t Js.prop;<br>            mon : 'o1 'p1 'q1 'r1 's1.<br>                    'o1 Js.t -><br>                    'p1 Js.t -><br>                    'q1 Js.callback Js.optdef -><br>                    'r1 Js.t Js.optdef -> 's1 Js.t Js.optdef -> unit Js.meth;<br>            mun : 't1 'u1 'v1 'w1.<br>                    't1 Js.t -><br>                    'u1 Js.t -><br>                    'v1 Js.callback Js.optdef -> 'w1 Js.t Js.optdef -> unit Js.meth;<br>            nextNode : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            nextSibling : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            on : 'x1 'y1 'z1 'a2.<br>                   'x1 Js.t -><br>                   'y1 Js.callback Js.optdef -><br>                   'z1 Js.t Js.optdef -> 'a2 Js.t Js.optdef -> unit Js.meth;<br>            onAdded : 'b2. 'b2 Js.t -> Js.number Js.t -> unit Js.meth;<br>            onDisable : unit Js.meth; onEnable : unit Js.meth;<br>            onPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            onRemoved : bool Js.t -> unit Js.meth;<br>            onRender : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit Js.meth;<br>            onResize : unit Js.meth; ownerCt : 'b. 'b Js.t Js.readonly_prop;<br>            previousNode : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            previousSibling : Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth;<br>            registerFloatingItem : 'c2. 'c2 Js.t -> unit Js.meth;<br>            relayEvents : 'd2.<br>                            'd2 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> unit Js.meth;<br>            removeChildEls : 'e2. 'e2 Js.callback -> unit Js.meth;<br>            removeCls : 'f2. 'f2 Js.t -> 'e Js.t Js.meth;<br>            removeClsWithUI : 'g2. 'g2 Js.t -> unit Js.meth;<br>            removeListener : 'h2 'i2.<br>                               Js.js_string Js.t -><br>                               'h2 Js.callback -> 'i2 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'j2 'k2 'l2 'm2.<br>                                      'j2 Js.t -><br>                                      'k2 Js.t -><br>                                      'l2 Js.callback Js.optdef -><br>                                      'm2 Js.t Js.optdef -> unit Js.meth;<br>            removeUIClsFromElement : Js.js_string Js.t -> unit Js.meth;<br>            render : 'n2 'o2.<br>                       'n2 Js.t Js.optdef -> 'o2 Js.t Js.optdef -> unit Js.meth;<br>            rendered : bool Js.t Js.readonly_prop; resumeEvents : unit Js.meth;<br>            savePropToState : 'p2.<br>                                Js.js_string Js.t -><br>                                'p2 Js.t -><br>                                Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            savePropsToState : 'q2 'r2 's2. 'q2 Js.t -> 'r2 Js.t -> 's2 Js.t Js.meth;<br>            saveState : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            sequenceFx : 't2. 't2 Js.t Js.meth;<br>            setBorder : 'u2. 'u2 Js.t -> unit Js.meth;<br>            setDisabled : bool Js.t -> unit Js.meth;<br>            setDocked : 'v2. 'v2 Js.t -> bool Js.t Js.optdef -> 'e Js.t Js.meth;<br>            setHeight : Js.number Js.t -> 'e Js.t Js.meth;<br>            setPosition : 'w2.<br>                            Js.number Js.t -><br>                            Js.number Js.t -> 'w2 Js.t Js.optdef -> 'e Js.t Js.meth;<br>            setSize : 'x2 'y2. 'x2 Js.t -> 'y2 Js.t -> 'e Js.t Js.meth;<br>            setUI : Js.js_string Js.t -> unit Js.meth;<br>            setVisible : bool Js.t -> 'e Js.t Js.meth;<br>            setWidth : Js.number Js.t -> 'e Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            stopAnimation : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            syncFx : 'z2. 'z2 Js.t Js.meth;<br>            un : 'a3 'b3.<br>                   Js.js_string Js.t -><br>                   'a3 Js.callback -> 'b3 Js.t Js.optdef -> unit Js.meth;<br>            up : 'c3. Js.js_string Js.t Js.optdef -> 'c3 Js.t Js.meth;<br>            update : 'd3 'e3.<br>                       'd3 Js.t -><br>                       bool Js.t Js.optdef -><br>                       'e3 Js.callback Js.optdef -> unit Js.meth;<br>            updateLayout : 'f3. 'f3 Js.t -> unit Js.meth; .. ><br>          as 'e)<br>         Js.t Js.meth as 'd</code></pre><div class="info">
+<pre><span id="METHODaddCls"><span class="keyword">method</span> addCls</span> : <code class="type">'a.<br>         'a Js.t -><br>         (< _isLayoutRoot : bool Js.t Js.prop; addChildEls : unit Js.meth;<br>            addCls : 'a. 'b;<br>            addClsWithUI : 'd 'e. 'd Js.t -> 'e Js.t -> unit Js.meth;<br>            addEvents : 'f. 'f Js.t -> unit Js.meth;<br>            addListener : 'g 'h 'i 'j 'k.<br>                            'g Js.t -><br>                            'h Js.callback Js.optdef -><br>                            'i Js.t Js.optdef -><br>                            'j Js.t Js.optdef -> 'k Js.t Js.meth;<br>            addManagedListener : 'l 'm 'n 'o 'p 'q.<br>                                   'l Js.t -><br>                                   'm Js.t -><br>                                   'n Js.callback Js.optdef -><br>                                   'o Js.t Js.optdef -><br>                                   'p Js.t Js.optdef -> 'q Js.t Js.meth;<br>            addPropertyToState : 'r.<br>                                   'r Js.t -><br>                                   Js.js_string Js.t -><br>                                   Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            addStateEvents : 's. 's Js.t -> unit Js.meth;<br>            addUIClsToElement : Js.js_string Js.t -> unit Js.meth;<br>            afterComponentLayout : 't 'u.<br>                                     Js.number Js.t -><br>                                     Js.number Js.t -><br>                                     't Js.t -> 'u Js.t -> unit Js.meth;<br>            afterRender : unit Js.meth;<br>            afterSetPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            alignTo : 'v 'w.<br>                        'v Js.t -><br>                        Js.js_string Js.t Js.optdef -><br>                        Js.number Js.t Js.js_array Js.t Js.optdef -><br>                        'w Js.t Js.optdef -> 'c Js.t Js.meth;<br>            anchorTo : 'x 'y 'z 'a1.<br>                         'x Js.t -><br>                         Js.js_string Js.t Js.optdef -><br>                         Js.number Js.t Js.js_array Js.t Js.optdef -><br>                         'y Js.t Js.optdef -><br>                         'z Js.t Js.optdef -><br>                         'a1 Js.callback Js.optdef -> 'c Js.t Js.meth;<br>            animate : 'b1 'c1. 'b1 Js.t -> 'c1 Js.t Js.meth;<br>            applyState : 'd1. 'd1 Js.t -> unit Js.meth;<br>            beforeBlur : <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth;<br>            beforeComponentLayout : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            beforeDestroy : unit Js.meth;<br>            beforeFocus : <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth;<br>            beforeLayout : unit Js.meth;<br>            calculateConstrainedPosition : 'e1.<br>                                             'e1 Js.t Js.optdef -><br>                                             Js.number Js.t Js.js_array Js.t<br>                                             Js.optdef -><br>                                             bool Js.t Js.optdef -><br>                                             Js.number Js.t Js.js_array Js.t<br>                                             Js.optdef -><br>                                             Js.number Js.t Js.js_array Js.t Js.meth;<br>            callParent : 'f1 'g1. 'f1 Js.t -> 'g1 Js.t Js.meth;<br>            callSuper : 'h1 'i1. 'h1 Js.t -> 'i1 Js.t Js.meth;<br>            clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>            contentPaddingProperty : Js.js_string Js.t Js.prop;<br>            destroy : unit Js.meth; disable : bool Js.t Js.optdef -> unit Js.meth;<br>            doAutoRender : unit Js.meth; doComponentLayout : 'j1. 'j1 Js.t Js.meth;<br>            draggable : bool Js.t Js.readonly_prop;<br>            enable : bool Js.t Js.optdef -> unit Js.meth;<br>            enableBubble : 'k1. 'k1 Js.t -> unit Js.meth;<br>            ensureAttachedToBody : bool Js.t Js.optdef -> unit Js.meth;<br>            fireEvent : 'l1. Js.js_string Js.t -> 'l1 Js.t -> bool Js.t Js.meth;<br>            fireEventArgs : 'm1.<br>                              Js.js_string Js.t -><br>                              'm1 Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>            frameSize : 'n1. 'n1 Js.t Js.readonly_prop;<br>            getActiveAnimation : 'o1. 'o1 Js.t Js.meth;<br>            getAlignToXY : 'p1.<br>                             'p1 Js.t -><br>                             Js.js_string Js.t Js.optdef -><br>                             Js.number Js.t Js.js_array Js.t Js.optdef -><br>                             Js.number Js.t Js.js_array Js.t Js.meth;<br>            getAnchorXY : 'q1.<br>                            Js.js_string Js.t Js.optdef -><br>                            bool Js.t Js.optdef -><br>                            'q1 Js.t Js.optdef -><br>                            Js.number Js.t Js.js_array Js.t Js.meth;<br>            getBox : 'r1.<br>                       bool Js.t Js.optdef -><br>                       bool Js.t Js.optdef -> 'r1 Js.t Js.meth;<br>            getBubbleTarget : 's1. 's1 Js.t Js.meth;<br>            getConstrainVector : 't1 'u1.<br>                                   't1 Js.t Js.optdef -><br>                                   Js.number Js.t Js.js_array Js.t Js.optdef -><br>                                   Js.number Js.t Js.js_array Js.t Js.optdef -><br>                                   'u1 Js.t Js.meth;<br>            getEl : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth;<br>            getHeight : Js.number Js.t Js.meth; getId : Js.js_string Js.t Js.meth;<br>            getInitialConfig : 'v1. Js.js_string Js.t Js.optdef -> 'v1 Js.t Js.meth;<br>            getInsertPosition : 'w1. 'w1 Js.t -> Dom_html.element Js.t Js.meth;<br>            getItemId : Js.js_string Js.t Js.meth;<br>            getLoader : <a href="Ext_ComponentLoader.t-c.html">Ext_ComponentLoader.t</a> Js.t Js.meth;<br>            getLocalX : Js.number Js.t Js.meth;<br>            getLocalXY : Js.number Js.t Js.js_array Js.t Js.meth;<br>            getLocalY : Js.number Js.t Js.meth;<br>            getOffsetsTo : 'x1. 'x1 Js.t -> Js.number Js.t Js.js_array Js.t Js.meth;<br>            getPlugin : Js.js_string Js.t -> <a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a> Js.t Js.meth;<br>            getRegion : <a href="Ext_util_Region.t-c.html">Ext_util_Region.t</a> Js.t Js.meth;<br>            getSize : 'y1. 'y1 Js.t Js.meth;<br>            getSizeModel : 'z1 'a2. 'z1 Js.t -> 'a2 Js.t Js.meth;<br>            getState : 'b2. 'b2 Js.t Js.meth;<br>            getViewRegion : <a href="Ext_util_Region.t-c.html">Ext_util_Region.t</a> Js.t Js.meth;<br>            getWidth : Js.number Js.t Js.meth; getX : Js.number Js.t Js.meth;<br>            getXTypes : Js.js_string Js.t Js.meth;<br>            getXY : Js.number Js.t Js.js_array Js.t Js.meth;<br>            getY : Js.number Js.t Js.meth;<br>            hasCls : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'c2. 'c2 Js.t Js.readonly_prop;<br>            hasUICls : Js.js_string Js.t -> unit Js.meth;<br>            initConfig : 'd2. 'd2 Js.t -> 'c Js.t Js.meth;<br>            initEvents : unit Js.meth; initRenderData : 'e2. 'e2 Js.t Js.meth;<br>            is : Js.js_string Js.t -> bool Js.t Js.meth;<br>            isComponent : bool Js.t Js.prop;<br>            isDescendantOf : 'f2. 'f2 Js.t -> bool Js.t Js.meth;<br>            isDisabled : bool Js.t Js.meth; isDraggable : bool Js.t Js.meth;<br>            isDroppable : bool Js.t Js.meth; isFloating : bool Js.t Js.meth;<br>            isHidden : bool Js.t Js.meth; isLayoutRoot : unit Js.meth;<br>            isLayoutSuspended : bool Js.t Js.meth; isObservable : bool Js.t Js.prop;<br>            isVisible : bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            isXType : Js.js_string Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth;<br>            maskOnDisable : bool Js.t Js.prop;<br>            mon : 'g2 'h2 'i2 'j2 'k2 'l2.<br>                    'g2 Js.t -><br>                    'h2 Js.t -><br>                    'i2 Js.callback Js.optdef -><br>                    'j2 Js.t Js.optdef -> 'k2 Js.t Js.optdef -> 'l2 Js.t Js.meth;<br>            move : 'm2.<br>                     Js.js_string Js.t -><br>                     Js.number Js.t -> 'm2 Js.t Js.optdef -> unit Js.meth;<br>            mun : 'n2 'o2 'p2 'q2.<br>                    'n2 Js.t -><br>                    'o2 Js.t -><br>                    'p2 Js.callback Js.optdef -> 'q2 Js.t Js.optdef -> unit Js.meth;<br>            nextNode : Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth;<br>            nextSibling : Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth;<br>            on : 'r2 's2 't2 'u2 'v2.<br>                   'r2 Js.t -><br>                   's2 Js.callback Js.optdef -><br>                   't2 Js.t Js.optdef -> 'u2 Js.t Js.optdef -> 'v2 Js.t Js.meth;<br>            onAdded : 'w2. 'w2 Js.t -> Js.number Js.t -> unit Js.meth;<br>            onDisable : unit Js.meth; onEnable : unit Js.meth;<br>            onPosition : Js.number Js.t -> Js.number Js.t -> unit Js.meth;<br>            onRemoved : bool Js.t -> unit Js.meth;<br>            onRender : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit Js.meth;<br>            onResize : 'x2 'y2 'z2 'a3.<br>                         'x2 Js.t -><br>                         'y2 Js.t -> 'z2 Js.t -> 'a3 Js.t -> unit Js.meth;<br>            ownerCt : 'b3. 'b3 Js.t Js.readonly_prop;<br>            postBlur : <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth;<br>            previousNode : Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth;<br>            previousSibling : Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth;<br>            registerFloatingItem : 'c3. 'c3 Js.t -> unit Js.meth;<br>            relayEvents : 'd3 'e3.<br>                            'd3 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> 'e3 Js.t Js.meth;<br>            removeAnchor : 'c Js.t Js.meth;<br>            removeChildEls : 'f3. 'f3 Js.callback -> unit Js.meth;<br>            removeCls : 'g3. 'g3 Js.t -> 'c Js.t Js.meth;<br>            removeClsWithUI : 'h3. 'h3 Js.t -> unit Js.meth;<br>            removeListener : 'i3 'j3.<br>                               Js.js_string Js.t -><br>                               'i3 Js.callback -> 'j3 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'k3 'l3 'm3 'n3.<br>                                      'k3 Js.t -><br>                                      'l3 Js.t -><br>                                      'm3 Js.callback Js.optdef -><br>                                      'n3 Js.t Js.optdef -> unit Js.meth;<br>            removeUIClsFromElement : Js.js_string Js.t -> unit Js.meth;<br>            render : 'o3 'p3.<br>                       'o3 Js.t Js.optdef -> 'p3 Js.t Js.optdef -> unit Js.meth;<br>            rendered : bool Js.t Js.readonly_prop;<br>            resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>            resumeEvents : unit Js.meth;<br>            savePropToState : 'q3.<br>                                Js.js_string Js.t -><br>                                'q3 Js.t -><br>                                Js.js_string Js.t Js.optdef -> bool Js.t Js.meth;<br>            savePropsToState : 'r3 's3 't3. 'r3 Js.t -> 's3 Js.t -> 't3 Js.t Js.meth;<br>            saveState : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            sequenceFx : 'u3. 'u3 Js.t Js.meth;<br>            setBorder : 'v3. 'v3 Js.t -> unit Js.meth;<br>            setBox : 'w3 'x3. 'w3 Js.t -> 'x3 Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setDisabled : bool Js.t -> unit Js.meth;<br>            setDocked : 'y3. 'y3 Js.t -> bool Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setHeight : Js.number Js.t -> 'c Js.t Js.meth;<br>            setLocalX : Js.number Js.t -> 'c Js.t Js.meth;<br>            setLocalXY : 'z3.<br>                           'z3 Js.t -> Js.number Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setLocalY : Js.number Js.t -> 'c Js.t Js.meth;<br>            setMargin : 'a4. 'a4 Js.t -> unit Js.meth;<br>            setRegion : 'b4.<br>                          <a href="Ext_util_Region.t-c.html">Ext_util_Region.t</a> Js.t -><br>                          'b4 Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setSize : 'c4 'd4. 'c4 Js.t -> 'd4 Js.t -> 'c Js.t Js.meth;<br>            setUI : Js.js_string Js.t -> unit Js.meth;<br>            setVisible : bool Js.t -> 'c Js.t Js.meth;<br>            setWidth : Js.number Js.t -> 'c Js.t Js.meth;<br>            setX : 'e4. Js.number Js.t -> 'e4 Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setXY : 'f4.<br>                      Js.number Js.t Js.js_array Js.t -><br>                      'f4 Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setY : 'g4. Js.number Js.t -> 'g4 Js.t Js.optdef -> 'c Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            stopAnimation : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth;<br>            suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            syncFx : 'h4. 'h4 Js.t Js.meth;<br>            translatePoints : 'i4 'j4.<br>                                'i4 Js.t -><br>                                Js.number Js.t Js.optdef -> 'j4 Js.t Js.meth;<br>            un : 'k4 'l4.<br>                   Js.js_string Js.t -><br>                   'k4 Js.callback -> 'l4 Js.t Js.optdef -> unit Js.meth;<br>            up : 'm4 'n4. 'm4 Js.t Js.optdef -> 'n4 Js.t Js.meth;<br>            update : 'o4 'p4.<br>                       'o4 Js.t -><br>                       bool Js.t Js.optdef -><br>                       'p4 Js.callback Js.optdef -> unit Js.meth;<br>            updateLayout : 'q4. 'q4 Js.t Js.optdef -> unit Js.meth; .. ><br>          as 'c)<br>         Js.t Js.meth as 'b</code></pre><div class="info">
 <p>Adds a CSS class to the top level element representing this component.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>cls: <code class="code">_ Js.t</code>
-    <p>The CSS class name to add</p> 
+    <p>The CSS class name to add.</p> 
     </li>
 </ul>
 
@@ -213,23 +168,23 @@ when this Component is added to a Container).</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODaddClsWithUI"><span class="keyword">method</span> addClsWithUI</span> : <code class="type">'f 'g. 'f Js.t -> 'g Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Adds a cls to the uiCls array, which will also call <a href="#!/api/Ext.AbstractComponent-method-addUIClsToElement" rel="Ext.AbstractComponent-method-addUIClsToElement" class="docClass">addUIClsToElement</a> and adds to all elements of this
+<pre><span id="METHODaddClsWithUI"><span class="keyword">method</span> addClsWithUI</span> : <code class="type">'d 'e. 'd Js.t -> 'e Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Adds a <code>cls</code> to the <code>uiCls</code> array, which will also call <a href="#!/api/Ext.AbstractComponent-method-addUIClsToElement" rel="Ext.AbstractComponent-method-addUIClsToElement" class="docClass">addUIClsToElement</a> and adds to all elements of this
 component.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>classes: <code class="code">_ Js.t</code>
-    <p>A string or an array of strings to add to the uiCls</p> 
+    <p>A string or an array of strings to add to the <code>uiCls</code>.</p> 
     </li>
 <li>skip: <code class="code">_ Js.t</code>
-    <p>(Boolean) skip True to skip adding it to the class and do it later (via the return)</p> 
+    <p>(Boolean) skip <code>true</code> to skip adding it to the class and do it later (via the return).</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODaddListener"><span class="keyword">method</span> addListener</span> : <code class="type">'i 'j 'k 'l.<br>         'i Js.t -><br>         'j Js.callback Js.optdef -><br>         'k Js.t Js.optdef -> 'l Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODaddListener"><span class="keyword">method</span> addListener</span> : <code class="type">'g 'h 'i 'j 'k.<br>         'g Js.t -><br>         'h Js.callback Js.optdef -><br>         'i Js.t Js.optdef -> 'j Js.t Js.optdef -> 'k Js.t Js.meth</code></pre><div class="info">
 <p>Appends an event handler to this object.  For example:</p>
 
 <pre><code>myGridPanel.on("mouseover", this.onMouseOver, this);
@@ -273,7 +228,7 @@ May also be an object who's property names are event names.</p>
 <li>fn: <code class="code">_ Js.callback</code> (optional)
     <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
 the specified <code>scope</code>.  Will be called with arguments
-given to <a href="#!/api/Ext.AbstractComponent-method-fireEvent" rel="Ext.AbstractComponent-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> 
+given to <a href="#!/api/Ext.util.Observable-method-fireEvent" rel="Ext.util.Observable-method-fireEvent" class="docClass">Ext.util.Observable.fireEvent</a> plus the <code>options</code> parameter described below.</p> 
     </li>
 <li>scope: <code class="code">_ Js.t</code> (optional)
     <p>The scope (<code>this</code> reference) in which the handler function is
@@ -288,6 +243,35 @@ argument to every event handler.</p>
 <p>This object may contain any of the following properties:</p> 
     </li>
 </ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p><strong>Only when the <code>destroyable</code> option is specified. </strong></p>
+
+<p> A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which removes all listeners added in this call. For example:</p>
+
+<pre><code>this.btnListeners =  = myButton.on({
+    destroyable: true
+    mouseover:   function() { console.log('mouseover'); },
+    mouseout:    function() { console.log('mouseout'); },
+    click:       function() { console.log('click'); }
+});
+</code></pre>
+
+<p>And when those listeners need to be removed:</p>
+
+<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.btnListeners);
+</code></pre>
+
+<p>or</p>
+
+<pre><code>this.btnListeners.destroy();
+</code></pre> 
+    </li>
+</ul>
 <br>
 </div>
 <pre><span id="METHODaddPropertyToState"><span class="keyword">method</span> addPropertyToState</span> : <code class="type">'r.<br>         'r Js.t -><br>         Js.js_string Js.t -> Js.js_string Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
@@ -298,7 +282,7 @@ value.</p>
     <b>Parameters</b>:
     <ul>
 <li>state: <code class="code">_ Js.t</code>
-    <p>The state object</p> 
+    <p>The state object.</p> 
     </li>
 <li>propName: <code class="code">Js.js_string Js.t</code>
     <p>The name of the property on this object to save.</p> 
@@ -313,27 +297,27 @@ value.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>The state object or a new object if state was null and the property
+    <p>The state object or a new object if state was <code>null</code> and the property
 was saved.</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODaddUIClsToElement"><span class="keyword">method</span> addUIClsToElement</span> : <code class="type">Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Method which adds a specified UI + uiCls to the components element. Can be overridden to remove the UI from more
+<p>Method which adds a specified UI + <code>uiCls</code> to the components element. Can be overridden to remove the UI from more
 than just the components element.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>ui: <code class="code">Js.js_string Js.t</code>
-    <p>The UI to remove from the element</p> 
+    <p>The UI to remove from the element.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">Js.number Js.t -><br>       Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Called by the layout system after the Component has been layed out.</p> 
+<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">'t 'u. Js.number Js.t -> Js.number Js.t -> 't Js.t -> 'u Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Called by the layout system after the Component has been laid out.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -344,11 +328,11 @@ than just the components element.</p>
 <li>height: <code class="code">Js.number Js.t</code>
     <p>The height that was set</p> 
     </li>
-<li>oldWidth: <code class="code">Js.number Js.t</code>
-    <p>The old width. <code>undefined</code> if this was the initial layout.</p> 
+<li>oldWidth: <code class="code">_ Js.t</code>
+    <p>The old width, or <code>undefined</code> if this was the initial layout.</p> 
     </li>
-<li>oldHeight: <code class="code">Js.number Js.t</code>
-    <p>The old height. <code>undefined</code> if this was the initial layout.</p> 
+<li>oldHeight: <code class="code">_ Js.t</code>
+    <p>The old height, or <code>undefined</code> if this was the initial layout.</p> 
     </li>
 </ul>
 <br>
@@ -366,7 +350,7 @@ than just the components element.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODanimate"><span class="keyword">method</span> animate</span> : <code class="type">'t 'u. 't Js.t -> 'u Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODanimate"><span class="keyword">method</span> animate</span> : <code class="type">'b1 'c1. 'b1 Js.t -> 'c1 Js.t Js.meth</code></pre><div class="info">
 <p>Performs custom animation on this object.</p>
 
 <p>This method is applicable to both the <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> class and the <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Sprite</a>
@@ -382,7 +366,7 @@ class. It performs animated transitions of certain properties of this object ove
 <li><p><code>left</code> - The Component's <code>left</code> value in pixels.</p></li>
 <li><p><code>top</code> - The Component's <code>top</code> value in pixels.</p></li>
 <li><p><code>width</code> - The Component's <code>width</code> value in pixels.</p></li>
-<li><p><code>width</code> - The Component's <code>width</code> value in pixels.</p></li>
+<li><p><code>height</code> - The Component's <code>height</code> value in pixels.</p></li>
 <li><p><code>dynamic</code> - Specify as true to update the Component's layout (if it is a Container) at every frame of the animation.
 <em>Use sparingly as laying out on every intermediate size change is an expensive operation.</em></p></li>
 </ul>
@@ -441,24 +425,53 @@ Note that the <a href="#!/api/Ext.fx.Anim-cfg-to" rel="Ext.fx.Anim-cfg-to" class
 </ul>
 <br>
 </div>
+<pre><span id="METHODbeforeBlur"><span class="keyword">method</span> beforeBlur</span> : <code class="type"><a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Template method to do any pre-blur processing.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code> <p>The event object</p> 
+    </li>
+</ul>
+<br>
+</div>
 <pre><span id="METHODbeforeComponentLayout"><span class="keyword">method</span> beforeComponentLayout</span> : <code class="type">Js.number Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Occurs before componentLayout is run. Returning false from this method will prevent the componentLayout from
+<p>Occurs before <code>componentLayout</code> is run. Returning <code>false</code> from this method will prevent the <code>componentLayout</code> from
 being executed.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>adjWidth: <code class="code">Js.number Js.t</code>
-    <p>The box-adjusted width that was set</p> 
+    <p>The box-adjusted width that was set.</p> 
     </li>
 <li>adjHeight: <code class="code">Js.number Js.t</code>
-    <p>The box-adjusted height that was set</p> 
+    <p>The box-adjusted height that was set.</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODbeforeDestroy"><span class="keyword">method</span> beforeDestroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Invoked before the Component is destroyed.</p> <br>
+</div>
+<pre><span id="METHODbeforeFocus"><span class="keyword">method</span> beforeFocus</span> : <code class="type"><a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Template method to do any pre-focus processing.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code> <p>The event object</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbeforeLayout"><span class="keyword">method</span> beforeLayout</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Occurs before componentLayout is run. In previous releases, this method could
+return <code>false</code> to prevent its layout but that is not supported in Ext JS 4.1 or
+higher. This method is simply a notification of the impending layout to give the
+component a chance to adjust the DOM. Ideally, DOM reads should be avoided at this
+time to reduce expensive document reflows.</p> <br>
 </div>
 <pre><span id="METHODdestroy"><span class="keyword">method</span> destroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Destroys the Component.</p> <br>
@@ -470,13 +483,13 @@ being executed.</p>
     <b>Parameters</b>:
     <ul>
 <li>silent: <code class="code">bool Js.t</code> (optional)
-    <p>Passing true will supress the 'disable' event from being fired.</p> 
+    <p>Passing <code>true</code> will suppress the <code>disable</code> event from being fired.</p> 
      Defaults to: false
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdoComponentLayout"><span class="keyword">method</span> doComponentLayout</span> : <code class="type">'a1. 'a1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdoComponentLayout"><span class="keyword">method</span> doComponentLayout</span> : <code class="type">'j1. 'j1 Js.t Js.meth</code></pre><div class="info">
 <p>This method needs to be called whenever you change something on this component that requires the Component's
 layout to be recalculated.</p> 
 <p>
@@ -495,14 +508,14 @@ layout to be recalculated.</p>
     <b>Parameters</b>:
     <ul>
 <li>silent: <code class="code">bool Js.t</code> (optional)
-    <p>Passing true will supress the 'enable' event from being fired.</p> 
+    <p>Passing <code>true</code> will suppress the <code>enable</code> event from being fired.</p> 
      Defaults to: false
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetBubbleTarget"><span class="keyword">method</span> getBubbleTarget</span> : <code class="type">'e1. 'e1 Js.t Js.meth</code></pre><div class="info">
-<p>Provides the link for Observable's fireEvent method to bubble up the ownership hierarchy.</p> 
+<pre><span id="METHODgetBubbleTarget"><span class="keyword">method</span> getBubbleTarget</span> : <code class="type">'s1. 's1 Js.t Js.meth</code></pre><div class="info">
+<p>Provides the link for Observable's <code>fireEvent</code> method to bubble up the ownership hierarchy.</p> 
 <p>
 
     <b>Returns</b>:
@@ -520,7 +533,7 @@ layout to be recalculated.</p>
 <p>Gets the current height of the component's underlying element.</p> <br>
 </div>
 <pre><span id="METHODgetId"><span class="keyword">method</span> getId</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves the id of this component. Will autogenerate an id if one has not already been set.</p> <br>
+<p>Retrieves the <code>id</code> of this component. Will auto-generate an <code>id</code> if one has not already been set.</p> <br>
 </div>
 <pre><span id="METHODgetItemId"><span class="keyword">method</span> getItemId</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Returns the value of <a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a> assigned to this component, or when that
@@ -538,8 +551,46 @@ is not set, returns the value of <a href="#!/api/Ext.AbstractComponent-cfg-id" r
 </ul>
 <br>
 </div>
+<pre><span id="METHODgetLocalX"><span class="keyword">method</span> getLocalX</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p><strong>Overridden in Ext.rtl.AbstractComponent.</strong></p>
+
+<p>Returns the x coordinate of this element reletive to its <code>offsetParent</code>.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The local x coordinate</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetLocalXY"><span class="keyword">method</span> getLocalXY</span> : <code class="type">Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
+<p><strong>Overridden in Ext.rtl.AbstractComponent.</strong></p>
+
+<p>Returns the x and y coordinates of this element relative to its <code>offsetParent</code>.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t Js.js_array Js.t</code>
+    <p>The local XY position of the element</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetLocalY"><span class="keyword">method</span> getLocalY</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Returns the y coordinate of this element reletive to its <code>offsetParent</code>.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The local y coordinate</p> 
+    </li>
+</ul>
+<br>
+</div>
 <pre><span id="METHODgetPlugin"><span class="keyword">method</span> getPlugin</span> : <code class="type">Js.js_string Js.t -> <a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves a plugin by its pluginId which has been bound to this component.</p> 
+<p>Retrieves a plugin by its <code>pluginId</code> which has been bound to this component.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -557,19 +608,19 @@ is not set, returns the value of <a href="#!/api/Ext.AbstractComponent-cfg-id" r
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetSize"><span class="keyword">method</span> getSize</span> : <code class="type">'h1. 'h1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetSize"><span class="keyword">method</span> getSize</span> : <code class="type">'y1. 'y1 Js.t Js.meth</code></pre><div class="info">
 <p>Gets the current size of the component's underlying element.</p> 
 <p>
 
     <b>Returns</b>:
     <ul>
 <li><code class="code">_ Js.t</code>
-    <p>An object containing the element's size {width: (element width), height: (element height)}</p> 
+    <p>An object containing the element's size <code>{width: (element width), height: (element height)}</code></p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetSizeModel"><span class="keyword">method</span> getSizeModel</span> : <code class="type">'i1 'j1. 'i1 Js.t -> 'j1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetSizeModel"><span class="keyword">method</span> getSizeModel</span> : <code class="type">'z1 'a2. 'z1 Js.t -> 'a2 Js.t Js.meth</code></pre><div class="info">
 <p>Returns an object that describes how this component's width and height are managed.
 All of these objects are shared and should not be modified.</p> 
 <p>
@@ -589,7 +640,7 @@ All of these objects are shared and should not be modified.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetState"><span class="keyword">method</span> getState</span> : <code class="type">'k1. 'k1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetState"><span class="keyword">method</span> getState</span> : <code class="type">'b2. 'b2 Js.t Js.meth</code></pre><div class="info">
 <p>The supplied default state gathering method for the AbstractComponent class.</p>
 
 <p>This method returns dimension settings such as <code>flex</code>, <code>anchor</code>, <code>width</code> and <code>height</code> along with <code>collapsed</code>
@@ -604,6 +655,17 @@ configured for the document.</p> <br>
 <pre><span id="METHODgetWidth"><span class="keyword">method</span> getWidth</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Gets the current width of the component's underlying element.</p> <br>
 </div>
+<pre><span id="METHODgetX"><span class="keyword">method</span> getX</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Gets the current X position of the DOM element based on page coordinates.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The X position of the element</p> 
+    </li>
+</ul>
+<br>
+</div>
 <pre><span id="METHODgetXTypes"><span class="keyword">method</span> getXTypes</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Returns this Component's xtype hierarchy as a slash-delimited string. For a list of all available xtypes, see the
 <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> header.</p>
@@ -613,7 +675,7 @@ determination of inherited xtypes.</strong></p>
 
 <p>Example usage:</p>
 
-<pre><code>var t = new <a href="#!/api/Ext.form.field.Text" rel="Ext.form.field.Text" class="docClass">Ext.form.field.Text</a>();
+<pre class='inline-example '><code>var t = new <a href="#!/api/Ext.form.field.Text" rel="Ext.form.field.Text" class="docClass">Ext.form.field.Text</a>();
 alert(t.getXTypes());  // alerts 'component/field/textfield'
 </code></pre> 
 <p>
@@ -625,6 +687,29 @@ alert(t.getXTypes());  // alerts 'component/field/textfield'
 </ul>
 <br>
 </div>
+<pre><span id="METHODgetXY"><span class="keyword">method</span> getXY</span> : <code class="type">Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
+<p>Gets the current position of the DOM element based on page coordinates.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t Js.js_array Js.t</code>
+    <p>The XY position of the element</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetY"><span class="keyword">method</span> getY</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Gets the current Y position of the DOM element based on page coordinates.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The Y position of the element</p> 
+    </li>
+</ul>
+<br>
+</div>
 <pre><span id="METHODhasCls"><span class="keyword">method</span> hasCls</span> : <code class="type">Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Checks if the specified CSS class exists on this element's DOM node.</p> 
 <p>
@@ -632,7 +717,7 @@ alert(t.getXTypes());  // alerts 'component/field/textfield'
     <b>Parameters</b>:
     <ul>
 <li>className: <code class="code">Js.js_string Js.t</code>
-    <p>The CSS class to check for</p> 
+    <p>The CSS class to check for.</p> 
     </li>
 </ul>
 
@@ -640,21 +725,26 @@ alert(t.getXTypes());  // alerts 'component/field/textfield'
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">bool Js.t</code> <p>True if the class exists, else false</p> 
+<li><code class="code">bool Js.t</code>
+    <p><code>true</code> if the class exists, else <code>false</code>.</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODhasUICls"><span class="keyword">method</span> hasUICls</span> : <code class="type">Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Checks if there is currently a specified uiCls</p> 
+<p>Checks if there is currently a specified <code>uiCls</code>.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>cls: <code class="code">Js.js_string Js.t</code> <p>The cls to check</p> 
+<li>cls: <code class="code">Js.js_string Js.t</code>
+    <p>The <code>cls</code> to check.</p> 
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODinitEvents"><span class="keyword">method</span> initEvents</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Initialize any events on this component</p> <br>
 </div>
 <pre><span id="METHODis"><span class="keyword">method</span> is</span> : <code class="type">Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Tests whether this Component matches the selector string.</p> 
@@ -672,12 +762,12 @@ alert(t.getXTypes());  // alerts 'component/field/textfield'
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>True if this Component matches the selector.</p> 
+    <p><code>true</code> if this Component matches the selector.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisDescendantOf"><span class="keyword">method</span> isDescendantOf</span> : <code class="type">'n1. 'n1 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisDescendantOf"><span class="keyword">method</span> isDescendantOf</span> : <code class="type">'f2. 'f2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Determines whether this component is the descendant of a particular container.</p> 
 <p>
 
@@ -691,7 +781,8 @@ alert(t.getXTypes());  // alerts 'component/field/textfield'
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">bool Js.t</code> <p>True if it is.</p> 
+<li><code class="code">bool Js.t</code>
+    <p><code>true</code> if the component is the descendant of a particular container, otherwise <code>false</code>.</p> 
     </li>
 </ul>
 <br>
@@ -765,7 +856,7 @@ wraps content, and you know that it will not change size, and so can safely be t
 topmost participant in the layout run.</p> <br>
 </div>
 <pre><span id="METHODisLayoutSuspended"><span class="keyword">method</span> isLayoutSuspended</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if layout is suspended for this component. This can come from direct
+<p>Returns <code>true</code> if layout is suspended for this component. This can come from direct
 suspension of this component's layout activity (<a href="#!/api/Ext.container.Container-cfg-suspendLayout" rel="Ext.container.Container-cfg-suspendLayout" class="docClass">Ext.Container.suspendLayout</a>) or if one
 of this component's containers is suspended.</p> 
 <p>
@@ -773,13 +864,13 @@ of this component's containers is suspended.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>True layout of this component is suspended.</p> 
+    <p><code>true</code> layout of this component is suspended.</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODisVisible"><span class="keyword">method</span> isVisible</span> : <code class="type">bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if this component is visible.</p> 
+<p>Returns <code>true</code> if this component is visible.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -799,14 +890,14 @@ dynamically laid out UIs in a hidden Container before showing them.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>True if this component is visible, false otherwise.</p> 
+    <p><code>true</code> if this component is visible, <code>false</code> otherwise.</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODisXType"><span class="keyword">method</span> isXType</span> : <code class="type">Js.js_string Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Tests whether or not this Component is of a specific xtype. This can test whether this Component is descended
-from the xtype (default) or whether it is directly of the xtype specified (shallow = true).</p>
+from the xtype (default) or whether it is directly of the xtype specified (<code>shallow = true</code>).</p>
 
 <p><strong>If using your own subclasses, be aware that a Component must register its own xtype to participate in
 determination of inherited xtypes.</strong></p>
@@ -815,7 +906,7 @@ determination of inherited xtypes.</strong></p>
 
 <p>Example usage:</p>
 
-<pre><code>var t = new <a href="#!/api/Ext.form.field.Text" rel="Ext.form.field.Text" class="docClass">Ext.form.field.Text</a>();
+<pre class='inline-example '><code>var t = new <a href="#!/api/Ext.form.field.Text" rel="Ext.form.field.Text" class="docClass">Ext.form.field.Text</a>();
 var isText = t.isXType('textfield');        // true
 var isBoxSubclass = t.isXType('field');       // true, descended from <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a>
 var isBoxInstance = t.isXType('field', true); // false, not a direct <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a> instance
@@ -828,7 +919,7 @@ var isBoxInstance = t.isXType('field', true); // false, not a direct <a href="#!
     <p>The xtype to check for this Component</p> 
     </li>
 <li>shallow: <code class="code">bool Js.t</code> (optional)
-    <p>True to check whether this Component is directly of the specified xtype, false to
+    <p><code>true</code> to check whether this Component is directly of the specified xtype, <code>false</code> to
 check whether this Component is descended from the xtype.</p> 
      Defaults to: false
     </li>
@@ -839,12 +930,12 @@ check whether this Component is descended from the xtype.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>True if this component descends from the specified xtype, false otherwise.</p> 
+    <p><code>true</code> if this component descends from the specified xtype, <code>false</code> otherwise.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODnextNode"><span class="keyword">method</span> nextNode</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODnextNode"><span class="keyword">method</span> nextNode</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Returns the next node in the Component tree in tree traversal order.</p>
 
 <p>Note that this is not limited to siblings, and if invoked upon a node with no matching siblings, will walk the
@@ -864,17 +955,17 @@ tree to attempt to find a match. Contrast with <a href="#!/api/Ext.AbstractCompo
     <ul>
 <li><code class="code">#Ext_Component.t Js.t</code>
     <p>The next node (or the next node which matches the selector).
-Returns null if there is no matching node.</p> 
+Returns <code>null</code> if there is no matching node.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODnextSibling"><span class="keyword">method</span> nextSibling</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODnextSibling"><span class="keyword">method</span> nextSibling</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Returns the next sibling of this Component.</p>
 
 <p>Optionally selects the next sibling which matches the passed <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a> selector.</p>
 
-<p>May also be refered to as <strong><code>next()</code></strong></p>
+<p>May also be referred to as <strong><code>next()</code></strong></p>
 
 <p>Note that this is limited to siblings, and if no siblings of the item match, <code>null</code> is returned. Contrast with
 <a href="#!/api/Ext.AbstractComponent-method-nextNode" rel="Ext.AbstractComponent-method-nextNode" class="docClass">nextNode</a></p> 
@@ -893,12 +984,12 @@ Returns null if there is no matching node.</p>
     <ul>
 <li><code class="code">#Ext_Component.t Js.t</code>
     <p>The next sibling (or the next sibling which matches the selector).
-Returns null if there is no matching sibling.</p> 
+Returns <code>null</code> if there is no matching sibling.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODonAdded"><span class="keyword">method</span> onAdded</span> : <code class="type">'b2. 'b2 Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODonAdded"><span class="keyword">method</span> onAdded</span> : <code class="type">'w2. 'w2 Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Method to manage awareness of when components are added to their
 respective Container, firing an <a href="#!/api/Ext.AbstractComponent-event-added" rel="Ext.AbstractComponent-event-added" class="docClass">added</a> event. References are
 established at add time rather than at render time.</p>
@@ -906,28 +997,28 @@ established at add time rather than at render time.</p>
 <p>Allows addition of behavior when a Component is added to a
 Container. At this stage, the Component is in the parent
 Container's collection of child items. After calling the
-superclass's onAdded, the ownerCt reference will be present,
-and if configured with a ref, the refOwner will be set.</p> 
+superclass's <code>onAdded</code>, the <code>ownerCt</code> reference will be present,
+and if configured with a ref, the <code>refOwner</code> will be set.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>container: <code class="code">#Ext_container_Container.t Js.t</code>
-    <p>Container which holds the component</p> 
+    <p>Container which holds the component.</p> 
     </li>
 <li>pos: <code class="code">Js.number Js.t</code>
-    <p>Position at which the component was added</p> 
+    <p>Position at which the component was added.</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODonDisable"><span class="keyword">method</span> onDisable</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Allows addition of behavior to the disable operation.
-After calling the superclass’s onDisable, the Component will be disabled.</p> <br>
+After calling the superclass's <code>onDisable</code>, the Component will be disabled.</p> <br>
 </div>
 <pre><span id="METHODonEnable"><span class="keyword">method</span> onEnable</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Allows addition of behavior to the enable operation.
-After calling the superclass’s onEnable, the Component will be enabled.</p> <br>
+After calling the superclass's <code>onEnable</code>, the Component will be enabled.</p> <br>
 </div>
 <pre><span id="METHODonPosition"><span class="keyword">method</span> onPosition</span> : <code class="type">Js.number Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Called after the component is moved, this method is empty by default but can be implemented by any
@@ -937,9 +1028,9 @@ subclass that needs to perform custom logic after a move occurs.</p>
     <b>Parameters</b>:
     <ul>
 <li>x: <code class="code">Js.number Js.t</code>
-    <p>The new x position</p> 
+    <p>The new x position.</p> 
     </li>
-<li>y: <code class="code">Js.number Js.t</code> <p>The new y position</p> 
+<li>y: <code class="code">Js.number Js.t</code> <p>The new y position.</p> 
     </li>
 </ul>
 <br>
@@ -953,27 +1044,52 @@ cleaned up after removing a component from its owning container.</p>
 its parent Container. At this stage, the Component has been
 removed from its parent Container's collection of child items,
 but has not been destroyed (It will be destroyed if the parent
-Container's autoDestroy is true, or if the remove call was
+Container's <code>autoDestroy</code> is <code>true</code>, or if the remove call was
 passed a truthy second parameter). After calling the
-superclass's onRemoved, the ownerCt and the refOwner will not
+superclass's <code>onRemoved</code>, the <code>ownerCt</code> and the <code>refOwner</code> will not
 be present.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>destroying: <code class="code">bool Js.t</code>
-    <p>Will be passed as true if the Container performing the remove operation will delete this
+    <p>Will be passed as <code>true</code> if the Container performing the remove operation will delete this
 Component upon remove.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODonResize"><span class="keyword">method</span> onResize</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODonResize"><span class="keyword">method</span> onResize</span> : <code class="type">'x2 'y2 'z2 'a3. 'x2 Js.t -> 'y2 Js.t -> 'z2 Js.t -> 'a3 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Allows addition of behavior to the resize operation.</p>
 
-<p>Called when Ext.resizer.Resizer#drag event is fired.</p> <br>
+<p>Called when Ext.resizer.Resizer#drag event is fired.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>width: <code class="code">_ Js.t</code>
+    </li>
+<li>height: <code class="code">_ Js.t</code>
+    </li>
+<li>oldWidth: <code class="code">_ Js.t</code>
+    </li>
+<li>oldHeight: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
 </div>
-<pre><span id="METHODpreviousNode"><span class="keyword">method</span> previousNode</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODpostBlur"><span class="keyword">method</span> postBlur</span> : <code class="type"><a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Template method to do any post-blur processing.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code> <p>The event object</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODpreviousNode"><span class="keyword">method</span> previousNode</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Returns the previous node in the Component tree in tree traversal order.</p>
 
 <p>Note that this is not limited to siblings, and if invoked upon a node with no matching siblings, will walk the
@@ -993,18 +1109,18 @@ tree in reverse order to attempt to find a match. Contrast with <a href="#!/api/
     <ul>
 <li><code class="code">#Ext_Component.t Js.t</code>
     <p>The previous node (or the previous node which matches the selector).
-Returns null if there is no matching node.</p> 
+Returns <code>null</code> if there is no matching node.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODpreviousSibling"><span class="keyword">method</span> previousSibling</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODpreviousSibling"><span class="keyword">method</span> previousSibling</span> : <code class="type">Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Returns the previous sibling of this Component.</p>
 
 <p>Optionally selects the previous sibling which matches the passed <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">ComponentQuery</a>
 selector.</p>
 
-<p>May also be refered to as <strong><code>prev()</code></strong></p>
+<p>May also be referred to as <strong><code>prev()</code></strong></p>
 
 <p>Note that this is limited to siblings, and if no siblings of the item match, <code>null</code> is returned. Contrast with
 <a href="#!/api/Ext.AbstractComponent-method-previousNode" rel="Ext.AbstractComponent-method-previousNode" class="docClass">previousNode</a></p> 
@@ -1023,17 +1139,17 @@ selector.</p>
     <ul>
 <li><code class="code">#Ext_Component.t Js.t</code>
     <p>The previous sibling (or the previous sibling which matches the selector).
-Returns null if there is no matching sibling.</p> 
+Returns <code>null</code> if there is no matching sibling.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODregisterFloatingItem"><span class="keyword">method</span> registerFloatingItem</span> : <code class="type">'c2. 'c2 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODregisterFloatingItem"><span class="keyword">method</span> registerFloatingItem</span> : <code class="type">'c3. 'c3 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Called by Component#doAutoRender</p>
 
 <p>Register a Container configured <code>floating: true</code> with this Component's <a href="#!/api/Ext.ZIndexManager" rel="Ext.ZIndexManager" class="docClass">ZIndexManager</a>.</p>
 
-<p>Components added in ths way will not participate in any layout, but will be rendered
+<p>Components added in this way will not participate in any layout, but will be rendered
 upon first show in the way that <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s are.</p> 
 <p>
 
@@ -1044,14 +1160,14 @@ upon first show in the way that <a href="#!/api/Ext.window.Window" rel="Ext.wind
 </ul>
 <br>
 </div>
-<pre><span id="METHODremoveCls"><span class="keyword">method</span> removeCls</span> : <code class="type">'f2. 'f2 Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODremoveCls"><span class="keyword">method</span> removeCls</span> : <code class="type">'g3. 'g3 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Removes a CSS class from the top level element representing this component.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>cls: <code class="code">_ Js.t</code>
-    <p>The CSS class name to remove</p> 
+    <p>The CSS class name to remove.</p> 
     </li>
 </ul>
 
@@ -1065,46 +1181,47 @@ upon first show in the way that <a href="#!/api/Ext.window.Window" rel="Ext.wind
 </ul>
 <br>
 </div>
-<pre><span id="METHODremoveClsWithUI"><span class="keyword">method</span> removeClsWithUI</span> : <code class="type">'g2. 'g2 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Removes a cls to the uiCls array, which will also call <a href="#!/api/Ext.AbstractComponent-method-removeUIClsFromElement" rel="Ext.AbstractComponent-method-removeUIClsFromElement" class="docClass">removeUIClsFromElement</a> and removes it from all
+<pre><span id="METHODremoveClsWithUI"><span class="keyword">method</span> removeClsWithUI</span> : <code class="type">'h3. 'h3 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Removes a <code>cls</code> to the <code>uiCls</code> array, which will also call <a href="#!/api/Ext.AbstractComponent-method-removeUIClsFromElement" rel="Ext.AbstractComponent-method-removeUIClsFromElement" class="docClass">removeUIClsFromElement</a> and removes it from all
 elements of this component.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>cls: <code class="code">_ Js.t</code>
-    <p>A string or an array of strings to remove to the uiCls</p> 
+    <p>A string or an array of strings to remove to the <code>uiCls</code>.</p> 
     </li>
 </ul>
 <br>
 </div>
 <pre><span id="METHODremoveUIClsFromElement"><span class="keyword">method</span> removeUIClsFromElement</span> : <code class="type">Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Method which removes a specified UI + uiCls from the components element. The cls which is added to the element
-will be: <code>this.baseCls + '-' + ui</code></p> 
+<p>Method which removes a specified UI + <code>uiCls</code> from the components element. The <code>cls</code> which is added to the element
+will be: <code>this.baseCls + '-' + ui</code>.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>ui: <code class="code">Js.js_string Js.t</code>
-    <p>The UI to add to the element</p> 
+    <p>The UI to add to the element.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetBorder"><span class="keyword">method</span> setBorder</span> : <code class="type">'u2. 'u2 Js.t -> unit Js.meth</code></pre><pre><span id="METHODsetDisabled"><span class="keyword">method</span> setDisabled</span> : <code class="type">bool Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetBorder"><span class="keyword">method</span> setBorder</span> : <code class="type">'v3. 'v3 Js.t -> unit Js.meth</code></pre><pre><span id="METHODsetDisabled"><span class="keyword">method</span> setDisabled</span> : <code class="type">bool Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Enable or disable the component.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>disabled: <code class="code">bool Js.t</code> <p>True to disable.</p> 
+<li>disabled: <code class="code">bool Js.t</code>
+    <p><code>true</code> to disable.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetDocked"><span class="keyword">method</span> setDocked</span> : <code class="type">'v2. 'v2 Js.t -> bool Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetDocked"><span class="keyword">method</span> setDocked</span> : <code class="type">'y3. 'y3 Js.t -> bool Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Sets the dock position of this component in its parent panel. Note that this only has effect if this item is part
-of the dockedItems collection of a parent that has a DockLayout (note that any Panel has a DockLayout by default)</p> 
+of the <code>dockedItems</code> collection of a parent that has a DockLayout (note that any Panel has a DockLayout by default)</p> 
 <p>
 
     <b>Parameters</b>:
@@ -1113,7 +1230,7 @@ of the dockedItems collection of a parent that has a DockLayout (note that any P
     <p>The dock position.</p> 
     </li>
 <li>layoutParent: <code class="code">bool Js.t</code> (optional)
-    <p>True to re-layout parent.</p> 
+    <p><code>true</code> to re-layout parent.</p> 
      Defaults to: false
     </li>
 </ul>
@@ -1127,7 +1244,7 @@ of the dockedItems collection of a parent that has a DockLayout (note that any P
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetHeight"><span class="keyword">method</span> setHeight</span> : <code class="type">Js.number Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetHeight"><span class="keyword">method</span> setHeight</span> : <code class="type">Js.number Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Sets the height of the component. This method fires the <a href="#!/api/Ext.AbstractComponent-event-resize" rel="Ext.AbstractComponent-event-resize" class="docClass">resize</a> event.</p> 
 <p>
 
@@ -1153,22 +1270,18 @@ of the dockedItems collection of a parent that has a DockLayout (note that any P
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetPosition"><span class="keyword">method</span> setPosition</span> : <code class="type">'w2.<br>         Js.number Js.t -> Js.number Js.t -> 'w2 Js.t Js.optdef -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Sets the left and top of the component. To set the page XY position instead, use <a href="#!/api/Ext.Component-method-setPagePosition" rel="Ext.Component-method-setPagePosition" class="docClass">setPagePosition</a>. This
-method fires the <a href="#!/api/Ext.AbstractComponent-event-move" rel="Ext.AbstractComponent-event-move" class="docClass">move</a> event.</p> 
+<pre><span id="METHODsetLocalX"><span class="keyword">method</span> setLocalX</span> : <code class="type">Js.number Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
+<p><strong>Overridden in Ext.rtl.AbstractComponent.</strong></p>
+
+<p>Sets the local x coordinate of this element using CSS style. When used on an
+absolute positioned element this method is symmetrical with <a href="#!/api/Ext.AbstractComponent-method-getLocalX" rel="Ext.AbstractComponent-method-getLocalX" class="docClass">getLocalX</a>, but
+may not be symmetrical when used on a relatively positioned element.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>left: <code class="code">Js.number Js.t</code>
-    <p>The new left</p> 
-    </li>
-<li>top: <code class="code">Js.number Js.t</code>
-    <p>The new top</p> 
-    </li>
-<li>animate: <code class="code">_ Js.t</code> (optional)
-    <p>If true, the Component is <em>animated</em> into its new position. You may also pass an
-animation configuration.</p> 
+<li>x: <code class="code">Js.number Js.t</code>
+    <p>The x coordinate. A value of <code>null</code> sets the left style to 'auto'.</p> 
     </li>
 </ul>
 
@@ -1176,12 +1289,75 @@ animation configuration.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">#Ext_Component.t Js.t</code> <p>this</p> 
+<li><code class="code">Ext_util_Positionable.t Js.t</code> <p>this</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetSize"><span class="keyword">method</span> setSize</span> : <code class="type">'x2 'y2. 'x2 Js.t -> 'y2 Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetLocalXY"><span class="keyword">method</span> setLocalXY</span> : <code class="type">'z3. 'z3 Js.t -> Js.number Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
+<p><strong>Overridden in Ext.rtl.AbstractComponent.</strong></p>
+
+<p>Sets the local x and y coordinates of this element using CSS style. When used on an
+absolute positioned element this method is symmetrical with <a href="#!/api/Ext.AbstractComponent-method-getLocalXY" rel="Ext.AbstractComponent-method-getLocalXY" class="docClass">getLocalXY</a>, but
+may not be symmetrical when used on a relatively positioned element.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>x: <code class="code">_ Js.t</code>
+    <p>The x coordinate or an array containing [x, y]. A value of
+<code>null</code> sets the left style to 'auto'</p> 
+    </li>
+<li>y: <code class="code">Js.number Js.t</code> (optional)
+    <p>The y coordinate, required if x is not an array. A value of
+<code>null</code> sets the top style to 'auto'</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_Positionable.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetLocalY"><span class="keyword">method</span> setLocalY</span> : <code class="type">Js.number Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
+<p>Sets the local y coordinate of this element using CSS style. When used on an
+absolute positioned element this method is symmetrical with <a href="#!/api/Ext.AbstractComponent-method-getLocalY" rel="Ext.AbstractComponent-method-getLocalY" class="docClass">getLocalY</a>, but
+may not be symmetrical when used on a relatively positioned element.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>y: <code class="code">Js.number Js.t</code>
+    <p>The y coordinate. A value of <code>null</code> sets the top style to 'auto'.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_Positionable.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetMargin"><span class="keyword">method</span> setMargin</span> : <code class="type">'a4. 'a4 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Sets the margin on the target element.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>margin: <code class="code">_ Js.t</code>
+    <p>The margin to set. See the <a href="#!/api/Ext.AbstractComponent-cfg-margin" rel="Ext.AbstractComponent-cfg-margin" class="docClass">margin</a> config.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetSize"><span class="keyword">method</span> setSize</span> : <code class="type">'c4 'd4. 'c4 Js.t -> 'd4 Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Sets the width and height of this Component. This method fires the <a href="#!/api/Ext.AbstractComponent-event-resize" rel="Ext.AbstractComponent-event-resize" class="docClass">resize</a> event. This method can accept
 either width and height as separate arguments, or you can pass a size object like <code>{width:10, height:20}</code>.</p> 
 <p>
@@ -1221,25 +1397,25 @@ This may be one of:</p>
 </div>
 <pre><span id="METHODsetUI"><span class="keyword">method</span> setUI</span> : <code class="type">Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Sets the UI for the component. This will remove any existing UIs on the component. It will also loop through any
-uiCls set on the component and rename them so they include the new UI</p> 
+<code>uiCls</code> set on the component and rename them so they include the new UI.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>ui: <code class="code">Js.js_string Js.t</code>
-    <p>The new UI for the component</p> 
+    <p>The new UI for the component.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetVisible"><span class="keyword">method</span> setVisible</span> : <code class="type">bool Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
-<p>Convenience function to hide or show this component by boolean.</p> 
+<pre><span id="METHODsetVisible"><span class="keyword">method</span> setVisible</span> : <code class="type">bool Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
+<p>Convenience function to hide or show this component by Boolean.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>visible: <code class="code">bool Js.t</code>
-    <p>True to show, false to hide</p> 
+    <p><code>true</code> to show, <code>false</code> to hide.</p> 
     </li>
 </ul>
 
@@ -1252,7 +1428,7 @@ uiCls set on the component and rename them so they include the new UI</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetWidth"><span class="keyword">method</span> setWidth</span> : <code class="type">Js.number Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetWidth"><span class="keyword">method</span> setWidth</span> : <code class="type">Js.number Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Sets the width of the component. This method fires the <a href="#!/api/Ext.AbstractComponent-event-resize" rel="Ext.AbstractComponent-event-resize" class="docClass">resize</a> event.</p> 
 <p>
 
@@ -1277,8 +1453,88 @@ uiCls set on the component and rename them so they include the new UI</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODup"><span class="keyword">method</span> up</span> : <code class="type">'c3. Js.js_string Js.t Js.optdef -> 'c3 Js.t Js.meth</code></pre><div class="info">
-<p>Walks up the <code>ownerCt</code> axis looking for an ancestor Container which matches the passed simple selector.</p>
+<pre><span id="METHODsetX"><span class="keyword">method</span> setX</span> : <code class="type">'e4. Js.number Js.t -> 'e4 Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
+<p>Sets the X position of the DOM element based on page coordinates.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>the: <code class="code">Js.number Js.t</code>
+    <p>X position</p> 
+    </li>
+<li>animate: <code class="code">_ Js.t</code> (optional)
+    <p>True for the default animation, or a standard
+Element animation config object</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_Positionable.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetXY"><span class="keyword">method</span> setXY</span> : <code class="type">'f4. Js.number Js.t Js.js_array Js.t -> 'f4 Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
+<p>Sets the position of the DOM element in page coordinates.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>pos: <code class="code">Js.number Js.t Js.js_array Js.t</code>
+    <p>Contains X &amp; Y [x, y] values for new position (coordinates
+are page-based)</p> 
+    </li>
+<li>animate: <code class="code">_ Js.t</code> (optional)
+    <p>True for the default animation, or a standard
+Element animation config object</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_Positionable.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetY"><span class="keyword">method</span> setY</span> : <code class="type">'g4. Js.number Js.t -> 'g4 Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
+<p>Sets the Y position of the DOM element based on page coordinates.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>the: <code class="code">Js.number Js.t</code>
+    <p>Y position</p> 
+    </li>
+<li>animate: <code class="code">_ Js.t</code> (optional)
+    <p>True for the default animation, or a standard
+Element animation config object</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_Positionable.t Js.t</code> <p>this</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODup"><span class="keyword">method</span> up</span> : <code class="type">'m4 'n4. 'm4 Js.t Js.optdef -> 'n4 Js.t Js.meth</code></pre><div class="info">
+<p>Navigates up the ownership hierarchy searching for an ancestor Container which matches any passed simple selector or component.</p>
+
+<p><em>Important.</em> There is not a universal upwards navigation pointer. There are several upwards relationships
+such as the <a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">button</a> which activates a <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a>, or the
+<a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu item</a> which activated a <a href="#!/api/Ext.menu.Item-cfg-menu" rel="Ext.menu.Item-cfg-menu" class="docClass">submenu</a>, or the
+<a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">column header</a> which activated the column menu.</p>
+
+<p>These differences are abstracted away by this method.</p>
 
 <p>Example:</p>
 
@@ -1288,8 +1544,8 @@ uiCls set on the component and rename them so they include the new UI</p>
 
     <b>Parameters</b>:
     <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The simple selector to test.</p> 
+<li>selector: <code class="code">_ Js.t</code> (optional)
+    <p>The simple selector component or actual component to test. If not passed the immediate owner/activater is returned.</p> 
     </li>
 </ul>
 
@@ -1303,7 +1559,7 @@ uiCls set on the component and rename them so they include the new UI</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODupdate"><span class="keyword">method</span> update</span> : <code class="type">'d3 'e3.<br>         'd3 Js.t -><br>         bool Js.t Js.optdef -> 'e3 Js.callback Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODupdate"><span class="keyword">method</span> update</span> : <code class="type">'o4 'p4.<br>         'o4 Js.t -><br>         bool Js.t Js.optdef -> 'p4 Js.callback Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Update the content area of a component.</p> 
 <p>
 
@@ -1312,30 +1568,92 @@ uiCls set on the component and rename them so they include the new UI</p>
 <li>htmlOrData: <code class="code">_ Js.t</code>
     <p>If this component has been configured with a template via the tpl config then
 it will use this argument as data to populate the template. If this component was not configured with a template,
-the components content area will be updated via <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> update</p> 
+the components content area will be updated via <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> update.</p> 
     </li>
 <li>loadScripts: <code class="code">bool Js.t</code> (optional)
-    <p>Only legitimate when using the html configuration.</p> 
+    <p>Only legitimate when using the <code>html</code> configuration.</p> 
      Defaults to: false
     </li>
 <li>callback: <code class="code">_ Js.callback</code> (optional)
-    <p>Only legitimate when using the html configuration. Callback to execute when
-scripts have finished loading</p> 
+    <p>Only legitimate when using the <code>html</code> configuration. Callback to execute when
+scripts have finished loading.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODupdateLayout"><span class="keyword">method</span> updateLayout</span> : <code class="type">'f3. 'f3 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Updates this component's layout. If this update effects this components <a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.AbstractComponent-property-ownerCt" class="docClass">ownerCt</a>,
+<pre><span id="METHODupdateLayout"><span class="keyword">method</span> updateLayout</span> : <code class="type">'q4. 'q4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Updates this component's layout. If this update affects this components <a href="#!/api/Ext.AbstractComponent-property-ownerCt" rel="Ext.AbstractComponent-property-ownerCt" class="docClass">ownerCt</a>,
 that component's <code>updateLayout</code> method will be called to perform the layout instead.
 Otherwise, just this component (and its child items) will layout.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>options: <code class="code">_ Js.t</code> <p>An object with layout options.</p> 
+<li>options: <code class="code">_ Js.t</code> (optional)
+    <p>An object with layout options.</p> 
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHOD_isLayoutRoot"><span class="keyword">method</span> _isLayoutRoot</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Setting this property to <code>true</code> causes the <a href="#!/api/Ext.AbstractComponent-method-isLayoutRoot" rel="Ext.AbstractComponent-method-isLayoutRoot" class="docClass">isLayoutRoot</a> method to return
+<code>true</code> and stop the search for the top-most component for a layout.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODcontentPaddingProperty"><span class="keyword">method</span> contentPaddingProperty</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The name of the padding property that is used by the layout to manage
+padding.  See <a href="#!/api/Ext.layout.container.Auto-property-managePadding" rel="Ext.layout.container.Auto-property-managePadding" class="docClass">managePadding</a></p> 
+<p>
+
+    Defaults to: <code class="code">'padding'</code><br>
+</div>
+<pre><span id="METHODdraggable"><span class="keyword">method</span> draggable</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
+<p>Indicates whether or not the component can be dragged.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODframeSize"><span class="keyword">method</span> frameSize</span> : <code class="type">'n1. 'n1 Js.t Js.readonly_prop</code></pre><div class="info">
+<p>Indicates the width of any framing elements which were added within the encapsulating
+element to provide graphical, rounded borders. See the <a href="#!/api/Ext.AbstractComponent-cfg-frame" rel="Ext.AbstractComponent-cfg-frame" class="docClass">frame</a> config. This
+property is <code>null</code> if the component is not framed.</p>
+
+<p>This is an object containing the frame width in pixels for all four sides of the
+Component containing the following properties:</p> <br>
+</div>
+<pre><span id="METHODisComponent"><span class="keyword">method</span> isComponent</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p><code>true</code> in this class to identify an object as an instantiated Component, or subclass thereof.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODmaskOnDisable"><span class="keyword">method</span> maskOnDisable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>This is an internal flag that you use when creating custom components. By default this is set to <code>true</code> which means
+that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
+override this property to <code>false</code> since they want to implement custom disable logic.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODownerCt"><span class="keyword">method</span> ownerCt</span> : <code class="type">'b3. 'b3 Js.t Js.readonly_prop</code></pre><div class="info">
+<p>This Component's owner <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> (is set automatically
+when this Component is added to a Container).</p>
+
+<p><em>Important.</em> This is not a universal upwards navigation pointer. It indicates the Container which owns and manages
+this Component if any. There are other similar relationships such as the <a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">button</a> which activates a <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a>, or the
+<a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu item</a> which activated a <a href="#!/api/Ext.menu.Item-cfg-menu" rel="Ext.menu.Item-cfg-menu" class="docClass">submenu</a>, or the
+<a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">column header</a> which activated the column menu.</p>
+
+<p>These differences are abstracted away by the <a href="#!/api/Ext.AbstractComponent-method-up" rel="Ext.AbstractComponent-method-up" class="docClass">up</a> method.</p>
+
+<p><strong>Note</strong>: to access items within the Container see <a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a>.</p> <br>
+</div>
+<pre><span id="METHODrendered"><span class="keyword">method</span> rendered</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
+<p>Indicates whether or not the component has been rendered.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
 </div>
 </body></html>

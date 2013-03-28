@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,8 +140,6 @@
 <center><h1>Class type <a href="type_Ext_draw_Component.configs.html">Ext_draw_Component.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_draw_Component.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
-<li><a href="Ext_AbstractComponent.configs-c.html"><code class="code">Ext_AbstractComponent.configs</code></a></li>
 <li><a href="Ext_Component.configs-c.html"><code class="code">Ext_Component.configs</code></a></li>
 </ul>
 <hr width="100%">
@@ -149,10 +150,10 @@
     Defaults to: <code class="code">false</code><br>
 </div>
 <pre><span id="METHODbaseCls"><span class="keyword">method</span> baseCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The base CSS class to apply to this components's element. This will also be prepended to elements within this
-component like Panel's body will get a class x-panel-body. This means that if you create a subclass of Panel, and
-you want it to get all the Panels styling for the element and the body, you leave the baseCls x-panel and use
-componentCls to add specific styling for this component.</p> 
+<p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
+component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
+you want it to get all the Panels styling for the element and the body, you leave the <code>baseCls</code> <code>x-panel</code> and use
+<code>componentCls</code> to add specific styling for this component.</p> 
 <p>
 
     Defaults to: <code class="code">Ext.baseCSSPrefix + 'surface'</code><br>
@@ -176,7 +177,7 @@ class which simply sizes the Component's encapsulating element to the height and
 one supported by the current environment will be used.</p> 
 <p>
 
-    Defaults to: <code class="code">['Svg', 'Vml']</code><br>
+    Defaults to: <code class="code">'Svg', 'Vml'</code><br>
 </div>
 <pre><span id="METHODgradients"><span class="keyword">method</span> gradients</span> : <code class="type">'b. 'b Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
 <p>(optional) Define a set of gradients that can be used as <code>fill</code> property in sprites.

@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,45 +138,11 @@
 <center><h1>Class type <a href="type_Ext_layout_container_Container.t.html">Ext_layout_container_Container.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_layout_container_Container.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
-<li><a href="Ext_layout_Layout.t-c.html"><code class="code">Ext_layout_Layout.t</code></a></li>
 <li><a href="Ext_util_ElementContainer.t-c.html"><code class="code">Ext_util_ElementContainer.t</code></a></li>
+<li><a href="Ext_layout_Layout.t-c.html"><code class="code">Ext_layout_Layout.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODgetScrollRangeFlags"><span class="keyword">method</span> getScrollRangeFlags</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
-<p>Returns flags indicating cross-browser handling of scrollHeight/Width. In particular,
-IE has issues with padding-bottom in a scrolling element (it does not include that
-padding in the scrollHeight). Also, margin-bottom on a child in a scrolling element
-can be lost.</p>
-
-<p>All browsers seem to ignore margin-right on children and padding-right on the parent
-element (the one with the overflow)</p>
-
-<p>This method returns a number with the follow bit positions set based on things not
-accounted for in scrollHeight and scrollWidth:</p>
-
-<ul>
-<li>1: Scrolling element's padding-bottom is not included in scrollHeight.</li>
-<li>2: Last child's margin-bottom is not included in scrollHeight.</li>
-<li>4: Scrolling element's padding-right is not included in scrollWidth.</li>
-<li>8: Child's margin-right is not included in scrollWidth.</li>
-</ul>
-
-
-<p>To work around the margin-bottom issue, it is sufficient to create a 0px tall last
-child that will "hide" the margin. This can also be handled by wrapping the children
-in an element, again "hiding" the margin. Wrapping the elements is about the only
-way to preserve their right margins. This is the strategy used by Column layout.</p>
-
-<p>To work around the padding-bottom problem, since it is comes from a style on the
-parent element, about the only simple fix is to create a last child with height
-equal to padding-bottom. To preserve the right padding, the sizing element needs to
-have a width that includes the right padding.</p> <br>
-</div>
-<pre><span id="METHODoverflowPadderEl"><span class="keyword">method</span> overflowPadderEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>The element used to correct body padding during overflow.</p> <br>
-</div>
-<pre><span id="METHODbeginLayout_obj"><span class="keyword">method</span> beginLayout_obj</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODbeginLayout_obj"><span class="keyword">method</span> beginLayout_obj</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
 <p>In addition to work done by our base classes, containers benefit from some extra
 cached data. The following properties are added to the ownerContext:</p>
 
@@ -207,53 +176,7 @@ component.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODcalculateOverflow"><span class="keyword">method</span> calculateOverflow</span> : <code class="type">'c.<br>         <a href="Ext_layout_ContextItem.t-c.html">Ext_layout_ContextItem.t</a> Js.t -> 'c Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Handles overflow processing for a container. This should be called once the layout
-has determined contentWidth/Height. In addition to the ownerContext passed to the
-<a href="#!/api/Ext.layout.container.Container-method-calculate" rel="Ext.layout.container.Container-method-calculate" class="docClass">calculate</a> method, this method also needs the containerSize (the object
-returned by <a href="#!/api/Ext.layout.container.Container-method-getContainerSize" rel="Ext.layout.container.Container-method-getContainerSize" class="docClass">getContainerSize</a>).</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>ownerContext: <code class="code">Ext_layout_ContextItem.t Js.t</code>
-    </li>
-<li>containerSize: <code class="code">_ Js.t</code>
-    </li>
-<li>dimensions: <code class="code">Js.number Js.t</code>
-    <p>A bit mask for the overflow managed dimensions. The 0-bit
-is for <code>width</code> and the 1-bit is for <code>height</code>. In other words, a value of 1 would be
-only <code>width</code>, 2 would be only <code>height</code> and 3 would be both.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODcompleteLayout"><span class="keyword">method</span> completeLayout</span> : <code class="type"><a href="Ext_layout_ContextItem.t-c.html">Ext_layout_ContextItem.t</a> Js.t -> unit Js.meth</code></pre><div class="info">
-<p>This method (if implemented) is called at the end of the cycle in which this layout
-completes (by not setting <a href="#!/api/Ext.layout.container.Container-property-done" rel="Ext.layout.container.Container-property-done" class="docClass">done</a> to <code>false</code> in <a href="#!/api/Ext.layout.container.Container-method-calculate" rel="Ext.layout.container.Container-method-calculate" class="docClass">calculate</a>). It is
-possible for the layout to complete and yet become invalid before the end of the cycle,
-in which case, this method will not be called. It is also possible for this method to
-be called and then later the layout becomes invalidated. This will result in
-<a href="#!/api/Ext.layout.container.Container-method-calculate" rel="Ext.layout.container.Container-method-calculate" class="docClass">calculate</a> being called again, followed by another call to this method.</p>
-
-<p>This is a read phase and DOM writes should be strictly avoided in derived classes.
-Instead, DOM writes need to be written to <a href="#!/api/Ext.layout.ContextItem" rel="Ext.layout.ContextItem" class="docClass">Ext.layout.ContextItem</a> objects to
-be flushed at the next opportunity.</p>
-
-<p>This method need not be implemented by derived classes and, in fact, should only be
-implemented when needed.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>ownerContext: <code class="code">Ext_layout_ContextItem.t Js.t</code>
-    <p>The context item for the layout's owner
-component.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODconfigureItem_obj"><span class="keyword">method</span> configureItem_obj</span> : <code class="type">'d. 'd Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODconfigureItem_obj"><span class="keyword">method</span> configureItem_obj</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Adds layout's itemCls and owning Container's itemCls</p> 
 <p>
 
@@ -264,30 +187,10 @@ component.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODdoRenderPadder"><span class="keyword">method</span> doRenderPadder</span> : <code class="type">'e 'f. 'e Js.t -> 'f Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Creates an element that makes bottom/right body padding consistent across browsers.
-This element is sized based on the need for scrollbars in <a href="#!/api/Ext.layout.container.Container-method-calculateOverflow" rel="Ext.layout.container.Container-method-calculateOverflow" class="docClass">calculateOverflow</a>.
-If the <a href="#!/api/Ext.layout.container.Container-cfg-manageOverflow" rel="Ext.layout.container.Container-cfg-manageOverflow" class="docClass">manageOverflow</a> option is false, this element is not created.</p>
-
-<p>See <a href="#!/api/Ext.layout.container.Container-property-getScrollRangeFlags" rel="Ext.layout.container.Container-property-getScrollRangeFlags" class="docClass">getScrollRangeFlags</a> for more details.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>out: <code class="code">_ Js.t</code>
-    </li>
-<li>renderData: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetContainerSize"><span class="keyword">method</span> getContainerSize</span> : <code class="type">'g. <a href="Ext_layout_ContextItem.t-c.html">Ext_layout_ContextItem.t</a> Js.t -> bool Js.t Js.optdef -> 'g Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetContainerSize"><span class="keyword">method</span> getContainerSize</span> : <code class="type">'c. <a href="Ext_layout_ContextItem.t-c.html">Ext_layout_ContextItem.t</a> Js.t -> bool Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
 <p>Returns the container size (that of the target). Only the fixed-sized dimensions can
 be returned because the shrinkWrap dimensions are based on the contentWidth/Height
-as determined by the container layout.</p>
-
-<p>If the <a href="#!/api/Ext.layout.container.Container-method-calculateOverflow" rel="Ext.layout.container.Container-method-calculateOverflow" class="docClass">calculateOverflow</a> method is used and if <a href="#!/api/Ext.layout.container.Container-cfg-manageOverflow" rel="Ext.layout.container.Container-cfg-manageOverflow" class="docClass">manageOverflow</a> is
-true, this may adjust the width/height by the size of scrollbars.</p> 
+as determined by the container layout.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -335,7 +238,7 @@ target element.</p>
 
 <p>May be overridden in layout managers which implement an inner element.</p> <br>
 </div>
-<pre><span id="METHODgetRenderedItems"><span class="keyword">method</span> getRenderedItems</span> : <code class="type">'h. 'h Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetRenderedItems"><span class="keyword">method</span> getRenderedItems</span> : <code class="type">'d. 'd Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Returns all items that are rendered</p> 
 <p>
 
@@ -349,7 +252,7 @@ target element.</p>
 <pre><span id="METHODgetTarget"><span class="keyword">method</span> getTarget</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Returns the owner component's resize element.</p> <br>
 </div>
-<pre><span id="METHODgetVisibleItems"><span class="keyword">method</span> getVisibleItems</span> : <code class="type">'i. 'i Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetVisibleItems"><span class="keyword">method</span> getVisibleItems</span> : <code class="type">'e. 'e Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Returns all items that are both rendered and visible</p> 
 <p>
 
@@ -360,7 +263,7 @@ target element.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODinitLayout"><span class="keyword">method</span> initLayout</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>A one-time initialization method called just before rendering.</p> <br>
+<pre><span id="METHODoverflowPadderEl"><span class="keyword">method</span> overflowPadderEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>The element used to correct body padding during overflow.</p> <br>
 </div>
 </body></html>

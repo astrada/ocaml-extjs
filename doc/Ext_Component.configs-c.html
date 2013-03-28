@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,45 +140,41 @@
 <center><h1>Class type <a href="type_Ext_Component.configs.html">Ext_Component.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_Component.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
-<li><a href="Ext_AbstractComponent.configs-c.html"><code class="code">Ext_AbstractComponent.configs</code></a></li>
 <li><a href="Ext_util_Floating.configs-c.html"><code class="code">Ext_util_Floating.configs</code></a></li>
+<li><a href="Ext_AbstractComponent.configs-c.html"><code class="code">Ext_AbstractComponent.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">((< afterComponentLayout : 'a;<br>           afterHide : 'c 'd.<br>                         ('b Js.t,<br>                          'c Js.callback Js.optdef -> 'd Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           afterRender : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           afterSetPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           afterShow : 'e 'f 'g.<br>                         ('b Js.t,<br>                          'e Js.t Js.optdef -><br>                          'f Js.callback Js.optdef -> 'g Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           autoEl : 'h. 'h Js.t Js.prop; autoRender : 'i. 'i Js.t Js.prop;<br>           autoScroll : bool Js.t Js.prop; autoShow : bool Js.t Js.prop;<br>           baseCls : Js.js_string Js.t Js.prop;<br>           beforeComponentLayout : ('b Js.t,<br>                                    Js.number Js.t -> Js.number Js.t -> unit)<br>                                   Js.meth_callback Js.writeonly_prop;<br>           beforeDestroy : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           beforeShow : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           border : 'j. 'j Js.t Js.prop;<br>           childEls : 'k. 'k Js.t Js.js_array Js.t Js.prop;<br>           cls : Js.js_string Js.t Js.prop; columnWidth : 'l. 'l Js.t Js.prop;<br>           componentCls : Js.js_string Js.t Js.prop;<br>           componentLayout : 'm. 'm Js.t Js.prop;<br>           contentEl : Js.js_string Js.t Js.prop; data : 'n. 'n Js.t Js.prop;<br>           disabled : bool Js.t Js.prop; disabledCls : Js.js_string Js.t Js.prop;<br>           draggable : bool Js.t Js.prop; draggable_obj : 'o. 'o Js.t Js.prop;<br>           floating : bool Js.t Js.prop; focusOnToFront : bool Js.t Js.prop;<br>           formBind : bool Js.t Js.prop; frame : bool Js.t Js.prop;<br>           height : Js.number Js.t Js.prop; hidden : bool Js.t Js.prop;<br>           hideMode : Js.js_string Js.t Js.prop; html : 'p. 'p Js.t Js.prop;<br>           id : Js.js_string Js.t Js.prop;<br>           initComponent : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           itemId : Js.js_string Js.t Js.prop; listeners : 'q. 'q Js.t Js.prop;<br>           loader : 'r. 'r Js.t Js.prop; margin : 's. 's Js.t Js.prop;<br>           maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>           minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>           onAdded : 't.<br>                       ('b Js.t, 't Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onDestroy : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDisable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onEnable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onHide : 'u 'v 'w.<br>                      ('b Js.t,<br>                       'u Js.t Js.optdef -><br>                       'v Js.callback Js.optdef -> 'w Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemoved : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onRender : ('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onResize : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onShow : 'x 'y 'z.<br>                      ('b Js.t,<br>                       'x Js.t Js.optdef -><br>                       'y Js.callback Js.optdef -> 'z Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onShowComplete : 'a1 'b1.<br>                              ('b Js.t,<br>                               'a1 Js.callback Js.optdef -><br>                               'b1 Js.t Js.optdef -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop;<br>           overflowX : Js.js_string Js.t Js.prop;<br>           overflowY : Js.js_string Js.t Js.prop; padding : 'c1. 'c1 Js.t Js.prop;<br>           plugins : 'd1. 'd1 Js.t Js.prop; region : Js.js_string Js.t Js.prop;<br>           renderData : 'e1. 'e1 Js.t Js.prop;<br>           renderSelectors : 'f1. 'f1 Js.t Js.prop;<br>           renderTo : 'g1. 'g1 Js.t Js.prop; renderTpl : 'h1. 'h1 Js.t Js.prop;<br>           resizable : 'i1. 'i1 Js.t Js.prop;<br>           resizeHandles : Js.js_string Js.t Js.prop;<br>           saveDelay : Js.number Js.t Js.prop; shadow : 'j1. 'j1 Js.t Js.prop;<br>           shadowOffset : 'k1. 'k1 Js.t Js.prop; shrinkWrap : 'l1. 'l1 Js.t Js.prop;<br>           stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>           style : 'm1. 'm1 Js.t Js.prop; styleHtmlCls : Js.js_string Js.t Js.prop;<br>           styleHtmlContent : bool Js.t Js.prop; toFrontOnShow : bool Js.t Js.prop;<br>           tpl : 'n1. 'n1 Js.t Js.prop; tplWriteMode : Js.js_string Js.t Js.prop;<br>           ui : Js.js_string Js.t Js.prop; width : Js.number Js.t Js.prop;<br>           xtype : Js.js_string Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t,<br>        Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
+<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">'a 'b.<br>         ((< afterComponentLayout : 'a 'b. 'c;<br>             afterHide : 'e 'f.<br>                           ('d Js.t,<br>                            'e Js.callback Js.optdef -> 'f Js.t Js.optdef -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>             afterRender : ('d Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>             afterSetPosition : ('d Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                                Js.meth_callback Js.writeonly_prop;<br>             afterShow : 'g 'h 'i.<br>                           ('d Js.t,<br>                            'g Js.t Js.optdef -><br>                            'h Js.callback Js.optdef -> 'i Js.t Js.optdef -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>             autoEl : 'j. 'j Js.t Js.prop; autoRender : 'k. 'k Js.t Js.prop;<br>             autoScroll : bool Js.t Js.prop; autoShow : bool Js.t Js.prop;<br>             baseCls : Js.js_string Js.t Js.prop;<br>             beforeComponentLayout : ('d Js.t,<br>                                      Js.number Js.t -> Js.number Js.t -> unit)<br>                                     Js.meth_callback Js.writeonly_prop;<br>             beforeDestroy : ('d Js.t, unit -> unit) Js.meth_callback<br>                             Js.writeonly_prop;<br>             beforeLayout : ('d Js.t, unit -> unit) Js.meth_callback<br>                            Js.writeonly_prop;<br>             beforeShow : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             border : 'l. 'l Js.t Js.prop;<br>             childEls : 'm. 'm Js.t Js.js_array Js.t Js.prop;<br>             cls : Js.js_string Js.t Js.prop; columnWidth : 'n. 'n Js.t Js.prop;<br>             componentCls : Js.js_string Js.t Js.prop;<br>             componentLayout : 'o. 'o Js.t Js.prop; constrain : bool Js.t Js.prop;<br>             constrainTo : 'p. 'p Js.t Js.prop;<br>             contentEl : Js.js_string Js.t Js.prop; data : 'q. 'q Js.t Js.prop;<br>             defaultAlign : Js.js_string Js.t Js.prop; disabled : bool Js.t Js.prop;<br>             disabledCls : Js.js_string Js.t Js.prop; draggable : bool Js.t Js.prop;<br>             draggable_obj : 'r. 'r Js.t Js.prop; fixed : bool Js.t Js.prop;<br>             floating : bool Js.t Js.prop; focusOnToFront : bool Js.t Js.prop;<br>             formBind : bool Js.t Js.prop; frame : bool Js.t Js.prop;<br>             height : Js.number Js.t Js.prop; hidden : bool Js.t Js.prop;<br>             hideMode : Js.js_string Js.t Js.prop; html : 's. 's Js.t Js.prop;<br>             id : Js.js_string Js.t Js.prop;<br>             initComponent : ('d Js.t, unit -> unit) Js.meth_callback<br>                             Js.writeonly_prop;<br>             itemId : Js.js_string Js.t Js.prop; listeners : 't. 't Js.t Js.prop;<br>             loader : 'u. 'u Js.t Js.prop; margin : 'v. 'v Js.t Js.prop;<br>             maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>             minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>             onAdded : 'w.<br>                         ('d Js.t, 'w Js.t -> Js.number Js.t -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>             onDestroy : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onDisable : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onEnable : ('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>             onHide : 'x 'y 'z.<br>                        ('d Js.t,<br>                         'x Js.t Js.optdef -><br>                         'y Js.callback Js.optdef -> 'z Js.t Js.optdef -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>             onPosition : ('d Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                          Js.meth_callback Js.writeonly_prop;<br>             onRemoved : ('d Js.t, bool Js.t -> unit) Js.meth_callback<br>                         Js.writeonly_prop;<br>             onRender : ('d Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>             onResize : 'a1 'b1 'c1 'd1.<br>                          ('d Js.t,<br>                           'a1 Js.t -> 'b1 Js.t -> 'c1 Js.t -> 'd1 Js.t -> unit)<br>                          Js.meth_callback Js.writeonly_prop;<br>             onShow : 'e1 'f1 'g1.<br>                        ('d Js.t,<br>                         'e1 Js.t Js.optdef -><br>                         'f1 Js.callback Js.optdef -> 'g1 Js.t Js.optdef -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>             onShowComplete : 'h1 'i1.<br>                                ('d Js.t,<br>                                 'h1 Js.callback Js.optdef -><br>                                 'i1 Js.t Js.optdef -> unit)<br>                                Js.meth_callback Js.writeonly_prop;<br>             overCls : Js.js_string Js.t Js.prop;<br>             overflowX : Js.js_string Js.t Js.prop;<br>             overflowY : Js.js_string Js.t Js.prop; padding : 'j1. 'j1 Js.t Js.prop;<br>             plugins : 'k1. 'k1 Js.t Js.prop; region : 'l1. 'l1 Js.t Js.prop;<br>             renderData : 'm1. 'm1 Js.t Js.prop;<br>             renderSelectors : 'n1. 'n1 Js.t Js.prop;<br>             renderTo : 'o1. 'o1 Js.t Js.prop; renderTpl : 'p1. 'p1 Js.t Js.prop;<br>             resizable : 'q1. 'q1 Js.t Js.prop;<br>             resizeHandles : Js.js_string Js.t Js.prop; rtl : bool Js.t Js.prop;<br>             saveDelay : Js.number Js.t Js.prop; shadow : 'r1. 'r1 Js.t Js.prop;<br>             shadowOffset : Js.number Js.t Js.prop;<br>             shrinkWrap : 's1. 's1 Js.t Js.prop;<br>             stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>             stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>             style : 't1. 't1 Js.t Js.prop; toFrontOnShow : bool Js.t Js.prop;<br>             tpl : 'u1. 'u1 Js.t Js.prop; tplWriteMode : Js.js_string Js.t Js.prop;<br>             ui : Js.js_string Js.t Js.prop; width : Js.number Js.t Js.prop;<br>             xtype : Js.js_string Js.t Js.prop; .. ><br>           as 'd)<br>          Js.t, Js.number Js.t -> Js.number Js.t -> 'a Js.t -> 'b Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop as 'c</code></pre><div class="info">
 See method <code class="code">t.afterComponentLayout</code><br>
 </div>
-<pre><span id="METHODafterHide"><span class="keyword">method</span> afterHide</span> : <code class="type">'c 'd.<br>         ('b Js.t, 'c Js.callback Js.optdef -> 'd Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODafterHide"><span class="keyword">method</span> afterHide</span> : <code class="type">'e 'f.<br>         ('d Js.t, 'e Js.callback Js.optdef -> 'f Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.afterHide</code><br>
 </div>
-<pre><span id="METHODafterRender"><span class="keyword">method</span> afterRender</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.afterRender</code><br>
-</div>
-<pre><span id="METHODafterSetPosition"><span class="keyword">method</span> afterSetPosition</span> : <code class="type">('b Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODafterSetPosition"><span class="keyword">method</span> afterSetPosition</span> : <code class="type">('d Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.afterSetPosition</code><br>
 </div>
-<pre><span id="METHODafterShow"><span class="keyword">method</span> afterShow</span> : <code class="type">'e 'f 'g.<br>         ('b Js.t,<br>          'e Js.t Js.optdef -> 'f Js.callback Js.optdef -> 'g Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODafterShow"><span class="keyword">method</span> afterShow</span> : <code class="type">'g 'h 'i.<br>         ('d Js.t,<br>          'g Js.t Js.optdef -> 'h Js.callback Js.optdef -> 'i Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.afterShow</code><br>
 </div>
-<pre><span id="METHODbeforeShow"><span class="keyword">method</span> beforeShow</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODbeforeShow"><span class="keyword">method</span> beforeShow</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.beforeShow</code><br>
 </div>
-<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.initComponent</code><br>
 </div>
-<pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonAdded"><span class="keyword">method</span> onAdded</span> : <code class="type">'w.<br>         ('d Js.t, 'w Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>         Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onAdded</code><br>
+</div>
+<pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">('d Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onDestroy</code><br>
 </div>
-<pre><span id="METHODonHide"><span class="keyword">method</span> onHide</span> : <code class="type">'u 'v 'w.<br>         ('b Js.t,<br>          'u Js.t Js.optdef -> 'v Js.callback Js.optdef -> 'w Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonHide"><span class="keyword">method</span> onHide</span> : <code class="type">'x 'y 'z.<br>         ('d Js.t,<br>          'x Js.t Js.optdef -> 'y Js.callback Js.optdef -> 'z Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onHide</code><br>
 </div>
-<pre><span id="METHODonResize"><span class="keyword">method</span> onResize</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onResize</code><br>
-</div>
-<pre><span id="METHODonShow"><span class="keyword">method</span> onShow</span> : <code class="type">'x 'y 'z.<br>         ('b Js.t,<br>          'x Js.t Js.optdef -> 'y Js.callback Js.optdef -> 'z Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonShow"><span class="keyword">method</span> onShow</span> : <code class="type">'e1 'f1 'g1.<br>         ('d Js.t,<br>          'e1 Js.t Js.optdef -><br>          'f1 Js.callback Js.optdef -> 'g1 Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onShow</code><br>
 </div>
-<pre><span id="METHODonShowComplete"><span class="keyword">method</span> onShowComplete</span> : <code class="type">'a1 'b1.<br>         ('b Js.t, 'a1 Js.callback Js.optdef -> 'b1 Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODonShowComplete"><span class="keyword">method</span> onShowComplete</span> : <code class="type">'h1 'i1.<br>         ('d Js.t, 'h1 Js.callback Js.optdef -> 'i1 Js.t Js.optdef -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onShowComplete</code><br>
 </div>
 <pre><span id="METHODautoScroll"><span class="keyword">method</span> autoScroll</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
@@ -186,7 +185,7 @@ This should not be combined with <a href="#!/api/Ext.Component-cfg-overflowX" re
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODcolumnWidth"><span class="keyword">method</span> columnWidth</span> : <code class="type">'l. 'l Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODcolumnWidth"><span class="keyword">method</span> columnWidth</span> : <code class="type">'n. 'n Js.t Js.prop</code></pre><div class="info">
 <p>Defines the column width inside <a href="#!/api/Ext.layout.container.Column" rel="Ext.layout.container.Column" class="docClass">column layout</a>.</p>
 
 <p>Can be specified as a number or as a percentage.</p> 
@@ -194,7 +193,18 @@ This should not be combined with <a href="#!/api/Ext.Component-cfg-overflowX" re
 
     Defaults to: <code class="code">undefined</code><br>
 </div>
-<pre><span id="METHODdraggable_obj"><span class="keyword">method</span> draggable_obj</span> : <code class="type">'o. 'o Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODconstrainTo"><span class="keyword">method</span> constrainTo</span> : <code class="type">'p. 'p Js.t Js.prop</code></pre><div class="info">
+<p>A <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> (or an element from which a Region measurement will be read) which is used
+to constrain the component. Only applies when the component is floating.</p> <br>
+</div>
+<pre><span id="METHODdefaultAlign"><span class="keyword">method</span> defaultAlign</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The default <a href="#!/api/Ext.util.Positionable-method-getAlignToXY" rel="Ext.util.Positionable-method-getAlignToXY" class="docClass">Ext.Element#getAlignToXY</a> anchor position value for this menu
+relative to its element of origin. Used in conjunction with <a href="#!/api/Ext.Component-method-showBy" rel="Ext.Component-method-showBy" class="docClass">showBy</a>.</p> 
+<p>
+
+    Defaults to: <code class="code">"tl-bl?"</code><br>
+</div>
+<pre><span id="METHODdraggable_obj"><span class="keyword">method</span> draggable_obj</span> : <code class="type">'r. 'r Js.t Js.prop</code></pre><div class="info">
 <p>Specify as true to make a <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Component draggable using the Component's encapsulating element as
 the drag handle.</p>
 
@@ -275,23 +285,24 @@ The default is overflow-x: 'hidden'. This should not be combined with <a href="#
  * <code>'scroll'</code> to always enable vertical scrollbar (overflow-y: 'scroll').
 The default is overflow-y: 'hidden'. This should not be combined with <a href="#!/api/Ext.Component-cfg-autoScroll" rel="Ext.Component-cfg-autoScroll" class="docClass">autoScroll</a>.</p> <br>
 </div>
-<pre><span id="METHODregion"><span class="keyword">method</span> region</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODregion"><span class="keyword">method</span> region</span> : <code class="type">'l1. 'l1 Js.t Js.prop</code></pre><div class="info">
 <p>Defines the region inside <a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">border layout</a>.</p>
 
 <p>Possible values:</p>
 
 <ul>
-<li>center</li>
-<li>north</li>
-<li>south</li>
-<li>east</li>
-<li>west</li>
+<li>north - Positions component at top.</li>
+<li>south - Positions component at bottom.</li>
+<li>east - Positions component at right.</li>
+<li>west - Positions component at left.</li>
+<li>center - Positions component at the remaining space.
+There <strong>must</strong> be a component with <code>region: "center"</code> in every border layout.</li>
 </ul> 
 <p>
 
     Defaults to: <code class="code">undefined</code><br>
 </div>
-<pre><span id="METHODresizable"><span class="keyword">method</span> resizable</span> : <code class="type">'i1. 'i1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODresizable"><span class="keyword">method</span> resizable</span> : <code class="type">'q1. 'q1 Js.t Js.prop</code></pre><div class="info">
 <p>Specify as <code>true</code> to apply a <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Resizer</a> to this Component after rendering.</p>
 
 <p>May also be specified as a config object to be passed to the constructor of <a href="#!/api/Ext.resizer.Resizer" rel="Ext.resizer.Resizer" class="docClass">Resizer</a>

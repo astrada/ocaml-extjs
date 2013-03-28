@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,16 +140,10 @@
 <center><h1>Class type <a href="type_Ext_panel_Table.configs.html">Ext_panel_Table.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_panel_Table.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
-<li><a href="Ext_AbstractComponent.configs-c.html"><code class="code">Ext_AbstractComponent.configs</code></a></li>
-<li><a href="Ext_Component.configs-c.html"><code class="code">Ext_Component.configs</code></a></li>
-<li><a href="Ext_container_AbstractContainer.configs-c.html"><code class="code">Ext_container_AbstractContainer.configs</code></a></li>
-<li><a href="Ext_container_Container.configs-c.html"><code class="code">Ext_container_Container.configs</code></a></li>
-<li><a href="Ext_panel_AbstractPanel.configs-c.html"><code class="code">Ext_panel_AbstractPanel.configs</code></a></li>
 <li><a href="Ext_panel_Panel.configs-c.html"><code class="code">Ext_panel_Panel.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODafterCollapse"><span class="keyword">method</span> afterCollapse</span> : <code class="type">((< activeItem : 'c. 'c Js.t Js.prop; afterCollapse : 'a;<br>           afterComponentLayout : ('b Js.t,<br>                                   Js.number Js.t -><br>                                   Js.number Js.t -><br>                                   Js.number Js.t -> Js.number Js.t -> unit)<br>                                  Js.meth_callback Js.writeonly_prop;<br>           afterExpand : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                         Js.writeonly_prop;<br>           afterHide : 'd 'e.<br>                         ('b Js.t,<br>                          'd Js.callback Js.optdef -> 'e Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           afterLayout : 'f.<br>                           ('b Js.t,<br>                            (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 'f) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           afterRender : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           afterSetPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           afterShow : 'g 'h 'i.<br>                         ('b Js.t,<br>                          'g Js.t Js.optdef -><br>                          'h Js.callback Js.optdef -> 'i Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           allowDeselect : bool Js.t Js.prop; anchorSize : 'j. 'j Js.t Js.prop;<br>           animCollapse : bool Js.t Js.prop; autoDestroy : bool Js.t Js.prop;<br>           autoEl : 'k. 'k Js.t Js.prop; autoRender : 'l. 'l Js.t Js.prop;<br>           autoScroll : bool Js.t Js.prop; autoShow : bool Js.t Js.prop;<br>           baseCls : Js.js_string Js.t Js.prop; bbar : 'm. 'm Js.t Js.prop;<br>           beforeComponentLayout : ('b Js.t,<br>                                    Js.number Js.t -> Js.number Js.t -> unit)<br>                                   Js.meth_callback Js.writeonly_prop;<br>           beforeDestroy : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           beforeLayout : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           beforeShow : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           bodyBorder : bool Js.t Js.prop; bodyCls : 'n. 'n Js.t Js.prop;<br>           bodyPadding : 'o. 'o Js.t Js.prop; bodyStyle : 'p. 'p Js.t Js.prop;<br>           border : 'q. 'q Js.t Js.prop;<br>           bubbleEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           buttonAlign : Js.js_string Js.t Js.prop; buttons : 'r. 'r Js.t Js.prop;<br>           childEls : 's. 's Js.t Js.js_array Js.t Js.prop;<br>           closable : bool Js.t Js.prop; closeAction : Js.js_string Js.t Js.prop;<br>           cls : Js.js_string Js.t Js.prop;<br>           collapseDirection : Js.js_string Js.t Js.prop;<br>           collapseFirst : bool Js.t Js.prop;<br>           collapseMode : Js.js_string Js.t Js.prop; collapsed : bool Js.t Js.prop;<br>           collapsedCls : Js.js_string Js.t Js.prop;<br>           collapsible : bool Js.t Js.prop; columnLines : bool Js.t Js.prop;<br>           columnWidth : 't. 't Js.t Js.prop; columns : 'u. 'u Js.t Js.prop;<br>           componentCls : Js.js_string Js.t Js.prop;<br>           componentLayout : 'v. 'v Js.t Js.prop;<br>           contentEl : Js.js_string Js.t Js.prop; data : 'w. 'w Js.t Js.prop;<br>           defaultDockWeights : 'x. 'x Js.t Js.prop;<br>           defaultType : Js.js_string Js.t Js.prop; defaults : 'y. 'y Js.t Js.prop;<br>           deferRowRender : bool Js.t Js.prop; detachOnRemove : bool Js.t Js.prop;<br>           disableSelection : bool Js.t Js.prop; disabled : bool Js.t Js.prop;<br>           disabledCls : Js.js_string Js.t Js.prop;<br>           dockedItems : 'z. 'z Js.t Js.prop; draggable : bool Js.t Js.prop;<br>           draggable_obj : 'a1. 'a1 Js.t Js.prop;<br>           emptyText : Js.js_string Js.t Js.prop;<br>           enableColumnHide : bool Js.t Js.prop;<br>           enableColumnMove : bool Js.t Js.prop;<br>           enableColumnResize : bool Js.t Js.prop;<br>           enableLocking : bool Js.t Js.prop; fbar : 'b1. 'b1 Js.t Js.prop;<br>           features : <a href="Ext_grid_feature_Feature.t-c.html">Ext_grid_feature_Feature.t</a> Js.js_array Js.t Js.prop;<br>           floatable : bool Js.t Js.prop; floating : bool Js.t Js.prop;<br>           focusOnToFront : bool Js.t Js.prop; forceFit : bool Js.t Js.prop;<br>           formBind : bool Js.t Js.prop; frame : bool Js.t Js.prop;<br>           frameHeader : bool Js.t Js.prop; header : 'c1. 'c1 Js.t Js.prop;<br>           headerPosition : Js.js_string Js.t Js.prop;<br>           height : Js.number Js.t Js.prop; hidden : bool Js.t Js.prop;<br>           hideCollapseTool : bool Js.t Js.prop; hideHeaders : bool Js.t Js.prop;<br>           hideMode : Js.js_string Js.t Js.prop; html : 'd1. 'd1 Js.t Js.prop;<br>           icon : Js.js_string Js.t Js.prop; iconCls : Js.js_string Js.t Js.prop;<br>           id : Js.js_string Js.t Js.prop;<br>           initComponent : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           itemId : Js.js_string Js.t Js.prop; items : 'e1. 'e1 Js.t Js.prop;<br>           layout : 'f1. 'f1 Js.t Js.prop; lbar : 'g1. 'g1 Js.t Js.prop;<br>           listeners : 'h1. 'h1 Js.t Js.prop; loader : 'i1. 'i1 Js.t Js.prop;<br>           manageHeight : bool Js.t Js.prop; margin : 'j1. 'j1 Js.t Js.prop;<br>           maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>           minButtonWidth : Js.number Js.t Js.prop;<br>           minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>           onAdd : 'k1.<br>                     ('b Js.t,<br>                      (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'k1) Js.t -> Js.number Js.t -> unit)<br>                     Js.meth_callback Js.writeonly_prop;<br>           onAdded : 'l1.<br>                       ('b Js.t, 'l1 Js.t -> Js.number Js.t -> unit)<br>                       Js.meth_callback Js.writeonly_prop;<br>           onAdded_container : ('b Js.t, 'b Js.t -> Js.number Js.t -> unit)<br>                               Js.meth_callback Js.writeonly_prop;<br>           onBeforeAdd : 'm1.<br>                           ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'm1) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           onDestroy : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDisable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDockedAdd : 'n1.<br>                           ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'n1) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           onDockedRemove : 'o1.<br>                              ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'o1) Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           onEnable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onHide : 'p1 'q1 'r1.<br>                      ('b Js.t,<br>                       'p1 Js.t Js.optdef -><br>                       'q1 Js.callback Js.optdef -> 'r1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemove : 's1.<br>                        ('b Js.t,<br>                         (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 's1) Js.t -> bool Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemoved : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onRender : ('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onResize : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onShow : 't1 'u1 'v1.<br>                      ('b Js.t,<br>                       't1 Js.t Js.optdef -><br>                       'u1 Js.callback Js.optdef -> 'v1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onShowComplete : 'w1 'x1.<br>                              ('b Js.t,<br>                               'w1 Js.callback Js.optdef -><br>                               'x1 Js.t Js.optdef -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop;<br>           overflowX : Js.js_string Js.t Js.prop;<br>           overflowY : Js.js_string Js.t Js.prop; overlapHeader : bool Js.t Js.prop;<br>           padding : 'y1. 'y1 Js.t Js.prop; placeholder : 'z1. 'z1 Js.t Js.prop;<br>           placeholderCollapseHideMode : Js.number Js.t Js.prop;<br>           plugins : 'a2. 'a2 Js.t Js.prop; rbar : 'b2. 'b2 Js.t Js.prop;<br>           region : Js.js_string Js.t Js.prop; renderData : 'c2. 'c2 Js.t Js.prop;<br>           renderSelectors : 'd2. 'd2 Js.t Js.prop;<br>           renderTo : 'e2. 'e2 Js.t Js.prop; renderTpl : 'f2. 'f2 Js.t Js.prop;<br>           resizable : 'g2. 'g2 Js.t Js.prop;<br>           resizeHandles : Js.js_string Js.t Js.prop; rowLines : bool Js.t Js.prop;<br>           saveDelay : Js.number Js.t Js.prop; scroll : 'h2. 'h2 Js.t Js.prop;<br>           sealedColumns : bool Js.t Js.prop; selModel : 'i2. 'i2 Js.t Js.prop;<br>           selType : Js.js_string Js.t Js.prop; shadow : 'j2. 'j2 Js.t Js.prop;<br>           shadowOffset : 'k2. 'k2 Js.t Js.prop; shrinkWrap : 'l2. 'l2 Js.t Js.prop;<br>           sortableColumns : bool Js.t Js.prop;<br>           stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>           store : <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.prop; style : 'm2. 'm2 Js.t Js.prop;<br>           styleHtmlCls : Js.js_string Js.t Js.prop;<br>           styleHtmlContent : bool Js.t Js.prop; suspendLayout : bool Js.t Js.prop;<br>           tbar : 'n2. 'n2 Js.t Js.prop; title : Js.js_string Js.t Js.prop;<br>           titleAlign : Js.js_string Js.t Js.prop;<br>           titleCollapse : bool Js.t Js.prop; toFrontOnShow : bool Js.t Js.prop;<br>           tools : 'o2. 'o2 Js.t Js.prop; tpl : 'p2. 'p2 Js.t Js.prop;<br>           tplWriteMode : Js.js_string Js.t Js.prop; ui : Js.js_string Js.t Js.prop;<br>           verticalScroller : 'q2. 'q2 Js.t Js.prop;<br>           view : <a href="Ext_view_Table.t-c.html">Ext_view_Table.t</a> Js.t Js.prop; viewConfig : 'r2. 'r2 Js.t Js.prop;<br>           viewType : Js.js_string Js.t Js.prop; width : Js.number Js.t Js.prop;<br>           xtype : Js.js_string Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t, bool Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
+<pre><span id="METHODafterCollapse"><span class="keyword">method</span> afterCollapse</span> : <code class="type">((< activeItem : 'c. 'c Js.t Js.prop; afterCollapse : 'a;<br>           afterComponentLayout : 'd 'e.<br>                                    ('b Js.t,<br>                                     Js.number Js.t -><br>                                     Js.number Js.t -> 'd Js.t -> 'e Js.t -> unit)<br>                                    Js.meth_callback Js.writeonly_prop;<br>           afterExpand : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                         Js.writeonly_prop;<br>           afterHide : 'f 'g.<br>                         ('b Js.t,<br>                          'f Js.callback Js.optdef -> 'g Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           afterLayout : 'h.<br>                           ('b Js.t,<br>                            (#<a href="Ext_layout_container_Container.t-c.html">Ext_layout_container_Container.t</a> as 'h) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           afterRender : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           afterSetPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           afterShow : 'i 'j 'k.<br>                         ('b Js.t,<br>                          'i Js.t Js.optdef -><br>                          'j Js.callback Js.optdef -> 'k Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           allowDeselect : bool Js.t Js.prop; anchorSize : 'l. 'l Js.t Js.prop;<br>           animCollapse : bool Js.t Js.prop; autoDestroy : bool Js.t Js.prop;<br>           autoEl : 'm. 'm Js.t Js.prop; autoRender : 'n. 'n Js.t Js.prop;<br>           autoScroll : bool Js.t Js.prop; autoShow : bool Js.t Js.prop;<br>           baseCls : Js.js_string Js.t Js.prop; bbar : 'o. 'o Js.t Js.prop;<br>           beforeComponentLayout : ('b Js.t,<br>                                    Js.number Js.t -> Js.number Js.t -> unit)<br>                                   Js.meth_callback Js.writeonly_prop;<br>           beforeDestroy : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           beforeLayout : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           beforeShow : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           bodyBorder : bool Js.t Js.prop; bodyCls : 'p. 'p Js.t Js.prop;<br>           bodyPadding : 'q. 'q Js.t Js.prop; bodyStyle : 'r. 'r Js.t Js.prop;<br>           border : 's. 's Js.t Js.prop;<br>           bubbleEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           buttonAlign : Js.js_string Js.t Js.prop; buttons : 't. 't Js.t Js.prop;<br>           childEls : 'u. 'u Js.t Js.js_array Js.t Js.prop;<br>           closable : bool Js.t Js.prop; closeAction : Js.js_string Js.t Js.prop;<br>           cls : Js.js_string Js.t Js.prop;<br>           collapseDirection : Js.js_string Js.t Js.prop;<br>           collapseFirst : bool Js.t Js.prop;<br>           collapseMode : Js.js_string Js.t Js.prop; collapsed : bool Js.t Js.prop;<br>           collapsedCls : Js.js_string Js.t Js.prop;<br>           collapsible : bool Js.t Js.prop; columnLines : bool Js.t Js.prop;<br>           columnWidth : 'v. 'v Js.t Js.prop; columns : 'w. 'w Js.t Js.prop;<br>           componentCls : Js.js_string Js.t Js.prop;<br>           componentLayout : 'x. 'x Js.t Js.prop; constrain : bool Js.t Js.prop;<br>           constrainHeader : bool Js.t Js.prop; constrainTo : 'y. 'y Js.t Js.prop;<br>           contentEl : Js.js_string Js.t Js.prop; data : 'z. 'z Js.t Js.prop;<br>           defaultAlign : Js.js_string Js.t Js.prop;<br>           defaultDockWeights : 'a1. 'a1 Js.t Js.prop;<br>           defaultType : Js.js_string Js.t Js.prop;<br>           defaults : 'b1. 'b1 Js.t Js.prop; deferRowRender : bool Js.t Js.prop;<br>           detachOnRemove : bool Js.t Js.prop; disableSelection : bool Js.t Js.prop;<br>           disabled : bool Js.t Js.prop; disabledCls : Js.js_string Js.t Js.prop;<br>           dockedItems : 'c1. 'c1 Js.t Js.prop; draggable : bool Js.t Js.prop;<br>           draggable_obj : 'd1. 'd1 Js.t Js.prop;<br>           emptyText : Js.js_string Js.t Js.prop;<br>           enableColumnHide : bool Js.t Js.prop;<br>           enableColumnMove : bool Js.t Js.prop;<br>           enableColumnResize : bool Js.t Js.prop;<br>           enableLocking : bool Js.t Js.prop; fbar : 'e1. 'e1 Js.t Js.prop;<br>           features : 'f1. 'f1 Js.t Js.prop; fixed : bool Js.t Js.prop;<br>           floatable : bool Js.t Js.prop; floating : bool Js.t Js.prop;<br>           focusOnToFront : bool Js.t Js.prop; forceFit : bool Js.t Js.prop;<br>           formBind : bool Js.t Js.prop; frame : bool Js.t Js.prop;<br>           frameHeader : bool Js.t Js.prop; glyph : 'g1. 'g1 Js.t Js.prop;<br>           header : 'h1. 'h1 Js.t Js.prop;<br>           headerOverCls : Js.js_string Js.t Js.prop;<br>           headerPosition : Js.js_string Js.t Js.prop;<br>           height : Js.number Js.t Js.prop; hidden : bool Js.t Js.prop;<br>           hideCollapseTool : bool Js.t Js.prop; hideHeaders : bool Js.t Js.prop;<br>           hideMode : Js.js_string Js.t Js.prop; html : 'i1. 'i1 Js.t Js.prop;<br>           icon : Js.js_string Js.t Js.prop; iconCls : Js.js_string Js.t Js.prop;<br>           id : Js.js_string Js.t Js.prop;<br>           initComponent : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           itemId : Js.js_string Js.t Js.prop; items : 'j1. 'j1 Js.t Js.prop;<br>           layout : 'k1. 'k1 Js.t Js.prop; lbar : 'l1. 'l1 Js.t Js.prop;<br>           listeners : 'm1. 'm1 Js.t Js.prop; loader : 'n1. 'n1 Js.t Js.prop;<br>           manageHeight : bool Js.t Js.prop; margin : 'o1. 'o1 Js.t Js.prop;<br>           maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>           minButtonWidth : Js.number Js.t Js.prop;<br>           minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>           onAdd : 'p1.<br>                     ('b Js.t,<br>                      (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'p1) Js.t -> Js.number Js.t -> unit)<br>                     Js.meth_callback Js.writeonly_prop;<br>           onAdded : 'q1.<br>                       ('b Js.t, 'q1 Js.t -> Js.number Js.t -> unit)<br>                       Js.meth_callback Js.writeonly_prop;<br>           onBeforeAdd : 'r1.<br>                           ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'r1) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           onDestroy : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDisable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDockedAdd : 's1.<br>                           ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 's1) Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>           onDockedRemove : 't1.<br>                              ('b Js.t, (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 't1) Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           onEnable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onHide : 'u1 'v1 'w1.<br>                      ('b Js.t,<br>                       'u1 Js.t Js.optdef -><br>                       'v1 Js.callback Js.optdef -> 'w1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemove : 'x1.<br>                        ('b Js.t,<br>                         (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'x1) Js.t -> bool Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemoved : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onRender : ('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onResize : 'y1 'z1 'a2 'b2.<br>                        ('b Js.t,<br>                         'y1 Js.t -> 'z1 Js.t -> 'a2 Js.t -> 'b2 Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onShow : 'c2 'd2 'e2.<br>                      ('b Js.t,<br>                       'c2 Js.t Js.optdef -><br>                       'd2 Js.callback Js.optdef -> 'e2 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onShowComplete : 'f2 'g2.<br>                              ('b Js.t,<br>                               'f2 Js.callback Js.optdef -><br>                               'g2 Js.t Js.optdef -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop;<br>           overflowX : Js.js_string Js.t Js.prop;<br>           overflowY : Js.js_string Js.t Js.prop; overlapHeader : bool Js.t Js.prop;<br>           padding : 'h2. 'h2 Js.t Js.prop; placeholder : 'i2. 'i2 Js.t Js.prop;<br>           placeholderCollapseHideMode : Js.number Js.t Js.prop;<br>           plugins : 'j2. 'j2 Js.t Js.prop; rbar : 'k2. 'k2 Js.t Js.prop;<br>           region : 'l2. 'l2 Js.t Js.prop; renderData : 'm2. 'm2 Js.t Js.prop;<br>           renderSelectors : 'n2. 'n2 Js.t Js.prop;<br>           renderTo : 'o2. 'o2 Js.t Js.prop; renderTpl : 'p2. 'p2 Js.t Js.prop;<br>           resizable : 'q2. 'q2 Js.t Js.prop;<br>           resizeHandles : Js.js_string Js.t Js.prop; rowLines : bool Js.t Js.prop;<br>           rtl : bool Js.t Js.prop; saveDelay : Js.number Js.t Js.prop;<br>           scroll : 'r2. 'r2 Js.t Js.prop; sealedColumns : bool Js.t Js.prop;<br>           selModel : 's2. 's2 Js.t Js.prop; selType : Js.js_string Js.t Js.prop;<br>           shadow : 't2. 't2 Js.t Js.prop; shadowOffset : Js.number Js.t Js.prop;<br>           shrinkWrap : 'u2. 'u2 Js.t Js.prop;<br>           shrinkWrapDock : 'v2. 'v2 Js.t Js.prop; simpleDrag : bool Js.t Js.prop;<br>           sortableColumns : bool Js.t Js.prop;<br>           stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>           store : <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.prop; style : 'w2. 'w2 Js.t Js.prop;<br>           suspendLayout : bool Js.t Js.prop; tbar : 'x2. 'x2 Js.t Js.prop;<br>           title : Js.js_string Js.t Js.prop;<br>           titleAlign : Js.js_string Js.t Js.prop;<br>           titleCollapse : bool Js.t Js.prop; toFrontOnShow : bool Js.t Js.prop;<br>           tools : 'y2. 'y2 Js.t Js.prop; tpl : 'z2. 'z2 Js.t Js.prop;<br>           tplWriteMode : Js.js_string Js.t Js.prop; ui : Js.js_string Js.t Js.prop;<br>           verticalScroller : 'a3. 'a3 Js.t Js.prop;<br>           view : <a href="Ext_view_Table.t-c.html">Ext_view_Table.t</a> Js.t Js.prop; viewConfig : 'b3. 'b3 Js.t Js.prop;<br>           viewType : Js.js_string Js.t Js.prop; width : Js.number Js.t Js.prop;<br>           xtype : Js.js_string Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t, bool Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
 See method <code class="code">t.afterCollapse</code><br>
 </div>
 <pre><span id="METHODafterExpand"><span class="keyword">method</span> afterExpand</span> : <code class="type">('b Js.t, bool Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
@@ -154,6 +151,12 @@ See method <code class="code">t.afterExpand</code><br>
 </div>
 <pre><span id="METHODbeforeDestroy"><span class="keyword">method</span> beforeDestroy</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.beforeDestroy</code><br>
+</div>
+<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.initComponent</code><br>
+</div>
+<pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onDestroy</code><br>
 </div>
 <pre><span id="METHODallowDeselect"><span class="keyword">method</span> allowDeselect</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>True to allow deselecting a record. This config is forwarded to <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">Ext.selection.Model.allowDeselect</a>.</p> 
@@ -164,7 +167,7 @@ See method <code class="code">t.beforeDestroy</code><br>
 <pre><span id="METHODcolumnLines"><span class="keyword">method</span> columnLines</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>Adds column line styling</p> <br>
 </div>
-<pre><span id="METHODcolumns"><span class="keyword">method</span> columns</span> : <code class="type">'u. 'u Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODcolumns"><span class="keyword">method</span> columns</span> : <code class="type">'w. 'w Js.t Js.prop</code></pre><div class="info">
 <p>An array of <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">column</a> definition objects which define all columns that appear in this
 grid. Each column definition provides the header text for the column, and a definition of where the data for that
 column comes from.</p>
@@ -225,17 +228,58 @@ is empty. When specified, and the Store is empty, the text will be rendered insi
     Defaults to: <code class="code">true</code><br>
 </div>
 <pre><span id="METHODenableLocking"><span class="keyword">method</span> enableLocking</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>True to enable locking support for this grid. Alternatively, locking will also be automatically
-enabled if any of the columns in the column configuration contain the locked config option.</p> 
+<p>Configure as <code>true</code> to enable locking support for this grid. Alternatively, locking will also be automatically
+enabled if any of the columns in the <a href="#!/api/Ext.panel.Table-cfg-columns" rel="Ext.panel.Table-cfg-columns" class="docClass">columns</a> configuration contain a <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> config option.</p>
+
+<p>A locking grid is processed in a special way. The configuration options are cloned and <em>two</em> grids are created to be the locked (left) side
+and the normal (right) side. This Panel becomes merely a <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">container</a> which arranges both in an <a href="#!/api/Ext.layout.container.HBox" rel="Ext.layout.container.HBox" class="docClass">HBox</a> layout.</p>
+
+<p><a href="#!/api/Ext.panel.Table-cfg-plugins" rel="Ext.panel.Table-cfg-plugins" class="docClass">Plugins</a> may be targeted at either locked, or unlocked grid, or, both, in which case the plugin is cloned and used on both sides.</p>
+
+<p>Plugins may also be targeted at the containing locking Panel.</p>
+
+<p>This is configured by specifying a <code>lockableScope</code> property in your plugin which may have the following values:</p>
+
+<ul>
+<li><code>"both"</code> (the default) - The plugin is added to both grids</li>
+<li><code>"top"</code> - The plugin is added to the containing Panel</li>
+<li><code>"locked"</code> - The plugin is added to the locked (left) grid</li>
+<li><code>"normal"</code> - The plugin is added to the normal (right) grid</li>
+</ul>
+
+
+<p>If <code>both</code> is specified, then each copy of the plugin gains a property <code>lockingPartner</code> which references its sibling on the other side so that they
+can synchronize operations is necessary.</p>
+
+<p><a href="#!/api/Ext.panel.Table-cfg-features" rel="Ext.panel.Table-cfg-features" class="docClass">Features</a> may also be configured with <code>lockableScope</code> and may target the locked grid, the normal grid or both grids. Features
+also get a <code>lockingPartner</code> reference injected.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODfeatures"><span class="keyword">method</span> features</span> : <code class="type"><a href="Ext_grid_feature_Feature.t-c.html">Ext_grid_feature_Feature.t</a> Js.js_array Js.t Js.prop</code></pre><div class="info">
-<p>An array of grid Features to be added to this grid. See <a href="#!/api/Ext.grid.feature.Feature" rel="Ext.grid.feature.Feature" class="docClass">Ext.grid.feature.Feature</a> for usage.</p> <br>
+<pre><span id="METHODfeatures"><span class="keyword">method</span> features</span> : <code class="type">'f1. 'f1 Js.t Js.prop</code></pre><div class="info">
+<p>An array of grid Features to be added to this grid. Can also be just a single feature instead of array.</p>
+
+<p>Features config behaves much like <a href="#!/api/Ext.panel.Table-cfg-plugins" rel="Ext.panel.Table-cfg-plugins" class="docClass">plugins</a>.
+A feature can be added by either directly referencing the instance:</p>
+
+<pre><code>features: [<a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.grid.feature.GroupingSummary" rel="Ext.grid.feature.GroupingSummary" class="docClass">Ext.grid.feature.GroupingSummary</a>', {groupHeaderTpl: 'Subject: {name}'})],
+</code></pre>
+
+<p>By using config object with ftype:</p>
+
+<pre><code>features: [{ftype: 'groupingsummary', groupHeaderTpl: 'Subject: {name}'}],
+</code></pre>
+
+<p>Or with just a ftype:</p>
+
+<pre><code>features: ['grouping', 'groupingsummary'],
+</code></pre>
+
+<p>See <a href="#!/api/Ext.enums.Feature" rel="Ext.enums.Feature" class="docClass">Ext.enums.Feature</a> for list of all ftypes.</p> <br>
 </div>
 <pre><span id="METHODforceFit"><span class="keyword">method</span> forceFit</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Ttrue to force the columns to fit into the available width. Headers are first sized according to configuration,
+<p>True to force the columns to fit into the available width. Headers are first sized according to configuration,
 whether that be a specific width, or flex. Then they are all proportionally changed in width so that the entire
 content width is used. For more accurate control, it is more optimal to specify a flex setting on the columns
 that are to be stretched &amp; explicit widths on columns that are not.</p> <br>
@@ -246,7 +290,7 @@ that are to be stretched &amp; explicit widths on columns that are not.</p> <br>
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODlayout"><span class="keyword">method</span> layout</span> : <code class="type">'f1. 'f1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODlayout"><span class="keyword">method</span> layout</span> : <code class="type">'k1. 'k1 Js.t Js.prop</code></pre><div class="info">
 <p><strong>Important</strong>: In order for child items to be correctly sized and
 positioned, typically a layout manager <strong>must</strong> be specified through
 the <code>layout</code> configuration option.</p>
@@ -255,7 +299,7 @@ the <code>layout</code> configuration option.</p>
 the Container's layout manager which creates and manages the type of layout
 you have in mind.  For example:</p>
 
-<p>If the <a href="#!/api/Ext.panel.Table-cfg-layout" rel="Ext.panel.Table-cfg-layout" class="docClass">layout</a> configuration is not explicitly specified for
+<p>If the layout configuration is not explicitly specified for
 a general purpose container (e.g. Container or Panel) the
 <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">default layout manager</a> will be used
 which does nothing but render child components sequentially into the
@@ -263,7 +307,7 @@ Container (no sizing or positioning will be performed in this situation).</p>
 
 <p><strong>layout</strong> may be specified as either as an Object or as a String:</p>
 
-<h1>Specify as an Object</h1>
+<h2>Specify as an Object</h2>
 
 <p>Example usage:</p>
 
@@ -279,18 +323,7 @@ Container (no sizing or positioning will be performed in this situation).</p>
 <p>The layout type to be used for this container.  If not specified,
 a default <a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">Ext.layout.container.Auto</a> will be created and used.</p>
 
-<p>Valid layout <code>type</code> values are:</p>
-
-<ul>
-<li><a href="#!/api/Ext.layout.container.Auto" rel="Ext.layout.container.Auto" class="docClass">Auto</a> - <strong>Default</strong></li>
-<li><a href="#!/api/Ext.layout.container.Card" rel="Ext.layout.container.Card" class="docClass">card</a></li>
-<li><a href="#!/api/Ext.layout.container.Fit" rel="Ext.layout.container.Fit" class="docClass">fit</a></li>
-<li><a href="#!/api/Ext.layout.container.HBox" rel="Ext.layout.container.HBox" class="docClass">hbox</a></li>
-<li><a href="#!/api/Ext.layout.container.VBox" rel="Ext.layout.container.VBox" class="docClass">vbox</a></li>
-<li><a href="#!/api/Ext.layout.container.Anchor" rel="Ext.layout.container.Anchor" class="docClass">anchor</a></li>
-<li><a href="#!/api/Ext.layout.container.Table" rel="Ext.layout.container.Table" class="docClass">table</a></li>
-</ul>
-</li>
+<p>Valid layout <code>type</code> values are listed in <a href="#!/api/Ext.enums.Layout" rel="Ext.enums.Layout" class="docClass">Ext.enums.Layout</a>.</p></li>
 <li><p>Layout specific configuration properties</p>
 
 <p>Additional layout specific configuration properties may also be
@@ -300,7 +333,7 @@ specified.</p></li>
 </ul>
 
 
-<h1>Specify as a String</h1>
+<h2>Specify as a String</h2>
 
 <p>Example usage:</p>
 
@@ -310,8 +343,8 @@ specified.</p></li>
 <ul>
 <li><p><strong>layout</strong></p>
 
-<p>The layout <code>type</code> to be used for this container (see list
-of valid layout type values above).</p>
+<p>The layout <code>type</code> to be used for this container (see <a href="#!/api/Ext.enums.Layout" rel="Ext.enums.Layout" class="docClass">Ext.enums.Layout</a>
+for list of valid values).</p>
 
 <p>Additional layout specific configuration properties. For complete
 details regarding the valid config options for each layout type, see the
@@ -319,14 +352,13 @@ layout class corresponding to the <code>layout</code> specified.</p></li>
 </ul>
 
 
-<h1>Configuring the default layout type</h1>
+<h2>Configuring the default layout type</h2>
 
-<pre><code>If a certain Container class has a default layout (For example a <a href="#!/api/Ext.toolbar.Toolbar" rel="Ext.toolbar.Toolbar" class="docClass">Toolbar</a>
-with a default `Box` layout), then to simply configure the default layout,
-use an object, but without the `type` property:
+<p>If a certain Container class has a default layout (For example a <a href="#!/api/Ext.toolbar.Toolbar" rel="Ext.toolbar.Toolbar" class="docClass">Toolbar</a>
+with a default <code>Box</code> layout), then to simply configure the default layout,
+use an object, but without the <code>type</code> property:</p>
 
-
-xtype: 'toolbar',
+<pre><code>xtype: 'toolbar',
 layout: {
     pack: 'center'
 }
@@ -341,7 +373,7 @@ layout: {
 
     Defaults to: <code class="code">true</code><br>
 </div>
-<pre><span id="METHODscroll"><span class="keyword">method</span> scroll</span> : <code class="type">'h2. 'h2 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODscroll"><span class="keyword">method</span> scroll</span> : <code class="type">'r2. 'r2 Js.t Js.prop</code></pre><div class="info">
 <p>Scrollers configuration. Valid values are 'both', 'horizontal' or 'vertical'.
 True implies 'both'. False implies 'none'.</p> 
 <p>
@@ -355,7 +387,7 @@ current group. Only relevant while <a href="#!/api/Ext.panel.Table-cfg-enableCol
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODselModel"><span class="keyword">method</span> selModel</span> : <code class="type">'i2. 'i2 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODselModel"><span class="keyword">method</span> selModel</span> : <code class="type">'s2. 's2 Js.t Js.prop</code></pre><div class="info">
 <p>A <a href="#!/api/Ext.selection.Model" rel="Ext.selection.Model" class="docClass">selection model</a> instance or config object.  In latter case the <a href="#!/api/Ext.panel.Table-cfg-selType" rel="Ext.panel.Table-cfg-selType" class="docClass">selType</a>
 config option determines to which type of selection model this config is applied.</p> <br>
 </div>
@@ -375,8 +407,8 @@ a config object or nothing at all given in <a href="#!/api/Ext.panel.Table-cfg-s
 <pre><span id="METHODstore"><span class="keyword">method</span> store</span> : <code class="type"><a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.prop</code></pre><div class="info">
 <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> the grid should use as its data source.</p> <br>
 </div>
-<pre><span id="METHODverticalScroller"><span class="keyword">method</span> verticalScroller</span> : <code class="type">'q2. 'q2 Js.t Js.prop</code></pre><div class="info">
-<p>A config object to be used when configuring the <a href="#!/api/Ext.grid.PagingScroller" rel="Ext.grid.PagingScroller" class="docClass">scroll monitor</a> to control
+<pre><span id="METHODverticalScroller"><span class="keyword">method</span> verticalScroller</span> : <code class="type">'a3. 'a3 Js.t Js.prop</code></pre><div class="info">
+<p>A config object to be used when configuring the <a href="#!/api/Ext.grid.plugin.BufferedRenderer" rel="Ext.grid.plugin.BufferedRenderer" class="docClass">scroll monitor</a> to control
 refreshing of data in an "infinite grid".</p>
 
 <p>Configurations of this object allow fine tuning of data caching which can improve performance and usability
@@ -386,7 +418,7 @@ of the infinite grid.</p> <br>
 <p>The <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">Ext.view.Table</a> used by the grid. Use <a href="#!/api/Ext.panel.Table-cfg-viewConfig" rel="Ext.panel.Table-cfg-viewConfig" class="docClass">viewConfig</a> to just supply some config options to
 view (instead of creating an entire View instance).</p> <br>
 </div>
-<pre><span id="METHODviewConfig"><span class="keyword">method</span> viewConfig</span> : <code class="type">'r2. 'r2 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODviewConfig"><span class="keyword">method</span> viewConfig</span> : <code class="type">'b3. 'b3 Js.t Js.prop</code></pre><div class="info">
 <p>A config object that will be applied to the grid's UI view. Any of the config options available for
 <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">Ext.view.Table</a> can be specified here. This option is ignored if <a href="#!/api/Ext.panel.Table-cfg-view" rel="Ext.panel.Table-cfg-view" class="docClass">view</a> is specified.</p> <br>
 </div>

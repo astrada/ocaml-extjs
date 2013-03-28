@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -142,13 +145,14 @@
   <p>Controllers are the glue that binds an application together. All they really do is listen for events (usually from
 views) and take some action. Here's how we might create a Controller to manage Users:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
-    extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
+     extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
 
-    init: function() {
-        console.log('Initialized Users! This happens before the Application launch function is called');
-    }
-});
+     init: function() {
+         console.log('Initialized Users! This happens before ' +
+                     'the Application launch() function is called');
+     }
+ });
 </code></pre>
 
 <p>The init function is a special method that is called when your application boots. It is called before the
@@ -160,60 +164,70 @@ conjunction with another Controller function - <a href="#!/api/Ext.app.Controlle
 makes it easy to listen to events on your view classes and take some action with a handler function. Let's update
 our Users controller to tell us when the panel is rendered:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
-    extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
+     extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
 
-    init: function() {
-        this.control({
-            'viewport &gt; panel': {
-                render: this.onPanelRendered
-            }
-        });
-    },
+     init: function() {
+         this.control({
+             'viewport &gt; panel': {
+                 render: this.onPanelRendered
+             }
+         });
+     },
 
-    onPanelRendered: function() {
-        console.log('The panel was rendered');
-    }
-});
+     onPanelRendered: function() {
+         console.log('The panel was rendered');
+     }
+ });
 </code></pre>
 
-<p>We've updated the init function to use this.control to set up listeners on views in our application. The control
-function uses the new ComponentQuery engine to quickly and easily get references to components on the page. If you
-are not familiar with ComponentQuery yet, be sure to check out the <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">documentation</a>. In brief though,
-it allows us to pass a CSS-like selector that will find every matching component on the page.</p>
+<p>We've updated the init function to use <a href="#!/api/Ext.app.Controller-method-control" rel="Ext.app.Controller-method-control" class="docClass">control method</a> to set up listeners on views
+in our application. The control method uses the ComponentQuery engine to quickly and easily get references to components
+on the page. If you are not familiar with ComponentQuery yet, be sure to check out the
+<a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">documentation</a>. In brief though, it allows us to pass a CSS-like selector that will find
+every matching component on the page.</p>
 
 <p>In our init function above we supplied 'viewport > panel', which translates to "find me every Panel that is a direct
 child of a Viewport". We then supplied an object that maps event names (just 'render' in this case) to handler
 functions. The overall effect is that whenever any component that matches our selector fires a 'render' event, our
 onPanelRendered function is called.</p>
 
+<h2>Event domains</h2>
+
+<p>In Ext JS 4.2, we introduced the concept of event domains. In terms of MVC, an event domain
+is one or more base classes that fire events to which a Controller wants to listen. Besides
+Component event domain that encompass <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>-descended Views, Controllers now
+can listen to events from data Stores, <a href="#!/api/Ext.direct.Manager" rel="Ext.direct.Manager" class="docClass">Ext.Direct</a> Providers, other Controllers, and <a href="#!/api/Ext-property-globalEvents" rel="Ext-property-globalEvents" class="docClass">Ext.globalEvents</a>.
+This feature provides a way to communicate between parts of the whole application without the need
+to bind controllers together tightly, and allows to develop and test application parts in isolation.</p>
+
+<p>See usage examples in <a href="#!/api/Ext.app.Controller-method-listen" rel="Ext.app.Controller-method-listen" class="docClass">listen</a> method documentation.</p>
+
 <h2>Using refs</h2>
 
-<p>One of the most useful parts of Controllers is the new ref system. These use the new <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> to
+<p>One of the most useful parts of Controllers is the ref system. These use the <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> to
 make it really easy to get references to Views on your page. Let's look at an example of this now:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
-    extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
+     extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
 
-    refs: [
-        {
-            ref: 'list',
-            selector: 'grid'
-        }
-    ],
+     refs: [{
+         ref: 'list',
+         selector: 'grid'
+     }],
 
-    init: function() {
-        this.control({
-            'button': {
-                click: this.refreshGrid
-            }
-        });
-    },
+     init: function() {
+         this.control({
+             'button': {
+                 click: this.refreshGrid
+             }
+         });
+     },
 
-    refreshGrid: function() {
-        this.getList().store.load();
-    }
-});
+     refreshGrid: function() {
+         this.getList().store.load();
+     }
+ });
 </code></pre>
 
 <p>This example assumes the existence of a <a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Grid</a> on the page, which contains a single button to
@@ -244,20 +258,22 @@ examples/app/feed-viewer folder in the SDK download.</p>
 <p>Refs aren't the only thing that generate convenient getter methods. Controllers often have to deal with Models and
 Stores so the framework offers a couple of easy ways to get access to those too. Let's look at another example:</p>
 
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
-    extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.controller.Users', {
+     extend: '<a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Ext.app.Controller</a>',
 
-    models: ['User'],
-    stores: ['AllUsers', 'AdminUsers'],
+     models: ['User'],
+     stores: ['AllUsers', 'AdminUsers'],
 
-    init: function() {
-        var User = this.getUserModel(),
-            allUsers = this.getAllUsersStore();
+     init: function() {
+         var User, allUsers, ed;
 
-        var ed = new User({name: 'Ed'});
-        allUsers.add(ed);
-    }
-});
+         User = this.getUserModel();
+         allUsers = this.getAllUsersStore();
+
+         ed = new User({ name: 'Ed' });
+         allUsers.add(ed);
+     }
+ });
 </code></pre>
 
 <p>By specifying Models and Stores that the Controller cares about, it again dynamically loads them from the appropriate
@@ -269,7 +285,8 @@ functionality.</p>
 <h2>Further Reading</h2>
 
 <p>For more information about writing Ext JS 4 applications, please see the
-<a href="#/guide/application_architecture">application architecture guide</a>. Also see the <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> documentation.</p> <br>
+<a href="#/guide/application_architecture">application architecture guide</a>. Also see the <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a>
+documentation.</p> <br>
 <hr width="100%">
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Ext_app_Controller.t-c.html">t</a></span> = <code class="code">object</code> <a href="Ext_app_Controller.t-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEconfigs"><span class="keyword">class type</span> <a href="Ext_app_Controller.configs-c.html">configs</a></span> = <code class="code">object</code> <a href="Ext_app_Controller.configs-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEevents"><span class="keyword">class type</span> <a href="Ext_app_Controller.events-c.html">events</a></span> = <code class="code">object</code> <a href="Ext_app_Controller.events-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEstatics"><span class="keyword">class type</span> <a href="Ext_app_Controller.statics-c.html">statics</a></span> = <code class="code">object</code> <a href="Ext_app_Controller.statics-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALof_configs"><span class="keyword">val</span> of_configs</span> : <code class="type"><a href="Ext_app_Controller.configs-c.html">configs</a> Js.t -> <a href="Ext_app_Controller.t-c.html">t</a> Js.t</code></pre><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code><br>

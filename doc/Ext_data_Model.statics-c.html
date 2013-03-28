@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -139,24 +142,6 @@
 <li><a href="Ext_util_Observable.statics-c.html"><code class="code">Ext_util_Observable.statics</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHOD_COMMIT"><span class="keyword">method</span> _COMMIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
-<p>
-
-    Defaults to: <code class="code">'commit'</code><br>
-</div>
-<pre><span id="METHOD_EDIT"><span class="keyword">method</span> _EDIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
-<p>
-
-    Defaults to: <code class="code">'edit'</code><br>
-</div>
-<pre><span id="METHOD_REJECT"><span class="keyword">method</span> _REJECT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
-<p>
-
-    Defaults to: <code class="code">'reject'</code><br>
-</div>
 <pre><span id="METHODgetFields"><span class="keyword">method</span> getFields</span> : <code class="type"><a href="Ext_data_Field.t-c.html">Ext_data_Field.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Returns an Array of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Field</a> definitions which define this Model's structure</p>
 
@@ -185,12 +170,13 @@ field values will be able to read those field values.</p>
 <br>
 </div>
 <pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">'b. 'b Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Generates a sequential id. This method is typically called when a record is <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">create</a>d and <a href="#!/api/Ext.data.Model-method-constructor" rel="Ext.data.Model-method-constructor" class="docClass">no id has been specified</a>. The id will automatically be assigned to the
+<p>Generates a sequential id. This method is typically called when a record is <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">create</a>d and <a href="#!/api/Ext.data.Model-method-constructor" rel="Ext.data.Model-method-constructor" class="docClass">no id has been specified</a> either as a parameter, or through the <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a>
+in the passed data. The generated id will automatically be assigned to the
 record. The returned id takes the form: {PREFIX}-{AUTO_ID}.</p>
 
 <ul>
 <li><strong>PREFIX</strong> : String - <a href="#!/api/Ext.data.Model-static-property-PREFIX" rel="Ext.data.Model-static-property-PREFIX" class="docClass">Ext.data.Model.PREFIX</a> (defaults to 'ext-record')</li>
-<li><strong>AUTO_ID</strong> : String - <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a>.AUTO_ID (defaults to 1 initially)</li>
+<li><strong>AUTO_ID</strong> : String - <a href="#!/api/Ext.data.Model-static-property-AUTO_ID" rel="Ext.data.Model-static-property-AUTO_ID" class="docClass">Ext.data.Model.AUTO_ID</a> (defaults to 1 initially)</li>
 </ul> 
 <p>
 
@@ -277,5 +263,23 @@ model based on changes in meta data (called from Reader's onMetaChange method).<
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHOD_COMMIT"><span class="keyword">method</span> _COMMIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
+<p>
+
+    Defaults to: <code class="code">'commit'</code><br>
+</div>
+<pre><span id="METHOD_EDIT"><span class="keyword">method</span> _EDIT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
+<p>
+
+    Defaults to: <code class="code">'edit'</code><br>
+</div>
+<pre><span id="METHOD_REJECT"><span class="keyword">method</span> _REJECT</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> 
+<p>
+
+    Defaults to: <code class="code">'reject'</code><br>
 </div>
 </body></html>

@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -156,7 +159,11 @@ A typical <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="
 
 <p>This does several things. First it creates a global variable called 'MyApp' - all of your Application's classes (such
 as its Models, Views and Controllers) will reside under this single namespace, which drastically lowers the chances
-of colliding global variables.</p>
+of colliding global variables. The MyApp global will also have a getApplication method to get a reference to
+the current application:</p>
+
+<pre><code>var app = MyApp.getApplication();
+</code></pre>
 
 <p>When the page is ready and all of your JavaScript has loaded, your Application's <a href="#!/api/Ext.app.Application-method-launch" rel="Ext.app.Application-method-launch" class="docClass">launch</a> function is called,
 at which time you can run the code that starts your app. Usually this consists of creating a Viewport, as we do in
@@ -198,7 +205,25 @@ controller like be defined:</p>
 <p>Because we told our Application about our Models and Controllers, and our Controllers about their Views, Ext JS will
 automatically load all of our app files for us. This means we don't have to manually add script tags into our html
 files whenever we add a new class, but more importantly it enables us to create a minimized build of our entire
-application using the Ext JS 4 SDK Tools.</p>
+application using Sencha Cmd.</p>
+
+<h1>Deriving from <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a></h1>
+
+<p>Typically, applications do not derive directly from <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a>. Rather, the
+configuration passed to <code><a href="#!/api/Ext-method-application" rel="Ext-method-application" class="docClass">Ext.application</a></code> mimics what you might do in a derived class.
+In some cases, however, it can be desirable to share logic by using a derived class
+from <code><a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a></code>.</p>
+
+<p>Derivation works as you would expect, but using the derived class should still be the
+job of the <code><a href="#!/api/Ext-method-application" rel="Ext-method-application" class="docClass">Ext.application</a></code> method.</p>
+
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.app.Application', {
+    extend: '<a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a>',
+    ...
+});
+
+<a href="#!/api/Ext-method-application" rel="Ext-method-application" class="docClass">Ext.application</a>('MyApp.app.Application');
+</code></pre>
 
 <p>For more information about writing Ext JS 4 applications, please see the <a href="#/guide/application_architecture">application architecture guide</a>.</p> <br>
 <hr width="100%">

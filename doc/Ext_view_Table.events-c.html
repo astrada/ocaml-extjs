@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,11 +140,343 @@
 <center><h1>Class type <a href="type_Ext_view_Table.events.html">Ext_view_Table.events</a></h1></center>
 <br>
 <pre><span id="TYPEevents"><span class="keyword">class type</span> events</span> = <code class="code">object</code> <a href="Ext_view_Table.events-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.events-c.html"><code class="code">Ext_Base.events</code></a></li>
-<li><a href="Ext_AbstractComponent.events-c.html"><code class="code">Ext_AbstractComponent.events</code></a></li>
-<li><a href="Ext_Component.events-c.html"><code class="code">Ext_Component.events</code></a></li>
-<li><a href="Ext_view_AbstractView.events-c.html"><code class="code">Ext_view_AbstractView.events</code></a></li>
 <li><a href="Ext_view_View.events-c.html"><code class="code">Ext_view_View.events</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODbeforecellclick"><span class="keyword">method</span> beforecellclick</span> : <code class="type">'a.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'a Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired before the cell click is processed. Return false to cancel the default action.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbeforecellcontextmenu"><span class="keyword">method</span> beforecellcontextmenu</span> : <code class="type">'b.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'b Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired before the cell right click is processed. Return false to cancel the default action.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbeforecelldblclick"><span class="keyword">method</span> beforecelldblclick</span> : <code class="type">'c.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'c Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired before the cell double click is processed. Return false to cancel the default action.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbeforecellkeydown"><span class="keyword">method</span> beforecellkeydown</span> : <code class="type">'d.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'd Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired before the cell key down is processed. Return false to cancel the default action.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbeforecellmousedown"><span class="keyword">method</span> beforecellmousedown</span> : <code class="type">'e.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'e Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired before the cell mouse down is processed. Return false to cancel the default action.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbeforecellmouseup"><span class="keyword">method</span> beforecellmouseup</span> : <code class="type">'f.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'f Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired before the cell mouse up is processed. Return false to cancel the default action.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcellclick"><span class="keyword">method</span> cellclick</span> : <code class="type">'g.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'g Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when table cell is clicked.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcellcontextmenu"><span class="keyword">method</span> cellcontextmenu</span> : <code class="type">'h.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'h Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when table cell is right clicked.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcelldblclick"><span class="keyword">method</span> celldblclick</span> : <code class="type">'i.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'i Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when table cell is double clicked.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcellkeydown"><span class="keyword">method</span> cellkeydown</span> : <code class="type">'j.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'j Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when the keydown event is captured on the cell.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcellmousedown"><span class="keyword">method</span> cellmousedown</span> : <code class="type">'k.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'k Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when the mousedown event is captured on the cell.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcellmouseup"><span class="keyword">method</span> cellmouseup</span> : <code class="type">'l.<br>         (<a href="Ext_view_Table.t-c.html">t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          Dom_html.element Js.t -><br>          Js.number Js.t -> <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> 'l Js.t -> unit)<br>         Js.callback Js.writeonly_prop</code></pre><div class="info">
+<p>Fired when the mouseup event is captured on the cell.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>this: <code class="code">Ext_view_Table.t Js.t</code>
+    </li>
+<li>td: <code class="code">Dom_html.element Js.t</code>
+    <p>The TD element for the cell.</p> 
+    </li>
+<li>cellIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>record: <code class="code">Ext_data_Model.t Js.t</code>
+    </li>
+<li>tr: <code class="code">Dom_html.element Js.t</code>
+    <p>The TR element for the cell.</p> 
+    </li>
+<li>rowIndex: <code class="code">Js.number Js.t</code>
+    </li>
+<li>e: <code class="code">Ext_EventObject.t Js.t</code>
+    </li>
+<li>eOpts: <code class="code">_ Js.t</code>
+    <p>The options object passed to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
 </body></html>

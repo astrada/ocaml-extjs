@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,32 +138,14 @@
 <center><h1>Class type <a href="type_Ext_grid_column_Column.t.html">Ext_grid_column_Column.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_grid_column_Column.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
-<li><a href="Ext_AbstractComponent.t-c.html"><code class="code">Ext_AbstractComponent.t</code></a></li>
-<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
-<li><a href="Ext_container_AbstractContainer.t-c.html"><code class="code">Ext_container_AbstractContainer.t</code></a></li>
-<li><a href="Ext_container_Container.t-c.html"><code class="code">Ext_container_Container.t</code></a></li>
 <li><a href="Ext_grid_header_Container.t-c.html"><code class="code">Ext_grid_header_Container.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODisHeader"><span class="keyword">method</span> isHeader</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Set in this class to identify, at runtime, instances which are not instances of the
-HeaderContainer base class, but are in fact, the subclass: Header.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
-</div>
-<pre><span id="METHODtextEl"><span class="keyword">method</span> textEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>Element that contains the text in column header.</p> <br>
-</div>
-<pre><span id="METHODtriggerEl"><span class="keyword">method</span> triggerEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>Element that acts as button for column header dropdown menu.</p> <br>
-</div>
-<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">Js.number Js.t -><br>       Js.number Js.t -> Js.number Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODafterComponentLayout"><span class="keyword">method</span> afterComponentLayout</span> : <code class="type">'a 'b. Js.number Js.t -> Js.number Js.t -> 'a Js.t -> 'b Js.t -> unit Js.meth</code></pre><div class="info">
 <p>private
 Inform the header container about the resize</p>
 
-<p>Called by the layout system after the Component has been layed out.</p> 
+<p>Called by the layout system after the Component has been laid out.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -171,11 +156,11 @@ Inform the header container about the resize</p>
 <li>height: <code class="code">Js.number Js.t</code>
     <p>The height that was set</p> 
     </li>
-<li>oldWidth: <code class="code">Js.number Js.t</code>
-    <p>The old width. <code>undefined</code> if this was the initial layout.</p> 
+<li>oldWidth: <code class="code">_ Js.t</code>
+    <p>The old width, or <code>undefined</code> if this was the initial layout.</p> 
     </li>
-<li>oldHeight: <code class="code">Js.number Js.t</code>
-    <p>The old height. <code>undefined</code> if this was the initial layout.</p> 
+<li>oldHeight: <code class="code">_ Js.t</code>
+    <p>The old height, or <code>undefined</code> if this was the initial layout.</p> 
     </li>
 </ul>
 <br>
@@ -185,14 +170,28 @@ Inform the header container about the resize</p>
 will have been styled according to the configuration, will have had any configured CSS class
 names added, and will be in the configured visibility and the configured enable state.</p> <br>
 </div>
+<pre><span id="METHODautoSize"><span class="keyword">method</span> autoSize</span> : <code class="type">'c. 'c Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Sizes this Column to fit the max content width.
+<em>Note that group columns shrinkwrap around the size of leaf columns. Auto sizing a group column
+autosizes descendant leaf columns.</em></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>the: <code class="code">_ Js.t</code>
+    <p>header (or index of header) to auto size.</p> 
+    </li>
+</ul>
+<br>
+</div>
 <pre><span id="METHODdefaultRenderer"><span class="keyword">method</span> defaultRenderer</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>When defined this will take precedence over the <a href="#!/api/Ext.grid.column.Column-cfg-renderer" rel="Ext.grid.column.Column-cfg-renderer" class="docClass">renderer</a> config.
 This is meant to be defined in subclasses that wish to supply their own renderer.</p> <br>
 </div>
-<pre><span id="METHODgetEditor"><span class="keyword">method</span> getEditor</span> : <code class="type">'a 'b 'c. 'a Js.t -> 'b Js.t -> (#<a href="Ext_form_field_Field.t-c.html">Ext_form_field_Field.t</a> as 'c) Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetEditor"><span class="keyword">method</span> getEditor</span> : <code class="type">'d 'e 'f. 'd Js.t -> 'e Js.t -> (#<a href="Ext_form_field_Field.t-c.html">Ext_form_field_Field.t</a> as 'f) Js.t Js.meth</code></pre><div class="info">
 <p>Retrieves the editing field for editing associated with this header. Returns false if there is no field
 associated with the Header the method will return false. If the field has not been instantiated it will be
-created. Note: These methods only has an implementation if a Editing plugin has been enabled on the grid.</p> 
+created. Note: These methods only have an implementation if an Editing plugin has been enabled on the grid.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -226,7 +225,7 @@ need to be overriden in most cases.</p> <br>
 <p>Returns the index of this column in the list of <em>visible</em> columns only if this column is a base level Column. If it
 is a group column, it returns <code>false</code>.</p> <br>
 </div>
-<pre><span id="METHODhide_column"><span class="keyword">method</span> hide_column</span> : <code class="type">'d 'e 'f 'g.<br>         'd Js.t Js.optdef -><br>         'e Js.callback Js.optdef -><br>         'f Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'g) Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODhide_column"><span class="keyword">method</span> hide_column</span> : <code class="type">'g 'h 'i 'j.<br>         'g Js.t Js.optdef -><br>         'h Js.callback Js.optdef -><br>         'i Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'j) Js.t Js.meth</code></pre><div class="info">
 <p>Hides this Component, setting it to invisible using the configured <a href="#!/api/Ext.grid.column.Column-cfg-hideMode" rel="Ext.grid.column.Column-cfg-hideMode" class="docClass">hideMode</a>.</p> 
 <p>
 
@@ -287,7 +286,36 @@ instantiation of the class.</p>
 });
 </code></pre> <br>
 </div>
-<pre><span id="METHODonAdd"><span class="keyword">method</span> onAdd</span> : <code class="type">'h. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'h) Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODinitRenderData"><span class="keyword">method</span> initRenderData</span> : <code class="type">'k. 'k Js.t Js.meth</code></pre><div class="info">
+<p>Initialized the renderData to be used when rendering the renderTpl.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p>Object with keys and values that are going to be applied to the renderTpl</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisHideable"><span class="keyword">method</span> isHideable</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Determines whether the UI should be allowed to offer an option to hide this column.</p>
+
+<p>A column may <em>not</em> be hidden if to do so would leave the grid with no visible columns.</p>
+
+<p>This is used to determine the enabled/disabled state of header hide menu items.</p> <br>
+</div>
+<pre><span id="METHODisLockable"><span class="keyword">method</span> isLockable</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Determines whether the UI should be allowed to offer an option to lock or unlock this column. Note
+that this includes dragging a column into the opposite side of a <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">lockable</a> grid.</p>
+
+<p>A column may <em>not</em> be moved from one side to the other of a <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">lockable</a> grid
+if to do so would leave one side with no visible columns.</p>
+
+<p>This is used to determine the enabled/disabled state of the lock/unlock
+menu item used in <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.panel.Table-cfg-enableLocking" class="docClass">lockable</a> grids, and to determine dropppabilty when dragging a header.</p> <br>
+</div>
+<pre><span id="METHODonAdd"><span class="keyword">method</span> onAdd</span> : <code class="type">'l. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'l) Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
 <p>This method is invoked after a new Component has been added. It
 is passed the Component which has been added. This method may
 be used to update any internal structure which may depend upon
@@ -305,9 +333,9 @@ the state of the child items.</p>
 </div>
 <pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Allows addition of behavior to the destroy operation.
-After calling the superclass’s onDestroy, the Component will be destroyed.</p> <br>
+After calling the superclass's onDestroy, the Component will be destroyed.</p> <br>
 </div>
-<pre><span id="METHODonRemove"><span class="keyword">method</span> onRemove</span> : <code class="type">'i. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'i) Js.t -> bool Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODonRemove"><span class="keyword">method</span> onRemove</span> : <code class="type">'m. (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'm) Js.t -> bool Js.t -> unit Js.meth</code></pre><div class="info">
 <p>This method is invoked after a new Component has been
 removed. It is passed the Component which has been
 removed. This method may be used to update any internal
@@ -323,7 +351,7 @@ structure which may depend upon the state of the child items.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetEditor"><span class="keyword">method</span> setEditor</span> : <code class="type">'j. 'j Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetEditor"><span class="keyword">method</span> setEditor</span> : <code class="type">'n. 'n Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Sets the form field to be used for editing. Note: This method only has an implementation if an Editing plugin has
 been enabled on the grid.</p> 
 <p>
@@ -349,7 +377,7 @@ assumed.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODshow_column"><span class="keyword">method</span> show_column</span> : <code class="type">'k 'l 'm 'n.<br>         'k Js.t Js.optdef -><br>         'l Js.callback Js.optdef -><br>         'm Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'n) Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODshow_column"><span class="keyword">method</span> show_column</span> : <code class="type">'o 'p 'q 'r.<br>         'o Js.t Js.optdef -><br>         'p Js.callback Js.optdef -><br>         'q Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'r) Js.t Js.meth</code></pre><div class="info">
 <p>Shows this Component, rendering it first if <a href="#!/api/Ext.grid.column.Column-cfg-autoRender" rel="Ext.grid.column.Column-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
 
 <p>After being shown, a <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
@@ -381,5 +409,18 @@ Defaults to this Component.</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODisHeader"><span class="keyword">method</span> isHeader</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Set in this class to identify, at runtime, instances which are not instances of the
+HeaderContainer base class, but are in fact, the subclass: Header.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODtextEl"><span class="keyword">method</span> textEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>Element that contains the text in column header.</p> <br>
+</div>
+<pre><span id="METHODtriggerEl"><span class="keyword">method</span> triggerEl</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>Element that acts as button for column header dropdown menu.</p> <br>
 </div>
 </body></html>

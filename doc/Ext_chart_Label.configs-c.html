@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -140,44 +143,13 @@
 <li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODlabel"><span class="keyword">method</span> label</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
-<p>Object with the following properties:</p>
-
-<ul>
-<li><p><strong>display</strong> : String</p>
-
-<p>Specifies the presence and position of labels for each pie slice. Either "rotate", "middle", "insideStart",
-"insideEnd", "outside", "over", "under", or "none" to prevent label rendering.
-Default value: 'none'.</p></li>
-<li><p><strong>color</strong> : String</p>
-
-<p>The color of the label text.
-Default value: '#000' (black).</p></li>
-<li><p><strong>contrast</strong> : Boolean</p>
-
-<p>True to render the label in contrasting color with the backround.
-Default value: false.</p></li>
-<li><p><strong>field</strong> : String</p>
-
-<p>The name of the field to be displayed in the label.
-Default value: 'name'.</p></li>
-<li><p><strong>minMargin</strong> : Number</p>
-
-<p>Specifies the minimum distance from a label to the origin of the visualization.
-This parameter is useful when using PieSeries width variable pie slice lengths.
-Default value: 50.</p></li>
-<li><p><strong>font</strong> : String</p>
-
-<p>The font used for the labels.
-Default value: "11px Helvetica, sans-serif".</p></li>
-<li><p><strong>orientation</strong> : String</p>
-
-<p>Either "horizontal" or "vertical".
-Dafault value: "horizontal".</p></li>
-<li><p><strong>renderer</strong> : Function</p>
-
-<p>Optional function for formatting the label into a displayable value.
-Default value: function(v) { return v; }</p></li>
-</ul> <br>
+<pre><span id="METHODonCreateLabel"><span class="keyword">method</span> onCreateLabel</span> : <code class="type">'a.<br>         ((< label : 'd. 'd Js.t Js.prop; onCreateLabel : 'a. 'b;<br>             onPlaceLabel : 'e.<br>                              ('c Js.t,<br>                               <a href="Ext_draw_Sprite.t-c.html">Ext_draw_Sprite.t</a> Js.t -><br>                               <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>                               'e Js.t -><br>                               Js.number Js.t -><br>                               bool Js.t -> bool Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>             .. ><br>           as 'c)<br>          Js.t,<br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          'a Js.t -> Js.number Js.t -> bool Js.t -> <a href="Ext_draw_Sprite.t-c.html">Ext_draw_Sprite.t</a> Js.t)<br>         Js.meth_callback Js.writeonly_prop as 'b</code></pre><div class="info">
+See method <code class="code">t.onCreateLabel</code><br>
+</div>
+<pre><span id="METHODonPlaceLabel"><span class="keyword">method</span> onPlaceLabel</span> : <code class="type">'e.<br>         ('c Js.t,<br>          <a href="Ext_draw_Sprite.t-c.html">Ext_draw_Sprite.t</a> Js.t -><br>          <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>          'e Js.t -><br>          Js.number Js.t -> bool Js.t -> bool Js.t -> Js.number Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onPlaceLabel</code><br>
+</div>
+<pre><span id="METHODlabel"><span class="keyword">method</span> label</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
+<p>Object with the following properties:</p> <br>
 </div>
 </body></html>

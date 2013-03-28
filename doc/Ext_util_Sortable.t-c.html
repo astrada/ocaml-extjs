@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,30 +141,12 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODdefaultSortDirection"><span class="keyword">method</span> defaultSortDirection</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The default sort direction to use if one is not specified.</p> 
-<p>
-
-    Defaults to: <code class="code">"ASC"</code><br>
-</div>
-<pre><span id="METHODisSortable"><span class="keyword">method</span> isSortable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p><code>true</code> in this class to identify an object as an instantiated Sortable, or subclass thereof.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
-</div>
-<pre><span id="METHODsortRoot"><span class="keyword">method</span> sortRoot</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The property in each item that contains the data to sort.</p> <br>
-</div>
-<pre><span id="METHODsorters"><span class="keyword">method</span> sorters</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
-<p>The collection of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a> currently applied to this Store</p> <br>
-</div>
 <pre><span id="METHODgenerateComparator"><span class="keyword">method</span> generateComparator</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Returns a comparator function which compares two items and returns -1, 0, or 1 depending
-on the currently defined set of <a href="#!/api/Ext.util.Sortable-property-sorters" rel="Ext.util.Sortable-property-sorters" class="docClass">sorters</a>.</p>
+on the currently defined set of <a href="#!/api/Ext.util.Sortable-cfg-sorters" rel="Ext.util.Sortable-cfg-sorters" class="docClass">sorters</a>.</p>
 
-
-<p>If there are no <a href="#!/api/Ext.util.Sortable-property-sorters" rel="Ext.util.Sortable-property-sorters" class="docClass">sorters</a> defined, it returns a function which returns <code>0</code> meaning that no sorting will occur.</p> <br>
+<p>If there are no <a href="#!/api/Ext.util.Sortable-cfg-sorters" rel="Ext.util.Sortable-cfg-sorters" class="docClass">sorters</a> defined, it returns a function which returns <code>0</code> meaning
+that no sorting will occur.</p> <br>
 </div>
 <pre><span id="METHODgetFirstSorter"><span class="keyword">method</span> getFirstSorter</span> : <code class="type"><a href="Ext_util_Sorter.t-c.html">Ext_util_Sorter.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Gets the first sorter from the sorters collection, excluding
@@ -180,7 +165,7 @@ any groupers that may be in place</p>
 <p>Performs initialization of this mixin. Component classes using this mixin should call this method during their
 own initialization.</p> <br>
 </div>
-<pre><span id="METHODsort"><span class="keyword">method</span> sort</span> : <code class="type">'b.<br>         'b Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_util_Sorter.t-c.html">Ext_util_Sorter.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsort"><span class="keyword">method</span> sort</span> : <code class="type">'a.<br>         'a Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_util_Sorter.t-c.html">Ext_util_Sorter.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Sorts the data in the Store by one or more of its properties. Example usage:</p>
 
 <pre><code>//sort by a single field
@@ -227,5 +212,14 @@ store.sort('myField', 'DESC');
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODisSortable"><span class="keyword">method</span> isSortable</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p><code>true</code> in this class to identify an object as an instantiated Sortable, or subclass thereof.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODsorters"><span class="keyword">method</span> sorters</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
+<p>The collection of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a> currently applied to this Store</p> <br>
 </div>
 </body></html>

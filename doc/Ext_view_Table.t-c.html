@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,10 +138,6 @@
 <center><h1>Class type <a href="type_Ext_view_Table.t.html">Ext_view_Table.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_view_Table.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
-<li><a href="Ext_AbstractComponent.t-c.html"><code class="code">Ext_AbstractComponent.t</code></a></li>
-<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
-<li><a href="Ext_view_AbstractView.t-c.html"><code class="code">Ext_view_AbstractView.t</code></a></li>
 <li><a href="Ext_view_View.t-c.html"><code class="code">Ext_view_View.t</code></a></li>
 </ul>
 <hr width="100%">
@@ -157,23 +156,29 @@ representing this row</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODafterRender"><span class="keyword">method</span> afterRender</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
-will have been styled according to the configuration, will have had any configured CSS class
-names added, and will be in the configured visibility and the configured enable state.</p> <br>
+<pre><span id="METHODautoSizeColumn"><span class="keyword">method</span> autoSizeColumn</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Sizes the passed header to fit the max content width.
+<em>Note that group columns shrinkwrap around the size of leaf columns. Auto sizing a group column
+autosizes descendant leaf columns.</em></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>header: <code class="code">_ Js.t</code>
+    <p>The header (or index of header) to auto size.</p> 
+    </li>
+</ul>
+<br>
 </div>
 <pre><span id="METHODbeforeDestroy"><span class="keyword">method</span> beforeDestroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Invoked before the Component is destroyed.</p> <br>
 </div>
-<pre><span id="METHODcollectData"><span class="keyword">method</span> collectData</span> : <code class="type">'b.<br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -><br>         Js.number Js.t -> 'b Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
-<p>TODO: Refactor headerCt dependency here to colModel</p>
-
+<pre><span id="METHODcollectData"><span class="keyword">method</span> collectData</span> : <code class="type">'c.<br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -><br>         Js.number Js.t -> 'c Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Function which can be overridden which returns the data object passed to this
 DataView's <a href="#!/api/Ext.view.Table-cfg-tpl" rel="Ext.view.Table-cfg-tpl" class="docClass">template</a> to render the whole DataView.</p>
 
-
 <p>This is usually an Array of data objects, each element of which is processed by an
-<a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> which uses <tt>'&lt;tpl for="."&gt;'</tt> to iterate over its supplied
+<a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> which uses <code>'&amp;lt;tpl for="."&amp;gt;'</code> to iterate over its supplied
 data object as an Array. However, <i>named</i> properties may be placed into the data object to
 provide non-repeating data such as headings, totals etc.</p> 
 <p>
@@ -199,7 +204,33 @@ contain <i>named</i> properties.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfocusRow"><span class="keyword">method</span> focusRow</span> : <code class="type">'c. 'c Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODfocus_table"><span class="keyword">method</span> focus_table</span> : <code class="type">'d 'e.<br>         bool Js.t Js.optdef -><br>         'd Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'e) Js.t Js.meth</code></pre><div class="info">
+<p>Try to focus this component.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>selectText: <code class="code">bool Js.t</code> (optional)
+    <p>If applicable, true to also select the text in this component</p> 
+    </li>
+<li>delay: <code class="code">_ Js.t</code> (optional)
+    <p>Delay the focus this number of milliseconds (true for 10 milliseconds).</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">#Ext_Component.t Js.t</code>
+    <p>The focused Component. Usually <code>this</code> Component. Some Containers may
+delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s can do this through their
+<a href="#!/api/Ext.window.Window-cfg-defaultFocus" rel="Ext.window.Window-cfg-defaultFocus" class="docClass">defaultFocus</a> config option.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfocusRow"><span class="keyword">method</span> focusRow</span> : <code class="type">'f. 'f Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Focuses a particular row and brings it into view. Will fire the rowfocus event.</p> 
 <p>
 
@@ -211,6 +242,43 @@ record associated with the node.</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODgetBodySelector"><span class="keyword">method</span> getBodySelector</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Returns a CSS selector which selects the outermost element(s) in this view.</p> <br>
+</div>
+<pre><span id="METHODgetCellSelector"><span class="keyword">method</span> getCellSelector</span> : <code class="type"><a href="Ext_grid_column_Column.t-c.html">Ext_grid_column_Column.t</a> Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Returns a CSS selector which selects a particular column if the desired header is passed,
+or a general cell selector is no parameter is passed.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>header: <code class="code">Ext_grid_column_Column.t Js.t</code> (optional)
+    <p>The column for which to return the selector. If
+omitted, the general cell selector which matches <strong>ant cell</strong> will be returned.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetColumnSizerSelector"><span class="keyword">method</span> getColumnSizerSelector</span> : <code class="type">'g. 'g Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Returns a CSS selector which selects the element(s) which define the width of a column.</p>
+
+<p>This is used by the <a href="#!/api/Ext.view.TableLayout" rel="Ext.view.TableLayout" class="docClass">Ext.view.TableLayout</a> when resizing columns.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>header: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetDataRowSelector"><span class="keyword">method</span> getDataRowSelector</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Returns a CSS selector which selects a row which contains cells.</p>
+
+<p>These <em>may not</em> correspond to actual records in the store. This selector may be used
+to identify things like total rows or header rows as injected by features which modify
+the rowTpl.</p> <br>
 </div>
 <pre><span id="METHODgetFeature"><span class="keyword">method</span> getFeature</span> : <code class="type">Js.js_string Js.t -> <a href="Ext_grid_feature_Feature.t-c.html">Ext_grid_feature_Feature.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Get a reference to a feature</p> 
@@ -232,6 +300,37 @@ record associated with the node.</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODgetItemSelector"><span class="keyword">method</span> getItemSelector</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Returns a CSS selector which selects items of the view rendered by the rowTpl</p> <br>
+</div>
+<pre><span id="METHODgetNode_table"><span class="keyword">method</span> getNode_table</span> : <code class="type">'h. 'h Js.t -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth</code></pre><div class="info">
+<p>Returns the node given the passed Record, or index or node.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>nodeInfo: <code class="code">_ Js.t</code>
+    <p>The node or record</p> 
+    </li>
+<li>dataRow: <code class="code">bool Js.t</code> (optional)
+    <p><code>true</code> to return the data row (not the top level row if wrapped), <code>false</code>
+to return the top level row.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Dom_html.element Js.t</code>
+    <p>The node or null if it wasn't found</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetNodeContainerSelector"><span class="keyword">method</span> getNodeContainerSelector</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Returns a CSS selector which selects the element which contains record nodes.</p> <br>
 </div>
 <pre><span id="METHODgetPosition"><span class="keyword">method</span> getPosition</span> : <code class="type">bool Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>TODO: have this use the new Ext.grid.CellContext class</p>
@@ -257,7 +356,28 @@ record associated with the node.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetRowClass"><span class="keyword">method</span> getRowClass</span> : <code class="type">'d.<br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>         Js.number Js.t -><br>         'd Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetRecord"><span class="keyword">method</span> getRecord</span> : <code class="type">'i. 'i Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Gets a record from a node</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>node: <code class="code">_ Js.t</code>
+    <p>The node to evaluate</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_data_Model.t Js.t</code>
+    <p>record The <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> object</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetRowClass"><span class="keyword">method</span> getRowClass</span> : <code class="type">'j.<br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>         Js.number Js.t -><br>         'j Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Override this function to apply custom CSS classes to rows during rendering. This function should return the
 CSS class name (or empty string '' for none) that will be added to the row's wrapping div. To apply multiple
 class names, simply return them space-delimited within the string (e.g. 'my-class another-class').
@@ -298,8 +418,26 @@ Example usage:</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetTableChunker"><span class="keyword">method</span> getTableChunker</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Returns the configured chunker or default of <a href="#!/api/Ext.view.TableChunker" rel="Ext.view.TableChunker" class="docClass">Ext.view.TableChunker</a></p> <br>
+<pre><span id="METHODindexOf"><span class="keyword">method</span> indexOf</span> : <code class="type">'k. 'k Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Finds the index of the passed node.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>nodeInfo: <code class="code">_ Js.t</code>
+    <p>An HTMLElement template node, index of a template node, the id of a template node
+or a record associated with a node.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The index of the node or -1</p> 
+    </li>
+</ul>
+<br>
 </div>
 <pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>The initComponent template method is an important initialization step for a Component. It is intended to be
@@ -332,11 +470,15 @@ instantiation of the class.</p>
 });
 </code></pre> <br>
 </div>
+<pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Allows addition of behavior to the destroy operation.
+After calling the superclass's onDestroy, the Component will be destroyed.</p> <br>
+</div>
 <pre><span id="METHODrefresh"><span class="keyword">method</span> refresh</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Refreshes the grid view. Saves and restores the scroll state, generates a new template, stripes rows and
 invalidates the scrollers.</p> <br>
 </div>
-<pre><span id="METHODremoveRowCls"><span class="keyword">method</span> removeRowCls</span> : <code class="type">'e. 'e Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODremoveRowCls"><span class="keyword">method</span> removeRowCls</span> : <code class="type">'l. 'l Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Removes a CSS Class from a specific row.</p> 
 <p>
 
@@ -347,6 +489,44 @@ invalidates the scrollers.</p> <br>
 representing this row</p> 
     </li>
 <li>cls: <code class="code">Js.js_string Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODwalkRecs"><span class="keyword">method</span> walkRecs</span> : <code class="type"><a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Navigates from the passed record by the passed increment which may be +ve or -ve</p>
+
+<p>Skips hidden records.</p>
+
+<p>If no record is visible in the specified direction, returns the starting record index unchanged.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>startRec: <code class="code">Ext_data_Model.t Js.t</code>
+    <p>The Record to start from.</p> 
+    </li>
+<li>distance: <code class="code">Js.number Js.t</code>
+    <p>The distance to move from the record. May be +ve or -ve.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODwalkRows"><span class="keyword">method</span> walkRows</span> : <code class="type">Js.number Js.t -> Js.number Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Increments the passed row index by the passed increment which may be +ve or -ve</p>
+
+<p>Skips hidden rows.</p>
+
+<p>If no row is visible in the specified direction, returns the input row index unchanged.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>startRow: <code class="code">Js.number Js.t</code>
+    <p>The zero-based row index to start from.</p> 
+    </li>
+<li>distance: <code class="code">Js.number Js.t</code>
+    <p>The distance to move the row by. May be +ve or -ve.</p> 
     </li>
 </ul>
 <br>

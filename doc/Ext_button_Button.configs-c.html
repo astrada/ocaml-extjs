@@ -59,14 +59,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -84,6 +85,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -116,6 +118,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -137,25 +140,14 @@
 <center><h1>Class type <a href="type_Ext_button_Button.configs.html">Ext_button_Button.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_button_Button.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
-<li><a href="Ext_AbstractComponent.configs-c.html"><code class="code">Ext_AbstractComponent.configs</code></a></li>
 <li><a href="Ext_Component.configs-c.html"><code class="code">Ext_Component.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODbeforeDestroy"><span class="keyword">method</span> beforeDestroy</span> : <code class="type">((< _type : Js.js_string Js.t Js.prop;<br>           afterComponentLayout : ('b Js.t,<br>                                   Js.number Js.t -><br>                                   Js.number Js.t -><br>                                   Js.number Js.t -> Js.number Js.t -> unit)<br>                                  Js.meth_callback Js.writeonly_prop;<br>           afterHide : 'c 'd.<br>                         ('b Js.t,<br>                          'c Js.callback Js.optdef -> 'd Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           afterRender : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           afterSetPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           afterShow : 'e 'f 'g.<br>                         ('b Js.t,<br>                          'e Js.t Js.optdef -><br>                          'f Js.callback Js.optdef -> 'g Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           allowDepress : bool Js.t Js.prop; arrowAlign : Js.js_string Js.t Js.prop;<br>           arrowCls : Js.js_string Js.t Js.prop; autoEl : 'h. 'h Js.t Js.prop;<br>           autoRender : 'i. 'i Js.t Js.prop; autoScroll : bool Js.t Js.prop;<br>           autoShow : bool Js.t Js.prop; baseCls : Js.js_string Js.t Js.prop;<br>           baseParams : 'j. 'j Js.t Js.prop;<br>           beforeComponentLayout : ('b Js.t,<br>                                    Js.number Js.t -> Js.number Js.t -> unit)<br>                                   Js.meth_callback Js.writeonly_prop;<br>           beforeDestroy : 'a;<br>           beforeShow : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           border : 'k. 'k Js.t Js.prop;<br>           childEls : 'l. 'l Js.t Js.js_array Js.t Js.prop;<br>           clickEvent : Js.js_string Js.t Js.prop; cls : Js.js_string Js.t Js.prop;<br>           columnWidth : 'm. 'm Js.t Js.prop;<br>           componentCls : Js.js_string Js.t Js.prop;<br>           componentLayout : 'n. 'n Js.t Js.prop;<br>           contentEl : Js.js_string Js.t Js.prop; data : 'o. 'o Js.t Js.prop;<br>           disabled : bool Js.t Js.prop; disabledCls : Js.js_string Js.t Js.prop;<br>           draggable : bool Js.t Js.prop; draggable_obj : 'p. 'p Js.t Js.prop;<br>           enableToggle : bool Js.t Js.prop; floating : bool Js.t Js.prop;<br>           focusCls : Js.js_string Js.t Js.prop; focusOnToFront : bool Js.t Js.prop;<br>           formBind : bool Js.t Js.prop; frame : bool Js.t Js.prop;<br>           handleMouseEvents : bool Js.t Js.prop;<br>           handler : 'q. 'q Js.callback Js.prop; height : Js.number Js.t Js.prop;<br>           hidden : bool Js.t Js.prop; hideMode : Js.js_string Js.t Js.prop;<br>           href : Js.js_string Js.t Js.prop; hrefTarget : Js.js_string Js.t Js.prop;<br>           html : 'r. 'r Js.t Js.prop; icon : Js.js_string Js.t Js.prop;<br>           iconAlign : Js.js_string Js.t Js.prop;<br>           iconCls : Js.js_string Js.t Js.prop; id : Js.js_string Js.t Js.prop;<br>           initComponent : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           itemId : Js.js_string Js.t Js.prop; listeners : 's. 's Js.t Js.prop;<br>           loader : 't. 't Js.t Js.prop; margin : 'u. 'u Js.t Js.prop;<br>           maxHeight : Js.number Js.t Js.prop; maxWidth : Js.number Js.t Js.prop;<br>           menu : 'v. 'v Js.t Js.prop; menuActiveCls : Js.js_string Js.t Js.prop;<br>           menuAlign : Js.js_string Js.t Js.prop;<br>           minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>           onAdded : 'w.<br>                       ('b Js.t, 'w Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onDestroy : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDisable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onEnable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onHide : 'x 'y 'z.<br>                      ('b Js.t,<br>                       'x Js.t Js.optdef -><br>                       'y Js.callback Js.optdef -> 'z Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemoved : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onRender : ('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onResize : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onShow : 'a1 'b1 'c1.<br>                      ('b Js.t,<br>                       'a1 Js.t Js.optdef -><br>                       'b1 Js.callback Js.optdef -> 'c1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onShowComplete : 'd1 'e1.<br>                              ('b Js.t,<br>                               'd1 Js.callback Js.optdef -><br>                               'e1 Js.t Js.optdef -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop;<br>           overflowText : Js.js_string Js.t Js.prop;<br>           overflowX : Js.js_string Js.t Js.prop;<br>           overflowY : Js.js_string Js.t Js.prop; padding : 'f1. 'f1 Js.t Js.prop;<br>           params : 'g1. 'g1 Js.t Js.prop; plugins : 'h1. 'h1 Js.t Js.prop;<br>           pressed : bool Js.t Js.prop; pressedCls : Js.js_string Js.t Js.prop;<br>           preventDefault : bool Js.t Js.prop; region : Js.js_string Js.t Js.prop;<br>           renderData : 'i1. 'i1 Js.t Js.prop;<br>           renderSelectors : 'j1. 'j1 Js.t Js.prop;<br>           renderTo : 'k1. 'k1 Js.t Js.prop; renderTpl : 'l1. 'l1 Js.t Js.prop;<br>           repeat : 'm1. 'm1 Js.t Js.prop; resizable : 'n1. 'n1 Js.t Js.prop;<br>           resizeHandles : Js.js_string Js.t Js.prop;<br>           saveDelay : Js.number Js.t Js.prop; scale : Js.js_string Js.t Js.prop;<br>           scope : 'o1. 'o1 Js.t Js.prop; shadow : 'p1. 'p1 Js.t Js.prop;<br>           shadowOffset : 'q1. 'q1 Js.t Js.prop; shrinkWrap : 'r1. 'r1 Js.t Js.prop;<br>           stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>           style : 's1. 's1 Js.t Js.prop; styleHtmlCls : Js.js_string Js.t Js.prop;<br>           styleHtmlContent : bool Js.t Js.prop; tabIndex : Js.number Js.t Js.prop;<br>           text : Js.js_string Js.t Js.prop; textAlign : Js.js_string Js.t Js.prop;<br>           toFrontOnShow : bool Js.t Js.prop;<br>           toggleGroup : Js.js_string Js.t Js.prop;<br>           toggleHandler : 't1. 't1 Js.callback Js.prop;<br>           tooltip : 'u1. 'u1 Js.t Js.prop; tooltipType : Js.js_string Js.t Js.prop;<br>           tpl : 'v1. 'v1 Js.t Js.prop; tplWriteMode : Js.js_string Js.t Js.prop;<br>           ui : Js.js_string Js.t Js.prop; width : Js.number Js.t Js.prop;<br>           xtype : Js.js_string Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t, unit -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
-See method <code class="code">t.beforeDestroy</code><br>
-</div>
-<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+<pre><span id="METHODinitComponent"><span class="keyword">method</span> initComponent</span> : <code class="type">((< _type : Js.js_string Js.t Js.prop;<br>           afterComponentLayout : 'c 'd.<br>                                    ('b Js.t,<br>                                     Js.number Js.t -><br>                                     Js.number Js.t -> 'c Js.t -> 'd Js.t -> unit)<br>                                    Js.meth_callback Js.writeonly_prop;<br>           afterHide : 'e 'f.<br>                         ('b Js.t,<br>                          'e Js.callback Js.optdef -> 'f Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           afterRender : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           afterSetPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           afterShow : 'g 'h 'i.<br>                         ('b Js.t,<br>                          'g Js.t Js.optdef -><br>                          'h Js.callback Js.optdef -> 'i Js.t Js.optdef -> unit)<br>                         Js.meth_callback Js.writeonly_prop;<br>           allowDepress : bool Js.t Js.prop; arrowAlign : Js.js_string Js.t Js.prop;<br>           arrowCls : Js.js_string Js.t Js.prop; autoEl : 'j. 'j Js.t Js.prop;<br>           autoRender : 'k. 'k Js.t Js.prop; autoScroll : bool Js.t Js.prop;<br>           autoShow : bool Js.t Js.prop; baseCls : Js.js_string Js.t Js.prop;<br>           baseParams : 'l. 'l Js.t Js.prop;<br>           beforeComponentLayout : ('b Js.t,<br>                                    Js.number Js.t -> Js.number Js.t -> unit)<br>                                   Js.meth_callback Js.writeonly_prop;<br>           beforeDestroy : ('b Js.t, unit -> unit) Js.meth_callback<br>                           Js.writeonly_prop;<br>           beforeLayout : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           beforeShow : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           border : 'm. 'm Js.t Js.prop;<br>           childEls : 'n. 'n Js.t Js.js_array Js.t Js.prop;<br>           clickEvent : Js.js_string Js.t Js.prop; cls : Js.js_string Js.t Js.prop;<br>           columnWidth : 'o. 'o Js.t Js.prop;<br>           componentCls : Js.js_string Js.t Js.prop;<br>           componentLayout : 'p. 'p Js.t Js.prop; constrain : bool Js.t Js.prop;<br>           constrainTo : 'q. 'q Js.t Js.prop; contentEl : Js.js_string Js.t Js.prop;<br>           data : 'r. 'r Js.t Js.prop; defaultAlign : Js.js_string Js.t Js.prop;<br>           destroyMenu : bool Js.t Js.prop; disabled : bool Js.t Js.prop;<br>           disabledCls : Js.js_string Js.t Js.prop; draggable : bool Js.t Js.prop;<br>           draggable_obj : 's. 's Js.t Js.prop; enableToggle : bool Js.t Js.prop;<br>           fixed : bool Js.t Js.prop; floating : bool Js.t Js.prop;<br>           focusCls : Js.js_string Js.t Js.prop; focusOnToFront : bool Js.t Js.prop;<br>           formBind : bool Js.t Js.prop; frame : bool Js.t Js.prop;<br>           glyph : 't. 't Js.t Js.prop; handleMouseEvents : bool Js.t Js.prop;<br>           handler : 'u. 'u Js.callback Js.prop; height : Js.number Js.t Js.prop;<br>           hidden : bool Js.t Js.prop; hideMode : Js.js_string Js.t Js.prop;<br>           href : Js.js_string Js.t Js.prop; hrefTarget : Js.js_string Js.t Js.prop;<br>           html : 'v. 'v Js.t Js.prop; icon : Js.js_string Js.t Js.prop;<br>           iconAlign : Js.js_string Js.t Js.prop;<br>           iconCls : Js.js_string Js.t Js.prop; id : Js.js_string Js.t Js.prop;<br>           initComponent : 'a; itemId : Js.js_string Js.t Js.prop;<br>           listeners : 'w. 'w Js.t Js.prop; loader : 'x. 'x Js.t Js.prop;<br>           margin : 'y. 'y Js.t Js.prop; maxHeight : Js.number Js.t Js.prop;<br>           maxWidth : Js.number Js.t Js.prop; menu : 'z. 'z Js.t Js.prop;<br>           menuActiveCls : Js.js_string Js.t Js.prop;<br>           menuAlign : Js.js_string Js.t Js.prop;<br>           minHeight : Js.number Js.t Js.prop; minWidth : Js.number Js.t Js.prop;<br>           onAdded : 'a1.<br>                       ('b Js.t, 'a1 Js.t -> Js.number Js.t -> unit)<br>                       Js.meth_callback Js.writeonly_prop;<br>           onDestroy : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onDisable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onEnable : ('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop;<br>           onHide : 'b1 'c1 'd1.<br>                      ('b Js.t,<br>                       'b1 Js.t Js.optdef -><br>                       'c1 Js.callback Js.optdef -> 'd1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onPosition : ('b Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onRemoved : ('b Js.t, bool Js.t -> unit) Js.meth_callback<br>                       Js.writeonly_prop;<br>           onRender : ('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onResize : 'e1 'f1 'g1 'h1.<br>                        ('b Js.t,<br>                         'e1 Js.t -> 'f1 Js.t -> 'g1 Js.t -> 'h1 Js.t -> unit)<br>                        Js.meth_callback Js.writeonly_prop;<br>           onShow : 'i1 'j1 'k1.<br>                      ('b Js.t,<br>                       'i1 Js.t Js.optdef -><br>                       'j1 Js.callback Js.optdef -> 'k1 Js.t Js.optdef -> unit)<br>                      Js.meth_callback Js.writeonly_prop;<br>           onShowComplete : 'l1 'm1.<br>                              ('b Js.t,<br>                               'l1 Js.callback Js.optdef -><br>                               'm1 Js.t Js.optdef -> unit)<br>                              Js.meth_callback Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop;<br>           overflowText : Js.js_string Js.t Js.prop;<br>           overflowX : Js.js_string Js.t Js.prop;<br>           overflowY : Js.js_string Js.t Js.prop; padding : 'n1. 'n1 Js.t Js.prop;<br>           params : 'o1. 'o1 Js.t Js.prop; plugins : 'p1. 'p1 Js.t Js.prop;<br>           pressed : bool Js.t Js.prop; pressedCls : Js.js_string Js.t Js.prop;<br>           preventDefault : bool Js.t Js.prop; region : 'q1. 'q1 Js.t Js.prop;<br>           renderData : 'r1. 'r1 Js.t Js.prop;<br>           renderSelectors : 's1. 's1 Js.t Js.prop;<br>           renderTo : 't1. 't1 Js.t Js.prop; renderTpl : 'u1. 'u1 Js.t Js.prop;<br>           repeat : 'v1. 'v1 Js.t Js.prop; resizable : 'w1. 'w1 Js.t Js.prop;<br>           resizeHandles : Js.js_string Js.t Js.prop; rtl : bool Js.t Js.prop;<br>           saveDelay : Js.number Js.t Js.prop; scale : 'x1. 'x1 Js.t Js.prop;<br>           scope : 'y1. 'y1 Js.t Js.prop; shadow : 'z1. 'z1 Js.t Js.prop;<br>           shadowOffset : Js.number Js.t Js.prop; showEmptyMenu : bool Js.t Js.prop;<br>           shrinkWrap : 'a2. 'a2 Js.t Js.prop;<br>           stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>           stateId : Js.js_string Js.t Js.prop; stateful : bool Js.t Js.prop;<br>           style : 'b2. 'b2 Js.t Js.prop; tabIndex : Js.number Js.t Js.prop;<br>           text : Js.js_string Js.t Js.prop; textAlign : Js.js_string Js.t Js.prop;<br>           toFrontOnShow : bool Js.t Js.prop;<br>           toggleGroup : Js.js_string Js.t Js.prop;<br>           toggleHandler : 'c2. 'c2 Js.callback Js.prop;<br>           tooltip : 'd2. 'd2 Js.t Js.prop; tooltipType : Js.js_string Js.t Js.prop;<br>           tpl : 'e2. 'e2 Js.t Js.prop; tplWriteMode : Js.js_string Js.t Js.prop;<br>           ui : Js.js_string Js.t Js.prop; width : Js.number Js.t Js.prop;<br>           xtype : Js.js_string Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t, unit -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
 See method <code class="code">t.initComponent</code><br>
-</div>
-<pre><span id="METHODonDestroy"><span class="keyword">method</span> onDestroy</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onDestroy</code><br>
 </div>
 <pre><span id="METHODonDisable"><span class="keyword">method</span> onDisable</span> : <code class="type">('b Js.t, unit -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
 See method <code class="code">t.onDisable</code><br>
-</div>
-<pre><span id="METHODonRender"><span class="keyword">method</span> onRender</span> : <code class="type">('b Js.t, <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onRender</code><br>
 </div>
 <pre><span id="METHODallowDepress"><span class="keyword">method</span> allowDepress</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>False to not allow a pressed Button to be depressed. Only valid when <a href="#!/api/Ext.button.Button-cfg-enableToggle" rel="Ext.button.Button-cfg-enableToggle" class="docClass">enableToggle</a> is true.</p> 
@@ -187,27 +179,8 @@ values are allowed:</p>
 
     Defaults to: <code class="code">'x-btn'</code><br>
 </div>
-<pre><span id="METHODbaseParams"><span class="keyword">method</span> baseParams</span> : <code class="type">'j. 'j Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODbaseParams"><span class="keyword">method</span> baseParams</span> : <code class="type">'l. 'l Js.t Js.prop</code></pre><div class="info">
 <p>An object literal of parameters to pass to the url when the <a href="#!/api/Ext.button.Button-cfg-href" rel="Ext.button.Button-cfg-href" class="docClass">href</a> property is specified.</p> <br>
-</div>
-<pre><span id="METHODborder"><span class="keyword">method</span> border</span> : <code class="type">'k. 'k Js.t Js.prop</code></pre><div class="info">
-<p>Specifies the border size for this component. The border can be a single numeric value to apply to all sides or it can
-be a CSS style specification for each style, for example: '10 5 3 10'.</p>
-
-<p>For components that have no border by default, setting this won't make the border appear by itself.
-You also need to specify border color and style:</p>
-
-<pre><code>border: 5,
-style: {
-    borderColor: 'red',
-    borderStyle: 'solid'
-}
-</code></pre>
-
-<p>To turn off the border, use <code>border: false</code>.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
 </div>
 <pre><span id="METHODclickEvent"><span class="keyword">method</span> clickEvent</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The DOM event that will fire the handler of the button. This can be any valid event name (dblclick, contextmenu).</p> 
@@ -218,7 +191,7 @@ style: {
 <pre><span id="METHODcls"><span class="keyword">method</span> cls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>A CSS class string to apply to the button's main element.</p> <br>
 </div>
-<pre><span id="METHODcomponentLayout"><span class="keyword">method</span> componentLayout</span> : <code class="type">'n. 'n Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODcomponentLayout"><span class="keyword">method</span> componentLayout</span> : <code class="type">'p. 'p Js.t Js.prop</code></pre><div class="info">
 <p>The sizing and positioning of a Component's internal Elements is the responsibility of the Component's layout
 manager which sizes a Component's internal structure in response to the Component being sized.</p>
 
@@ -231,6 +204,10 @@ class which simply sizes the Component's encapsulating element to the height and
 <p>
 
     Defaults to: <code class="code">'button'</code><br>
+</div>
+<pre><span id="METHODdestroyMenu"><span class="keyword">method</span> destroyMenu</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Whether or not to destroy any associated menu when this button is destroyed. The menu
+will be destroyed unless this is explicitly set to false.</p> <br>
 </div>
 <pre><span id="METHODdisabled"><span class="keyword">method</span> disabled</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>True to start disabled.</p> 
@@ -263,13 +240,20 @@ Explorer prior to version 9 which do not support rounded corners natively.</p>
 
     Defaults to: <code class="code">true</code><br>
 </div>
+<pre><span id="METHODglyph"><span class="keyword">method</span> glyph</span> : <code class="type">'t. 't Js.t Js.prop</code></pre><div class="info">
+<p>A numeric unicode character code to use as the icon for this button. The default
+font-family for glyphs can be set globally using
+<a href="#!/api/Ext-method-setGlyphFontFamily" rel="Ext-method-setGlyphFontFamily" class="docClass">Ext.setGlyphFontFamily()</a>. Alternatively, this
+config option accepts a string with the charCode and font-family separated by the
+<code>@</code> symbol. For example '65@My Font Family'.</p> <br>
+</div>
 <pre><span id="METHODhandleMouseEvents"><span class="keyword">method</span> handleMouseEvents</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>False to disable visual cues on mouseover, mouseout and mousedown.</p> 
 <p>
 
     Defaults to: <code class="code">true</code><br>
 </div>
-<pre><span id="METHODhandler"><span class="keyword">method</span> handler</span> : <code class="type">'q. 'q Js.callback Js.prop</code></pre><div class="info">
+<pre><span id="METHODhandler"><span class="keyword">method</span> handler</span> : <code class="type">'u. 'u Js.callback Js.prop</code></pre><div class="info">
 <p>A function called when the button is clicked (can be used instead of click event).</p> <br>
 </div>
 <pre><span id="METHODhidden"><span class="keyword">method</span> hidden</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
@@ -280,7 +264,7 @@ Explorer prior to version 9 which do not support rounded corners natively.</p>
 </div>
 <pre><span id="METHODhref"><span class="keyword">method</span> href</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The URL to open when the button is clicked. Specifying this config causes the Button to be
-rendered with an anchor (An <code>&lt;a&gt;</code> element) as its active element, referencing the specified URL.</p>
+rendered with the specified URL as the <code>href</code> attribute of its <code>&lt;a&gt;</code> Element.</p>
 
 <p>This is better than specifying a click handler of</p>
 
@@ -319,7 +303,7 @@ property is specified.</p>
 <pre><span id="METHODiconCls"><span class="keyword">method</span> iconCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>A css class which sets a background image to be used as the icon for this button.</p> <br>
 </div>
-<pre><span id="METHODmenu"><span class="keyword">method</span> menu</span> : <code class="type">'v. 'v Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODmenu"><span class="keyword">method</span> menu</span> : <code class="type">'z. 'z Js.t Js.prop</code></pre><div class="info">
 <p>Standard menu attribute consisting of a reference to a menu object, a menu id or a menu config blob.</p> <br>
 </div>
 <pre><span id="METHODmenuActiveCls"><span class="keyword">method</span> menuActiveCls</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
@@ -329,7 +313,7 @@ property is specified.</p>
     Defaults to: <code class="code">'menu-active'</code><br>
 </div>
 <pre><span id="METHODmenuAlign"><span class="keyword">method</span> menuAlign</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The position to align the menu to (see <a href="#!/api/Ext.dom.Element-method-alignTo" rel="Ext.dom.Element-method-alignTo" class="docClass">Ext.Element.alignTo</a> for more details).</p> 
+<p>The position to align the menu to (see <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> for more details).</p> 
 <p>
 
     Defaults to: <code class="code">'tl-bl?'</code><br>
@@ -348,7 +332,7 @@ See also <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass"
 <p>If used in a <a href="#!/api/Ext.toolbar.Toolbar" rel="Ext.toolbar.Toolbar" class="docClass">Toolbar</a>, the text to be used if this item is shown in the overflow menu.
 See also <a href="#!/api/Ext.toolbar.Item" rel="Ext.toolbar.Item" class="docClass">Ext.toolbar.Item</a>.<code><a href="#!/api/Ext.toolbar.Item-cfg-overflowText" rel="Ext.toolbar.Item-cfg-overflowText" class="docClass">overflowText</a></code>.</p> <br>
 </div>
-<pre><span id="METHODparams"><span class="keyword">method</span> params</span> : <code class="type">'g1. 'g1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODparams"><span class="keyword">method</span> params</span> : <code class="type">'o1. 'o1 Js.t Js.prop</code></pre><div class="info">
 <p>An object literal of parameters to pass to the url when the <a href="#!/api/Ext.button.Button-cfg-href" rel="Ext.button.Button-cfg-href" class="docClass">href</a> property is specified. Any params
 override <a href="#!/api/Ext.button.Button-cfg-baseParams" rel="Ext.button.Button-cfg-baseParams" class="docClass">baseParams</a>. New params can be set using the <a href="#!/api/Ext.button.Button-method-setParams" rel="Ext.button.Button-method-setParams" class="docClass">setParams</a> method.</p> <br>
 </div>
@@ -370,13 +354,17 @@ override <a href="#!/api/Ext.button.Button-cfg-baseParams" rel="Ext.button.Butto
 
     Defaults to: <code class="code">true</code><br>
 </div>
-<pre><span id="METHODrenderTpl"><span class="keyword">method</span> renderTpl</span> : <code class="type">'l1. 'l1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrenderTpl"><span class="keyword">method</span> renderTpl</span> : <code class="type">'u1. 'u1 Js.t Js.prop</code></pre><div class="info">
+<p>We have to keep "unselectable" attribute on all elements because it's not inheritable.
+Without it, clicking anywhere on a button disrupts current selection and cursor position
+in HtmlEditor.</p>
+
 <p>An <a href="#!/api/Ext.XTemplate" rel="Ext.XTemplate" class="docClass">XTemplate</a> used to create the internal structure inside this Component's encapsulating
 <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a>.</p>
 
 <p>You do not normally need to specify this. For the base classes <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> and
 <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>, this defaults to <strong><code>null</code></strong> which means that they will be initially rendered
-with no internal structure; they render their <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a> empty. The more specialized ExtJS and Touch
+with no internal structure; they render their <a href="#!/api/Ext.button.Button-method-getEl" rel="Ext.button.Button-method-getEl" class="docClass">Element</a> empty. The more specialized Ext JS and Sencha Touch
 classes which use a more complex DOM structure, provide their own template definitions.</p>
 
 <p>This is intended to allow the developer to create application-specific utility Components with customized
@@ -386,16 +374,16 @@ internal structure.</p>
 <a href="#!/api/Ext.button.Button-cfg-renderSelectors" rel="Ext.button.Button-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.button.Button-cfg-childEls" rel="Ext.button.Button-cfg-childEls" class="docClass">childEls</a> options.</p> 
 <p>
 
-    Defaults to: <code class="code">['&lt;em id="{id}-btnWrap"&lt;tpl if="splitCls"&gt; class="{splitCls}"&lt;/tpl&gt;&gt;', '&lt;tpl if="href"&gt;', '&lt;a id="{id}-btnEl" href="{href}" class="{btnCls}" target="{hrefTarget}"', '&lt;tpl if="tabIndex"&gt; tabIndex="{tabIndex}"&lt;/tpl&gt;', '&lt;tpl if="disabled"&gt; disabled="disabled"&lt;/tpl&gt;', ' role="link"&gt;', '&lt;span id="{id}-btnInnerEl" class="{baseCls}-inner"&gt;', '{text}', '&lt;/span&gt;', '&lt;span id="{id}-btnIconEl" class="{baseCls}-icon {iconCls}"&lt;tpl if="iconUrl"&gt; style="background-image:url({iconUrl})"&lt;/tpl&gt;&gt;&lt;/span&gt;', '&lt;/a&gt;', '&lt;tpl else&gt;', '&lt;button id="{id}-btnEl" type="{type}" class="{btnCls}" hidefocus="true"', '&lt;tpl if="tabIndex"&gt; tabIndex="{tabIndex}"&lt;/tpl&gt;', '&lt;tpl if="disabled"&gt; disabled="disabled"&lt;/tpl&gt;', ' role="button" autocomplete="off"&gt;', '&lt;span id="{id}-btnInnerEl" class="{baseCls}-inner" style="{innerSpanStyle}"&gt;', '{text}', '&lt;/span&gt;', '&lt;span id="{id}-btnIconEl" class="{baseCls}-icon {iconCls}"&lt;tpl if="iconUrl"&gt; style="background-image:url({iconUrl})"&lt;/tpl&gt;&gt;&lt;/span&gt;', '&lt;/button&gt;', '&lt;/tpl&gt;', '&lt;/em&gt;', '&lt;tpl if="closable"&gt;', '&lt;a id="{id}-closeEl" href="#" class="{baseCls}-close-btn" title="{closeText}"&gt;&lt;/a&gt;', '&lt;/tpl&gt;']</code><br>
+    Defaults to: <code class="code">'&lt;div id=''{id}-btnWrap'' class=''{baseCls}-wrap', '&lt;tpl if=''splitCls''&gt; {splitCls}&lt;/tpl&gt;', '{childElCls}'' unselectable=''on''&gt;', '&lt;a id=''{id}-btnEl'' class=''{baseCls}-button'' role=''button'' hidefocus=''on'' unselectable=''on''', '&lt;tpl if=''tabIndex != null&gt;', ' tabIndex=''{tabIndex}''', '&lt;/tpl&gt;', '&lt;tpl if=''href''&gt;', ' href=''{href}''', '&lt;tpl if=''hrefTarget''&gt;', ' target=''{hrefTarget}''', '&lt;/tpl&gt;', '&lt;/tpl&gt;', '&gt;', '&lt;span id=''{id}-btnInnerEl'' class=''{baseCls}-inner {innerCls}', '{childElCls}'' unselectable=''on''&gt;', '{text}', '&lt;/span&gt;', '&lt;span role=''img'' id=''{id}-btnIconEl'' class=''{baseCls}-icon-el {iconCls}', '{childElCls} {glyphCls}'' unselectable=''on'' style=''', '&lt;tpl if=''iconUrl''&gt;background-image:url({iconUrl});&lt;/tpl&gt;', '&lt;tpl if=''glyph &amp;&amp; glyphFontFamily''&gt;font-family:{glyphFontFamily};&lt;/tpl&gt;''&gt;', '&lt;tpl if=''glyph''&gt;&amp;#{glyph};&lt;/tpl&gt;&lt;tpl if=''iconCls || iconUrl''&gt;&amp;#160;&lt;/tpl&gt;', '&lt;/span&gt;', '&lt;/a&gt;', '&lt;/div&gt;', '&lt;tpl if=''closable''&gt;', '&lt;a id=''{id}-closeEl'' class=''{baseCls}-close-btn'' title=''{closeText}'' href=''#''&gt;&lt;/a&gt;', '&lt;/tpl&gt;'</code><br>
 </div>
-<pre><span id="METHODrepeat"><span class="keyword">method</span> repeat</span> : <code class="type">'m1. 'm1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrepeat"><span class="keyword">method</span> repeat</span> : <code class="type">'v1. 'v1 Js.t Js.prop</code></pre><div class="info">
 <p>True to repeat fire the click event while the mouse is down. This can also be a
 <a href="#!/api/Ext.util.ClickRepeater" rel="Ext.util.ClickRepeater" class="docClass">ClickRepeater</a> config object.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODscale"><span class="keyword">method</span> scale</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODscale"><span class="keyword">method</span> scale</span> : <code class="type">'x1. 'x1 Js.t Js.prop</code></pre><div class="info">
 <p>The size of the Button. Three values are allowed:</p>
 
 <ul>
@@ -407,11 +395,18 @@ internal structure.</p>
 
     Defaults to: <code class="code">'small'</code><br>
 </div>
-<pre><span id="METHODscope"><span class="keyword">method</span> scope</span> : <code class="type">'o1. 'o1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODscope"><span class="keyword">method</span> scope</span> : <code class="type">'y1. 'y1 Js.t Js.prop</code></pre><div class="info">
 <p>The scope (<strong>this</strong> reference) in which the <code><a href="#!/api/Ext.button.Button-cfg-handler" rel="Ext.button.Button-cfg-handler" class="docClass">handler</a></code> and <code><a href="#!/api/Ext.button.Button-cfg-toggleHandler" rel="Ext.button.Button-cfg-toggleHandler" class="docClass">toggleHandler</a></code> is executed.
 Defaults to this Button.</p> <br>
 </div>
-<pre><span id="METHODshrinkWrap"><span class="keyword">method</span> shrinkWrap</span> : <code class="type">'r1. 'r1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODshowEmptyMenu"><span class="keyword">method</span> showEmptyMenu</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>True to force an attached <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a> with no items to be shown when clicking
+this button. By default, the menu will not show if it is empty.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODshrinkWrap"><span class="keyword">method</span> shrinkWrap</span> : <code class="type">'a2. 'a2 Js.t Js.prop</code></pre><div class="info">
 <p>If this property is a number, it is interpreted as follows:</p>
 
 <ul>
@@ -446,10 +441,10 @@ effectively ignoring this property (e.g., <a href="#!/api/Ext.layout.container.H
 <p>The group this toggle button is a member of (only 1 per group can be pressed). If a toggleGroup
 is specified, the <a href="#!/api/Ext.button.Button-cfg-enableToggle" rel="Ext.button.Button-cfg-enableToggle" class="docClass">enableToggle</a> configuration will automatically be set to true.</p> <br>
 </div>
-<pre><span id="METHODtoggleHandler"><span class="keyword">method</span> toggleHandler</span> : <code class="type">'t1. 't1 Js.callback Js.prop</code></pre><div class="info">
+<pre><span id="METHODtoggleHandler"><span class="keyword">method</span> toggleHandler</span> : <code class="type">'c2. 'c2 Js.callback Js.prop</code></pre><div class="info">
 <p>Function called when a Button with <a href="#!/api/Ext.button.Button-cfg-enableToggle" rel="Ext.button.Button-cfg-enableToggle" class="docClass">enableToggle</a> set to true is clicked.</p> <br>
 </div>
-<pre><span id="METHODtooltip"><span class="keyword">method</span> tooltip</span> : <code class="type">'u1. 'u1 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODtooltip"><span class="keyword">method</span> tooltip</span> : <code class="type">'d2. 'd2 Js.t Js.prop</code></pre><div class="info">
 <p>The tooltip for the button - can be a string to be used as innerHTML (html tags are accepted) or
 QuickTips config object.</p> <br>
 </div>

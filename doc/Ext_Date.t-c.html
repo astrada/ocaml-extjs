@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -135,213 +138,6 @@
 <center><h1>Class type <a href="type_Ext_Date.t.html">Ext_Date.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_Date.t-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="METHOD_DAY"><span class="keyword">method</span> _DAY</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Date interval constant</p> 
-<p>
-
-    Defaults to: <code class="code">"d"</code><br>
-</div>
-<pre><span id="METHOD_HOUR"><span class="keyword">method</span> _HOUR</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Date interval constant</p> 
-<p>
-
-    Defaults to: <code class="code">"h"</code><br>
-</div>
-<pre><span id="METHOD_MILLI"><span class="keyword">method</span> _MILLI</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Date interval constant</p> 
-<p>
-
-    Defaults to: <code class="code">"ms"</code><br>
-</div>
-<pre><span id="METHOD_MINUTE"><span class="keyword">method</span> _MINUTE</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Date interval constant</p> 
-<p>
-
-    Defaults to: <code class="code">"mi"</code><br>
-</div>
-<pre><span id="METHOD_MONTH"><span class="keyword">method</span> _MONTH</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Date interval constant</p> 
-<p>
-
-    Defaults to: <code class="code">"mo"</code><br>
-</div>
-<pre><span id="METHOD_SECOND"><span class="keyword">method</span> _SECOND</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Date interval constant</p> 
-<p>
-
-    Defaults to: <code class="code">"s"</code><br>
-</div>
-<pre><span id="METHOD_YEAR"><span class="keyword">method</span> _YEAR</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>Date interval constant</p> 
-<p>
-
-    Defaults to: <code class="code">"y"</code><br>
-</div>
-<pre><span id="METHODdayNames"><span class="keyword">method</span> dayNames</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
-<p>An array of textual day names.
-Override these values for international dates.
-Example:</p>
-
-<pre><code><a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-dayNames" class="docClass">Ext.Date.dayNames</a> = [
-    'SundayInYourLang',
-    'MondayInYourLang',
-    ...
-];
-</code></pre> 
-<p>
-
-    Defaults to: <code class="code">["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]</code><br>
-</div>
-<pre><span id="METHODdefaultFormat"><span class="keyword">method</span> defaultFormat</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The date format string that the <a href="#!/api/Ext.util.Format-method-dateRenderer" rel="Ext.util.Format-method-dateRenderer" class="docClass">Ext.util.Format.dateRenderer</a>
-and <a href="#!/api/Ext.util.Format-method-date" rel="Ext.util.Format-method-date" class="docClass">Ext.util.Format.date</a> functions use.  See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a> for details.</p>
-
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">"m/d/Y"</code><br>
-</div>
-<pre><span id="METHODdefaults"><span class="keyword">method</span> defaults</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
-<p>An object hash containing default date values used during date parsing.</p>
-
-
-<p>The following properties are available:<div class="mdetail-params"><ul>
-<li><code>y</code> : Number<div class="sub-desc">The default year value. (defaults to undefined)</div></li>
-<li><code>m</code> : Number<div class="sub-desc">The default 1-based month value. (defaults to undefined)</div></li>
-<li><code>d</code> : Number<div class="sub-desc">The default day value. (defaults to undefined)</div></li>
-<li><code>h</code> : Number<div class="sub-desc">The default hour value. (defaults to undefined)</div></li>
-<li><code>i</code> : Number<div class="sub-desc">The default minute value. (defaults to undefined)</div></li>
-<li><code>s</code> : Number<div class="sub-desc">The default second value. (defaults to undefined)</div></li>
-<li><code>ms</code> : Number<div class="sub-desc">The default millisecond value. (defaults to undefined)</div></li>
-</ul></div></p>
-
-
-<p>Override these properties to customize the default date values used by the <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">parse</a> method.</p>
-
-
-<p><b>Note: In countries which experience Daylight Saving Time (i.e. DST), the <tt>h</tt>, <tt>i</tt>, <tt>s</tt>
-and <tt>ms</tt> properties may coincide with the exact time in which DST takes effect.
-It is the responsiblity of the developer to account for this.</b></p>
-
-
-<p>Example Usage:</p>
-
-<pre><code>// set default day value to the first day of the month
-Ext.Date.defaults.d = 1;
-
-// parse a February date string containing only year and month values.
-// setting the default day value to 1 prevents weird date rollover issues
-// when attempting to parse the following date string on, for example, March 31st 2009.
-<a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">Ext.Date.parse</a>('2009-02', 'Y-m'); // returns a Date object representing February 1st 2009
-</code></pre> 
-<p>
-
-    Defaults to: <code class="code">{}</code><br>
-</div>
-<pre><span id="METHODformatCodes"><span class="keyword">method</span> formatCodes</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
-<p>The base format-code to formatting-function hashmap used by the <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">format</a> method.
-Formatting functions are strings (or functions which return strings) which
-will return the appropriate value when evaluated in the context of the Date object
-from which the <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">format</a> method is called.
-Add to / override these mappings for custom date formatting.
-Note: <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>() treats characters as literals if an appropriate mapping cannot be found.
-Example:</p>
-
-<pre><code>Ext.Date.formatCodes.x = "<a href="#!/api/Ext.util.Format-method-leftPad" rel="Ext.util.Format-method-leftPad" class="docClass">Ext.util.Format.leftPad</a>(this.getDate(), 2, '0')";
-console.log(<a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(new Date(), 'X'); // returns the current day of the month
-</code></pre> <br>
-</div>
-<pre><span id="METHODformatFunctions"><span class="keyword">method</span> formatFunctions</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
-<p>An object hash in which each property is a date formatting function. The property name is the
-format string which corresponds to the produced formatted date string.</p>
-
-
-<p>This object is automatically populated with date formatting functions as
-date formats are requested for Ext standard formatting strings.</p>
-
-
-<p>Custom formatting functions may be inserted into this object, keyed by a name which from then on
-may be used as a format string to <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">format</a>. Example:</p>
-
-
-<pre><code><a href="#!/api/Ext.Date-property-formatFunctions" rel="Ext.Date-property-formatFunctions" class="docClass">Ext.Date.formatFunctions</a>['x-date-format'] = myDateFormatter;
-</code></pre>
-
-
-<p>A formatting function should return a string representation of the passed Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
-<li><code>date</code> : Date<div class="sub-desc">The Date to format.</div></li>
-</ul></div></p>
-
-
-<p>To enable date strings to also be <i>parsed</i> according to that format, a corresponding
-parsing function must be placed into the <a href="#!/api/Ext.Date-property-parseFunctions" rel="Ext.Date-property-parseFunctions" class="docClass">parseFunctions</a> property. <br>
-</div>
-<pre><span id="METHODmonthNames"><span class="keyword">method</span> monthNames</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
-<p>An array of textual month names.
-Override these values for international dates.
-Example:</p>
-
-<pre><code><a href="#!/api/Ext.Date-property-monthNames" rel="Ext.Date-property-monthNames" class="docClass">Ext.Date.monthNames</a> = [
-    'JanInYourLang',
-    'FebInYourLang',
-    ...
-];
-</code></pre> 
-<p>
-
-    Defaults to: <code class="code">["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]</code><br>
-</div>
-<pre><span id="METHODmonthNumbers"><span class="keyword">method</span> monthNumbers</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
-<p>An object hash of zero-based javascript month numbers (with short month names as keys. note: keys are case-sensitive).
-Override these values for international dates.
-Example:</p>
-
-<pre><code><a href="#!/api/Ext.Date-property-monthNumbers" rel="Ext.Date-property-monthNumbers" class="docClass">Ext.Date.monthNumbers</a> = {
-    'LongJanNameInYourLang': 0,
-    'ShortJanNameInYourLang':0,
-    'LongFebNameInYourLang':1,
-    'ShortFebNameInYourLang':1,
-    ...
-};
-</code></pre> 
-<p>
-
-    Defaults to: <code class="code">{January: 0, Jan: 0, February: 1, Feb: 1, March: 2, Mar: 2, April: 3, Apr: 3, May: 4, June: 5, Jun: 5, July: 6, Jul: 6, August: 7, Aug: 7, September: 8, Sep: 8, October: 9, Oct: 9, November: 10, Nov: 10, December: 11, Dec: 11}</code><br>
-</div>
-<pre><span id="METHODparseFunctions"><span class="keyword">method</span> parseFunctions</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
-<p>An object hash in which each property is a date parsing function. The property name is the
-format string which that function parses.</p>
-
-
-<p>This object is automatically populated with date parsing functions as
-date formats are requested for Ext standard formatting strings.</p>
-
-
-<p>Custom parsing functions may be inserted into this object, keyed by a name which from then on
-may be used as a format string to <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">parse</a>.<p>
-<p>Example:</p>
-<pre><code><a href="#!/api/Ext.Date-property-parseFunctions" rel="Ext.Date-property-parseFunctions" class="docClass">Ext.Date.parseFunctions</a>['x-date-format'] = myDateParser;
-</code></pre>
-<p>A parsing function should return a Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
-<li><code>date</code> : String<div class="sub-desc">The date string to parse.</div></li>
-<li><code>strict</code> : Boolean<div class="sub-desc">True to validate date strings while parsing
-(i.e. prevent javascript Date "rollover") (The default must be false).
-Invalid date strings should return null when parsed.</div></li>
-</ul></div></p>
-<p>To enable Dates to also be <i>formatted</i> according to that format, a corresponding
-formatting function must be placed into the <a href="#!/api/Ext.Date-property-formatFunctions" rel="Ext.Date-property-formatFunctions" class="docClass">formatFunctions</a> property. <br>
-</div>
-<pre><span id="METHODuseStrict"><span class="keyword">method</span> useStrict</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Global flag which determines if strict date parsing should be used.
-Strict date parsing will not roll-over invalid dates, which is the
-default behaviour of javascript Date objects.
-(see <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">parse</a> for more information)
-Defaults to <tt>false</tt>.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
 <pre><span id="METHODadd"><span class="keyword">method</span> add</span> : <code class="type">Js.date Js.t -> Js.js_string Js.t -> Js.number Js.t -> Js.date Js.t Js.meth</code></pre><div class="info">
 <p>Provides a convenient method for performing basic date arithmetic. This method
 does not modify the Date instance being called - it creates and returns
@@ -351,12 +147,15 @@ a new Date instance containing the resulting date value.</p>
 
 <pre><code>// Basic usage:
 var dt = <a href="#!/api/Ext.Date-method-add" rel="Ext.Date-method-add" class="docClass">Ext.Date.add</a>(new Date('10/29/2006'), <a href="#!/api/Ext.Date-property-DAY" rel="Ext.Date-property-DAY" class="docClass">Ext.Date.DAY</a>, 5);
-console.log(dt); //returns 'Fri Nov 03 2006 00:00:00'
+console.log(dt); // returns 'Fri Nov 03 2006 00:00:00'
 
 // Negative values will be subtracted:
 var dt2 = <a href="#!/api/Ext.Date-method-add" rel="Ext.Date-method-add" class="docClass">Ext.Date.add</a>(new Date('10/1/2006'), <a href="#!/api/Ext.Date-property-DAY" rel="Ext.Date-property-DAY" class="docClass">Ext.Date.DAY</a>, -5);
-console.log(dt2); //returns 'Tue Sep 26 2006 00:00:00'
+console.log(dt2); // returns 'Tue Sep 26 2006 00:00:00'
 
+ // Decimal values can be used:
+var dt3 = <a href="#!/api/Ext.Date-method-add" rel="Ext.Date-method-add" class="docClass">Ext.Date.add</a>(new Date('10/1/2006'), <a href="#!/api/Ext.Date-property-DAY" rel="Ext.Date-property-DAY" class="docClass">Ext.Date.DAY</a>, 1.25);
+console.log(dt3); // returns 'Mon Oct 02 2006 06:00:00'
 </code></pre> 
 <p>
 
@@ -403,23 +202,26 @@ console.log(dt2); //returns 'Tue Sep 26 2006 00:00:00'
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>true if this date falls on or between the given start and end dates.</p> 
+    <p><code>true</code> if this date falls on or between the given start and end dates.</p> 
     </li>
 </ul>
 <br>
 </div>
-<pre><span id="METHODclearTime"><span class="keyword">method</span> clearTime</span> : <code class="type">Js.date Js.t -> bool Js.t -> Js.date Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODclearTime"><span class="keyword">method</span> clearTime</span> : <code class="type">Js.date Js.t -> bool Js.t Js.optdef -> Js.date Js.t Js.meth</code></pre><div class="info">
 <p>Attempts to clear all time information from this Date by setting the time to midnight of the same day,
-automatically adjusting for Daylight Saving Time (DST) where applicable.
-(note: DST timezone information for the browser's host operating system is assumed to be up-to-date)</p> 
+automatically adjusting for Daylight Saving Time (DST) where applicable.</p>
+
+<p><strong>Note:</strong> DST timezone information for the browser's host operating system is assumed to be up-to-date.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>date: <code class="code">Js.date Js.t</code> <p>The date</p> 
+<li>date: <code class="code">Js.date Js.t</code>
+    <p>The date</p> 
     </li>
-<li>clone: <code class="code">bool Js.t</code>
-    <p>true to create a clone of this date, clear the time and return it (defaults to false).</p> 
+<li>clone: <code class="code">bool Js.t</code> (optional)
+    <p><code>true</code> to create a clone of this date, clear the time and return it.</p> 
+     Defaults to: false
     </li>
 </ul>
 
@@ -444,20 +246,20 @@ modify the original instance, you should create a clone.</p>
 var orig = new Date('10/1/2006');
 var copy = orig;
 copy.setDate(5);
-console.log(orig);  //returns 'Thu Oct 05 2006'!
+console.log(orig);  // returns 'Thu Oct 05 2006'!
 
 //correct way:
 var orig = new Date('10/1/2006'),
     copy = <a href="#!/api/Ext.Date-method-clone" rel="Ext.Date-method-clone" class="docClass">Ext.Date.clone</a>(orig);
 copy.setDate(5);
-console.log(orig);  //returns 'Thu Oct 01 2006'
+console.log(orig);  // returns 'Thu Oct 01 2006'
 </code></pre> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>date: <code class="code">Js.date Js.t</code>
-    <p>The date</p> 
+    <p>The date.</p> 
     </li>
 </ul>
 
@@ -579,16 +381,16 @@ date/day information.</p>
 <br>
 </div>
 <pre><span id="METHODgetElapsed"><span class="keyword">method</span> getElapsed</span> : <code class="type">Js.date Js.t -> Js.date Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Returns the number of milliseconds between two dates</p> 
+<p>Returns the number of milliseconds between two dates.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
 <li>dateA: <code class="code">Js.date Js.t</code>
-    <p>The first date</p> 
+    <p>The first date.</p> 
     </li>
-<li>dateB: <code class="code">Js.date Js.t</code> (optional)
-    <p>The second date, defaults to now</p> 
+<li>dateB: <code class="code">Js.date Js.t</code> (optional) <p>The second date.</p> 
+     Defaults to: new Date()
     </li>
 </ul>
 
@@ -615,12 +417,13 @@ date/day information.</p>
 <pre><span id="METHODgetFirstDayOfMonth"><span class="keyword">method</span> getFirstDayOfMonth</span> : <code class="type">Js.date Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Get the first day of the current month, adjusted for leap year.  The returned value
 is the numeric day index within the week (0-6) which can be used in conjunction with
-the <a href="#!/api/Ext.Date-property-monthNames" rel="Ext.Date-property-monthNames" class="docClass">monthNames</a> array to retrieve the textual day name.
-Example:</p>
+the <a href="#!/api/Ext.Date-property-monthNames" rel="Ext.Date-property-monthNames" class="docClass">monthNames</a> array to retrieve the textual day name.</p>
+
+<p>Example:</p>
 
 <pre><code>var dt = new Date('1/10/2007'),
     firstDay = <a href="#!/api/Ext.Date-method-getFirstDayOfMonth" rel="Ext.Date-method-getFirstDayOfMonth" class="docClass">Ext.Date.getFirstDayOfMonth</a>(dt);
-console.log(<a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-dayNames" class="docClass">Ext.Date.dayNames</a>[firstDay]); //output: 'Monday'
+console.log(<a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-dayNames" class="docClass">Ext.Date.dayNames</a>[firstDay]); // output: 'Monday'
 </code></pre> 
 <p>
 
@@ -650,7 +453,8 @@ console.log(<a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-d
     <p>The date</p> 
     </li>
 <li>colon: <code class="code">bool Js.t</code> (optional)
-    <p>true to separate the hours and minutes with a colon (defaults to false).</p> 
+    <p>true to separate the hours and minutes with a colon.</p> 
+     Defaults to: false
     </li>
 </ul>
 
@@ -678,12 +482,13 @@ console.log(<a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-d
 <pre><span id="METHODgetLastDayOfMonth"><span class="keyword">method</span> getLastDayOfMonth</span> : <code class="type">Js.date Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Get the last day of the current month, adjusted for leap year.  The returned value
 is the numeric day index within the week (0-6) which can be used in conjunction with
-the <a href="#!/api/Ext.Date-property-monthNames" rel="Ext.Date-property-monthNames" class="docClass">monthNames</a> array to retrieve the textual day name.
-Example:</p>
+the <a href="#!/api/Ext.Date-property-monthNames" rel="Ext.Date-property-monthNames" class="docClass">monthNames</a> array to retrieve the textual day name.</p>
+
+<p>Example:</p>
 
 <pre><code>var dt = new Date('1/10/2007'),
     lastDay = <a href="#!/api/Ext.Date-method-getLastDayOfMonth" rel="Ext.Date-method-getLastDayOfMonth" class="docClass">Ext.Date.getLastDayOfMonth</a>(dt);
-console.log(<a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-dayNames" class="docClass">Ext.Date.dayNames</a>[lastDay]); //output: 'Wednesday'
+console.log(<a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-dayNames" class="docClass">Ext.Date.dayNames</a>[lastDay]); // output: 'Wednesday'
 </code></pre> 
 <p>
 
@@ -704,7 +509,7 @@ console.log(<a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-d
 <br>
 </div>
 <pre><span id="METHODgetMonthNumber"><span class="keyword">method</span> getMonthNumber</span> : <code class="type">Js.js_string Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Get the zero-based javascript month number for the given short/full month name.
+<p>Get the zero-based JavaScript month number for the given short/full month name.
 Override this function for international dates.</p> 
 <p>
 
@@ -720,7 +525,7 @@ Override this function for international dates.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">Js.number Js.t</code>
-    <p>The zero-based javascript month number.</p> 
+    <p>The zero-based JavaScript month number.</p> 
     </li>
 </ul>
 <br>
@@ -733,7 +538,7 @@ Override this function for international dates.</p>
     <b>Parameters</b>:
     <ul>
 <li>day: <code class="code">Js.number Js.t</code>
-    <p>A zero-based javascript day number.</p> 
+    <p>A zero-based JavaScript day number.</p> 
     </li>
 </ul>
 
@@ -754,7 +559,7 @@ Override this function for international dates.</p>
     <b>Parameters</b>:
     <ul>
 <li>month: <code class="code">Js.number Js.t</code>
-    <p>A zero-based javascript month number.</p> 
+    <p>A zero-based JavaScript month number.</p> 
     </li>
 </ul>
 
@@ -790,7 +595,7 @@ Override this function for international dates.</p>
 <pre><span id="METHODgetTimezone"><span class="keyword">method</span> getTimezone</span> : <code class="type">Js.date Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Get the timezone abbreviation of the current date (equivalent to the format specifier 'T').</p>
 
-<p>Note: The date string returned by the javascript Date object's toString() method varies
+<p><strong>Note:</strong> The date string returned by the JavaScript Date object's <code>toString()</code> method varies
 between browsers (e.g. FF vs IE) and system region settings (e.g. IE in Asia vs IE in America).
 For a given date string e.g. "Thu Oct 25 2007 22:55:35 GMT+0800 (Malay Peninsula Standard Time)",
 getTimezone() first tries to get the timezone abbreviation from between a pair of parentheses
@@ -852,7 +657,7 @@ from the GMT offset portion of the date string.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>True if the current date is affected by DST.</p> 
+    <p><code>true</code> if the current date is affected by DST.</p> 
     </li>
 </ul>
 <br>
@@ -873,7 +678,8 @@ from the GMT offset portion of the date string.</p>
 
     <b>Returns</b>:
     <ul>
-<li><code class="code">bool Js.t</code> <p>True if the date values are equal</p> 
+<li><code class="code">bool Js.t</code>
+    <p><code>true</code> if the date values are equal</p> 
     </li>
 </ul>
 <br>
@@ -900,7 +706,7 @@ from the GMT offset portion of the date string.</p>
 <br>
 </div>
 <pre><span id="METHODisValid"><span class="keyword">method</span> isValid</span> : <code class="type">Js.number Js.t -><br>       Js.number Js.t -><br>       Js.number Js.t -><br>       Js.number Js.t Js.optdef -><br>       Js.number Js.t Js.optdef -><br>       Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Checks if the passed Date parameters will cause a javascript Date "rollover".</p> 
+<p>Checks if the passed Date parameters will cause a JavaScript Date "rollover".</p> 
 <p>
 
     <b>Parameters</b>:
@@ -933,7 +739,7 @@ from the GMT offset portion of the date string.</p>
     <b>Returns</b>:
     <ul>
 <li><code class="code">bool Js.t</code>
-    <p>true if the passed parameters do not cause a Date "rollover", false otherwise.</p> 
+    <p><code>true</code> if the passed parameters do not cause a Date "rollover", <code>false</code> otherwise.</p> 
     </li>
 </ul>
 <br>
@@ -960,11 +766,10 @@ in order for the parse operation to be successful (failed parse operations retur
 
 <p>Example:</p>
 
-
 <pre><code>//dt = Fri May 25 2007 (current date)
 var dt = new Date();
 
-//dt = Thu May 25 2006 (today&#39;s month/day in 2006)
+//dt = Thu May 25 2006 (today&amp;#39;s month/day in 2006)
 dt = <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">Ext.Date.parse</a>("2006", "Y");
 
 //dt = Sun Jan 15 2006 (all date parts specified)
@@ -987,10 +792,9 @@ dt = <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="d
     <p>The expected date string format.</p> 
     </li>
 <li>strict: <code class="code">bool Js.t</code> (optional)
-    <p>True to validate date strings while parsing (i.e. prevents javascript Date "rollover")</p>
-
-<pre><code>                    (defaults to false). Invalid date strings will return null when parsed.
-</code></pre> 
+    <p><code>true</code> to validate date strings while parsing (i.e. prevents JavaScript Date "rollover").
+Invalid date strings will return <code>null</code> when parsed.</p> 
+     Defaults to: false
     </li>
 </ul>
 
@@ -999,6 +803,49 @@ dt = <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="d
     <b>Returns</b>:
     <ul>
 <li><code class="code">Js.date Js.t</code> <p>The parsed Date.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsubtract"><span class="keyword">method</span> subtract</span> : <code class="type">Js.date Js.t -> Js.js_string Js.t -> Js.number Js.t -> Js.date Js.t Js.meth</code></pre><div class="info">
+<p>Provides a convenient method for performing basic date arithmetic. This method
+does not modify the Date instance being called - it creates and returns
+a new Date instance containing the resulting date value.</p>
+
+<p>Examples:</p>
+
+<pre><code>// Basic usage:
+var dt = <a href="#!/api/Ext.Date-method-subtract" rel="Ext.Date-method-subtract" class="docClass">Ext.Date.subtract</a>(new Date('10/29/2006'), <a href="#!/api/Ext.Date-property-DAY" rel="Ext.Date-property-DAY" class="docClass">Ext.Date.DAY</a>, 5);
+console.log(dt); // returns 'Tue Oct 24 2006 00:00:00'
+
+// Negative values will be added:
+var dt2 = <a href="#!/api/Ext.Date-method-subtract" rel="Ext.Date-method-subtract" class="docClass">Ext.Date.subtract</a>(new Date('10/1/2006'), <a href="#!/api/Ext.Date-property-DAY" rel="Ext.Date-property-DAY" class="docClass">Ext.Date.DAY</a>, -5);
+console.log(dt2); // returns 'Fri Oct 6 2006 00:00:00'
+
+ // Decimal values can be used:
+var dt3 = <a href="#!/api/Ext.Date-method-subtract" rel="Ext.Date-method-subtract" class="docClass">Ext.Date.subtract</a>(new Date('10/1/2006'), <a href="#!/api/Ext.Date-property-DAY" rel="Ext.Date-property-DAY" class="docClass">Ext.Date.DAY</a>, 1.25);
+console.log(dt3); // returns 'Fri Sep 29 2006 06:00:00'
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>date: <code class="code">Js.date Js.t</code>
+    <p>The date to modify</p> 
+    </li>
+<li>interval: <code class="code">Js.js_string Js.t</code>
+    <p>A valid date interval enum value.</p> 
+    </li>
+<li>value: <code class="code">Js.number Js.t</code>
+    <p>The amount to subtract from the current date.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.date Js.t</code> <p>The new Date instance.</p> 
     </li>
 </ul>
 <br>
@@ -1023,5 +870,210 @@ using a '\' can be used to escape special characters.</p>
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHOD_DAY"><span class="keyword">method</span> _DAY</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Date interval constant</p> 
+<p>
+
+    Defaults to: <code class="code">"d"</code><br>
+</div>
+<pre><span id="METHOD_HOUR"><span class="keyword">method</span> _HOUR</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Date interval constant</p> 
+<p>
+
+    Defaults to: <code class="code">"h"</code><br>
+</div>
+<pre><span id="METHOD_MILLI"><span class="keyword">method</span> _MILLI</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Date interval constant</p> 
+<p>
+
+    Defaults to: <code class="code">"ms"</code><br>
+</div>
+<pre><span id="METHOD_MINUTE"><span class="keyword">method</span> _MINUTE</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Date interval constant</p> 
+<p>
+
+    Defaults to: <code class="code">"mi"</code><br>
+</div>
+<pre><span id="METHOD_MONTH"><span class="keyword">method</span> _MONTH</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Date interval constant</p> 
+<p>
+
+    Defaults to: <code class="code">"mo"</code><br>
+</div>
+<pre><span id="METHOD_SECOND"><span class="keyword">method</span> _SECOND</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Date interval constant</p> 
+<p>
+
+    Defaults to: <code class="code">"s"</code><br>
+</div>
+<pre><span id="METHOD_YEAR"><span class="keyword">method</span> _YEAR</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>Date interval constant</p> 
+<p>
+
+    Defaults to: <code class="code">"y"</code><br>
+</div>
+<pre><span id="METHODdayNames"><span class="keyword">method</span> dayNames</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<p>An array of textual day names.
+Override these values for international dates.</p>
+
+<p>Example:</p>
+
+<pre><code><a href="#!/api/Ext.Date-property-dayNames" rel="Ext.Date-property-dayNames" class="docClass">Ext.Date.dayNames</a> = [
+    'SundayInYourLang',
+    'MondayInYourLang'
+    // ...
+];
+</code></pre> 
+<p>
+
+    Defaults to: <code class="code">''Sunday'', ''Monday'', ''Tuesday'', ''Wednesday'', ''Thursday'', ''Friday'', ''Saturday''</code><br>
+</div>
+<pre><span id="METHODdefaultFormat"><span class="keyword">method</span> defaultFormat</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The date format string that the <a href="#!/api/Ext.util.Format-method-dateRenderer" rel="Ext.util.Format-method-dateRenderer" class="docClass">Ext.util.Format.dateRenderer</a>
+and <a href="#!/api/Ext.util.Format-method-date" rel="Ext.util.Format-method-date" class="docClass">Ext.util.Format.date</a> functions use.  See <a href="#!/api/Ext.Date" rel="Ext.Date" class="docClass">Ext.Date</a> for details.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">"m/d/Y"</code><br>
+</div>
+<pre><span id="METHODdefaults"><span class="keyword">method</span> defaults</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
+<p>An object hash containing default date values used during date parsing.</p>
+
+<p>The following properties are available:<div class="mdetail-params"><ul>
+<li><code>y</code> : Number<div class="sub-desc">The default year value. (defaults to undefined)</div></li>
+<li><code>m</code> : Number<div class="sub-desc">The default 1-based month value. (defaults to undefined)</div></li>
+<li><code>d</code> : Number<div class="sub-desc">The default day value. (defaults to undefined)</div></li>
+<li><code>h</code> : Number<div class="sub-desc">The default hour value. (defaults to undefined)</div></li>
+<li><code>i</code> : Number<div class="sub-desc">The default minute value. (defaults to undefined)</div></li>
+<li><code>s</code> : Number<div class="sub-desc">The default second value. (defaults to undefined)</div></li>
+<li><code>ms</code> : Number<div class="sub-desc">The default millisecond value. (defaults to undefined)</div></li>
+</ul></div></p>
+
+<p>Override these properties to customize the default date values used by the <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">parse</a> method.</p>
+
+<p><strong>Note:</strong> In countries which experience Daylight Saving Time (i.e. DST), the <code>h</code>, <code>i</code>, <code>s</code>
+and <code>ms</code> properties may coincide with the exact time in which DST takes effect.
+It is the responsibility of the developer to account for this.</p>
+
+<p>Example Usage:</p>
+
+<pre><code>// set default day value to the first day of the month
+Ext.Date.defaults.d = 1;
+
+// parse a February date string containing only year and month values.
+// setting the default day value to 1 prevents weird date rollover issues
+// when attempting to parse the following date string on, for example, March 31st 2009.
+<a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">Ext.Date.parse</a>('2009-02', 'Y-m'); // returns a Date object representing February 1st 2009
+</code></pre> 
+<p>
+
+    Defaults to: <code class="code">{}</code><br>
+</div>
+<pre><span id="METHODformatCodes"><span class="keyword">method</span> formatCodes</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
+<p>The base format-code to formatting-function hashmap used by the <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">format</a> method.
+Formatting functions are strings (or functions which return strings) which
+will return the appropriate value when evaluated in the context of the Date object
+from which the <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">format</a> method is called.
+Add to / override these mappings for custom date formatting.</p>
+
+<p><strong>Note:</strong> <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>() treats characters as literals if an appropriate mapping cannot be found.</p>
+
+<p>Example:</p>
+
+<pre><code>Ext.Date.formatCodes.x = "<a href="#!/api/Ext.util.Format-method-leftPad" rel="Ext.util.Format-method-leftPad" class="docClass">Ext.util.Format.leftPad</a>(this.getDate(), 2, '0')";
+console.log(<a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(new Date(), 'X'); // returns the current day of the month
+</code></pre> <br>
+</div>
+<pre><span id="METHODformatFunctions"><span class="keyword">method</span> formatFunctions</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
+<p>An object hash in which each property is a date formatting function. The property name is the
+format string which corresponds to the produced formatted date string.</p>
+
+<p>This object is automatically populated with date formatting functions as
+date formats are requested for Ext standard formatting strings.</p>
+
+<p>Custom formatting functions may be inserted into this object, keyed by a name which from then on
+may be used as a format string to <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">format</a>.</p>
+
+<p>Example:</p>
+
+<pre><code><a href="#!/api/Ext.Date-property-formatFunctions" rel="Ext.Date-property-formatFunctions" class="docClass">Ext.Date.formatFunctions</a>['x-date-format'] = myDateFormatter;
+</code></pre>
+
+<p>A formatting function should return a string representation of the passed Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
+<li><code>date</code> : Date<div class="sub-desc">The Date to format.</div></li>
+</ul></div></p>
+
+<p>To enable date strings to also be <em>parsed</em> according to that format, a corresponding
+parsing function must be placed into the <a href="#!/api/Ext.Date-property-parseFunctions" rel="Ext.Date-property-parseFunctions" class="docClass">parseFunctions</a> property.</p> <br>
+</div>
+<pre><span id="METHODmonthNames"><span class="keyword">method</span> monthNames</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<p>An array of textual month names.
+Override these values for international dates.</p>
+
+<p>Example:</p>
+
+<pre><code><a href="#!/api/Ext.Date-property-monthNames" rel="Ext.Date-property-monthNames" class="docClass">Ext.Date.monthNames</a> = [
+    'JanInYourLang',
+    'FebInYourLang'
+    // ...
+];
+</code></pre> 
+<p>
+
+    Defaults to: <code class="code">''January'', ''February'', ''March'', ''April'', ''May'', ''June'', ''July'', ''August'', ''September'', ''October'', ''November'', ''December''</code><br>
+</div>
+<pre><span id="METHODmonthNumbers"><span class="keyword">method</span> monthNumbers</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
+<p>An object hash of zero-based JavaScript month numbers (with short month names as keys. <strong>Note:</strong> keys are case-sensitive).
+Override these values for international dates.</p>
+
+<p>Example:</p>
+
+<pre><code><a href="#!/api/Ext.Date-property-monthNumbers" rel="Ext.Date-property-monthNumbers" class="docClass">Ext.Date.monthNumbers</a> = {
+    'LongJanNameInYourLang': 0,
+    'ShortJanNameInYourLang':0,
+    'LongFebNameInYourLang':1,
+    'ShortFebNameInYourLang':1
+    // ...
+};
+</code></pre> 
+<p>
+
+    Defaults to: <code class="code">{January: 0, Jan: 0, February: 1, Feb: 1, March: 2, Mar: 2, April: 3, Apr: 3, May: 4, June: 5, Jun: 5, July: 6, Jul: 6, August: 7, Aug: 7, September: 8, Sep: 8, October: 9, Oct: 9, November: 10, Nov: 10, December: 11, Dec: 11}</code><br>
+</div>
+<pre><span id="METHODparseFunctions"><span class="keyword">method</span> parseFunctions</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
+<p>An object hash in which each property is a date parsing function. The property name is the
+format string which that function parses.</p>
+
+<p>This object is automatically populated with date parsing functions as
+date formats are requested for Ext standard formatting strings.</p>
+
+<p>Custom parsing functions may be inserted into this object, keyed by a name which from then on
+may be used as a format string to <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">parse</a>.</p>
+
+<p>Example:</p>
+
+<pre><code><a href="#!/api/Ext.Date-property-parseFunctions" rel="Ext.Date-property-parseFunctions" class="docClass">Ext.Date.parseFunctions</a>['x-date-format'] = myDateParser;
+</code></pre>
+
+<p>A parsing function should return a Date object, and is passed the following parameters:<div class="mdetail-params"><ul>
+<li><code>date</code> : String<div class="sub-desc">The date string to parse.</div></li>
+<li><code>strict</code> : Boolean<div class="sub-desc">True to validate date strings while parsing
+(i.e. prevent JavaScript Date "rollover") (The default must be <code>false</code>).
+Invalid date strings should return <code>null</code> when parsed.</div></li>
+</ul></div></p>
+
+<p>To enable Dates to also be <em>formatted</em> according to that format, a corresponding
+formatting function must be placed into the <a href="#!/api/Ext.Date-property-formatFunctions" rel="Ext.Date-property-formatFunctions" class="docClass">formatFunctions</a> property.</p> <br>
+</div>
+<pre><span id="METHODuseStrict"><span class="keyword">method</span> useStrict</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Global flag which determines if strict date parsing should be used.
+Strict date parsing will not roll-over invalid dates, which is the
+default behavior of JavaScript Date objects.
+(see <a href="#!/api/Ext.Date-method-parse" rel="Ext.Date-method-parse" class="docClass">parse</a> for more information)</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
 </div>
 </body></html>

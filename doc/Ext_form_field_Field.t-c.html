@@ -58,14 +58,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -83,6 +84,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -115,6 +117,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -138,17 +141,7 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODisFormField"><span class="keyword">method</span> isFormField</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Flag denoting that this component is a Field. Always true.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
-</div>
-<pre><span id="METHODoriginalValue"><span class="keyword">method</span> originalValue</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
-<p>The original value of the field as configured in the <a href="#!/api/Ext.form.field.Field-cfg-value" rel="Ext.form.field.Field-cfg-value" class="docClass">value</a> configuration, or as loaded by the last
-form load operation if the form's <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> setting is <code>true</code>.</p> <br>
-</div>
-<pre><span id="METHODbatchChanges"><span class="keyword">method</span> batchChanges</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODbatchChanges"><span class="keyword">method</span> batchChanges</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
 <p>A utility for grouping a set of modifications which may trigger value changes into a single transaction, to
 prevent excessive firing of <a href="#!/api/Ext.form.field.Field-event-change" rel="Ext.form.field.Field-event-change" class="docClass">change</a> events. This is useful for instance if the field has sub-fields which
 are being updated as a group; you don't want the container field to check its own changed state for each subfield
@@ -195,7 +188,7 @@ submission of forms submitted with the <a href="#!/api/Ext.form.action.Submit-cf
 DOM element holding the user's selected file. The input will be appended into the submission form and will not be
 returned, so this method should also create a replacement.</p> <br>
 </div>
-<pre><span id="METHODgetErrors"><span class="keyword">method</span> getErrors</span> : <code class="type">'c. 'c Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetErrors"><span class="keyword">method</span> getErrors</span> : <code class="type">'b. 'b Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Runs this field's validators and returns an array of error messages for any validation failures. This is called
 internally during validation and would not usually need to be used manually.</p>
 
@@ -219,7 +212,7 @@ internally during validation and would not usually need to be used manually.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetModelData"><span class="keyword">method</span> getModelData</span> : <code class="type">'d. 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetModelData"><span class="keyword">method</span> getModelData</span> : <code class="type">'c. 'c Js.t Js.meth</code></pre><div class="info">
 <p>Returns the value(s) that should be saved to the <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> instance for this field, when <a href="#!/api/Ext.form.Basic-method-updateRecord" rel="Ext.form.Basic-method-updateRecord" class="docClass">Ext.form.Basic.updateRecord</a> is called. Typically this will be an object with a single name-value pair, the name
 being this field's <a href="#!/api/Ext.form.field.Field-method-getName" rel="Ext.form.field.Field-method-getName" class="docClass">name</a> and the value being its current data value. More advanced field
 implementations may return more than one name-value pair. The returned values will be saved to the corresponding
@@ -251,7 +244,7 @@ when including the field value in a <a href="#!/api/Ext.form.Basic-method-submit
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetSubmitData"><span class="keyword">method</span> getSubmitData</span> : <code class="type">'e. 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetSubmitData"><span class="keyword">method</span> getSubmitData</span> : <code class="type">'d. 'd Js.t Js.meth</code></pre><div class="info">
 <p>Returns the parameter(s) that would be included in a standard form submit for this field. Typically this will be
 an object with a single name-value pair, the name being this field's <a href="#!/api/Ext.form.field.Field-method-getName" rel="Ext.form.field.Field-method-getName" class="docClass">name</a> and the value being
 its current stringified value. More advanced field implementations may return more than one name-value pair.</p>
@@ -269,7 +262,7 @@ submitted.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetValue"><span class="keyword">method</span> getValue</span> : <code class="type">'f. 'f Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetValue"><span class="keyword">method</span> getValue</span> : <code class="type">'e. 'e Js.t Js.meth</code></pre><div class="info">
 <p>Returns the current data value of the field. The type of value returned is particular to the type of the
 particular field (e.g. a Date object for <a href="#!/api/Ext.form.field.Date" rel="Ext.form.field.Date" class="docClass">Ext.form.field.Date</a>).</p> 
 <p>
@@ -306,7 +299,7 @@ false otherwise.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODisEqual"><span class="keyword">method</span> isEqual</span> : <code class="type">'g 'h. 'g Js.t -> 'h Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODisEqual"><span class="keyword">method</span> isEqual</span> : <code class="type">'f 'g. 'f Js.t -> 'g Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>Returns whether two field <a href="#!/api/Ext.form.field.Field-method-getValue" rel="Ext.form.field.Field-method-getValue" class="docClass">values</a> are logically equal. Field implementations may override this
 to provide custom comparison logic appropriate for the particular field's data type.</p> 
 <p>
@@ -354,7 +347,7 @@ message display.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODmarkInvalid"><span class="keyword">method</span> markInvalid</span> : <code class="type">'i. 'i Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODmarkInvalid"><span class="keyword">method</span> markInvalid</span> : <code class="type">'h. 'h Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Associate one or more error messages with this field. Components using this mixin should implement this method to
 update the component's rendering to display the messages.</p>
 
@@ -379,7 +372,7 @@ submitted with the <a href="#!/api/Ext.form.action.Submit-cfg-clientValidation" 
 called by <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">Ext.form.Basic</a>.<a href="#!/api/Ext.form.Basic-method-setValues" rel="Ext.form.Basic-method-setValues" class="docClass">setValues</a> if the form's
 <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> property is set to true.</p> <br>
 </div>
-<pre><span id="METHODsetValue"><span class="keyword">method</span> setValue</span> : <code class="type">'j.<br>         'j Js.t -><br>         (< batchChanges : 'b. 'b Js.t -> unit Js.meth; beforeReset : unit Js.meth;<br>            callParent : 'm 'n. 'm Js.t -> 'n Js.t Js.meth;<br>            callSuper : 'o 'p. 'o Js.t -> 'p Js.t Js.meth;<br>            checkChange : unit Js.meth; checkDirty : unit Js.meth;<br>            clearInvalid : unit Js.meth;<br>            extractFileInput : Dom_html.element Js.t Js.meth;<br>            getErrors : 'c. 'c Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth;<br>            getInitialConfig : 'q. Js.js_string Js.t Js.optdef -> 'q Js.t Js.meth;<br>            getModelData : 'd. 'd Js.t Js.meth; getName : Js.js_string Js.t Js.meth;<br>            getSubmitData : 'e. 'e Js.t Js.meth; getValue : 'f. 'f Js.t Js.meth;<br>            initConfig : 'r. 'r Js.t -> 'l Js.t Js.meth; initField : unit Js.meth;<br>            initValue : unit Js.meth; isDirty : bool Js.t Js.meth;<br>            isEqual : 'g 'h. 'g Js.t -> 'h Js.t -> bool Js.t Js.meth;<br>            isFileUpload : bool Js.t Js.meth; isFormField : bool Js.t Js.prop;<br>            isValid : bool Js.t Js.meth; markInvalid : 'i. 'i Js.t -> unit Js.meth;<br>            originalValue : 'a. 'a Js.t Js.prop; reset : unit Js.meth;<br>            resetOriginalValue : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            setValue : 'j. 'k; statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            transformOriginalValue : 's 't. 's Js.t -> 't Js.t Js.meth;<br>            validate : bool Js.t Js.meth; .. ><br>          as 'l)<br>         Js.t Js.meth as 'k</code></pre><div class="info">
+<pre><span id="METHODsetValue"><span class="keyword">method</span> setValue</span> : <code class="type">'i.<br>         'i Js.t -><br>         (< batchChanges : 'a. 'a Js.t -> unit Js.meth; beforeReset : unit Js.meth;<br>            callParent : 'l 'm. 'l Js.t -> 'm Js.t Js.meth;<br>            callSuper : 'n 'o. 'n Js.t -> 'o Js.t Js.meth;<br>            checkChange : unit Js.meth; checkDirty : unit Js.meth;<br>            clearInvalid : unit Js.meth;<br>            extractFileInput : Dom_html.element Js.t Js.meth;<br>            getErrors : 'b. 'b Js.t -> Js.js_string Js.t Js.js_array Js.t Js.meth;<br>            getInitialConfig : 'p. Js.js_string Js.t Js.optdef -> 'p Js.t Js.meth;<br>            getModelData : 'c. 'c Js.t Js.meth; getName : Js.js_string Js.t Js.meth;<br>            getSubmitData : 'd. 'd Js.t Js.meth; getValue : 'e. 'e Js.t Js.meth;<br>            initConfig : 'q. 'q Js.t -> 'k Js.t Js.meth; initField : unit Js.meth;<br>            initValue : unit Js.meth; isDirty : bool Js.t Js.meth;<br>            isEqual : 'f 'g. 'f Js.t -> 'g Js.t -> bool Js.t Js.meth;<br>            isFileUpload : bool Js.t Js.meth; isFormField : bool Js.t Js.prop;<br>            isValid : bool Js.t Js.meth; markInvalid : 'h. 'h Js.t -> unit Js.meth;<br>            originalValue : 'r. 'r Js.t Js.prop; reset : unit Js.meth;<br>            resetOriginalValue : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            setValue : 'i. 'j; statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            transformOriginalValue : 's 't. 's Js.t -> 't Js.t Js.meth;<br>            validate : bool Js.t Js.meth; .. ><br>          as 'k)<br>         Js.t Js.meth as 'j</code></pre><div class="info">
 <p>Sets a data value into the field and runs the change detection and validation.</p> 
 <p>
 
@@ -436,5 +429,15 @@ To validate without side-effects, use <a href="#!/api/Ext.form.field.Field-metho
     </li>
 </ul>
 <br>
+</div>
+<pre><span id="METHODisFormField"><span class="keyword">method</span> isFormField</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Flag denoting that this component is a Field. Always true.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODoriginalValue"><span class="keyword">method</span> originalValue</span> : <code class="type">'r. 'r Js.t Js.prop</code></pre><div class="info">
+<p>The original value of the field as configured in the <a href="#!/api/Ext.form.field.Field-cfg-value" rel="Ext.form.field.Field-cfg-value" class="docClass">value</a> configuration, or as loaded by the last
+form load operation if the form's <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> setting is <code>true</code>.</p> <br>
 </div>
 </body></html>

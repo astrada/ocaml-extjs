@@ -54,14 +54,15 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
-<link title="Ext_dom_AbstractElement_Fly" rel="Chapter" href="Ext_dom_AbstractElement_Fly.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
+<link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
 <link title="Ext_draw_Sprite" rel="Chapter" href="Ext_draw_Sprite.html">
 <link title="Ext_draw_Surface" rel="Chapter" href="Ext_draw_Surface.html">
 <link title="Ext_ElementLoader" rel="Chapter" href="Ext_ElementLoader.html">
 <link title="Ext_Error" rel="Chapter" href="Ext_Error.html">
 <link title="Ext_EventObject" rel="Chapter" href="Ext_EventObject.html">
+<link title="Ext_enums_Widget" rel="Chapter" href="Ext_enums_Widget.html">
 <link title="Ext_form_action_Action" rel="Chapter" href="Ext_form_action_Action.html">
 <link title="Ext_form_Basic" rel="Chapter" href="Ext_form_Basic.html">
 <link title="Ext_form_FieldAncestor" rel="Chapter" href="Ext_form_FieldAncestor.html">
@@ -79,6 +80,7 @@
 <link title="Ext_layout_container_Container" rel="Chapter" href="Ext_layout_container_Container.html">
 <link title="Ext_layout_ContextItem" rel="Chapter" href="Ext_layout_ContextItem.html">
 <link title="Ext_layout_Layout" rel="Chapter" href="Ext_layout_Layout.html">
+<link title="Ext_layout_SizePolicy" rel="Chapter" href="Ext_layout_SizePolicy.html">
 <link title="Ext_LoadMask" rel="Chapter" href="Ext_LoadMask.html">
 <link title="Ext_Loader" rel="Chapter" href="Ext_Loader.html">
 <link title="Ext_MessageBox" rel="Chapter" href="Ext_MessageBox.html">
@@ -111,6 +113,7 @@
 <link title="Ext_util_Observable" rel="Chapter" href="Ext_util_Observable.html">
 <link title="Ext_util_Offset" rel="Chapter" href="Ext_util_Offset.html">
 <link title="Ext_util_Point" rel="Chapter" href="Ext_util_Point.html">
+<link title="Ext_util_Positionable" rel="Chapter" href="Ext_util_Positionable.html">
 <link title="Ext_util_Region" rel="Chapter" href="Ext_util_Region.html">
 <link title="Ext_util_Renderable" rel="Chapter" href="Ext_util_Renderable.html">
 <link title="Ext_util_Sortable" rel="Chapter" href="Ext_util_Sortable.html">
@@ -136,7 +139,7 @@
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getBorderInfo&nbsp;:&nbsp;<span class="keywordsign">'</span>i&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getClassList&nbsp;:&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getDomProp&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>j&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getEl&nbsp;:&nbsp;<span class="keywordsign">'</span>k&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>l&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getEl&nbsp;:&nbsp;<span class="keywordsign">'</span>k&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>l&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getFrameInfo&nbsp;:&nbsp;<span class="keywordsign">'</span>m&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getInitialConfig&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>n&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;getMarginInfo&nbsp;:&nbsp;<span class="keywordsign">'</span>o&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
@@ -153,18 +156,19 @@
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;recoverProp&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>v&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>w&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;removeCls&nbsp;:&nbsp;<span class="keywordsign">'</span>x&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;removeEl&nbsp;:&nbsp;<span class="keywordsign">'</span>y&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>z&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;self&nbsp;:&nbsp;<span class="constructor">Ext_Class</span>.t&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setAttribute&nbsp;:&nbsp;<span class="keywordsign">'</span>y&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>z&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setContentHeight&nbsp;:&nbsp;<span class="keywordsign">'</span>a1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setContentSize&nbsp;:&nbsp;<span class="keywordsign">'</span>c1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>d1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>e1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setContentWidth&nbsp;:&nbsp;<span class="keywordsign">'</span>f1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>g1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setAttribute&nbsp;:&nbsp;<span class="keywordsign">'</span>a1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setContentHeight&nbsp;:&nbsp;<span class="keywordsign">'</span>c1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>d1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setContentSize&nbsp;:&nbsp;<span class="keywordsign">'</span>e1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>f1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>g1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setContentWidth&nbsp;:&nbsp;<span class="keywordsign">'</span>h1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>i1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setHeight&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setProp&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>h1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>j1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;setWidth&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;state&nbsp;:&nbsp;<span class="keywordsign">'</span>i1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;state&nbsp;:&nbsp;<span class="keywordsign">'</span>k1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;statics&nbsp;:&nbsp;<span class="constructor">Ext_Class</span>.t&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.meth<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;wrapsComponent&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.readonly_prop<br>
 <span class="keyword">end</span></code></body></html>
