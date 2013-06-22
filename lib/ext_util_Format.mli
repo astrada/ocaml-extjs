@@ -60,6 +60,42 @@ grid renderers:</p>
 class type t =
 object('self)
   
+  method currencyAtEnd : bool Js.t Js.prop
+  (** {% <p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
+append the currency sign to the formatted value.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method currencyPrecision : Js.number Js.t Js.prop
+  (** {% <p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: [2]
+    *)
+  method currencySign : Js.js_string Js.t Js.prop
+  (** {% <p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: ['$']
+    *)
+  method decimalSeparator : Js.js_string Js.t Js.prop
+  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: ['.']
+    *)
+  method thousandSeparator : Js.js_string Js.t Js.prop
+  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
+
+<p>This may be overridden in a locale file.</p> %}
+    
+    Defaults to: [',']
+    *)
   method attributes : _ Js.t -> unit Js.meth
   (** {% <p>Formats an object of name value properties as HTML element attribute values suitable for using when creating textual markup.</p> %}
     
@@ -360,11 +396,8 @@ the string <code>/i</code> to the end of the format string.</p>
 <li><code>0,000</code> - (123,456) show comma and digits, no precision</li>
 <li><code>0,000.00</code> - (123,456.78) show comma and digits, 2 precision</li>
 <li><code>0,0.00</code> - (123,456.78) shortcut method, show comma and digits, 2 precision</li>
-</ul>
-
-
-<p>To allow specification of the formatting string using UK/US grouping characters (,) and
-decimal (.) for international numbers, add /i to the end. For example: 0.000,00/i</p> %}
+<li><code>0.####</code> - (123,456,789) Allow maximum 4 decimal places, but do not right pad with zeroes</li>
+</ul> %}
     
     {b Parameters}:
     {ul {- v: [Js.number Js.t]
@@ -559,42 +592,6 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
     {ul {- [Js.js_string Js.t] {% <p>The formatted currency string</p> %}
     }
     }
-    *)
-  method currencyAtEnd : bool Js.t Js.prop
-  (** {% <p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
-append the currency sign to the formatted value.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method currencyPrecision : Js.number Js.t Js.prop
-  (** {% <p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: [2]
-    *)
-  method currencySign : Js.js_string Js.t Js.prop
-  (** {% <p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: ['$']
-    *)
-  method decimalSeparator : Js.js_string Js.t Js.prop
-  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: ['.']
-    *)
-  method thousandSeparator : Js.js_string Js.t Js.prop
-  (** {% <p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
-
-<p>This may be overridden in a locale file.</p> %}
-    
-    Defaults to: [',']
     *)
   
 end

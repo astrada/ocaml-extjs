@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: e1c2364f95d5db0d6ee3a18d10606124)
-version = "0.2"
-description = "Ext JS 4.2 bindings for the js_of_ocaml compiler"
+# DO NOT EDIT (digest: 6e28afe9dd2f248fb665dc7c0eca56fd)
+version = "0.3"
+description = "Ext JS 4.2.1 bindings for the js_of_ocaml compiler"
 requires = "oextjs js_of_ocaml pa_extjs"
 archive(byte) = "quicktips.cma"
 archive(byte, plugin) = "quicktips.cma"

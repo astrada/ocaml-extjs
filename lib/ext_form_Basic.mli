@@ -67,6 +67,9 @@ class type t =
 object('self)
   inherit Ext_util_Observable.t
   
+  method owner : #Ext_container_Container.t Js.t Js.prop
+  (** {% <p>The container component to which this BasicForm is attached.</p> %}
+    *)
   method applyIfToFields : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Calls <a href="#!/api/Ext-method-applyIf" rel="Ext-method-applyIf" class="docClass">Ext.applyIf</a> for all field in this form with the passed object.</p> %}
     
@@ -417,9 +420,6 @@ If the record is not specified, it will attempt to update (if it exists) the rec
     {ul {- [Ext_form_Basic.t Js.t] {% <p>this</p> %}
     }
     }
-    *)
-  method owner : #Ext_container_Container.t Js.t Js.prop
-  (** {% <p>The container component to which this BasicForm is attached.</p> %}
     *)
   
 end

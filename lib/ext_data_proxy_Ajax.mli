@@ -209,6 +209,13 @@ class type t =
 object('self)
   inherit Ext_data_proxy_Server.t
   
+  method actionMethods : _ Js.t Js.prop
+  (** {% <p>Mapping of action name to HTTP request method. In the basic AjaxProxy these are set to 'GET' for 'read' actions
+and 'POST' for 'create', 'update' and 'destroy' actions. The <a href="#!/api/Ext.data.proxy.Rest" rel="Ext.data.proxy.Rest" class="docClass">Ext.data.proxy.Rest</a> maps these to the
+correct RESTful methods.</p> %}
+    
+    Defaults to: [\{create: 'POST', read: 'GET', update: 'POST', destroy: 'POST'\}]
+    *)
   method getMethod : Ext_data_Request.t Js.t -> Js.js_string Js.t Js.meth
   (** {% <p>Returns the HTTP method name for a given request. By default this returns based on a lookup on
 <a href="#!/api/Ext.data.proxy.Ajax-property-actionMethods" rel="Ext.data.proxy.Ajax-property-actionMethods" class="docClass">actionMethods</a>.</p> %}
@@ -224,13 +231,6 @@ object('self)
     {% <p>The HTTP method to use (should be one of 'GET', 'POST', 'PUT' or 'DELETE')</p> %}
     }
     }
-    *)
-  method actionMethods : _ Js.t Js.prop
-  (** {% <p>Mapping of action name to HTTP request method. In the basic AjaxProxy these are set to 'GET' for 'read' actions
-and 'POST' for 'create', 'update' and 'destroy' actions. The <a href="#!/api/Ext.data.proxy.Rest" rel="Ext.data.proxy.Rest" class="docClass">Ext.data.proxy.Rest</a> maps these to the
-correct RESTful methods.</p> %}
-    
-    Defaults to: [\{create: 'POST', read: 'GET', update: 'POST', destroy: 'POST'\}]
     *)
   
 end

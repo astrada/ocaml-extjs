@@ -194,9 +194,6 @@ class type configs =
 object('self)
   inherit Ext_data_proxy_Proxy.configs
   
-  method afterRequest : ('self Js.t, Ext_data_Request.t Js.t -> bool Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterRequest] *)
   method api : _ Js.t Js.prop
   (** {% <p>Specific urls to call on CRUD action methods "create", "read", "update" and "destroy". Defaults to:</p>
 
@@ -314,6 +311,9 @@ want to send a start parameter.</p> %}
   method url : Js.js_string Js.t Js.prop
   (** {% <p>The URL from which to request the data object.</p> %}
     *)
+  method afterRequest : ('self Js.t, Ext_data_Request.t Js.t -> bool Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterRequest] *)
   
 end
 

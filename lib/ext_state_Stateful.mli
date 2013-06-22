@@ -6,8 +6,8 @@
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
   method addStateEvents : _ Js.t -> unit Js.meth
   (** {% <p>Add events that will trigger the state to be saved. If the first argument is an
@@ -93,8 +93,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method saveDelay : Js.number Js.t Js.prop
   (** {% <p>A buffer to be applied if many state events are fired within a short period.</p> %}
@@ -132,12 +132,9 @@ methods to save and recall name/value pairs. A built-in implementation,
 
 <p>To set the state provider for the current page:</p>
 
-<p>   <a href="#!/api/Ext.state.Manager-method-setProvider" rel="Ext.state.Manager-method-setProvider" class="docClass">Ext.state.Manager.setProvider</a>(new <a href="#!/api/Ext.state.CookieProvider" rel="Ext.state.CookieProvider" class="docClass">Ext.state.CookieProvider</a>(\{</p>
-
-<pre><code>   expires: new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days from now
-</code></pre>
-
-<p>   \}));</p>
+<p>   <a href="#!/api/Ext.state.Manager-method-setProvider" rel="Ext.state.Manager-method-setProvider" class="docClass">Ext.state.Manager.setProvider</a>(new <a href="#!/api/Ext.state.CookieProvider" rel="Ext.state.CookieProvider" class="docClass">Ext.state.CookieProvider</a>(\{
+       expires: new Date(new Date().getTime()+(1000<em>60</em>60<em>24</em>7)), //7 days from now
+   \}));</p>
 
 <p>A stateful object attempts to save state when one of the events
 listed in the <a href="#!/api/Ext.state.Stateful-cfg-stateEvents" rel="Ext.state.Stateful-cfg-stateEvents" class="docClass">stateEvents</a> configuration fires.</p>
@@ -178,8 +175,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method beforestaterestore : (t Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop

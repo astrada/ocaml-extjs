@@ -51,15 +51,6 @@ class type configs =
 object('self)
   inherit Ext_dd_DragTracker.configs
   
-  method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onDrag] *)
-  method onEnd : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onEnd] *)
-  method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onStart] *)
   method constrain : bool Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to constrain the Component to within the bounds of the <a href="#!/api/Ext.util.ComponentDragger-cfg-constrainTo" rel="Ext.util.ComponentDragger-cfg-constrainTo" class="docClass">constrainTo</a> region.</p> %}
     *)
@@ -73,6 +64,15 @@ mousedowned.</p>
 
 <p>This may also be a specific child element within the Component's encapsulating element to use as the drag handle.</p> %}
     *)
+  method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onDrag] *)
+  method onEnd : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onEnd] *)
+  method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onStart] *)
   
 end
 

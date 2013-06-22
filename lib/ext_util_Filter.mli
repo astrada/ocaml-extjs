@@ -38,6 +38,13 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method disabled : bool Js.t Js.prop
+  (** {% <p>Setting this property to <code>true</code> disables this individual Filter so that it no longer contributes to a <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">Store's filter set</a></p>
+
+<p>When disabled, the next time the store is filtered, the Filter plays no part in filtering and records eliminated by it may rejoin the dataset.</p> %}
+    
+    Defaults to: [false]
+    *)
   method setFilterFn : _ Js.callback -> unit Js.meth
   (** {% <p>Changes the filtering function which this Filter uses to choose items to include.</p>
 
@@ -57,13 +64,6 @@ object('self)
     {% <p>The new value to compare the property with.</p> %}
     }
     }
-    *)
-  method disabled : bool Js.t Js.prop
-  (** {% <p>Setting this property to <code>true</code> disables this individual Filter so that it no longer contributes to a <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">Store's filter set</a></p>
-
-<p>When disabled, the next time the store is filtered, the Filter plays no part in filtering and records eliminated by it may rejoin the dataset.</p> %}
-    
-    Defaults to: [false]
     *)
   
 end

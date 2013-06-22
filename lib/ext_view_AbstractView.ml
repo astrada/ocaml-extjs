@@ -1,7 +1,7 @@
 class type t =
 object('self)
-  inherit Ext_util_Bindable.t
   inherit Ext_Component.t
+  inherit Ext_util_Bindable.t
   
   method afterRender : unit Js.meth
   method bindStore_view : Ext_data_Store.t Js.t -> unit Js.meth
@@ -39,17 +39,9 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_util_Bindable.configs
   inherit Ext_Component.configs
+  inherit Ext_util_Bindable.configs
   
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
   method blockRefresh : bool Js.t Js.prop
   method deferEmptyText : bool Js.t Js.prop
   method deferInitialRefresh : bool Js.t Js.prop
@@ -69,13 +61,21 @@ object('self)
   method store : Ext_data_Store.t Js.t Js.prop
   method tpl : _ Js.t Js.prop
   method trackOver : bool Js.t Js.prop
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
   
 end
 
 class type events =
 object
-  inherit Ext_util_Bindable.events
   inherit Ext_Component.events
+  inherit Ext_util_Bindable.events
   
   method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

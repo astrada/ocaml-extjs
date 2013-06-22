@@ -11,6 +11,17 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method actionCommitRecordsRe : Regexp.regexp Js.t Js.prop
+  (** {% <p>The RegExp used to categorize actions that require record commits.</p> %}
+    
+    Defaults to: [/^(?:create|update)$/i]
+    *)
+  method actionSkipSyncRe : Regexp.regexp Js.t Js.prop
+  (** {% <p>The RegExp used to categorize actions that skip local record synchronization. This defaults
+to match 'destroy'.</p> %}
+    
+    Defaults to: [/^destroy$/i]
+    *)
   method allowWrite : bool Js.t Js.meth
   (** {% <p>Checks whether this operation should cause writing to occur.</p> %}
     
@@ -114,17 +125,6 @@ instances as well as meta data such as number of instances fetched, number avail
     {ul {- [bool Js.t] {% <p>True if successful</p> %}
     }
     }
-    *)
-  method actionCommitRecordsRe : Regexp.regexp Js.t Js.prop
-  (** {% <p>The RegExp used to categorize actions that require record commits.</p> %}
-    
-    Defaults to: [/^(?:create|update)$/i]
-    *)
-  method actionSkipSyncRe : Regexp.regexp Js.t Js.prop
-  (** {% <p>The RegExp used to categorize actions that skip local record synchronization. This defaults
-to match 'destroy'.</p> %}
-    
-    Defaults to: [/^destroy$/i]
     *)
   
 end

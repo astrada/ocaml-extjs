@@ -16,9 +16,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method run : unit Js.meth
-  (** {% <p>Invokes this action using the current configuration.</p> %}
-    *)
   method failureType : Js.js_string Js.t Js.prop
   (** {% <p>The type of failure detected will be one of these:
 <a href="#!/api/Ext.form.action.Action-static-property-CLIENT_INVALID" rel="Ext.form.action.Action-static-property-CLIENT_INVALID" class="docClass">CLIENT_INVALID</a>, <a href="#!/api/Ext.form.action.Action-static-property-SERVER_INVALID" rel="Ext.form.action.Action-static-property-SERVER_INVALID" class="docClass">SERVER_INVALID</a>, <a href="#!/api/Ext.form.action.Action-static-property-CONNECT_FAILURE" rel="Ext.form.action.Action-static-property-CONNECT_FAILURE" class="docClass">CONNECT_FAILURE</a>, or <a href="#!/api/Ext.form.action.Action-static-property-LOAD_FAILURE" rel="Ext.form.action.Action-static-property-LOAD_FAILURE" class="docClass">LOAD_FAILURE</a>.</p>
@@ -69,6 +66,9 @@ buttons: [\{
     *)
   method _type : Js.js_string Js.t Js.prop
   (** {% <p>The type of action this Action instance performs. Currently only "submit" and "load" are supported.</p> %}
+    *)
+  method run : unit Js.meth
+  (** {% <p>Invokes this action using the current configuration.</p> %}
     *)
   
 end

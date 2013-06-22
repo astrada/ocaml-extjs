@@ -8,6 +8,12 @@ class type t =
 object('self)
   inherit Ext_dd_DragDrop.t
   
+  method scroll : bool Js.t Js.prop
+  (** {% <p>When set to true, the utility automatically tries to scroll the browser
+window when a drag and drop element is dragged near the viewport boundary.</p> %}
+    
+    Defaults to: [true]
+    *)
   method alignElWithMouse : Dom_html.element Js.t -> Js.number Js.t ->
     Js.number Js.t -> unit Js.meth
   (** {% <p>Sets the element to the location of the mousedown or click event,
@@ -116,12 +122,6 @@ location other than where the cursor is.</p> %}
     {% <p>string representation of the dd obj</p> %}
     }
     }
-    *)
-  method scroll : bool Js.t Js.prop
-  (** {% <p>When set to true, the utility automatically tries to scroll the browser
-window when a drag and drop element is dragged near the viewport boundary.</p> %}
-    
-    Defaults to: [true]
     *)
   
 end

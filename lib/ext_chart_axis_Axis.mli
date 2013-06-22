@@ -122,6 +122,11 @@ where each property contains a sprite style descriptor object that is defined in
 \}]
 </code></pre> %}
     *)
+  method hidden : bool Js.t Js.prop
+  (** {% <p><code>true</code> to hide the axis.</p> %}
+    
+    Defaults to: [false]
+    *)
   method length : Js.number Js.t Js.prop
   (** {% <p>Offset axis position. Default's 0.</p> %}
     

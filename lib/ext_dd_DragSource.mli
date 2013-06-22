@@ -7,6 +7,11 @@ class type t =
 object('self)
   inherit Ext_dd_DDProxy.t
   
+  method dragData : _ Js.t Js.prop
+  (** {% <p>This property contains the data representing the dragged object. This data is set up by the implementation of the
+<a href="#!/api/Ext.dd.DragSource-method-getDragData" rel="Ext.dd.DragSource-method-getDragData" class="docClass">getDragData</a> method. It must contain a ddel property, but can contain any other data according to the
+application's needs.</p> %}
+    *)
   method afterDragDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t ->
     Js.js_string Js.t -> unit Js.meth
   (** {% <p>An empty function by default, but provided so that you can perform a custom action
@@ -234,6 +239,9 @@ drop has occurred.</p> %}
     }
     }
     *)
+  method destroy : unit Js.meth
+  (** {% <p>Destroy this DragDrop instance</p> %}
+    *)
   method getDragData : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Returns the data object associated with this drag source</p> %}
     
@@ -297,32 +305,6 @@ class type configs =
 object('self)
   inherit Ext_dd_DDProxy.configs
   
-  method beforeDragDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
-    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDragDrop] *)
-  method beforeDragEnter : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
-    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDragEnter] *)
-  method beforeDragOut : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
-    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDragOut] *)
-  method beforeDragOver : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
-    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDragOver] *)
-  method beforeInvalidDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
-    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeInvalidDrop] *)
-  method onBeforeDrag : ('self Js.t, _ Js.t -> Dom_html.event Js.t ->
-    bool Js.t) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onBeforeDrag] *)
-  method onStartDrag : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onStartDrag] *)
   method animRepair : bool Js.t Js.prop
   (** {% <p>If true, animates the proxy element back to the position of the handle element used to trigger the drag.</p> %}
     
@@ -349,6 +331,32 @@ a preceding '#'.</p> %}
     
     Defaults to: ['c3daf9']
     *)
+  method beforeDragDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
+    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDragDrop] *)
+  method beforeDragEnter : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
+    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDragEnter] *)
+  method beforeDragOut : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
+    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDragOut] *)
+  method beforeDragOver : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
+    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDragOver] *)
+  method beforeInvalidDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
+    Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeInvalidDrop] *)
+  method onBeforeDrag : ('self Js.t, _ Js.t -> Dom_html.event Js.t ->
+    bool Js.t) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onBeforeDrag] *)
+  method onStartDrag : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onStartDrag] *)
   
 end
 

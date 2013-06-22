@@ -331,7 +331,7 @@ object('self)
     Defaults to: ['radiogroup']
     *)
   method rownumberer : Js.js_string Js.t Js.prop
-  (** {% <p>Alias for <a href="#!/api/Ext.grid.RowNumberer" rel="Ext.grid.RowNumberer" class="docClass">Ext.grid.RowNumberer</a>.</p> %}
+  (** {% <p>Alias for <a href="#!/api/Ext.grid.column.RowNumberer" rel="Ext.grid.column.RowNumberer" class="docClass">Ext.grid.column.RowNumberer</a>.</p> %}
     
     Defaults to: ['rownumberer']
     *)

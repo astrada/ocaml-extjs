@@ -137,7 +137,33 @@ configuration or using the <a href="#!/api/Ext.button.Button-method-addListener"
 class type t =
 object('self)
   inherit Ext_Component.t
+  inherit Ext_Queryable.t
   
+  method disabled : bool Js.t Js.readonly_prop
+  (** {% <p>True if this button is disabled.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method hidden : bool Js.t Js.readonly_prop
+  (** {% <p>True if this button is hidden.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method menu : Ext_menu_Menu.t Js.t Js.prop
+  (** {% <p>The <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a> object associated with this Button when configured with the <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a> config
+option.</p> %}
+    *)
+  method pressed : bool Js.t Js.readonly_prop
+  (** {% <p>True if this button is pressed (only if enableToggle = true).</p> %}
+    
+    Defaults to: [false]
+    *)
+  method template : Ext_Template.t Js.t Js.prop
+  (** {% <p>A <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Template</a> used to create the Button's DOM structure.</p>
+
+<p>Instances, or subclasses which need a different DOM structure may provide a different template layout in
+conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-getTemplateArgs" rel="Ext.button.Button-method-getTemplateArgs" class="docClass">getTemplateArgs</a>.</p> %}
+    *)
   method disable : bool Js.t Js.optdef -> unit Js.meth
   (** {% <p>inherit docs</p>
 
@@ -409,44 +435,14 @@ value of the <a href="#!/api/Ext.button.Button-cfg-iconCls" rel="Ext.button.Butt
     }
     }
     *)
-  method disabled : bool Js.t Js.readonly_prop
-  (** {% <p>True if this button is disabled.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method hidden : bool Js.t Js.readonly_prop
-  (** {% <p>True if this button is hidden.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method menu : Ext_menu_Menu.t Js.t Js.prop
-  (** {% <p>The <a href="#!/api/Ext.menu.Menu" rel="Ext.menu.Menu" class="docClass">Menu</a> object associated with this Button when configured with the <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a> config
-option.</p> %}
-    *)
-  method pressed : bool Js.t Js.readonly_prop
-  (** {% <p>True if this button is pressed (only if enableToggle = true).</p> %}
-    
-    Defaults to: [false]
-    *)
-  method template : Ext_Template.t Js.t Js.prop
-  (** {% <p>A <a href="#!/api/Ext.Template" rel="Ext.Template" class="docClass">Template</a> used to create the Button's DOM structure.</p>
-
-<p>Instances, or subclasses which need a different DOM structure may provide a different template layout in
-conjunction with an implementation of <a href="#!/api/Ext.button.Button-method-getTemplateArgs" rel="Ext.button.Button-method-getTemplateArgs" class="docClass">getTemplateArgs</a>.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
   inherit Ext_Component.configs
+  inherit Ext_Queryable.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDisable] *)
   method allowDepress : bool Js.t Js.prop
   (** {% <p>False to not allow a pressed Button to be depressed. Only valid when <a href="#!/api/Ext.button.Button-cfg-enableToggle" rel="Ext.button.Button-cfg-enableToggle" class="docClass">enableToggle</a> is true.</p> %}
     
@@ -651,7 +647,7 @@ internal structure.</p>
 <p>Upon rendering, any created child elements may be automatically imported into object properties using the
 <a href="#!/api/Ext.button.Button-cfg-renderSelectors" rel="Ext.button.Button-cfg-renderSelectors" class="docClass">renderSelectors</a> and <a href="#!/api/Ext.button.Button-cfg-childEls" rel="Ext.button.Button-cfg-childEls" class="docClass">childEls</a> options.</p> %}
     
-    Defaults to: ['<div id=''\{id\}-btnWrap'' class=''\{baseCls\}-wrap', '<tpl if=''splitCls''> \{splitCls\}</tpl>', '\{childElCls\}'' unselectable=''on''>', '<a id=''\{id\}-btnEl'' class=''\{baseCls\}-button'' role=''button'' hidefocus=''on'' unselectable=''on''', '<tpl if=''tabIndex != null>', ' tabIndex=''\{tabIndex\}''', '</tpl>', '<tpl if=''href''>', ' href=''\{href\}''', '<tpl if=''hrefTarget''>', ' target=''\{hrefTarget\}''', '</tpl>', '</tpl>', '>', '<span id=''\{id\}-btnInnerEl'' class=''\{baseCls\}-inner \{innerCls\}', '\{childElCls\}'' unselectable=''on''>', '\{text\}', '</span>', '<span role=''img'' id=''\{id\}-btnIconEl'' class=''\{baseCls\}-icon-el \{iconCls\}', '\{childElCls\} \{glyphCls\}'' unselectable=''on'' style=''', '<tpl if=''iconUrl''>background-image:url(\{iconUrl\});</tpl>', '<tpl if=''glyph && glyphFontFamily''>font-family:\{glyphFontFamily\};</tpl>''>', '<tpl if=''glyph''>&#\{glyph\};</tpl><tpl if=''iconCls || iconUrl''>&#160;</tpl>', '</span>', '</a>', '</div>', '<tpl if=''closable''>', '<a id=''\{id\}-closeEl'' class=''\{baseCls\}-close-btn'' title=''\{closeText\}'' href=''#''></a>', '</tpl>']
+    Defaults to: ['<span id=''\{id\}-btnWrap'' class=''\{baseCls\}-wrap', '<tpl if=''splitCls''> \{splitCls\}</tpl>', '\{childElCls\}'' unselectable=''on''>', '<span id=''\{id\}-btnEl'' class=''\{baseCls\}-button''>', '<span id=''\{id\}-btnInnerEl'' class=''\{baseCls\}-inner \{innerCls\}', '\{childElCls\}'' unselectable=''on''>', '\{text\}', '</span>', '<span role=''img'' id=''\{id\}-btnIconEl'' class=''\{baseCls\}-icon-el \{iconCls\}', '\{childElCls\} \{glyphCls\}'' unselectable=''on'' style=''', '<tpl if=''iconUrl''>background-image:url(\{iconUrl\});</tpl>', '<tpl if=''glyph && glyphFontFamily''>font-family:\{glyphFontFamily\};</tpl>''>', '<tpl if=''glyph''>&#\{glyph\};</tpl><tpl if=''iconCls || iconUrl''>&#160;</tpl>', '</span>', '</span>', '</span>', '<tpl if=''closable''>', '<span id=''\{id\}-closeEl'' class=''\{baseCls\}-close-btn'' title=''\{closeText\}'' tabIndex=''0''></span>', '</tpl>']
     *)
   method repeat : _ Js.t Js.prop
   (** {% <p>True to repeat fire the click event while the mouse is down. This can also be a
@@ -700,6 +696,8 @@ effectively ignoring this property (e.g., <a href="#!/api/Ext.layout.container.H
     *)
   method tabIndex : Js.number Js.t Js.prop
   (** {% <p>Set a DOM tabIndex for this button.</p> %}
+    
+    Defaults to: [0]
     *)
   method text : Js.js_string Js.t Js.prop
   (** {% <p>The button text to be used as innerHTML (html tags are accepted).</p> %}
@@ -725,17 +723,19 @@ QuickTips config object.</p> %}
     
     Defaults to: ['qtip']
     *)
-  method _type : Js.js_string Js.t Js.prop
-  (** {% <p>The type of <code>&lt;input&gt;</code> to create: submit, reset or button.</p> %}
-    
-    Defaults to: ['button']
-    *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDisable] *)
   
 end
 
 class type events =
 object
   inherit Ext_Component.events
+  inherit Ext_Queryable.events
   
   method click : (t Js.t -> Dom_html.event Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
@@ -911,6 +911,7 @@ end
 class type statics =
 object
   inherit Ext_Component.statics
+  inherit Ext_Queryable.statics
   
   
 end

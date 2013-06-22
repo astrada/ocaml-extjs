@@ -207,6 +207,28 @@ class type t =
 object('self)
   inherit Ext_data_AbstractStore.t
   
+  method currentPage : Js.number Js.t Js.prop
+  (** {% <p>The page that the Store has most recently loaded (see <a href="#!/api/Ext.data.Store-method-loadPage" rel="Ext.data.Store-method-loadPage" class="docClass">loadPage</a>)</p> %}
+    
+    Defaults to: [1]
+    *)
+  method data : _ Js.t Js.prop
+  (** {% <p>When this Store is not <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a MixedCollection which holds this store's local cache of records.</p>
+
+<p>When this store <em>is</em> <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a cache of <em>pages</em> of records used to satisfy load requests from the Store when the associated view
+scrolls. Depending on how the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> and <a href="#!/api/Ext.data.Store-cfg-purgePageCount" rel="Ext.data.Store-cfg-purgePageCount" class="docClass">purgePageCount</a> are configured,
+pages which are scrolled out of view may be evicted from the cache, and need to be re-requested from the server
+when scrolled back into view. For this reason, if using <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, it is recommended that you configure
+your Model definitions with a unique <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">Ext.data.Model.idProperty</a> so that records which return to the page
+cache may be matched against previously selected records.</p>
+
+<p>Pages in the direction of scroll are prefetched from the remote server and loaded into this cache <em>before</em>
+they are needed based upon the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> so that scrolling can proceed without visible pauses for data loading.</p> %}
+    *)
+  method snapshot : Ext_util_MixedCollection.t Js.t Js.prop
+  (** {% <p>A pristine (unfiltered) collection of the records in this store. This is used to reinstate
+records when a filter is removed or changed</p> %}
+    *)
   method add : _ Js.t -> Ext_data_Model.t Js.js_array Js.t Js.meth
   (** {% <p>Adds Model instance to the Store. This method accepts either:</p>
 
@@ -477,7 +499,13 @@ Defaults to this Store.</p> %}
     Js.number Js.t Js.meth
   (** {% <p>Finds the index of the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> %}
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> %}
     
     {b Parameters}:
     {ul {- fieldName: [Js.js_string Js.t]
@@ -515,7 +543,13 @@ should begin with, or a RegExp to test against the field.</p> %}
   (** {% <p>Find the index of the first matching Record in this Store by a function.
 If the function returns <code>true</code> it is considered a match.</p>
 
-<p>When store is filtered, finds records only within filter.</p> %}
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> %}
     
     {b Parameters}:
     {ul {- fn: [_ Js.callback]
@@ -540,7 +574,13 @@ Defaults to this Store.</p> %}
     -> Js.number Js.t Js.meth
   (** {% <p>Finds the index of the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> %}
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> %}
     
     {b Parameters}:
     {ul {- fieldName: [Js.js_string Js.t]
@@ -565,7 +605,13 @@ Defaults to this Store.</p> %}
     Ext_data_Model.t Js.t Js.meth
   (** {% <p>Finds the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> %}
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> %}
     
     {b Parameters}:
     {ul {- fieldName: [Js.js_string Js.t]
@@ -1326,28 +1372,6 @@ the store has a groupField.</p> %}
     {ul {- [Js.number Js.t] {% <p>The sum</p> %}
     }
     }
-    *)
-  method currentPage : Js.number Js.t Js.prop
-  (** {% <p>The page that the Store has most recently loaded (see <a href="#!/api/Ext.data.Store-method-loadPage" rel="Ext.data.Store-method-loadPage" class="docClass">loadPage</a>)</p> %}
-    
-    Defaults to: [1]
-    *)
-  method data : _ Js.t Js.prop
-  (** {% <p>When this Store is not <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a MixedCollection which holds this store's local cache of records.</p>
-
-<p>When this store <em>is</em> <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a cache of <em>pages</em> of records used to satisfy load requests from the Store when the associated view
-scrolls. Depending on how the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> and <a href="#!/api/Ext.data.Store-cfg-purgePageCount" rel="Ext.data.Store-cfg-purgePageCount" class="docClass">purgePageCount</a> are configured,
-pages which are scrolled out of view may be evicted from the cache, and need to be re-requested from the server
-when scrolled back into view. For this reason, if using <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, it is recommended that you configure
-your Model definitions with a unique <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">Ext.data.Model.idProperty</a> so that records which return to the page
-cache may be matched against previously selected records.</p>
-
-<p>Pages in the direction of scroll are prefetched from the remote server and loaded into this cache <em>before</em>
-they are needed based upon the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> so that scrolling can proceed without visible pauses for data loading.</p> %}
-    *)
-  method snapshot : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>A pristine (unfiltered) collection of the records in this store. This is used to reinstate
-records when a filter is removed or changed</p> %}
     *)
   
 end

@@ -207,23 +207,17 @@ invalid JSON, it is not possible to use the standard date serialization pathway 
 <p>To use a <a href="#!/api/Ext.data.writer.Json" rel="Ext.data.writer.Json" class="docClass">JsonWriter</a> to write dates in a JSON packet in the form <code>"\/Date(1357372800000)\/"</code>
 configure the field like this:</p>
 
-<p>   \{</p>
-
-<pre><code>   type: 'date',
-   dateFormat: 'MS',             // To parse incoming dates from server correctly
-   serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
-</code></pre>
-
-<p>   \}</p>
+<p>   \{
+       type: 'date',
+       dateFormat: 'MS',             // To parse incoming dates from server correctly
+       serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
+   \}</p>
 
 <p>Then override ExtJS's JSON date serialize function:</p>
 
-<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) \{</p>
-
-<pre><code>   return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
-</code></pre>
-
-<p>   \};</p> %}
+<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) \{
+       return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
+   \};</p> %}
     *)
   method defaultValue : _ Js.t Js.prop
   (** {% <p>The default value used when the creating an instance from a raw data object, and the property referenced by the

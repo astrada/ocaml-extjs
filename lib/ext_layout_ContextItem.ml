@@ -2,6 +2,8 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method state : _ Js.t Js.prop
+  method wrapsComponent : bool Js.t Js.readonly_prop
   method addCls : _ Js.t -> unit Js.meth
   method block : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   method clearMarginCache : unit Js.meth
@@ -34,8 +36,6 @@ object('self)
     Js.meth
   method setWidth : Js.number Js.t -> bool Js.t Js.optdef -> Js.number Js.t
     Js.meth
-  method state : _ Js.t Js.prop
-  method wrapsComponent : bool Js.t Js.readonly_prop
   
 end
 

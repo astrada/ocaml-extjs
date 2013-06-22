@@ -1,8 +1,10 @@
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method active : bool Js.t Js.readonly_prop
+  method dragTarget : Dom_html.element Js.t Js.readonly_prop
   method getDragTarget : Ext_dom_Element.t Js.t Js.meth
   method getOffset : Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.meth
@@ -11,24 +13,14 @@ object('self)
   method onDrag : Ext_EventObject.t Js.t -> unit Js.meth
   method onEnd : Ext_EventObject.t Js.t -> unit Js.meth
   method onStart : Ext_EventObject.t Js.t -> unit Js.meth
-  method active : bool Js.t Js.readonly_prop
-  method dragTarget : Dom_html.element Js.t Js.readonly_prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
-  method onBeforeStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  method onEnd : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
   method autoStart : _ Js.t Js.prop
   method constrainTo : _ Js.t Js.prop
   method delegate : Js.js_string Js.t Js.prop
@@ -37,13 +29,21 @@ object('self)
   method stopEvent : bool Js.t Js.prop
   method tolerance : Js.number Js.t Js.prop
   method trackOver : bool Js.t Js.prop
+  method onBeforeStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  method onEnd : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
   
 end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method beforestart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

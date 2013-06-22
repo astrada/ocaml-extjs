@@ -1,7 +1,7 @@
 OASISFormat: 0.3
 OCamlVersion: >= 3.12.0
 Name: ocaml-extjs
-Version: 0.2
+Version: 0.3
 LicenseFile: LICENSE
 License: MIT
 BuildType: ocamlbuild (0.3)
@@ -10,7 +10,7 @@ Copyrights: (C) 2012 Alessandro Strada
 Plugins: META (0.3)
 BuildTools: ocamlbuild
 
-Synopsis: Ext JS 4.2 bindings for the js_of_ocaml compiler
+Synopsis: Ext JS 4.2.1 bindings for the js_of_ocaml compiler
 
 # Flags
 Flag all
@@ -81,6 +81,8 @@ Library oextjs
     Ext_dd_DragTracker,
     Ext_dd_StatusProxy,
     Ext_dom_AbstractElement,
+    Ext_dom_CompositeElement,
+    Ext_dom_CompositeElementLite,
     Ext_dom_Element,
     Ext_dom_Element_Fly,
     Ext_draw_Component,
@@ -101,6 +103,7 @@ Library oextjs
     Ext_grid_column_Column,
     Ext_grid_feature_Feature,
     Ext_grid_header_Container,
+    Ext_grid_locking_Lockable,
     Ext_grid_Panel,
     Ext_grid_plugin_Editing,
     Ext_grid_View,
@@ -115,6 +118,7 @@ Library oextjs
     Ext_panel_AbstractPanel,
     Ext_panel_Panel,
     Ext_panel_Table,
+    Ext_Queryable,
     Ext_selection_DataViewModel,
     Ext_selection_Model,
     Ext_selection_RowModel,

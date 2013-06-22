@@ -2,9 +2,9 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method disabled : bool Js.t Js.prop
   method setFilterFn : _ Js.callback -> unit Js.meth
   method setValue : _ Js.t -> unit Js.meth
-  method disabled : bool Js.t Js.prop
   
 end
 

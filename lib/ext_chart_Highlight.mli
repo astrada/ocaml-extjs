@@ -7,31 +7,28 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method highlightCfg : _ Js.t Js.prop
+  (** {% <p>The default properties to apply as a highight. Value is</p>
+
+<p>   \{
+       fill: '#fdd',
+       "stroke-width": 5,
+       stroke: "#f55"
+   \}</p> %}
+    
+    Defaults to: [\{fill: '#fdd', "stroke-width": 5, stroke: '#f55'\}]
+    *)
   method highlightItem : _ Js.t -> unit Js.meth
   (** {% <p>Highlight the given series item.</p> %}
     
     {b Parameters}:
     {ul {- item: [_ Js.t]
-    {% <p>Info about the item; same format as returned by <a href="#!/api/Ext.chart.series.Line-method-getItemForPoint" rel="Ext.chart.series.Line-method-getItemForPoint" class="docClass">getItemForPoint</a>.</p> %}
+    {% <p>Info about the item; same format as returned by <a href="#!/api/Ext.chart.series.Bar-method-getItemForPoint" rel="Ext.chart.series.Bar-method-getItemForPoint" class="docClass">getItemForPoint</a>.</p> %}
     }
     }
     *)
   method unHighlightItem : unit Js.meth
   (** {% <p>Un-highlight any existing highlights</p> %}
-    *)
-  method highlightCfg : _ Js.t Js.prop
-  (** {% <p>The default properties to apply as a highight. Value is</p>
-
-<p>   \{</p>
-
-<pre><code>   fill: '#fdd',
-   "stroke-width": 5,
-   stroke: "#f55"
-</code></pre>
-
-<p>   \}</p> %}
-    
-    Defaults to: [\{fill: '#fdd', "stroke-width": 5, stroke: '#f55'\}]
     *)
   
 end

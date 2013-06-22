@@ -1,8 +1,17 @@
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method dirty : bool Js.t Js.readonly_prop
+  method editing : bool Js.t Js.readonly_prop
+  method fields : Ext_util_MixedCollection.t Js.t Js.prop
+  method isModel : bool Js.t Js.prop
+  method modified : _ Js.t Js.prop
+  method phantom : bool Js.t Js.prop
+  method raw : _ Js.t Js.prop
+  method store : _ Js.t Js.prop
+  method stores : _ Js.js_array Js.t Js.prop
   method beginEdit : unit Js.meth
   method cancelEdit : unit Js.meth
   method commit : bool Js.t Js.optdef ->
@@ -28,22 +37,13 @@ object('self)
   method setProxy : _ Js.t -> _ Js.t Js.meth
   method unjoin : _ Js.t -> unit Js.meth
   method validate : Ext_data_Errors.t Js.t Js.meth
-  method dirty : bool Js.t Js.readonly_prop
-  method editing : bool Js.t Js.readonly_prop
-  method fields : Ext_util_MixedCollection.t Js.t Js.prop
-  method isModel : bool Js.t Js.prop
-  method modified : _ Js.t Js.prop
-  method phantom : bool Js.t Js.prop
-  method raw : _ Js.t Js.prop
-  method store : _ Js.t Js.prop
-  method stores : _ Js.js_array Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method associations : _ Js.t Js.js_array Js.t Js.prop
   method belongsTo : _ Js.t Js.prop
@@ -60,8 +60,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method idchanged : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
@@ -73,15 +73,15 @@ object
   inherit Ext_Base.statics
   inherit Ext_util_Observable.statics
   
+  method _COMMIT : Js.js_string Js.t Js.prop
+  method _EDIT : Js.js_string Js.t Js.prop
+  method _REJECT : Js.js_string Js.t Js.prop
   method getFields : Ext_data_Field.t Js.js_array Js.t Js.meth
   method getProxy : _ Js.t Js.meth
   method id : 'self Js.t -> Js.js_string Js.t Js.meth
   method load : _ Js.t -> _ Js.t Js.optdef -> unit Js.meth
   method setFields : _ Js.t -> _ Js.t -> _ Js.t -> unit Js.meth
   method setProxy : _ Js.t -> _ Js.t Js.meth
-  method _COMMIT : Js.js_string Js.t Js.prop
-  method _EDIT : Js.js_string Js.t Js.prop
-  method _REJECT : Js.js_string Js.t Js.prop
   
 end
 

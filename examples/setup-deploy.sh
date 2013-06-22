@@ -1,5 +1,5 @@
 WWWROOT=/var/www
-EXTJS=/usr/local/src/ext-4.2.0.663
+EXTJS=/usr/local/src/ext-4.2.1.883
 SENCHA=$SENCHA_CMD_3_0_0/sencha
 
 function create_dir {

@@ -2,10 +2,11 @@ class type t =
 object('self)
   inherit Ext_panel_Panel.t
   
+  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
+  method isWindow : bool Js.t Js.prop
   method afterCollapse : bool Js.t -> unit Js.meth
   method afterExpand : bool Js.t -> unit Js.meth
   method applyState : _ Js.t -> unit Js.meth
-  method beforeLayout : unit Js.meth
   method getDefaultFocus : unit Js.meth
   method maximize : bool Js.t -> 'self Js.t Js.meth
   method minimize : 'self Js.t Js.meth
@@ -13,8 +14,6 @@ object('self)
     _ Js.t Js.optdef -> unit Js.meth
   method restore : _ Js.t -> 'self Js.t Js.meth
   method toggleMaximize : 'self Js.t Js.meth
-  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
-  method isWindow : bool Js.t Js.prop
   
 end
 
@@ -22,14 +21,6 @@ class type configs =
 object('self)
   inherit Ext_panel_Panel.configs
   
-  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method beforeLayout : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method animateTarget : _ Js.t Js.prop
   method autoRender : _ Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
@@ -57,6 +48,12 @@ object('self)
   method resizable : _ Js.t Js.prop
   method x : Js.number Js.t Js.prop
   method y : Js.number Js.t Js.prop
+  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   
 end
 

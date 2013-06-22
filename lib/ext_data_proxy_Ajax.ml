@@ -2,8 +2,8 @@ class type t =
 object('self)
   inherit Ext_data_proxy_Server.t
   
-  method getMethod : Ext_data_Request.t Js.t -> Js.js_string Js.t Js.meth
   method actionMethods : _ Js.t Js.prop
+  method getMethod : Ext_data_Request.t Js.t -> Js.js_string Js.t Js.meth
   
 end
 

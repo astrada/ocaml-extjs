@@ -9,6 +9,40 @@ All prototype and static members of this class are inherited by all other classe
 class type t =
 object('self)
   
+  method self : Ext_Class.t Js.t Js.prop
+  (** {% <p>Get the reference to the current class from which this object was instantiated. Unlike <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>,
+<code>this.self</code> is scope-dependent and it's meant to be used for dynamic inheritance. See <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>
+for a detailed comparison</p>
+
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Cat', \{
+    statics: \{
+        speciesName: 'Cat' // My.Cat.speciesName = 'Cat'
+    \},
+
+    constructor: function() \{
+        alert(this.self.speciesName); // dependent on 'this'
+    \},
+
+    clone: function() \{
+        return new this.self();
+    \}
+\});
+
+
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.SnowLeopard', \{
+    extend: 'My.Cat',
+    statics: \{
+        speciesName: 'Snow Leopard'         // My.SnowLeopard.speciesName = 'Snow Leopard'
+    \}
+\});
+
+var cat = new My.Cat();                     // alerts 'Cat'
+var snowLeopard = new My.SnowLeopard();     // alerts 'Snow Leopard'
+
+var clone = snowLeopard.clone();
+alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">Ext.getClassName</a>(clone));             // alerts 'My.SnowLeopard'
+</code></pre> %}
+    *)
   method callParent : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Call the "parent" method of the current method. That is the method previously
 overridden by derivation or by an override (see <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>).</p>
@@ -260,40 +294,6 @@ alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" cla
 alert(clone.groupName);                 // alerts 'Cat'
 
 alert(My.Cat.totalCreated);             // alerts 3
-</code></pre> %}
-    *)
-  method self : Ext_Class.t Js.t Js.prop
-  (** {% <p>Get the reference to the current class from which this object was instantiated. Unlike <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>,
-<code>this.self</code> is scope-dependent and it's meant to be used for dynamic inheritance. See <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>
-for a detailed comparison</p>
-
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Cat', \{
-    statics: \{
-        speciesName: 'Cat' // My.Cat.speciesName = 'Cat'
-    \},
-
-    constructor: function() \{
-        alert(this.self.speciesName); // dependent on 'this'
-    \},
-
-    clone: function() \{
-        return new this.self();
-    \}
-\});
-
-
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.SnowLeopard', \{
-    extend: 'My.Cat',
-    statics: \{
-        speciesName: 'Snow Leopard'         // My.SnowLeopard.speciesName = 'Snow Leopard'
-    \}
-\});
-
-var cat = new My.Cat();                     // alerts 'Cat'
-var snowLeopard = new My.SnowLeopard();     // alerts 'Snow Leopard'
-
-var clone = snowLeopard.clone();
-alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">Ext.getClassName</a>(clone));             // alerts 'My.SnowLeopard'
 </code></pre> %}
     *)
   

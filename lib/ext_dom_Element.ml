@@ -2,6 +2,8 @@ class type t =
 object('self)
   inherit Ext_dom_AbstractElement.t
   
+  method autoBoxAdjust : bool Js.t Js.prop
+  method originalDisplay : Js.js_string Js.t Js.prop
   method addClsOnClick : Js.js_string Js.t -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
   method addClsOnFocus : Js.js_string Js.t -> _ Js.callback Js.optdef ->
@@ -46,6 +48,7 @@ object('self)
   method getLocalXY : _ Js.js_array Js.t Js.meth
   method getLocalY : Js.number Js.t Js.meth
   method getScroll : _ Js.t Js.meth
+  method getScrollLeft : Js.number Js.t Js.meth
   method getScrollTop : Js.number Js.t Js.meth
   method getStyleSize : _ Js.t Js.meth
   method getTextWidth : Js.js_string Js.t -> Js.number Js.t Js.optdef ->
@@ -91,7 +94,7 @@ object('self)
     bool Js.t Js.meth
   method scrollBy : _ Js.t -> _ Js.t -> _ Js.t -> 'self Js.t Js.meth
   method scrollIntoView : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
-    _ Js.t Js.optdef -> 'self Js.t Js.meth
+    _ Js.t Js.optdef -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   method scrollTo : Js.js_string Js.t -> Js.number Js.t -> _ Js.t Js.optdef
     -> 'self Js.t Js.meth
   method selectable : 'self Js.t Js.meth
@@ -117,8 +120,6 @@ object('self)
   method unselectable : 'self Js.t Js.meth
   method update_html : Js.js_string Js.t -> bool Js.t Js.optdef ->
     _ Js.callback Js.optdef -> 'self Js.t Js.meth
-  method autoBoxAdjust : bool Js.t Js.prop
-  method originalDisplay : Js.js_string Js.t Js.prop
   
 end
 

@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: 56b6ee454f0580851bcea7bda6823f57)
-version = "0.2"
-description = "Ext JS 4.2 bindings for the js_of_ocaml compiler"
+# DO NOT EDIT (digest: ec0fdab5f54e172cbaa78a3d904b9648)
+version = "0.3"
+description = "Ext JS 4.2.1 bindings for the js_of_ocaml compiler"
 archive(byte) = "generator.cma"
 archive(byte, plugin) = "generator.cma"
 archive(native) = "generator.cmxa"

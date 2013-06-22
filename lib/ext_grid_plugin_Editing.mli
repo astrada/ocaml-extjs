@@ -10,9 +10,12 @@ in the <a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" clas
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_AbstractPlugin.t
+  inherit Ext_util_Observable.t
   
+  method editing : bool Js.t Js.prop
+  (** {% <p>Set to <code>true</code> while the editing plugin is active and an Editor is visible.</p> %}
+    *)
   method cancelEdit : unit Js.meth
   (** {% <p>Cancels any active edit that is in progress.</p> %}
     *)
@@ -31,16 +34,13 @@ object('self)
     }
     }
     *)
-  method editing : bool Js.t Js.prop
-  (** {% <p>Set to <code>true</code> while the editing plugin is active and an Editor is visible.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_AbstractPlugin.configs
+  inherit Ext_util_Observable.configs
   
   method clicksToEdit : Js.number Js.t Js.prop
   (** {% <p>The number of clicks on a grid required to display the editor.
@@ -63,8 +63,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_AbstractPlugin.events
+  inherit Ext_util_Observable.events
   
   method beforeedit : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

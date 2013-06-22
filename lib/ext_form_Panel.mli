@@ -122,8 +122,8 @@ any component type.</p>
 
 class type t =
 object('self)
-  inherit Ext_form_FieldAncestor.t
   inherit Ext_panel_Panel.t
+  inherit Ext_form_FieldAncestor.t
   
   method checkChange : unit Js.meth
   (** {% <p>Forces each field within the form panel to
@@ -284,17 +284,31 @@ values. This is normally started automatically by setting the <a href="#!/api/Ex
     }
     }
     *)
+  method updateRecord : Ext_data_Model.t Js.t Js.optdef ->
+    Ext_form_Basic.t Js.t Js.meth
+  (** {% <p>Persists the values in this form into the passed <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> object in a beginEdit/endEdit block.
+If the record is not specified, it will attempt to update (if it exists) the record provided to <a href="#!/api/Ext.form.Panel-method-loadRecord" rel="Ext.form.Panel-method-loadRecord" class="docClass">loadRecord</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- record: [Ext_data_Model.t Js.t] (optional)
+    {% <p>The record to edit</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [Ext_form_Basic.t Js.t]
+    {% <p>The <a href="#!/api/Ext.form.Basic" rel="Ext.form.Basic" class="docClass">Ext.form.Basic</a> attached to this FormPanel</p> %}
+    }
+    }
+    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_form_FieldAncestor.configs
   inherit Ext_panel_Panel.configs
+  inherit Ext_form_FieldAncestor.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
   method layout_str : _ Js.t Js.prop
   (** {% <p>The <a href="#!/api/Ext.container.Container-cfg-layout" rel="Ext.container.Container-cfg-layout" class="docClass">Ext.container.Container.layout</a> for the form panel's immediate child items.</p> %}
     
@@ -311,13 +325,16 @@ do not fire native events. Defaults to <code>false</code>.</p> %}
   (** {% <p>Interval in milliseconds at which the form's fields are checked for value changes. Only used if
 the <a href="#!/api/Ext.form.Panel-cfg-pollForChanges" rel="Ext.form.Panel-cfg-pollForChanges" class="docClass">pollForChanges</a> option is set to <code>true</code>. Defaults to 500 milliseconds.</p> %}
     *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
   
 end
 
 class type events =
 object
-  inherit Ext_form_FieldAncestor.events
   inherit Ext_panel_Panel.events
+  inherit Ext_form_FieldAncestor.events
   
   method actioncomplete : (Ext_form_Basic.t Js.t ->
     Ext_form_action_Action.t Js.t -> _ Js.t -> unit) Js.callback

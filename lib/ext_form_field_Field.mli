@@ -25,6 +25,15 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method isFormField : bool Js.t Js.prop
+  (** {% <p>Flag denoting that this component is a Field. Always true.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method originalValue : _ Js.t Js.prop
+  (** {% <p>The original value of the field as configured in the <a href="#!/api/Ext.form.field.Field-cfg-value" rel="Ext.form.field.Field-cfg-value" class="docClass">value</a> configuration, or as loaded by the last
+form load operation if the form's <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> setting is <code>true</code>.</p> %}
+    *)
   method batchChanges : _ Js.t -> unit Js.meth
   (** {% <p>A utility for grouping a set of modifications which may trigger value changes into a single transaction, to
 prevent excessive firing of <a href="#!/api/Ext.form.field.Field-event-change" rel="Ext.form.field.Field-event-change" class="docClass">change</a> events. This is useful for instance if the field has sub-fields which
@@ -262,15 +271,6 @@ To validate without side-effects, use <a href="#!/api/Ext.form.field.Field-metho
     {% <p>True if the value is valid, else false</p> %}
     }
     }
-    *)
-  method isFormField : bool Js.t Js.prop
-  (** {% <p>Flag denoting that this component is a Field. Always true.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method originalValue : _ Js.t Js.prop
-  (** {% <p>The original value of the field as configured in the <a href="#!/api/Ext.form.field.Field-cfg-value" rel="Ext.form.field.Field-cfg-value" class="docClass">value</a> configuration, or as loaded by the last
-form load operation if the form's <a href="#!/api/Ext.form.Basic-cfg-trackResetOnLoad" rel="Ext.form.Basic-cfg-trackResetOnLoad" class="docClass">trackResetOnLoad</a> setting is <code>true</code>.</p> %}
     *)
   
 end

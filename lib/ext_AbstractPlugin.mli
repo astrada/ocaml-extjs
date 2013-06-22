@@ -22,6 +22,20 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method isPlugin : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Plugin, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method clonePlugin : _ Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Creates clone of the plugin.</p> %}
+    
+    {b Parameters}:
+    {ul {- overrideCfg: [_ Js.t] (optional)
+    {% <p>Additional config for the derived plugin.</p> %}
+    }
+    }
+    *)
   method destroy : unit Js.meth
   (** {% <p>The destroy method is invoked by the owning Component at the time the Component is being destroyed.</p>
 
@@ -38,6 +52,14 @@ this method.</p> %}
 
 <p>Plugin subclasses which need more complex processing may implement an overriding implementation.</p> %}
     *)
+  method getCmp : _ Js.t Js.meth
+  (** {% <p>Returns the component to which this plugin is attached.</p> %}
+    
+    {b Returns}:
+    {ul {- [#Ext_Component.t Js.t] {% <p>Owner component.</p> %}
+    }
+    }
+    *)
   method init : _ Js.t -> unit Js.meth
   (** {% <p>The init method is invoked after initComponent method has been run for the client Component.</p>
 
@@ -50,10 +72,13 @@ links between the plugin and its client Component in their own implementation of
     }
     }
     *)
-  method isPlugin : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Plugin, or subclass thereof.</p> %}
+  method setCmp : _ Js.t -> unit Js.meth
+  (** {% <p>Sets the component to which this plugin is attached.</p> %}
     
-    Defaults to: [true]
+    {b Parameters}:
+    {ul {- cmp: [#Ext_Component.t Js.t] {% <p>Owner component.</p> %}
+    }
+    }
     *)
   
 end

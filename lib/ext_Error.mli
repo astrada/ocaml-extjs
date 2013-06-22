@@ -109,6 +109,34 @@ end
 class type statics =
 object
   
+  method ignore : bool Js.t Js.prop
+  (** {% <p>Static flag that can be used to globally disable error reporting to the browser if set to true
+(defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
+and throw a native JavaScript error thereafter, so use with caution. In most cases it will probably
+be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">handling</a> function instead.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-property-ignore" rel="Ext.Error-static-property-ignore" class="docClass">Ext.Error.ignore</a> = true;
+</code></pre> %}
+    
+    Defaults to: [false]
+    *)
+  method notify : bool Js.t Js.prop
+  (** {% <p>Static flag that can be used to globally control error notification to the user. Unlike
+Ex.Error.ignore, this does not effect exceptions. They are still thrown. This value can be
+set to false to disable the alert notification (default is true for IE6 and IE7).</p>
+
+<p>Only the first error will generate an alert. Internally this flag is set to false when the
+first error occurs prior to displaying the alert.</p>
+
+<p>This flag is not used in a release build.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
+</code></pre> %}
+    *)
   method handle : 'self Js.t -> unit Js.meth
   (** {% <p>Globally handle any Ext errors that may be raised, optionally providing custom logic to
 handle different errors individually. Return true from the function to bypass throwing the
@@ -168,34 +196,6 @@ used as the error message. Any other data included in the object will also be lo
 if available.</p> %}
     }
     }
-    *)
-  method ignore : bool Js.t Js.prop
-  (** {% <p>Static flag that can be used to globally disable error reporting to the browser if set to true
-(defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
-and throw a native JavaScript error thereafter, so use with caution. In most cases it will probably
-be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">handling</a> function instead.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-property-ignore" rel="Ext.Error-static-property-ignore" class="docClass">Ext.Error.ignore</a> = true;
-</code></pre> %}
-    
-    Defaults to: [false]
-    *)
-  method notify : bool Js.t Js.prop
-  (** {% <p>Static flag that can be used to globally control error notification to the user. Unlike
-Ex.Error.ignore, this does not effect exceptions. They are still thrown. This value can be
-set to false to disable the alert notification (default is true for IE6 and IE7).</p>
-
-<p>Only the first error will generate an alert. Internally this flag is set to false when the
-first error occurs prior to displaying the alert.</p>
-
-<p>This flag is not used in a release build.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
-</code></pre> %}
     *)
   
 end

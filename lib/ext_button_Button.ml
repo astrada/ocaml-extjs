@@ -1,7 +1,13 @@
 class type t =
 object('self)
   inherit Ext_Component.t
+  inherit Ext_Queryable.t
   
+  method disabled : bool Js.t Js.readonly_prop
+  method hidden : bool Js.t Js.readonly_prop
+  method menu : Ext_menu_Menu.t Js.t Js.prop
+  method pressed : bool Js.t Js.readonly_prop
+  method template : Ext_Template.t Js.t Js.prop
   method disable : bool Js.t Js.optdef -> unit Js.meth
   method enable : bool Js.t Js.optdef -> unit Js.meth
   method getTemplateArgs : _ Js.t Js.meth
@@ -24,22 +30,14 @@ object('self)
   method showMenu : _ Js.t -> unit Js.meth
   method toggle : bool Js.t Js.optdef -> bool Js.t Js.optdef -> 'self Js.t
     Js.meth
-  method disabled : bool Js.t Js.readonly_prop
-  method hidden : bool Js.t Js.readonly_prop
-  method menu : Ext_menu_Menu.t Js.t Js.prop
-  method pressed : bool Js.t Js.readonly_prop
-  method template : Ext_Template.t Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
   inherit Ext_Component.configs
+  inherit Ext_Queryable.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
   method allowDepress : bool Js.t Js.prop
   method arrowAlign : Js.js_string Js.t Js.prop
   method arrowCls : Js.js_string Js.t Js.prop
@@ -85,13 +83,17 @@ object('self)
   method toggleHandler : _ Js.callback Js.prop
   method tooltip : _ Js.t Js.prop
   method tooltipType : Js.js_string Js.t Js.prop
-  method _type : Js.js_string Js.t Js.prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
   
 end
 
 class type events =
 object
   inherit Ext_Component.events
+  inherit Ext_Queryable.events
   
   method click : (t Js.t -> Dom_html.event Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
@@ -121,6 +123,7 @@ end
 class type statics =
 object
   inherit Ext_Component.statics
+  inherit Ext_Queryable.statics
   
   
 end

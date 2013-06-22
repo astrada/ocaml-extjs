@@ -24,6 +24,25 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method bodyEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The div Element wrapping the component's contents. Only available after the component has been rendered.</p> %}
+    *)
+  method errorEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The div Element that will contain the component's error message(s). Note that depending on the configured
+<a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a>, this element may be hidden in favor of some other form of presentation, but will always
+be present in the DOM for use by assistive technologies.</p> %}
+    *)
+  method isFieldLabelable : bool Js.t Js.prop
+  (** {% <p>Flag denoting that this object is labelable as a field. Always true.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method labelCell : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The <code>&lt;TD&gt;</code> Element which contains the label Element for this component. Only available after the component has been rendered.</p> %}
+    *)
+  method labelEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The label Element for this component. Only available after the component has been rendered.</p> %}
+    *)
   method getActiveError : Js.js_string Js.t Js.meth
   (** {% <p>Gets the active error message for this component, if any. This does not trigger validation on its own, it merely
 returns any message that the component may already hold.</p> %}
@@ -163,25 +182,6 @@ string.</p> %}
   (** {% <p>Clears the active error message(s). Note that this only clears the error message element's text and attributes,
 you'll have to call doComponentLayout to actually update the field's layout to match. If the field extends <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a> you should call <a href="#!/api/Ext.form.field.Base-method-clearInvalid" rel="Ext.form.field.Base-method-clearInvalid" class="docClass">clearInvalid</a> instead.</p> %}
     *)
-  method bodyEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The div Element wrapping the component's contents. Only available after the component has been rendered.</p> %}
-    *)
-  method errorEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The div Element that will contain the component's error message(s). Note that depending on the configured
-<a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a>, this element may be hidden in favor of some other form of presentation, but will always
-be present in the DOM for use by assistive technologies.</p> %}
-    *)
-  method isFieldLabelable : bool Js.t Js.prop
-  (** {% <p>Flag denoting that this object is labelable as a field. Always true.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method labelCell : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The <code>&lt;TD&gt;</code> Element which contains the label Element for this component. Only available after the component has been rendered.</p> %}
-    *)
-  method labelEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The label Element for this component. Only available after the component has been rendered.</p> %}
-    *)
   
 end
 
@@ -189,9 +189,6 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method getFieldLabel : ('self Js.t, unit -> Js.js_string Js.t)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.getFieldLabel] *)
   method activeError : Js.js_string Js.t Js.prop
   (** {% <p>If specified, then the component will be displayed with this value as its active error when first rendered. Use
 <a href="#!/api/Ext.form.Labelable-method-setActiveError" rel="Ext.form.Labelable-method-setActiveError" class="docClass">setActiveError</a> or <a href="#!/api/Ext.form.Labelable-method-unsetActiveError" rel="Ext.form.Labelable-method-unsetActiveError" class="docClass">unsetActiveError</a> to change it after component creation.</p> %}
@@ -369,6 +366,9 @@ This is the default.</p>
     
     Defaults to: [false]
     *)
+  method getFieldLabel : ('self Js.t, unit -> Js.js_string Js.t)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.getFieldLabel] *)
   
 end
 

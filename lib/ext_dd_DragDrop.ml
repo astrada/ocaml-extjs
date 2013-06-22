@@ -2,6 +2,23 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method available : bool Js.t Js.prop
+  method config : _ Js.t Js.prop
+  method defaultPadding : _ Js.t Js.prop
+  method groups : _ Js.t Js.prop
+  method hasOuterHandles : bool Js.t Js.prop
+  method id : Js.js_string Js.t Js.prop
+  method ignoreSelf : bool Js.t Js.prop
+  method invalidHandleClasses : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method invalidHandleIds : _ Js.t Js.prop
+  method invalidHandleTypes : _ Js.t Js.prop
+  method isTarget : bool Js.t Js.prop
+  method maintainOffset : bool Js.t Js.prop
+  method moveOnly : bool Js.t Js.prop
+  method padding : Js.number Js.t Js.js_array Js.t Js.prop
+  method primaryButtonOnly : bool Js.t Js.prop
+  method xTicks : Js.number Js.t Js.js_array Js.t Js.prop
+  method yTicks : Js.number Js.t Js.js_array Js.t Js.prop
   method addInvalidHandleClass : Js.js_string Js.t -> unit Js.meth
   method addInvalidHandleId : Js.js_string Js.t -> unit Js.meth
   method addInvalidHandleType : Js.js_string Js.t -> unit Js.meth
@@ -11,6 +28,7 @@ object('self)
   method clearTicks : unit Js.meth
   method constrainTo : _ Js.t -> _ Js.t Js.optdef -> bool Js.t Js.optdef ->
     unit Js.meth
+  method destroy : unit Js.meth
   method endDrag : Dom_html.event Js.t -> unit Js.meth
   method getDragEl : Dom_html.element Js.t Js.meth
   method getEl : Dom_html.element Js.t Js.meth
@@ -49,23 +67,6 @@ object('self)
   method toString : Js.js_string Js.t Js.meth
   method unlock : unit Js.meth
   method unreg : unit Js.meth
-  method available : bool Js.t Js.prop
-  method config : _ Js.t Js.prop
-  method defaultPadding : _ Js.t Js.prop
-  method groups : _ Js.t Js.prop
-  method hasOuterHandles : bool Js.t Js.prop
-  method id : Js.js_string Js.t Js.prop
-  method ignoreSelf : bool Js.t Js.prop
-  method invalidHandleClasses : Js.js_string Js.t Js.js_array Js.t Js.prop
-  method invalidHandleIds : _ Js.t Js.prop
-  method invalidHandleTypes : _ Js.t Js.prop
-  method isTarget : bool Js.t Js.prop
-  method maintainOffset : bool Js.t Js.prop
-  method moveOnly : bool Js.t Js.prop
-  method padding : Js.number Js.t Js.js_array Js.t Js.prop
-  method primaryButtonOnly : bool Js.t Js.prop
-  method xTicks : Js.number Js.t Js.js_array Js.t Js.prop
-  method yTicks : Js.number Js.t Js.js_array Js.t Js.prop
   
 end
 

@@ -4,7 +4,6 @@ object('self)
   
   method initComponent : unit Js.meth
   method showAt_arr : Js.number Js.t Js.js_array Js.t -> unit Js.meth
-  method showBy_tip : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
   
 end
 
@@ -12,8 +11,6 @@ class type configs =
 object('self)
   inherit Ext_panel_Panel.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
   method autoRender : _ Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method closable : bool Js.t Js.prop
@@ -28,6 +25,8 @@ object('self)
   method minWidth : Js.number Js.t Js.prop
   method shadow : _ Js.t Js.prop
   method width : Js.number Js.t Js.prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
   
 end
 

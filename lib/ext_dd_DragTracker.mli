@@ -11,9 +11,21 @@ See <a href="#!/api/Ext.slider.Multi" rel="Ext.slider.Multi" class="docClass">Ex
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method active : bool Js.t Js.readonly_prop
+  (** {% <p>Indicates whether the user is currently dragging this tracker.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method dragTarget : Dom_html.element Js.t Js.readonly_prop
+  (** {% <p>The element being dragged.</p>
+
+<p>Only valid during drag operations.</p>
+
+<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> %}
+    *)
   method getDragTarget : Ext_dom_Element.t Js.t Js.meth
   (** {% <p>Returns the drag target. This is usually the DragTracker's encapsulating element.</p>
 
@@ -98,38 +110,14 @@ holds the mouse button down. Return false to disallow the drag</p> %}
     }
     }
     *)
-  method active : bool Js.t Js.readonly_prop
-  (** {% <p>Indicates whether the user is currently dragging this tracker.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method dragTarget : Dom_html.element Js.t Js.readonly_prop
-  (** {% <p>The element being dragged.</p>
-
-<p>Only valid during drag operations.</p>
-
-<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
-  method onBeforeStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onBeforeStart] *)
-  method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onDrag] *)
-  method onEnd : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onEnd] *)
-  method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onStart] *)
   method autoStart : _ Js.t Js.prop
   (** {% <p>Specify <code>true</code> to defer trigger start by 1000 ms.
 Specify a Number for the number of milliseconds to defer trigger start.</p> %}
@@ -179,13 +167,25 @@ considered to have started.</p> %}
     
     Defaults to: [false]
     *)
+  method onBeforeStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onBeforeStart] *)
+  method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onDrag] *)
+  method onEnd : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onEnd] *)
+  method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onStart] *)
   
 end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method beforestart : (_ Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

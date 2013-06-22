@@ -19,11 +19,11 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
+  method defaultDockWeights : _ Js.t Js.prop
   method onDockedAdd : ('self Js.t, #Ext_Component.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   method onDockedRemove : ('self Js.t, #Ext_Component.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
-  method defaultDockWeights : _ Js.t Js.prop
   
 end
 

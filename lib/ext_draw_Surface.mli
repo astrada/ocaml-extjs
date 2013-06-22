@@ -44,8 +44,8 @@ the surface. For example:</p>
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
   method add : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Adds a Sprite to the surface. See <a href="#!/api/Ext.draw.Sprite" rel="Ext.draw.Sprite" class="docClass">Ext.draw.Sprite</a> for the configuration object to be
@@ -109,21 +109,18 @@ configuration object please refer to <a href="#!/api/Ext.chart.Chart" rel="Ext.c
 
 <p>For example:</p>
 
-<p>   drawComponent.surface.addGradient(\{</p>
-
-<pre><code>   id: 'gradientId',
-   angle: 45,
-   stops: \{
-       0: \{
-           color: '#555'
-       \},
-       100: \{
-           color: '#ddd'
+<p>   drawComponent.surface.addGradient(\{
+       id: 'gradientId',
+       angle: 45,
+       stops: \{
+           0: \{
+               color: '#555'
+           \},
+           100: \{
+               color: '#ddd'
+           \}
        \}
-   \}
-</code></pre>
-
-<p>   \});</p> %}
+   \});</p> %}
     
     {b Parameters}:
     {ul {- gradient: [_ Js.t] {% <p>A gradient config.</p> %}
@@ -271,8 +268,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method height : Js.number Js.t Js.prop
   (** {% <p>The height of this component in pixels (defaults to auto).</p> %}
@@ -288,8 +285,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method click : (Ext_EventObject.t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

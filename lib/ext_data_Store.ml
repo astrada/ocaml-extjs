@@ -2,6 +2,9 @@ class type t =
 object('self)
   inherit Ext_data_AbstractStore.t
   
+  method currentPage : Js.number Js.t Js.prop
+  method data : _ Js.t Js.prop
+  method snapshot : Ext_util_MixedCollection.t Js.t Js.prop
   method add : _ Js.t -> Ext_data_Model.t Js.js_array Js.t Js.meth
   method addFilter : _ Js.t -> bool Js.t Js.optdef -> unit Js.meth
   method addSorted : Ext_data_Model.t Js.t -> unit Js.meth
@@ -79,9 +82,6 @@ object('self)
     Ext_util_Sorter.t Js.js_array Js.t Js.meth
   method sum : Js.js_string Js.t -> bool Js.t Js.optdef -> Js.number Js.t
     Js.meth
-  method currentPage : Js.number Js.t Js.prop
-  method data : _ Js.t Js.prop
-  method snapshot : Ext_util_MixedCollection.t Js.t Js.prop
   
 end
 

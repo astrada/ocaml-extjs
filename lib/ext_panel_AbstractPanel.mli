@@ -7,9 +7,32 @@
 
 class type t =
 object('self)
-  inherit Ext_container_DockingContainer.t
   inherit Ext_container_Container.t
+  inherit Ext_container_DockingContainer.t
   
+  method body : Ext_dom_Element.t Js.t Js.readonly_prop
+  (** {% <p>The Panel's body <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> which may be used to contain HTML content.
+The content may be specified in the <a href="#!/api/Ext.panel.AbstractPanel-cfg-html" rel="Ext.panel.AbstractPanel-cfg-html" class="docClass">html</a> config, or it may be loaded using the
+<a href="#!/api/Ext.panel.AbstractPanel-cfg-loader" rel="Ext.panel.AbstractPanel-cfg-loader" class="docClass">loader</a> config. Read-only.</p>
+
+<p>If this is used to load visible HTML elements in either way, then
+the Panel may not be used as a Layout for hosting nested Panels.</p>
+
+<p>If this Panel is intended to be used as the host of a Layout (See <a href="#!/api/Ext.panel.AbstractPanel-cfg-layout" rel="Ext.panel.AbstractPanel-cfg-layout" class="docClass">layout</a>
+then the body Element must not be loaded or changed - it is under the control
+of the Panel's Layout.</p> %}
+    *)
+  method contentPaddingProperty : Js.js_string Js.t Js.prop
+  (** {% <p>The name of the padding property that is used by the layout to manage
+padding.  See <a href="#!/api/Ext.layout.container.Auto-property-managePadding" rel="Ext.layout.container.Auto-property-managePadding" class="docClass">managePadding</a></p> %}
+    
+    Defaults to: ['bodyPadding']
+    *)
+  method isPanel : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Panel, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   method addBodyCls : Js.js_string Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds a CSS class to the body element. If not rendered, the class will
 be added when the panel is rendered.</p> %}
@@ -147,43 +170,14 @@ will be: <code>this.baseCls + '-' + ui</code>.</p> %}
     }
     }
     *)
-  method body : Ext_dom_Element.t Js.t Js.readonly_prop
-  (** {% <p>The Panel's body <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> which may be used to contain HTML content.
-The content may be specified in the <a href="#!/api/Ext.panel.AbstractPanel-cfg-html" rel="Ext.panel.AbstractPanel-cfg-html" class="docClass">html</a> config, or it may be loaded using the
-<a href="#!/api/Ext.panel.AbstractPanel-cfg-loader" rel="Ext.panel.AbstractPanel-cfg-loader" class="docClass">loader</a> config. Read-only.</p>
-
-<p>If this is used to load visible HTML elements in either way, then
-the Panel may not be used as a Layout for hosting nested Panels.</p>
-
-<p>If this Panel is intended to be used as the host of a Layout (See <a href="#!/api/Ext.panel.AbstractPanel-cfg-layout" rel="Ext.panel.AbstractPanel-cfg-layout" class="docClass">layout</a>
-then the body Element must not be loaded or changed - it is under the control
-of the Panel's Layout.</p> %}
-    *)
-  method contentPaddingProperty : Js.js_string Js.t Js.prop
-  (** {% <p>The name of the padding property that is used by the layout to manage
-padding.  See <a href="#!/api/Ext.layout.container.Auto-property-managePadding" rel="Ext.layout.container.Auto-property-managePadding" class="docClass">managePadding</a></p> %}
-    
-    Defaults to: ['bodyPadding']
-    *)
-  method isPanel : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Panel, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_container_DockingContainer.configs
   inherit Ext_container_Container.configs
+  inherit Ext_container_DockingContainer.configs
   
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
   method baseCls : Js.js_string Js.t Js.prop
   (** {% <p>The base CSS class to apply to this panel's element.</p> %}
     
@@ -289,13 +283,19 @@ same dimensions. See <a href="#!/api/Ext.AbstractComponent-cfg-shrinkWrap" rel="
     
     Defaults to: [false]
     *)
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDestroy] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
   
 end
 
 class type events =
 object
-  inherit Ext_container_DockingContainer.events
   inherit Ext_container_Container.events
+  inherit Ext_container_DockingContainer.events
   
   
 end

@@ -2,6 +2,8 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method hasListeners : _ Js.t Js.readonly_prop
+  method isObservable : bool Js.t Js.prop
   method addEvents : _ Js.t -> unit Js.meth
   method addListener : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef
     -> _ Js.t Js.optdef -> _ Js.t Js.meth
@@ -32,8 +34,6 @@ object('self)
   method suspendEvents : bool Js.t -> unit Js.meth
   method un : Js.js_string Js.t -> _ Js.callback -> _ Js.t Js.optdef -> unit
     Js.meth
-  method hasListeners : _ Js.t Js.readonly_prop
-  method isObservable : bool Js.t Js.prop
   
 end
 

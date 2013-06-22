@@ -2,6 +2,7 @@ class type t =
 object('self)
   inherit Ext_dd_DragDrop.t
   
+  method scroll : bool Js.t Js.prop
   method alignElWithMouse : Dom_html.element Js.t -> Js.number Js.t ->
     Js.number Js.t -> unit Js.meth
   method applyConfig : unit Js.meth
@@ -13,7 +14,6 @@ object('self)
   method setDelta : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method setDragElPos : Js.number Js.t -> Js.number Js.t -> unit Js.meth
   method toString : Js.js_string Js.t Js.meth
-  method scroll : bool Js.t Js.prop
   
 end
 

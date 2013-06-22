@@ -108,6 +108,25 @@ class type t =
 object('self)
   inherit Ext_panel_AbstractPanel.t
   
+  method dd : _ Js.t Js.prop
+  (** {% <p>Only present if this Panel has been configured with <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a> <code>true</code>.</p>
+
+<h2>Simple dragging</h2>
+
+<p>If this Panel is configured <a href="#!/api/Ext.panel.Panel-cfg-simpleDrag" rel="Ext.panel.Panel-cfg-simpleDrag" class="docClass">simpleDrag</a> <code>true</code> (the default is <code>false</code>), this property
+will reference an instance of <a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of
+<a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles moving the Panel's DOM Element,
+and constraining according to the <a href="#!/api/Ext.panel.Panel-cfg-constrain" rel="Ext.panel.Panel-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.panel.Panel-cfg-constrainHeader" rel="Ext.panel.Panel-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
+
+<p>This object fires various events during its lifecycle and during a drag operation.</p>
+
+<h2>Complex dragging interacting with other DragDrop instances</h2>
+
+<p>By default, this property in a <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a> Panel will contain an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Panel.</p>
+
+<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> in order to
+supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a>.</p> %}
+    *)
   method addTool : _ Js.t -> unit Js.meth
   (** {% <p>Add tools to this panel</p> %}
     
@@ -263,7 +282,7 @@ dynamically laid out UIs in a hidden Container before showing them.</p> %}
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-event-hide" rel="Ext.panel.Panel-event-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -370,25 +389,6 @@ This parameter expects a format consistent with that of <a href="#!/api/Ext.pane
     }
     }
     *)
-  method dd : _ Js.t Js.prop
-  (** {% <p>Only present if this Panel has been configured with <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a> <code>true</code>.</p>
-
-<h2>Simple dragging</h2>
-
-<p>If this Panel is configured <a href="#!/api/Ext.panel.Panel-cfg-simpleDrag" rel="Ext.panel.Panel-cfg-simpleDrag" class="docClass">simpleDrag</a> <code>true</code> (the default is <code>false</code>), this property
-will reference an instance of <a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of
-<a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles moving the Panel's DOM Element,
-and constraining according to the <a href="#!/api/Ext.panel.Panel-cfg-constrain" rel="Ext.panel.Panel-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.panel.Panel-cfg-constrainHeader" rel="Ext.panel.Panel-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
-
-<p>This object fires various events during its lifecycle and during a drag operation.</p>
-
-<h2>Complex dragging interacting with other DragDrop instances</h2>
-
-<p>By default, this property in a <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a> Panel will contain an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Panel.</p>
-
-<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> in order to
-supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.panel.Panel-cfg-draggable" rel="Ext.panel.Panel-cfg-draggable" class="docClass">draggable</a>.</p> %}
-    *)
   
 end
 
@@ -396,24 +396,6 @@ class type configs =
 object('self)
   inherit Ext_panel_AbstractPanel.configs
   
-  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterCollapse] *)
-  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterExpand] *)
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
-  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onHide] *)
-  method onRemoved : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onRemoved] *)
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onShow] *)
   method animCollapse : bool Js.t Js.prop
   (** {% <p><code>true</code> to animate the transition when the panel is collapsed, <code>false</code> to skip the animation (defaults to <code>true</code>
 if the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> class is available, otherwise <code>false</code>). May also be specified as the animation
@@ -648,19 +630,16 @@ You may also configure the Panel's <code>header</code> option with its own child
 <p>By default the panel <a href="#!/api/Ext.panel.Panel-cfg-title" rel="Ext.panel.Panel-cfg-title" class="docClass">title</a> is inserted after items configured in this config, but before any tools.
 To insert the title at any point in the full array, specify the <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">#titlePosition</a> config:</p>
 
-<p>   new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>(\{</p>
-
-<pre><code>   title: 'Test',
-   tools: [\{
-       type: 'refresh
-   \}, \{
-       type: 'help'
-   \}],
-   titlePosition: 2 // Title will come AFTER the two tools
-   ...
-</code></pre>
-
-<p>   \});</p> %}
+<p>   new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>(\{
+       title: 'Test',
+       tools: [\{
+           type: 'refresh
+       \}, \{
+           type: 'help'
+       \}],
+       titlePosition: 2 // Title will come AFTER the two tools
+       ...
+   \});</p> %}
     *)
   method headerOverCls : Js.js_string Js.t Js.prop
   (** {% <p>Optional CSS class to apply to the header element on mouseover</p> %}
@@ -838,19 +817,40 @@ behavior.</p>
     type:'refresh',
     tooltip: 'Refresh form Data',
     // hidden:true,
-    handler: function(event, toolEl, panel)\{
+    handler: function(event, toolEl, panelHeader) \{
         // refresh logic
     \}
 \},
 \{
     type:'help',
     tooltip: 'Get Help',
-    handler: function(event, toolEl, panel)\{
+    callback: function(panel, tool, event) \{
         // show help here
     \}
 \}]
-</code></pre> %}
+</code></pre>
+
+<p>The difference between <code>handler</code> and <code>callback</code> is the signature. For details on
+the distinction, see <a href="#!/api/Ext.panel.Tool" rel="Ext.panel.Tool" class="docClass">Ext.panel.Tool</a>.</p> %}
     *)
+  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterCollapse] *)
+  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterExpand] *)
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDestroy] *)
+  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onHide] *)
+  method onRemoved : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onRemoved] *)
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onShow] *)
   
 end
 

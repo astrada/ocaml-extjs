@@ -71,6 +71,14 @@ class type t =
 object('self)
   inherit Ext_container_Container.t
   
+  method isViewport : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Viewport, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method beforeDestroy : unit Js.meth
+  (** {% <p>Invoked before the Component is destroyed.</p> %}
+    *)
   method initComponent : unit Js.meth
   (** {% <p>The initComponent template method is an important initialization step for a Component. It is intended to be
 implemented by each subclass of <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> to provide any needed constructor logic. The
@@ -120,11 +128,6 @@ call the parent class's method before attempting to access any child elements of
     }
     }
     *)
-  method isViewport : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Viewport, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   
 end
 
@@ -132,6 +135,9 @@ class type configs =
 object('self)
   inherit Ext_container_Container.configs
   
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDestroy] *)
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   (** See method [t.initComponent] *)

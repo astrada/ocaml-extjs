@@ -57,6 +57,11 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method isTemplate : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Template, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   method append : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Applies the supplied <code>values</code> to the template and appends the new node(s) to the specified <code>el</code>.</p>
 
@@ -267,11 +272,6 @@ tpl.apply(\{name: 'John', age: 25\});
     {ul {- [Ext_Template.t Js.t] {% <p>this</p> %}
     }
     }
-    *)
-  method isTemplate : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Template, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
     *)
   
 end

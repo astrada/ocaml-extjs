@@ -50,12 +50,11 @@ let _ =
       (fun (this : t Js.t) button e ->
          this##updateUser(button));
 
-  let controller : configs Js.t =
-    {| stores = Js.array [|Js.string "Users"|];
-       models = Js.array [|Js.string "User"|];
-       views = Js.array [|Js.string "user.List";
-                          Js.string "user.Edit"|];
-    |} in
+  let controller : configs Js.t = {| |} in
+  controller##models <- Js.array [|Js.string "User"|];
+  controller##stores <- Js.array [|Js.string "Users"|];
+  controller##views <- Js.array [|Js.string "user.List";
+                                  Js.string "user.Edit"|];
 
   (ExtUtils.to_class_configs controller)##extend <-
     Js.string "Ext.app.Controller";

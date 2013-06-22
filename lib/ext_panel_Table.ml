@@ -1,7 +1,10 @@
 class type t =
 object('self)
   inherit Ext_panel_Panel.t
+  inherit Ext_grid_locking_Lockable.t
   
+  method hasView : bool Js.t Js.prop
+  method optimizedColumnMove : bool Js.t Js.prop
   method afterCollapse : bool Js.t -> unit Js.meth
   method afterExpand : bool Js.t -> unit Js.meth
   method applyState : _ Js.t -> unit Js.meth
@@ -12,25 +15,14 @@ object('self)
   method getView : Ext_view_Table.t Js.t Js.meth
   method initComponent : unit Js.meth
   method onDestroy : unit Js.meth
-  method hasView : bool Js.t Js.prop
-  method optimizedColumnMove : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
   inherit Ext_panel_Panel.configs
+  inherit Ext_grid_locking_Lockable.configs
   
-  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
   method allowDeselect : bool Js.t Js.prop
   method columnLines : bool Js.t Js.prop
   method columns : _ Js.t Js.prop
@@ -56,12 +48,23 @@ object('self)
   method view : Ext_view_Table.t Js.t Js.prop
   method viewConfig : _ Js.t Js.prop
   method viewType : Js.js_string Js.t Js.prop
+  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
   
 end
 
 class type events =
 object
   inherit Ext_panel_Panel.events
+  inherit Ext_grid_locking_Lockable.events
   
   method beforecellclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
@@ -228,6 +231,7 @@ end
 class type statics =
 object
   inherit Ext_panel_Panel.statics
+  inherit Ext_grid_locking_Lockable.statics
   
   
 end

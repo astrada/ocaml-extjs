@@ -29,6 +29,14 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method state : _ Js.t Js.prop
+  (** {% <p>State variables that are cleared when invalidated. Only applies to component items.</p> %}
+    *)
+  method wrapsComponent : bool Js.t Js.readonly_prop
+  (** {% <p>True if this item wraps a Component (rather than an Element).</p> %}
+    
+    Defaults to: [false]
+    *)
   method addCls : _ Js.t -> unit Js.meth
   (** {% <p>Queue the addition of a class name (or array of class names) to this ContextItem's target when next flushed.</p> %}
     
@@ -404,14 +412,6 @@ value of <code>false</code> indicates that the value is already in the DOM.</p> 
     {% <p>The actual width after constraining.</p> %}
     }
     }
-    *)
-  method state : _ Js.t Js.prop
-  (** {% <p>State variables that are cleared when invalidated. Only applies to component items.</p> %}
-    *)
-  method wrapsComponent : bool Js.t Js.readonly_prop
-  (** {% <p>True if this item wraps a Component (rather than an Element).</p> %}
-    
-    Defaults to: [false]
     *)
   
 end

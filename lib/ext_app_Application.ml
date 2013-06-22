@@ -13,17 +13,17 @@ class type configs =
 object('self)
   inherit Ext_app_Controller.configs
   
-  method launch : ('self Js.t, Js.js_string Js.t -> bool Js.t)
-    Js.meth_callback Js.writeonly_prop
   method appFolder : Js.js_string Js.t Js.prop
   method appProperty : Js.js_string Js.t Js.prop
   method autoCreateViewport : bool Js.t Js.prop
-  method controllers : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method controllers : _ Js.t Js.prop
   method enableQuickTips : bool Js.t Js.prop
   method name : Js.js_string Js.t Js.prop
-  method namespaces : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method namespaces : _ Js.t Js.prop
   method paths : _ Js.t Js.prop
   method scope : _ Js.t Js.prop
+  method launch : ('self Js.t, Js.js_string Js.t -> bool Js.t)
+    Js.meth_callback Js.writeonly_prop
   
 end
 

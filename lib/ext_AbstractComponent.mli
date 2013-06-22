@@ -9,14 +9,69 @@
 
 class type t =
 object('self)
+  inherit Ext_Base.t
   inherit Ext_state_Stateful.t
   inherit Ext_util_Animate.t
   inherit Ext_util_ElementContainer.t
   inherit Ext_util_Observable.t
   inherit Ext_util_Positionable.t
   inherit Ext_util_Renderable.t
-  inherit Ext_Base.t
   
+  method _isLayoutRoot : bool Js.t Js.prop
+  (** {% <p>Setting this property to <code>true</code> causes the <a href="#!/api/Ext.AbstractComponent-method-isLayoutRoot" rel="Ext.AbstractComponent-method-isLayoutRoot" class="docClass">isLayoutRoot</a> method to return
+<code>true</code> and stop the search for the top-most component for a layout.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method contentPaddingProperty : Js.js_string Js.t Js.prop
+  (** {% <p>The name of the padding property that is used by the layout to manage
+padding.  See <a href="#!/api/Ext.layout.container.Auto-property-managePadding" rel="Ext.layout.container.Auto-property-managePadding" class="docClass">managePadding</a></p> %}
+    
+    Defaults to: ['padding']
+    *)
+  method draggable : bool Js.t Js.readonly_prop
+  (** {% <p>Indicates whether or not the component can be dragged.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method frameSize : _ Js.t Js.readonly_prop
+  (** {% <p>Indicates the width of any framing elements which were added within the encapsulating
+element to provide graphical, rounded borders. See the <a href="#!/api/Ext.AbstractComponent-cfg-frame" rel="Ext.AbstractComponent-cfg-frame" class="docClass">frame</a> config. This
+property is <code>null</code> if the component is not framed.</p>
+
+<p>This is an object containing the frame width in pixels for all four sides of the
+Component containing the following properties:</p> %}
+    *)
+  method isComponent : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Component, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method maskOnDisable : bool Js.t Js.prop
+  (** {% <p>This is an internal flag that you use when creating custom components. By default this is set to <code>true</code> which means
+that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
+override this property to <code>false</code> since they want to implement custom disable logic.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method ownerCt : _ Js.t Js.readonly_prop
+  (** {% <p>This Component's owner <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> (is set automatically
+when this Component is added to a Container).</p>
+
+<p><em>Important.</em> This is not a universal upwards navigation pointer. It indicates the Container which owns and manages
+this Component if any. There are other similar relationships such as the <a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">button</a> which activates a <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a>, or the
+<a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu item</a> which activated a <a href="#!/api/Ext.menu.Item-cfg-menu" rel="Ext.menu.Item-cfg-menu" class="docClass">submenu</a>, or the
+<a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">column header</a> which activated the column menu.</p>
+
+<p>These differences are abstracted away by the <a href="#!/api/Ext.AbstractComponent-method-up" rel="Ext.AbstractComponent-method-up" class="docClass">up</a> method.</p>
+
+<p><strong>Note</strong>: to access items within the Container see <a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a>.</p> %}
+    *)
+  method rendered : bool Js.t Js.readonly_prop
+  (** {% <p>Indicates whether or not the component has been rendered.</p> %}
+    
+    Defaults to: [false]
+    *)
   method addCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds a CSS class to the top level element representing this component.</p> %}
     
@@ -334,6 +389,20 @@ layout to be recalculated.</p> %}
     }
     }
     *)
+  method findPlugin : Js.js_string Js.t -> Ext_AbstractPlugin.t Js.t Js.meth
+  (** {% <p>Retrieves plugin from this component's collection by its <code>ptype</code>.</p> %}
+    
+    {b Parameters}:
+    {ul {- ptype: [Js.js_string Js.t]
+    {% <p>The Plugin's ptype as specified by the class's <code>alias</code> configuration.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [Ext_AbstractPlugin.t Js.t] {% <p>plugin instance.</p> %}
+    }
+    }
+    *)
   method getBubbleTarget : _ Js.t Js.meth
   (** {% <p>Provides the link for Observable's <code>fireEvent</code> method to bubble up the ownership hierarchy.</p> %}
     
@@ -395,7 +464,7 @@ is not set, returns the value of <a href="#!/api/Ext.AbstractComponent-cfg-id" r
     }
     *)
   method getPlugin : Js.js_string Js.t -> Ext_AbstractPlugin.t Js.t Js.meth
-  (** {% <p>Retrieves a plugin by its <code>pluginId</code> which has been bound to this component.</p> %}
+  (** {% <p>Retrieves a plugin from this component's collection by its <code>pluginId</code>.</p> %}
     
     {b Parameters}:
     {ul {- pluginId: [Js.js_string Js.t]
@@ -1128,7 +1197,7 @@ Element animation config object</p> %}
     }
     }
     *)
-  method up : _ Js.t Js.optdef -> _ Js.t Js.meth
+  method up : _ Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Navigates up the ownership hierarchy searching for an ancestor Container which matches any passed simple selector or component.</p>
 
 <p><em>Important.</em> There is not a universal upwards navigation pointer. There are several upwards relationships
@@ -1146,6 +1215,9 @@ such as the <a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="do
     {b Parameters}:
     {ul {- selector: [_ Js.t] (optional)
     {% <p>The simple selector component or actual component to test. If not passed the immediate owner/activater is returned.</p> %}
+    }
+    {- limit: [_ Js.t] (optional)
+    {% <p>This may be a selector upon which to stop the upward scan, or a limit of teh number of steps, or Component reference to stop on.</p> %}
     }
     }
     
@@ -1186,107 +1258,19 @@ Otherwise, just this component (and its child items) will layout.</p> %}
     }
     }
     *)
-  method _isLayoutRoot : bool Js.t Js.prop
-  (** {% <p>Setting this property to <code>true</code> causes the <a href="#!/api/Ext.AbstractComponent-method-isLayoutRoot" rel="Ext.AbstractComponent-method-isLayoutRoot" class="docClass">isLayoutRoot</a> method to return
-<code>true</code> and stop the search for the top-most component for a layout.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method contentPaddingProperty : Js.js_string Js.t Js.prop
-  (** {% <p>The name of the padding property that is used by the layout to manage
-padding.  See <a href="#!/api/Ext.layout.container.Auto-property-managePadding" rel="Ext.layout.container.Auto-property-managePadding" class="docClass">managePadding</a></p> %}
-    
-    Defaults to: ['padding']
-    *)
-  method draggable : bool Js.t Js.readonly_prop
-  (** {% <p>Indicates whether or not the component can be dragged.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method frameSize : _ Js.t Js.readonly_prop
-  (** {% <p>Indicates the width of any framing elements which were added within the encapsulating
-element to provide graphical, rounded borders. See the <a href="#!/api/Ext.AbstractComponent-cfg-frame" rel="Ext.AbstractComponent-cfg-frame" class="docClass">frame</a> config. This
-property is <code>null</code> if the component is not framed.</p>
-
-<p>This is an object containing the frame width in pixels for all four sides of the
-Component containing the following properties:</p> %}
-    *)
-  method isComponent : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Component, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method maskOnDisable : bool Js.t Js.prop
-  (** {% <p>This is an internal flag that you use when creating custom components. By default this is set to <code>true</code> which means
-that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
-override this property to <code>false</code> since they want to implement custom disable logic.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method ownerCt : _ Js.t Js.readonly_prop
-  (** {% <p>This Component's owner <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Container</a> (is set automatically
-when this Component is added to a Container).</p>
-
-<p><em>Important.</em> This is not a universal upwards navigation pointer. It indicates the Container which owns and manages
-this Component if any. There are other similar relationships such as the <a href="#!/api/Ext.button.Button" rel="Ext.button.Button" class="docClass">button</a> which activates a <a href="#!/api/Ext.button.Button-cfg-menu" rel="Ext.button.Button-cfg-menu" class="docClass">menu</a>, or the
-<a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">menu item</a> which activated a <a href="#!/api/Ext.menu.Item-cfg-menu" rel="Ext.menu.Item-cfg-menu" class="docClass">submenu</a>, or the
-<a href="#!/api/Ext.grid.column.Column" rel="Ext.grid.column.Column" class="docClass">column header</a> which activated the column menu.</p>
-
-<p>These differences are abstracted away by the <a href="#!/api/Ext.AbstractComponent-method-up" rel="Ext.AbstractComponent-method-up" class="docClass">up</a> method.</p>
-
-<p><strong>Note</strong>: to access items within the Container see <a href="#!/api/Ext.AbstractComponent-cfg-itemId" rel="Ext.AbstractComponent-cfg-itemId" class="docClass">itemId</a>.</p> %}
-    *)
-  method rendered : bool Js.t Js.readonly_prop
-  (** {% <p>Indicates whether or not the component has been rendered.</p> %}
-    
-    Defaults to: [false]
-    *)
   
 end
 
 class type configs =
 object('self)
+  inherit Ext_Base.configs
   inherit Ext_state_Stateful.configs
   inherit Ext_util_Animate.configs
   inherit Ext_util_ElementContainer.configs
   inherit Ext_util_Observable.configs
   inherit Ext_util_Positionable.configs
   inherit Ext_util_Renderable.configs
-  inherit Ext_Base.configs
   
-  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterComponentLayout] *)
-  method afterSetPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterSetPosition] *)
-  method beforeComponentLayout : ('self Js.t, Js.number Js.t ->
-    Js.number Js.t -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.beforeComponentLayout] *)
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
-  method beforeLayout : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeLayout] *)
-  method onAdded : ('self Js.t, _ Js.t -> Js.number Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onAdded] *)
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDisable] *)
-  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onEnable] *)
-  method onPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onPosition] *)
-  method onRemoved : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onRemoved] *)
-  method onResize : ('self Js.t, _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onResize] *)
   method autoEl : _ Js.t Js.prop
   (** {% <p>A tag name or <a href="#!/api/Ext.DomHelper" rel="Ext.DomHelper" class="docClass">DomHelper</a> spec used to create the <a href="#!/api/Ext.AbstractComponent-method-getEl" rel="Ext.AbstractComponent-method-getEl" class="docClass">Element</a> which will
 encapsulate this Component.</p>
@@ -1878,18 +1862,51 @@ a prefix to avoid collisions.</p>
 
 <p>See <a href="#!/api/Ext.enums.Widget" rel="Ext.enums.Widget" class="docClass">Ext.enums.Widget</a> for list of all available xtypes.</p> %}
     *)
+  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterComponentLayout] *)
+  method afterSetPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterSetPosition] *)
+  method beforeComponentLayout : ('self Js.t, Js.number Js.t ->
+    Js.number Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.beforeComponentLayout] *)
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDestroy] *)
+  method beforeLayout : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeLayout] *)
+  method onAdded : ('self Js.t, _ Js.t -> Js.number Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onAdded] *)
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDisable] *)
+  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onEnable] *)
+  method onPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onPosition] *)
+  method onRemoved : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onRemoved] *)
+  method onResize : ('self Js.t, _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onResize] *)
   
 end
 
 class type events =
 object
+  inherit Ext_Base.events
   inherit Ext_state_Stateful.events
   inherit Ext_util_Animate.events
   inherit Ext_util_ElementContainer.events
   inherit Ext_util_Observable.events
   inherit Ext_util_Positionable.events
   inherit Ext_util_Renderable.events
-  inherit Ext_Base.events
   
   method activate : (t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop
   (** {% <p>Fires after a Component has been visually activated.</p> %}

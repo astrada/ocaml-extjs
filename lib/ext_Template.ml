@@ -2,6 +2,7 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method isTemplate : bool Js.t Js.prop
   method append : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.meth
   method apply : _ Js.t -> Js.js_string Js.t Js.meth
   method applyOut : _ Js.t -> _ Js.js_array Js.t -> _ Js.js_array Js.t
@@ -17,7 +18,6 @@ object('self)
   method overwrite : _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
     Js.meth
   method set : Js.js_string Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
-  method isTemplate : bool Js.t Js.prop
   
 end
 

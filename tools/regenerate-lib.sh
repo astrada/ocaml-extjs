@@ -241,4 +241,12 @@ echo Ext.enums.Widget
 ./libgen.byte tools/jsduck/Ext.enums.Widget.json
 echo Ext.layout.SizePolicy
 ./libgen.byte tools/jsduck/Ext.layout.SizePolicy.json
+echo Ext.dom.CompositeElementLite
+./libgen.byte tools/jsduck/Ext.dom.CompositeElementLite.json
+echo Ext.dom.CompositeElement
+./libgen.byte tools/jsduck/Ext.dom.CompositeElement.json
+echo Ext.Queryable
+./libgen.byte tools/jsduck/Ext.Queryable.json
+echo Ext.grid.locking.Lockable
+./libgen.byte tools/jsduck/Ext.grid.locking.Lockable.json
 

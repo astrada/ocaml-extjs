@@ -162,9 +162,29 @@ Order ID: 50, which contains items:
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method metaData : _ Js.t Js.readonly_prop
+  (** {% <p>The raw meta data that was most recently read, if any. Meta data can include existing
+Reader config options like <a href="#!/api/Ext.data.reader.Reader-cfg-idProperty" rel="Ext.data.reader.Reader-cfg-idProperty" class="docClass">idProperty</a>, <a href="#!/api/Ext.data.reader.Reader-cfg-totalProperty" rel="Ext.data.reader.Reader-cfg-totalProperty" class="docClass">totalProperty</a>, etc. that get
+automatically applied to the Reader, and those can still be accessed directly from the Reader
+if needed. However, meta data is also often used to pass other custom data to be processed
+by application code. For example, it is common when reconfiguring the data model of a grid to
+also pass a corresponding column model config to be applied to the grid. Any such data will
+not get applied to the Reader directly (it just gets passed through and is ignored by Ext).
+This metaData property gives you access to all meta data that was passed, including any such
+custom data ignored by the reader.</p>
+
+<p>This is a read-only property, and it will get replaced each time a new meta data object is
+passed to the reader. Note that typically you would handle proxy's
+<a href="#!/api/Ext.data.proxy.Proxy-event-metachange" rel="Ext.data.proxy.Proxy-event-metachange" class="docClass">metachange</a> event which passes this exact same meta
+object to listeners. However this property is available if it's more convenient to access it
+via the reader directly in certain cases.</p> %}
+    *)
+  method rawData : _ Js.t Js.prop
+  (** {% <p>The raw data object that was last passed to <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a>. Stored for further processing if needed.</p> %}
+    *)
   method getResponseData : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   (** {% <p>Takes a raw response object (as passed to the <a href="#!/api/Ext.data.reader.Reader-method-read" rel="Ext.data.reader.Reader-method-read" class="docClass">read</a> method) and returns the useful data
 segment from it. This must be implemented by each subclass.</p> %}
@@ -213,33 +233,13 @@ processing should not be needed.</p> %}
     }
     }
     *)
-  method metaData : _ Js.t Js.readonly_prop
-  (** {% <p>The raw meta data that was most recently read, if any. Meta data can include existing
-Reader config options like <a href="#!/api/Ext.data.reader.Reader-cfg-idProperty" rel="Ext.data.reader.Reader-cfg-idProperty" class="docClass">idProperty</a>, <a href="#!/api/Ext.data.reader.Reader-cfg-totalProperty" rel="Ext.data.reader.Reader-cfg-totalProperty" class="docClass">totalProperty</a>, etc. that get
-automatically applied to the Reader, and those can still be accessed directly from the Reader
-if needed. However, meta data is also often used to pass other custom data to be processed
-by application code. For example, it is common when reconfiguring the data model of a grid to
-also pass a corresponding column model config to be applied to the grid. Any such data will
-not get applied to the Reader directly (it just gets passed through and is ignored by Ext).
-This metaData property gives you access to all meta data that was passed, including any such
-custom data ignored by the reader.</p>
-
-<p>This is a read-only property, and it will get replaced each time a new meta data object is
-passed to the reader. Note that typically you would handle proxy's
-<a href="#!/api/Ext.data.proxy.Proxy-event-metachange" rel="Ext.data.proxy.Proxy-event-metachange" class="docClass">metachange</a> event which passes this exact same meta
-object to listeners. However this property is available if it's more convenient to access it
-via the reader directly in certain cases.</p> %}
-    *)
-  method rawData : _ Js.t Js.prop
-  (** {% <p>The raw data object that was last passed to <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a>. Stored for further processing if needed.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method idProperty : Js.js_string Js.t Js.prop
   (** {% <p>Name of the property within a row object that contains a record identifier value. Defaults to the id of the
@@ -289,8 +289,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method _exception : (t Js.t -> XmlHttpRequest.xmlHttpRequest Js.t ->
     Ext_data_ResultSet.t Js.t -> _ Js.t -> unit) Js.callback

@@ -1,6 +1,6 @@
 # OASIS_START
-# DO NOT EDIT (digest: 99bc5c08ca93201ff9a2447d934b2fc5)
-version = "0.2"
+# DO NOT EDIT (digest: fdd4d40efb9902df908b4a43292d491c)
+version = "0.3"
 description = "Ext JS 4.2 for js_of_ocaml"
 requires = "js_of_ocaml"
 archive(byte) = "oextjs.cma"

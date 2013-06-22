@@ -5,8 +5,8 @@
 
 class type t =
 object('self)
-  inherit Ext_util_Bindable.t
   inherit Ext_Component.t
+  inherit Ext_util_Bindable.t
   
   method afterRender : unit Js.meth
   (** {% <p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
@@ -342,21 +342,9 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_util_Bindable.configs
   inherit Ext_Component.configs
+  inherit Ext_util_Bindable.configs
   
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRender] *)
   method blockRefresh : bool Js.t Js.prop
   (** {% <p>Set this to true to ignore refresh events on the bound store. This is useful if
 you wish to provide custom transition animations via a plugin</p> %}
@@ -464,13 +452,25 @@ This in return will also cause <a href="#!/api/Ext.view.View-event-highlightitem
     
     Defaults to: [false]
     *)
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterRender] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
+  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onRender] *)
   
 end
 
 class type events =
 object
-  inherit Ext_util_Bindable.events
   inherit Ext_Component.events
+  inherit Ext_util_Bindable.events
   
   method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

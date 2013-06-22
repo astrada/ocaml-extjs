@@ -2,16 +2,16 @@ class type t =
 object('self)
   inherit Ext_util_Observable.t
   
-  method disable : unit Js.meth
-  method enable : unit Js.meth
-  method getFireEventArgs : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
-    Js.meth
   method disabled : bool Js.t Js.prop
   method eventPrefix : Js.js_string Js.t Js.prop
   method eventSelector : Js.js_string Js.t Js.prop
   method grid : _ Js.t Js.prop
   method hasFeatureEvent : bool Js.t Js.prop
   method view : _ Js.t Js.prop
+  method disable : unit Js.meth
+  method enable : unit Js.meth
+  method getFireEventArgs : _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit
+    Js.meth
   
 end
 

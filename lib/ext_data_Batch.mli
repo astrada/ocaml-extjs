@@ -12,9 +12,39 @@ event if any of the Operations encounter an exception.</p>
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method current : Js.number Js.t Js.prop
+  (** {% <p>The index of the current operation being executed. Read only</p> %}
+    *)
+  method exceptions : Ext_data_Operation.t Js.js_array Js.t Js.prop
+  (** {% <p>Ordered array of operations that raised an exception during the most recent
+batch execution and did not successfully complete</p> %}
+    *)
+  method hasException : bool Js.t Js.prop
+  (** {% <p>True if this batch has encountered an exception. This is cleared at the start of each operation. Read only</p> %}
+    
+    Defaults to: [false]
+    *)
+  method isComplete : bool Js.t Js.prop
+  (** {% <p>True if this batch has been executed completely. Read only</p> %}
+    
+    Defaults to: [false]
+    *)
+  method isRunning : bool Js.t Js.prop
+  (** {% <p>True if the batch is currently running. Read only</p> %}
+    
+    Defaults to: [false]
+    *)
+  method operations : Ext_data_Operation.t Js.js_array Js.t Js.prop
+  (** {% <p>Ordered array of operations that will be executed by this batch</p> %}
+    *)
+  method total : Js.number Js.t Js.prop
+  (** {% <p>The total number of operations in this batch. Read only</p> %}
+    
+    Defaults to: [0]
+    *)
   method add : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds a new operation to this batch at the end of the <a href="#!/api/Ext.data.Batch-property-operations" rel="Ext.data.Batch-property-operations" class="docClass">operations</a> array</p> %}
     
@@ -85,43 +115,13 @@ because you explicitly handled the operation's exception), call <a href="#!/api/
     }
     }
     *)
-  method current : Js.number Js.t Js.prop
-  (** {% <p>The index of the current operation being executed. Read only</p> %}
-    *)
-  method exceptions : Ext_data_Operation.t Js.js_array Js.t Js.prop
-  (** {% <p>Ordered array of operations that raised an exception during the most recent
-batch execution and did not successfully complete</p> %}
-    *)
-  method hasException : bool Js.t Js.prop
-  (** {% <p>True if this batch has encountered an exception. This is cleared at the start of each operation. Read only</p> %}
-    
-    Defaults to: [false]
-    *)
-  method isComplete : bool Js.t Js.prop
-  (** {% <p>True if this batch has been executed completely. Read only</p> %}
-    
-    Defaults to: [false]
-    *)
-  method isRunning : bool Js.t Js.prop
-  (** {% <p>True if the batch is currently running. Read only</p> %}
-    
-    Defaults to: [false]
-    *)
-  method operations : Ext_data_Operation.t Js.js_array Js.t Js.prop
-  (** {% <p>Ordered array of operations that will be executed by this batch</p> %}
-    *)
-  method total : Js.number Js.t Js.prop
-  (** {% <p>The total number of operations in this batch. Read only</p> %}
-    
-    Defaults to: [0]
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method autoStart : bool Js.t Js.prop
   (** {% <p>True to immediately start processing the batch as soon as it is constructed (defaults to false)</p> %}
@@ -154,8 +154,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method complete : (t Js.t -> _ Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

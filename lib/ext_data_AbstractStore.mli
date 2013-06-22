@@ -25,10 +25,34 @@ or can be completed on the server. This is controlled by the <a href="#!/api/Ext
 
 class type t =
 object('self)
+  inherit Ext_Base.t
   inherit Ext_util_Observable.t
   inherit Ext_util_Sortable.t
-  inherit Ext_Base.t
   
+  method defaultProxyType : Js.js_string Js.t Js.prop
+  (** {% <p>The string type of the Proxy to create if none is specified. This defaults to creating a
+<a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">memory proxy</a>.</p> %}
+    
+    Defaults to: ['memory']
+    *)
+  method filters : Ext_util_MixedCollection.t Js.t Js.prop
+  (** {% <p>The collection of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filters</a> currently applied to this Store</p> %}
+    *)
+  method isDestroyed : bool Js.t Js.prop
+  (** {% <p>True if the Store has already been destroyed. If this is true, the reference to Store should be deleted
+as it will not function correctly any more.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method isStore : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Store, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method removed : Ext_data_Model.t Js.js_array Js.t Js.prop
+  (** {% <p>Temporary cache in which removed model instances are kept until successfully synchronised with a Proxy,
+at which point this is cleared.</p> %}
+    *)
   method getModifiedRecords : Ext_data_Model.t Js.js_array Js.t Js.meth
   (** {% <p>Gets all <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">records</a> added or updated since the last commit. Note that the order of records
 returned is not deterministic and does not indicate the order in which records were modified. Note also that
@@ -153,38 +177,14 @@ passed along to the underlying proxy's <a href="#!/api/Ext.data.proxy.Proxy-meth
     }
     }
     *)
-  method defaultProxyType : Js.js_string Js.t Js.prop
-  (** {% <p>The string type of the Proxy to create if none is specified. This defaults to creating a
-<a href="#!/api/Ext.data.proxy.Memory" rel="Ext.data.proxy.Memory" class="docClass">memory proxy</a>.</p> %}
-    
-    Defaults to: ['memory']
-    *)
-  method filters : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>The collection of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filters</a> currently applied to this Store</p> %}
-    *)
-  method isDestroyed : bool Js.t Js.prop
-  (** {% <p>True if the Store has already been destroyed. If this is true, the reference to Store should be deleted
-as it will not function correctly any more.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method isStore : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Store, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method removed : Ext_data_Model.t Js.js_array Js.t Js.prop
-  (** {% <p>Temporary cache in which removed model instances are kept until successfully synchronised with a Proxy,
-at which point this is cleared.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
+  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   inherit Ext_util_Sortable.configs
-  inherit Ext_Base.configs
   
   method autoLoad : _ Js.t Js.prop
   (** {% <p>If data is not specified, and if autoLoad is true or an Object, this store's load method is automatically called
@@ -271,9 +271,9 @@ end
 
 class type events =
 object
+  inherit Ext_Base.events
   inherit Ext_util_Observable.events
   inherit Ext_util_Sortable.events
-  inherit Ext_Base.events
   
   method add : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t
     -> _ Js.t -> unit) Js.callback Js.writeonly_prop

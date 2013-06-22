@@ -2,6 +2,11 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method bodyEl : Ext_dom_Element.t Js.t Js.prop
+  method errorEl : Ext_dom_Element.t Js.t Js.prop
+  method isFieldLabelable : bool Js.t Js.prop
+  method labelCell : Ext_dom_Element.t Js.t Js.prop
+  method labelEl : Ext_dom_Element.t Js.t Js.prop
   method getActiveError : Js.js_string Js.t Js.meth
   method getActiveErrors : Js.js_string Js.t Js.js_array Js.t Js.meth
   method getFieldLabel : Js.js_string Js.t Js.meth
@@ -18,11 +23,6 @@ object('self)
   method setFieldLabel : Js.js_string Js.t -> unit Js.meth
   method trimLabelSeparator : Js.js_string Js.t Js.meth
   method unsetActiveError : unit Js.meth
-  method bodyEl : Ext_dom_Element.t Js.t Js.prop
-  method errorEl : Ext_dom_Element.t Js.t Js.prop
-  method isFieldLabelable : bool Js.t Js.prop
-  method labelCell : Ext_dom_Element.t Js.t Js.prop
-  method labelEl : Ext_dom_Element.t Js.t Js.prop
   
 end
 
@@ -30,8 +30,6 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method getFieldLabel : ('self Js.t, unit -> Js.js_string Js.t)
-    Js.meth_callback Js.writeonly_prop
   method activeError : Js.js_string Js.t Js.prop
   method activeErrorsTpl : _ Js.t Js.prop
   method afterBodyEl : _ Js.t Js.prop
@@ -62,6 +60,8 @@ object('self)
   method labelWidth : Js.number Js.t Js.prop
   method msgTarget : Js.js_string Js.t Js.prop
   method preventMark : bool Js.t Js.prop
+  method getFieldLabel : ('self Js.t, unit -> Js.js_string Js.t)
+    Js.meth_callback Js.writeonly_prop
   
 end
 

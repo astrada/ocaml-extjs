@@ -222,9 +222,52 @@ set of added, updated and removed Model instances to be synchronized with the se
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method dirty : bool Js.t Js.readonly_prop
+  (** {% <p>True if this Record has been modified.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method editing : bool Js.t Js.readonly_prop
+  (** {% <p>Internal flag used to track whether or not the model instance is currently being edited.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method fields : Ext_util_MixedCollection.t Js.t Js.prop
+  (** {% <p>A <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Collection</a> of the fields defined for this Model (including fields defined in superclasses)</p>
+
+<p>This is a collection of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Ext.data.Field</a> instances, each of which encapsulates information that the field was configured with.
+By default, you can specify a field as simply a String, representing the <em>name</em> of the field, but a Field encapsulates
+<a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">data type</a>, <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">custom conversion</a> of raw data, and a <a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a>
+property to specify by name of index, how to extract a field's value from a raw data object.</p> %}
+    *)
+  method isModel : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Model, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method modified : _ Js.t Js.prop
+  (** {% <p>Key: value pairs of all fields whose values have changed</p> %}
+    *)
+  method phantom : bool Js.t Js.prop
+  (** {% <p>True when the record does not yet exist in a server-side database (see <a href="#!/api/Ext.data.Model-method-setDirty" rel="Ext.data.Model-method-setDirty" class="docClass">setDirty</a>).
+Any record which has a real database pk set as its id property is NOT a phantom -- it's real.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method raw : _ Js.t Js.prop
+  (** {% <p>The raw data used to create this model if created via a reader.</p> %}
+    *)
+  method store : _ Js.t Js.prop
+  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> to which this instance belongs. NOTE: If this
+instance is bound to multiple stores, this property will reference only the
+first. To examine all the stores, use the <a href="#!/api/Ext.data.Model-property-stores" rel="Ext.data.Model-property-stores" class="docClass">stores</a> property instead.</p> %}
+    *)
+  method stores : _ Js.js_array Js.t Js.prop
+  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Stores</a> to which this instance is bound.</p> %}
+    *)
   method beginEdit : unit Js.meth
   (** {% <p>Begins an edit. While in edit mode, no events (e.g.. the <code>update</code> event) are relayed to the containing store.
 When an edit has begun, it must be followed by either <a href="#!/api/Ext.data.Model-method-endEdit" rel="Ext.data.Model-method-endEdit" class="docClass">endEdit</a> or <a href="#!/api/Ext.data.Model-method-cancelEdit" rel="Ext.data.Model-method-cancelEdit" class="docClass">cancelEdit</a>.</p> %}
@@ -482,56 +525,13 @@ where it will have a create action composed for it during <a href="#!/api/Ext.da
     }
     }
     *)
-  method dirty : bool Js.t Js.readonly_prop
-  (** {% <p>True if this Record has been modified.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method editing : bool Js.t Js.readonly_prop
-  (** {% <p>Internal flag used to track whether or not the model instance is currently being edited.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method fields : Ext_util_MixedCollection.t Js.t Js.prop
-  (** {% <p>A <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Collection</a> of the fields defined for this Model (including fields defined in superclasses)</p>
-
-<p>This is a collection of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Ext.data.Field</a> instances, each of which encapsulates information that the field was configured with.
-By default, you can specify a field as simply a String, representing the <em>name</em> of the field, but a Field encapsulates
-<a href="#!/api/Ext.data.Field-cfg-type" rel="Ext.data.Field-cfg-type" class="docClass">data type</a>, <a href="#!/api/Ext.data.Field-cfg-convert" rel="Ext.data.Field-cfg-convert" class="docClass">custom conversion</a> of raw data, and a <a href="#!/api/Ext.data.Field-cfg-mapping" rel="Ext.data.Field-cfg-mapping" class="docClass">mapping</a>
-property to specify by name of index, how to extract a field's value from a raw data object.</p> %}
-    *)
-  method isModel : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Model, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method modified : _ Js.t Js.prop
-  (** {% <p>Key: value pairs of all fields whose values have changed</p> %}
-    *)
-  method phantom : bool Js.t Js.prop
-  (** {% <p>True when the record does not yet exist in a server-side database (see <a href="#!/api/Ext.data.Model-method-setDirty" rel="Ext.data.Model-method-setDirty" class="docClass">setDirty</a>).
-Any record which has a real database pk set as its id property is NOT a phantom -- it's real.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method raw : _ Js.t Js.prop
-  (** {% <p>The raw data used to create this model if created via a reader.</p> %}
-    *)
-  method store : _ Js.t Js.prop
-  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Store</a> to which this instance belongs. NOTE: If this
-instance is bound to multiple stores, this property will reference only the
-first. To examine all the stores, use the <a href="#!/api/Ext.data.Model-property-stores" rel="Ext.data.Model-property-stores" class="docClass">stores</a> property instead.</p> %}
-    *)
-  method stores : _ Js.js_array Js.t Js.prop
-  (** {% <p>The <a href="#!/api/Ext.data.Store" rel="Ext.data.Store" class="docClass">Stores</a> to which this instance is bound.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method associations : _ Js.t Js.js_array Js.t Js.prop
   (** {% <p>An array of <a href="#!/api/Ext.data.association.Association" rel="Ext.data.association.Association" class="docClass">associations</a> for this model.</p> %}
@@ -651,8 +651,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method idchanged : (t Js.t -> _ Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop
@@ -678,6 +678,21 @@ object
   inherit Ext_Base.statics
   inherit Ext_util_Observable.statics
   
+  method _COMMIT : Js.js_string Js.t Js.prop
+  (** {% <p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
+    
+    Defaults to: ['commit']
+    *)
+  method _EDIT : Js.js_string Js.t Js.prop
+  (** {% <p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
+    
+    Defaults to: ['edit']
+    *)
+  method _REJECT : Js.js_string Js.t Js.prop
+  (** {% <p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
+    
+    Defaults to: ['reject']
+    *)
   method getFields : Ext_data_Field.t Js.js_array Js.t Js.meth
   (** {% <p>Returns an Array of <a href="#!/api/Ext.data.Field" rel="Ext.data.Field" class="docClass">Field</a> definitions which define this Model's structure</p>
 
@@ -736,12 +751,14 @@ MyApp.User.load(10, \{
     scope: this,
     failure: function(record, operation) \{
         //do something if the load failed
+        //record is null
     \},
     success: function(record, operation) \{
         //do something if the load succeeded
     \},
-    callback: function(record, operation) \{
+    callback: function(record, operation, success) \{
         //do something whether the load succeeded or failed
+        //if operation is unsuccessful, record is null
     \}
 \});
 </code></pre> %}
@@ -778,21 +795,6 @@ model based on changes in meta data (called from Reader's onMetaChange method).<
     {ul {- proxy: [_ Js.t] {% <p>The proxy</p> %}
     }
     }
-    *)
-  method _COMMIT : Js.js_string Js.t Js.prop
-  (** {% <p>The update operation of type 'commit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
-    
-    Defaults to: ['commit']
-    *)
-  method _EDIT : Js.js_string Js.t Js.prop
-  (** {% <p>The update operation of type 'edit'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
-    
-    Defaults to: ['edit']
-    *)
-  method _REJECT : Js.js_string Js.t Js.prop
-  (** {% <p>The update operation of type 'reject'. Used by <a href="#!/api/Ext.data.Store-event-update" rel="Ext.data.Store-event-update" class="docClass">Store.update</a> event.</p> %}
-    
-    Defaults to: ['reject']
     *)
   
 end

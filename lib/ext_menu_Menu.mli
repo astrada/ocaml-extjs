@@ -46,6 +46,32 @@ class type t =
 object('self)
   inherit Ext_panel_Panel.t
   
+  method isMenu : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Menu, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method parentMenu : 'self Js.t Js.prop
+  (** {% <p>The parent Menu of this Menu.</p> %}
+    *)
+  method afterShow : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit Js.meth
+  (** {% <p>Invoked after the Component is shown (after <a href="#!/api/Ext.menu.Menu-method-onShow" rel="Ext.menu.Menu-method-onShow" class="docClass">onShow</a> is called).</p>
+
+<p>Gets passed the same parameters as <a href="#!/api/Ext.menu.Menu-method-show" rel="Ext.menu.Menu-method-show" class="docClass">show</a>.</p> %}
+    
+    {b Parameters}:
+    {ul {- animateTarget: [_ Js.t] (optional)
+    }
+    {- callback: [_ Js.callback] (optional)
+    }
+    {- scope: [_ Js.t] (optional)
+    }
+    }
+    *)
+  method beforeShow : unit Js.meth
+  (** {% <p>Invoked before the Component is shown.</p> %}
+    *)
   method canActivateItem : _ Js.t -> bool Js.t Js.meth
   (** {% <p>Returns whether a menu item can be activated or not.</p> %}
     
@@ -68,7 +94,7 @@ object('self)
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.grid.column.Column-cfg-floating" rel="Ext.grid.column.Column-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -97,6 +123,9 @@ Defaults to this Component.</p> %}
     {% <p>Pass <code>true</code> to interrogate the visibility status of all parent Containers to
 determine whether this Component is truly visible to the user.</p>
 
+
+
+
 <p>Generally, to determine whether a Component is hidden, the no argument form is needed. For example when creating
 dynamically laid out UIs in a hidden Container before showing them.</p> %}
      Defaults to: false
@@ -112,34 +141,6 @@ dynamically laid out UIs in a hidden Container before showing them.</p> %}
   method onDestroy : unit Js.meth
   (** {% <p>Allows addition of behavior to the destroy operation.
 After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
-    *)
-  method show_menu : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
-  (** {% <p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu-cfg-autoRender" rel="Ext.menu.Menu-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
-
-<p>After being shown, a <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
-brought to the front of its <a href="#!/api/Ext.menu.Menu-property-zIndexManager" rel="Ext.menu.Menu-property-zIndexManager" class="docClass">z-index stack</a>.</p> %}
-    
-    {b Parameters}:
-    {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
-with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
-     Defaults to: null
-    }
-    {- callback: [_ Js.callback] (optional)
-    {% <p>A callback function to call after the Component is displayed.
-Only necessary if animation was specified.</p> %}
-    }
-    {- scope: [_ Js.t] (optional)
-    {% <p>The scope (<code>this</code> reference) in which the callback is executed.
-Defaults to this Component.</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [#Ext_Component.t Js.t] {% <p>this</p> %}
-    }
-    }
     *)
   method showBy_menu : _ Js.t -> Js.js_string Js.t Js.optdef ->
     Js.number Js.t Js.js_array Js.t Js.optdef -> #Ext_Component.t Js.t
@@ -165,14 +166,6 @@ Defaults to <code><a href="#!/api/Ext.menu.Menu-cfg-defaultAlign" rel="Ext.menu.
     }
     }
     *)
-  method isMenu : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Menu, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method parentMenu : 'self Js.t Js.prop
-  (** {% <p>The parent Menu of this Menu.</p> %}
-    *)
   
 end
 
@@ -180,9 +173,6 @@ class type configs =
 object('self)
   inherit Ext_panel_Panel.configs
   
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
   method allowOtherMenus : bool Js.t Js.prop
   (** {% <p>True to allow multiple menus to be displayed at the same time.</p> %}
     
@@ -251,6 +241,15 @@ non <a href="#!/api/Ext.menu.Item" rel="Ext.menu.Item" class="docClass">MenuItem
     
     Defaults to: [true]
     *)
+  method afterShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef
+    -> _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterShow] *)
+  method beforeShow : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeShow] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
   
 end
 

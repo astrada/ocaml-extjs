@@ -77,6 +77,18 @@ class type t =
 object('self)
   inherit Ext_grid_header_Container.t
   
+  method isColumn : bool Js.t Js.readonly_prop
+  (** {% <p>Set in this class to identify, at runtime, instances which are not instances of the
+HeaderContainer base class, but are in fact simple column headers.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method textEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>Element that contains the text in column header.</p> %}
+    *)
+  method triggerEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>Element that acts as button for column header dropdown menu.</p> %}
+    *)
   method afterComponentLayout : Js.number Js.t -> Js.number Js.t -> _ Js.t ->
     _ Js.t -> unit Js.meth
   (** {% <p>private
@@ -310,18 +322,6 @@ Defaults to this Component.</p> %}
     }
     }
     *)
-  method isHeader : bool Js.t Js.prop
-  (** {% <p>Set in this class to identify, at runtime, instances which are not instances of the
-HeaderContainer base class, but are in fact, the subclass: Header.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method textEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>Element that contains the text in column header.</p> %}
-    *)
-  method triggerEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>Element that acts as button for column header dropdown menu.</p> %}
-    *)
   
 end
 
@@ -329,27 +329,6 @@ class type configs =
 object('self)
   inherit Ext_grid_header_Container.configs
   
-  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterComponentLayout] *)
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
-  method defaultRenderer : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.defaultRenderer] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onAdd] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
-  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRemove] *)
   method align : Js.js_string Js.t Js.prop
   (** {% <p>Sets the alignment of the header and rendered columns.
 Possible values are: <code>'left'</code>, <code>'center'</code>, and <code>'right'</code>.</p> %}
@@ -529,6 +508,27 @@ the owning grid's state.</p> %}
     
     Defaults to: ["qtip"]
     *)
+  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterComponentLayout] *)
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterRender] *)
+  method defaultRenderer : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.defaultRenderer] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onAdd] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
+  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onRemove] *)
   
 end
 

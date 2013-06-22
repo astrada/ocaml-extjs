@@ -4,9 +4,14 @@
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method isMixedCollection : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated MixedCollection, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   method add : _ Js.t -> _ Js.t Js.optdef -> _ Js.t Js.meth
   (** {% <p>Adds an item to the collection. Fires the <a href="#!/api/Ext.util.AbstractMixedCollection-event-add" rel="Ext.util.AbstractMixedCollection-event-add" class="docClass">add</a> event when complete.</p> %}
     
@@ -138,15 +143,12 @@ MixedCollection can be easily filtered by property like this:</p>
 
 <p>   //create a simple store with a few people defined
    var people = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
-   people.addAll([</p>
-
-<pre><code>   \{id: 1, age: 25, name: 'Ed'\},
-   \{id: 2, age: 24, name: 'Tommy'\},
-   \{id: 3, age: 24, name: 'Arne'\},
-   \{id: 4, age: 26, name: 'Aaron'\}
-</code></pre>
-
-<p>   ]);</p>
+   people.addAll([
+       \{id: 1, age: 25, name: 'Ed'\},
+       \{id: 2, age: 24, name: 'Tommy'\},
+       \{id: 3, age: 24, name: 'Arne'\},
+       \{id: 4, age: 26, name: 'Aaron'\}
+   ]);</p>
 
 <p>   //a new MixedCollection containing only the items where age == 24
    var middleAged = people.filter('age', 24);</p> %}
@@ -598,22 +600,14 @@ does not exist this is a no-op.</p> %}
     }
     }
     *)
-  method isMixedCollection : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated MixedCollection, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
-  method getKey : ('self Js.t, _ Js.t -> _ Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.getKey] *)
   method allowFunctions : bool Js.t Js.prop
   (** {% <p>Specify <code>true</code> if the <a href="#!/api/Ext.util.AbstractMixedCollection-method-addAll" rel="Ext.util.AbstractMixedCollection-method-addAll" class="docClass">addAll</a>
 function should add function references to the collection. Defaults to
@@ -621,13 +615,16 @@ function should add function references to the collection. Defaults to
     
     Defaults to: [false]
     *)
+  method getKey : ('self Js.t, _ Js.t -> _ Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.getKey] *)
   
 end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method add : (Js.number Js.t -> _ Js.t -> Js.js_string Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop

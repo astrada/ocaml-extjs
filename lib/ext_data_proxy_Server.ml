@@ -28,8 +28,6 @@ class type configs =
 object('self)
   inherit Ext_data_proxy_Proxy.configs
   
-  method afterRequest : ('self Js.t, Ext_data_Request.t Js.t -> bool Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
   method api : _ Js.t Js.prop
   method cacheString : Js.js_string Js.t Js.prop
   method directionParam : Js.js_string Js.t Js.prop
@@ -47,6 +45,8 @@ object('self)
   method startParam : Js.js_string Js.t Js.prop
   method timeout : Js.number Js.t Js.prop
   method url : Js.js_string Js.t Js.prop
+  method afterRequest : ('self Js.t, Ext_data_Request.t Js.t -> bool Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
   
 end
 

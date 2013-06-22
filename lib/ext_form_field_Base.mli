@@ -80,10 +80,20 @@ field renderings.</p>
 
 class type t =
 object('self)
+  inherit Ext_Component.t
   inherit Ext_form_Labelable.t
   inherit Ext_form_field_Field.t
-  inherit Ext_Component.t
   
+  method inputEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The input Element for this Field. Only available after the field has been rendered.</p> %}
+    *)
+  method maskOnDisable : bool Js.t Js.prop
+  (** {% <p>This is an internal flag that you use when creating custom components. By default this is set to <code>true</code> which means
+that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
+override this property to <code>false</code> since they want to implement custom disable logic.</p> %}
+    
+    Defaults to: [false]
+    *)
   method clearInvalid : unit Js.meth
   (** {% <p>Clear any invalid styles/messages for this field.</p>
 
@@ -411,40 +421,15 @@ to an empty string.</p> %}
     }
     }
     *)
-  method inputEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The input Element for this Field. Only available after the field has been rendered.</p> %}
-    *)
-  method maskOnDisable : bool Js.t Js.prop
-  (** {% <p>This is an internal flag that you use when creating custom components. By default this is set to <code>true</code> which means
-that every component gets a mask when it's disabled. Components like FieldContainer, FieldSet, Field, Button, Tab
-override this property to <code>false</code> since they want to implement custom disable logic.</p> %}
-    
-    Defaults to: [false]
-    *)
   
 end
 
 class type configs =
 object('self)
+  inherit Ext_Component.configs
   inherit Ext_form_Labelable.configs
   inherit Ext_form_field_Field.configs
-  inherit Ext_Component.configs
   
-  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.getSubTplData] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDisable] *)
-  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onEnable] *)
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRender] *)
   method baseCls : Js.js_string Js.t Js.prop
   (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
 component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
@@ -569,14 +554,29 @@ along the way. See also <a href="#!/api/Ext.form.field.Base-cfg-validateOnChange
     
     Defaults to: [true]
     *)
+  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.getSubTplData] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDisable] *)
+  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onEnable] *)
+  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onRender] *)
   
 end
 
 class type events =
 object
+  inherit Ext_Component.events
   inherit Ext_form_Labelable.events
   inherit Ext_form_field_Field.events
-  inherit Ext_Component.events
   
   method specialkey : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop

@@ -2,6 +2,9 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method defaultUnit : Js.js_string Js.t Js.prop
+  method dom : Dom_html.element Js.t Js.prop
+  method id : Js.js_string Js.t Js.prop
   method addCls : _ Js.t -> 'self Js.t Js.meth
   method appendChild : _ Js.t -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   method appendTo : _ Js.t -> 'self Js.t Js.meth
@@ -84,9 +87,6 @@ object('self)
   method update : Js.js_string Js.t -> 'self Js.t Js.meth
   method wrap : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
     Js.js_string Js.t Js.optdef -> _ Js.t Js.meth
-  method defaultUnit : Js.js_string Js.t Js.prop
-  method dom : Dom_html.element Js.t Js.prop
-  method id : Js.js_string Js.t Js.prop
   
 end
 
@@ -108,6 +108,10 @@ class type statics =
 object
   inherit Ext_Base.statics
   
+  method _ASCLASS : Js.number Js.t Js.prop
+  method _DISPLAY : Js.number Js.t Js.prop
+  method _OFFSETS : Js.number Js.t Js.prop
+  method _VISIBILITY : Js.number Js.t Js.prop
   method fly : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   method fromPoint : Js.number Js.t -> Js.number Js.t -> Js.js_string Js.t
     Js.meth
@@ -125,10 +129,6 @@ object
   method removeCls : _ Js.t -> _ Js.t -> _ Js.js_array Js.t Js.meth
   method unitizeBox : _ Js.t -> Js.js_string Js.t -> Js.js_string Js.t
     Js.meth
-  method _ASCLASS : Js.number Js.t Js.prop
-  method _DISPLAY : Js.number Js.t Js.prop
-  method _OFFSETS : Js.number Js.t Js.prop
-  method _VISIBILITY : Js.number Js.t Js.prop
   
 end
 

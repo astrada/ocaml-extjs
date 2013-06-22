@@ -118,12 +118,6 @@ class type configs =
 object('self)
   inherit Ext_Base.configs
   
-  method onDockedAdd : ('self Js.t, #Ext_Component.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onDockedAdd] *)
-  method onDockedRemove : ('self Js.t, #Ext_Component.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onDockedRemove] *)
   method defaultDockWeights : _ Js.t Js.prop
   (** {% <p>This object holds the default weights applied to dockedItems that have no weight. These start with a
 weight of 1, to allow negative weights to insert before top items and are odd numbers
@@ -157,6 +151,12 @@ To change the defaults on a single panel, you should replace the entire object:<
     
     Defaults to: [\{top: \{render: 1, visual: 1\}, left: \{render: 3, visual: 5\}, right: \{render: 5, visual: 7\}, bottom: \{render: 7, visual: 3\}\}]
     *)
+  method onDockedAdd : ('self Js.t, #Ext_Component.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onDockedAdd] *)
+  method onDockedRemove : ('self Js.t, #Ext_Component.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onDockedRemove] *)
   
 end
 

@@ -6,6 +6,19 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method defaultUnit : Js.js_string Js.t Js.prop
+  (** {% <p>The default unit to append to CSS values where a unit isn't provided.</p>
+
+<p><strong>Overridden in Ext.dom.AbstractElement_static.</strong></p> %}
+    
+    Defaults to: ["px"]
+    *)
+  method dom : Dom_html.element Js.t Js.prop
+  (** {% <p>The DOM element</p> %}
+    *)
+  method id : Js.js_string Js.t Js.prop
+  (** {% <p>The DOM element ID</p> %}
+    *)
   method addCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds one or more CSS classes to the element. Duplicate classes are automatically filtered out.</p>
 
@@ -1153,19 +1166,6 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
     }
     }
     *)
-  method defaultUnit : Js.js_string Js.t Js.prop
-  (** {% <p>The default unit to append to CSS values where a unit isn't provided.</p>
-
-<p><strong>Overridden in Ext.dom.AbstractElement_static.</strong></p> %}
-    
-    Defaults to: ["px"]
-    *)
-  method dom : Dom_html.element Js.t Js.prop
-  (** {% <p>The DOM element</p> %}
-    *)
-  method id : Js.js_string Js.t Js.prop
-  (** {% <p>The DOM element ID</p> %}
-    *)
   
 end
 
@@ -1187,6 +1187,34 @@ class type statics =
 object
   inherit Ext_Base.statics
   
+  method _ASCLASS : Js.number Js.t Js.prop
+  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Add or remove the <a href="#!/api/Ext.dom.Layer-cfg-visibilityCls" rel="Ext.dom.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> %}
+    
+    Defaults to: [4]
+    *)
+  method _DISPLAY : Js.number Js.t Js.prop
+  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use the CSS 'display' property to hide the element.</p> %}
+    
+    Defaults to: [2]
+    *)
+  method _OFFSETS : Js.number Js.t Js.prop
+  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use CSS absolute positioning and top/left offsets to hide the element.</p> %}
+    
+    Defaults to: [3]
+    *)
+  method _VISIBILITY : Js.number Js.t Js.prop
+  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use the CSS 'visibility' property to hide the element.</p>
+
+<p>Note that in this mode, <a href="#!/api/Ext.dom.Element-method-isVisible" rel="Ext.dom.Element-method-isVisible" class="docClass">isVisible</a> may return true
+for an element even though it actually has a parent element that is hidden. For this
+reason, and in most cases, using the <a href="#!/api/Ext.dom.AbstractElement-static-property-OFFSETS" rel="Ext.dom.AbstractElement-static-property-OFFSETS" class="docClass">OFFSETS</a> mode is a better choice.</p> %}
+    
+    Defaults to: [1]
+    *)
   method fly : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Gets the singleton <a href="#!/api/Ext.dom.Element.Fly" rel="Ext.dom.Element.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
 
@@ -1241,6 +1269,13 @@ internally Ext uses "_global")</p> %}
 
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
 objects which encapsulate DOM elements. To retrieve a Component by its ID, use <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.</p>
+
+<p>When passing an id, it should not include the <code>#</code> character that is used for a css selector.</p>
+
+<pre><code>// For an element with id 'foo'
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('foo'); // Correct
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('#foo'); // Incorrect
+</code></pre>
 
 <p>Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with
 the same id via AJAX or DOM.</p> %}
@@ -1462,34 +1497,6 @@ bottom, and left properties</p> %}
     {% <p>An string with unitized (px if units is not specified) metrics for top, right, bottom and left</p> %}
     }
     }
-    *)
-  method _ASCLASS : Js.number Js.t Js.prop
-  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Add or remove the <a href="#!/api/Ext.dom.Layer-cfg-visibilityCls" rel="Ext.dom.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> %}
-    
-    Defaults to: [4]
-    *)
-  method _DISPLAY : Js.number Js.t Js.prop
-  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use the CSS 'display' property to hide the element.</p> %}
-    
-    Defaults to: [2]
-    *)
-  method _OFFSETS : Js.number Js.t Js.prop
-  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use CSS absolute positioning and top/left offsets to hide the element.</p> %}
-    
-    Defaults to: [3]
-    *)
-  method _VISIBILITY : Js.number Js.t Js.prop
-  (** {% <p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use the CSS 'visibility' property to hide the element.</p>
-
-<p>Note that in this mode, <a href="#!/api/Ext.dom.Element-method-isVisible" rel="Ext.dom.Element-method-isVisible" class="docClass">isVisible</a> may return true
-for an element even though it actually has a parent element that is hidden. For this
-reason, and in most cases, using the <a href="#!/api/Ext.dom.AbstractElement-static-property-OFFSETS" rel="Ext.dom.AbstractElement-static-property-OFFSETS" class="docClass">OFFSETS</a> mode is a better choice.</p> %}
-    
-    Defaults to: [1]
     *)
   
 end

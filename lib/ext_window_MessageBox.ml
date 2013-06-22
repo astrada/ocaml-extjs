@@ -2,6 +2,21 @@ class type t =
 object('self)
   inherit Ext_window_Window.t
   
+  method _CANCEL : Js.number Js.t Js.prop
+  method _ERROR : Js.js_string Js.t Js.prop
+  method _INFO : Js.js_string Js.t Js.prop
+  method _NO : Js.number Js.t Js.prop
+  method _OK : Js.number Js.t Js.prop
+  method _OKCANCEL : Js.number Js.t Js.prop
+  method _QUESTION : Js.js_string Js.t Js.prop
+  method _WARNING : Js.js_string Js.t Js.prop
+  method _YES : Js.number Js.t Js.prop
+  method _YESNO : Js.number Js.t Js.prop
+  method _YESNOCANCEL : Js.number Js.t Js.prop
+  method buttonText : _ Js.t Js.prop
+  method defaultTextHeight : Js.number Js.t Js.prop
+  method minProgressWidth : Js.number Js.t Js.prop
+  method minPromptWidth : Js.number Js.t Js.prop
   method alert : Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.callback Js.optdef -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   method confirm : Js.js_string Js.t -> Js.js_string Js.t ->
@@ -24,21 +39,6 @@ object('self)
     Js.meth
   method wait : Js.js_string Js.t -> Js.js_string Js.t Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
-  method _CANCEL : Js.number Js.t Js.prop
-  method _ERROR : Js.js_string Js.t Js.prop
-  method _INFO : Js.js_string Js.t Js.prop
-  method _NO : Js.number Js.t Js.prop
-  method _OK : Js.number Js.t Js.prop
-  method _OKCANCEL : Js.number Js.t Js.prop
-  method _QUESTION : Js.js_string Js.t Js.prop
-  method _WARNING : Js.js_string Js.t Js.prop
-  method _YES : Js.number Js.t Js.prop
-  method _YESNO : Js.number Js.t Js.prop
-  method _YESNOCANCEL : Js.number Js.t Js.prop
-  method buttonText : _ Js.t Js.prop
-  method defaultTextHeight : Js.number Js.t Js.prop
-  method minProgressWidth : Js.number Js.t Js.prop
-  method minPromptWidth : Js.number Js.t Js.prop
   
 end
 
@@ -46,18 +46,22 @@ class type configs =
 object('self)
   inherit Ext_window_Window.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method closeAction : Js.js_string Js.t Js.prop
   method cls : Js.js_string Js.t Js.prop
   method constrain : bool Js.t Js.prop
   method hideMode : Js.js_string Js.t Js.prop
   method layout : _ Js.t Js.prop
+  method maxHeight : Js.number Js.t Js.prop
+  method maxWidth : Js.number Js.t Js.prop
+  method minHeight : Js.number Js.t Js.prop
+  method minWidth : Js.number Js.t Js.prop
   method resizable : _ Js.t Js.prop
   method shrinkWrapDock : _ Js.t Js.prop
   method title : Js.js_string Js.t Js.prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   
 end
 

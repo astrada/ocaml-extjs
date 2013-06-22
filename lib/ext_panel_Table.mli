@@ -16,7 +16,20 @@
 class type t =
 object('self)
   inherit Ext_panel_Panel.t
+  inherit Ext_grid_locking_Lockable.t
   
+  method hasView : bool Js.t Js.prop
+  (** {% <p>True to indicate that a view has been injected into the panel.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method optimizedColumnMove : bool Js.t Js.prop
+  (** {% <p>If you are writing a grid plugin or a \{<a href="#!/api/Ext.grid.feature.Feature" rel="Ext.grid.feature.Feature" class="docClass">Ext.grid.feature.Feature</a> Feature\} which creates a column-based structure which
+needs a view refresh when columns are moved, then set this property in the grid.</p>
+
+<p>An example is the built in <a href="#!/api/Ext.grid.feature.AbstractSummary" rel="Ext.grid.feature.AbstractSummary" class="docClass">Summary</a> Feature. This creates summary rows, and the
+summary columns must be in the same order as the data columns. This plugin sets the <code>optimizedColumnMove</code> to `false.</p> %}
+    *)
   method afterCollapse : bool Js.t -> unit Js.meth
   (** {% <p>Invoked after the Panel is Collapsed.</p> %}
     
@@ -112,40 +125,14 @@ instantiation of the class.</p>
   (** {% <p>Allows addition of behavior to the destroy operation.
 After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
-  method hasView : bool Js.t Js.prop
-  (** {% <p>True to indicate that a view has been injected into the panel.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method optimizedColumnMove : bool Js.t Js.prop
-  (** {% <p>If you are writing a grid plugin or a \{<a href="#!/api/Ext.grid.feature.Feature" rel="Ext.grid.feature.Feature" class="docClass">Ext.grid.feature.Feature</a> Feature\} which creates a column-based structure which
-needs a view refresh when columns are moved, then set this property in the grid.</p>
-
-<p>An example is the built in <a href="#!/api/Ext.grid.feature.AbstractSummary" rel="Ext.grid.feature.AbstractSummary" class="docClass">Summary</a> Feature. This creates summary rows, and the
-summary columns must be in the same order as the data columns. This plugin sets the <code>optimizedColumnMove</code> to `false.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
   inherit Ext_panel_Panel.configs
+  inherit Ext_grid_locking_Lockable.configs
   
-  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterCollapse] *)
-  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterExpand] *)
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
   method allowDeselect : bool Js.t Js.prop
   (** {% <p>True to allow deselecting a record. This config is forwarded to <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">Ext.selection.Model.allowDeselect</a>.</p> %}
     
@@ -401,12 +388,28 @@ view (instead of creating an entire View instance).</p> %}
   (** {% <p>An xtype of view to use. This is automatically set to 'gridview' by <a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">Grid</a>
 and to 'treeview' by <a href="#!/api/Ext.tree.Panel" rel="Ext.tree.Panel" class="docClass">Tree</a>.</p> %}
     *)
+  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterCollapse] *)
+  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterExpand] *)
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDestroy] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
   
 end
 
 class type events =
 object
   inherit Ext_panel_Panel.events
+  inherit Ext_grid_locking_Lockable.events
   
   method beforecellclick : (Ext_view_Table.t Js.t -> Dom_html.element Js.t ->
     Js.number Js.t -> Ext_data_Model.t Js.t -> Dom_html.element Js.t ->
@@ -1453,6 +1456,7 @@ end
 class type statics =
 object
   inherit Ext_panel_Panel.statics
+  inherit Ext_grid_locking_Lockable.statics
   
   
 end

@@ -14,6 +14,21 @@ class type t =
 object('self)
   inherit Ext_dd_DD.t
   
+  method centerFrame : bool Js.t Js.prop
+  (** {% <p>By default the frame is positioned exactly where the drag element is, so
+we use the cursor offset provided by <a href="#!/api/Ext.dd.DD" rel="Ext.dd.DD" class="docClass">Ext.dd.DD</a>.  Another option that works only if
+you do not have constraints on the obj is to have the drag frame centered
+around the cursor.  Set centerFrame to true for this effect.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method resizeFrame : bool Js.t Js.prop
+  (** {% <p>By default we resize the drag frame to be the same size as the element
+we want to drag (this is to get the frame effect).  We can turn it off
+if we want a different behavior.</p> %}
+    
+    Defaults to: [true]
+    *)
   method applyConfig : unit Js.meth
   (** {% <p>Sets up config options specific to this class. Overrides
 <a href="#!/api/Ext.dd.DragDrop" rel="Ext.dd.DragDrop" class="docClass">Ext.dd.DragDrop</a>, but all versions of this method through the
@@ -57,21 +72,6 @@ constructor of all subclasses</p> %}
     {% <p>string representation of the dd obj</p> %}
     }
     }
-    *)
-  method centerFrame : bool Js.t Js.prop
-  (** {% <p>By default the frame is positioned exactly where the drag element is, so
-we use the cursor offset provided by <a href="#!/api/Ext.dd.DD" rel="Ext.dd.DD" class="docClass">Ext.dd.DD</a>.  Another option that works only if
-you do not have constraints on the obj is to have the drag frame centered
-around the cursor.  Set centerFrame to true for this effect.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method resizeFrame : bool Js.t Js.prop
-  (** {% <p>By default we resize the drag frame to be the same size as the element
-we want to drag (this is to get the frame effect).  We can turn it off
-if we want a different behavior.</p> %}
-    
-    Defaults to: [true]
     *)
   
 end

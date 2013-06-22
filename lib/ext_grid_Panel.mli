@@ -164,7 +164,7 @@ identifies that column locally within the grid.</p>
 <li><p><a href="#!/api/Ext.grid.plugin.DragDrop" rel="Ext.grid.plugin.DragDrop" class="docClass">DragDrop</a> - drag-drop reordering of grid rows.</p></li>
 <li><p><a href="#!/api/Ext.toolbar.Paging" rel="Ext.toolbar.Paging" class="docClass">Paging toolbar</a> - paging through large sets of data.</p></li>
 <li><p><a href="#!/api/Ext.grid.plugin.BufferedRenderer" rel="Ext.grid.plugin.BufferedRenderer" class="docClass">Infinite scrolling</a> - another way to handle large sets of data.</p></li>
-<li><p><a href="#!/api/Ext.grid.RowNumberer" rel="Ext.grid.RowNumberer" class="docClass">RowNumberer</a> - automatically numbered rows.</p></li>
+<li><p><a href="#!/api/Ext.grid.column.RowNumberer" rel="Ext.grid.column.RowNumberer" class="docClass">RowNumberer</a> - automatically numbered rows.</p></li>
 <li><p><a href="#!/api/Ext.grid.feature.Grouping" rel="Ext.grid.feature.Grouping" class="docClass">Grouping</a> - grouping together rows having the same value in a particular field.</p></li>
 <li><p><a href="#!/api/Ext.grid.feature.Summary" rel="Ext.grid.feature.Summary" class="docClass">Summary</a> - a summary row at the bottom of a grid.</p></li>
 <li><p><a href="#!/api/Ext.grid.feature.GroupingSummary" rel="Ext.grid.feature.GroupingSummary" class="docClass">GroupingSummary</a> - a summary row at the bottom of each group.</p></li>

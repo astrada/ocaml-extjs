@@ -1,6 +1,11 @@
 class type t =
 object('self)
   
+  method currencyAtEnd : bool Js.t Js.prop
+  method currencyPrecision : Js.number Js.t Js.prop
+  method currencySign : Js.js_string Js.t Js.prop
+  method decimalSeparator : Js.js_string Js.t Js.prop
+  method thousandSeparator : Js.js_string Js.t Js.prop
   method attributes : _ Js.t -> unit Js.meth
   method capitalize : Js.js_string Js.t -> Js.js_string Js.t Js.meth
   method currency : _ Js.t -> Js.js_string Js.t Js.optdef ->
@@ -38,11 +43,6 @@ object('self)
   method undef : _ Js.t -> _ Js.t Js.meth
   method uppercase : Js.js_string Js.t -> Js.js_string Js.t Js.meth
   method usMoney : _ Js.t -> Js.js_string Js.t Js.meth
-  method currencyAtEnd : bool Js.t Js.prop
-  method currencyPrecision : Js.number Js.t Js.prop
-  method currencySign : Js.js_string Js.t Js.prop
-  method decimalSeparator : Js.js_string Js.t Js.prop
-  method thousandSeparator : Js.js_string Js.t Js.prop
   
 end
 

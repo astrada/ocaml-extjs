@@ -111,6 +111,12 @@ class type t =
 object('self)
   inherit Ext_tip_Tip.t
   
+  method triggerElement : Dom_html.element Js.t Js.prop
+  (** {% <p>When a ToolTip is configured with the <code><a href="#!/api/Ext.tip.ToolTip-cfg-delegate" rel="Ext.tip.ToolTip-cfg-delegate" class="docClass">delegate</a></code>
+option to cause selected child elements of the <code><a href="#!/api/Ext.tip.ToolTip-cfg-target" rel="Ext.tip.ToolTip-cfg-target" class="docClass">target</a></code>
+Element to each trigger a separate show event, this property is set to
+the DOM element which triggered the show.</p> %}
+    *)
   method beforeDestroy : unit Js.meth
   (** {% <p>Invoked before the Component is destroyed.</p> %}
     *)
@@ -142,12 +148,6 @@ tip.showAt([50,100]);
     }
     }
     *)
-  method triggerElement : Dom_html.element Js.t Js.prop
-  (** {% <p>When a ToolTip is configured with the <code><a href="#!/api/Ext.tip.ToolTip-cfg-delegate" rel="Ext.tip.ToolTip-cfg-delegate" class="docClass">delegate</a></code>
-option to cause selected child elements of the <code><a href="#!/api/Ext.tip.ToolTip-cfg-target" rel="Ext.tip.ToolTip-cfg-target" class="docClass">target</a></code>
-Element to each trigger a separate show event, this property is set to
-the DOM element which triggered the show.</p> %}
-    *)
   
 end
 
@@ -155,9 +155,6 @@ class type configs =
 object('self)
   inherit Ext_tip_Tip.configs
   
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
   method anchor : Js.js_string Js.t Js.prop
   (** {% <p>If specified, indicates that the tip should be anchored to a
 particular side of the target element or mouse pointer ("top", "right", "bottom",
@@ -232,6 +229,9 @@ showing this ToolTip.</p> %}
     
     Defaults to: [false]
     *)
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDestroy] *)
   
 end
 

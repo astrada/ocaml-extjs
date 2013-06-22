@@ -1,6 +1,65 @@
 class type t =
 object('self)
   
+  method _BLANK_IMAGE_URL : Js.js_string Js.t Js.prop
+  method _SSL_SECURE_URL : Js.js_string Js.t Js.prop
+  method _USE_NATIVE_JSON : bool Js.t Js.prop
+  method chromeVersion : Js.number Js.t Js.prop
+  method emptyFn : _ Js.callback Js.prop
+  method emptyString : _ Js.t Js.prop
+  method enableFx : bool Js.t Js.prop
+  method enableGarbageCollector : bool Js.t Js.prop
+  method enableListenerCollection : bool Js.t Js.prop
+  method enableNestedListenerRemoval : bool Js.t Js.prop
+  method enumerables : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method firefoxVersion : Js.number Js.t Js.prop
+  method globalEvents : Ext_util_Observable.t Js.t Js.prop
+  method ieVersion : Js.number Js.t Js.prop
+  method isChrome : bool Js.t Js.prop
+  method isFF10 : bool Js.t Js.prop
+  method isFF3_0 : bool Js.t Js.prop
+  method isFF3_5 : bool Js.t Js.prop
+  method isFF3_6 : bool Js.t Js.prop
+  method isFF4 : bool Js.t Js.prop
+  method isFF5 : bool Js.t Js.prop
+  method isGecko : bool Js.t Js.prop
+  method isGecko10 : bool Js.t Js.prop
+  method isGecko3 : bool Js.t Js.prop
+  method isGecko4 : bool Js.t Js.prop
+  method isGecko5 : bool Js.t Js.prop
+  method isIE : bool Js.t Js.prop
+  method isIE10 : bool Js.t Js.prop
+  method isIE10m : bool Js.t Js.prop
+  method isIE10p : bool Js.t Js.prop
+  method isIE6 : bool Js.t Js.prop
+  method isIE7 : bool Js.t Js.prop
+  method isIE7m : bool Js.t Js.prop
+  method isIE7p : bool Js.t Js.prop
+  method isIE8 : bool Js.t Js.prop
+  method isIE8m : bool Js.t Js.prop
+  method isIE8p : bool Js.t Js.prop
+  method isIE9 : bool Js.t Js.prop
+  method isIE9m : bool Js.t Js.prop
+  method isIE9p : bool Js.t Js.prop
+  method isLinux : bool Js.t Js.prop
+  method isMac : bool Js.t Js.prop
+  method isOpera : bool Js.t Js.prop
+  method isOpera10_5 : bool Js.t Js.prop
+  method isReady : bool Js.t Js.prop
+  method isSafari : bool Js.t Js.prop
+  method isSafari2 : bool Js.t Js.prop
+  method isSafari3 : bool Js.t Js.prop
+  method isSafari4 : bool Js.t Js.prop
+  method isSafari5 : bool Js.t Js.prop
+  method isSafari5_0 : bool Js.t Js.prop
+  method isSecure : bool Js.t Js.prop
+  method isWebKit : bool Js.t Js.prop
+  method isWindows : bool Js.t Js.prop
+  method name : Js.js_string Js.t Js.prop
+  method operaVersion : Js.number Js.t Js.prop
+  method safariVersion : Js.number Js.t Js.prop
+  method useShims : bool Js.t Js.prop
+  method webKitVersion : Js.number Js.t Js.prop
   method addBehaviors : _ Js.t -> unit Js.meth
   method addNamespaces : _ Js.t -> unit Js.meth
   method application : _ Js.t -> unit Js.meth
@@ -10,7 +69,8 @@ object('self)
   method bind : _ Js.callback -> _ Js.t Js.optdef ->
     _ Js.js_array Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.callback Js.meth
   method callback : _ Js.callback -> _ Js.t Js.optdef ->
-    _ Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth
+    _ Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> _ Js.t
+    Js.meth
   method clone : _ Js.t -> _ Js.t Js.meth
   method coerce : _ Js.t -> _ Js.t -> _ Js.t Js.meth
   method copyTo : _ Js.t -> _ Js.t -> _ Js.t -> bool Js.t Js.optdef -> _ Js.t
@@ -89,8 +149,8 @@ object('self)
   method require : _ Js.t -> _ Js.callback Js.optdef -> _ Js.t Js.optdef ->
     _ Js.t Js.optdef -> unit Js.meth
   method resumeLayouts : _ Js.t -> unit Js.meth
-  method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
-    Js.meth
+  method select : Js.js_string Js.t -> bool Js.t Js.optdef ->
+    Ext_dom_CompositeElement.t Js.t Js.meth
   method setGlyphFontFamily : Js.js_string Js.t -> unit Js.meth
   method setVersion : Js.js_string Js.t -> _ Js.t -> _ Js.t Js.meth
   method suspendLayouts : unit Js.meth
@@ -105,65 +165,6 @@ object('self)
     Js.meth
   method widget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
     Js.meth
-  method _BLANK_IMAGE_URL : Js.js_string Js.t Js.prop
-  method _SSL_SECURE_URL : Js.js_string Js.t Js.prop
-  method _USE_NATIVE_JSON : bool Js.t Js.prop
-  method chromeVersion : Js.number Js.t Js.prop
-  method emptyFn : _ Js.callback Js.prop
-  method emptyString : _ Js.t Js.prop
-  method enableFx : bool Js.t Js.prop
-  method enableGarbageCollector : bool Js.t Js.prop
-  method enableListenerCollection : bool Js.t Js.prop
-  method enableNestedListenerRemoval : bool Js.t Js.prop
-  method enumerables : Js.js_string Js.t Js.js_array Js.t Js.prop
-  method firefoxVersion : Js.number Js.t Js.prop
-  method globalEvents : Ext_util_Observable.t Js.t Js.prop
-  method ieVersion : Js.number Js.t Js.prop
-  method isChrome : bool Js.t Js.prop
-  method isFF10 : bool Js.t Js.prop
-  method isFF3_0 : bool Js.t Js.prop
-  method isFF3_5 : bool Js.t Js.prop
-  method isFF3_6 : bool Js.t Js.prop
-  method isFF4 : bool Js.t Js.prop
-  method isFF5 : bool Js.t Js.prop
-  method isGecko : bool Js.t Js.prop
-  method isGecko10 : bool Js.t Js.prop
-  method isGecko3 : bool Js.t Js.prop
-  method isGecko4 : bool Js.t Js.prop
-  method isGecko5 : bool Js.t Js.prop
-  method isIE : bool Js.t Js.prop
-  method isIE10 : bool Js.t Js.prop
-  method isIE10m : bool Js.t Js.prop
-  method isIE10p : bool Js.t Js.prop
-  method isIE6 : bool Js.t Js.prop
-  method isIE7 : bool Js.t Js.prop
-  method isIE7m : bool Js.t Js.prop
-  method isIE7p : bool Js.t Js.prop
-  method isIE8 : bool Js.t Js.prop
-  method isIE8m : bool Js.t Js.prop
-  method isIE8p : bool Js.t Js.prop
-  method isIE9 : bool Js.t Js.prop
-  method isIE9m : bool Js.t Js.prop
-  method isIE9p : bool Js.t Js.prop
-  method isLinux : bool Js.t Js.prop
-  method isMac : bool Js.t Js.prop
-  method isOpera : bool Js.t Js.prop
-  method isOpera10_5 : bool Js.t Js.prop
-  method isReady : bool Js.t Js.prop
-  method isSafari : bool Js.t Js.prop
-  method isSafari2 : bool Js.t Js.prop
-  method isSafari3 : bool Js.t Js.prop
-  method isSafari4 : bool Js.t Js.prop
-  method isSafari5 : bool Js.t Js.prop
-  method isSafari5_0 : bool Js.t Js.prop
-  method isSecure : bool Js.t Js.prop
-  method isWebKit : bool Js.t Js.prop
-  method isWindows : bool Js.t Js.prop
-  method name : Js.js_string Js.t Js.prop
-  method operaVersion : Js.number Js.t Js.prop
-  method safariVersion : Js.number Js.t Js.prop
-  method useShims : bool Js.t Js.prop
-  method webKitVersion : Js.number Js.t Js.prop
   
 end
 

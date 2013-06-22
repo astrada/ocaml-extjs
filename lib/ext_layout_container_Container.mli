@@ -6,9 +6,12 @@ configuration property.  See <a href="#!/api/Ext.container.Container-cfg-layout"
 
 class type t =
 object('self)
-  inherit Ext_util_ElementContainer.t
   inherit Ext_layout_Layout.t
+  inherit Ext_util_ElementContainer.t
   
+  method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
+  (** {% <p>The element used to correct body padding during overflow.</p> %}
+    *)
   method beginLayout_obj : _ Js.t -> unit Js.meth
   (** {% <p>In addition to work done by our base classes, containers benefit from some extra
 cached data. The following properties are added to the ownerContext:</p>
@@ -107,16 +110,13 @@ target element.</p>
     }
     }
     *)
-  method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
-  (** {% <p>The element used to correct body padding during overflow.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_ElementContainer.configs
   inherit Ext_layout_Layout.configs
+  inherit Ext_util_ElementContainer.configs
   
   method itemCls : Js.js_string Js.t Js.prop
   (** {% <p>An optional extra CSS class that will be added to the container. This can be useful for
@@ -128,8 +128,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_ElementContainer.events
   inherit Ext_layout_Layout.events
+  inherit Ext_util_ElementContainer.events
   
   
 end

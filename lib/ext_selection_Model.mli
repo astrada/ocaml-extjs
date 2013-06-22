@@ -12,9 +12,14 @@ subclasses to update the UI widget.</p> %}
 
 class type t =
 object('self)
-  inherit Ext_util_Bindable.t
   inherit Ext_util_Observable.t
+  inherit Ext_util_Bindable.t
   
+  method selected : Ext_util_MixedCollection.t Js.t Js.readonly_prop
+  (** {% <p>A MixedCollection that maintains all of the currently selected records.</p> %}
+    
+    Defaults to: [undefined]
+    *)
   method bindStore : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>binds the store to the selModel.</p>
 
@@ -209,31 +214,24 @@ that the record has been selected.</p> %}
     }
     }
     *)
-  method selected : Ext_util_MixedCollection.t Js.t Js.readonly_prop
-  (** {% <p>A MixedCollection that maintains all of the currently selected records.</p> %}
-    
-    Defaults to: [undefined]
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Bindable.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_util_Bindable.configs
   
   method allowDeselect : bool Js.t Js.prop
   (** {% <p>Allow users to deselect a record in a DataView, List or Grid.
 Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-mode" rel="Ext.selection.Model-cfg-mode" class="docClass">mode</a> is 'SINGLE'.</p> %}
-    
-    Defaults to: [false]
     *)
   method mode : _ Js.t Js.prop
   (** {% <p>Mode of selection.  Valid values are:</p>
 
 <ul>
 <li><strong>"SINGLE"</strong> - Only allows selecting one item at a time.  Use <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> to allow
-deselecting that item.  This is the default.</li>
+deselecting that item.  Also see <a href="#!/api/Ext.selection.Model-cfg-toggleOnClick" rel="Ext.selection.Model-cfg-toggleOnClick" class="docClass">toggleOnClick</a>. This is the default.</li>
 <li><strong>"SIMPLE"</strong> - Allows simple selection of multiple items one-by-one. Each click in grid will either
 select or deselect an item.</li>
 <li><strong>"MULTI"</strong> - Allows complex selection of multiple items using Ctrl and Shift keys.</li>
@@ -254,13 +252,20 @@ in order to re-select a record which is scrolled back into view.</p> %}
     
     Defaults to: [true]
     *)
+  method toggleOnClick : bool Js.t Js.prop
+  (** {% <p><code>true</code> to toggle the selection state of an item when clicked.
+Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-mode" rel="Ext.selection.Model-cfg-mode" class="docClass">mode</a> is 'SINGLE'.
+Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> is 'true'.</p> %}
+    
+    Defaults to: [true]
+    *)
   
 end
 
 class type events =
 object
-  inherit Ext_util_Bindable.events
   inherit Ext_util_Observable.events
+  inherit Ext_util_Bindable.events
   
   method focuschange : (t Js.t -> Ext_data_Model.t Js.t ->
     Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop

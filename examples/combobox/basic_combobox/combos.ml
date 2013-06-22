@@ -152,15 +152,15 @@ let () =
 
       Ext.instance##select(
         Js.string "pre.code",
-        Js.undefined,
-        Js.undefined)##each(fun pre ->
+        Js.undefined)##each(Js.wrap_callback (fun pre ->
           Ext.instance##create(Js.def (Js.string "Ext.form.FieldSet"), Js.def {|
             contentEl = pre;
             renderTo = pre##parent();
             title = Js.string "View code for this example";
             collapsible = Js._true;
             collapsed = Js._true;
-          |})
+          |})),
+          Js.undefined
         );
 
     ),

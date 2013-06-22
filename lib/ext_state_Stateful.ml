@@ -1,7 +1,7 @@
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
   method addStateEvents : _ Js.t -> unit Js.meth
   method applyState : _ Js.t -> unit Js.meth
@@ -16,8 +16,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method saveDelay : Js.number Js.t Js.prop
   method stateEvents : Js.js_string Js.t Js.js_array Js.t Js.prop
@@ -28,8 +28,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method beforestaterestore : (t Js.t -> _ Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop

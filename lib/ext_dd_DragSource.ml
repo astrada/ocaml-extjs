@@ -2,6 +2,7 @@ class type t =
 object('self)
   inherit Ext_dd_DDProxy.t
   
+  method dragData : _ Js.t Js.prop
   method afterDragDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t ->
     Js.js_string Js.t -> unit Js.meth
   method afterDragEnter : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t ->
@@ -26,6 +27,7 @@ object('self)
     Js.js_string Js.t -> bool Js.t Js.meth
   method beforeInvalidDrop : #Ext_dd_DragDrop.t Js.t -> Dom_html.event Js.t
     -> Js.js_string Js.t -> bool Js.t Js.meth
+  method destroy : unit Js.meth
   method getDragData : _ Js.t -> _ Js.t Js.meth
   method getProxy : Ext_dd_StatusProxy.t Js.t Js.meth
   method hideProxy : unit Js.meth
@@ -38,6 +40,11 @@ class type configs =
 object('self)
   inherit Ext_dd_DDProxy.configs
   
+  method animRepair : bool Js.t Js.prop
+  method ddGroup : Js.js_string Js.t Js.prop
+  method dropAllowed : Js.js_string Js.t Js.prop
+  method dropNotAllowed : Js.js_string Js.t Js.prop
+  method repairHighlightColor : Js.js_string Js.t Js.prop
   method beforeDragDrop : ('self Js.t, #Ext_dd_DragDrop.t Js.t ->
     Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t) Js.meth_callback
     Js.writeonly_prop
@@ -57,11 +64,6 @@ object('self)
     bool Js.t) Js.meth_callback Js.writeonly_prop
   method onStartDrag : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
-  method animRepair : bool Js.t Js.prop
-  method ddGroup : Js.js_string Js.t Js.prop
-  method dropAllowed : Js.js_string Js.t Js.prop
-  method dropNotAllowed : Js.js_string Js.t Js.prop
-  method repairHighlightColor : Js.js_string Js.t Js.prop
   
 end
 

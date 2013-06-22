@@ -12,8 +12,6 @@ let () =
 
        appFolder = Js.string "app";
 
-       controllers = Js.array [|Js.string "Users"|];
-
        launch = Js.wrap_meth_callback
                   (fun this profile ->
                      Ext.instance##create(
@@ -21,6 +19,8 @@ let () =
                        Js.def viewport));
     |}
   in
+  application##controllers <- Js.array [|Js.string "Users"|];
+
 
   Ext.instance##application(application)
 

@@ -129,10 +129,22 @@
 
 class type t =
 object('self)
+  inherit Ext_Base.t
   inherit Ext_util_Animate.t
   inherit Ext_util_Observable.t
-  inherit Ext_Base.t
   
+  method dd : Ext_dd_DragSource.t Js.t Js.prop
+  (** {% <p>If this Sprite is configured <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>, this property will contain
+an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Sprite.</p>
+
+<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a>
+in order to supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>.</p> %}
+    *)
+  method isSprite : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Sprite, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   method addCls : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Adds one or more CSS classes to the element. Duplicate classes are automatically filtered out.  Note this method
 is severly limited in VML.</p> %}
@@ -320,26 +332,14 @@ and a <code>degrees</code> attribute that specifies the rotation in degrees. For
     }
     }
     *)
-  method dd : Ext_dd_DragSource.t Js.t Js.prop
-  (** {% <p>If this Sprite is configured <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>, this property will contain
-an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Sprite.</p>
-
-<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a>
-in order to supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>.</p> %}
-    *)
-  method isSprite : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Sprite, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   
 end
 
 class type configs =
 object('self)
+  inherit Ext_Base.configs
   inherit Ext_util_Animate.configs
   inherit Ext_util_Observable.configs
-  inherit Ext_Base.configs
   
   method draggable : bool Js.t Js.prop
   (** {% <p>True to make the sprite draggable.</p> %}
@@ -410,9 +410,9 @@ end
 
 class type events =
 object
+  inherit Ext_Base.events
   inherit Ext_util_Animate.events
   inherit Ext_util_Observable.events
-  inherit Ext_Base.events
   
   method beforedestroy : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

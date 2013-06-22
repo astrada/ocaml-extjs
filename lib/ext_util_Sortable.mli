@@ -11,6 +11,14 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method isSortable : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Sortable, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method sorters : _ Js.t Js.prop
+  (** {% <p>The collection of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a> currently applied to this Store</p> %}
+    *)
   method generateComparator : unit Js.meth
   (** {% <p>Returns a comparator function which compares two items and returns -1, 0, or 1 depending
 on the currently defined set of <a href="#!/api/Ext.util.Sortable-cfg-sorters" rel="Ext.util.Sortable-cfg-sorters" class="docClass">sorters</a>.</p>
@@ -77,14 +85,6 @@ store.sort('myField', 'DESC');
      Defaults to: "ASC"
     }
     }
-    *)
-  method isSortable : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Sortable, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method sorters : _ Js.t Js.prop
-  (** {% <p>The collection of <a href="#!/api/Ext.util.Sorter" rel="Ext.util.Sorter" class="docClass">Sorters</a> currently applied to this Store</p> %}
     *)
   
 end

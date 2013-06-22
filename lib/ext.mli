@@ -34,6 +34,248 @@ preventing dependency issues. For example:</p>
 class type t =
 object('self)
   
+  method _BLANK_IMAGE_URL : Js.js_string Js.t Js.prop
+  (** {% <p>URL to a 1x1 transparent gif image used by Ext to create inline icons with
+CSS background images. In older versions of IE, this defaults to
+"http://sencha.com/s.gif" and you should change this to a URL on your server.
+For other browsers it uses an inline data URL.</p> %}
+    *)
+  method _SSL_SECURE_URL : Js.js_string Js.t Js.prop
+  (** {% <p>URL to a blank file used by Ext when in secure mode for iframe src and onReady src
+to prevent the IE insecure content warning (<code>'about:blank'</code>, except for IE
+in secure mode, which is <code>'javascript:""'</code>).</p> %}
+    *)
+  method _USE_NATIVE_JSON : bool Js.t Js.prop
+  (** {% <p>Indicates whether to use native browser parsing for JSON methods.
+This option is ignored if the browser does not support native JSON methods.</p>
+
+<p><strong>Note:</strong> Native JSON methods will not work with objects that have functions.
+Also, property names must be quoted, otherwise the data will not parse.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method chromeVersion : Js.number Js.t Js.prop
+  (** {% <p>The current version of Chrome (0 if the browser is not Chrome).</p> %}
+    *)
+  method emptyFn : _ Js.callback Js.prop
+  (** {% <p>A reusable empty function</p> %}
+    *)
+  method emptyString : _ Js.t Js.prop
+  (** {% <p>A zero length string which will pass a truth test. Useful for passing to methods
+which use a truth test to reject <i>falsy</i> values where a string value must be cleared.</p> %}
+    *)
+  method enableFx : bool Js.t Js.prop
+  (** {% <p>True if the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> Class is available.</p> %}
+    *)
+  method enableGarbageCollector : bool Js.t Js.prop
+  (** {% <p>True to automatically uncache orphaned Ext.Elements periodically</p> %}
+    
+    Defaults to: [true]
+    *)
+  method enableListenerCollection : bool Js.t Js.prop
+  (** {% <p>True to automatically purge event listeners during garbageCollection.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method enableNestedListenerRemoval : bool Js.t Js.prop
+  (** {% <p><strong>Experimental.</strong> True to cascade listener removal to child elements when an element
+is removed. Currently not optimized for performance.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method enumerables : Js.js_string Js.t Js.js_array Js.t Js.prop
+  (** {% <p>An array containing extra enumerables for old browsers</p> %}
+    *)
+  method firefoxVersion : Js.number Js.t Js.prop
+  (** {% <p>The current version of Firefox (0 if the browser is not Firefox).</p> %}
+    *)
+  method globalEvents : Ext_util_Observable.t Js.t Js.prop
+  (** {% <p>An instance of <code><a href="#!/api/Ext.util.Observable" rel="Ext.util.Observable" class="docClass">Ext.util.Observable</a></code> through which Ext fires global events.</p>
+
+<p>This Observable instance fires the following events:</p>
+
+<ul>
+<li><p><strong><code>idle</code></strong></p>
+
+<p>Fires when an event handler finishes its run, just before returning to browser control.</p>
+
+<p>This includes DOM event handlers, Ajax (including JSONP) event handlers, and <a href="#!/api/Ext.util.TaskRunner" rel="Ext.util.TaskRunner" class="docClass">TaskRunners</a></p>
+
+<p>This can be useful for performing cleanup, or update tasks which need to happen only
+after all code in an event handler has been run, but which should not be executed in a timer
+due to the intervening browser reflow/repaint which would take place.</p></li>
+<li><p><strong><code>ready</code></strong></p>
+
+<p> Fires when the DOM is ready, and all required classes have been loaded. Functionally
+ the same as <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">onReady</a>, but must be called with the <code>single</code> option:</p>
+
+<pre><code>  <a href="#!/api/Ext-method-on" rel="Ext-method-on" class="docClass">Ext.on</a>(\{
+      ready: function() \{
+          console.log('document is ready!');
+      \},
+      single: true
+  \}); 
+</code></pre></li>
+<li><p><strong><code>resumelayouts</code></strong></p>
+
+<p> Fires after global layout processing has been resumed in <a href="#!/api/Ext.AbstractComponent-method-resumeLayouts" rel="Ext.AbstractComponent-method-resumeLayouts" class="docClass">Ext.AbstractComponent.resumeLayouts</a>.</p></li>
+</ul> %}
+    *)
+  method ieVersion : Js.number Js.t Js.prop
+  (** {% <p>The current version of IE (0 if the browser is not IE). This does not account
+for the documentMode of the current page, which is factored into <a href="#!/api/Ext-property-isIE7" rel="Ext-property-isIE7" class="docClass">isIE7</a>,
+<a href="#!/api/Ext-property-isIE8" rel="Ext-property-isIE8" class="docClass">isIE8</a> and <a href="#!/api/Ext-property-isIE9" rel="Ext-property-isIE9" class="docClass">isIE9</a>. Thus this is not always true:</p>
+
+<pre><code><a href="#!/api/Ext-property-isIE8" rel="Ext-property-isIE8" class="docClass">Ext.isIE8</a> == (<a href="#!/api/Ext-property-ieVersion" rel="Ext-property-ieVersion" class="docClass">Ext.ieVersion</a> == 8)
+</code></pre> %}
+    *)
+  method isChrome : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Chrome.</p> %}
+    *)
+  method isFF10 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses FireFox 10</p> %}
+    *)
+  method isFF3_0 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses FireFox 3.0</p> %}
+    *)
+  method isFF3_5 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses FireFox 3.5</p> %}
+    *)
+  method isFF3_6 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses FireFox 3.6</p> %}
+    *)
+  method isFF4 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses FireFox 4</p> %}
+    *)
+  method isFF5 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses FireFox 5</p> %}
+    *)
+  method isGecko : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses the Gecko layout engine (e.g. Mozilla, Firefox).</p> %}
+    *)
+  method isGecko10 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses a Gecko 5.0+ layout engine (e.g. Firefox 5.x).</p> %}
+    *)
+  method isGecko3 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses a Gecko 1.9+ layout engine (e.g. Firefox 3.x).</p> %}
+    *)
+  method isGecko4 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses a Gecko 2.0+ layout engine (e.g. Firefox 4.x).</p> %}
+    *)
+  method isGecko5 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses a Gecko 5.0+ layout engine (e.g. Firefox 5.x).</p> %}
+    *)
+  method isIE : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer.</p> %}
+    *)
+  method isIE10 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 10.x.</p> %}
+    *)
+  method isIE10m : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 10.x or lower.</p> %}
+    *)
+  method isIE10p : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 10.x or higher.</p> %}
+    *)
+  method isIE6 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 6.x.</p> %}
+    *)
+  method isIE7 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 7.x.</p> %}
+    *)
+  method isIE7m : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 7.x or lower.</p> %}
+    *)
+  method isIE7p : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 7.x or higher.</p> %}
+    *)
+  method isIE8 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 8.x.</p> %}
+    *)
+  method isIE8m : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 8.x or lower.</p> %}
+    *)
+  method isIE8p : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 8.x or higher.</p> %}
+    *)
+  method isIE9 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 9.x.</p> %}
+    *)
+  method isIE9m : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 9.x or lower.</p> %}
+    *)
+  method isIE9p : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Internet Explorer 9.x or higher.</p> %}
+    *)
+  method isLinux : bool Js.t Js.prop
+  (** {% <p>True if the detected platform is Linux.</p> %}
+    *)
+  method isMac : bool Js.t Js.prop
+  (** {% <p>True if the detected platform is Mac OS.</p> %}
+    *)
+  method isOpera : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Opera.</p> %}
+    *)
+  method isOpera10_5 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Opera 10.5x.</p> %}
+    *)
+  method isReady : bool Js.t Js.prop
+  (** {% <p>True when the document is fully initialized and ready for action</p> %}
+    
+    Defaults to: [false]
+    *)
+  method isSafari : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Safari.</p> %}
+    *)
+  method isSafari2 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Safari 2.x.</p> %}
+    *)
+  method isSafari3 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Safari 3.x.</p> %}
+    *)
+  method isSafari4 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Safari 4.x.</p> %}
+    *)
+  method isSafari5 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Safari 5.x.</p> %}
+    *)
+  method isSafari5_0 : bool Js.t Js.prop
+  (** {% <p>True if the detected browser is Safari 5.0.x.</p> %}
+    *)
+  method isSecure : bool Js.t Js.prop
+  (** {% <p>True if the page is running over SSL</p> %}
+    *)
+  method isWebKit : bool Js.t Js.prop
+  (** {% <p>True if the detected browser uses WebKit.</p> %}
+    *)
+  method isWindows : bool Js.t Js.prop
+  (** {% <p>True if the detected platform is Windows.</p> %}
+    *)
+  method name : Js.js_string Js.t Js.prop
+  (** {% <p>The name of the property in the global namespace (The <code>window</code> in browser environments) which refers to the current instance of Ext.</p>
+
+
+<p>This is usually <code>"Ext"</code>, but if a sandboxed build of ExtJS is being used, this will be an alternative name.</p>
+
+
+<p>If code is being generated for use by <code>eval</code> or to create a <code>new Function</code>, and the global instance
+of Ext must be referenced, this is the name that should be built into the code.</p> %}
+    
+    Defaults to: ['Ext']
+    *)
+  method operaVersion : Js.number Js.t Js.prop
+  (** {% <p>The current version of Opera (0 if the browser is not Opera).</p> %}
+    *)
+  method safariVersion : Js.number Js.t Js.prop
+  (** {% <p>The current version of Safari (0 if the browser is not Safari).</p> %}
+    *)
+  method useShims : bool Js.t Js.prop
+  (** {% <p>By default, Ext intelligently decides whether floating elements should be shimmed.
+If you are using flash, you may want to set this to true.</p> %}
+    *)
+  method webKitVersion : Js.number Js.t Js.prop
+  (** {% <p>The current version of WebKit (0 if the browser does not use WebKit).</p> %}
+    *)
   method addBehaviors : _ Js.t -> unit Js.meth
   (** {% <p>Applies event listeners to elements by selectors when the document is ready.
 The event name is specified with an <code>\@</code> suffix.</p>
@@ -157,13 +399,21 @@ if a number the args are inserted at the specified position</p> %}
     }
     *)
   method callback : _ Js.callback -> _ Js.t Js.optdef ->
-    _ Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth
-  (** {% <p>Execute a callback function in a particular scope. If no function is passed the call is ignored.</p>
+    _ Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> _ Js.t
+    Js.meth
+  (** {% <p>Execute a callback function in a particular scope. If <code>callback</code> argument is a
+function reference, that is called. If it is a string, the string is assumed to
+be the name of a method on the given <code>scope</code>. If no function is passed the call
+is ignored.</p>
 
-<p>For example, these lines are equivalent:</p>
+<p>For example, these calls are equivalent:</p>
 
-<pre><code><a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>(myFunc, this, [arg1, arg2]);
-<a href="#!/api/Ext-method-isFunction" rel="Ext-method-isFunction" class="docClass">Ext.isFunction</a>(myFunc) &amp;&amp; myFunc.apply(this, [arg1, arg2]);
+<pre><code> var myFunc = this.myFunc;
+
+ <a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>('myFunc', this, [arg1, arg2]);
+ <a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>(myFunc, this, [arg1, arg2]);
+
+ <a href="#!/api/Ext-method-isFunction" rel="Ext-method-isFunction" class="docClass">Ext.isFunction</a>(myFunc) &amp;&amp; this.myFunc(arg1, arg2);
 </code></pre> %}
     
     {b Parameters}:
@@ -178,6 +428,13 @@ if a number the args are inserted at the specified position</p> %}
     }
     {- delay: [Js.number Js.t] (optional)
     {% <p>Pass a number to delay the call by a number of milliseconds.</p> %}
+    }
+    }
+    
+    {b Returns}:
+    {ul {- [_ Js.t]
+    {% <p>The value returned by the callback or <code>undefined</code> (if there is a <code>delay</code>
+or if the <code>callback</code> is not a function).</p> %}
     }
     }
     *)
@@ -632,7 +889,7 @@ passed into this function in a single call as separate arguments.</p> %}
     
     {b Parameters}:
     {ul {- args: [_ Js.t]
-    {% <p>An <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>, <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, or an Array of either of these to destroy</p> %}
+    {% <p>Any number of elements or components, or an Array of either of these to destroy.</p> %}
     }
     }
     *)
@@ -780,6 +1037,13 @@ internally Ext uses "_global")</p> %}
 
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
 objects which encapsulate DOM elements. To retrieve a Component by its ID, use <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.</p>
+
+<p>When passing an id, it should not include the <code>#</code> character that is used for a css selector.</p>
+
+<pre><code>// For an element with id 'foo'
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('foo'); // Correct
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('#foo'); // Incorrect
+</code></pre>
 
 <p>Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with
 the same id via AJAX or DOM.</p> %}
@@ -1036,7 +1300,11 @@ operating system settings, such as the theme or font size.</p> %}
     }
     *)
   method isIterable : _ Js.t -> bool Js.t Js.meth
-  (** {% <p>Returns true if the passed value is iterable, false otherwise</p> %}
+  (** {% <p>Returns <code>true</code> if the passed value is iterable, that is, if elements of it are addressable using array
+notation with numeric indices, <code>false</code> otherwise.</p>
+
+<p>Arrays and function <code>arguments</code> objects are iterable. Also HTML collections such as <code>NodeList</code> and `HTMLCollection'
+are iterable.</p> %}
     
     {b Parameters}:
     {ul {- value: [_ Js.t] {% <p>The value to test</p> %}
@@ -1595,23 +1863,26 @@ the given callback function when finishes, within the optional scope.</p>
     }
     *)
   method resumeLayouts : _ Js.t -> unit Js.meth
-  method select : _ Js.t -> bool Js.t Js.optdef -> _ Js.t Js.optdef -> _ Js.t
-    Js.meth
+  method select : Js.js_string Js.t -> bool Js.t Js.optdef ->
+    Ext_dom_CompositeElement.t Js.t Js.meth
   (** {% <p>Shorthand of <a href="#!/api/Ext.dom.Element-method-select" rel="Ext.dom.Element-method-select" class="docClass">Ext.Element.select</a>.</p>
 
-<p>Selects elements based on the passed CSS selector to enable <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> methods
-to be applied to many related elements in one statement through the returned <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">CompositeElement</a> or
-<a href="#!/api/Ext.dom.CompositeElementLite" rel="Ext.dom.CompositeElementLite" class="docClass">CompositeElementLite</a> object.</p> %}
+<p>Creates a <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a> for child nodes based on the passed CSS selector (the selector should not contain an id).</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_traversal.</strong></p> %}
     
     {b Parameters}:
-    {ul {- selector: [_ Js.t]
-    {% <p>The CSS selector or an array of elements</p> %}
+    {ul {- selector: [Js.js_string Js.t]
+    {% <p>The CSS selector</p> %}
     }
     {- unique: [bool Js.t] (optional)
-    {% <p>true to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element (defaults to a shared flyweight object)</p> %}
+    {% <p>True to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element. Defaults to a shared flyweight object.</p> %}
     }
-    {- root: [_ Js.t] (optional)
-    {% <p>The root element of the query or id of the root</p> %}
+    }
+    
+    {b Returns}:
+    {ul {- [Ext_dom_CompositeElement.t Js.t]
+    {% <p>The composite element</p> %}
     }
     }
     *)
@@ -1794,248 +2065,6 @@ See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.Cl
     {ul {- [_ Js.t] {% <p>The widget instance</p> %}
     }
     }
-    *)
-  method _BLANK_IMAGE_URL : Js.js_string Js.t Js.prop
-  (** {% <p>URL to a 1x1 transparent gif image used by Ext to create inline icons with
-CSS background images. In older versions of IE, this defaults to
-"http://sencha.com/s.gif" and you should change this to a URL on your server.
-For other browsers it uses an inline data URL.</p> %}
-    *)
-  method _SSL_SECURE_URL : Js.js_string Js.t Js.prop
-  (** {% <p>URL to a blank file used by Ext when in secure mode for iframe src and onReady src
-to prevent the IE insecure content warning (<code>'about:blank'</code>, except for IE
-in secure mode, which is <code>'javascript:""'</code>).</p> %}
-    *)
-  method _USE_NATIVE_JSON : bool Js.t Js.prop
-  (** {% <p>Indicates whether to use native browser parsing for JSON methods.
-This option is ignored if the browser does not support native JSON methods.</p>
-
-<p><strong>Note:</strong> Native JSON methods will not work with objects that have functions.
-Also, property names must be quoted, otherwise the data will not parse.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method chromeVersion : Js.number Js.t Js.prop
-  (** {% <p>The current version of Chrome (0 if the browser is not Chrome).</p> %}
-    *)
-  method emptyFn : _ Js.callback Js.prop
-  (** {% <p>A reusable empty function</p> %}
-    *)
-  method emptyString : _ Js.t Js.prop
-  (** {% <p>A zero length string which will pass a truth test. Useful for passing to methods
-which use a truth test to reject <i>falsy</i> values where a string value must be cleared.</p> %}
-    *)
-  method enableFx : bool Js.t Js.prop
-  (** {% <p>True if the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> Class is available.</p> %}
-    *)
-  method enableGarbageCollector : bool Js.t Js.prop
-  (** {% <p>True to automatically uncache orphaned Ext.Elements periodically</p> %}
-    
-    Defaults to: [true]
-    *)
-  method enableListenerCollection : bool Js.t Js.prop
-  (** {% <p>True to automatically purge event listeners during garbageCollection.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method enableNestedListenerRemoval : bool Js.t Js.prop
-  (** {% <p><strong>Experimental.</strong> True to cascade listener removal to child elements when an element
-is removed. Currently not optimized for performance.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method enumerables : Js.js_string Js.t Js.js_array Js.t Js.prop
-  (** {% <p>An array containing extra enumerables for old browsers</p> %}
-    *)
-  method firefoxVersion : Js.number Js.t Js.prop
-  (** {% <p>The current version of Firefox (0 if the browser is not Firefox).</p> %}
-    *)
-  method globalEvents : Ext_util_Observable.t Js.t Js.prop
-  (** {% <p>An instance of <code><a href="#!/api/Ext.util.Observable" rel="Ext.util.Observable" class="docClass">Ext.util.Observable</a></code> through which Ext fires global events.</p>
-
-<p>This Observable instance fires the following events:</p>
-
-<ul>
-<li><p><strong><code>idle</code></strong></p>
-
-<p>Fires when an event handler finishes its run, just before returning to browser control.</p>
-
-<p>This includes DOM event handlers, Ajax (including JSONP) event handlers, and <a href="#!/api/Ext.util.TaskRunner" rel="Ext.util.TaskRunner" class="docClass">TaskRunners</a></p>
-
-<p>This can be useful for performing cleanup, or update tasks which need to happen only
-after all code in an event handler has been run, but which should not be executed in a timer
-due to the intervening browser reflow/repaint which would take place.</p></li>
-<li><p><strong><code>ready</code></strong></p>
-
-<p> Fires when the DOM is ready, and all required classes have been loaded. Functionally
- the same as <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">onReady</a>, but must be called with the <code>single</code> option:</p>
-
-<pre><code>  <a href="#!/api/Ext-method-on" rel="Ext-method-on" class="docClass">Ext.on</a>(\{
-      ready: function() \{
-          console.log('document is ready!');
-      \},
-      single: true
-  \}); 
-</code></pre></li>
-<li><p><strong><code>resumelayouts</code></strong></p>
-
-<p> Fires after global layout processing has been resumed in <a href="#!/api/Ext.AbstractComponent-method-resumeLayouts" rel="Ext.AbstractComponent-method-resumeLayouts" class="docClass">Ext.AbstractComponent.resumeLayouts</a>.</p></li>
-</ul> %}
-    *)
-  method ieVersion : Js.number Js.t Js.prop
-  (** {% <p>The current version of IE (0 if the browser is not IE). This does not account
-for the documentMode of the current page, which is factored into <a href="#!/api/Ext-property-isIE7" rel="Ext-property-isIE7" class="docClass">isIE7</a>,
-<a href="#!/api/Ext-property-isIE8" rel="Ext-property-isIE8" class="docClass">isIE8</a> and <a href="#!/api/Ext-property-isIE9" rel="Ext-property-isIE9" class="docClass">isIE9</a>. Thus this is not always true:</p>
-
-<pre><code><a href="#!/api/Ext-property-isIE8" rel="Ext-property-isIE8" class="docClass">Ext.isIE8</a> == (<a href="#!/api/Ext-property-ieVersion" rel="Ext-property-ieVersion" class="docClass">Ext.ieVersion</a> == 8)
-</code></pre> %}
-    *)
-  method isChrome : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Chrome.</p> %}
-    *)
-  method isFF10 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses FireFox 10</p> %}
-    *)
-  method isFF3_0 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses FireFox 3.0</p> %}
-    *)
-  method isFF3_5 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses FireFox 3.5</p> %}
-    *)
-  method isFF3_6 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses FireFox 3.6</p> %}
-    *)
-  method isFF4 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses FireFox 4</p> %}
-    *)
-  method isFF5 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses FireFox 5</p> %}
-    *)
-  method isGecko : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses the Gecko layout engine (e.g. Mozilla, Firefox).</p> %}
-    *)
-  method isGecko10 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses a Gecko 5.0+ layout engine (e.g. Firefox 5.x).</p> %}
-    *)
-  method isGecko3 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses a Gecko 1.9+ layout engine (e.g. Firefox 3.x).</p> %}
-    *)
-  method isGecko4 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses a Gecko 2.0+ layout engine (e.g. Firefox 4.x).</p> %}
-    *)
-  method isGecko5 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses a Gecko 5.0+ layout engine (e.g. Firefox 5.x).</p> %}
-    *)
-  method isIE : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer.</p> %}
-    *)
-  method isIE10 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 10.x.</p> %}
-    *)
-  method isIE10m : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 10.x or lower.</p> %}
-    *)
-  method isIE10p : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 10.x or higher.</p> %}
-    *)
-  method isIE6 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 6.x.</p> %}
-    *)
-  method isIE7 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 7.x.</p> %}
-    *)
-  method isIE7m : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 7.x or lower.</p> %}
-    *)
-  method isIE7p : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 7.x or higher.</p> %}
-    *)
-  method isIE8 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 8.x.</p> %}
-    *)
-  method isIE8m : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 8.x or lower.</p> %}
-    *)
-  method isIE8p : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 8.x or higher.</p> %}
-    *)
-  method isIE9 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 9.x.</p> %}
-    *)
-  method isIE9m : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 9.x or lower.</p> %}
-    *)
-  method isIE9p : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Internet Explorer 9.x or higher.</p> %}
-    *)
-  method isLinux : bool Js.t Js.prop
-  (** {% <p>True if the detected platform is Linux.</p> %}
-    *)
-  method isMac : bool Js.t Js.prop
-  (** {% <p>True if the detected platform is Mac OS.</p> %}
-    *)
-  method isOpera : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Opera.</p> %}
-    *)
-  method isOpera10_5 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Opera 10.5x.</p> %}
-    *)
-  method isReady : bool Js.t Js.prop
-  (** {% <p>True when the document is fully initialized and ready for action</p> %}
-    
-    Defaults to: [false]
-    *)
-  method isSafari : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Safari.</p> %}
-    *)
-  method isSafari2 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Safari 2.x.</p> %}
-    *)
-  method isSafari3 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Safari 3.x.</p> %}
-    *)
-  method isSafari4 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Safari 4.x.</p> %}
-    *)
-  method isSafari5 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Safari 5.x.</p> %}
-    *)
-  method isSafari5_0 : bool Js.t Js.prop
-  (** {% <p>True if the detected browser is Safari 5.0.x.</p> %}
-    *)
-  method isSecure : bool Js.t Js.prop
-  (** {% <p>True if the page is running over SSL</p> %}
-    *)
-  method isWebKit : bool Js.t Js.prop
-  (** {% <p>True if the detected browser uses WebKit.</p> %}
-    *)
-  method isWindows : bool Js.t Js.prop
-  (** {% <p>True if the detected platform is Windows.</p> %}
-    *)
-  method name : Js.js_string Js.t Js.prop
-  (** {% <p>The name of the property in the global namespace (The <code>window</code> in browser environments) which refers to the current instance of Ext.</p>
-
-
-<p>This is usually <code>"Ext"</code>, but if a sandboxed build of ExtJS is being used, this will be an alternative name.</p>
-
-
-<p>If code is being generated for use by <code>eval</code> or to create a <code>new Function</code>, and the global instance
-of Ext must be referenced, this is the name that should be built into the code.</p> %}
-    
-    Defaults to: ['Ext']
-    *)
-  method operaVersion : Js.number Js.t Js.prop
-  (** {% <p>The current version of Opera (0 if the browser is not Opera).</p> %}
-    *)
-  method safariVersion : Js.number Js.t Js.prop
-  (** {% <p>The current version of Safari (0 if the browser is not Safari).</p> %}
-    *)
-  method useShims : bool Js.t Js.prop
-  (** {% <p>By default, Ext intelligently decides whether floating elements should be shimmed.
-If you are using flash, you may want to set this to true.</p> %}
-    *)
-  method webKitVersion : Js.number Js.t Js.prop
-  (** {% <p>The current version of WebKit (0 if the browser does not use WebKit).</p> %}
     *)
   
 end

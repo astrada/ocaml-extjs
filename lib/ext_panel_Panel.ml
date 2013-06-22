@@ -2,6 +2,7 @@ class type t =
 object('self)
   inherit Ext_panel_AbstractPanel.t
   
+  method dd : _ Js.t Js.prop
   method addTool : _ Js.t -> unit Js.meth
   method afterCollapse : bool Js.t -> unit Js.meth
   method afterExpand : bool Js.t -> unit Js.meth
@@ -28,7 +29,6 @@ object('self)
   method setTitle : Js.js_string Js.t -> unit Js.meth
   method setUI : Js.js_string Js.t -> unit Js.meth
   method toggleCollapse : 'self Js.t Js.meth
-  method dd : _ Js.t Js.prop
   
 end
 
@@ -36,18 +36,6 @@ class type configs =
 object('self)
   inherit Ext_panel_AbstractPanel.configs
   
-  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  method onRemoved : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   method animCollapse : bool Js.t Js.prop
   method bbar : _ Js.t Js.prop
   method buttonAlign : Js.js_string Js.t Js.prop
@@ -87,6 +75,18 @@ object('self)
   method titleAlign : Js.js_string Js.t Js.prop
   method titleCollapse : bool Js.t Js.prop
   method tools : _ Js.t Js.prop
+  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  method onRemoved : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
   
 end
 

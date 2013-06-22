@@ -77,6 +77,7 @@ job of the <code><a href="#!/api/Ext-method-application" rel="Ext-method-applica
 
 <pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.app.Application', \{
     extend: '<a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a>',
+    name: 'MyApp',
     ...
 \});
 
@@ -141,9 +142,6 @@ class type configs =
 object('self)
   inherit Ext_app_Controller.configs
   
-  method launch : ('self Js.t, Js.js_string Js.t -> bool Js.t)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.launch] *)
   method appFolder : Js.js_string Js.t Js.prop
   (** {% <p>The path to the directory which contains all application's classes.
 This path will be registered via <a href="#!/api/Ext.Loader-method-setPath" rel="Ext.Loader-method-setPath" class="docClass">Ext.Loader.setPath</a> for the namespace specified
@@ -174,7 +172,7 @@ function.</p> %}
     
     Defaults to: [false]
     *)
-  method controllers : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method controllers : _ Js.t Js.prop
   (** {% <p>Names of controllers that the app uses.</p> %}
     *)
   method enableQuickTips : bool Js.t Js.prop
@@ -184,9 +182,10 @@ function.</p> %}
     *)
   method name : Js.js_string Js.t Js.prop
   (** {% <p>The name of your application. This will also be the namespace for your views, controllers
-models and stores. Don't use spaces or special characters in the name.</p> %}
+models and stores. Don't use spaces or special characters in the name. <strong>Application name
+is mandatory</strong>.</p> %}
     *)
-  method namespaces : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method namespaces : _ Js.t Js.prop
   (** {% <p>The list of namespace prefixes used in the application to resolve dependencies
 like Views and Stores:</p>
 
@@ -225,6 +224,9 @@ See <a href="#!/api/Ext.Loader-cfg-paths" rel="Ext.Loader-cfg-paths" class="docC
   method scope : _ Js.t Js.prop
   (** {% <p>The scope to execute the <a href="#!/api/Ext.app.Application-method-launch" rel="Ext.app.Application-method-launch" class="docClass">launch</a> function in. Defaults to the Application instance.</p> %}
     *)
+  method launch : ('self Js.t, Js.js_string Js.t -> bool Js.t)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.launch] *)
   
 end
 

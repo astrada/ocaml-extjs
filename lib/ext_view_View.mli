@@ -117,9 +117,6 @@ class type configs =
 object('self)
   inherit Ext_view_AbstractView.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
   method mouseOverOutBuffer : Js.number Js.t Js.prop
   (** {% <p>The number of milliseconds to buffer mouseover and mouseout event handling on view items.</p>
 
@@ -127,6 +124,9 @@ object('self)
     
     Defaults to: [20]
     *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
   
 end
 

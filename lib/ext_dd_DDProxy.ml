@@ -2,14 +2,14 @@ class type t =
 object('self)
   inherit Ext_dd_DD.t
   
+  method centerFrame : bool Js.t Js.prop
+  method resizeFrame : bool Js.t Js.prop
   method applyConfig : unit Js.meth
   method b4MouseDown : _ Js.t -> unit Js.meth
   method createFrame : unit Js.meth
   method endDrag : Dom_html.event Js.t -> unit Js.meth
   method initFrame : unit Js.meth
   method toString : Js.js_string Js.t Js.meth
-  method centerFrame : bool Js.t Js.prop
-  method resizeFrame : bool Js.t Js.prop
   
 end
 

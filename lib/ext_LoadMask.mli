@@ -20,9 +20,9 @@ myMask.show();
 
 class type t =
 object('self)
+  inherit Ext_Component.t
   inherit Ext_util_Bindable.t
   inherit Ext_util_Floating.t
-  inherit Ext_Component.t
   
   method afterRender : unit Js.meth
   (** {% <p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
@@ -75,7 +75,7 @@ may be omitted, it is assumed to be the current instance.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
+    {% <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> %}
      Defaults to: null
@@ -109,7 +109,7 @@ After calling the superclass's <code>onDisable</code>, the Component will be dis
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-method-hide" rel="Ext.LoadMask-method-hide" class="docClass">hide</a>.</p> %}
+<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-event-hide" rel="Ext.LoadMask-event-hide" class="docClass">hide</a>.</p> %}
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
@@ -147,7 +147,7 @@ brought to the front of its <a href="#!/api/Ext.LoadMask-property-zIndexManager"
     
     {b Parameters}:
     {ul {- animateTarget: [_ Js.t] (optional)
-    {% <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
+    {% <p><strong>only valid for <a href="#!/api/Ext.LoadMask-cfg-floating" rel="Ext.LoadMask-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> %}
      Defaults to: null
     }
@@ -171,28 +171,10 @@ end
 
 class type configs =
 object('self)
+  inherit Ext_Component.configs
   inherit Ext_util_Bindable.configs
   inherit Ext_util_Floating.configs
-  inherit Ext_Component.configs
   
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
-  method afterShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef
-    -> _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterShow] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDisable] *)
-  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onHide] *)
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onShow] *)
   method baseCls : Js.js_string Js.t Js.prop
   (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
 component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
@@ -252,14 +234,32 @@ the <a href="#!/api/Ext.Component-method-getEl" rel="Ext.Component-method-getEl"
     
     Defaults to: [false]
     *)
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterRender] *)
+  method afterShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef
+    -> _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterShow] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDisable] *)
+  method onHide : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onHide] *)
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onShow] *)
   
 end
 
 class type events =
 object
+  inherit Ext_Component.events
   inherit Ext_util_Bindable.events
   inherit Ext_util_Floating.events
-  inherit Ext_Component.events
   
   
 end

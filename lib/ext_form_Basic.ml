@@ -2,6 +2,7 @@ class type t =
 object('self)
   inherit Ext_util_Observable.t
   
+  method owner : #Ext_container_Container.t Js.t Js.prop
   method applyIfToFields : _ Js.t -> 'self Js.t Js.meth
   method applyToFields : _ Js.t -> 'self Js.t Js.meth
   method checkDirty : unit Js.meth
@@ -27,7 +28,6 @@ object('self)
   method setValues : _ Js.t -> 'self Js.t Js.meth
   method submit : _ Js.t -> 'self Js.t Js.meth
   method updateRecord : Ext_data_Model.t Js.t Js.optdef -> 'self Js.t Js.meth
-  method owner : #Ext_container_Container.t Js.t Js.prop
   
 end
 

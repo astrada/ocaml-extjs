@@ -33,6 +33,20 @@ class type t =
 object('self)
   inherit Ext_panel_Panel.t
   
+  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
+  (** {% <p>If this Window is configured <a href="#!/api/Ext.window.Window-cfg-draggable" rel="Ext.window.Window-cfg-draggable" class="docClass">draggable</a>, this property will contain an instance of
+<a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of <a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles dragging
+the Window's DOM Element, and constraining according to the <a href="#!/api/Ext.window.Window-cfg-constrain" rel="Ext.window.Window-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.window.Window-cfg-constrainHeader" rel="Ext.window.Window-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
+
+<p>This has implementations of <code>onBeforeStart</code>, <code>onDrag</code> and <code>onEnd</code> which perform the dragging action. If
+extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-createInterceptor" rel="Ext.Function-method-createInterceptor" class="docClass">createInterceptor</a> or
+<a href="#!/api/Ext.Function-method-createSequence" rel="Ext.Function-method-createSequence" class="docClass">createSequence</a> to augment the existing implementations.</p> %}
+    *)
+  method isWindow : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Window, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   method afterCollapse : bool Js.t -> unit Js.meth
   (** {% <p>Invoked after the Panel is Collapsed.</p> %}
     
@@ -58,13 +72,6 @@ the current object.</p> %}
     {ul {- state: [_ Js.t] {% <p>The state</p> %}
     }
     }
-    *)
-  method beforeLayout : unit Js.meth
-  (** {% <p>Occurs before componentLayout is run. In previous releases, this method could
-return <code>false</code> to prevent its layout but that is not supported in Ext JS 4.1 or
-higher. This method is simply a notification of the impending layout to give the
-component a chance to adjust the DOM. Ideally, DOM reads should be avoided at this
-time to reduce expensive document reflows.</p> %}
     *)
   method getDefaultFocus : unit Js.meth
   (** {% <p>Gets the configured default focus item.  If a <a href="#!/api/Ext.window.Window-cfg-defaultFocus" rel="Ext.window.Window-cfg-defaultFocus" class="docClass">defaultFocus</a> is set, it will
@@ -137,20 +144,6 @@ state of the window.</p> %}
     }
     }
     *)
-  method dd_dragger : Ext_util_ComponentDragger.t Js.t Js.prop
-  (** {% <p>If this Window is configured <a href="#!/api/Ext.window.Window-cfg-draggable" rel="Ext.window.Window-cfg-draggable" class="docClass">draggable</a>, this property will contain an instance of
-<a href="#!/api/Ext.util.ComponentDragger" rel="Ext.util.ComponentDragger" class="docClass">Ext.util.ComponentDragger</a> (A subclass of <a href="#!/api/Ext.dd.DragTracker" rel="Ext.dd.DragTracker" class="docClass">DragTracker</a>) which handles dragging
-the Window's DOM Element, and constraining according to the <a href="#!/api/Ext.window.Window-cfg-constrain" rel="Ext.window.Window-cfg-constrain" class="docClass">constrain</a> and <a href="#!/api/Ext.window.Window-cfg-constrainHeader" rel="Ext.window.Window-cfg-constrainHeader" class="docClass">constrainHeader</a> .</p>
-
-<p>This has implementations of <code>onBeforeStart</code>, <code>onDrag</code> and <code>onEnd</code> which perform the dragging action. If
-extra logic is needed at these points, use <a href="#!/api/Ext.Function-method-createInterceptor" rel="Ext.Function-method-createInterceptor" class="docClass">createInterceptor</a> or
-<a href="#!/api/Ext.Function-method-createSequence" rel="Ext.Function-method-createSequence" class="docClass">createSequence</a> to augment the existing implementations.</p> %}
-    *)
-  method isWindow : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Window, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
-    *)
   
 end
 
@@ -158,18 +151,6 @@ class type configs =
 object('self)
   inherit Ext_panel_Panel.configs
   
-  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterCollapse] *)
-  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterExpand] *)
-  method beforeLayout : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeLayout] *)
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onShow] *)
   method animateTarget : _ Js.t Js.prop
   (** {% <p>Id or element from which the window should animate while opening.</p> %}
     
@@ -371,6 +352,15 @@ width of the Window's container <a href="#!/api/Ext.dom.Element" rel="Ext.dom.El
   (** {% <p>The Y position of the top edge of the window on initial showing. Defaults to centering the Window within the
 height of the Window's container <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> (The Element that the Window is rendered to).</p> %}
     *)
+  method afterCollapse : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterCollapse] *)
+  method afterExpand : ('self Js.t, bool Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterExpand] *)
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onShow] *)
   
 end
 

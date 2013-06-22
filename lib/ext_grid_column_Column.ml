@@ -2,6 +2,9 @@ class type t =
 object('self)
   inherit Ext_grid_header_Container.t
   
+  method isColumn : bool Js.t Js.readonly_prop
+  method textEl : Ext_dom_Element.t Js.t Js.prop
+  method triggerEl : Ext_dom_Element.t Js.t Js.prop
   method afterComponentLayout : Js.number Js.t -> Js.number Js.t -> _ Js.t ->
     _ Js.t -> unit Js.meth
   method afterRender : unit Js.meth
@@ -24,9 +27,6 @@ object('self)
   method setText : Js.js_string Js.t -> unit Js.meth
   method show_column : _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> #Ext_Component.t Js.t Js.meth
-  method isHeader : bool Js.t Js.prop
-  method textEl : Ext_dom_Element.t Js.t Js.prop
-  method triggerEl : Ext_dom_Element.t Js.t Js.prop
   
 end
 
@@ -34,20 +34,6 @@ class type configs =
 object('self)
   inherit Ext_grid_header_Container.configs
   
-  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method defaultRenderer : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
   method align : Js.js_string Js.t Js.prop
   method baseCls : Js.js_string Js.t Js.prop
   method columns : _ Js.t Js.js_array Js.t Js.prop
@@ -74,6 +60,20 @@ object('self)
   method text : Js.js_string Js.t Js.prop
   method tooltip : Js.js_string Js.t Js.prop
   method tooltipType : Js.js_string Js.t Js.prop
+  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method defaultRenderer : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
   
 end
 

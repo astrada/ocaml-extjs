@@ -1,9 +1,11 @@
 class type t =
 object('self)
+  inherit Ext_Base.t
   inherit Ext_util_Animate.t
   inherit Ext_util_Observable.t
-  inherit Ext_Base.t
   
+  method dd : Ext_dd_DragSource.t Js.t Js.prop
+  method isSprite : bool Js.t Js.prop
   method addCls : _ Js.t -> 'self Js.t Js.meth
   method destroy : unit Js.meth
   method getBBox : _ Js.t Js.meth
@@ -15,16 +17,14 @@ object('self)
   method setStyle : _ Js.t -> Js.js_string Js.t Js.optdef -> 'self Js.t
     Js.meth
   method show : bool Js.t -> 'self Js.t Js.meth
-  method dd : Ext_dd_DragSource.t Js.t Js.prop
-  method isSprite : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
+  inherit Ext_Base.configs
   inherit Ext_util_Animate.configs
   inherit Ext_util_Observable.configs
-  inherit Ext_Base.configs
   
   method draggable : bool Js.t Js.prop
   method fill : Js.js_string Js.t Js.prop
@@ -49,9 +49,9 @@ end
 
 class type events =
 object
+  inherit Ext_Base.events
   inherit Ext_util_Animate.events
   inherit Ext_util_Observable.events
-  inherit Ext_Base.events
   
   method beforedestroy : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

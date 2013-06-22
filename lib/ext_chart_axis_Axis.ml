@@ -16,6 +16,7 @@ object('self)
   method adjustEnd : bool Js.t Js.prop
   method dashSize : Js.number Js.t Js.prop
   method grid : _ Js.t Js.prop
+  method hidden : bool Js.t Js.prop
   method length : Js.number Js.t Js.prop
   method majorTickSteps : Js.number Js.t Js.prop
   method minorTickSteps : Js.number Js.t Js.prop

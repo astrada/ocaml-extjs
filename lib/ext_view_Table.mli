@@ -75,6 +75,7 @@ contain <i>named</i> properties.</p> %}
     }
     *)
   method focus_table : bool Js.t Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.callback Js.optdef -> _ Js.callback Js.optdef ->
     #Ext_Component.t Js.t Js.meth
   (** {% <p>Try to focus this component.</p> %}
     
@@ -84,6 +85,12 @@ contain <i>named</i> properties.</p> %}
     }
     {- delay: [_ Js.t] (optional)
     {% <p>Delay the focus this number of milliseconds (true for 10 milliseconds).</p> %}
+    }
+    {- callback: [_ Js.callback] (optional)
+    {% <p>Only needed if the <code>delay</code> parameter is used. A function to call upon focus.</p> %}
+    }
+    {- scope: [_ Js.callback] (optional)
+    {% <p>Only needed if the <code>delay</code> parameter is used. The scope (<code>this</code> reference) in which to execute the callback.</p> %}
     }
     }
     
@@ -95,12 +102,15 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
     }
     }
     *)
-  method focusRow : _ Js.t -> unit Js.meth
+  method focusRow : _ Js.t -> _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Focuses a particular row and brings it into view. Will fire the rowfocus event.</p> %}
     
     {b Parameters}:
-    {ul {- rowIdx: [_ Js.t]
-    {% <p>An HTMLElement template node, index of a template node, the id of a template node or the
+    {ul {- row: [_ Js.t]
+    {% <p>An HTMLElement template node, index of a template node, the id of a template node or the</p> %}
+    }
+    {- delay: [_ Js.t] (optional)
+    {% <p>Delay the focus this number of milliseconds (true for 10 milliseconds).
 record associated with the node.</p> %}
     }
     }
@@ -181,9 +191,7 @@ to return the top level row.</p> %}
     *)
   method getPosition : bool Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t
     Js.meth
-  (** {% <p>TODO: have this use the new Ext.grid.CellContext class</p>
-
-<p>Gets the current XY position of the component's underlying element.</p> %}
+  (** {% <p>Gets the current XY position of the component's underlying element.</p> %}
     
     {b Parameters}:
     {ul {- local: [bool Js.t] (optional)
@@ -300,8 +308,7 @@ instantiation of the class.</p>
 After calling the superclass's onDestroy, the Component will be destroyed.</p> %}
     *)
   method refresh : unit Js.meth
-  (** {% <p>Refreshes the grid view. Saves and restores the scroll state, generates a new template, stripes rows and
-invalidates the scrollers.</p> %}
+  (** {% <p>Refreshes the grid view. Sets the sort state and focuses the previously focused row.</p> %}
     *)
   method removeRowCls : _ Js.t -> Js.js_string Js.t -> unit Js.meth
   (** {% <p>Removes a CSS Class from a specific row.</p> %}
@@ -354,15 +361,6 @@ class type configs =
 object('self)
   inherit Ext_view_View.configs
   
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.beforeDestroy] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
   method baseCls : Js.js_string Js.t Js.prop
   (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
 component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
@@ -446,6 +444,15 @@ This in return will also cause <a href="#!/api/Ext.view.View-event-highlightitem
     
     Defaults to: [true]
     *)
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.beforeDestroy] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
   
 end
 

@@ -1,7 +1,7 @@
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
   method clear : Js.js_string Js.t -> unit Js.meth
   method decodeValue : Js.js_string Js.t -> _ Js.t Js.meth
@@ -13,8 +13,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method prefix : Js.js_string Js.t Js.prop
   
@@ -22,8 +22,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method statechange : (t Js.t -> Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.t -> unit) Js.callback Js.writeonly_prop

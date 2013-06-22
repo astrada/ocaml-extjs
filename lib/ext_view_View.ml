@@ -14,9 +14,9 @@ class type configs =
 object('self)
   inherit Ext_view_AbstractView.configs
   
+  method mouseOverOutBuffer : Js.number Js.t Js.prop
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
-  method mouseOverOutBuffer : Js.number Js.t Js.prop
   
 end
 

@@ -30,20 +30,6 @@ class type configs =
 object('self)
   inherit Ext_form_field_Base.configs
   
-  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
-    Js.writeonly_prop
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
   method allowBlank : bool Js.t Js.prop
   method allowOnlyWhitespace : bool Js.t Js.prop
   method blankText : Js.js_string Js.t Js.prop
@@ -71,6 +57,20 @@ object('self)
   method validator : _ Js.callback Js.prop
   method vtype : Js.js_string Js.t Js.prop
   method vtypeText : Js.js_string Js.t Js.prop
+  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
+    Js.writeonly_prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
   
 end
 

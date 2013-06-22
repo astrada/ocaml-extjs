@@ -44,6 +44,112 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method available : bool Js.t Js.prop
+  (** {% <p>The available property is false until the linked dom element is accessible.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method config : _ Js.t Js.prop
+  (** {% <p>Configuration attributes passed into the constructor</p> %}
+    *)
+  method defaultPadding : _ Js.t Js.prop
+  (** {% <p>Provides default constraint padding to "constrainTo" elements.</p> %}
+    
+    Defaults to: [\{left: 0, right: 0, top: 0, bottom: 0\}]
+    *)
+  method groups : _ Js.t Js.prop
+  (** {% <p>The group defines a logical collection of DragDrop objects that are
+related.  Instances only get events when interacting with other
+DragDrop object in the same group.  This lets us define multiple
+groups using a single DragDrop subclass if we want.</p>
+
+<p>An object in the format \{'group1':true, 'group2':true\}</p> %}
+    *)
+  method hasOuterHandles : bool Js.t Js.prop
+  (** {% <p>By default, drags can only be initiated if the mousedown occurs in the
+region the linked element is.  This is done in part to work around a
+bug in some browsers that mis-report the mousedown if the previous
+mouseup happened outside of the window.  This property is set to true
+if outer handles are defined. Defaults to false.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method id : Js.js_string Js.t Js.prop
+  (** {% <p>The id of the element associated with this object.  This is what we
+refer to as the "linked element" because the size and position of
+this element is used to determine when the drag and drop objects have
+interacted.</p> %}
+    *)
+  method ignoreSelf : bool Js.t Js.prop
+  (** {% <p>Set to false to enable a DragDrop object to fire drag events while dragging
+over its own Element. Defaults to true - DragDrop objects do not by default
+fire drag events to themselves.</p> %}
+    *)
+  method invalidHandleClasses : Js.js_string Js.t Js.js_array Js.t Js.prop
+  (** {% <p>An Array of CSS class names for elements to be considered in valid as drag handles.</p> %}
+    *)
+  method invalidHandleIds : _ Js.t Js.prop
+  (** {% <p>An object who's property names identify the IDs of elements to be considered invalid as drag handles.
+A non-null property value identifies the ID as invalid. For example, to prevent
+dragging from being initiated on element ID "foo", use:</p>
+
+<pre><code>\{
+    foo: true
+\}
+</code></pre> %}
+    *)
+  method invalidHandleTypes : _ Js.t Js.prop
+  (** {% <p>An object who's property names identify HTML tags to be considered invalid as drag handles.
+A non-null property value identifies the tag as invalid. Defaults to the
+following value which prevents drag operations from being initiated by <code>&lt;a&gt;</code> elements:</p>
+
+<pre><code>\{
+    A: "A"
+\}
+</code></pre> %}
+    *)
+  method isTarget : bool Js.t Js.prop
+  (** {% <p>By default, all instances can be a drop target.  This can be disabled by
+setting isTarget to false.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method maintainOffset : bool Js.t Js.prop
+  (** {% <p>Maintain offsets when we resetconstraints.  Set to true when you want
+the position of the element relative to its parent to stay the same
+when the page changes</p> %}
+    
+    Defaults to: [false]
+    *)
+  method moveOnly : bool Js.t Js.prop
+  (** {% <p>When set to true, other DD objects in cooperating DDGroups do not receive
+notification events when this DD object is dragged over them.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method padding : Js.number Js.t Js.js_array Js.t Js.prop
+  (** {% <p>The padding configured for this drag and drop object for calculating
+the drop zone intersection with this object.
+An array containing the 4 padding values: [top, right, bottom, left]</p> %}
+    *)
+  method primaryButtonOnly : bool Js.t Js.prop
+  (** {% <p>By default the drag and drop instance will only respond to the primary
+button click (left button for a right-handed mouse).  Set to true to
+allow drag and drop to start with any mouse click that is propogated
+by the browser</p> %}
+    
+    Defaults to: [true]
+    *)
+  method xTicks : Js.number Js.t Js.js_array Js.t Js.prop
+  (** {% <p>Array of pixel locations the element will snap to if we specified a
+horizontal graduation/interval.  This array is generated automatically
+when you define a tick interval.</p> %}
+    *)
+  method yTicks : Js.number Js.t Js.js_array Js.t Js.prop
+  (** {% <p>Array of pixel locations the element will snap to if we specified a
+vertical graduation/interval.  This array is generated automatically
+when you define a tick interval.</p> %}
+    *)
   method addInvalidHandleClass : Js.js_string Js.t -> unit Js.meth
   (** {% <p>Lets you specify a css class of elements that will not initiate a drag</p> %}
     
@@ -133,6 +239,9 @@ an object containing the sides to pad. For example: <code>\{right:10, bottom:10\
     {% <p>Constrain the draggable in the content box of the element (inside padding and borders)</p> %}
     }
     }
+    *)
+  method destroy : unit Js.meth
+  (** {% <p>Destroy this DragDrop instance</p> %}
     *)
   method endDrag : Dom_html.event Js.t -> unit Js.meth
   (** {% <p>Called when we are done dragging the object</p> %}
@@ -494,112 +603,6 @@ and the drag or mousedown time thresholds have beeen met.</p> %}
     *)
   method unreg : unit Js.meth
   (** {% <p>Removes all drag and drop hooks for this element</p> %}
-    *)
-  method available : bool Js.t Js.prop
-  (** {% <p>The available property is false until the linked dom element is accessible.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method config : _ Js.t Js.prop
-  (** {% <p>Configuration attributes passed into the constructor</p> %}
-    *)
-  method defaultPadding : _ Js.t Js.prop
-  (** {% <p>Provides default constraint padding to "constrainTo" elements.</p> %}
-    
-    Defaults to: [\{left: 0, right: 0, top: 0, bottom: 0\}]
-    *)
-  method groups : _ Js.t Js.prop
-  (** {% <p>The group defines a logical collection of DragDrop objects that are
-related.  Instances only get events when interacting with other
-DragDrop object in the same group.  This lets us define multiple
-groups using a single DragDrop subclass if we want.</p>
-
-<p>An object in the format \{'group1':true, 'group2':true\}</p> %}
-    *)
-  method hasOuterHandles : bool Js.t Js.prop
-  (** {% <p>By default, drags can only be initiated if the mousedown occurs in the
-region the linked element is.  This is done in part to work around a
-bug in some browsers that mis-report the mousedown if the previous
-mouseup happened outside of the window.  This property is set to true
-if outer handles are defined. Defaults to false.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method id : Js.js_string Js.t Js.prop
-  (** {% <p>The id of the element associated with this object.  This is what we
-refer to as the "linked element" because the size and position of
-this element is used to determine when the drag and drop objects have
-interacted.</p> %}
-    *)
-  method ignoreSelf : bool Js.t Js.prop
-  (** {% <p>Set to false to enable a DragDrop object to fire drag events while dragging
-over its own Element. Defaults to true - DragDrop objects do not by default
-fire drag events to themselves.</p> %}
-    *)
-  method invalidHandleClasses : Js.js_string Js.t Js.js_array Js.t Js.prop
-  (** {% <p>An Array of CSS class names for elements to be considered in valid as drag handles.</p> %}
-    *)
-  method invalidHandleIds : _ Js.t Js.prop
-  (** {% <p>An object who's property names identify the IDs of elements to be considered invalid as drag handles.
-A non-null property value identifies the ID as invalid. For example, to prevent
-dragging from being initiated on element ID "foo", use:</p>
-
-<pre><code>\{
-    foo: true
-\}
-</code></pre> %}
-    *)
-  method invalidHandleTypes : _ Js.t Js.prop
-  (** {% <p>An object who's property names identify HTML tags to be considered invalid as drag handles.
-A non-null property value identifies the tag as invalid. Defaults to the
-following value which prevents drag operations from being initiated by <code>&lt;a&gt;</code> elements:</p>
-
-<pre><code>\{
-    A: "A"
-\}
-</code></pre> %}
-    *)
-  method isTarget : bool Js.t Js.prop
-  (** {% <p>By default, all instances can be a drop target.  This can be disabled by
-setting isTarget to false.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method maintainOffset : bool Js.t Js.prop
-  (** {% <p>Maintain offsets when we resetconstraints.  Set to true when you want
-the position of the element relative to its parent to stay the same
-when the page changes</p> %}
-    
-    Defaults to: [false]
-    *)
-  method moveOnly : bool Js.t Js.prop
-  (** {% <p>When set to true, other DD objects in cooperating DDGroups do not receive
-notification events when this DD object is dragged over them.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method padding : Js.number Js.t Js.js_array Js.t Js.prop
-  (** {% <p>The padding configured for this drag and drop object for calculating
-the drop zone intersection with this object.
-An array containing the 4 padding values: [top, right, bottom, left]</p> %}
-    *)
-  method primaryButtonOnly : bool Js.t Js.prop
-  (** {% <p>By default the drag and drop instance will only respond to the primary
-button click (left button for a right-handed mouse).  Set to true to
-allow drag and drop to start with any mouse click that is propogated
-by the browser</p> %}
-    
-    Defaults to: [true]
-    *)
-  method xTicks : Js.number Js.t Js.js_array Js.t Js.prop
-  (** {% <p>Array of pixel locations the element will snap to if we specified a
-horizontal graduation/interval.  This array is generated automatically
-when you define a tick interval.</p> %}
-    *)
-  method yTicks : Js.number Js.t Js.js_array Js.t Js.prop
-  (** {% <p>Array of pixel locations the element will snap to if we specified a
-vertical graduation/interval.  This array is generated automatically
-when you define a tick interval.</p> %}
     *)
   
 end

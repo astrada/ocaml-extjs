@@ -12,15 +12,15 @@ class type configs =
 object('self)
   inherit Ext_dd_DragTracker.configs
   
+  method constrain : bool Js.t Js.prop
+  method constrainDelegate : bool Js.t Js.prop
+  method delegate_element : _ Js.t Js.prop
   method onDrag : ('self Js.t, Ext_EventObject.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   method onEnd : ('self Js.t, Ext_EventObject.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
   method onStart : ('self Js.t, Ext_EventObject.t Js.t -> unit)
     Js.meth_callback Js.writeonly_prop
-  method constrain : bool Js.t Js.prop
-  method constrainDelegate : bool Js.t Js.prop
-  method delegate_element : _ Js.t Js.prop
   
 end
 

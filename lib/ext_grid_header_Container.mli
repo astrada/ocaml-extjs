@@ -10,6 +10,9 @@ class type t =
 object('self)
   inherit Ext_container_Container.t
   
+  method isGroupHeader : bool Js.t Js.prop
+  (** {% <p>True if this HeaderContainer is in fact a group header which contains sub headers.</p> %}
+    *)
   method getColumnCount : unit Js.meth
   (** {% <p>Returns the number of <b>grid columns</b> descended from this HeaderContainer.
 Group Columns are HeaderContainers. All grid columns are returned, including hidden ones.</p> %}
@@ -30,7 +33,7 @@ of the passed Container which have been configured as hideable.</p> %}
   (** {% <p>Returns an array of all columns which appear in the grid's View. This goes down to the leaf column header
 level, and does not return <strong>grouped</strong> headers which contain sub headers.</p>
 
-<p>It includes hidden headers because they are still rendered into a table view, but with zero width.</p>
+<p>It includes hidden headers even though they are not rendered. This is for collection of menu items for the column hide/show menu.</p>
 
 <p>Headers which have a hidden ancestor have a <code>hiddenAncestor: true</code> property injected so that they can also be rendered at zero width without interrogating
 that header's ownerCt axis for a hidden ancestor.</p> %}
@@ -56,7 +59,7 @@ structure is.</p> %}
   (** {% <p>Returns the index of a leaf level header regardless of what the nesting
 structure is.</p>
 
-<p>If a group header is passed, the index of the first leaf level heder within it is returned.</p> %}
+<p>If a group header is passed, the index of the first leaf level header within it is returned.</p> %}
     
     {b Parameters}:
     {ul {- header: [Ext_grid_column_Column.t Js.t]
@@ -191,9 +194,6 @@ calling the superclass's onShow, the Component will be visible.</p>
     }
     }
     *)
-  method isGroupHeader : bool Js.t Js.prop
-  (** {% <p>True if this HeaderContainer is in fact a group header which contains sub headers.</p> %}
-    *)
   
 end
 
@@ -201,21 +201,6 @@ class type configs =
 object('self)
   inherit Ext_container_Container.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onAdd] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
-  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRemove] *)
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onShow] *)
   method baseCls : Js.js_string Js.t Js.prop
   (** {% <p>The base CSS class to apply to this component's element. This will also be prepended to elements within this
 component like Panel's body will get a class <code>x-panel-body</code>. This means that if you create a subclass of Panel, and
@@ -269,20 +254,18 @@ of the component will remain in the current place until it is explicitly moved.<
   method sealed : bool Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to constrain column dragging so that a column cannot be dragged into or out of this column.</p>
 
-<p><strong>Note that this config is only valid for column headers which contain child column headers, eg:</strong></p>
-
-<pre><code>\{
-    sealed: true
-    text: 'ExtJS',
-    columns: [\{
-        text: '3.0.4',
-        dataIndex: 'ext304'
-    \}, \{
-        text: '4.1.0',
-        dataIndex: 'ext410'
-    \}
-\}
-</code></pre> %}
+<p><strong>Note that this config is only valid for column headers which contain child column headers, eg:</strong>
+    \{
+        sealed: true
+        text: 'ExtJS',
+        columns: [\{
+            text: '3.0.4',
+            dataIndex: 'ext304'
+        \}, \{
+            text: '4.1.0',
+            dataIndex: 'ext410'
+        \}
+    \}</p> %}
     
     Defaults to: [false]
     *)
@@ -300,6 +283,21 @@ This is so that it has more priority over things like toolbars.</p> %}
     
     Defaults to: [100]
     *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onAdd] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
+  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onRemove] *)
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onShow] *)
   
 end
 

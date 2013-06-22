@@ -2,6 +2,8 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method isFormField : bool Js.t Js.prop
+  method originalValue : _ Js.t Js.prop
   method batchChanges : _ Js.t -> unit Js.meth
   method beforeReset : unit Js.meth
   method checkChange : unit Js.meth
@@ -25,8 +27,6 @@ object('self)
   method setValue : _ Js.t -> 'self Js.t Js.meth
   method transformOriginalValue : _ Js.t -> _ Js.t Js.meth
   method validate : bool Js.t Js.meth
-  method isFormField : bool Js.t Js.prop
-  method originalValue : _ Js.t Js.prop
   
 end
 

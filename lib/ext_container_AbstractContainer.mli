@@ -8,7 +8,11 @@
 class type t =
 object('self)
   inherit Ext_Component.t
+  inherit Ext_Queryable.t
   
+  method items : #Ext_util_AbstractMixedCollection.t Js.t Js.prop
+  (** {% <p>The MixedCollection containing all the child items of this container.</p> %}
+    *)
   method add : _ Js.t -> _ Js.t Js.meth
   (** {% <p>Adds <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>(s) to this Container.</p>
 
@@ -119,23 +123,6 @@ always passed as the last argument.</p> %}
     }
     }
     *)
-  method child : _ Js.t Js.optdef -> _ Js.t Js.meth
-  (** {% <p>Retrieves the first direct child of this container which matches the passed selector or component.
-The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector, or it can be an actual <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.</p> %}
-    
-    {b Parameters}:
-    {ul {- selector: [_ Js.t] (optional)
-    {% <p>An <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector. If no selector is
-specified, the first child will be returned.</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [_ Js.t]
-    {% <p><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> The matching child <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> (or <code>null</code> if no match was found).</p> %}
-    }
-    }
-    *)
   method contains : #Ext_Component.t Js.t -> bool Js.t Js.optdef -> bool Js.t
     Js.meth
   (** {% <p>Determines whether the passed Component is either an immediate child of this Container,
@@ -183,23 +170,6 @@ form most cases.</p> %}
     
     {b Returns}:
     {ul {- [#Ext_container_Container.t Js.t] {% <p>this</p> %}
-    }
-    }
-    *)
-  method down : _ Js.t Js.optdef -> _ Js.t Js.meth
-  (** {% <p>Retrieves the first descendant of this container which matches the passed selector.
-The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector, or it can be an actual <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.</p> %}
-    
-    {b Parameters}:
-    {ul {- selector: [_ Js.t] (optional)
-    {% <p>An <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector or <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>. If no selector is
-specified, the first child will be returned.</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [_ Js.t]
-    {% <p><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> The matching descendant <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> (or <code>null</code> if no match was found).</p> %}
     }
     }
     *)
@@ -300,13 +270,13 @@ within this Container's subtree.</p> %}
     }
     }
     *)
-  method move_container : Js.number Js.t -> Js.number Js.t ->
-    #Ext_Component.t Js.t Js.meth
+  method move_container : _ Js.t -> Js.number Js.t -> #Ext_Component.t Js.t
+    Js.meth
   (** {% <p>Moves a Component within the Container</p> %}
     
     {b Parameters}:
-    {ul {- fromIdx: [Js.number Js.t]
-    {% <p>The index the Component you wish to move is currently at.</p> %}
+    {ul {- fromIdx: [_ Js.t]
+    {% <p>The index/component to move.</p> %}
     }
     {- toIdx: [Js.number Js.t]
     {% <p>The new index for the Component.</p> %}
@@ -315,7 +285,7 @@ within this Container's subtree.</p> %}
     
     {b Returns}:
     {ul {- [#Ext_Component.t Js.t]
-    {% <p>component The Component (or config object) that was moved.</p> %}
+    {% <p>component The Component that was moved.</p> %}
     }
     }
     *)
@@ -384,63 +354,6 @@ structure which may depend upon the state of the child items.</p> %}
     }
     }
     *)
-  method query : Js.js_string Js.t Js.optdef ->
-    Ext_Component.t Js.js_array Js.t Js.meth
-  (** {% <p>Retrieves all descendant components which match the passed selector.
-Executes an <a href="#!/api/Ext.ComponentQuery-method-query" rel="Ext.ComponentQuery-method-query" class="docClass">Ext.ComponentQuery.query</a> using this container as its root.</p> %}
-    
-    {b Parameters}:
-    {ul {- selector: [Js.js_string Js.t] (optional)
-    {% <p>Selector complying to an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector.
-If no selector is specified all items will be returned.</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Ext_Component.t Js.js_array Js.t]
-    {% <p>Components which matched the selector</p> %}
-    }
-    }
-    *)
-  method queryBy : _ Js.callback -> _ Js.t Js.optdef ->
-    Ext_Component.t Js.js_array Js.t Js.meth
-  (** {% <p>Retrieves all descendant components which match the passed function.
-The function should return false for components that are to be
-excluded from the selection.</p> %}
-    
-    {b Parameters}:
-    {ul {- fn: [_ Js.callback]
-    {% <p>The matcher function. It will be called with a single argument,
-the component being tested.</p> %}
-    }
-    {- scope: [_ Js.t] (optional)
-    {% <p>The scope in which to run the function. If not specified,
-it will default to the active component.</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [Ext_Component.t Js.js_array Js.t]
-    {% <p>Components matched by the passed function</p> %}
-    }
-    }
-    *)
-  method queryById : Js.js_string Js.t -> #Ext_Component.t Js.t Js.meth
-  (** {% <p>Finds a component at any level under this container matching the id/itemId.
-This is a shorthand for calling ct.down('#' + id);</p> %}
-    
-    {b Parameters}:
-    {ul {- id: [Js.js_string Js.t]
-    {% <p>The id to find</p> %}
-    }
-    }
-    
-    {b Returns}:
-    {ul {- [#Ext_Component.t Js.t]
-    {% <p>The matching id, null if not found</p> %}
-    }
-    }
-    *)
   method remove : _ Js.t -> bool Js.t Js.optdef -> #Ext_Component.t Js.t
     Js.meth
   (** {% <p>Removes a component from this container.  Fires the <a href="#!/api/Ext.container.AbstractContainer-event-beforeremove" rel="Ext.container.AbstractContainer-event-beforeremove" class="docClass">beforeremove</a> event
@@ -483,37 +396,14 @@ Defaults to the value of this Container's <a href="#!/api/Ext.container.Abstract
     }
     }
     *)
-  method items : #Ext_util_AbstractMixedCollection.t Js.t Js.prop
-  (** {% <p>The MixedCollection containing all the child items of this container.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
   inherit Ext_Component.configs
+  inherit Ext_Queryable.configs
   
-  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterComponentLayout] *)
-  method afterLayout : ('self Js.t, #Ext_layout_container_Container.t Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterLayout] *)
-  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onAdd] *)
-  method onBeforeAdd : ('self Js.t, #Ext_Component.t Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onBeforeAdd] *)
-  method onPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onPosition] *)
-  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
-    Js.meth_callback Js.writeonly_prop
-  (** See method [t.onRemove] *)
-  method onResize : ('self Js.t, _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onResize] *)
   method activeItem : _ Js.t Js.prop
   (** {% <p>A string component id or the numeric index of the component that should be
 initially activated within the container's layout on render.  For example,
@@ -731,12 +621,34 @@ and not passing them as multiple arguments or an array.</p> %}
     
     Defaults to: [false]
     *)
+  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterComponentLayout] *)
+  method afterLayout : ('self Js.t, #Ext_layout_container_Container.t Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterLayout] *)
+  method onAdd : ('self Js.t, #Ext_Component.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onAdd] *)
+  method onBeforeAdd : ('self Js.t, #Ext_Component.t Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onBeforeAdd] *)
+  method onPosition : ('self Js.t, Js.number Js.t -> Js.number Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onPosition] *)
+  method onRemove : ('self Js.t, #Ext_Component.t Js.t -> bool Js.t -> unit)
+    Js.meth_callback Js.writeonly_prop
+  (** See method [t.onRemove] *)
+  method onResize : ('self Js.t, _ Js.t -> _ Js.t -> _ Js.t -> _ Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onResize] *)
   
 end
 
 class type events =
 object
   inherit Ext_Component.events
+  inherit Ext_Queryable.events
   
   method add : (t Js.t -> #Ext_Component.t Js.t -> Js.number Js.t -> _ Js.t
     -> unit) Js.callback Js.writeonly_prop
@@ -833,6 +745,7 @@ end
 class type statics =
 object
   inherit Ext_Component.statics
+  inherit Ext_Queryable.statics
   
   
 end

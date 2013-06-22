@@ -1,8 +1,9 @@
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method isMixedCollection : bool Js.t Js.prop
   method add : _ Js.t -> _ Js.t Js.optdef -> _ Js.t Js.meth
   method addAll : _ Js.t -> unit Js.meth
   method clear : unit Js.meth
@@ -45,25 +46,24 @@ object('self)
     Js.number Js.t Js.optdef -> Js.number Js.t Js.optdef -> Js.number Js.t
     Js.meth
   method updateKey : _ Js.t -> _ Js.t -> unit Js.meth
-  method isMixedCollection : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
+  method allowFunctions : bool Js.t Js.prop
   method getKey : ('self Js.t, _ Js.t -> _ Js.t) Js.meth_callback
     Js.writeonly_prop
-  method allowFunctions : bool Js.t Js.prop
   
 end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method add : (Js.number Js.t -> _ Js.t -> Js.js_string Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop

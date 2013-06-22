@@ -157,6 +157,11 @@ then include it on top of your application.</p>
 class type t =
 object('self)
   
+  method history : _ Js.js_array Js.t Js.prop
+  (** {% <p>An array of class names to keep track of the dependency loading order.
+This is not guaranteed to be the same everytime due to the asynchronous
+nature of the Loader.</p> %}
+    *)
   method addClassPathMappings : _ Js.t -> 'self Js.t Js.meth
   (** {% <p>Sets a batch of path entries</p> %}
     
@@ -365,11 +370,6 @@ executes the given callback function when finishes, within the optional scope.</
     {% <p>Classes to be excluded, useful when being used with expressions</p> %}
     }
     }
-    *)
-  method history : _ Js.js_array Js.t Js.prop
-  (** {% <p>An array of class names to keep track of the dependency loading order.
-This is not guaranteed to be the same everytime due to the asynchronous
-nature of the Loader.</p> %}
     *)
   
 end

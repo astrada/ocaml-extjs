@@ -53,29 +53,6 @@ tip.showAt([50,100]);
     }
     }
     *)
-  method showBy_tip : _ Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth
-  (** {% <p><strong>Experimental</strong>. Shows this tip at a position relative to another element using
-a standard <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position value.  Example usage:</p>
-
-<pre><code>// Show the tip at the default position ('tl-br?')
-tip.showBy('my-el');
-
-// Show the tip's top-left corner anchored to the element's top-right corner
-tip.showBy('my-el', 'tl-tr');
-</code></pre> %}
-    
-    {b Parameters}:
-    {ul {- el: [_ Js.t]
-    {% <p>An HTMLElement, <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> or string
-id of the target element to align to.</p> %}
-    }
-    {- position: [Js.js_string Js.t] (optional)
-    {% <p>A valid <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position.</p>
-
-<p>Defaults to 'tl-br?' or <a href="#!/api/Ext.tip.Tip-cfg-defaultAlign" rel="Ext.tip.Tip-cfg-defaultAlign" class="docClass">defaultAlign</a> if specified.</p> %}
-    }
-    }
-    *)
   
 end
 
@@ -83,9 +60,6 @@ class type configs =
 object('self)
   inherit Ext_panel_Panel.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
   method autoRender : _ Js.t Js.prop
   (** {% <p>private panel overrides</p>
 
@@ -192,7 +166,7 @@ it is <a href="#!/api/Ext.tip.Tip-method-toFront" rel="Ext.tip.Tip-method-toFron
   method maxWidth : Js.number Js.t Js.prop
   (** {% <p>The maximum width of the tip in pixels.  The maximum supported value is 500.</p> %}
     
-    Defaults to: [300]
+    Defaults to: [500]
     *)
   method minWidth : Js.number Js.t Js.prop
   (** {% <p>The minimum width of the tip in pixels.</p> %}
@@ -207,11 +181,13 @@ for bottom-right shadow.</p> %}
     *)
   method width : Js.number Js.t Js.prop
   (** {% <p>Width in pixels of the tip.  Width will be ignored if it
-exceeds the bounds of <a href="#!/api/Ext.tip.Tip-cfg-minWidth" rel="Ext.tip.Tip-cfg-minWidth" class="docClass">minWidth</a> or <a href="#!/api/Ext.tip.Tip-cfg-maxWidth" rel="Ext.tip.Tip-cfg-maxWidth" class="docClass">maxWidth</a>.  The maximum
-supported value is 500.</p> %}
+exceeds the bounds of <a href="#!/api/Ext.tip.Tip-cfg-minWidth" rel="Ext.tip.Tip-cfg-minWidth" class="docClass">minWidth</a> or <a href="#!/api/Ext.tip.Tip-cfg-maxWidth" rel="Ext.tip.Tip-cfg-maxWidth" class="docClass">maxWidth</a>.</p> %}
     
     Defaults to: ['auto']
     *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
   
 end
 

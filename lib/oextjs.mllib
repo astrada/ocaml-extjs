@@ -1,5 +1,5 @@
 # OASIS_START
-# DO NOT EDIT (digest: 6f920ea60397110d7bc93807cd1e384f)
+# DO NOT EDIT (digest: e29ee6e808f9a2eb8fc6eb7bdf8b088f)
 Ext
 Ext_AbstractComponent
 Ext_AbstractPlugin
@@ -48,6 +48,8 @@ Ext_dd_DragSource
 Ext_dd_DragTracker
 Ext_dd_StatusProxy
 Ext_dom_AbstractElement
+Ext_dom_CompositeElement
+Ext_dom_CompositeElementLite
 Ext_dom_Element
 Ext_dom_Element_Fly
 Ext_draw_Component
@@ -68,6 +70,7 @@ Ext_form_Panel
 Ext_grid_column_Column
 Ext_grid_feature_Feature
 Ext_grid_header_Container
+Ext_grid_locking_Lockable
 Ext_grid_Panel
 Ext_grid_plugin_Editing
 Ext_grid_View
@@ -82,6 +85,7 @@ Ext_menu_Menu
 Ext_panel_AbstractPanel
 Ext_panel_Panel
 Ext_panel_Table
+Ext_Queryable
 Ext_selection_DataViewModel
 Ext_selection_Model
 Ext_selection_RowModel

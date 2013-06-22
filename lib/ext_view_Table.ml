@@ -8,8 +8,9 @@ object('self)
   method collectData : Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t ->
     _ Js.t Js.js_array Js.t Js.meth
   method focus_table : bool Js.t Js.optdef -> _ Js.t Js.optdef ->
+    _ Js.callback Js.optdef -> _ Js.callback Js.optdef ->
     #Ext_Component.t Js.t Js.meth
-  method focusRow : _ Js.t -> unit Js.meth
+  method focusRow : _ Js.t -> _ Js.t Js.optdef -> unit Js.meth
   method getBodySelector : unit Js.meth
   method getCellSelector : Ext_grid_column_Column.t Js.t Js.optdef -> unit
     Js.meth
@@ -40,12 +41,6 @@ class type configs =
 object('self)
   inherit Ext_view_View.configs
   
-  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
   method baseCls : Js.js_string Js.t Js.prop
   method componentLayout : _ Js.t Js.prop
   method enableTextSelection : bool Js.t Js.prop
@@ -57,6 +52,12 @@ object('self)
   method selectedItemCls : Js.js_string Js.t Js.prop
   method stripeRows : bool Js.t Js.prop
   method trackOver : bool Js.t Js.prop
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
   
 end
 

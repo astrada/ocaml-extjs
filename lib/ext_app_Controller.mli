@@ -149,9 +149,12 @@ documentation.</p> %}
 
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method application : _ Js.t Js.readonly_prop
+  (** {% <p>The <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for this controller.</p> %}
+    *)
   method addRef : _ Js.t -> unit Js.meth
   (** {% <p>Registers one or more <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">references</a>.</p> %}
     
@@ -430,27 +433,18 @@ is executed.</p> %}
     }
     }
     *)
-  method application : _ Js.t Js.readonly_prop
-  (** {% <p>The <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for this controller.</p> %}
-    *)
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
-  method init : ('self Js.t, _ Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.init] *)
-  method onLaunch : ('self Js.t, _ Js.t -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onLaunch] *)
   method id : Js.js_string Js.t Js.prop
   (** {% <p>The id of this controller. You can use this id when dispatching.</p> %}
     *)
-  method models : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method models : _ Js.t Js.prop
   (** {% <p>Array of models to require from AppName.model namespace. For example:</p>
 
 <pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("MyApp.controller.Foo", \{
@@ -503,7 +497,7 @@ object('self)
 you don't provide xtype, an <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> instance will be created.</li>
 </ul> %}
     *)
-  method stores : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method stores : _ Js.t Js.prop
   (** {% <p>Array of stores to require from AppName.store namespace and to generate getter methods for.
 For example:</p>
 
@@ -533,7 +527,7 @@ For example:</p>
  \});
 </code></pre> %}
     *)
-  method views : Js.js_string Js.t Js.js_array Js.t Js.prop
+  method views : _ Js.t Js.prop
   (** {% <p>Array of views to require from AppName.view namespace and to generate getter methods for.
 For example:</p>
 
@@ -559,13 +553,19 @@ For example:</p>
  \});
 </code></pre> %}
     *)
+  method init : ('self Js.t, _ Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.init] *)
+  method onLaunch : ('self Js.t, _ Js.t -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onLaunch] *)
   
 end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   
 end

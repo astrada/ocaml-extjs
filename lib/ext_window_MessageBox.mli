@@ -37,6 +37,89 @@ class type t =
 object('self)
   inherit Ext_window_Window.t
   
+  method _CANCEL : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single Cancel button</p> %}
+    
+    Defaults to: [8]
+    *)
+  method _ERROR : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the ERROR icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-error']
+    *)
+  method _INFO : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the INFO icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-info']
+    *)
+  method _NO : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single No button</p> %}
+    
+    Defaults to: [4]
+    *)
+  method _OK : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single OK button</p> %}
+    
+    Defaults to: [1]
+    *)
+  method _OKCANCEL : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays OK and Cancel buttons</p> %}
+    
+    Defaults to: [9]
+    *)
+  method _QUESTION : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the QUESTION icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-question']
+    *)
+  method _WARNING : Js.js_string Js.t Js.prop
+  (** {% <p>The CSS class that provides the WARNING icon image</p> %}
+    
+    Defaults to: [Ext.baseCSSPrefix + 'message-box-warning']
+    *)
+  method _YES : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays a single Yes button</p> %}
+    
+    Defaults to: [2]
+    *)
+  method _YESNO : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays Yes and No buttons</p> %}
+    
+    Defaults to: [6]
+    *)
+  method _YESNOCANCEL : Js.number Js.t Js.prop
+  (** {% <p>Button config that displays Yes, No and Cancel buttons</p> %}
+    
+    Defaults to: [14]
+    *)
+  method buttonText : _ Js.t Js.prop
+  (** {% <p>An object containing the default button text strings that can be overriden for localized language support.
+Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
+resource file for handling language support across the framework.
+Customize the default text like so:</p>
+
+<pre><code>Ext.window.MessageBox.buttonText.yes = "oui"; //french
+</code></pre> %}
+    
+    Defaults to: [\{ok: 'OK', yes: 'Yes', no: 'No', cancel: 'Cancel'\}]
+    *)
+  method defaultTextHeight : Js.number Js.t Js.prop
+  (** {% <p>The default height in pixels of the message box's multiline textarea if displayed.</p> %}
+    
+    Defaults to: [75]
+    *)
+  method minProgressWidth : Js.number Js.t Js.prop
+  (** {% <p>The minimum width in pixels of the message box if it is a progress-style dialog.  This is useful
+for setting a different minimum width than text-only dialogs may need.</p> %}
+    
+    Defaults to: [250]
+    *)
+  method minPromptWidth : Js.number Js.t Js.prop
+  (** {% <p>The minimum width in pixels of the message box if it is a prompt dialog.  This is useful
+for setting a different minimum width than text-only dialogs may need.</p> %}
+    
+    Defaults to: [250]
+    *)
   method alert : Js.js_string Js.t -> Js.js_string Js.t ->
     _ Js.callback Js.optdef -> _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Displays a standard read-only message box with an OK button (comparable to the basic JavaScript alert prompt).
@@ -343,89 +426,6 @@ You are responsible for closing the message box when the process is complete.</p
     }
     }
     *)
-  method _CANCEL : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single Cancel button</p> %}
-    
-    Defaults to: [8]
-    *)
-  method _ERROR : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the ERROR icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-error']
-    *)
-  method _INFO : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the INFO icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-info']
-    *)
-  method _NO : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single No button</p> %}
-    
-    Defaults to: [4]
-    *)
-  method _OK : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single OK button</p> %}
-    
-    Defaults to: [1]
-    *)
-  method _OKCANCEL : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays OK and Cancel buttons</p> %}
-    
-    Defaults to: [9]
-    *)
-  method _QUESTION : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the QUESTION icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-question']
-    *)
-  method _WARNING : Js.js_string Js.t Js.prop
-  (** {% <p>The CSS class that provides the WARNING icon image</p> %}
-    
-    Defaults to: [Ext.baseCSSPrefix + 'message-box-warning']
-    *)
-  method _YES : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays a single Yes button</p> %}
-    
-    Defaults to: [2]
-    *)
-  method _YESNO : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays Yes and No buttons</p> %}
-    
-    Defaults to: [6]
-    *)
-  method _YESNOCANCEL : Js.number Js.t Js.prop
-  (** {% <p>Button config that displays Yes, No and Cancel buttons</p> %}
-    
-    Defaults to: [14]
-    *)
-  method buttonText : _ Js.t Js.prop
-  (** {% <p>An object containing the default button text strings that can be overriden for localized language support.
-Supported properties are: ok, cancel, yes and no.  Generally you should include a locale-specific
-resource file for handling language support across the framework.
-Customize the default text like so:</p>
-
-<pre><code>Ext.window.MessageBox.buttonText.yes = "oui"; //french
-</code></pre> %}
-    
-    Defaults to: [\{ok: 'OK', yes: 'Yes', no: 'No', cancel: 'Cancel'\}]
-    *)
-  method defaultTextHeight : Js.number Js.t Js.prop
-  (** {% <p>The default height in pixels of the message box's multiline textarea if displayed.</p> %}
-    
-    Defaults to: [75]
-    *)
-  method minProgressWidth : Js.number Js.t Js.prop
-  (** {% <p>The minimum width in pixels of the message box if it is a progress-style dialog.  This is useful
-for setting a different minimum width than text-only dialogs may need.</p> %}
-    
-    Defaults to: [250]
-    *)
-  method minPromptWidth : Js.number Js.t Js.prop
-  (** {% <p>The minimum width in pixels of the message box if it is a prompt dialog.  This is useful
-for setting a different minimum width than text-only dialogs may need.</p> %}
-    
-    Defaults to: [250]
-    *)
   
 end
 
@@ -433,12 +433,6 @@ class type configs =
 object('self)
   inherit Ext_window_Window.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onShow] *)
   method closeAction : Js.js_string Js.t Js.prop
   (** {% <p>The action to take when the close header tool is clicked:</p>
 
@@ -564,6 +558,29 @@ layout: \{
     
     Defaults to: [\{type: 'vbox', align: 'stretch'\}]
     *)
+  method maxHeight : Js.number Js.t Js.prop
+  (** {% <p>The maximum value in pixels which this Component will set its height to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
+    *)
+  method maxWidth : Js.number Js.t Js.prop
+  (** {% <p>The maximum value in pixels which this Component will set its width to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
+    *)
+  method minHeight : Js.number Js.t Js.prop
+  (** {% <p>The minimum value in pixels which this Component will set its height to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
+    *)
+  method minWidth : Js.number Js.t Js.prop
+  (** {% <p>Forcibly set these to null on the prototype to override anything set higher in
+the hierarchy</p>
+
+<p>The minimum value in pixels which this Component will set its width to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> %}
+    *)
   method resizable : _ Js.t Js.prop
   (** {% <p>Specify as <code>true</code> to allow user resizing at each edge and corner of the window, false to disable resizing.</p>
 
@@ -587,6 +604,12 @@ same dimensions. See <a href="#!/api/Ext.AbstractComponent-cfg-shrinkWrap" rel="
     
     Defaults to: ['&#160;']
     *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onShow] *)
   
 end
 

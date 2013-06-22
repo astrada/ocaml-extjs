@@ -80,6 +80,18 @@ class type t =
 object('self)
   inherit Ext_dom_AbstractElement.t
   
+  method autoBoxAdjust : bool Js.t Js.prop
+  (** {% <p>True to automatically adjust width and height settings for box-model issues.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method originalDisplay : Js.js_string Js.t Js.prop
+  (** {% <p>The element's default display mode.</p>
+
+<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
+    
+    Defaults to: [""]
+    *)
   method addClsOnClick : Js.js_string Js.t -> _ Js.callback Js.optdef ->
     _ Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Sets up event handlers to add and remove a css class when the mouse is down and then up on this element (a click effect)</p>
@@ -648,7 +660,7 @@ el.fadeIn(\{
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -682,7 +694,7 @@ el.fadeOut(\{
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -749,7 +761,7 @@ el.frame("#C3DAF9", 1, \{
      Defaults to: 1
     }
     {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -861,6 +873,16 @@ for more information about the sides.</p>
     }
     }
     *)
+  method getScrollLeft : Js.number Js.t Js.meth
+  (** {% <p>Gets the left scroll position</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
+    
+    {b Returns}:
+    {ul {- [Js.number Js.t] {% <p>The left scroll position</p> %}
+    }
+    }
+    *)
   method getScrollTop : Js.number Js.t Js.meth
   (** {% <p>Gets the top scroll position</p>
 
@@ -939,10 +961,10 @@ el.ghost('b', \{
     
     {b Parameters}:
     {ul {- anchor: [Js.js_string Js.t] (optional)
-    {% <p>One of the valid Fx anchor positions (defaults to bottom: 'b')</p> %}
+    {% <p>One of the valid <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> anchor positions (defaults to bottom: 'b')</p> %}
     }
     {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -996,7 +1018,7 @@ el.highlight("ffff9c", \{
 (defaults to yellow: 'ffff9c')</p> %}
     }
     {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -1465,7 +1487,7 @@ el.puff(\{
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -1604,7 +1626,7 @@ an object with "x" and "y" properties.</p> %}
     }
     *)
   method scrollIntoView : _ Js.t Js.optdef -> bool Js.t Js.optdef ->
-    _ Js.t Js.optdef -> 'self Js.t Js.meth
+    _ Js.t Js.optdef -> bool Js.t Js.optdef -> 'self Js.t Js.meth
   (** {% <p>Scrolls this element into view within the passed container.</p>
 
 <p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> %}
@@ -1620,8 +1642,12 @@ to scroll.  Should be a string (id), dom node, or <a href="#!/api/Ext.dom.Elemen
      Defaults to: true
     }
     {- animate: [_ Js.t] (optional)
-    {% <p>true for the default animation or a standard Element
+    {% <p>true for the default animation or a standard Element</p> %}
+    }
+    {- highlight: [bool Js.t] (optional)
+    {% <p>true to <a href="#!/api/Ext.dom.Element-method-highlight" rel="Ext.dom.Element-method-highlight" class="docClass">highlight</a> the element when it is in view.
 animation config object</p> %}
+     Defaults to: false
     }
     }
     
@@ -1789,7 +1815,7 @@ the display property to hide the element, otherwise it uses visibility. The defa
     'self Js.t Js.meth
   (** {% <p>Slides the element into view. An anchor point can be optionally passed to set the point of origin for the slide
 effect. This function automatically handles wrapping the element with a fixed-size container if needed. See the
-Fx class overview for valid anchor point options. Usage:</p>
+<a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> class overview for valid anchor point options. Usage:</p>
 
 <pre><code>// default: slide the element in from the top
 el.slideIn();
@@ -1808,10 +1834,10 @@ el.slideIn('t', \{
     
     {b Parameters}:
     {ul {- anchor: [Js.js_string Js.t] (optional)
-    {% <p>One of the valid Fx anchor positions (defaults to top: 't')</p> %}
+    {% <p>One of the valid <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> anchor positions (defaults to top: 't')</p> %}
     }
     {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -1826,7 +1852,7 @@ el.slideIn('t', \{
 effect. When the effect is completed, the element will be hidden (visibility = 'hidden') but block elements will
 still take up space in the document. The element must be removed from the DOM using the 'remove' config option if
 desired. This function automatically handles wrapping the element with a fixed-size container if needed. See the
-Fx class overview for valid anchor point options. Usage:</p>
+<a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> class overview for valid anchor point options. Usage:</p>
 
 <pre><code>// default: slide the element out to the top
 el.slideOut();
@@ -1847,10 +1873,10 @@ el.slideOut('t', \{
     
     {b Parameters}:
     {ul {- anchor: [Js.js_string Js.t] (optional)
-    {% <p>One of the valid Fx anchor positions (defaults to top: 't')</p> %}
+    {% <p>One of the valid <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> anchor positions (defaults to top: 't')</p> %}
     }
     {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -1898,7 +1924,7 @@ el.switchOff(\{
     
     {b Parameters}:
     {ul {- options: [_ Js.t] (optional)
-    {% <p>Object literal with any of the Fx config options</p> %}
+    {% <p>Object literal with any of the <a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> config options</p> %}
     }
     }
     
@@ -1999,18 +2025,6 @@ refer to the same object.</p> %}
     {ul {- [Ext_dom_Element.t Js.t] {% <p>this</p> %}
     }
     }
-    *)
-  method autoBoxAdjust : bool Js.t Js.prop
-  (** {% <p>True to automatically adjust width and height settings for box-model issues.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method originalDisplay : Js.js_string Js.t Js.prop
-  (** {% <p>The element's default display mode.</p>
-
-<p><strong>Defined in override Ext.dom.Element_fx.</strong></p> %}
-    
-    Defaults to: [""]
     *)
   
 end

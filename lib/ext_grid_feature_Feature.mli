@@ -38,15 +38,13 @@ sizing row. To ender the rows, it invokes <a href="#!/api/Ext.view.Table-method-
 </ul>
 
 
-<p>The <code>tableTpl</code>'s data object Looks like this:</p>
-
-<pre><code>\{
-    view: owningTableView,
-    rows: recordsToRender,
-    viewStartIndex: indexOfFirstRecordInStore,
-    tableStyle: styleString
-\}
-</code></pre>
+<p>The <code>tableTpl</code>'s data object Looks like this:
+    \{
+        view: owningTableView,
+        rows: recordsToRender,
+        viewStartIndex: indexOfFirstRecordInStore,
+        tableStyle: styleString
+    \}</p>
 
 <ul>
 <li>A <a href="#!/api/Ext.view.Table" rel="Ext.view.Table" class="docClass">TableView</a> uses its <code>rowTpl</code> to emit a <code>&lt;tr&gt;</code> HTML tag to its output stream. To render cells,
@@ -100,6 +98,30 @@ class type t =
 object('self)
   inherit Ext_util_Observable.t
   
+  method disabled : bool Js.t Js.prop
+  (** {% <p>True when feature is disabled.</p> %}
+    
+    Defaults to: [false]
+    *)
+  method eventPrefix : Js.js_string Js.t Js.prop
+  (** {% <p>Prefix to use when firing events on the view.
+For example a prefix of group would expose "groupclick", "groupcontextmenu", "groupdblclick".</p> %}
+    *)
+  method eventSelector : Js.js_string Js.t Js.prop
+  (** {% <p>Selector used to determine when to fire the event with the eventPrefix.</p> %}
+    *)
+  method grid : _ Js.t Js.prop
+  (** {% <p>Reference to the grid panel</p> %}
+    *)
+  method hasFeatureEvent : bool Js.t Js.prop
+  (** {% <p>Most features will expose additional events, some may not and will
+need to change this to false.</p> %}
+    
+    Defaults to: [true]
+    *)
+  method view : _ Js.t Js.prop
+  (** {% <p>Reference to the TableView.</p> %}
+    *)
   method disable : unit Js.meth
   (** {% <p>Disables the feature.</p> %}
     *)
@@ -130,30 +152,6 @@ to be passed to fireEvent.</p> %}
     {- e: [_ Js.t]
     }
     }
-    *)
-  method disabled : bool Js.t Js.prop
-  (** {% <p>True when feature is disabled.</p> %}
-    
-    Defaults to: [false]
-    *)
-  method eventPrefix : Js.js_string Js.t Js.prop
-  (** {% <p>Prefix to use when firing events on the view.
-For example a prefix of group would expose "groupclick", "groupcontextmenu", "groupdblclick".</p> %}
-    *)
-  method eventSelector : Js.js_string Js.t Js.prop
-  (** {% <p>Selector used to determine when to fire the event with the eventPrefix.</p> %}
-    *)
-  method grid : _ Js.t Js.prop
-  (** {% <p>Reference to the grid panel</p> %}
-    *)
-  method hasFeatureEvent : bool Js.t Js.prop
-  (** {% <p>Most features will expose additional events, some may not and will
-need to change this to false.</p> %}
-    
-    Defaults to: [true]
-    *)
-  method view : _ Js.t Js.prop
-  (** {% <p>Reference to the TableView.</p> %}
     *)
   
 end

@@ -2,28 +2,6 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
-  method correctWheelDelta : Js.number Js.t -> unit Js.meth
-  method getCharCode : Js.number Js.t Js.meth
-  method getKey : Js.number Js.t Js.meth
-  method getPoint : Ext_util_Point.t Js.t Js.meth
-  method getRelatedTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef
-    -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
-  method getTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
-    bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
-  method getWheelDelta : Js.number Js.t Js.meth
-  method getWheelDeltas : _ Js.t Js.meth
-  method getX : Js.number Js.t Js.meth
-  method getXY : Js.number Js.t Js.js_array Js.t Js.meth
-  method getY : Js.number Js.t Js.meth
-  method hasModifier : bool Js.t Js.meth
-  method injectEvent : _ Js.t Js.optdef -> unit Js.meth
-  method isNavKeyPress : bool Js.t Js.meth
-  method isSpecialKey : bool Js.t Js.meth
-  method preventDefault : unit Js.meth
-  method stopEvent : unit Js.meth
-  method stopPropagation : unit Js.meth
-  method within : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
-    bool Js.t Js.meth
   method _A : Js.number Js.t Js.prop
   method _ALT : Js.number Js.t Js.prop
   method _B : Js.number Js.t Js.prop
@@ -115,6 +93,28 @@ object('self)
   method altKey : bool Js.t Js.prop
   method ctrlKey : bool Js.t Js.prop
   method shiftKey : bool Js.t Js.prop
+  method correctWheelDelta : Js.number Js.t -> unit Js.meth
+  method getCharCode : Js.number Js.t Js.meth
+  method getKey : Js.number Js.t Js.meth
+  method getPoint : Ext_util_Point.t Js.t Js.meth
+  method getRelatedTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef
+    -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
+  method getTarget : Js.js_string Js.t Js.optdef -> _ Js.t Js.optdef ->
+    bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth
+  method getWheelDelta : Js.number Js.t Js.meth
+  method getWheelDeltas : _ Js.t Js.meth
+  method getX : Js.number Js.t Js.meth
+  method getXY : Js.number Js.t Js.js_array Js.t Js.meth
+  method getY : Js.number Js.t Js.meth
+  method hasModifier : bool Js.t Js.meth
+  method injectEvent : _ Js.t Js.optdef -> unit Js.meth
+  method isNavKeyPress : bool Js.t Js.meth
+  method isSpecialKey : bool Js.t Js.meth
+  method preventDefault : unit Js.meth
+  method stopEvent : unit Js.meth
+  method stopPropagation : unit Js.meth
+  method within : _ Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef ->
+    bool Js.t Js.meth
   
 end
 

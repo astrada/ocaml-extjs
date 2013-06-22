@@ -1,9 +1,14 @@
 class type t =
 object('self)
+  inherit Ext_Base.t
   inherit Ext_util_Observable.t
   inherit Ext_util_Sortable.t
-  inherit Ext_Base.t
   
+  method defaultProxyType : Js.js_string Js.t Js.prop
+  method filters : Ext_util_MixedCollection.t Js.t Js.prop
+  method isDestroyed : bool Js.t Js.prop
+  method isStore : bool Js.t Js.prop
+  method removed : Ext_data_Model.t Js.js_array Js.t Js.prop
   method getModifiedRecords : Ext_data_Model.t Js.js_array Js.t Js.meth
   method getNewRecords : Ext_data_Model.t Js.js_array Js.t Js.meth
   method getProxy : #Ext_data_proxy_Proxy.t Js.t Js.meth
@@ -17,19 +22,14 @@ object('self)
   method setProxy : _ Js.t -> #Ext_data_proxy_Proxy.t Js.t Js.meth
   method suspendAutoSync : unit Js.meth
   method sync : _ Js.t Js.optdef -> 'self Js.t Js.meth
-  method defaultProxyType : Js.js_string Js.t Js.prop
-  method filters : Ext_util_MixedCollection.t Js.t Js.prop
-  method isDestroyed : bool Js.t Js.prop
-  method isStore : bool Js.t Js.prop
-  method removed : Ext_data_Model.t Js.js_array Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
+  inherit Ext_Base.configs
   inherit Ext_util_Observable.configs
   inherit Ext_util_Sortable.configs
-  inherit Ext_Base.configs
   
   method autoLoad : _ Js.t Js.prop
   method autoSync : bool Js.t Js.prop
@@ -49,9 +49,9 @@ end
 
 class type events =
 object
+  inherit Ext_Base.events
   inherit Ext_util_Observable.events
   inherit Ext_util_Sortable.events
-  inherit Ext_Base.events
   
   method add : (t Js.t -> Ext_data_Model.t Js.js_array Js.t -> Js.number Js.t
     -> _ Js.t -> unit) Js.callback Js.writeonly_prop

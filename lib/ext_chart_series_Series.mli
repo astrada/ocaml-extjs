@@ -35,12 +35,12 @@ mouse events, animating, hiding, showing all elements and returning the color of
 
 class type t =
 object('self)
+  inherit Ext_Base.t
   inherit Ext_chart_Callout.t
   inherit Ext_chart_Highlight.t
   inherit Ext_chart_Label.t
   inherit Ext_chart_Tip.t
   inherit Ext_util_Observable.t
-  inherit Ext_Base.t
   
   method eachRecord : _ Js.callback -> _ Js.t -> unit Js.meth
   (** {% <p>Iterate over each of the records for this series. The default implementation simply iterates
@@ -121,12 +121,12 @@ end
 
 class type configs =
 object('self)
+  inherit Ext_Base.configs
   inherit Ext_chart_Callout.configs
   inherit Ext_chart_Highlight.configs
   inherit Ext_chart_Label.configs
   inherit Ext_chart_Tip.configs
   inherit Ext_util_Observable.configs
-  inherit Ext_Base.configs
   
   method highlight : _ Js.t Js.prop
   (** {% <p>If set to <code>true</code> it will highlight the markers or the series when hovering
@@ -182,12 +182,12 @@ end
 
 class type events =
 object
+  inherit Ext_Base.events
   inherit Ext_chart_Callout.events
   inherit Ext_chart_Highlight.events
   inherit Ext_chart_Label.events
   inherit Ext_chart_Tip.events
   inherit Ext_util_Observable.events
-  inherit Ext_Base.events
   
   method titlechange : (Js.js_string Js.t -> Js.number Js.t -> _ Js.t ->
     unit) Js.callback Js.writeonly_prop

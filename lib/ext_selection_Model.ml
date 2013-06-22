@@ -1,8 +1,9 @@
 class type t =
 object('self)
-  inherit Ext_util_Bindable.t
   inherit Ext_util_Observable.t
+  inherit Ext_util_Bindable.t
   
+  method selected : Ext_util_MixedCollection.t Js.t Js.readonly_prop
   method bindStore : _ Js.t Js.optdef -> unit Js.meth
   method deselect : _ Js.t -> bool Js.t Js.optdef -> unit Js.meth
   method deselectAll : bool Js.t Js.optdef -> unit Js.meth
@@ -25,25 +26,25 @@ object('self)
   method setLastFocused : Ext_data_Model.t Js.t -> unit Js.meth
   method setLocked : bool Js.t -> unit Js.meth
   method setSelectionMode : Js.js_string Js.t -> unit Js.meth
-  method selected : Ext_util_MixedCollection.t Js.t Js.readonly_prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Bindable.configs
   inherit Ext_util_Observable.configs
+  inherit Ext_util_Bindable.configs
   
   method allowDeselect : bool Js.t Js.prop
   method mode : _ Js.t Js.prop
   method pruneRemoved : bool Js.t Js.prop
+  method toggleOnClick : bool Js.t Js.prop
   
 end
 
 class type events =
 object
-  inherit Ext_util_Bindable.events
   inherit Ext_util_Observable.events
+  inherit Ext_util_Bindable.events
   
   method focuschange : (t Js.t -> Ext_data_Model.t Js.t ->
     Ext_data_Model.t Js.t -> _ Js.t -> unit) Js.callback Js.writeonly_prop

@@ -31,8 +31,8 @@ console.log(biggerThanZero.getCount()); // prints 2
 
 class type t =
 object('self)
-  inherit Ext_util_Sortable.t
   inherit Ext_util_AbstractMixedCollection.t
+  inherit Ext_util_Sortable.t
   
   method findInsertionIndex : _ Js.t -> _ Js.callback Js.optdef ->
     Js.number Js.t Js.meth
@@ -95,8 +95,8 @@ end
 
 class type configs =
 object('self)
-  inherit Ext_util_Sortable.configs
   inherit Ext_util_AbstractMixedCollection.configs
+  inherit Ext_util_Sortable.configs
   
   method allowFunctions : bool Js.t Js.prop
   (** {% <p>Configure as <code>true</code> if the <a href="#!/api/Ext.util.MixedCollection-method-addAll" rel="Ext.util.MixedCollection-method-addAll" class="docClass">addAll</a> function should add function references to the collection.</p> %}
@@ -106,8 +106,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Sortable.events
   inherit Ext_util_AbstractMixedCollection.events
+  inherit Ext_util_Sortable.events
   
   
 end

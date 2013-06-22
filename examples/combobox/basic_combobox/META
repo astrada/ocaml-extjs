@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: 2ad4364ee593cf65b4232475974c7c31)
-version = "0.2"
-description = "Ext JS 4.2 bindings for the js_of_ocaml compiler"
+# DO NOT EDIT (digest: 077299067c72e12823ea7cbd610a248a)
+version = "0.3"
+description = "Ext JS 4.2.1 bindings for the js_of_ocaml compiler"
 requires = "oextjs js_of_ocaml pa_extjs"
 archive(byte) = "basic_combobox.cma"
 archive(byte, plugin) = "basic_combobox.cma"

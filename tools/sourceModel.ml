@@ -260,6 +260,12 @@ struct
        ("Ext_form_field_Base",
         [("Ext_form_field_Field", self_type_variable);
         ]);
+       ("Ext_dom_CompositeElementLite",
+        [("Ext_dom_CompositeElement", self_type_variable);
+        ]);
+       ("Ext_grid_locking_Lockable",
+        [("Ext_grid_Panel", type_variable);
+        ]);
       ]
 
     let type_table =

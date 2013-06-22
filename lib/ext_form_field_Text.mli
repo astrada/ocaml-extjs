@@ -328,27 +328,6 @@ class type configs =
 object('self)
   inherit Ext_form_field_Base.configs
   
-  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
-    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.afterComponentLayout] *)
-  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.afterRender] *)
-  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.getSubTplData] *)
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDestroy] *)
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onDisable] *)
-  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.onEnable] *)
   method allowBlank : bool Js.t Js.prop
   (** {% <p>Specify false to validate that the value's length must be > 0. If <code>true</code>, then a blank value is <strong>always</strong> taken to be valid regardless of any <a href="#!/api/Ext.form.field.Text-cfg-vtype" rel="Ext.form.field.Text-cfg-vtype" class="docClass">vtype</a>
 validation that may be applied.</p>
@@ -504,6 +483,27 @@ process.</p>
   (** {% <p>A custom error message to display in place of the default message provided for the <strong><code><a href="#!/api/Ext.form.field.Text-cfg-vtype" rel="Ext.form.field.Text-cfg-vtype" class="docClass">vtype</a></code></strong> currently
 set for this field. <strong>Note</strong>: only applies if <strong><code><a href="#!/api/Ext.form.field.Text-cfg-vtype" rel="Ext.form.field.Text-cfg-vtype" class="docClass">vtype</a></code></strong> is set, else ignored.</p> %}
     *)
+  method afterComponentLayout : ('self Js.t, Js.number Js.t -> Js.number Js.t
+    -> _ Js.t -> _ Js.t -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.afterComponentLayout] *)
+  method afterRender : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.afterRender] *)
+  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.getSubTplData] *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDestroy] *)
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onDisable] *)
+  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.onEnable] *)
   
 end
 

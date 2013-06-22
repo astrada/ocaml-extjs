@@ -139,17 +139,17 @@ from the "WeatherPoint" Models in the Store to plot its data points:</p>
 
 <p><p><img src="" alt="Green Theme" width="" height=""></p></p>
 
-<p>For more information on Charts please refer to the <a href="#/guide/drawing_and_charting">Drawing and Charting Guide</a>.</p> %}
+<p>For more information on Charts please refer to the <a href="#/guide/charting">Charting Guide</a>.</p> %}
   *)
 
 class type t =
 object('self)
+  inherit Ext_draw_Component.t
   inherit Ext_chart_Mask.t
   inherit Ext_chart_Navigation.t
   inherit Ext_chart_theme_Theme.t
   inherit Ext_util_Bindable.t
   inherit Ext_util_Observable.t
-  inherit Ext_draw_Component.t
   
   method bindStore : _ Js.t Js.optdef -> unit Js.meth
   (** {% <p>Binds a store to this instance.</p> %}
@@ -286,19 +286,13 @@ end
 
 class type configs =
 object('self)
+  inherit Ext_draw_Component.configs
   inherit Ext_chart_Mask.configs
   inherit Ext_chart_Navigation.configs
   inherit Ext_chart_theme_Theme.configs
   inherit Ext_util_Bindable.configs
   inherit Ext_util_Observable.configs
-  inherit Ext_draw_Component.configs
   
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  (** See method [t.initComponent] *)
-  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
-    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
-  (** See method [t.onShow] *)
   method animate : _ Js.t Js.prop
   (** {% <p>True for the default animation (easing: 'ease' and duration: 500) or a standard animation config
 object to be used for default chart animations. Defaults to false.</p> %}
@@ -444,17 +438,23 @@ on axis, text, title text, line colors, marker colors and styles, etc. Possible 
 'Sky', 'Red', 'Purple', 'Blue', 'Yellow' and also six category themes 'Category1' to 'Category6'. Default value
 is 'Base'.</p> %}
     *)
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  (** See method [t.initComponent] *)
+  method onShow : ('self Js.t, _ Js.t Js.optdef -> _ Js.callback Js.optdef ->
+    _ Js.t Js.optdef -> unit) Js.meth_callback Js.writeonly_prop
+  (** See method [t.onShow] *)
   
 end
 
 class type events =
 object
+  inherit Ext_draw_Component.events
   inherit Ext_chart_Mask.events
   inherit Ext_chart_Navigation.events
   inherit Ext_chart_theme_Theme.events
   inherit Ext_util_Bindable.events
   inherit Ext_util_Observable.events
-  inherit Ext_draw_Component.events
   
   method beforerefresh : (t Js.t -> _ Js.t -> unit) Js.callback
     Js.writeonly_prop

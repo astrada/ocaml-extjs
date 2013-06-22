@@ -1,20 +1,20 @@
 class type t =
 object('self)
-  inherit Ext_util_Observable.t
   inherit Ext_Base.t
+  inherit Ext_util_Observable.t
   
+  method metaData : _ Js.t Js.readonly_prop
+  method rawData : _ Js.t Js.prop
   method getResponseData : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   method read : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
   method readRecords : _ Js.t -> Ext_data_ResultSet.t Js.t Js.meth
-  method metaData : _ Js.t Js.readonly_prop
-  method rawData : _ Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_Observable.configs
   inherit Ext_Base.configs
+  inherit Ext_util_Observable.configs
   
   method idProperty : Js.js_string Js.t Js.prop
   method implicitIncludes : bool Js.t Js.prop
@@ -28,8 +28,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_Observable.events
   inherit Ext_Base.events
+  inherit Ext_util_Observable.events
   
   method _exception : (t Js.t -> XmlHttpRequest.xmlHttpRequest Js.t ->
     Ext_data_ResultSet.t Js.t -> _ Js.t -> unit) Js.callback

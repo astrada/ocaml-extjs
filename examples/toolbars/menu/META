@@ -1,7 +1,7 @@
 # OASIS_START
-# DO NOT EDIT (digest: f87bef76ebd615bd208d8ce6e87c4a4d)
-version = "0.2"
-description = "Ext JS 4.2 bindings for the js_of_ocaml compiler"
+# DO NOT EDIT (digest: b8530cfb7e7d74701934f1b3297b02f9)
+version = "0.3"
+description = "Ext JS 4.2.1 bindings for the js_of_ocaml compiler"
 requires = "oextjs js_of_ocaml pa_extjs"
 archive(byte) = "menus.cma"
 archive(byte, plugin) = "menus.cma"

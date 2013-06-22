@@ -2,11 +2,14 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method isPlugin : bool Js.t Js.prop
+  method clonePlugin : _ Js.t Js.optdef -> unit Js.meth
   method destroy : unit Js.meth
   method disable : unit Js.meth
   method enable : unit Js.meth
+  method getCmp : _ Js.t Js.meth
   method init : _ Js.t -> unit Js.meth
-  method isPlugin : bool Js.t Js.prop
+  method setCmp : _ Js.t -> unit Js.meth
   
 end
 

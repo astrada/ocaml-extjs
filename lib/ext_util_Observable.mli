@@ -43,6 +43,28 @@ class type t =
 object('self)
   inherit Ext_Base.t
   
+  method hasListeners : _ Js.t Js.readonly_prop
+  (** {% <p>This object holds a key for any event that has a listener. The listener may be set
+directly on the instance, or on its class or a super class (via <a href="#!/api/Ext.util.Observable-static-method-observe" rel="Ext.util.Observable-static-method-observe" class="docClass">observe</a>) or
+on the <a href="#!/api/Ext.app.EventBus" rel="Ext.app.EventBus" class="docClass">MVC EventBus</a>. The values of this object are truthy
+(a non-zero number) and falsy (0 or undefined). They do not represent an exact count
+of listeners. The value for an event is truthy if the event must be fired and is
+falsy if there is no need to fire the event.</p>
+
+<p>The intended use of this property is to avoid the expense of fireEvent calls when
+there are no listeners. This can be particularly helpful when one would otherwise
+have to call fireEvent hundreds or thousands of times. It is used like this:</p>
+
+<pre><code> if (this.hasListeners.foo) \{
+     this.fireEvent('foo', this, arg1);
+ \}
+</code></pre> %}
+    *)
+  method isObservable : bool Js.t Js.prop
+  (** {% <p><code>true</code> in this class to identify an object as an instantiated Observable, or subclass thereof.</p> %}
+    
+    Defaults to: [true]
+    *)
   method addEvents : _ Js.t -> unit Js.meth
   (** {% <p>Adds the specified events to the list of events which this Observable may fire.</p> %}
     
@@ -596,10 +618,8 @@ would have access to the grid using the <code>this</code> keyword.</p> %}
 <pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.storeRelayers);
 </code></pre>
 
-<p>or</p>
-
-<pre><code>this.store.relayers.destroy();
-</code></pre> %}
+<p>or
+    this.store.relayers.destroy();</p> %}
     }
     }
     *)
@@ -704,28 +724,6 @@ after the <a href="#!/api/Ext.util.Observable-method-resumeEvents" rel="Ext.util
 scope argument specified in the original call to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> or the listener will not be removed.</p> %}
     }
     }
-    *)
-  method hasListeners : _ Js.t Js.readonly_prop
-  (** {% <p>This object holds a key for any event that has a listener. The listener may be set
-directly on the instance, or on its class or a super class (via <a href="#!/api/Ext.util.Observable-static-method-observe" rel="Ext.util.Observable-static-method-observe" class="docClass">observe</a>) or
-on the <a href="#!/api/Ext.app.EventBus" rel="Ext.app.EventBus" class="docClass">MVC EventBus</a>. The values of this object are truthy
-(a non-zero number) and falsy (0 or undefined). They do not represent an exact count
-of listeners. The value for an event is truthy if the event must be fired and is
-falsy if there is no need to fire the event.</p>
-
-<p>The intended use of this property is to avoid the expense of fireEvent calls when
-there are no listeners. This can be particularly helpful when one would otherwise
-have to call fireEvent hundreds or thousands of times. It is used like this:</p>
-
-<pre><code> if (this.hasListeners.foo) \{
-     this.fireEvent('foo', this, arg1);
- \}
-</code></pre> %}
-    *)
-  method isObservable : bool Js.t Js.prop
-  (** {% <p><code>true</code> in this class to identify an object as an instantiated Observable, or subclass thereof.</p> %}
-    
-    Defaults to: [true]
     *)
   
 end

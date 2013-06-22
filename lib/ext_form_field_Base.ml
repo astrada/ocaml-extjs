@@ -1,9 +1,11 @@
 class type t =
 object('self)
+  inherit Ext_Component.t
   inherit Ext_form_Labelable.t
   inherit Ext_form_field_Field.t
-  inherit Ext_Component.t
   
+  method inputEl : Ext_dom_Element.t Js.t Js.prop
+  method maskOnDisable : bool Js.t Js.prop
   method clearInvalid : unit Js.meth
   method doComponentLayout_container : #Ext_container_Container.t Js.t
     Js.meth
@@ -30,27 +32,15 @@ object('self)
   method transformRawValue : _ Js.t -> _ Js.t Js.meth
   method validateValue : _ Js.t -> bool Js.t Js.meth
   method valueToRaw : _ Js.t -> _ Js.t Js.meth
-  method inputEl : Ext_dom_Element.t Js.t Js.prop
-  method maskOnDisable : bool Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
+  inherit Ext_Component.configs
   inherit Ext_form_Labelable.configs
   inherit Ext_form_field_Field.configs
-  inherit Ext_Component.configs
   
-  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
-    Js.writeonly_prop
-  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
-    Js.writeonly_prop
-  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
-    unit) Js.meth_callback Js.writeonly_prop
   method baseCls : Js.js_string Js.t Js.prop
   method checkChangeBuffer : Js.number Js.t Js.prop
   method checkChangeEvents : Js.js_string Js.t Js.js_array Js.t Js.prop
@@ -68,14 +58,24 @@ object('self)
   method readOnlyCls : Js.js_string Js.t Js.prop
   method tabIndex : Js.number Js.t Js.prop
   method validateOnBlur : bool Js.t Js.prop
+  method getSubTplData : ('self Js.t, unit -> _ Js.t) Js.meth_callback
+    Js.writeonly_prop
+  method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onDisable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onEnable : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
+  method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->
+    unit) Js.meth_callback Js.writeonly_prop
   
 end
 
 class type events =
 object
+  inherit Ext_Component.events
   inherit Ext_form_Labelable.events
   inherit Ext_form_field_Field.events
-  inherit Ext_Component.events
   
   method specialkey : (t Js.t -> Ext_EventObject.t Js.t -> _ Js.t -> unit)
     Js.callback Js.writeonly_prop

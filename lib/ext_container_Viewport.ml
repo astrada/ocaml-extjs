@@ -2,9 +2,10 @@ class type t =
 object('self)
   inherit Ext_container_Container.t
   
+  method isViewport : bool Js.t Js.prop
+  method beforeDestroy : unit Js.meth
   method initComponent : unit Js.meth
   method onRender : Ext_dom_Element.t Js.t -> Js.number Js.t -> unit Js.meth
-  method isViewport : bool Js.t Js.prop
   
 end
 
@@ -12,6 +13,8 @@ class type configs =
 object('self)
   inherit Ext_container_Container.configs
   
+  method beforeDestroy : ('self Js.t, unit -> unit) Js.meth_callback
+    Js.writeonly_prop
   method initComponent : ('self Js.t, unit -> unit) Js.meth_callback
     Js.writeonly_prop
   method onRender : ('self Js.t, Ext_dom_Element.t Js.t -> Js.number Js.t ->

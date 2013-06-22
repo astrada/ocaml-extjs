@@ -1,8 +1,9 @@
 class type t =
 object('self)
-  inherit Ext_util_ElementContainer.t
   inherit Ext_layout_Layout.t
+  inherit Ext_util_ElementContainer.t
   
+  method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
   method beginLayout_obj : _ Js.t -> unit Js.meth
   method beginLayoutCycle : Ext_layout_ContextItem.t Js.t -> unit Js.meth
   method configureItem_obj : _ Js.t -> unit Js.meth
@@ -14,14 +15,13 @@ object('self)
   method getRenderedItems : _ Js.js_array Js.t Js.meth
   method getTarget : Ext_dom_Element.t Js.t Js.meth
   method getVisibleItems : _ Js.js_array Js.t Js.meth
-  method overflowPadderEl : Ext_dom_Element.t Js.t Js.prop
   
 end
 
 class type configs =
 object('self)
-  inherit Ext_util_ElementContainer.configs
   inherit Ext_layout_Layout.configs
+  inherit Ext_util_ElementContainer.configs
   
   method itemCls : Js.js_string Js.t Js.prop
   
@@ -29,8 +29,8 @@ end
 
 class type events =
 object
-  inherit Ext_util_ElementContainer.events
   inherit Ext_layout_Layout.events
+  inherit Ext_util_ElementContainer.events
   
   
 end
