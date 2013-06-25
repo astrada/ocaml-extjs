@@ -11,7 +11,7 @@ You will need the following libraries:
 * [Findlib][] >= 1.2.7
 * [js_of_ocaml][] >= 1.3
 * [pa_extjs][] latest development version
-* [extjs][] >= 4.2.0 (GPL version)
+* [extjs][] >= 4.2.1 (GPL version)
 * [sencha-cmd][] >= 3.0.0 (to minify and deploy examples, optional)
 * [Batteries][] >= 2.0beta2 (to build the library generator, optional)
 * [Yojson][] >= 1.0.2 (to build the library generator, optional)
