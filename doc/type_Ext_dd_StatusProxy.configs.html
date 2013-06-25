@@ -54,6 +54,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -74,6 +76,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -88,6 +91,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -167,13 +171,14 @@
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;componentLayout&nbsp;:&nbsp;<span class="keywordsign">'</span>n&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;constrain&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;constrainTo&nbsp;:&nbsp;<span class="keywordsign">'</span>o&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;constraintInsets&nbsp;:&nbsp;<span class="keywordsign">'</span>p&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;contentEl&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;data&nbsp;:&nbsp;<span class="keywordsign">'</span>p&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;data&nbsp;:&nbsp;<span class="keywordsign">'</span>q&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;defaultAlign&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;disabled&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;disabledCls&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draggable&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draggable_obj&nbsp;:&nbsp;<span class="keywordsign">'</span>q&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;draggable_obj&nbsp;:&nbsp;<span class="keywordsign">'</span>r&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;dropAllowed&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;dropNotAllowed&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;fixed&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
@@ -184,20 +189,20 @@
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;height&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;hidden&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;hideMode&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;html&nbsp;:&nbsp;<span class="keywordsign">'</span>r&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;html&nbsp;:&nbsp;<span class="keywordsign">'</span>s&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;id&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;initComponent&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;itemId&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;listeners&nbsp;:&nbsp;<span class="keywordsign">'</span>s&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;loader&nbsp;:&nbsp;<span class="keywordsign">'</span>t&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;margin&nbsp;:&nbsp;<span class="keywordsign">'</span>u&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;listeners&nbsp;:&nbsp;<span class="keywordsign">'</span>t&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;loader&nbsp;:&nbsp;<span class="keywordsign">'</span>u&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;margin&nbsp;:&nbsp;<span class="keywordsign">'</span>v&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;maxHeight&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;maxWidth&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;minHeight&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;minWidth&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;onAdded&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="keywordsign">'</span>v&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="constructor">Js</span>.meth_callback<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="keywordsign">'</span>w&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="constructor">Js</span>.meth_callback<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;onDestroy&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
@@ -207,8 +212,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;unit&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;onHide&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>w&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>x&nbsp;<span class="constructor">Js</span>.callback&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>y&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>x&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>y&nbsp;<span class="constructor">Js</span>.callback&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>z&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;onPosition&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)&nbsp;<span class="constructor">Js</span>.meth_callback<br>
@@ -219,39 +224,39 @@
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="constructor">Ext_dom_Element</span>.t&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;onResize&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="keywordsign">'</span>z&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>a1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>c1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="keywordsign">'</span>a1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>b1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>c1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>d1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;onShow&nbsp;:<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>d1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span><br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>e1&nbsp;<span class="constructor">Js</span>.callback&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>f1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>e1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keywordsign">'</span>f1&nbsp;<span class="constructor">Js</span>.callback&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>g1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;onShowComplete&nbsp;:<br>
-&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="keywordsign">'</span>g1&nbsp;<span class="constructor">Js</span>.callback&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>h1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<span class="keywordsign">'</span>a&nbsp;<span class="constructor">Js</span>.t,&nbsp;<span class="keywordsign">'</span>h1&nbsp;<span class="constructor">Js</span>.callback&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;<span class="keywordsign">'</span>i1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.optdef&nbsp;<span class="keywordsign">-&gt;</span>&nbsp;unit)<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Js</span>.meth_callback&nbsp;<span class="constructor">Js</span>.writeonly_prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;overCls&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;overflowX&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;overflowY&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;padding&nbsp;:&nbsp;<span class="keywordsign">'</span>i1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;plugins&nbsp;:&nbsp;<span class="keywordsign">'</span>j1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;region&nbsp;:&nbsp;<span class="keywordsign">'</span>k1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderData&nbsp;:&nbsp;<span class="keywordsign">'</span>l1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderSelectors&nbsp;:&nbsp;<span class="keywordsign">'</span>m1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderTo&nbsp;:&nbsp;<span class="keywordsign">'</span>n1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderTpl&nbsp;:&nbsp;<span class="keywordsign">'</span>o1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;resizable&nbsp;:&nbsp;<span class="keywordsign">'</span>p1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;padding&nbsp;:&nbsp;<span class="keywordsign">'</span>j1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;plugins&nbsp;:&nbsp;<span class="keywordsign">'</span>k1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;region&nbsp;:&nbsp;<span class="keywordsign">'</span>l1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderData&nbsp;:&nbsp;<span class="keywordsign">'</span>m1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderSelectors&nbsp;:&nbsp;<span class="keywordsign">'</span>n1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderTo&nbsp;:&nbsp;<span class="keywordsign">'</span>o1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;renderTpl&nbsp;:&nbsp;<span class="keywordsign">'</span>p1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;resizable&nbsp;:&nbsp;<span class="keywordsign">'</span>q1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;resizeHandles&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;rtl&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;saveDelay&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;shadow&nbsp;:&nbsp;<span class="keywordsign">'</span>q1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;shadow&nbsp;:&nbsp;<span class="keywordsign">'</span>r1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;shadowOffset&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;shrinkWrap&nbsp;:&nbsp;<span class="keywordsign">'</span>r1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;shrinkWrap&nbsp;:&nbsp;<span class="keywordsign">'</span>s1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;stateEvents&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.js_array&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;stateId&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;stateful&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;style&nbsp;:&nbsp;<span class="keywordsign">'</span>s1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;style&nbsp;:&nbsp;<span class="keywordsign">'</span>t1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;toFrontOnShow&nbsp;:&nbsp;bool&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
-&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;tpl&nbsp;:&nbsp;<span class="keywordsign">'</span>t1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
+&nbsp;&nbsp;<span class="keyword">method</span>&nbsp;tpl&nbsp;:&nbsp;<span class="keywordsign">'</span>u1&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;tplWriteMode&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;ui&nbsp;:&nbsp;<span class="constructor">Js</span>.js_string&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>
 &nbsp;&nbsp;<span class="keyword">method</span>&nbsp;width&nbsp;:&nbsp;<span class="constructor">Js</span>.number&nbsp;<span class="constructor">Js</span>.t&nbsp;<span class="constructor">Js</span>.prop<br>

@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -141,7 +145,30 @@
 <li><a href="Ext_data_AbstractStore.t-c.html"><code class="code">Ext_data_AbstractStore.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODadd"><span class="keyword">method</span> add</span> : <code class="type">'a. 'a Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODcurrentPage"><span class="keyword">method</span> currentPage</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>The page that the Store has most recently loaded (see <a href="#!/api/Ext.data.Store-method-loadPage" rel="Ext.data.Store-method-loadPage" class="docClass">loadPage</a>)</p> 
+<p>
+
+    Defaults to: <code class="code">1</code><br>
+</div>
+<pre><span id="METHODdata"><span class="keyword">method</span> data</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
+<p>When this Store is not <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a MixedCollection which holds this store's local cache of records.</p>
+
+<p>When this store <em>is</em> <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a cache of <em>pages</em> of records used to satisfy load requests from the Store when the associated view
+scrolls. Depending on how the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> and <a href="#!/api/Ext.data.Store-cfg-purgePageCount" rel="Ext.data.Store-cfg-purgePageCount" class="docClass">purgePageCount</a> are configured,
+pages which are scrolled out of view may be evicted from the cache, and need to be re-requested from the server
+when scrolled back into view. For this reason, if using <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, it is recommended that you configure
+your Model definitions with a unique <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">Ext.data.Model.idProperty</a> so that records which return to the page
+cache may be matched against previously selected records.</p>
+
+<p>Pages in the direction of scroll are prefetched from the remote server and loaded into this cache <em>before</em>
+they are needed based upon the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> so that scrolling can proceed without visible pauses for data loading.</p> <br>
+</div>
+<pre><span id="METHODsnapshot"><span class="keyword">method</span> snapshot</span> : <code class="type"><a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>A pristine (unfiltered) collection of the records in this store. This is used to reinstate
+records when a filter is removed or changed</p> <br>
+</div>
+<pre><span id="METHODadd"><span class="keyword">method</span> add</span> : <code class="type">'b. 'b Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Adds Model instance to the Store. This method accepts either:</p>
 
 <ul>
@@ -179,7 +206,7 @@ or Model configuration objects, or variable number of Model instance or config a
 </ul>
 <br>
 </div>
-<pre><span id="METHODaddFilter"><span class="keyword">method</span> addFilter</span> : <code class="type">'b. 'b Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODaddFilter"><span class="keyword">method</span> addFilter</span> : <code class="type">'c. 'c Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Adds a new Filter to this Store's <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">filter set</a> and
 by default, applys the updated filter set to the Store's unfiltered dataset.</p> 
 <p>
@@ -208,7 +235,7 @@ should go based on the current sort information.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODaggregate"><span class="keyword">method</span> aggregate</span> : <code class="type">'c 'd 'e 'f.<br>         'c Js.callback -><br>         'd Js.t Js.optdef -><br>         bool Js.t Js.optdef -> 'e Js.js_array Js.t Js.optdef -> 'f Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODaggregate"><span class="keyword">method</span> aggregate</span> : <code class="type">'d 'e 'f 'g.<br>         'd Js.callback -><br>         'e Js.t Js.optdef -><br>         bool Js.t Js.optdef -> 'f Js.js_array Js.t Js.optdef -> 'g Js.t Js.meth</code></pre><div class="info">
 <p>Runs the aggregate function for all the records in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> 
@@ -244,7 +271,7 @@ the store has a groupField.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODaverage"><span class="keyword">method</span> average</span> : <code class="type">'g. Js.js_string Js.t -> bool Js.t Js.optdef -> 'g Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODaverage"><span class="keyword">method</span> average</span> : <code class="type">'h. Js.js_string Js.t -> bool Js.t Js.optdef -> 'h Js.t Js.meth</code></pre><div class="info">
 <p>Gets the average value in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> 
@@ -293,7 +320,7 @@ is not reloaded from the server.</p>
 <pre><span id="METHODclearGrouping"><span class="keyword">method</span> clearGrouping</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Clear any groupers in the store</p> <br>
 </div>
-<pre><span id="METHODcollect"><span class="keyword">method</span> collect</span> : <code class="type">'h.<br>         Js.js_string Js.t -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> 'h Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODcollect"><span class="keyword">method</span> collect</span> : <code class="type">'i.<br>         Js.js_string Js.t -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> 'i Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Collects unique values for a particular dataIndex from this store.</p> 
 <p>
 
@@ -350,7 +377,7 @@ the store has a groupField.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODeach"><span class="keyword">method</span> each</span> : <code class="type">'i 'j. 'i Js.callback -> 'j Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODeach"><span class="keyword">method</span> each</span> : <code class="type">'j 'k. 'j Js.callback -> 'k Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Calls the specified function for each <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">record</a> in the store.</p>
 
 <p>When store is filtered, only loops over the filtered records.</p> 
@@ -369,7 +396,7 @@ Defaults to the current <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" cla
 </ul>
 <br>
 </div>
-<pre><span id="METHODfilter"><span class="keyword">method</span> filter</span> : <code class="type">'k. 'k Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODfilter"><span class="keyword">method</span> filter</span> : <code class="type">'l. 'l Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Filters the loaded set of records by a given set of filters.</p>
 
 <p>By default, the passed filter(s) are <em>added</em> to the collection of filters being used to filter this Store.</p>
@@ -429,7 +456,7 @@ Alternatively, pass in a property string.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfilterBy"><span class="keyword">method</span> filterBy</span> : <code class="type">'l 'm. 'l Js.callback -> 'm Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODfilterBy"><span class="keyword">method</span> filterBy</span> : <code class="type">'m 'n. 'm Js.callback -> 'n Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Filters by a function. The specified function will be called for each
 Record in this Store. If the function returns <code>true</code> the Record is included,
 otherwise it is filtered out.</p>
@@ -451,10 +478,16 @@ Defaults to this Store.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfind"><span class="keyword">method</span> find</span> : <code class="type">'n.<br>         Js.js_string Js.t -><br>         'n Js.t -><br>         Js.number Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> bool Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfind"><span class="keyword">method</span> find</span> : <code class="type">'o.<br>         Js.js_string Js.t -><br>         'o Js.t -><br>         Js.number Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> bool Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Finds the index of the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 <p>
 
     <b>Parameters</b>:
@@ -493,11 +526,17 @@ should begin with, or a RegExp to test against the field.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfindBy"><span class="keyword">method</span> findBy</span> : <code class="type">'o 'p.<br>         'o Js.callback -><br>         'p Js.t Js.optdef -> Js.number Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfindBy"><span class="keyword">method</span> findBy</span> : <code class="type">'p 'q.<br>         'p Js.callback -><br>         'q Js.t Js.optdef -> Js.number Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Find the index of the first matching Record in this Store by a function.
 If the function returns <code>true</code> it is considered a match.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 <p>
 
     <b>Parameters</b>:
@@ -524,10 +563,16 @@ Defaults to this Store.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfindExact"><span class="keyword">method</span> findExact</span> : <code class="type">'q.<br>         Js.js_string Js.t -><br>         'q Js.t -> Js.number Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfindExact"><span class="keyword">method</span> findExact</span> : <code class="type">'r.<br>         Js.js_string Js.t -><br>         'r Js.t -> Js.number Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Finds the index of the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 <p>
 
     <b>Parameters</b>:
@@ -553,10 +598,16 @@ Defaults to this Store.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfindRecord"><span class="keyword">method</span> findRecord</span> : <code class="type">'r.<br>         Js.js_string Js.t -><br>         'r Js.t -><br>         Js.number Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> bool Js.t Js.optdef -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfindRecord"><span class="keyword">method</span> findRecord</span> : <code class="type">'s.<br>         Js.js_string Js.t -><br>         's Js.t -><br>         Js.number Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> bool Js.t Js.optdef -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Finds the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 <p>
 
     <b>Parameters</b>:
@@ -596,7 +647,7 @@ should begin with, or a RegExp to test against the field.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfirst"><span class="keyword">method</span> first</span> : <code class="type">'s. bool Js.t Js.optdef -> 's Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfirst"><span class="keyword">method</span> first</span> : <code class="type">'t. bool Js.t Js.optdef -> 't Js.t Js.meth</code></pre><div class="info">
 <p>Convenience function for getting the first model instance in the store.</p>
 
 <p>When store is filtered, will return first item within the filter.</p> 
@@ -645,7 +696,7 @@ the store has a groupField.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetById"><span class="keyword">method</span> getById</span> : <code class="type">'t. 't Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetById"><span class="keyword">method</span> getById</span> : <code class="type">'u. 'u Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Get the Record with the specified id.</p>
 
 <p>This method is not effected by filtering, lookup will be performed from all records
@@ -718,7 +769,7 @@ group by the first letter of a model's 'name' field, use the following code:</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetGroups"><span class="keyword">method</span> getGroups</span> : <code class="type">'u. Js.js_string Js.t Js.optdef -> 'u Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetGroups"><span class="keyword">method</span> getGroups</span> : <code class="type">'v. Js.js_string Js.t Js.optdef -> 'v Js.t Js.meth</code></pre><div class="info">
 <p>Returns an array containing the result of applying grouping to the records in this store.
 See <a href="#!/api/Ext.data.Store-cfg-groupField" rel="Ext.data.Store-cfg-groupField" class="docClass">groupField</a>, <a href="#!/api/Ext.data.Store-cfg-groupDir" rel="Ext.data.Store-cfg-groupDir" class="docClass">groupDir</a> and <a href="#!/api/Ext.data.Store-method-getGroupString" rel="Ext.data.Store-method-getGroupString" class="docClass">getGroupString</a>. Example for a store
 containing records with a color field:</p>
@@ -800,7 +851,7 @@ yet been saved on this Store (this happens when adding a non-phantom record from
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetRange"><span class="keyword">method</span> getRange</span> : <code class="type">'v.<br>         Js.number Js.t -><br>         Js.number Js.t -><br>         'v Js.t Js.optdef -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetRange"><span class="keyword">method</span> getRange</span> : <code class="type">'w.<br>         Js.number Js.t -><br>         Js.number Js.t -><br>         'w Js.t Js.optdef -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>Gathers a range of Records between specified indices.</p>
 
 <p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the indices are relative to the entire dataset, not the local record cache.</p>
@@ -865,7 +916,7 @@ no value has been set via the reader.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgroup"><span class="keyword">method</span> group</span> : <code class="type">'w. 'w Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODgroup"><span class="keyword">method</span> group</span> : <code class="type">'x. 'x Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Groups data inside the store.</p> 
 <p>
 
@@ -991,7 +1042,7 @@ See also <a href="#!/api/Ext.data.Store-method-add" rel="Ext.data.Store-method-a
 </ul>
 <br>
 </div>
-<pre><span id="METHODlast"><span class="keyword">method</span> last</span> : <code class="type">'x. bool Js.t Js.optdef -> 'x Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODlast"><span class="keyword">method</span> last</span> : <code class="type">'y. bool Js.t Js.optdef -> 'y Js.t Js.meth</code></pre><div class="info">
 <p>Convenience function for getting the last model instance in the store.</p>
 
 <p>When store is filtered, will return last item within the filter.</p> 
@@ -1017,7 +1068,7 @@ the store has a groupField.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODload_store"><span class="keyword">method</span> load_store</span> : <code class="type">'y. 'y Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODload_store"><span class="keyword">method</span> load_store</span> : <code class="type">'z. 'z Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Loads data into the Store via the configured <a href="#!/api/Ext.data.Store-cfg-proxy" rel="Ext.data.Store-cfg-proxy" class="docClass">proxy</a>. This uses the Proxy to make an
 asynchronous call to whatever storage backend the Proxy uses, automatically adding the retrieved
 instances into the Store and calling an optional callback if required. Example usage:</p>
@@ -1050,7 +1101,7 @@ to remove the Store's existing records first.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODloadData"><span class="keyword">method</span> loadData</span> : <code class="type">'z. 'z Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODloadData"><span class="keyword">method</span> loadData</span> : <code class="type">'a1. 'a1 Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Loads an array of data straight into the Store.</p>
 
 <p>Using this method is great if the data is in the correct format already (e.g. it doesn't need to be
@@ -1072,7 +1123,7 @@ to remove the old ones first.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODloadPage"><span class="keyword">method</span> loadPage</span> : <code class="type">'a1. Js.number Js.t -> 'a1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODloadPage"><span class="keyword">method</span> loadPage</span> : <code class="type">'b1. Js.number Js.t -> 'b1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Loads a given 'page' of data by setting the start and limit values appropriately. Internally this just causes a normal
 load operation, passing in calculated 'start' and 'limit' params.</p> 
 <p>
@@ -1088,7 +1139,7 @@ load operation, passing in calculated 'start' and 'limit' params.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODloadRawData"><span class="keyword">method</span> loadRawData</span> : <code class="type">'b1. 'b1 Js.t Js.js_array Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODloadRawData"><span class="keyword">method</span> loadRawData</span> : <code class="type">'c1. 'c1 Js.t Js.js_array Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Loads data via the bound Proxy's reader</p>
 
 <p>Use this method if you are attempting to load data and want to utilize the configured data reader.</p> 
@@ -1107,7 +1158,7 @@ to remove the old ones first.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODloadRecords"><span class="keyword">method</span> loadRecords</span> : <code class="type">'c1. <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -> 'c1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODloadRecords"><span class="keyword">method</span> loadRecords</span> : <code class="type">'d1. <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.js_array Js.t -> 'd1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Loads an array of <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">model</a> instances into the store, fires the datachanged event. This should only usually
 be called internally when loading from the <a href="#!/api/Ext.data.proxy.Proxy" rel="Ext.data.proxy.Proxy" class="docClass">Proxy</a>, when adding records manually use <a href="#!/api/Ext.data.Store-method-add" rel="Ext.data.Store-method-add" class="docClass">add</a> instead</p> 
 <p>
@@ -1122,7 +1173,7 @@ be called internally when loading from the <a href="#!/api/Ext.data.proxy.Proxy"
 </ul>
 <br>
 </div>
-<pre><span id="METHODmax"><span class="keyword">method</span> max</span> : <code class="type">'d1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'd1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODmax"><span class="keyword">method</span> max</span> : <code class="type">'e1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'e1 Js.t Js.meth</code></pre><div class="info">
 <p>Gets the maximum value in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> 
@@ -1151,7 +1202,7 @@ the store has a groupField.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODmin"><span class="keyword">method</span> min</span> : <code class="type">'e1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'e1 Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODmin"><span class="keyword">method</span> min</span> : <code class="type">'f1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'f1 Js.t Js.meth</code></pre><div class="info">
 <p>Gets the minimum value in the store.</p>
 
 <p>When store is filtered, only items within the filter are aggregated.</p> 
@@ -1180,7 +1231,7 @@ the store has a groupField.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODnextPage"><span class="keyword">method</span> nextPage</span> : <code class="type">'f1. 'f1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODnextPage"><span class="keyword">method</span> nextPage</span> : <code class="type">'g1. 'g1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Loads the next 'page' in the current data set</p> 
 <p>
 
@@ -1192,7 +1243,7 @@ the store has a groupField.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODprefetch"><span class="keyword">method</span> prefetch</span> : <code class="type">'g1. 'g1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODprefetch"><span class="keyword">method</span> prefetch</span> : <code class="type">'h1. 'h1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Prefetches data into the store using its configured <a href="#!/api/Ext.data.Store-cfg-proxy" rel="Ext.data.Store-cfg-proxy" class="docClass">proxy</a>.</p> 
 <p>
 
@@ -1205,7 +1256,7 @@ See <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load"
 </ul>
 <br>
 </div>
-<pre><span id="METHODprefetchPage"><span class="keyword">method</span> prefetchPage</span> : <code class="type">'h1. Js.number Js.t -> 'h1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODprefetchPage"><span class="keyword">method</span> prefetchPage</span> : <code class="type">'i1. Js.number Js.t -> 'i1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Prefetches a page of data.</p> 
 <p>
 
@@ -1221,7 +1272,7 @@ See <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load"
 </ul>
 <br>
 </div>
-<pre><span id="METHODprefetchRange"><span class="keyword">method</span> prefetchRange</span> : <code class="type">'i1 'j1. 'i1 Js.t -> 'j1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODprefetchRange"><span class="keyword">method</span> prefetchRange</span> : <code class="type">'j1 'k1. 'j1 Js.t -> 'k1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Ensures that the specified range of rows is present in the cache.</p>
 
 <p>Converts the row range to a page range and then only load pages which are not already
@@ -1237,7 +1288,7 @@ present in the page cache.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODpreviousPage"><span class="keyword">method</span> previousPage</span> : <code class="type">'k1. 'k1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODpreviousPage"><span class="keyword">method</span> previousPage</span> : <code class="type">'l1. 'l1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Loads the previous 'page' in the current data set</p> 
 <p>
 
@@ -1249,7 +1300,7 @@ present in the page cache.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODquery"><span class="keyword">method</span> query</span> : <code class="type">'l1.<br>         Js.js_string Js.t -><br>         'l1 Js.t -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> <a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODquery"><span class="keyword">method</span> query</span> : <code class="type">'m1.<br>         Js.js_string Js.t -><br>         'm1 Js.t -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -><br>         bool Js.t Js.optdef -> <a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Query all the cached records in this Store by name/value pair.
 The parameters will be used to generated a filter function that is given
 to the queryBy method.</p>
@@ -1290,7 +1341,7 @@ Ignored if <code>anyMatch</code> is <code>true</code>.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODqueryBy"><span class="keyword">method</span> queryBy</span> : <code class="type">'m1 'n1.<br>         'm1 Js.callback -><br>         'n1 Js.t Js.optdef -> <a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODqueryBy"><span class="keyword">method</span> queryBy</span> : <code class="type">'n1 'o1.<br>         'n1 Js.callback -><br>         'o1 Js.t Js.optdef -> <a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Query all the cached records in this Store using a filtering function. The specified function
 will be called with each record in this Store. If the function returns <code>true</code> the record is
 included in the results.</p>
@@ -1324,7 +1375,7 @@ Defaults to this Store.</p>
 <p><a href="#!/api/Ext.data.Model-method-reject" rel="Ext.data.Model-method-reject" class="docClass">Rejects</a> outstanding changes on all <a href="#!/api/Ext.data.Store-method-getModifiedRecords" rel="Ext.data.Store-method-getModifiedRecords" class="docClass">modified records</a>
 and re-insert any records that were removed locally. Any phantom records will be removed.</p> <br>
 </div>
-<pre><span id="METHODreload"><span class="keyword">method</span> reload</span> : <code class="type">'o1. 'o1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODreload"><span class="keyword">method</span> reload</span> : <code class="type">'p1. 'p1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Reloads the store using the last options passed to the <a href="#!/api/Ext.data.Store-method-load" rel="Ext.data.Store-method-load" class="docClass">load</a> method.</p> 
 <p>
 
@@ -1336,7 +1387,7 @@ and re-insert any records that were removed locally. Any phantom records will be
 </ul>
 <br>
 </div>
-<pre><span id="METHODremove"><span class="keyword">method</span> remove</span> : <code class="type">'p1. 'p1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODremove"><span class="keyword">method</span> remove</span> : <code class="type">'q1. 'q1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Removes the specified record(s) from the Store, firing the <a href="#!/api/Ext.data.Store-event-remove" rel="Ext.data.Store-event-remove" class="docClass">remove</a> event for each instance that is removed.</p>
 
 <p>A <a href="#!/api/Ext.data.Store-event-bulkremove" rel="Ext.data.Store-event-bulkremove" class="docClass">bulkremove</a> event is called at the end passing all removed records and their indices.
@@ -1383,7 +1434,7 @@ and <code><a href="#!/api/Ext.data.Store-event-clear" rel="Ext.data.Store-event-
 </ul>
 <br>
 </div>
-<pre><span id="METHODremoveFilter"><span class="keyword">method</span> removeFilter</span> : <code class="type">'q1. 'q1 Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODremoveFilter"><span class="keyword">method</span> removeFilter</span> : <code class="type">'r1. 'r1 Js.t -> bool Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Removes an individual Filter from the current <a href="#!/api/Ext.data.Store-property-filters" rel="Ext.data.Store-property-filters" class="docClass">filter set</a> using the passed Filter/Filter id and
 by default, applys the updated filter set to the Store's unfiltered dataset.</p> 
 <p>
@@ -1402,7 +1453,7 @@ by default, applys the updated filter set to the Store's unfiltered dataset.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsort"><span class="keyword">method</span> sort</span> : <code class="type">'r1.<br>         'r1 Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_util_Sorter.t-c.html">Ext_util_Sorter.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsort"><span class="keyword">method</span> sort</span> : <code class="type">'s1.<br>         's1 Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_util_Sorter.t-c.html">Ext_util_Sorter.t</a> Js.js_array Js.t Js.meth</code></pre><div class="info">
 <p>because prefetchData is stored by index
 this invalidates all of the prefetchedData</p>
 
@@ -1481,28 +1532,5 @@ the store has a groupField.</p>
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODcurrentPage"><span class="keyword">method</span> currentPage</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>The page that the Store has most recently loaded (see <a href="#!/api/Ext.data.Store-method-loadPage" rel="Ext.data.Store-method-loadPage" class="docClass">loadPage</a>)</p> 
-<p>
-
-    Defaults to: <code class="code">1</code><br>
-</div>
-<pre><span id="METHODdata"><span class="keyword">method</span> data</span> : <code class="type">'s1. 's1 Js.t Js.prop</code></pre><div class="info">
-<p>When this Store is not <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a MixedCollection which holds this store's local cache of records.</p>
-
-<p>When this store <em>is</em> <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, the <code>data</code> property is a cache of <em>pages</em> of records used to satisfy load requests from the Store when the associated view
-scrolls. Depending on how the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> and <a href="#!/api/Ext.data.Store-cfg-purgePageCount" rel="Ext.data.Store-cfg-purgePageCount" class="docClass">purgePageCount</a> are configured,
-pages which are scrolled out of view may be evicted from the cache, and need to be re-requested from the server
-when scrolled back into view. For this reason, if using <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, it is recommended that you configure
-your Model definitions with a unique <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">Ext.data.Model.idProperty</a> so that records which return to the page
-cache may be matched against previously selected records.</p>
-
-<p>Pages in the direction of scroll are prefetched from the remote server and loaded into this cache <em>before</em>
-they are needed based upon the <a href="#!/api/Ext.data.Store-cfg-leadingBufferZone" rel="Ext.data.Store-cfg-leadingBufferZone" class="docClass">buffer zone</a> so that scrolling can proceed without visible pauses for data loading.</p> <br>
-</div>
-<pre><span id="METHODsnapshot"><span class="keyword">method</span> snapshot</span> : <code class="type"><a href="Ext_util_MixedCollection.t-c.html">Ext_util_MixedCollection.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>A pristine (unfiltered) collection of the records in this store. This is used to reinstate
-records when a filter is removed or changed</p> <br>
 </div>
 </body></html>

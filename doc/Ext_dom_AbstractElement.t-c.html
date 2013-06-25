@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -141,6 +145,20 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODdefaultUnit"><span class="keyword">method</span> defaultUnit</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The default unit to append to CSS values where a unit isn't provided.</p>
+
+<p><strong>Overridden in Ext.dom.AbstractElement_static.</strong></p> 
+<p>
+
+    Defaults to: <code class="code">"px"</code><br>
+</div>
+<pre><span id="METHODdom"><span class="keyword">method</span> dom</span> : <code class="type">Dom_html.element Js.t Js.prop</code></pre><div class="info">
+<p>The DOM element</p> <br>
+</div>
+<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The DOM element ID</p> <br>
+</div>
 <pre><span id="METHODaddCls"><span class="keyword">method</span> addCls</span> : <code class="type">'a.<br>         'a Js.t -><br>         (< addCls : 'a. 'b;<br>            appendChild : 'd. 'd Js.t -> bool Js.t Js.optdef -> 'c Js.t Js.meth;<br>            appendTo : 'e. 'e Js.t -> 'c Js.t Js.meth;<br>            applyStyles : 'f. 'f Js.t -> 'c Js.t Js.meth;<br>            callParent : 'g 'h. 'g Js.t -> 'h Js.t Js.meth;<br>            callSuper : 'i 'j. 'i Js.t -> 'j Js.t Js.meth;<br>            child : 'k. Js.js_string Js.t -> bool Js.t Js.optdef -> 'k Js.t Js.meth;<br>            contains : 'l. 'l Js.t -> bool Js.t Js.meth;<br>            createChild : 'm.<br>                            'm Js.t -><br>                            Dom_html.element Js.t Js.optdef -><br>                            bool Js.t Js.optdef -> 'c Js.t Js.meth;<br>            defaultUnit : Js.js_string Js.t Js.prop; destroy : unit Js.meth;<br>            dom : Dom_html.element Js.t Js.prop;<br>            down : 'n. Js.js_string Js.t -> bool Js.t Js.optdef -> 'n Js.t Js.meth;<br>            findParent : 'o.<br>                           Js.js_string Js.t -><br>                           'o Js.t Js.optdef -><br>                           bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth;<br>            findParentNode : 'p.<br>                               Js.js_string Js.t -><br>                               'p Js.t Js.optdef -><br>                               bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth;<br>            first : 'q.<br>                      Js.js_string Js.t Js.optdef -><br>                      bool Js.t Js.optdef -> 'q Js.t Js.meth;<br>            getActiveElement : Dom_html.element Js.t Js.meth;<br>            getAttribute : Js.js_string Js.t -><br>                           Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth;<br>            getBorderWidth : Js.js_string Js.t -> Js.number Js.t Js.meth;<br>            getById : Js.js_string Js.t -> bool Js.t Js.optdef -> unit Js.meth;<br>            getHTML : unit Js.meth;<br>            getHeight : bool Js.t Js.optdef -> Js.number Js.t Js.meth;<br>            getInitialConfig : 'r. Js.js_string Js.t Js.optdef -> 'r Js.t Js.meth;<br>            getMargin : 's. Js.js_string Js.t Js.optdef -> 's Js.t Js.meth;<br>            getPadding : Js.js_string Js.t -> Js.number Js.t Js.meth;<br>            getSize : 't. bool Js.t Js.optdef -> 't Js.t Js.meth;<br>            getStyle : 'u 'v. 'u Js.t -> bool Js.t Js.optdef -> 'v Js.t Js.meth;<br>            getValue : 'w. bool Js.t -> 'w Js.t Js.meth;<br>            getViewSize : 'x. 'x Js.t Js.meth;<br>            getWidth : bool Js.t Js.optdef -> Js.number Js.t Js.meth;<br>            hasCls : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hide : 'y. 'y Js.t Js.optdef -> 'c Js.t Js.meth;<br>            id : Js.js_string Js.t Js.prop;<br>            initConfig : 'z. 'z Js.t -> 'c Js.t Js.meth;<br>            insertAfter : 'a1. 'a1 Js.t -> 'c Js.t Js.meth;<br>            insertBefore : 'b1. 'b1 Js.t -> 'c Js.t Js.meth;<br>            insertFirst : 'c1. 'c1 Js.t -> 'c Js.t Js.meth;<br>            insertHtml : 'd1.<br>                           Js.js_string Js.t -><br>                           Js.js_string Js.t -><br>                           bool Js.t Js.optdef -> 'd1 Js.t Js.meth;<br>            insertSibling : 'e1.<br>                              'e1 Js.t -><br>                              Js.js_string Js.t Js.optdef -><br>                              bool Js.t Js.optdef -> 'c Js.t Js.meth;<br>            is : Js.js_string Js.t -> bool Js.t Js.meth;<br>            isStyle : Js.js_string Js.t -> Js.js_string Js.t -> bool Js.t Js.meth;<br>            isTransparent : Js.js_string Js.t -> bool Js.t Js.meth;<br>            last : 'f1.<br>                     Js.js_string Js.t Js.optdef -><br>                     bool Js.t Js.optdef -> 'f1 Js.t Js.meth;<br>            mask : Js.js_string Js.t Js.optdef -><br>                   Js.js_string Js.t Js.optdef -> unit Js.meth;<br>            next : 'g1.<br>                     Js.js_string Js.t Js.optdef -><br>                     bool Js.t Js.optdef -> 'g1 Js.t Js.meth;<br>            parent : 'h1.<br>                       Js.js_string Js.t Js.optdef -><br>                       bool Js.t Js.optdef -> 'h1 Js.t Js.meth;<br>            prev : 'i1.<br>                     Js.js_string Js.t Js.optdef -><br>                     bool Js.t Js.optdef -> 'i1 Js.t Js.meth;<br>            query : Js.js_string Js.t -><br>                    Dom_html.element Js.t Js.js_array Js.t Js.meth;<br>            radioCls : 'j1. 'j1 Js.t -> 'c Js.t Js.meth; remove : unit Js.meth;<br>            removeCls : 'k1. 'k1 Js.t -> 'c Js.t Js.meth; repaint : 'c Js.t Js.meth;<br>            replace : 'l1. 'l1 Js.t -> 'c Js.t Js.meth;<br>            replaceCls : Js.js_string Js.t -> Js.js_string Js.t -> 'c Js.t Js.meth;<br>            replaceWith : 'm1. 'm1 Js.t -> 'c Js.t Js.meth;<br>            select : 'n1.<br>                       Js.js_string Js.t -> bool Js.t Js.optdef -> 'n1 Js.t Js.meth;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            serializeForm : 'o1. 'o1 Js.t -> Js.js_string Js.t Js.meth;<br>            set : 'p1. 'p1 Js.t -> bool Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setHTML : Js.js_string Js.t -> 'c Js.t Js.meth;<br>            setHeight : 'q1. 'q1 Js.t -> 'c Js.t Js.meth;<br>            setSize : 'r1 's1. 'r1 Js.t -> 's1 Js.t -> 'c Js.t Js.meth;<br>            setStyle : 't1.<br>                         't1 Js.t -> Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setVisibilityMode : 'u1. 'u1 Js.t -> 'c Js.t Js.meth;<br>            setVisible : 'v1. bool Js.t -> 'v1 Js.t Js.optdef -> 'c Js.t Js.meth;<br>            setWidth : 'w1. 'w1 Js.t -> 'c Js.t Js.meth;<br>            show : 'x1. 'x1 Js.t Js.optdef -> 'c Js.t Js.meth;<br>            statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            toggleCls : Js.js_string Js.t -> 'c Js.t Js.meth; unmask : unit Js.meth;<br>            up : 'y1.<br>                   Js.js_string Js.t -><br>                   'y1 Js.t Js.optdef -> bool Js.t Js.optdef -> 'c Js.t Js.meth;<br>            update : Js.js_string Js.t -> 'c Js.t Js.meth;<br>            wrap : 'z1 'a2.<br>                     'z1 Js.t Js.optdef -><br>                     bool Js.t Js.optdef -><br>                     Js.js_string Js.t Js.optdef -> 'a2 Js.t Js.meth;<br>            .. ><br>          as 'c)<br>         Js.t Js.meth as 'b</code></pre><div class="info">
 <p>Adds one or more CSS classes to the element. Duplicate classes are automatically filtered out.</p>
 
@@ -1608,19 +1626,5 @@ and is <b>not</b> considered for inclusion as the result. (defaults to 50 || doc
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODdefaultUnit"><span class="keyword">method</span> defaultUnit</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The default unit to append to CSS values where a unit isn't provided.</p>
-
-<p><strong>Overridden in Ext.dom.AbstractElement_static.</strong></p> 
-<p>
-
-    Defaults to: <code class="code">"px"</code><br>
-</div>
-<pre><span id="METHODdom"><span class="keyword">method</span> dom</span> : <code class="type">Dom_html.element Js.t Js.prop</code></pre><div class="info">
-<p>The DOM element</p> <br>
-</div>
-<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The DOM element ID</p> <br>
 </div>
 </body></html>

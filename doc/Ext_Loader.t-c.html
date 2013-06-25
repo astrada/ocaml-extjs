@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,7 +142,12 @@
 <center><h1>Class type <a href="type_Ext_Loader.t.html">Ext_Loader.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_Loader.t-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="METHODaddClassPathMappings"><span class="keyword">method</span> addClassPathMappings</span> : <code class="type">'a.<br>         'a Js.t -><br>         (< addClassPathMappings : 'a. 'b;<br>            exclude : 'd 'e. 'd Js.js_array Js.t -> 'e Js.t Js.meth;<br>            getConfig : 'f. Js.js_string Js.t -> 'f Js.t Js.meth;<br>            getPath : Js.js_string Js.t -> Js.js_string Js.t Js.meth;<br>            history : 'g. 'g Js.js_array Js.t Js.prop;<br>            loadScript : 'h. 'h Js.t -> unit Js.meth;<br>            onReady : 'i 'j. 'i Js.callback -> 'j Js.t -> bool Js.t -> unit Js.meth;<br>            require : 'k 'l 'm 'n.<br>                        'k Js.t -><br>                        'l Js.callback Js.optdef -><br>                        'm Js.t Js.optdef -> 'n Js.t Js.optdef -> unit Js.meth;<br>            setConfig : 'o. 'o Js.t -> 'c Js.t Js.meth;<br>            setPath : 'p. 'p Js.t -> Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth;<br>            syncRequire : 'q 'r 's 't.<br>                            'q Js.t -><br>                            'r Js.callback Js.optdef -><br>                            's Js.t Js.optdef -> 't Js.t Js.optdef -> unit Js.meth;<br>            .. ><br>          as 'c)<br>         Js.t Js.meth as 'b</code></pre><div class="info">
+<pre><span id="METHODhistory"><span class="keyword">method</span> history</span> : <code class="type">'a. 'a Js.js_array Js.t Js.prop</code></pre><div class="info">
+<p>An array of class names to keep track of the dependency loading order.
+This is not guaranteed to be the same everytime due to the asynchronous
+nature of the Loader.</p> <br>
+</div>
+<pre><span id="METHODaddClassPathMappings"><span class="keyword">method</span> addClassPathMappings</span> : <code class="type">'b.<br>         'b Js.t -><br>         (< addClassPathMappings : 'b. 'c;<br>            exclude : 'e 'f. 'e Js.js_array Js.t -> 'f Js.t Js.meth;<br>            getConfig : 'g. Js.js_string Js.t -> 'g Js.t Js.meth;<br>            getPath : Js.js_string Js.t -> Js.js_string Js.t Js.meth;<br>            history : 'a. 'a Js.js_array Js.t Js.prop;<br>            loadScript : 'h. 'h Js.t -> unit Js.meth;<br>            onReady : 'i 'j. 'i Js.callback -> 'j Js.t -> bool Js.t -> unit Js.meth;<br>            require : 'k 'l 'm 'n.<br>                        'k Js.t -><br>                        'l Js.callback Js.optdef -><br>                        'm Js.t Js.optdef -> 'n Js.t Js.optdef -> unit Js.meth;<br>            setConfig : 'o. 'o Js.t -> 'd Js.t Js.meth;<br>            setPath : 'p. 'p Js.t -> Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth;<br>            syncRequire : 'q 'r 's 't.<br>                            'q Js.t -><br>                            'r Js.callback Js.optdef -><br>                            's Js.t Js.optdef -> 't Js.t Js.optdef -> unit Js.meth;<br>            .. ><br>          as 'd)<br>         Js.t Js.meth as 'c</code></pre><div class="info">
 <p>Sets a batch of path entries</p> 
 <p>
 
@@ -158,7 +167,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODexclude"><span class="keyword">method</span> exclude</span> : <code class="type">'d 'e. 'd Js.js_array Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODexclude"><span class="keyword">method</span> exclude</span> : <code class="type">'e 'f. 'e Js.js_array Js.t -> 'f Js.t Js.meth</code></pre><div class="info">
 <p>Explicitly exclude files from being loaded. Useful when used in conjunction with a broad include expression.
 Can be chained with more <code>require</code> and <code>exclude</code> methods, eg:</p>
 
@@ -186,7 +195,7 @@ Can be chained with more <code>require</code> and <code>exclude</code> methods, 
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetConfig"><span class="keyword">method</span> getConfig</span> : <code class="type">'f. Js.js_string Js.t -> 'f Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetConfig"><span class="keyword">method</span> getConfig</span> : <code class="type">'g. Js.js_string Js.t -> 'g Js.t Js.meth</code></pre><div class="info">
 <p>Get the config value corresponding to the specified name. If no name is given, will return the config object</p> 
 <p>
 
@@ -297,7 +306,7 @@ the given callback function when finishes, within the optional scope.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetConfig"><span class="keyword">method</span> setConfig</span> : <code class="type">'o. 'o Js.t -> 'c Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetConfig"><span class="keyword">method</span> setConfig</span> : <code class="type">'o. 'o Js.t -> 'd Js.t Js.meth</code></pre><div class="info">
 <p>Set the configuration for the loader. This should be called right after ext-(debug).js
 is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext-method-onReady" class="docClass">Ext.onReady</a>. i.e:</p>
 
@@ -338,7 +347,7 @@ is included in the page, and before <a href="#!/api/Ext-method-onReady" rel="Ext
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetPath"><span class="keyword">method</span> setPath</span> : <code class="type">'p. 'p Js.t -> Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetPath"><span class="keyword">method</span> setPath</span> : <code class="type">'p. 'p Js.t -> Js.js_string Js.t Js.optdef -> 'd Js.t Js.meth</code></pre><div class="info">
 <p>Sets the path of a namespace.
 For Example:</p>
 
@@ -388,10 +397,5 @@ executes the given callback function when finishes, within the optional scope.</
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODhistory"><span class="keyword">method</span> history</span> : <code class="type">'g. 'g Js.js_array Js.t Js.prop</code></pre><div class="info">
-<p>An array of class names to keep track of the dependency loading order.
-This is not guaranteed to be the same everytime due to the asynchronous
-nature of the Loader.</p> <br>
 </div>
 </body></html>

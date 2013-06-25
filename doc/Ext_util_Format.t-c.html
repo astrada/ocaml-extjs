@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,6 +142,47 @@
 <center><h1>Class type <a href="type_Ext_util_Format.t.html">Ext_util_Format.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_util_Format.t-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="METHODcurrencyAtEnd"><span class="keyword">method</span> currencyAtEnd</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
+append the currency sign to the formatted value.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODcurrencyPrecision"><span class="keyword">method</span> currencyPrecision</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">2</code><br>
+</div>
+<pre><span id="METHODcurrencySign"><span class="keyword">method</span> currencySign</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">'$'</code><br>
+</div>
+<pre><span id="METHODdecimalSeparator"><span class="keyword">method</span> decimalSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">'.'</code><br>
+</div>
+<pre><span id="METHODthousandSeparator"><span class="keyword">method</span> thousandSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
+<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
+
+<p>This may be overridden in a locale file.</p> 
+<p>
+
+    Defaults to: <code class="code">','</code><br>
+</div>
 <pre><span id="METHODattributes"><span class="keyword">method</span> attributes</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Formats an object of name value properties as HTML element attribute values suitable for using when creating textual markup.</p> 
 <p>
@@ -512,11 +557,8 @@ the string <code>/i</code> to the end of the format string.</p>
 <li><code>0,000</code> - (123,456) show comma and digits, no precision</li>
 <li><code>0,000.00</code> - (123,456.78) show comma and digits, 2 precision</li>
 <li><code>0,0.00</code> - (123,456.78) shortcut method, show comma and digits, 2 precision</li>
-</ul>
-
-
-<p>To allow specification of the formatting string using UK/US grouping characters (,) and
-decimal (.) for international numbers, add /i to the end. For example: 0.000,00/i</p> 
+<li><code>0.####</code> - (123,456,789) Allow maximum 4 decimal places, but do not right pad with zeroes</li>
+</ul> 
 <p>
 
     <b>Parameters</b>:
@@ -778,46 +820,5 @@ alert('-' + <a href="#!/api/Ext.String-method-trim" rel="Ext.String-method-trim"
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODcurrencyAtEnd"><span class="keyword">method</span> currencyAtEnd</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>This may be set to <code>true</code> to make the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function
-append the currency sign to the formatted value.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODcurrencyPrecision"><span class="keyword">method</span> currencyPrecision</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>The number of decimal places that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">2</code><br>
-</div>
-<pre><span id="METHODcurrencySign"><span class="keyword">method</span> currencySign</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The currency sign that the <a href="#!/api/Ext.util.Format-method-currency" rel="Ext.util.Format-method-currency" class="docClass">currency</a> function displays.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">'$'</code><br>
-</div>
-<pre><span id="METHODdecimalSeparator"><span class="keyword">method</span> decimalSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a decimal point.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">'.'</code><br>
-</div>
-<pre><span id="METHODthousandSeparator"><span class="keyword">method</span> thousandSeparator</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
-<p>The character that the <a href="#!/api/Ext.util.Format-method-number" rel="Ext.util.Format-method-number" class="docClass">number</a> function uses as a thousand separator.</p>
-
-<p>This may be overridden in a locale file.</p> 
-<p>
-
-    Defaults to: <code class="code">','</code><br>
 </div>
 </body></html>

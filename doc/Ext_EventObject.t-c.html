@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -141,246 +145,6 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODcorrectWheelDelta"><span class="keyword">method</span> correctWheelDelta</span> : <code class="type">Js.number Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Correctly scales a given wheel delta.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>delta: <code class="code">Js.number Js.t</code> <p>The delta value.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetCharCode"><span class="keyword">method</span> getCharCode</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Gets the character code for the event.</p> <br>
-</div>
-<pre><span id="METHODgetKey"><span class="keyword">method</span> getKey</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Returns a normalized keyCode for the event.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.number Js.t</code> <p>The key code</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetPoint"><span class="keyword">method</span> getPoint</span> : <code class="type"><a href="Ext_util_Point.t-c.html">Ext_util_Point.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Returns a point object that consists of the object coordinates.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_util_Point.t Js.t</code> <p>point</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetRelatedTarget"><span class="keyword">method</span> getRelatedTarget</span> : <code class="type">'a.<br>         Js.js_string Js.t Js.optdef -><br>         'a Js.t Js.optdef -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth</code></pre><div class="info">
-<p>Gets the related target.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>A simple selector to filter the target or look for an ancestor of the target</p> 
-    </li>
-<li>maxDepth: <code class="code">_ Js.t</code> (optional)
-    <p>The max depth to search as a number or element (defaults to 10 || document.body)</p> 
-    </li>
-<li>returnEl: <code class="code">bool Js.t</code> (optional)
-    <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetTarget"><span class="keyword">method</span> getTarget</span> : <code class="type">'b.<br>         Js.js_string Js.t Js.optdef -><br>         'b Js.t Js.optdef -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth</code></pre><div class="info">
-<p>Gets the target for the event.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>A simple selector to filter the target or look for an ancestor of the target</p> 
-    </li>
-<li>maxDepth: <code class="code">_ Js.t</code> (optional)
-    <p>The max depth to search as a number or element (defaults to 10 || document.body)</p> 
-    </li>
-<li>returnEl: <code class="code">bool Js.t</code> (optional)
-    <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetWheelDelta"><span class="keyword">method</span> getWheelDelta</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Normalizes mouse wheel y-delta across browsers. To get x-delta information, use
-<a href="#!/api/Ext.EventObject-method-getWheelDeltas" rel="Ext.EventObject-method-getWheelDeltas" class="docClass">getWheelDeltas</a> instead.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.number Js.t</code> <p>The mouse wheel y-delta</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetWheelDeltas"><span class="keyword">method</span> getWheelDeltas</span> : <code class="type">'c. 'c Js.t Js.meth</code></pre><div class="info">
-<p>Returns the mouse wheel deltas for this event.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code>
-    <p>An object with "x" and "y" properties holding the mouse wheel deltas.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetX"><span class="keyword">method</span> getX</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Gets the x coordinate of the event.</p> <br>
-</div>
-<pre><span id="METHODgetXY"><span class="keyword">method</span> getXY</span> : <code class="type">Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
-<p>Gets the page coordinates of the event.</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.number Js.t Js.js_array Js.t</code>
-    <p>The xy values like [x, y]</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetY"><span class="keyword">method</span> getY</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Gets the y coordinate of the event.</p> <br>
-</div>
-<pre><span id="METHODhasModifier"><span class="keyword">method</span> hasModifier</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the control, meta, shift or alt key was pressed during this event.</p> <br>
-</div>
-<pre><span id="METHODinjectEvent"><span class="keyword">method</span> injectEvent</span> : <code class="type">'d. 'd Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Injects a DOM event using the data in this object and (optionally) a new target.
-This is a low-level technique and not likely to be used by application code. The
-currently supported event types are:</p>
-
-<p><b>HTMLEvents</b></p>
-
-
-<ul>
-<li>load</li>
-<li>unload</li>
-<li>select</li>
-<li>change</li>
-<li>submit</li>
-<li>reset</li>
-<li>resize</li>
-<li>scroll</li>
-</ul>
-
-
-<p><b>MouseEvents</b></p>
-
-
-<ul>
-<li>click</li>
-<li>dblclick</li>
-<li>mousedown</li>
-<li>mouseup</li>
-<li>mouseover</li>
-<li>mousemove</li>
-<li>mouseout</li>
-</ul>
-
-
-<p><b>UIEvents</b></p>
-
-
-<ul>
-<li>focusin</li>
-<li>focusout</li>
-<li>activate</li>
-<li>focus</li>
-<li>blur</li>
-</ul> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>target: <code class="code">_ Js.t</code> (optional)
-    <p>If specified, the target for the event. This
-is likely to be used when relaying a DOM event. If not specified, <a href="#!/api/Ext.EventObject-method-getTarget" rel="Ext.EventObject-method-getTarget" class="docClass">getTarget</a>
-is used to determine the target.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisNavKeyPress"><span class="keyword">method</span> isNavKeyPress</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
-<p>Checks if the key pressed was a "navigation" key</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">bool Js.t</code>
-    <p>True if the press is a navigation keypress</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisSpecialKey"><span class="keyword">method</span> isSpecialKey</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
-<p>Checks if the key pressed was a "special" key</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">bool Js.t</code>
-    <p>True if the press is a special keypress</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODpreventDefault"><span class="keyword">method</span> preventDefault</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Prevents the browsers default handling of the event.</p> <br>
-</div>
-<pre><span id="METHODstopEvent"><span class="keyword">method</span> stopEvent</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Stop the event (preventDefault and stopPropagation)</p> <br>
-</div>
-<pre><span id="METHODstopPropagation"><span class="keyword">method</span> stopPropagation</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Cancels bubbling of the event.</p> <br>
-</div>
-<pre><span id="METHODwithin"><span class="keyword">method</span> within</span> : <code class="type">'e.<br>         'e Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the target of this event is a child of el.  Unless the allowEl parameter is set, it will return false if if the target is el.
-Example usage:</p>
-
-<pre><code>// Handle click on any child of an element
-<a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>().on('click', function(e){
-    if(e.within('some-el')){
-        alert('Clicked on a child of some-el!');
-    }
-});
-
-// Handle click directly on an element, ignoring clicks on child nodes
-<a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>().on('click', function(e,t){
-    if((t.id == 'some-el') && !e.within(t, true)){
-        alert('Clicked directly on some-el!');
-    }
-});
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>el: <code class="code">_ Js.t</code>
-    <p>The id, DOM element or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to check</p> 
-    </li>
-<li>related: <code class="code">bool Js.t</code> (optional)
-    <p>true to test if the related target is within el instead of the target</p> 
-    </li>
-<li>allowEl: <code class="code">bool Js.t</code> (optional)
-    <p>true to also check if the passed element is the target or related target</p> 
-    </li>
-</ul>
-<br>
-</div>
 <pre><span id="METHOD_A"><span class="keyword">method</span> _A</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>Key constant</p> 
 <p>
@@ -921,5 +685,245 @@ In Mac this will also be true when meta key was down.</p> <br>
 </div>
 <pre><span id="METHODshiftKey"><span class="keyword">method</span> shiftKey</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>True if the shift key was down during the event.</p> <br>
+</div>
+<pre><span id="METHODcorrectWheelDelta"><span class="keyword">method</span> correctWheelDelta</span> : <code class="type">Js.number Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Correctly scales a given wheel delta.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>delta: <code class="code">Js.number Js.t</code> <p>The delta value.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetCharCode"><span class="keyword">method</span> getCharCode</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Gets the character code for the event.</p> <br>
+</div>
+<pre><span id="METHODgetKey"><span class="keyword">method</span> getKey</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Returns a normalized keyCode for the event.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The key code</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetPoint"><span class="keyword">method</span> getPoint</span> : <code class="type"><a href="Ext_util_Point.t-c.html">Ext_util_Point.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Returns a point object that consists of the object coordinates.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_util_Point.t Js.t</code> <p>point</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetRelatedTarget"><span class="keyword">method</span> getRelatedTarget</span> : <code class="type">'a.<br>         Js.js_string Js.t Js.optdef -><br>         'a Js.t Js.optdef -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth</code></pre><div class="info">
+<p>Gets the related target.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>A simple selector to filter the target or look for an ancestor of the target</p> 
+    </li>
+<li>maxDepth: <code class="code">_ Js.t</code> (optional)
+    <p>The max depth to search as a number or element (defaults to 10 || document.body)</p> 
+    </li>
+<li>returnEl: <code class="code">bool Js.t</code> (optional)
+    <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetTarget"><span class="keyword">method</span> getTarget</span> : <code class="type">'b.<br>         Js.js_string Js.t Js.optdef -><br>         'b Js.t Js.optdef -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth</code></pre><div class="info">
+<p>Gets the target for the event.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>selector: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>A simple selector to filter the target or look for an ancestor of the target</p> 
+    </li>
+<li>maxDepth: <code class="code">_ Js.t</code> (optional)
+    <p>The max depth to search as a number or element (defaults to 10 || document.body)</p> 
+    </li>
+<li>returnEl: <code class="code">bool Js.t</code> (optional)
+    <p>True to return a <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> object instead of DOM node</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetWheelDelta"><span class="keyword">method</span> getWheelDelta</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Normalizes mouse wheel y-delta across browsers. To get x-delta information, use
+<a href="#!/api/Ext.EventObject-method-getWheelDeltas" rel="Ext.EventObject-method-getWheelDeltas" class="docClass">getWheelDeltas</a> instead.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code> <p>The mouse wheel y-delta</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetWheelDeltas"><span class="keyword">method</span> getWheelDeltas</span> : <code class="type">'c. 'c Js.t Js.meth</code></pre><div class="info">
+<p>Returns the mouse wheel deltas for this event.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p>An object with "x" and "y" properties holding the mouse wheel deltas.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetX"><span class="keyword">method</span> getX</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Gets the x coordinate of the event.</p> <br>
+</div>
+<pre><span id="METHODgetXY"><span class="keyword">method</span> getXY</span> : <code class="type">Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
+<p>Gets the page coordinates of the event.</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t Js.js_array Js.t</code>
+    <p>The xy values like [x, y]</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetY"><span class="keyword">method</span> getY</span> : <code class="type">Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Gets the y coordinate of the event.</p> <br>
+</div>
+<pre><span id="METHODhasModifier"><span class="keyword">method</span> hasModifier</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the control, meta, shift or alt key was pressed during this event.</p> <br>
+</div>
+<pre><span id="METHODinjectEvent"><span class="keyword">method</span> injectEvent</span> : <code class="type">'d. 'd Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Injects a DOM event using the data in this object and (optionally) a new target.
+This is a low-level technique and not likely to be used by application code. The
+currently supported event types are:</p>
+
+<p><b>HTMLEvents</b></p>
+
+
+<ul>
+<li>load</li>
+<li>unload</li>
+<li>select</li>
+<li>change</li>
+<li>submit</li>
+<li>reset</li>
+<li>resize</li>
+<li>scroll</li>
+</ul>
+
+
+<p><b>MouseEvents</b></p>
+
+
+<ul>
+<li>click</li>
+<li>dblclick</li>
+<li>mousedown</li>
+<li>mouseup</li>
+<li>mouseover</li>
+<li>mousemove</li>
+<li>mouseout</li>
+</ul>
+
+
+<p><b>UIEvents</b></p>
+
+
+<ul>
+<li>focusin</li>
+<li>focusout</li>
+<li>activate</li>
+<li>focus</li>
+<li>blur</li>
+</ul> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>target: <code class="code">_ Js.t</code> (optional)
+    <p>If specified, the target for the event. This
+is likely to be used when relaying a DOM event. If not specified, <a href="#!/api/Ext.EventObject-method-getTarget" rel="Ext.EventObject-method-getTarget" class="docClass">getTarget</a>
+is used to determine the target.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisNavKeyPress"><span class="keyword">method</span> isNavKeyPress</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
+<p>Checks if the key pressed was a "navigation" key</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">bool Js.t</code>
+    <p>True if the press is a navigation keypress</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisSpecialKey"><span class="keyword">method</span> isSpecialKey</span> : <code class="type">bool Js.t Js.meth</code></pre><div class="info">
+<p>Checks if the key pressed was a "special" key</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">bool Js.t</code>
+    <p>True if the press is a special keypress</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODpreventDefault"><span class="keyword">method</span> preventDefault</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Prevents the browsers default handling of the event.</p> <br>
+</div>
+<pre><span id="METHODstopEvent"><span class="keyword">method</span> stopEvent</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Stop the event (preventDefault and stopPropagation)</p> <br>
+</div>
+<pre><span id="METHODstopPropagation"><span class="keyword">method</span> stopPropagation</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Cancels bubbling of the event.</p> <br>
+</div>
+<pre><span id="METHODwithin"><span class="keyword">method</span> within</span> : <code class="type">'e.<br>         'e Js.t -> bool Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the target of this event is a child of el.  Unless the allowEl parameter is set, it will return false if if the target is el.
+Example usage:</p>
+
+<pre><code>// Handle click on any child of an element
+<a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>().on('click', function(e){
+    if(e.within('some-el')){
+        alert('Clicked on a child of some-el!');
+    }
+});
+
+// Handle click directly on an element, ignoring clicks on child nodes
+<a href="#!/api/Ext-method-getBody" rel="Ext-method-getBody" class="docClass">Ext.getBody</a>().on('click', function(e,t){
+    if((t.id == 'some-el') && !e.within(t, true)){
+        alert('Clicked directly on some-el!');
+    }
+});
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>el: <code class="code">_ Js.t</code>
+    <p>The id, DOM element or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> to check</p> 
+    </li>
+<li>related: <code class="code">bool Js.t</code> (optional)
+    <p><code>true</code> to test if the related target is within el instead of the target</p> 
+    </li>
+<li>allowEl: <code class="code">bool Js.t</code> (optional)
+    <p><code>true</code> to also check if the passed element is the target or related target</p> 
+    </li>
+</ul>
+<br>
 </div>
 </body></html>

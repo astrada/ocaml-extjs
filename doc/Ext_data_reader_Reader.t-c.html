@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,11 +142,31 @@
 <center><h1>Class type <a href="type_Ext_data_reader_Reader.t.html">Ext_data_reader_Reader.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_data_reader_Reader.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
+<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODgetResponseData"><span class="keyword">method</span> getResponseData</span> : <code class="type">'a. 'a Js.t -> <a href="Ext_data_ResultSet.t-c.html">Ext_data_ResultSet.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODmetaData"><span class="keyword">method</span> metaData</span> : <code class="type">'a. 'a Js.t Js.readonly_prop</code></pre><div class="info">
+<p>The raw meta data that was most recently read, if any. Meta data can include existing
+Reader config options like <a href="#!/api/Ext.data.reader.Reader-cfg-idProperty" rel="Ext.data.reader.Reader-cfg-idProperty" class="docClass">idProperty</a>, <a href="#!/api/Ext.data.reader.Reader-cfg-totalProperty" rel="Ext.data.reader.Reader-cfg-totalProperty" class="docClass">totalProperty</a>, etc. that get
+automatically applied to the Reader, and those can still be accessed directly from the Reader
+if needed. However, meta data is also often used to pass other custom data to be processed
+by application code. For example, it is common when reconfiguring the data model of a grid to
+also pass a corresponding column model config to be applied to the grid. Any such data will
+not get applied to the Reader directly (it just gets passed through and is ignored by Ext).
+This metaData property gives you access to all meta data that was passed, including any such
+custom data ignored by the reader.</p>
+
+<p>This is a read-only property, and it will get replaced each time a new meta data object is
+passed to the reader. Note that typically you would handle proxy's
+<a href="#!/api/Ext.data.proxy.Proxy-event-metachange" rel="Ext.data.proxy.Proxy-event-metachange" class="docClass">metachange</a> event which passes this exact same meta
+object to listeners. However this property is available if it's more convenient to access it
+via the reader directly in certain cases.</p> <br>
+</div>
+<pre><span id="METHODrawData"><span class="keyword">method</span> rawData</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
+<p>The raw data object that was last passed to <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a>. Stored for further processing if needed.</p> <br>
+</div>
+<pre><span id="METHODgetResponseData"><span class="keyword">method</span> getResponseData</span> : <code class="type">'c. 'c Js.t -> <a href="Ext_data_ResultSet.t-c.html">Ext_data_ResultSet.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Takes a raw response object (as passed to the <a href="#!/api/Ext.data.reader.Reader-method-read" rel="Ext.data.reader.Reader-method-read" class="docClass">read</a> method) and returns the useful data
 segment from it. This must be implemented by each subclass.</p> 
 <p>
@@ -163,7 +187,7 @@ segment from it. This must be implemented by each subclass.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODread"><span class="keyword">method</span> read</span> : <code class="type">'b. 'b Js.t -> <a href="Ext_data_ResultSet.t-c.html">Ext_data_ResultSet.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODread"><span class="keyword">method</span> read</span> : <code class="type">'d. 'd Js.t -> <a href="Ext_data_ResultSet.t-c.html">Ext_data_ResultSet.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Reads the given response object. This method normalizes the different types of response object that may be passed to it.
 If it's an XMLHttpRequest object, hand off to the subclass' <a href="#!/api/Ext.data.reader.Reader-method-getResponseData" rel="Ext.data.reader.Reader-method-getResponseData" class="docClass">getResponseData</a> method.
 Else, hand off the reading of records to the <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a> method.</p> 
@@ -186,7 +210,7 @@ Else, hand off the reading of records to the <a href="#!/api/Ext.data.reader.Rea
 </ul>
 <br>
 </div>
-<pre><span id="METHODreadRecords"><span class="keyword">method</span> readRecords</span> : <code class="type">'c. 'c Js.t -> <a href="Ext_data_ResultSet.t-c.html">Ext_data_ResultSet.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODreadRecords"><span class="keyword">method</span> readRecords</span> : <code class="type">'e. 'e Js.t -> <a href="Ext_data_ResultSet.t-c.html">Ext_data_ResultSet.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Abstracts common functionality used by all Reader subclasses. Each subclass is expected to call this function
 before running its own logic and returning the <a href="#!/api/Ext.data.ResultSet" rel="Ext.data.ResultSet" class="docClass">Ext.data.ResultSet</a> instance. For most Readers additional
 processing should not be needed.</p> 
@@ -207,25 +231,5 @@ processing should not be needed.</p>
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODmetaData"><span class="keyword">method</span> metaData</span> : <code class="type">'d. 'd Js.t Js.readonly_prop</code></pre><div class="info">
-<p>The raw meta data that was most recently read, if any. Meta data can include existing
-Reader config options like <a href="#!/api/Ext.data.reader.Reader-cfg-idProperty" rel="Ext.data.reader.Reader-cfg-idProperty" class="docClass">idProperty</a>, <a href="#!/api/Ext.data.reader.Reader-cfg-totalProperty" rel="Ext.data.reader.Reader-cfg-totalProperty" class="docClass">totalProperty</a>, etc. that get
-automatically applied to the Reader, and those can still be accessed directly from the Reader
-if needed. However, meta data is also often used to pass other custom data to be processed
-by application code. For example, it is common when reconfiguring the data model of a grid to
-also pass a corresponding column model config to be applied to the grid. Any such data will
-not get applied to the Reader directly (it just gets passed through and is ignored by Ext).
-This metaData property gives you access to all meta data that was passed, including any such
-custom data ignored by the reader.</p>
-
-<p>This is a read-only property, and it will get replaced each time a new meta data object is
-passed to the reader. Note that typically you would handle proxy's
-<a href="#!/api/Ext.data.proxy.Proxy-event-metachange" rel="Ext.data.proxy.Proxy-event-metachange" class="docClass">metachange</a> event which passes this exact same meta
-object to listeners. However this property is available if it's more convenient to access it
-via the reader directly in certain cases.</p> <br>
-</div>
-<pre><span id="METHODrawData"><span class="keyword">method</span> rawData</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
-<p>The raw data object that was last passed to <a href="#!/api/Ext.data.reader.Reader-method-readRecords" rel="Ext.data.reader.Reader-method-readRecords" class="docClass">readRecords</a>. Stored for further processing if needed.</p> <br>
 </div>
 </body></html>

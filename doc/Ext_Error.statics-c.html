@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,6 +142,35 @@
 <center><h1>Class type <a href="type_Ext_Error.statics.html">Ext_Error.statics</a></h1></center>
 <br>
 <pre><span id="TYPEstatics"><span class="keyword">class type</span> statics</span> = <code class="code">object</code> <a href="Ext_Error.statics-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="METHODignore"><span class="keyword">method</span> ignore</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Static flag that can be used to globally disable error reporting to the browser if set to true
+(defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
+and throw a native JavaScript error thereafter, so use with caution. In most cases it will probably
+be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">handling</a> function instead.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-property-ignore" rel="Ext.Error-static-property-ignore" class="docClass">Ext.Error.ignore</a> = true;
+</code></pre> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODnotify"><span class="keyword">method</span> notify</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p>Static flag that can be used to globally control error notification to the user. Unlike
+Ex.Error.ignore, this does not effect exceptions. They are still thrown. This value can be
+set to false to disable the alert notification (default is true for IE6 and IE7).</p>
+
+<p>Only the first error will generate an alert. Internally this flag is set to false when the
+first error occurs prior to displaying the alert.</p>
+
+<p>This flag is not used in a release build.</p>
+
+<p>Example usage:</p>
+
+<pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
+</code></pre> <br>
+</div>
 <pre><span id="METHODhandle"><span class="keyword">method</span> handle</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Globally handle any Ext errors that may be raised, optionally providing custom logic to
 handle different errors individually. Return true from the function to bypass throwing the
@@ -203,34 +236,5 @@ if available.</p>
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODignore"><span class="keyword">method</span> ignore</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Static flag that can be used to globally disable error reporting to the browser if set to true
-(defaults to false). Note that if you ignore Ext errors it's likely that some other code may fail
-and throw a native JavaScript error thereafter, so use with caution. In most cases it will probably
-be preferable to supply a custom error <a href="#!/api/Ext.Error-static-method-handle" rel="Ext.Error-static-method-handle" class="docClass">handling</a> function instead.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-property-ignore" rel="Ext.Error-static-property-ignore" class="docClass">Ext.Error.ignore</a> = true;
-</code></pre> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODnotify"><span class="keyword">method</span> notify</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p>Static flag that can be used to globally control error notification to the user. Unlike
-Ex.Error.ignore, this does not effect exceptions. They are still thrown. This value can be
-set to false to disable the alert notification (default is true for IE6 and IE7).</p>
-
-<p>Only the first error will generate an alert. Internally this flag is set to false when the
-first error occurs prior to displaying the alert.</p>
-
-<p>This flag is not used in a release build.</p>
-
-<p>Example usage:</p>
-
-<pre><code><a href="#!/api/Ext.Error-static-property-notify" rel="Ext.Error-static-property-notify" class="docClass">Ext.Error.notify</a> = false;
-</code></pre> <br>
 </div>
 </body></html>

@@ -59,6 +59,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -79,6 +81,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -93,6 +96,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -245,23 +249,17 @@ invalid JSON, it is not possible to use the standard date serialization pathway 
 <p>To use a <a href="#!/api/Ext.data.writer.Json" rel="Ext.data.writer.Json" class="docClass">JsonWriter</a> to write dates in a JSON packet in the form <code>"\/Date(1357372800000)\/"</code>
 configure the field like this:</p>
 
-<p>   {</p>
-
-<pre><code>   type: 'date',
-   dateFormat: 'MS',             // To parse incoming dates from server correctly
-   serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
-</code></pre>
-
-<p>   }</p>
+<p>   {
+       type: 'date',
+       dateFormat: 'MS',             // To parse incoming dates from server correctly
+       serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
+   }</p>
 
 <p>Then override ExtJS's JSON date serialize function:</p>
 
-<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) {</p>
-
-<pre><code>   return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
-</code></pre>
-
-<p>   };</p> <br>
+<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) {
+       return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
+   };</p> <br>
 </div>
 <pre><span id="METHODdefaultValue"><span class="keyword">method</span> defaultValue</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
 <p>The default value used when the creating an instance from a raw data object, and the property referenced by the

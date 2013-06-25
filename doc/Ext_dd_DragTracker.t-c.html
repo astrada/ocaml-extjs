@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,10 +142,23 @@
 <center><h1>Class type <a href="type_Ext_dd_DragTracker.t.html">Ext_dd_DragTracker.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_dd_DragTracker.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
+<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODactive"><span class="keyword">method</span> active</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
+<p>Indicates whether the user is currently dragging this tracker.</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODdragTarget"><span class="keyword">method</span> dragTarget</span> : <code class="type">Dom_html.element Js.t Js.readonly_prop</code></pre><div class="info">
+<p>The element being dragged.</p>
+
+<p>Only valid during drag operations.</p>
+
+<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> <br>
+</div>
 <pre><span id="METHODgetDragTarget"><span class="keyword">method</span> getDragTarget</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Returns the drag target. This is usually the DragTracker's encapsulating element.</p>
 
@@ -248,18 +265,5 @@ holds the mouse button down. Return false to disallow the drag</p>
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODactive"><span class="keyword">method</span> active</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
-<p>Indicates whether the user is currently dragging this tracker.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
-</div>
-<pre><span id="METHODdragTarget"><span class="keyword">method</span> dragTarget</span> : <code class="type">Dom_html.element Js.t Js.readonly_prop</code></pre><div class="info">
-<p>The element being dragged.</p>
-
-<p>Only valid during drag operations.</p>
-
-<p>If the <a href="#!/api/Ext.dd.DragTracker-cfg-delegate" rel="Ext.dd.DragTracker-cfg-delegate" class="docClass">delegate</a> option is used, this will be the delegate element which was mousedowned.</p> <br>
 </div>
 </body></html>

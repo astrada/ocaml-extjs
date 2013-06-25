@@ -55,6 +55,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -75,6 +77,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -89,6 +92,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -944,11 +948,6 @@ Possible values are</p>
 <p>The type of series. Set in subclasses.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_button_Button.configs-c.html#METHOD_type">_type</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
-<td><div class="info">
-<p>The type of <code>&lt;input&gt;</code> to create: submit, reset or button.</p> 
-</div>
-</td></tr>
 <tr><td align="left"><br>A</td></tr>
 <tr><td><a href="Ext_ElementLoader.t-c.html#METHODabort">abort</a> [<a href="Ext_ElementLoader.t-c.html">Ext_ElementLoader.t</a>]</td>
 <td><div class="info">
@@ -1076,6 +1075,11 @@ passed into this method.</p>
     y: 100
 });
 </code></pre> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODadd">add</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Adds elements to this Composite object.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODadd">add</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
@@ -1343,21 +1347,18 @@ configuration object please refer to <a href="#!/api/Ext.chart.Chart" rel="Ext.c
 
 <p>For example:</p>
 
-<p>   drawComponent.surface.addGradient({</p>
-
-<pre><code>   id: 'gradientId',
-   angle: 45,
-   stops: {
-       0: {
-           color: '#555'
-       },
-       100: {
-           color: '#ddd'
+<p>   drawComponent.surface.addGradient({
+       id: 'gradientId',
+       angle: 45,
+       stops: {
+           0: {
+               color: '#555'
+           },
+           100: {
+               color: '#ddd'
+           }
        }
-   }
-</code></pre>
-
-<p>   });</p> 
+   });</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dd_DragDrop.t-c.html#METHODaddInvalidHandleClass">addInvalidHandleClass</a> [<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a>]</td>
@@ -1838,6 +1839,18 @@ will have been styled according to the configuration, will have had any configur
 names added, and will be in the configured visibility and the configured enable state.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_Component.configs-c.html#METHODafterRender">afterRender</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
+<td><div class="info">
+See method <code class="code">t.afterRender</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_Component.t-c.html#METHODafterRender">afterRender</a> [<a href="Ext_Component.t-c.html">Ext_Component.t</a>]</td>
+<td><div class="info">
+<p>Allows addition of behavior after rendering is complete. At this stage the Component’s Element
+will have been styled according to the configuration, will have had any configured CSS class
+names added, and will be in the configured visibility and the configured enable state.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_data_proxy_Server.configs-c.html#METHODafterRequest">afterRequest</a> [<a href="Ext_data_proxy_Server.configs-c.html">Ext_data_proxy_Server.configs</a>]</td>
 <td><div class="info">
 See method <code class="code">t.afterRequest</code>
@@ -1866,6 +1879,18 @@ See method <code class="code">t.afterSetPosition</code>
 <tr><td><a href="Ext_AbstractComponent.t-c.html#METHODafterSetPosition">afterSetPosition</a> [<a href="Ext_AbstractComponent.t-c.html">Ext_AbstractComponent.t</a>]</td>
 <td><div class="info">
 <p>Template method called after a Component has been positioned.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_menu_Menu.configs-c.html#METHODafterShow">afterShow</a> [<a href="Ext_menu_Menu.configs-c.html">Ext_menu_Menu.configs</a>]</td>
+<td><div class="info">
+See method <code class="code">t.afterShow</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_menu_Menu.t-c.html#METHODafterShow">afterShow</a> [<a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a>]</td>
+<td><div class="info">
+<p>Invoked after the Component is shown (after <a href="#!/api/Ext.menu.Menu-method-onShow" rel="Ext.menu.Menu-method-onShow" class="docClass">onShow</a> is called).</p>
+
+<p>Gets passed the same parameters as <a href="#!/api/Ext.menu.Menu-method-show" rel="Ext.menu.Menu-method-show" class="docClass">show</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_LoadMask.configs-c.html#METHODafterShow">afterShow</a> [<a href="Ext_LoadMask.configs-c.html">Ext_LoadMask.configs</a>]</td>
@@ -3108,6 +3133,16 @@ See method <code class="code">t.beforeDestroy</code>
 <p>Invoked before the Component is destroyed.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_container_Viewport.configs-c.html#METHODbeforeDestroy">beforeDestroy</a> [<a href="Ext_container_Viewport.configs-c.html">Ext_container_Viewport.configs</a>]</td>
+<td><div class="info">
+See method <code class="code">t.beforeDestroy</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_container_Viewport.t-c.html#METHODbeforeDestroy">beforeDestroy</a> [<a href="Ext_container_Viewport.t-c.html">Ext_container_Viewport.t</a>]</td>
+<td><div class="info">
+<p>Invoked before the Component is destroyed.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODbeforeDestroy">beforeDestroy</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
 <td><div class="info">
 See method <code class="code">t.beforeDestroy</code>
@@ -3199,12 +3234,12 @@ before the label element. If an <code>XTemplate</code> is used, the component's 
 serves as the context.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_window_Window.configs-c.html#METHODbeforeLayout">beforeLayout</a> [<a href="Ext_window_Window.configs-c.html">Ext_window_Window.configs</a>]</td>
+<tr><td><a href="Ext_Component.configs-c.html#METHODbeforeLayout">beforeLayout</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
 <td><div class="info">
 See method <code class="code">t.beforeLayout</code>
 </div>
 </td></tr>
-<tr><td><a href="Ext_window_Window.t-c.html#METHODbeforeLayout">beforeLayout</a> [<a href="Ext_window_Window.t-c.html">Ext_window_Window.t</a>]</td>
+<tr><td><a href="Ext_Component.t-c.html#METHODbeforeLayout">beforeLayout</a> [<a href="Ext_Component.t-c.html">Ext_Component.t</a>]</td>
 <td><div class="info">
 <p>Occurs before componentLayout is run. In previous releases, this method could
 return <code>false</code> to prevent its layout but that is not supported in Ext JS 4.1 or
@@ -3230,6 +3265,16 @@ time to reduce expensive document reflows.</p>
 <tr><td><a href="Ext_form_field_Field.t-c.html#METHODbeforeReset">beforeReset</a> [<a href="Ext_form_field_Field.t-c.html">Ext_form_field_Field.t</a>]</td>
 <td><div class="info">
 <p>Template method before a field is reset.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_menu_Menu.configs-c.html#METHODbeforeShow">beforeShow</a> [<a href="Ext_menu_Menu.configs-c.html">Ext_menu_Menu.configs</a>]</td>
+<td><div class="info">
+See method <code class="code">t.beforeShow</code>
+</div>
+</td></tr>
+<tr><td><a href="Ext_menu_Menu.t-c.html#METHODbeforeShow">beforeShow</a> [<a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a>]</td>
+<td><div class="info">
+<p>Invoked before the Component is shown.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_Component.configs-c.html#METHODbeforeShow">beforeShow</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
@@ -4275,12 +4320,19 @@ Will be called with the following config parameters:</p>
 </td></tr>
 <tr><td><a href="Ext.t-c.html#METHODcallback">callback</a> [<a href="Ext.t-c.html">Ext.t</a>]</td>
 <td><div class="info">
-<p>Execute a callback function in a particular scope. If no function is passed the call is ignored.</p>
+<p>Execute a callback function in a particular scope. If <code>callback</code> argument is a
+function reference, that is called. If it is a string, the string is assumed to
+be the name of a method on the given <code>scope</code>. If no function is passed the call
+is ignored.</p>
 
-<p>For example, these lines are equivalent:</p>
+<p>For example, these calls are equivalent:</p>
 
-<pre><code><a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>(myFunc, this, [arg1, arg2]);
-<a href="#!/api/Ext-method-isFunction" rel="Ext-method-isFunction" class="docClass">Ext.isFunction</a>(myFunc) &amp;&amp; myFunc.apply(this, [arg1, arg2]);
+<pre><code> var myFunc = this.myFunc;
+
+ <a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>('myFunc', this, [arg1, arg2]);
+ <a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>(myFunc, this, [arg1, arg2]);
+
+ <a href="#!/api/Ext-method-isFunction" rel="Ext-method-isFunction" class="docClass">Ext.isFunction</a>(myFunc) &amp;&amp; this.myFunc(arg1, arg2);
 </code></pre> 
 </div>
 </td></tr>
@@ -4533,17 +4585,17 @@ when an individual field's validity changes.</p>
 <p>Alias for <a href="#!/api/Ext.grid.column.CheckColumn" rel="Ext.grid.column.CheckColumn" class="docClass">Ext.grid.column.CheckColumn</a>.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_Queryable.t-c.html#METHODchild">child</a> [<a href="Ext_Queryable.t-c.html">Ext_Queryable.t</a>]</td>
+<td><div class="info">
+<p>Retrieves the first direct child of this container which matches the passed selector or component.
+The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector, or it can be an actual <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODchild">child</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
 <td><div class="info">
 <p>Selects a single <em>direct</em> child based on the passed CSS selector (the selector should not contain an id).</p>
 
 <p><strong>Defined in override Ext.dom.AbstractElement_traversal.</strong></p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_container_AbstractContainer.t-c.html#METHODchild">child</a> [<a href="Ext_container_AbstractContainer.t-c.html">Ext_container_AbstractContainer.t</a>]</td>
-<td><div class="info">
-<p>Retrieves the first direct child of this container which matches the passed selector or component.
-The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector, or it can be an actual <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODchildEls">childEls</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
@@ -4613,6 +4665,11 @@ is an object with these properties:</p>
 <tr><td><a href="Ext_state_Manager.t-c.html#METHODclear">clear</a> [<a href="Ext_state_Manager.t-c.html">Ext_state_Manager.t</a>]</td>
 <td><div class="info">
 <p>Clears a value from the state</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODclear">clear</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Removes all elements from this Composite.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_AbstractStore.events-c.html#METHODclear">clear</a> [<a href="Ext_data_AbstractStore.events-c.html">Ext_data_AbstractStore.events</a>]</td>
@@ -4832,6 +4889,11 @@ see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy"
 <tr><td><a href="Ext_Component.t-c.html#METHODcloneConfig">cloneConfig</a> [<a href="Ext_Component.t-c.html">Ext_Component.t</a>]</td>
 <td><div class="info">
 <p>Clone the current component using the original config values passed into this instance by default.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_AbstractPlugin.t-c.html#METHODclonePlugin">clonePlugin</a> [<a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a>]</td>
+<td><div class="info">
+<p>Creates clone of the plugin.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_window_Window.configs-c.html#METHODclosable">closable</a> [<a href="Ext_window_Window.configs-c.html">Ext_window_Window.configs</a>]</td>
@@ -5549,6 +5611,15 @@ dd.startDrag = function(){
 to constrain the component. Only applies when the component is floating.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_Component.configs-c.html#METHODconstraintInsets">constraintInsets</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
+<td><div class="info">
+<p>An object or a string (in TRBL order) specifying insets from the configured <a href="#!/api/Ext.Component-cfg-constrainTo" rel="Ext.Component-cfg-constrainTo" class="docClass">constrain region</a>
+within which this component must be constrained when positioning or sizing.
+example:</p>
+
+<p>   constraintInsets: '10 10 10 10' // Constrain with 10px insets from parent</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_enums_Widget.t-c.html#METHODcontainer">container</a> [<a href="Ext_enums_Widget.t-c.html">Ext_enums_Widget.t</a>]</td>
 <td><div class="info">
 <p>Alias for <a href="#!/api/Ext.container.Container" rel="Ext.container.Container" class="docClass">Ext.container.Container</a>.</p> 
@@ -5627,6 +5698,11 @@ to constrain the component. Only applies when the component is floating.</p>
 <tr><td><a href="Ext_util_AbstractMixedCollection.t-c.html#METHODcontains">contains</a> [<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a>]</td>
 <td><div class="info">
 <p>Returns true if the collection contains the passed Object as an item.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODcontains">contains</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Returns true if this composite contains the passed element.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODcontains">contains</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
@@ -6141,23 +6217,17 @@ invalid JSON, it is not possible to use the standard date serialization pathway 
 <p>To use a <a href="#!/api/Ext.data.writer.Json" rel="Ext.data.writer.Json" class="docClass">JsonWriter</a> to write dates in a JSON packet in the form <code>"\/Date(1357372800000)\/"</code>
 configure the field like this:</p>
 
-<p>   {</p>
-
-<pre><code>   type: 'date',
-   dateFormat: 'MS',             // To parse incoming dates from server correctly
-   serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
-</code></pre>
-
-<p>   }</p>
+<p>   {
+       type: 'date',
+       dateFormat: 'MS',             // To parse incoming dates from server correctly
+       serialize: <a href="#!/api/Ext-method-identityFn" rel="Ext-method-identityFn" class="docClass">Ext.identityFn</a>     // An ExtJS-supplied function which returns the arg unchanged
+   }</p>
 
 <p>Then override ExtJS's JSON date serialize function:</p>
 
-<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) {</p>
-
-<pre><code>   return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
-</code></pre>
-
-<p>   };</p> 
+<p>   <a href="#!/api/Ext.JSON-method-encodeDate" rel="Ext.JSON-method-encodeDate" class="docClass">Ext.JSON.encodeDate</a> = function (d) {
+       return '"' + <a href="#!/api/Ext.Date-method-format" rel="Ext.Date-method-format" class="docClass">Ext.Date.format</a>(d, 'MS') + '"';
+   };</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_enums_Widget.t-c.html#METHODdatecolumn">datecolumn</a> [<a href="Ext_enums_Widget.t-c.html">Ext_enums_Widget.t</a>]</td>
@@ -6866,6 +6936,16 @@ also removing its reference to a DOM element.</p>
 <p>Removes this element's dom reference. Note that event and cache removal is handled at <a href="#!/api/Ext-method-removeNode" rel="Ext-method-removeNode" class="docClass">Ext.removeNode</a></p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_dd_DragSource.t-c.html#METHODdestroy">destroy</a> [<a href="Ext_dd_DragSource.t-c.html">Ext_dd_DragSource.t</a>]</td>
+<td><div class="info">
+<p>Destroy this DragDrop instance</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dd_DragDrop.t-c.html#METHODdestroy">destroy</a> [<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a>]</td>
+<td><div class="info">
+<p>Destroy this DragDrop instance</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_data_proxy_Server.t-c.html#METHODdestroy">destroy</a> [<a href="Ext_data_proxy_Server.t-c.html">Ext_data_proxy_Server.t</a>]</td>
 <td><div class="info">
 <p>Performs the given destroy operation.</p> 
@@ -7213,6 +7293,12 @@ This is typically used for things like toolbars or tab bars:</p>
 flushed to the DOM by the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a>, the layout is unblocked.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_Queryable.t-c.html#METHODdown">down</a> [<a href="Ext_Queryable.t-c.html">Ext_Queryable.t</a>]</td>
+<td><div class="info">
+<p>Retrieves the first descendant of this container which matches the passed selector.
+The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector, or it can be an actual <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODdown">down</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
 <td><div class="info">
 <p>Selects a single child at any depth below this element based on the passed CSS selector (the selector should not contain an id).</p>
@@ -7220,14 +7306,15 @@ flushed to the DOM by the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Co
 <p><strong>Defined in override Ext.dom.AbstractElement_traversal.</strong></p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_container_AbstractContainer.t-c.html#METHODdown">down</a> [<a href="Ext_container_AbstractContainer.t-c.html">Ext_container_AbstractContainer.t</a>]</td>
-<td><div class="info">
-<p>Retrieves the first descendant of this container which matches the passed selector.
-The passed in selector must comply with an <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a> selector, or it can be an actual <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>.</p> 
-</div>
-</td></tr>
 <tr><td><a href="Ext_dd_DragTracker.events-c.html#METHODdrag">drag</a> [<a href="Ext_dd_DragTracker.events-c.html">Ext_dd_DragTracker.events</a>]</td>
 <td></td></tr>
+<tr><td><a href="Ext_dd_DragSource.t-c.html#METHODdragData">dragData</a> [<a href="Ext_dd_DragSource.t-c.html">Ext_dd_DragSource.t</a>]</td>
+<td><div class="info">
+<p>This property contains the data representing the dragged object. This data is set up by the implementation of the
+<a href="#!/api/Ext.dd.DragSource-method-getDragData" rel="Ext.dd.DragSource-method-getDragData" class="docClass">getDragData</a> method. It must contain a ddel property, but can contain any other data according to the
+application's needs.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dd_DDProxy.statics-c.html#METHODdragElId">dragElId</a> [<a href="Ext_dd_DDProxy.statics-c.html">Ext_dd_DDProxy.statics</a>]</td>
 <td><div class="info">
 <p>The default drag frame div id</p> 
@@ -7353,6 +7440,11 @@ The function should return a boolean value.
 Returning false from the function will stop the iteration.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODeach">each</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Calls the passed function for each element in this composite.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODeach">each</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
 <td><div class="info">
 <p>Calls the specified function for each <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">record</a> in the store.</p>
@@ -7458,6 +7550,35 @@ Only applicable if the grid is using an <a href="#!/api/Ext.grid.plugin.Editing"
 <tr><td><a href="Ext_enums_Widget.t-c.html#METHODeditor">editor</a> [<a href="Ext_enums_Widget.t-c.html">Ext_enums_Widget.t</a>]</td>
 <td><div class="info">
 <p>Alias for <a href="#!/api/Ext.Editor" rel="Ext.Editor" class="docClass">Ext.Editor</a>.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODelements">elements</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>The Array of DOM elements which this CompositeElement encapsulates.</p>
+
+<p>This will not <em>usually</em> be accessed in developers' code, but developers wishing to augment the capabilities
+of the CompositeElementLite class may use it when adding methods to the class.</p>
+
+<p>For example to add the <code>nextAll</code> method to the class to <strong>add</strong> all following siblings of selected elements,
+the code would be</p>
+
+<pre><code><a href="#!/api/Ext-method-override" rel="Ext-method-override" class="docClass">Ext.override</a>(<a href="#!/api/Ext.dom.CompositeElementLite" rel="Ext.dom.CompositeElementLite" class="docClass">Ext.dom.CompositeElementLite</a>, {
+    nextAll: function() {
+        var elements = this.elements, i, l = elements.length, n, r = [], ri = -1;
+
+        // Loop through all elements in this Composite, accumulating
+        // an Array of all siblings.
+        for (i = 0; i &lt; l; i++) {
+            for (n = elements[i].nextSibling; n; n = n.nextSibling) {
+                r[++ri] = n;
+            }
+        }
+
+        // Add all found siblings to this Composite
+        return this.add(r);
+    }
+});
+</code></pre> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_util_Format.t-c.html#METHODellipsis">ellipsis</a> [<a href="Ext_util_Format.t-c.html">Ext_util_Format.t</a>]</td>
@@ -8263,6 +8384,11 @@ container changes.</p>
 <p>The fill color.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODfill">fill</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Clears this Composite and adds the elements passed.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_util_AbstractMixedCollection.t-c.html#METHODfilter">filter</a> [<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a>]</td>
 <td><div class="info">
 <p>Filters the objects in this collection by a set of <a href="#!/api/Ext.util.Filter" rel="Ext.util.Filter" class="docClass">Filter</a>s, or by a single
@@ -8273,18 +8399,20 @@ MixedCollection can be easily filtered by property like this:</p>
 
 <p>   //create a simple store with a few people defined
    var people = new <a href="#!/api/Ext.util.MixedCollection" rel="Ext.util.MixedCollection" class="docClass">Ext.util.MixedCollection</a>();
-   people.addAll([</p>
-
-<pre><code>   {id: 1, age: 25, name: 'Ed'},
-   {id: 2, age: 24, name: 'Tommy'},
-   {id: 3, age: 24, name: 'Arne'},
-   {id: 4, age: 26, name: 'Aaron'}
-</code></pre>
-
-<p>   ]);</p>
+   people.addAll([
+       {id: 1, age: 25, name: 'Ed'},
+       {id: 2, age: 24, name: 'Tommy'},
+       {id: 3, age: 24, name: 'Arne'},
+       {id: 4, age: 26, name: 'Aaron'}
+   ]);</p>
 
 <p>   //a new MixedCollection containing only the items where age == 24
    var middleAged = people.filter('age', 24);</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODfilter">filter</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Filters this composite to only elements that match the passed selector.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODfilter">filter</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
@@ -8372,6 +8500,11 @@ want to send a filter parameter.</p>
 <p>Fired whenever the filter set changes.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.events-c.html#METHODfilterchange">filterchange</a> [<a href="Ext_grid_locking_Lockable.events-c.html">Ext_grid_locking_Lockable.events</a>]</td>
+<td><div class="info">
+<p>Fired whenever the filter set changes.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_data_Store.events-c.html#METHODfilterchange">filterchange</a> [<a href="Ext_data_Store.events-c.html">Ext_data_Store.events</a>]</td>
 <td><div class="info">
 <p>Fired whenever the filter set changes.</p> 
@@ -8425,7 +8558,13 @@ implemented when needed.</p>
 <td><div class="info">
 <p>Finds the index of the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_util_AbstractMixedCollection.t-c.html#METHODfindBy">findBy</a> [<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a>]</td>
@@ -8439,14 +8578,26 @@ passed selection function.</p>
 <p>Find the index of the first matching Record in this Store by a function.
 If the function returns <code>true</code> it is considered a match.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODfindExact">findExact</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
 <td><div class="info">
 <p>Finds the index of the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_form_Basic.t-c.html#METHODfindField">findField</a> [<a href="Ext_form_Basic.t-c.html">Ext_form_Basic.t</a>]</td>
@@ -8504,11 +8655,22 @@ container will be returned.</p>
 <p><strong>Defined in override Ext.dom.AbstractElement_traversal.</strong></p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_AbstractComponent.t-c.html#METHODfindPlugin">findPlugin</a> [<a href="Ext_AbstractComponent.t-c.html">Ext_AbstractComponent.t</a>]</td>
+<td><div class="info">
+<p>Retrieves plugin from this component's collection by its <code>ptype</code>.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODfindRecord">findRecord</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
 <td><div class="info">
 <p>Finds the first matching Record in this store by a specific field value.</p>
 
-<p>When store is filtered, finds records only within filter.</p> 
+<p>When store is filtered, finds records only within filter.</p>
+
+<p>**IMPORTANT</p>
+
+<p>If this store is <a href="#!/api/Ext.data.Store-cfg-buffered" rel="Ext.data.Store-cfg-buffered" class="docClass">buffered</a>, this can ONLY find records which happen to be cached in the page cache.
+This will be parts of the dataset around the currently visible zone, or recently visited zones if the pages
+have not yet been purged from the cache.**</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_view_AbstractView.t-c.html#METHODfindTargetByEvent">findTargetByEvent</a> [<a href="Ext_view_AbstractView.t-c.html">Ext_view_AbstractView.t</a>]</td>
@@ -8554,6 +8716,11 @@ calling <a href="#!/api/Ext.util.Observable-method-enableBubble" rel="Ext.util.O
 <tr><td><a href="Ext_util_AbstractMixedCollection.t-c.html#METHODfirst">first</a> [<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a>]</td>
 <td><div class="info">
 <p>Returns the first item in the collection.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODfirst">first</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Returns the first Element</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODfirst">first</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
@@ -9067,6 +9234,13 @@ of calling <a href="#!/api/Ext.util.AbstractMixedCollection-method-getByKey" rel
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
 objects which encapsulate DOM elements. To retrieve a Component by its ID, use <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.</p>
 
+<p>When passing an id, it should not include the <code>#</code> character that is used for a css selector.</p>
+
+<pre><code>// For an element with id 'foo'
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('foo'); // Correct
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('#foo'); // Incorrect
+</code></pre>
+
 <p>Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with
 the same id via AJAX or DOM.</p> 
 </div>
@@ -9082,6 +9256,13 @@ the same id via AJAX or DOM.</p>
 
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
 objects which encapsulate DOM elements. To retrieve a Component by its ID, use <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.</p>
+
+<p>When passing an id, it should not include the <code>#</code> character that is used for a css selector.</p>
+
+<pre><code>// For an element with id 'foo'
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('foo'); // Correct
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('#foo'); // Incorrect
+</code></pre>
 
 <p>Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with
 the same id via AJAX or DOM.</p> 
@@ -9305,6 +9486,11 @@ of any class created with <a href="#!/api/Ext-method-define" rel="Ext-method-def
 </code></pre> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_AbstractPlugin.t-c.html#METHODgetCmp">getCmp</a> [<a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a>]</td>
+<td><div class="info">
+<p>Returns the component to which this plugin is attached.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext.t-c.html#METHODgetCmp">getCmp</a> [<a href="Ext.t-c.html">Ext.t</a>]</td>
 <td><div class="info">
 <p>This is shorthand reference to <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.
@@ -9434,6 +9620,11 @@ in that case we always return the instance even if Application is no available.<
 <tr><td><a href="Ext_selection_Model.t-c.html#METHODgetCount">getCount</a> [<a href="Ext_selection_Model.t-c.html">Ext_selection_Model.t</a>]</td>
 <td><div class="info">
 <p>Returns the count of selected records.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODgetCount">getCount</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Returns the number of elements in this Composite.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODgetCount">getCount</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
@@ -9807,7 +9998,7 @@ for more information about the sides.</p>
 <p>Returns an array of all columns which appear in the grid's View. This goes down to the leaf column header
 level, and does not return <strong>grouped</strong> headers which contain sub headers.</p>
 
-<p>It includes hidden headers because they are still rendered into a table view, but with zero width.</p>
+<p>It includes hidden headers even though they are not rendered. This is for collection of menu items for the column hide/show menu.</p>
 
 <p>Headers which have a hidden ancestor have a <code>hiddenAncestor: true</code> property injected so that they can also be rendered at zero width without interrogating
 that header's ownerCt axis for a hidden ancestor.</p> 
@@ -9902,7 +10093,7 @@ structure is.</p>
 <p>Returns the index of a leaf level header regardless of what the nesting
 structure is.</p>
 
-<p>If a group header is passed, the index of the first leaf level heder within it is returned.</p> 
+<p>If a group header is passed, the index of the first leaf level header within it is returned.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODgetHeight">getHeight</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
@@ -10380,7 +10571,7 @@ alert(<a href="#!/api/Ext.Loader-method-getPath" rel="Ext.Loader-method-getPath"
 </td></tr>
 <tr><td><a href="Ext_AbstractComponent.t-c.html#METHODgetPlugin">getPlugin</a> [<a href="Ext_AbstractComponent.t-c.html">Ext_AbstractComponent.t</a>]</td>
 <td><div class="info">
-<p>Retrieves a plugin by its <code>pluginId</code> which has been bound to this component.</p> 
+<p>Retrieves a plugin from this component's collection by its <code>pluginId</code>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_EventObject.t-c.html#METHODgetPoint">getPoint</a> [<a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a>]</td>
@@ -10390,8 +10581,6 @@ alert(<a href="#!/api/Ext.Loader-method-getPath" rel="Ext.Loader-method-getPath"
 </td></tr>
 <tr><td><a href="Ext_view_Table.t-c.html#METHODgetPosition">getPosition</a> [<a href="Ext_view_Table.t-c.html">Ext_view_Table.t</a>]</td>
 <td><div class="info">
-<p>TODO: have this use the new Ext.grid.CellContext class</p>
-
 <p>Gets the current XY position of the component's underlying element.</p> 
 </div>
 </td></tr>
@@ -10611,6 +10800,13 @@ Example usage:</p>
 <tr><td><a href="Ext_dom_Element.t-c.html#METHODgetScroll">getScroll</a> [<a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a>]</td>
 <td><div class="info">
 <p>Returns the current scroll position of the element.</p>
+
+<p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_Element.t-c.html#METHODgetScrollLeft">getScrollLeft</a> [<a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a>]</td>
+<td><div class="info">
+<p>Gets the left scroll position</p>
 
 <p><strong>Defined in override Ext.dom.Element_scroll.</strong></p> 
 </div>
@@ -11783,19 +11979,16 @@ You may also configure the Panel's <code>header</code> option with its own child
 <p>By default the panel <a href="#!/api/Ext.panel.Panel-cfg-title" rel="Ext.panel.Panel-cfg-title" class="docClass">title</a> is inserted after items configured in this config, but before any tools.
 To insert the title at any point in the full array, specify the <a href="#!/api/Ext.panel.Header" rel="Ext.panel.Header" class="docClass">#titlePosition</a> config:</p>
 
-<p>   new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>({</p>
-
-<pre><code>   title: 'Test',
-   tools: [{
-       type: 'refresh
-   }, {
-       type: 'help'
-   }],
-   titlePosition: 2 // Title will come AFTER the two tools
-   ...
-</code></pre>
-
-<p>   });</p> 
+<p>   new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>({
+       title: 'Test',
+       tools: [{
+           type: 'refresh
+       }, {
+           type: 'help'
+       }],
+       titlePosition: 2 // Title will come AFTER the two tools
+       ...
+   });</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_enums_Widget.t-c.html#METHODheader">header</a> [<a href="Ext_enums_Widget.t-c.html">Ext_enums_Widget.t</a>]</td>
@@ -11878,6 +12071,11 @@ See <a href="#!/api/Ext.data.proxy.Ajax-cfg-headers" rel="Ext.data.proxy.Ajax-cf
 <tr><td><a href="Ext_enums_Widget.t-c.html#METHODhidden">hidden</a> [<a href="Ext_enums_Widget.t-c.html">Ext_enums_Widget.t</a>]</td>
 <td><div class="info">
 <p>Alias for <a href="#!/api/Ext.form.field.Hidden" rel="Ext.form.field.Hidden" class="docClass">Ext.form.field.Hidden</a>.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_chart_axis_Axis.configs-c.html#METHODhidden">hidden</a> [<a href="Ext_chart_axis_Axis.configs-c.html">Ext_chart_axis_Axis.configs</a>]</td>
+<td><div class="info">
+<p><code>true</code> to hide the axis.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_button_Button.configs-c.html#METHODhidden">hidden</a> [<a href="Ext_button_Button.configs-c.html">Ext_button_Button.configs</a>]</td>
@@ -12120,14 +12318,11 @@ styles to markers and series.</p>
 <td><div class="info">
 <p>The default properties to apply as a highight. Value is</p>
 
-<p>   {</p>
-
-<pre><code>   fill: '#fdd',
-   "stroke-width": 5,
-   stroke: "#f55"
-</code></pre>
-
-<p>   }</p> 
+<p>   {
+       fill: '#fdd',
+       "stroke-width": 5,
+       stroke: "#f55"
+   }</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_view_View.t-c.html#METHODhighlightItem">highlightItem</a> [<a href="Ext_view_View.t-c.html">Ext_view_View.t</a>]</td>
@@ -12503,6 +12698,11 @@ fire drag events to themselves.</p>
 <tr><td><a href="Ext_util_AbstractMixedCollection.t-c.html#METHODindexOf">indexOf</a> [<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a>]</td>
 <td><div class="info">
 <p>Returns index within the collection of the passed Object.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODindexOf">indexOf</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Find the index of the passed element within the composite collection.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODindexOf">indexOf</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
@@ -13569,6 +13769,12 @@ beneath this Container.</p>
 <p>True if the detected browser is Chrome.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_column_Column.t-c.html#METHODisColumn">isColumn</a> [<a href="Ext_grid_column_Column.t-c.html">Ext_grid_column_Column.t</a>]</td>
+<td><div class="info">
+<p>Set in this class to identify, at runtime, instances which are not instances of the
+HeaderContainer base class, but are in fact simple column headers.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_data_Operation.t-c.html#METHODisComplete">isComplete</a> [<a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a>]</td>
 <td><div class="info">
 <p>Returns true if the Operation has been completed</p> 
@@ -13582,6 +13788,11 @@ beneath this Container.</p>
 <tr><td><a href="Ext_AbstractComponent.t-c.html#METHODisComponent">isComponent</a> [<a href="Ext_AbstractComponent.t-c.html">Ext_AbstractComponent.t</a>]</td>
 <td><div class="info">
 <p><code>true</code> in this class to identify an object as an instantiated Component, or subclass thereof.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODisComposite">isComposite</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p><code>true</code> in this class to identify an object as an instantiated CompositeElement, or subclass thereof.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_util_Point.t-c.html#METHODisContainedBy">isContainedBy</a> [<a href="Ext_util_Point.t-c.html">Ext_util_Point.t</a>]</td>
@@ -13838,12 +14049,6 @@ input element.</p>
 <p>Checks if the store is currently grouped</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_grid_column_Column.t-c.html#METHODisHeader">isHeader</a> [<a href="Ext_grid_column_Column.t-c.html">Ext_grid_column_Column.t</a>]</td>
-<td><div class="info">
-<p>Set in this class to identify, at runtime, instances which are not instances of the
-HeaderContainer base class, but are in fact, the subclass: Header.</p> 
-</div>
-</td></tr>
 <tr><td><a href="Ext_AbstractComponent.t-c.html#METHODisHidden">isHidden</a> [<a href="Ext_AbstractComponent.t-c.html">Ext_AbstractComponent.t</a>]</td>
 <td><div class="info">
 <p>Method to determine whether this Component is currently set to hidden.</p> 
@@ -13930,7 +14135,11 @@ HeaderContainer base class, but are in fact, the subclass: Header.</p>
 </td></tr>
 <tr><td><a href="Ext.t-c.html#METHODisIterable">isIterable</a> [<a href="Ext.t-c.html">Ext.t</a>]</td>
 <td><div class="info">
-<p>Returns true if the passed value is iterable, false otherwise</p> 
+<p>Returns <code>true</code> if the passed value is iterable, that is, if elements of it are addressable using array
+notation with numeric indices, <code>false</code> otherwise.</p>
+
+<p>Arrays and function <code>arguments</code> objects are iterable. Also HTML collections such as <code>NodeList</code> and `HTMLCollection'
+are iterable.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_layout_Layout.t-c.html#METHODisLayout">isLayout</a> [<a href="Ext_layout_Layout.t-c.html">Ext_layout_Layout.t</a>]</td>
@@ -14247,6 +14456,11 @@ menu item used in <a href="#!/api/Ext.panel.Table-cfg-enableLocking" rel="Ext.pa
 <p><strong>Defined in override Ext.dom.AbstractElement_style.</strong></p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_data_proxy_Proxy.t-c.html#METHODisSynchronous">isSynchronous</a> [<a href="Ext_data_proxy_Proxy.t-c.html">Ext_data_proxy_Proxy.t</a>]</td>
+<td><div class="info">
+<p>Identifies the proxy as (a)synchronous.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dd_DragDrop.t-c.html#METHODisTarget">isTarget</a> [<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a>]</td>
 <td><div class="info">
 <p>By default, all instances can be a drop target.  This can be disabled by
@@ -14395,6 +14609,11 @@ var isText = t.isXType('textfield');        // true
 var isBoxSubclass = t.isXType('field');       // true, descended from <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a>
 var isBoxInstance = t.isXType('field', true); // false, not a direct <a href="#!/api/Ext.form.field.Base" rel="Ext.form.field.Base" class="docClass">Ext.form.field.Base</a> instance
 </code></pre> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODitem">item</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Returns a flyweight Element of the dom element object at the specified index</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_view_AbstractView.configs-c.html#METHODitemCls">itemCls</a> [<a href="Ext_view_AbstractView.configs-c.html">Ext_view_AbstractView.configs</a>]</td>
@@ -14759,6 +14978,11 @@ additional classes, use <a href="#!/api/Ext.form.Labelable-cfg-labelClsExtra" re
 <tr><td><a href="Ext_util_AbstractMixedCollection.t-c.html#METHODlast">last</a> [<a href="Ext_util_AbstractMixedCollection.t-c.html">Ext_util_AbstractMixedCollection.t</a>]</td>
 <td><div class="info">
 <p>Returns the last item in the collection.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODlast">last</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Returns the last Element</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODlast">last</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
@@ -15306,12 +15530,14 @@ MyApp.User.load(10, {
     scope: this,
     failure: function(record, operation) {
         //do something if the load failed
+        //record is null
     },
     success: function(record, operation) {
         //do something if the load succeeded
     },
-    callback: function(record, operation) {
+    callback: function(record, operation, success) {
         //do something whether the load succeeded or failed
+        //if operation is unsuccessful, record is null
     }
 });
 </code></pre> 
@@ -15473,10 +15699,27 @@ configured with a <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.gr
 of this column. This column will remain in the side into which its own <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> configuration placed it.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.events-c.html#METHODlockcolumn">lockcolumn</a> [<a href="Ext_grid_locking_Lockable.events-c.html">Ext_grid_locking_Lockable.events</a>]</td>
+<td><div class="info">
+<p>Fires when a column is locked.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_grid_column_Column.configs-c.html#METHODlocked">locked</a> [<a href="Ext_grid_column_Column.configs-c.html">Ext_grid_column_Column.configs</a>]</td>
 <td><div class="info">
 <p>True to lock this column in place.  Implicitly enables locking on the grid.
 See also <a href="#!/api/Ext.grid.Panel-cfg-enableLocking" rel="Ext.grid.Panel-cfg-enableLocking" class="docClass">Ext.grid.Panel.enableLocking</a>.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.configs-c.html#METHODlockedGridConfig">lockedGridConfig</a> [<a href="Ext_grid_locking_Lockable.configs-c.html">Ext_grid_locking_Lockable.configs</a>]</td>
+<td><div class="info">
+<p>Any special configuration options for the locked part of the grid</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.configs-c.html#METHODlockedViewConfig">lockedViewConfig</a> [<a href="Ext_grid_locking_Lockable.configs-c.html">Ext_grid_locking_Lockable.configs</a>]</td>
+<td><div class="info">
+<p>A view configuration to be applied to the
+locked side of the grid. Any conflicting configurations between lockedViewConfig
+and viewConfig will be overwritten by the lockedViewConfig.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext.t-c.html#METHODlog">log</a> [<a href="Ext.t-c.html">Ext.t</a>]</td>
@@ -15676,6 +15919,13 @@ This method can only be applied to elements which accept child nodes.</p>
 <p>When store is filtered, only items within the filter are aggregated.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODmaxHeight">maxHeight</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
+<td><div class="info">
+<p>The maximum value in pixels which this Component will set its height to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODmaxHeight">maxHeight</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
 <td><div class="info">
 <p>The maximum value in pixels which this Component will set its height to.</p>
@@ -15696,6 +15946,13 @@ tracking. To restrict the maximum number of characters that can be entered into 
 <tr><td><a href="Ext_form_field_Text.configs-c.html#METHODmaxLengthText">maxLengthText</a> [<a href="Ext_form_field_Text.configs-c.html">Ext_form_field_Text.configs</a>]</td>
 <td><div class="info">
 <p>Error text to display if the <strong><a href="#!/api/Ext.form.field.Text-cfg-maxLength" rel="Ext.form.field.Text-cfg-maxLength" class="docClass">maximum length</a></strong> validation fails</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODmaxWidth">maxWidth</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
+<td><div class="info">
+<p>The maximum value in pixels which this Component will set its width to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_tip_Tip.configs-c.html#METHODmaxWidth">maxWidth</a> [<a href="Ext_tip_Tip.configs-c.html">Ext_tip_Tip.configs</a>]</td>
@@ -15940,6 +16197,13 @@ their parent container.</p>
 <p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODminHeight">minHeight</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
+<td><div class="info">
+<p>The minimum value in pixels which this Component will set its height to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODminHeight">minHeight</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
 <td><div class="info">
 <p>The minimum value in pixels which this Component will set its height to.</p>
@@ -15972,6 +16236,16 @@ for setting a different minimum width than text-only dialogs may need.</p>
 <tr><td><a href="Ext_window_Window.configs-c.html#METHODminWidth">minWidth</a> [<a href="Ext_window_Window.configs-c.html">Ext_window_Window.configs</a>]</td>
 <td><div class="info">
 <p>inherit docs</p>
+
+<p>The minimum value in pixels which this Component will set its width to.</p>
+
+<p><strong>Warning:</strong> This will override any size management applied by layout managers.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_window_MessageBox.configs-c.html#METHODminWidth">minWidth</a> [<a href="Ext_window_MessageBox.configs-c.html">Ext_window_MessageBox.configs</a>]</td>
+<td><div class="info">
+<p>Forcibly set these to null on the prototype to override anything set higher in
+the hierarchy</p>
 
 <p>The minimum value in pixels which this Component will set its width to.</p>
 
@@ -16076,7 +16350,7 @@ restricting access to other UI elements.</p>
 
 <ul>
 <li><strong>"SINGLE"</strong> - Only allows selecting one item at a time.  Use <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> to allow
-deselecting that item.  This is the default.</li>
+deselecting that item.  Also see <a href="#!/api/Ext.selection.Model-cfg-toggleOnClick" rel="Ext.selection.Model-cfg-toggleOnClick" class="docClass">toggleOnClick</a>. This is the default.</li>
 <li><strong>"SIMPLE"</strong> - Allows simple selection of multiple items one-by-one. Each click in grid will either
 select or deselect an item.</li>
 <li><strong>"MULTI"</strong> - Allows complex selection of multiple items using Ctrl and Shift keys.</li>
@@ -16460,7 +16734,8 @@ just a String for the field name.</p>
 <tr><td><a href="Ext_app_Application.configs-c.html#METHODname">name</a> [<a href="Ext_app_Application.configs-c.html">Ext_app_Application.configs</a>]</td>
 <td><div class="info">
 <p>The name of your application. This will also be the namespace for your views, controllers
-models and stores. Don't use spaces or special characters in the name.</p> 
+models and stores. Don't use spaces or special characters in the name. <strong>Application name
+is mandatory</strong>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext.t-c.html#METHODname">name</a> [<a href="Ext.t-c.html">Ext.t</a>]</td>
@@ -16603,6 +16878,18 @@ tree to attempt to find a match. Contrast with <a href="#!/api/Ext.AbstractCompo
 <p>Disable caching by adding a unique parameter name to the request. Set to false to allow caching. Defaults to true.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.configs-c.html#METHODnormalGridConfig">normalGridConfig</a> [<a href="Ext_grid_locking_Lockable.configs-c.html">Ext_grid_locking_Lockable.configs</a>]</td>
+<td><div class="info">
+<p>Any special configuration options for the normal part of the grid</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.configs-c.html#METHODnormalViewConfig">normalViewConfig</a> [<a href="Ext_grid_locking_Lockable.configs-c.html">Ext_grid_locking_Lockable.configs</a>]</td>
+<td><div class="info">
+<p>A view configuration to be applied to the
+normal/unlocked side of the grid. Any conflicting configurations between normalViewConfig
+and viewConfig will be overwritten by the normalViewConfig.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.statics-c.html#METHODnormalize">normalize</a> [<a href="Ext_dom_AbstractElement.statics-c.html">Ext_dom_AbstractElement.statics</a>]</td>
 <td><div class="info">
 <p>Normalizes CSS property keys from dash delimited to camel case JavaScript Syntax.
@@ -16706,11 +16993,8 @@ the string <code>/i</code> to the end of the format string.</p>
 <li><code>0,000</code> - (123,456) show comma and digits, no precision</li>
 <li><code>0,000.00</code> - (123,456.78) show comma and digits, 2 precision</li>
 <li><code>0,0.00</code> - (123,456.78) shortcut method, show comma and digits, 2 precision</li>
-</ul>
-
-
-<p>To allow specification of the formatting string using UK/US grouping characters (,) and
-decimal (.) for international numbers, add /i to the end. For example: 0.000,00/i</p> 
+<li><code>0.####</code> - (123,456,789) Allow maximum 4 decimal places, but do not right pad with zeroes</li>
+</ul> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_util_Format.t-c.html#METHODnumberRenderer">numberRenderer</a> [<a href="Ext_util_Format.t-c.html">Ext_util_Format.t</a>]</td>
@@ -17310,7 +17594,7 @@ See method <code class="code">t.onHide</code>
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-method-hide" rel="Ext.panel.Panel-method-hide" class="docClass">hide</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.panel.Panel-event-hide" rel="Ext.panel.Panel-event-hide" class="docClass">hide</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_LoadMask.configs-c.html#METHODonHide">onHide</a> [<a href="Ext_LoadMask.configs-c.html">Ext_LoadMask.configs</a>]</td>
@@ -17325,7 +17609,7 @@ See method <code class="code">t.onHide</code>
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-method-hide" rel="Ext.LoadMask-method-hide" class="docClass">hide</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-event-hide" rel="Ext.LoadMask-event-hide" class="docClass">hide</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_Component.configs-c.html#METHODonHide">onHide</a> [<a href="Ext_Component.configs-c.html">Ext_Component.configs</a>]</td>
@@ -17340,7 +17624,7 @@ See method <code class="code">t.onHide</code>
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-method-hide" rel="Ext.Component-method-hide" class="docClass">hide</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.Component-event-hide" rel="Ext.Component-event-hide" class="docClass">hide</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_dd_DragDrop.t-c.html#METHODonInvalidDrop">onInvalidDrop</a> [<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a>]</td>
@@ -18521,6 +18805,11 @@ nothing; individual subclasses may override this as needed.</p>
 to the raw value.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.events-c.html#METHODprocesscolumns">processcolumns</a> [<a href="Ext_grid_locking_Lockable.events-c.html">Ext_grid_locking_Lockable.events</a>]</td>
+<td><div class="info">
+<p>Fires when the configured (or <strong>reconfigured</strong>) column set is split into two depending on the <a href="#!/api/Ext.grid.column.Column-cfg-locked" rel="Ext.grid.column.Column-cfg-locked" class="docClass">locked</a> flag.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_window_MessageBox.t-c.html#METHODprogress">progress</a> [<a href="Ext_window_MessageBox.t-c.html">Ext_window_MessageBox.t</a>]</td>
 <td><div class="info">
 <p>Displays a message box with a progress bar.</p>
@@ -18627,6 +18916,12 @@ are three pages in the cache, then a <code>purgePageCount</code> of 5 ensures th
 </div>
 </td></tr>
 <tr><td align="left"><br>Q</td></tr>
+<tr><td><a href="Ext_Queryable.t-c.html#METHODquery">query</a> [<a href="Ext_Queryable.t-c.html">Ext_Queryable.t</a>]</td>
+<td><div class="info">
+<p>Retrieves all descendant components which match the passed selector.
+Executes an <a href="#!/api/Ext.ComponentQuery-method-query" rel="Ext.ComponentQuery-method-query" class="docClass">Ext.ComponentQuery.query</a> using this container as its root.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODquery">query</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
 <td><div class="info">
 <p>Selects child nodes based on the passed CSS selector (the selector should not contain an id).</p>
@@ -18643,12 +18938,6 @@ to the queryBy method.</p>
 <p>This method compliments queryBy by generating the query function automatically.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_container_AbstractContainer.t-c.html#METHODquery">query</a> [<a href="Ext_container_AbstractContainer.t-c.html">Ext_container_AbstractContainer.t</a>]</td>
-<td><div class="info">
-<p>Retrieves all descendant components which match the passed selector.
-Executes an <a href="#!/api/Ext.ComponentQuery-method-query" rel="Ext.ComponentQuery-method-query" class="docClass">Ext.ComponentQuery.query</a> using this container as its root.</p> 
-</div>
-</td></tr>
 <tr><td><a href="Ext.t-c.html#METHODquery">query</a> [<a href="Ext.t-c.html">Ext.t</a>]</td>
 <td><div class="info">
 <p>Shorthand of <a href="#!/api/Ext.dom.Query-method-select" rel="Ext.dom.Query-method-select" class="docClass">Ext.dom.Query.select</a></p>
@@ -18661,6 +18950,13 @@ Executes an <a href="#!/api/Ext.ComponentQuery-method-query" rel="Ext.ComponentQ
 <p>Aliased as <a href="#!/api/Ext-method-query" rel="Ext-method-query" class="docClass">query</a>.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_Queryable.t-c.html#METHODqueryBy">queryBy</a> [<a href="Ext_Queryable.t-c.html">Ext_Queryable.t</a>]</td>
+<td><div class="info">
+<p>Retrieves all descendant components which match the passed function.
+The function should return false for components that are to be
+excluded from the selection.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODqueryBy">queryBy</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
 <td><div class="info">
 <p>Query all the cached records in this Store using a filtering function. The specified function
@@ -18671,14 +18967,7 @@ included in the results.</p>
 no matter if filter is applied or not.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_container_AbstractContainer.t-c.html#METHODqueryBy">queryBy</a> [<a href="Ext_container_AbstractContainer.t-c.html">Ext_container_AbstractContainer.t</a>]</td>
-<td><div class="info">
-<p>Retrieves all descendant components which match the passed function.
-The function should return false for components that are to be
-excluded from the selection.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_container_AbstractContainer.t-c.html#METHODqueryById">queryById</a> [<a href="Ext_container_AbstractContainer.t-c.html">Ext_container_AbstractContainer.t</a>]</td>
+<tr><td><a href="Ext_Queryable.t-c.html#METHODqueryById">queryById</a> [<a href="Ext_Queryable.t-c.html">Ext_Queryable.t</a>]</td>
 <td><div class="info">
 <p>Finds a component at any level under this container matching the id/itemId.
 This is a shorthand for calling ct.down('#' + id);</p> 
@@ -18877,8 +19166,7 @@ dirty state.</p>
 </td></tr>
 <tr><td><a href="Ext_view_Table.t-c.html#METHODrefresh">refresh</a> [<a href="Ext_view_Table.t-c.html">Ext_view_Table.t</a>]</td>
 <td><div class="info">
-<p>Refreshes the grid view. Saves and restores the scroll state, generates a new template, stripes rows and
-invalidates the scrollers.</p> 
+<p>Refreshes the grid view. Sets the sort state and focuses the previously focused row.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_view_AbstractView.events-c.html#METHODrefresh">refresh</a> [<a href="Ext_view_AbstractView.events-c.html">Ext_view_AbstractView.events</a>]</td>
@@ -19315,6 +19603,11 @@ elements of this component.</p>
 necessary to call this method if the dom reference for owned element changes so
 that <a href="#!/api/Ext.layout.ContextItem-method-getEl" rel="Ext.layout.ContextItem-method-getEl" class="docClass">getEl</a> can be called again to reinitialize the ContextItem with the
 new element.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODremoveElement">removeElement</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Removes the specified element(s).</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Store.t-c.html#METHODremoveFilter">removeFilter</a> [<a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a>]</td>
@@ -19790,6 +20083,11 @@ a preceding '#'.</p>
 <p><strong>Defined in override Ext.dom.AbstractElement_style.</strong></p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODreplaceElement">replaceElement</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Replaces the specified element with the passed element.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_AbstractElement.t-c.html#METHODreplaceWith">replaceWith</a> [<a href="Ext_dom_AbstractElement.t-c.html">Ext_dom_AbstractElement.t</a>]</td>
 <td><div class="info">
 <p>Replaces this element with the passed element</p>
@@ -20059,7 +20357,7 @@ since the data is assumed to be a single-level array of arrays.</p>
 </td></tr>
 <tr><td><a href="Ext_enums_Widget.t-c.html#METHODrownumberer">rownumberer</a> [<a href="Ext_enums_Widget.t-c.html">Ext_enums_Widget.t</a>]</td>
 <td><div class="info">
-<p>Alias for <a href="#!/api/Ext.grid.RowNumberer" rel="Ext.grid.RowNumberer" class="docClass">Ext.grid.RowNumberer</a>.</p> 
+<p>Alias for <a href="#!/api/Ext.grid.column.RowNumberer" rel="Ext.grid.column.RowNumberer" class="docClass">Ext.grid.column.RowNumberer</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_AbstractComponent.configs-c.html#METHODrtl">rtl</a> [<a href="Ext_AbstractComponent.configs-c.html">Ext_AbstractComponent.configs</a>]</td>
@@ -20276,6 +20574,11 @@ window when a drag and drop element is dragged near the viewport boundary.</p>
 </code></pre> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.configs-c.html#METHODscrollDelta">scrollDelta</a> [<a href="Ext_grid_locking_Lockable.configs-c.html">Ext_grid_locking_Lockable.configs</a>]</td>
+<td><div class="info">
+<p>Number of pixels to scroll when scrolling the locked section with mousewheel.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_Component.t-c.html#METHODscrollFlags">scrollFlags</a> [<a href="Ext_Component.t-c.html">Ext_Component.t</a>]</td>
 <td><div class="info">
 <p>An object property which provides unified information as to which dimensions are scrollable based upon
@@ -20306,20 +20609,18 @@ if you scroll to a weird value it will try to do it. For auto bounds checking, u
 <td><div class="info">
 <p>Specify as <code>true</code> to constrain column dragging so that a column cannot be dragged into or out of this column.</p>
 
-<p><strong>Note that this config is only valid for column headers which contain child column headers, eg:</strong></p>
-
-<pre><code>{
-    sealed: true
-    text: 'ExtJS',
-    columns: [{
-        text: '3.0.4',
-        dataIndex: 'ext304'
-    }, {
-        text: '4.1.0',
-        dataIndex: 'ext410'
-    }
-}
-</code></pre> 
+<p><strong>Note that this config is only valid for column headers which contain child column headers, eg:</strong>
+    {
+        sealed: true
+        text: 'ExtJS',
+        columns: [{
+            text: '3.0.4',
+            dataIndex: 'ext304'
+        }, {
+            text: '4.1.0',
+            dataIndex: 'ext410'
+        }
+    }</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_panel_Table.configs-c.html#METHODsealedColumns">sealedColumns</a> [<a href="Ext_panel_Table.configs-c.html">Ext_panel_Table.configs</a>]</td>
@@ -20388,9 +20689,9 @@ to be applied to many related elements in one statement through the returned <a 
 <td><div class="info">
 <p>Shorthand of <a href="#!/api/Ext.dom.Element-method-select" rel="Ext.dom.Element-method-select" class="docClass">Ext.Element.select</a>.</p>
 
-<p>Selects elements based on the passed CSS selector to enable <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> methods
-to be applied to many related elements in one statement through the returned <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">CompositeElement</a> or
-<a href="#!/api/Ext.dom.CompositeElementLite" rel="Ext.dom.CompositeElementLite" class="docClass">CompositeElementLite</a> object.</p> 
+<p>Creates a <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a> for child nodes based on the passed CSS selector (the selector should not contain an id).</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_traversal.</strong></p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_selection_Model.t-c.html#METHODselectAll">selectAll</a> [<a href="Ext_selection_Model.t-c.html">Ext_selection_Model.t</a>]</td>
@@ -20693,10 +20994,23 @@ and a <code>degrees</code> attribute that specifies the rotation in degrees. For
 <td></td></tr>
 <tr><td><a href="Ext_AbstractComponent.t-c.html#METHODsetBorder">setBorder</a> [<a href="Ext_AbstractComponent.t-c.html">Ext_AbstractComponent.t</a>]</td>
 <td></td></tr>
+<tr><td><a href="Ext_Component.t-c.html#METHODsetBorderRegion">setBorderRegion</a> [<a href="Ext_Component.t-c.html">Ext_Component.t</a>]</td>
+<td><div class="info">
+<p>This method changes the <code>region</code> config property for this border region. This is
+only valid if this component is in a <code>border</code> layout (<code><a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">Ext.layout.container.Border</a></code>).</p>
+
+<p><strong>Defined in override Ext.layout.container.border.Region.</strong></p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_util_Positionable.t-c.html#METHODsetBox">setBox</a> [<a href="Ext_util_Positionable.t-c.html">Ext_util_Positionable.t</a>]</td>
 <td><div class="info">
 <p>Sets the element's box. If animate is true then x, y, width, and height will be
 animated concurrently.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_AbstractPlugin.t-c.html#METHODsetCmp">setCmp</a> [<a href="Ext_AbstractPlugin.t-c.html">Ext_AbstractPlugin.t</a>]</td>
+<td><div class="info">
+<p>Sets the component to which this plugin is attached.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Operation.t-c.html#METHODsetCompleted">setCompleted</a> [<a href="Ext_data_Operation.t-c.html">Ext_data_Operation.t</a>]</td>
@@ -21185,6 +21499,14 @@ validation. To set the value with these additional inspections see <a href="#!/a
 then width, height, x and y will be animated concurrently.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_Component.t-c.html#METHODsetRegionWeight">setRegionWeight</a> [<a href="Ext_Component.t-c.html">Ext_Component.t</a>]</td>
+<td><div class="info">
+<p>Sets the <code>weight</code> config property for this component. This is only valid if this
+component is in a <code>border</code> layout (<code><a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">Ext.layout.container.Border</a></code>).</p>
+
+<p><strong>Defined in override Ext.layout.container.border.Region.</strong></p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_button_Button.t-c.html#METHODsetScale">setScale</a> [<a href="Ext_button_Button.t-c.html">Ext_button_Button.t</a>]</td>
 <td><div class="info">
 <p>Method to change the scale of the button. See <a href="#!/api/Ext.button.Button-cfg-scale" rel="Ext.button.Button-cfg-scale" class="docClass">scale</a> for allowed configurations.</p> 
@@ -21638,19 +21960,6 @@ Used when this component is <a href="#!/api/Ext.Component-cfg-floating" rel="Ext
 Used when this component is <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a>.</p> 
 </div>
 </td></tr>
-<tr><td><a href="Ext_tip_Tip.t-c.html#METHODshowBy_tip">showBy_tip</a> [<a href="Ext_tip_Tip.t-c.html">Ext_tip_Tip.t</a>]</td>
-<td><div class="info">
-<p><strong>Experimental</strong>. Shows this tip at a position relative to another element using
-a standard <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position value.  Example usage:</p>
-
-<pre><code>// Show the tip at the default position ('tl-br?')
-tip.showBy('my-el');
-
-// Show the tip's top-left corner anchored to the element's top-right corner
-tip.showBy('my-el', 'tl-tr');
-</code></pre> 
-</div>
-</td></tr>
 <tr><td><a href="Ext_tip_ToolTip.configs-c.html#METHODshowDelay">showDelay</a> [<a href="Ext_tip_ToolTip.configs-c.html">Ext_tip_ToolTip.configs</a>]</td>
 <td><div class="info">
 <p>Delay in milliseconds before the tooltip displays after the mouse enters the target element.</p> 
@@ -21691,14 +22000,6 @@ brought to the front of its <a href="#!/api/Ext.grid.column.Column-property-zInd
 
 <p>After being shown, a <a href="#!/api/Ext.LoadMask-cfg-floating" rel="Ext.LoadMask-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
 brought to the front of its <a href="#!/api/Ext.LoadMask-property-zIndexManager" rel="Ext.LoadMask-property-zIndexManager" class="docClass">z-index stack</a>.</p> 
-</div>
-</td></tr>
-<tr><td><a href="Ext_menu_Menu.t-c.html#METHODshow_menu">show_menu</a> [<a href="Ext_menu_Menu.t-c.html">Ext_menu_Menu.t</a>]</td>
-<td><div class="info">
-<p>Shows this Component, rendering it first if <a href="#!/api/Ext.menu.Menu-cfg-autoRender" rel="Ext.menu.Menu-cfg-autoRender" class="docClass">autoRender</a> or <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> are <code>true</code>.</p>
-
-<p>After being shown, a <a href="#!/api/Ext.menu.Menu-cfg-floating" rel="Ext.menu.Menu-cfg-floating" class="docClass">floating</a> Component (such as a <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>), is activated it and
-brought to the front of its <a href="#!/api/Ext.menu.Menu-property-zIndexManager" rel="Ext.menu.Menu-property-zIndexManager" class="docClass">z-index stack</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_window_MessageBox.t-c.html#METHODshow_messagebox">show_messagebox</a> [<a href="Ext_window_MessageBox.t-c.html">Ext_window_MessageBox.t</a>]</td>
@@ -21866,11 +22167,16 @@ Logger.log('Hello');
 configured <a href="#!/api/Ext.form.field.Text-cfg-width" rel="Ext.form.field.Text-cfg-width" class="docClass">width</a> and is not given a width by its container's layout. Defaults to 20.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_dom_CompositeElementLite.t-c.html#METHODslice">slice</a> [<a href="Ext_dom_CompositeElementLite.t-c.html">Ext_dom_CompositeElementLite.t</a>]</td>
+<td><div class="info">
+<p>Gets a range nodes.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_Element.t-c.html#METHODslideIn">slideIn</a> [<a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a>]</td>
 <td><div class="info">
 <p>Slides the element into view. An anchor point can be optionally passed to set the point of origin for the slide
 effect. This function automatically handles wrapping the element with a fixed-size container if needed. See the
-Fx class overview for valid anchor point options. Usage:</p>
+<a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> class overview for valid anchor point options. Usage:</p>
 
 <pre><code>// default: slide the element in from the top
 el.slideIn();
@@ -21894,7 +22200,7 @@ el.slideIn('t', {
 effect. When the effect is completed, the element will be hidden (visibility = 'hidden') but block elements will
 still take up space in the document. The element must be removed from the DOM using the 'remove' config option if
 desired. This function automatically handles wrapping the element with a fixed-size container if needed. See the
-Fx class overview for valid anchor point options. Usage:</p>
+<a href="#!/api/Ext.fx.Anim" rel="Ext.fx.Anim" class="docClass">Ext.fx.Anim</a> class overview for valid anchor point options. Usage:</p>
 
 <pre><code>// default: slide the element out to the top
 el.slideOut();
@@ -22283,12 +22589,9 @@ methods to save and recall name/value pairs. A built-in implementation,
 
 <p>To set the state provider for the current page:</p>
 
-<p>   <a href="#!/api/Ext.state.Manager-method-setProvider" rel="Ext.state.Manager-method-setProvider" class="docClass">Ext.state.Manager.setProvider</a>(new <a href="#!/api/Ext.state.CookieProvider" rel="Ext.state.CookieProvider" class="docClass">Ext.state.CookieProvider</a>({</p>
-
-<pre><code>   expires: new Date(new Date().getTime()+(1000*60*60*24*7)), //7 days from now
-</code></pre>
-
-<p>   }));</p>
+<p>   <a href="#!/api/Ext.state.Manager-method-setProvider" rel="Ext.state.Manager-method-setProvider" class="docClass">Ext.state.Manager.setProvider</a>(new <a href="#!/api/Ext.state.CookieProvider" rel="Ext.state.CookieProvider" class="docClass">Ext.state.CookieProvider</a>({
+       expires: new Date(new Date().getTime()+(1000<em>60</em>60<em>24</em>7)), //7 days from now
+   }));</p>
 
 <p>A stateful object attempts to save state when one of the events
 listed in the <a href="#!/api/Ext.state.Stateful-cfg-stateEvents" rel="Ext.state.Stateful-cfg-stateEvents" class="docClass">stateEvents</a> configuration fires.</p>
@@ -22603,6 +22906,14 @@ provided which sets a background color, but you can override this with a rule wh
 </code></pre> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.configs-c.html#METHODsubGridXType">subGridXType</a> [<a href="Ext_grid_locking_Lockable.configs-c.html">Ext_grid_locking_Lockable.configs</a>]</td>
+<td><div class="info">
+<p>The xtype of the subgrid to specify. If this is
+not specified lockable will determine the subgrid xtype to create by the
+following rule. Use the superclasses xtype if the superclass is NOT
+tablepanel, otherwise use the xtype itself.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_form_Panel.t-c.html#METHODsubmit">submit</a> [<a href="Ext_form_Panel.t-c.html">Ext_form_Panel.t</a>]</td>
 <td><div class="info">
 <p>This is a proxy for the underlying BasicForm's <a href="#!/api/Ext.form.Basic-method-submit" rel="Ext.form.Basic-method-submit" class="docClass">Ext.form.Basic.submit</a> call.</p> 
@@ -22852,6 +23163,20 @@ executes the given callback function when finishes, within the optional scope.</
 executes the given callback function when finishes, within the optional scope.</p>
 
 <p><a href="#!/api/Ext-method-syncRequire" rel="Ext-method-syncRequire" class="docClass">syncRequire</a> is alias for <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">Ext.Loader.syncRequire</a>.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.configs-c.html#METHODsyncRowHeight">syncRowHeight</a> [<a href="Ext_grid_locking_Lockable.configs-c.html">Ext_grid_locking_Lockable.configs</a>]</td>
+<td><div class="info">
+<p>Synchronize rowHeight between the normal and
+locked grid view. This is turned on by default. If your grid is guaranteed
+to have rows of all the same height, you should set this to false to
+optimize performance.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.t-c.html#METHODsyncRowHeights">syncRowHeights</a> [<a href="Ext_grid_locking_Lockable.t-c.html">Ext_grid_locking_Lockable.t</a>]</td>
+<td><div class="info">
+<p>Synchronizes the row heights between the locked and non locked portion of the grid for each
+row. If one row is smaller than the other, the height will be increased to match the larger one.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_data_Operation.configs-c.html#METHODsynchronous">synchronous</a> [<a href="Ext_data_Operation.configs-c.html">Ext_data_Operation.configs</a>]</td>
@@ -23314,6 +23639,13 @@ is specified, the <a href="#!/api/Ext.button.Button-cfg-enableToggle" rel="Ext.b
 state of the window.</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_selection_Model.configs-c.html#METHODtoggleOnClick">toggleOnClick</a> [<a href="Ext_selection_Model.configs-c.html">Ext_selection_Model.configs</a>]</td>
+<td><div class="info">
+<p><code>true</code> to toggle the selection state of an item when clicked.
+Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-mode" rel="Ext.selection.Model-cfg-mode" class="docClass">mode</a> is 'SINGLE'.
+Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> is 'true'.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dd_DragTracker.configs-c.html#METHODtolerance">tolerance</a> [<a href="Ext_dd_DragTracker.configs-c.html">Ext_dd_DragTracker.configs</a>]</td>
 <td><div class="info">
 <p>Number of pixels the drag target must be moved before dragging is
@@ -23346,18 +23678,21 @@ behavior.</p>
     type:'refresh',
     tooltip: 'Refresh form Data',
     // hidden:true,
-    handler: function(event, toolEl, panel){
+    handler: function(event, toolEl, panelHeader) {
         // refresh logic
     }
 },
 {
     type:'help',
     tooltip: 'Get Help',
-    handler: function(event, toolEl, panel){
+    callback: function(panel, tool, event) {
         // show help here
     }
 }]
-</code></pre> 
+</code></pre>
+
+<p>The difference between <code>handler</code> and <code>callback</code> is the signature. For details on
+the distinction, see <a href="#!/api/Ext.panel.Tool" rel="Ext.panel.Tool" class="docClass">Ext.panel.Tool</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_grid_column_Column.configs-c.html#METHODtooltip">tooltip</a> [<a href="Ext_grid_column_Column.configs-c.html">Ext_grid_column_Column.configs</a>]</td>
@@ -23697,6 +24032,11 @@ element or any of its content has been removed.</p>
 <p>Unlocks this instace</p> 
 </div>
 </td></tr>
+<tr><td><a href="Ext_grid_locking_Lockable.events-c.html#METHODunlockcolumn">unlockcolumn</a> [<a href="Ext_grid_locking_Lockable.events-c.html">Ext_grid_locking_Lockable.events</a>]</td>
+<td><div class="info">
+<p>Fires when a column is unlocked.</p> 
+</div>
+</td></tr>
 <tr><td><a href="Ext_dom_Element.t-c.html#METHODunmask">unmask</a> [<a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a>]</td>
 <td><div class="info">
 <p>Hides a previously applied mask.</p> 
@@ -23822,6 +24162,12 @@ Otherwise, just this component (and its child items) will layout.</p>
 <p>Updates a progress-style message box's text and progress bar. Only relevant on message boxes
 initiated via <a href="#!/api/Ext.window.MessageBox-method-progress" rel="Ext.window.MessageBox-method-progress" class="docClass">progress</a> or <a href="#!/api/Ext.window.MessageBox-method-wait" rel="Ext.window.MessageBox-method-wait" class="docClass">wait</a>,
 or by calling <a href="#!/api/Ext.window.MessageBox-method-show" rel="Ext.window.MessageBox-method-show" class="docClass">show</a> with progress: true.</p> 
+</div>
+</td></tr>
+<tr><td><a href="Ext_form_Panel.t-c.html#METHODupdateRecord">updateRecord</a> [<a href="Ext_form_Panel.t-c.html">Ext_form_Panel.t</a>]</td>
+<td><div class="info">
+<p>Persists the values in this form into the passed <a href="#!/api/Ext.data.Model" rel="Ext.data.Model" class="docClass">Ext.data.Model</a> object in a beginEdit/endEdit block.
+If the record is not specified, it will attempt to update (if it exists) the record provided to <a href="#!/api/Ext.form.Panel-method-loadRecord" rel="Ext.form.Panel-method-loadRecord" class="docClass">loadRecord</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_form_Basic.t-c.html#METHODupdateRecord">updateRecord</a> [<a href="Ext_form_Basic.t-c.html">Ext_form_Basic.t</a>]</td>
@@ -24259,8 +24605,7 @@ See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.Cl
 <tr><td><a href="Ext_tip_Tip.configs-c.html#METHODwidth">width</a> [<a href="Ext_tip_Tip.configs-c.html">Ext_tip_Tip.configs</a>]</td>
 <td><div class="info">
 <p>Width in pixels of the tip.  Width will be ignored if it
-exceeds the bounds of <a href="#!/api/Ext.tip.Tip-cfg-minWidth" rel="Ext.tip.Tip-cfg-minWidth" class="docClass">minWidth</a> or <a href="#!/api/Ext.tip.Tip-cfg-maxWidth" rel="Ext.tip.Tip-cfg-maxWidth" class="docClass">maxWidth</a>.  The maximum
-supported value is 500.</p> 
+exceeds the bounds of <a href="#!/api/Ext.tip.Tip-cfg-minWidth" rel="Ext.tip.Tip-cfg-minWidth" class="docClass">minWidth</a> or <a href="#!/api/Ext.tip.Tip-cfg-maxWidth" rel="Ext.tip.Tip-cfg-maxWidth" class="docClass">maxWidth</a>.</p> 
 </div>
 </td></tr>
 <tr><td><a href="Ext_draw_Surface.configs-c.html#METHODwidth">width</a> [<a href="Ext_draw_Surface.configs-c.html">Ext_draw_Surface.configs</a>]</td>

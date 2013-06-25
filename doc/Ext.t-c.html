@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,2042 +142,6 @@
 <center><h1>Class type <a href="type_Ext.t.html">Ext.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext.t-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
-<pre><span id="METHODaddBehaviors"><span class="keyword">method</span> addBehaviors</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Applies event listeners to elements by selectors when the document is ready.
-The event name is specified with an <code>@</code> suffix.</p>
-
-<pre><code><a href="#!/api/Ext-method-addBehaviors" rel="Ext-method-addBehaviors" class="docClass">Ext.addBehaviors</a>({
-    // add a listener for click on all anchors in element with id foo
-    '#foo a@click' : function(e, t){
-        // do something
-    },
-
-    // add the same listener to multiple selectors (separated by comma BEFORE the @)
-    '#foo a, #bar span.some-class@mouseover' : function(){
-        // do something
-    }
-});
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>obj: <code class="code">_ Js.t</code> <p>The list of behaviors to apply</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODaddNamespaces"><span class="keyword">method</span> addNamespaces</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Adds namespace(s) to known list.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>namespace: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODapplication"><span class="keyword">method</span> application</span> : <code class="type">'c. 'c Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Loads <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> class and starts it up with given configuration after the
-page is ready.</p>
-
-<p>See <code><a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a></code> for details.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>config: <code class="code">_ Js.t</code>
-    <p>Application config object or name of a class derived from <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a>.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODapply"><span class="keyword">method</span> apply</span> : <code class="type">'d 'e 'f 'g. 'd Js.t -> 'e Js.t -> 'f Js.t Js.optdef -> 'g Js.t Js.meth</code></pre><div class="info">
-<p>Copies all the properties of config to the specified object.
-Note that if recursive merging and cloning without referencing the original objects / arrays is needed, use
-<a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a> instead.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>_object: <code class="code">_ Js.t</code>
-    <p>The receiver of the properties</p> 
-    </li>
-<li>config: <code class="code">_ Js.t</code>
-    <p>The source of the properties</p> 
-    </li>
-<li>defaults: <code class="code">_ Js.t</code> (optional)
-    <p>A different object that will also be applied for default values</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>returns obj</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODapplyIf"><span class="keyword">method</span> applyIf</span> : <code class="type">'h 'i 'j. 'h Js.t -> 'i Js.t -> 'j Js.t Js.meth</code></pre><div class="info">
-<p>Copies all the properties of config to object if they don't already exist.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>_object: <code class="code">_ Js.t</code>
-    <p>The receiver of the properties</p> 
-    </li>
-<li>config: <code class="code">_ Js.t</code>
-    <p>The source of the properties</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>returns obj</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODbatchLayouts"><span class="keyword">method</span> batchLayouts</span> : <code class="type">'k 'l. 'k Js.callback -> 'l Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Utility wrapper that suspends layouts of all components for the duration of a given function.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>fn: <code class="code">_ Js.callback</code>
-    <p>The function to execute.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODbind"><span class="keyword">method</span> bind</span> : <code class="type">'m 'n 'o 'p 'q.<br>         'm Js.callback -><br>         'n Js.t Js.optdef -><br>         'o Js.js_array Js.t Js.optdef -><br>         'p Js.t Js.optdef -> 'q Js.callback Js.meth</code></pre><div class="info">
-<p>Create a new function from the provided <code>fn</code>, change <code>this</code> to the provided scope, optionally
-overrides arguments for the call. (Defaults to the arguments passed by the caller)</p>
-
-<p><a href="#!/api/Ext-method-bind" rel="Ext-method-bind" class="docClass">Ext.bind</a> is alias for <a href="#!/api/Ext.Function-method-bind" rel="Ext.Function-method-bind" class="docClass">Ext.Function.bind</a></p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>fn: <code class="code">_ Js.callback</code>
-    <p>The function to delegate.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the function is executed.
-<strong>If omitted, defaults to the default global environment object (usually the browser window).</strong></p> 
-    </li>
-<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
-    <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> 
-    </li>
-<li>appendArgs: <code class="code">_ Js.t</code> (optional)
-    <p>if True args are appended to call args instead of overriding,
-if a number the args are inserted at the specified position</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.callback</code> <p>The new function</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODcallback"><span class="keyword">method</span> callback</span> : <code class="type">'r 's 't.<br>         'r Js.callback -><br>         's Js.t Js.optdef -><br>         't Js.js_array Js.t Js.optdef -> Js.number Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Execute a callback function in a particular scope. If no function is passed the call is ignored.</p>
-
-<p>For example, these lines are equivalent:</p>
-
-<pre><code><a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>(myFunc, this, [arg1, arg2]);
-<a href="#!/api/Ext-method-isFunction" rel="Ext-method-isFunction" class="docClass">Ext.isFunction</a>(myFunc) &amp;&amp; myFunc.apply(this, [arg1, arg2]);
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>callback: <code class="code">_ Js.callback</code>
-    <p>The callback to execute</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope to execute in</p> 
-    </li>
-<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
-    <p>The arguments to pass to the function</p> 
-    </li>
-<li>delay: <code class="code">Js.number Js.t</code> (optional)
-    <p>Pass a number to delay the call by a number of milliseconds.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODclone"><span class="keyword">method</span> clone</span> : <code class="type">'u 'v. 'u Js.t -> 'v Js.t Js.meth</code></pre><div class="info">
-<p>Clone simple variables including array, {}-like objects, DOM nodes and Date without keeping the old reference.
-A reference for the object itself is returned if it's not a direct decendant of Object. For model cloning,
-see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy" class="docClass">Model.copy</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>item: <code class="code">_ Js.t</code>
-    <p>The variable to clone</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>clone</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODcoerce"><span class="keyword">method</span> coerce</span> : <code class="type">'w 'x 'y. 'w Js.t -> 'x Js.t -> 'y Js.t Js.meth</code></pre><div class="info">
-<p>Coerces the first value if possible so that it is comparable to the second value.</p>
-
-<p>Coercion only works between the basic atomic data types String, Boolean, Number, Date, null and undefined.</p>
-
-<p>Numbers and numeric strings are coerced to Dates using the value as the millisecond era value.</p>
-
-<p>Strings are coerced to Dates by parsing using the <a href="#!/api/Ext.Date-property-defaultFormat" rel="Ext.Date-property-defaultFormat" class="docClass">defaultFormat</a>.</p>
-
-<p>For example</p>
-
-<pre><code><a href="#!/api/Ext-method-coerce" rel="Ext-method-coerce" class="docClass">Ext.coerce</a>('false', true);
-</code></pre>
-
-<p>returns the boolean value <code>false</code> because the second parameter is of type <code>Boolean</code>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>from: <code class="code">_ Js.t</code> <p>The value to coerce</p> 
-    </li>
-<li>to: <code class="code">_ Js.t</code>
-    <p>The value it must be compared against</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>The coerced value.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODcopyTo"><span class="keyword">method</span> copyTo</span> : <code class="type">'z 'a1 'b1 'c1.<br>         'z Js.t -> 'a1 Js.t -> 'b1 Js.t -> bool Js.t Js.optdef -> 'c1 Js.t Js.meth</code></pre><div class="info">
-<p>Copies a set of named properties fom the source object to the destination object.</p>
-
-<p>Example:</p>
-
-<pre><code>ImageComponent = <a href="#!/api/Ext-method-extend" rel="Ext-method-extend" class="docClass">Ext.extend</a>(<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, {
-    initComponent: function() {
-        this.autoEl = { tag: 'img' };
-        MyComponent.superclass.initComponent.apply(this, arguments);
-        this.initialBox = <a href="#!/api/Ext-method-copyTo" rel="Ext-method-copyTo" class="docClass">Ext.copyTo</a>({}, this.initialConfig, 'x,y,width,height');
-    }
-});
-</code></pre>
-
-<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base-static-method-borrow" rel="Ext.Base-static-method-borrow" class="docClass">Ext.Base.borrow</a> instead.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>dest: <code class="code">_ Js.t</code>
-    <p>The destination object.</p> 
-    </li>
-<li>source: <code class="code">_ Js.t</code> <p>The source object.</p> 
-    </li>
-<li>names: <code class="code">_ Js.t</code>
-    <p>Either an Array of property names, or a comma-delimited list
-of property names to copy.</p> 
-    </li>
-<li>usePrototypeKeys: <code class="code">bool Js.t</code> (optional)
-    <p>Defaults to false. Pass true to copy keys off of the
-prototype as well as the instance.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>The modified object.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODcreate"><span class="keyword">method</span> create</span> : <code class="type">'d1 'e1.<br>         Js.js_string Js.t Js.optdef -> 'd1 Js.t Js.optdef -> 'e1 Js.t Js.meth</code></pre><div class="info">
-<p>Instantiate a class by either full name, alias or alternate name.</p>
-
-<p>If <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> is <a href="#!/api/Ext.Loader-method-setConfig" rel="Ext.Loader-method-setConfig" class="docClass">enabled</a> and the class has
-not been defined yet, it will attempt to load the class via synchronous loading.</p>
-
-<p>For example, all these three lines return the same result:</p>
-
-<pre><code> // alias
- var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.window', {
-     width: 600,
-     height: 800,
-     ...
- });
-
- // alternate name
- var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.Window</a>', {
-     width: 600,
-     height: 800,
-     ...
- });
-
- // full class name
- var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', {
-     width: 600,
-     height: 800,
-     ...
- });
-
- // single object with xclass property:
- var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>({
-     xclass: '<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', // any valid value for 'name' (above)
-     width: 600,
-     height: 800,
-     ...
- });
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>name: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The class name or alias. Can be specified as <code>xclass</code>
-property if only one object parameter is specified.</p> 
-    </li>
-<li>args: <code class="code">_ Js.t</code> (optional)
-    <p>Additional arguments after the name will be passed to
-the class' constructor.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>instance</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODcreateByAlias"><span class="keyword">method</span> createByAlias</span> : <code class="type">'f1 'g1. Js.js_string Js.t -> 'f1 Js.t -> 'g1 Js.t Js.meth</code></pre><div class="info">
-<p>Instantiate a class by its alias.</p>
-
-<p><a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a> is usually invoked by the shorthand <a href="#!/api/Ext-method-createByAlias" rel="Ext-method-createByAlias" class="docClass">createByAlias</a>.</p>
-
-<p>If <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> is <a href="#!/api/Ext.Loader-method-setConfig" rel="Ext.Loader-method-setConfig" class="docClass">enabled</a> and the class has not been defined yet, it will
-attempt to load the class via synchronous loading.</p>
-
-<pre><code>var window = <a href="#!/api/Ext-method-createByAlias" rel="Ext-method-createByAlias" class="docClass">Ext.createByAlias</a>('widget.window', { width: 600, height: 800, ... });
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>alias: <code class="code">Js.js_string Js.t</code>
-    </li>
-<li>args: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODdecode"><span class="keyword">method</span> decode</span> : <code class="type">'h1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'h1 Js.t Js.meth</code></pre><div class="info">
-<p>Shorthand for <a href="#!/api/Ext.JSON-method-decode" rel="Ext.JSON-method-decode" class="docClass">Ext.JSON.decode</a></p>
-
-<p>Decodes (parses) a JSON string to an object. If the JSON is invalid, this function throws
-a SyntaxError unless the safe option is set.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>json: <code class="code">Js.js_string Js.t</code>
-    <p>The JSON string</p> 
-    </li>
-<li>safe: <code class="code">bool Js.t</code> (optional)
-    <p>True to return null, false to throw an exception if the JSON is invalid.</p> 
-     Defaults to: false
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>The resulting object</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODdefer"><span class="keyword">method</span> defer</span> : <code class="type">'i1 'j1 'k1 'l1.<br>         'i1 Js.callback -><br>         Js.number Js.t -><br>         'j1 Js.t Js.optdef -><br>         'k1 Js.js_array Js.t Js.optdef -><br>         'l1 Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
-<p>Calls this function after the number of millseconds specified, optionally in a specific scope. Example usage:</p>
-
-<pre><code>var sayHi = function(name){
-    alert('Hi, ' + name);
-}
-
-// executes immediately:
-sayHi('Fred');
-
-// executes after 2 seconds:
-<a href="#!/api/Ext.Function-method-defer" rel="Ext.Function-method-defer" class="docClass">Ext.Function.defer</a>(sayHi, 2000, this, ['Fred']);
-
-// this syntax is sometimes useful for deferring
-// execution of an anonymous function:
-<a href="#!/api/Ext.Function-method-defer" rel="Ext.Function-method-defer" class="docClass">Ext.Function.defer</a>(function(){
-    alert('Anonymous');
-}, 100);
-</code></pre>
-
-<p><a href="#!/api/Ext-method-defer" rel="Ext-method-defer" class="docClass">Ext.defer</a> is alias for <a href="#!/api/Ext.Function-method-defer" rel="Ext.Function-method-defer" class="docClass">Ext.Function.defer</a></p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>fn: <code class="code">_ Js.callback</code>
-    <p>The function to defer.</p> 
-    </li>
-<li>millis: <code class="code">Js.number Js.t</code>
-    <p>The number of milliseconds for the setTimeout call
-(if less than or equal to 0 the function is executed immediately)</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the function is executed.
-<strong>If omitted, defaults to the browser window.</strong></p> 
-    </li>
-<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
-    <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> 
-    </li>
-<li>appendArgs: <code class="code">_ Js.t</code> (optional)
-    <p>if True args are appended to call args instead of overriding,
-if a number the args are inserted at the specified position</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.number Js.t</code>
-    <p>The timeout id that can be used with clearTimeout</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODdefine"><span class="keyword">method</span> define</span> : <code class="type">'m1 'n1 'o1.<br>         Js.js_string Js.t -><br>         'm1 Js.t -> 'n1 Js.callback -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'o1) Js.t Js.meth</code></pre><div class="info">
-<p>Defines a class or override. A basic class is defined like this:</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.awesome.Class', {
-     someProperty: 'something',
-
-     someMethod: function(s) {
-         alert(s + this.someProperty);
-     }
-
-     ...
- });
-
- var obj = new My.awesome.Class();
-
- obj.someMethod('Say '); // alerts 'Say something'
-</code></pre>
-
-<p>To create an anonymous class, pass <code>null</code> for the <code>className</code>:</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>(null, {
-     constructor: function () {
-         // ...
-     }
- });
-</code></pre>
-
-<p>In some cases, it is helpful to create a nested scope to contain some private
-properties. The best way to do this is to pass a function instead of an object
-as the second parameter. This function will be called to produce the class
-body:</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.foo.Bar', function () {
-     var id = 0;
-
-     return {
-         nextId: function () {
-             return ++id;
-         }
-     };
- });
-</code></pre>
-
-<p><em>Note</em> that when using override, the above syntax will not override successfully, because
-the passed function would need to be executed first to determine whether or not the result
-is an override or defining a new object. As such, an alternative syntax that immediately
-invokes the function can be used:</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.override.BaseOverride', function () {
-     var counter = 0;
-
-     return {
-         override: '<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>',
-         logId: function () {
-             console.log(++counter, this.id);
-         }
-     };
- }());
-</code></pre>
-
-<p>When using this form of <code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a></code>, the function is passed a reference to its
-class. This can be used as an efficient way to access any static properties you
-may have:</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.foo.Bar', function (Bar) {
-     return {
-         statics: {
-             staticMethod: function () {
-                 // ...
-             }
-         },
-
-         method: function () {
-             return Bar.staticMethod();
-         }
-     };
- });
-</code></pre>
-
-<p>To define an override, include the <code>override</code> property. The content of an
-override is aggregated with the specified class in order to extend or modify
-that class. This can be as simple as setting default property values or it can
-extend and/or replace methods. This can also extend the statics of the class.</p>
-
-<p>One use for an override is to break a large class into manageable pieces.</p>
-
-<pre><code> // File: /src/app/Panel.js
-
- <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.Panel', {
-     extend: '<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>',
-     requires: [
-         'My.app.PanelPart2',
-         'My.app.PanelPart3'
-     ]
-
-     constructor: function (config) {
-         this.callParent(arguments); // calls <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>'s constructor
-         //...
-     },
-
-     statics: {
-         method: function () {
-             return 'abc';
-         }
-     }
- });
-
- // File: /src/app/PanelPart2.js
- <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.PanelPart2', {
-     override: 'My.app.Panel',
-
-     constructor: function (config) {
-         this.callParent(arguments); // calls My.app.Panel's constructor
-         //...
-     }
- });
-</code></pre>
-
-<p>Another use of overrides is to provide optional parts of classes that can be
-independently required. In this case, the class may even be unaware of the
-override altogether.</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.ux.CoolTip', {
-     override: '<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>',
-
-     constructor: function (config) {
-         this.callParent(arguments); // calls <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>'s constructor
-         //...
-     }
- });
-</code></pre>
-
-<p>The above override can now be required as normal.</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.App', {
-     requires: [
-         'My.ux.CoolTip'
-     ]
- });
-</code></pre>
-
-<p>Overrides can also contain statics:</p>
-
-<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.BarMod', {
-     override: 'Ext.foo.Bar',
-
-     statics: {
-         method: function (x) {
-             return this.callParent([x * 2]); // call Ext.foo.Bar.method
-         }
-     }
- });
-</code></pre>
-
-<p>IMPORTANT: An override is only included in a build if the class it overrides is
-required. Otherwise, the override, like the target class, is not included.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>className: <code class="code">Js.js_string Js.t</code>
-    <p>The class name to create in string dot-namespaced format, for example:
-'My.very.awesome.Class', 'FeedViewer.plugin.CoolPager'
-It is highly recommended to follow this simple convention:
- * The root and the class name are 'CamelCased'
- * Everything else is lower-cased
-Pass <code>null</code> to create an anonymous class.</p> 
-    </li>
-<li>data: <code class="code">_ Js.t</code>
-    <p>The key * value pairs of properties to apply to this class. Property names can be of any valid
-strings, except those in the reserved listed below:
- * <code>mixins</code>
- * <code>statics</code>
- * <code>config</code>
- * <code>alias</code>
- * <code>self</code>
- * <code>singleton</code>
- * <code>alternateClassName</code>
- * <code>override</code></p> 
-    </li>
-<li>createdFn: <code class="code">_ Js.callback</code>
-    <p>Optional callback to execute after the class is created, the execution scope of which
-(<code>this</code>) will be the newly created class itself.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODdeprecate"><span class="keyword">method</span> deprecate</span> : <code class="type">'p1 'q1.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -> 'p1 Js.callback -> 'q1 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Create a closure for deprecated code.</p>
-
-<pre><code>// This means Ext.oldMethod is only supported in 4.0.0beta and older.
-// If <a href="#!/api/Ext-method-getVersion" rel="Ext-method-getVersion" class="docClass">Ext.getVersion</a>('extjs') returns a version that is later than '4.0.0beta', for example '4.0.0RC',
-// the closure will not be invoked
-<a href="#!/api/Ext-method-deprecate" rel="Ext-method-deprecate" class="docClass">Ext.deprecate</a>('extjs', '4.0.0beta', function() {
-    Ext.oldMethod = Ext.newMethod;
-
-    ...
-});
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>packageName: <code class="code">Js.js_string Js.t</code>
-    <p>The package name</p> 
-    </li>
-<li>since: <code class="code">Js.js_string Js.t</code>
-    <p>The last version before it's deprecated</p> 
-    </li>
-<li>closure: <code class="code">_ Js.callback</code>
-    <p>The callback function to be executed with the specified version is less than the current version</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code>
-    <p>The execution scope (<code>this</code>) if the closure</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODdestroy"><span class="keyword">method</span> destroy</span> : <code class="type">'r1. 'r1 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Attempts to destroy any objects passed to it by removing all event listeners, removing them from the
-DOM (if applicable) and calling their destroy functions (if available).  This method is primarily
-intended for arguments of type <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, but any subclass of
-<a href="#!/api/Ext.util.Observable" rel="Ext.util.Observable" class="docClass">Ext.util.Observable</a> can be passed in.  Any number of elements and/or components can be
-passed into this function in a single call as separate arguments.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>args: <code class="code">_ Js.t</code>
-    <p>An <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>, <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, or an Array of either of these to destroy</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODdestroyMembers"><span class="keyword">method</span> destroyMembers</span> : <code class="type">'s1. 's1 Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Attempts to destroy and then remove a set of named properties of the passed object.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>o: <code class="code">_ Js.t</code>
-    <p>The object (most likely a Component) who's properties you wish to destroy.</p> 
-    </li>
-<li>args: <code class="code">Js.js_string Js.t</code>
-    <p>One or more names of the properties to destroy and remove from the object.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODeach"><span class="keyword">method</span> each</span> : <code class="type">'t1 'u1 'v1.<br>         't1 Js.t -><br>         'u1 Js.callback -><br>         'v1 Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Iterates an array or an iterable value and invoke the given callback function for each item.</p>
-
-<pre><code>var countries = ['Vietnam', 'Singapore', 'United States', 'Russia'];
-
-<a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a>(countries, function(name, index, countriesItSelf) {
-    console.log(name);
-});
-
-var sum = function() {
-    var sum = 0;
-
-    <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a>(arguments, function(value) {
-        sum += value;
-    });
-
-    return sum;
-};
-
-sum(1, 2, 3); // returns 6
-</code></pre>
-
-<p>The iteration can be stopped by returning false in the function callback.</p>
-
-<pre><code><a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a>(countries, function(name, index, countriesItSelf) {
-    if (name === 'Singapore') {
-        return false; // break here
-    }
-});
-</code></pre>
-
-<p><a href="#!/api/Ext-method-each" rel="Ext-method-each" class="docClass">Ext.each</a> is alias for <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a></p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>iterable: <code class="code">_ Js.t</code>
-    <p>The value to be iterated. If this
-argument is not iterable, the callback function is called once.</p> 
-    </li>
-<li>fn: <code class="code">_ Js.callback</code>
-    <p>The callback function. If it returns false, the iteration stops and this method returns
-the current <code>index</code>.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> 
-    </li>
-<li>reverse: <code class="code">bool Js.t</code> (optional)
-    <p>Reverse the iteration order (loop from the end to the beginning)
-Defaults false</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">bool Js.t</code>
-    <p>See description for the <code>fn</code> parameter.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODencode"><span class="keyword">method</span> encode</span> : <code class="type">'w1. 'w1 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Shorthand for <a href="#!/api/Ext.JSON-method-encode" rel="Ext.JSON-method-encode" class="docClass">Ext.JSON.encode</a></p>
-
-<p>Encodes an Object, Array or other value.</p>
-
-<p>If the environment's native JSON encoding is not being used (<a href="#!/api/Ext-property-USE_NATIVE_JSON" rel="Ext-property-USE_NATIVE_JSON" class="docClass">USE_NATIVE_JSON</a> is not set,
-or the environment does not support it), then ExtJS's encoding will be used. This allows the developer
-to add a <code>toJSON</code> method to their classes which need serializing to return a valid JSON representation
-of the object.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>o: <code class="code">_ Js.t</code>
-    <p>The variable to encode</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The JSON string</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODexclude"><span class="keyword">method</span> exclude</span> : <code class="type">'x1 'y1. 'x1 Js.js_array Js.t -> 'y1 Js.t Js.meth</code></pre><div class="info">
-<p>Convenient shortcut to <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a></p>
-
-<p>Explicitly exclude files from being loaded. Useful when used in conjunction with a broad include expression.
-Can be chained with more <code>require</code> and <code>exclude</code> methods, eg:</p>
-
-<pre><code><a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>('Ext.data.*').require('*');
-
-<a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>('widget.button*').require('widget.*');
-</code></pre>
-
-<p><a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">exclude</a> is alias for <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>excludes: <code class="code">_ Js.js_array Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODfly"><span class="keyword">method</span> fly</span> : <code class="type">'z1.<br>         'z1 Js.t -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_dom_Element_Fly.t-c.html">Ext_dom_Element_Fly.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Gets the singleton <a href="#!/api/Ext.dom.Element.Fly" rel="Ext.dom.Element.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
-
-<p>Because it is a singleton, this Flyweight does not have an ID, and must be used and discarded in a single line.
-You may not keep and use the reference to this singleton over multiple lines because methods that you call
-may themselves make use of <a href="#!/api/Ext-method-fly" rel="Ext-method-fly" class="docClass">fly</a> and may change the DOM element to which the instance refers.</p>
-
-<p><a href="#!/api/Ext-method-fly" rel="Ext-method-fly" class="docClass">fly</a> is alias for <a href="#!/api/Ext.dom.AbstractElement-static-method-fly" rel="Ext.dom.AbstractElement-static-method-fly" class="docClass">Ext.dom.AbstractElement.fly</a>.</p>
-
-<p>Use this to make one-time references to DOM elements which are not going to be accessed again either by
-application code, or by Ext's classes. If accessing an element which will be processed regularly, then <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a> will be more appropriate to take advantage of the caching provided by the <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
-class.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>dom: <code class="code">_ Js.t</code>
-    <p>The dom node or id</p> 
-    </li>
-<li>named: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>Allows for creation of named reusable flyweights to prevent conflicts (e.g.
-internally Ext uses "_global")</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_dom_Element_Fly.t Js.t</code>
-    <p>The singleton flyweight object (or null if no matching element was found)</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODget"><span class="keyword">method</span> get</span> : <code class="type">'a2. 'a2 Js.t -> <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> objects. <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">get</a> is alias for <a href="#!/api/Ext.dom.Element-static-method-get" rel="Ext.dom.Element-static-method-get" class="docClass">Ext.dom.Element.get</a>.</p>
-
-<p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
-objects which encapsulate DOM elements. To retrieve a Component by its ID, use <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.</p>
-
-<p>Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with
-the same id via AJAX or DOM.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>el: <code class="code">_ Js.t</code>
-    <p>The id of the node, a DOM Node or an existing Element.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_dom_Element.t Js.t</code>
-    <p>The Element object (or null if no matching element was found)</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetBody"><span class="keyword">method</span> getBody</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Returns the current document body as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
-</div>
-<pre><span id="METHODgetClass"><span class="keyword">method</span> getClass</span> : <code class="type">'b2. 'b2 Js.t -> <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Get the class of the provided object; returns null if it's not an instance
-of any class created with <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>.</p>
-
-<p><a href="#!/api/Ext.ClassManager-method-getClass" rel="Ext.ClassManager-method-getClass" class="docClass">Ext.ClassManager.getClass</a> is usually invoked by the shorthand <a href="#!/api/Ext-method-getClass" rel="Ext-method-getClass" class="docClass">getClass</a>.</p>
-
-<pre><code>var component = new <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>();
-
-<a href="#!/api/Ext-method-getClass" rel="Ext-method-getClass" class="docClass">Ext.getClass</a>(component); // returns <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>object: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetClassName"><span class="keyword">method</span> getClassName</span> : <code class="type">'c2. 'c2 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Get the name of the class by its reference or its instance;</p>
-
-<p><a href="#!/api/Ext.ClassManager-method-getName" rel="Ext.ClassManager-method-getName" class="docClass">Ext.ClassManager.getName</a> is usually invoked by the shorthand <a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">getClassName</a>.</p>
-
-<pre><code>Ext.getName(<a href="#!/api/Ext.Action" rel="Ext.Action" class="docClass">Ext.Action</a>); // returns "<a href="#!/api/Ext.Action" rel="Ext.Action" class="docClass">Ext.Action</a>"
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>object: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetCmp"><span class="keyword">method</span> getCmp</span> : <code class="type">'d2. Js.js_string Js.t -> 'd2 Js.t Js.meth</code></pre><div class="info">
-<p>This is shorthand reference to <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.
-Looks up an existing <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> by <a href="#!/api/Ext.Component-cfg-id" rel="Ext.Component-cfg-id" class="docClass">id</a></p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>id: <code class="code">Js.js_string Js.t</code>
-    <p>The component <a href="#!/api/Ext.Component-cfg-id" rel="Ext.Component-cfg-id" class="docClass">id</a></p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetDoc"><span class="keyword">method</span> getDoc</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Returns the current HTML document object as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
-</div>
-<pre><span id="METHODgetDom"><span class="keyword">method</span> getDom</span> : <code class="type">'e2 'f2. 'e2 Js.t -> 'f2 Js.t Js.meth</code></pre><div class="info">
-<p>Returns the dom node for the passed String (id), dom node, or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.
-Optional 'strict' flag is needed for IE since it can return 'name' and
-'id' elements by using getElementById.</p>
-
-<p>Here are some examples:</p>
-
-<pre><code>// gets dom node based on id
-var elDom = <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>('elId');
-// gets dom node based on the dom node
-var elDom1 = <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>(elDom);
-
-// If we don&amp;#39;t know if we are working with an
-// <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> or a dom node use <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>
-function(el){
-    var dom = <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>(el);
-    // do something with the dom node
-}
-</code></pre>
-
-<p><strong>Note:</strong> the dom node to be found actually needs to exist (be rendered, etc)
-when this method is called to be successful.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>el: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>HTMLElement</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetHead"><span class="keyword">method</span> getHead</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Returns the current document head as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
-</div>
-<pre><span id="METHODgetNamespace"><span class="keyword">method</span> getNamespace</span> : <code class="type">Js.js_string Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Get namespace prefix for a class name.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>className: <code class="code">Js.js_string Js.t</code>
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.js_string Js.t</code>
-    <p>Namespace prefix if it's known, otherwise undefined</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetOrientation"><span class="keyword">method</span> getOrientation</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Returns the current orientation of the mobile device</p> 
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.js_string Js.t</code>
-    <p>Either 'portrait' or 'landscape'</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetScrollbarSize"><span class="keyword">method</span> getScrollbarSize</span> : <code class="type">'g2. bool Js.t Js.optdef -> 'g2 Js.t Js.meth</code></pre><div class="info">
-<p>Returns the size of the browser scrollbars. This can differ depending on
-operating system settings, such as the theme or font size.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>force: <code class="code">bool Js.t</code> (optional)
-    <p>true to force a recalculation of the value.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>An object containing scrollbar sizes.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetStore"><span class="keyword">method</span> getStore</span> : <code class="type">'h2. 'h2 Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Shortcut to <a href="#!/api/Ext.data.StoreManager-method-lookup" rel="Ext.data.StoreManager-method-lookup" class="docClass">Ext.data.StoreManager.lookup</a>.</p>
-
-<p>Gets a registered Store by id</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>store: <code class="code">_ Js.t</code>
-    <p>The id of the Store, or a Store instance, or a store configuration</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODgetVersion"><span class="keyword">method</span> getVersion</span> : <code class="type">Js.js_string Js.t Js.optdef -> <a href="Ext_Version.t-c.html">Ext_Version.t</a> Js.t Js.meth</code></pre><div class="info">
-<p>Get the version number of the supplied package name; will return the last registered version
-(last <a href="#!/api/Ext-method-setVersion" rel="Ext-method-setVersion" class="docClass">Ext.setVersion</a> call) if there's no package name given.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>packageName: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The package name, for example: 'core', 'touch', 'extjs'</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Ext_Version.t Js.t</code> <p>The version</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">'i2.<br>         'i2 Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Generates unique ids. If the element already has an id, it is unchanged</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>el: <code class="code">_ Js.t</code> (optional)
-    <p>The element to generate an id for</p> 
-    </li>
-<li>prefix: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>Id prefix (defaults "ext-gen")</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Js.js_string Js.t</code> <p>The generated Id.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODidentityFn"><span class="keyword">method</span> identityFn</span> : <code class="type">'j2. 'j2 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>A reusable identity function. The function will always return the first argument, unchanged.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>o: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisArray"><span class="keyword">method</span> isArray</span> : <code class="type">'k2. 'k2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a JavaScript Array, false otherwise.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>target: <code class="code">_ Js.t</code> <p>The target to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisBoolean"><span class="keyword">method</span> isBoolean</span> : <code class="type">'l2. 'l2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a boolean.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisDate"><span class="keyword">method</span> isDate</span> : <code class="type">'m2. 'm2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a JavaScript Date object, false otherwise.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>_object: <code class="code">_ Js.t</code> <p>The object to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisDefined"><span class="keyword">method</span> isDefined</span> : <code class="type">'n2. 'n2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is defined.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisElement"><span class="keyword">method</span> isElement</span> : <code class="type">'o2. 'o2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is an HTMLElement</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisEmpty"><span class="keyword">method</span> isEmpty</span> : <code class="type">'p2. 'p2 Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is empty, false otherwise. The value is deemed to be empty if it is either:</p>
-
-<ul>
-<li><code>null</code></li>
-<li><code>undefined</code></li>
-<li>a zero-length array</li>
-<li>a zero-length string (Unless the <code>allowEmptyString</code> parameter is set to <code>true</code>)</li>
-</ul> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code>
-    <p>The value to test</p> 
-    </li>
-<li>allowEmptyString: <code class="code">bool Js.t</code> (optional)
-    <p>true to allow empty strings (defaults to false)</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisFunction"><span class="keyword">method</span> isFunction</span> : <code class="type">'q2. 'q2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a JavaScript Function, false otherwise.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisIterable"><span class="keyword">method</span> isIterable</span> : <code class="type">'r2. 'r2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is iterable, false otherwise</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisNumber"><span class="keyword">method</span> isNumber</span> : <code class="type">'s2. 's2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a number. Returns false for non-finite numbers.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisNumeric"><span class="keyword">method</span> isNumeric</span> : <code class="type">'t2. 't2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Validates that a value is numeric.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code>
-    <p>Examples: 1, '1', '2.34'</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">bool Js.t</code> <p>True if numeric, false otherwise</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisObject"><span class="keyword">method</span> isObject</span> : <code class="type">'u2. 'u2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a JavaScript Object, false otherwise.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisPrimitive"><span class="keyword">method</span> isPrimitive</span> : <code class="type">'v2. 'v2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a JavaScript 'primitive', a string, number or boolean.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisString"><span class="keyword">method</span> isString</span> : <code class="type">'w2. 'w2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a string.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODisTextNode"><span class="keyword">method</span> isTextNode</span> : <code class="type">'x2. 'x2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
-<p>Returns true if the passed value is a TextNode</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODiterate"><span class="keyword">method</span> iterate</span> : <code class="type">'y2 'z2 'a3.<br>         'y2 Js.t -> 'z2 Js.callback -> 'a3 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Iterates either an array or an object. This method delegates to
-<a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> if the given value is iterable, and <a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> otherwise.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>_object: <code class="code">_ Js.t</code>
-    <p>The object or array to be iterated.</p> 
-    </li>
-<li>fn: <code class="code">_ Js.callback</code>
-    <p>The function to be called for each iteration. See and <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> and
-<a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> for detailed lists of arguments passed to this function depending on the given object
-type that is being iterated.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the specified function is executed.
-Defaults to the object being iterated itself.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODlog"><span class="keyword">method</span> log</span> : <code class="type">'b3. 'b3 Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Logs a message. If a console is present it will be used. On Opera, the method
-"opera.postError" is called. In other cases, the message is logged to an array
-"Ext.log.out". An attached debugger can watch this array and view the log. The
-log buffer is limited to a maximum of "Ext.log.max" entries (defaults to 250).
-The <code>Ext.log.out</code> array can also be written to a popup window by entering the
-following in the URL bar (a "bookmarklet"):</p>
-
-<pre><code>javascript:void(Ext.log.show());
-</code></pre>
-
-<p>If additional parameters are passed, they are joined and appended to the message.
-A technique for tracing entry and exit of a function is this:</p>
-
-<pre><code>function foo () {
-    <a href="#!/api/Ext-method-log" rel="Ext-method-log" class="docClass">Ext.log</a>({ indent: 1 }, '&gt;&gt; foo');
-
-    // log statements in here or methods called from here will be indented
-    // by one step
-
-    <a href="#!/api/Ext-method-log" rel="Ext-method-log" class="docClass">Ext.log</a>({ outdent: 1 }, '&lt;&lt; foo');
-}
-</code></pre>
-
-<p>This method does nothing in a release build.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>options: <code class="code">_ Js.t</code> (optional)
-    <p>The message to log or an options object with any
-of the following properties:</p>
-
-<ul>
-<li><code>msg</code>: The message to log (required).</li>
-<li><code>level</code>: One of: "error", "warn", "info" or "log" (the default is "log").</li>
-<li><code>dump</code>: An object to dump to the log as part of the message.</li>
-<li><code>stack</code>: True to include a stack trace in the log.</li>
-<li><code>indent</code>: Cause subsequent log statements to be indented one step.</li>
-<li><code>outdent</code>: Cause this and following statements to be one step less indented.</li>
-</ul> 
-    </li>
-<li>message: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The message to log (required unless specified in
-options object).</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODmerge"><span class="keyword">method</span> merge</span> : <code class="type">'c3 'd3 'e3. 'c3 Js.t -> 'd3 Js.t -> 'e3 Js.t Js.meth</code></pre><div class="info">
-<p>A convenient alias method for <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a>.</p>
-
-<p>Merges any number of objects recursively without referencing them or their children.</p>
-
-<pre><code>var extjs = {
-    companyName: 'Ext JS',
-    products: ['Ext JS', 'Ext GWT', 'Ext Designer'],
-    isSuperCool: true,
-    office: {
-        size: 2000,
-        location: 'Palo Alto',
-        isFun: true
-    }
-};
-
-var newStuff = {
-    companyName: 'Sencha Inc.',
-    products: ['Ext JS', 'Ext GWT', 'Ext Designer', 'Sencha Touch', 'Sencha Animator'],
-    office: {
-        size: 40000,
-        location: 'Redwood City'
-    }
-};
-
-var sencha = <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a>(extjs, newStuff);
-
-// extjs and sencha then equals to
-{
-    companyName: 'Sencha Inc.',
-    products: ['Ext JS', 'Ext GWT', 'Ext Designer', 'Sencha Touch', 'Sencha Animator'],
-    isSuperCool: true,
-    office: {
-        size: 40000,
-        location: 'Redwood City',
-        isFun: true
-    }
-}
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>destination: <code class="code">_ Js.t</code>
-    <p>The object into which all subsequent objects are merged.</p> 
-    </li>
-<li>_object: <code class="code">_ Js.t</code>
-    <p>Any number of objects to merge into the destination.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code>
-    <p>merged The destination object with all passed objects merged in.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODnamespace"><span class="keyword">method</span> namespace</span> : <code class="type">'f3. Js.js_string Js.t -> 'f3 Js.t Js.meth</code></pre><div class="info">
-<p>Creates namespaces to be used for scoping variables and classes so that they are not global.
-Specifying the last node of a namespace implicitly creates all other nodes. Usage:</p>
-
-<pre><code><a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>('Company', 'Company.data');
-
-// equivalent and preferable to the above syntax
-<a href="#!/api/Ext-method-ns" rel="Ext-method-ns" class="docClass">Ext.ns</a>('Company.data');
-
-Company.Widget = function() { ... };
-
-Company.data.CustomStore = function(config) { ... };
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>namespaces: <code class="code">Js.js_string Js.t</code>
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code>
-    <p>The namespace object.
-(If multiple arguments are passed, this will be the last namespace created)</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODns"><span class="keyword">method</span> ns</span> : <code class="type">'g3. Js.js_string Js.t -> 'g3 Js.t Js.meth</code></pre><div class="info">
-<p>Convenient alias for <a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>.</p>
-
-<p>Creates namespaces to be used for scoping variables and classes so that they are not global.
-Specifying the last node of a namespace implicitly creates all other nodes. Usage:</p>
-
-<pre><code><a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>('Company', 'Company.data');
-
-// equivalent and preferable to the above syntax
-<a href="#!/api/Ext-method-ns" rel="Ext-method-ns" class="docClass">Ext.ns</a>('Company.data');
-
-Company.Widget = function() { ... };
-
-Company.data.CustomStore = function(config) { ... };
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>namespaces: <code class="code">Js.js_string Js.t</code>
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code>
-    <p>The namespace object.
-(If multiple arguments are passed, this will be the last namespace created)</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODon"><span class="keyword">method</span> on</span> : <code class="type">'h3 'i3 'j3 'k3 'l3.<br>         'h3 Js.t -><br>         'i3 Js.callback Js.optdef -><br>         'j3 Js.t Js.optdef -> 'k3 Js.t Js.optdef -> 'l3 Js.t Js.meth</code></pre><div class="info">
-<p>Shorthand for the <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a> method of the
-<a href="#!/api/Ext-property-globalEvents" rel="Ext-property-globalEvents" class="docClass">globalEvents</a> Observable instance.</p>
-
-<p>Appends an event handler to this object.  For example:</p>
-
-<pre><code>myGridPanel.on("mouseover", this.onMouseOver, this);
-</code></pre>
-
-<p>The method also allows for a single argument to be passed which is a config object
-containing properties which specify multiple events. For example:</p>
-
-<pre><code>myGridPanel.on({
-    cellClick: this.onCellClick,
-    mouseover: this.onMouseOver,
-    mouseout: this.onMouseOut,
-    scope: this // Important. Ensure "this" is correct during handler execution
-});
-</code></pre>
-
-<p>One can also specify options for each event handler separately:</p>
-
-<pre><code>myGridPanel.on({
-    cellClick: {fn: this.onCellClick, scope: this, single: true},
-    mouseover: {fn: panel.onMouseOver, scope: panel}
-});
-</code></pre>
-
-<p><em>Names</em> of methods in a specified scope may also be used. Note that
-<code>scope</code> MUST be specified to use this option:</p>
-
-<pre><code>myGridPanel.on({
-    cellClick: {fn: 'onCellClick', scope: this, single: true},
-    mouseover: {fn: 'onMouseOver', scope: panel}
-});
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>eventName: <code class="code">_ Js.t</code>
-    <p>The name of the event to listen for.
-May also be an object who's property names are event names.</p> 
-    </li>
-<li>fn: <code class="code">_ Js.callback</code> (optional)
-    <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
-the specified <code>scope</code>.  Will be called with arguments
-given to <a href="#!/api/Ext.util.Observable-method-fireEvent" rel="Ext.util.Observable-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the handler function is
-executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> 
-    </li>
-<li>options: <code class="code">_ Js.t</code> (optional)
-    <p>An object containing handler configuration.</p>
-
-
-
-
-<p><strong>Note:</strong> Unlike in ExtJS 3.x, the options object will also be passed as the last
-argument to every event handler.</p>
-
-
-
-
-<p>This object may contain any of the following properties:</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code>
-    <p><strong>Only when the <code>destroyable</code> option is specified. </strong></p>
-
-
-
-
-<p> A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which removes all listeners added in this call. For example:</p>
-
-
-
-
-<pre><code>this.btnListeners =  = myButton.on({
-    destroyable: true
-    mouseover:   function() { console.log('mouseover'); },
-    mouseout:    function() { console.log('mouseout'); },
-    click:       function() { console.log('click'); }
-});
-</code></pre>
-
-
-
-
-<p>And when those listeners need to be removed:</p>
-
-
-
-
-<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.btnListeners);
-</code></pre>
-
-
-
-
-<p>or</p>
-
-
-
-
-<pre><code>this.btnListeners.destroy();
-</code></pre> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODonDocumentReady"><span class="keyword">method</span> onDocumentReady</span> : <code class="type">'m3 'n3 'o3.<br>         'm3 Js.callback -> 'n3 Js.t Js.optdef -> 'o3 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Adds a listener to be notified when the document is ready (before onload and before images are loaded).</p>
-
-<p><a href="#!/api/Ext-method-onDocumentReady" rel="Ext-method-onDocumentReady" class="docClass">onDocumentReady</a> is an alias for <a href="#!/api/Ext.EventManager-method-onDocumentReady" rel="Ext.EventManager-method-onDocumentReady" class="docClass">Ext.EventManager.onDocumentReady</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>fn: <code class="code">_ Js.callback</code>
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    </li>
-<li>options: <code class="code">_ Js.t</code> (optional)
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODonReady"><span class="keyword">method</span> onReady</span> : <code class="type">'p3 'q3 'r3. 'p3 Js.callback -> 'q3 Js.t -> 'r3 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Adds a function to be called when the DOM is ready, and all required classes have been loaded.</p>
-
-<p>If the DOM is ready and all classes are loaded, the passed function is executed immediately.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>fn: <code class="code">_ Js.callback</code>
-    </li>
-<li>scope: <code class="code">_ Js.t</code>
-    </li>
-<li>options: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODoverride"><span class="keyword">method</span> override</span> : <code class="type">'s3 't3. 's3 Js.t -> 't3 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Overrides members of the specified <code>target</code> with the given values.</p>
-
-<p>If the <code>target</code> is a class declared using <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>, the
-<code>override</code> method of that class is called (see <a href="#!/api/Ext.Base-static-method-override" rel="Ext.Base-static-method-override" class="docClass">Ext.Base.override</a>) given
-the <code>overrides</code>.</p>
-
-<p>If the <code>target</code> is a function, it is assumed to be a constructor and the contents
-of <code>overrides</code> are applied to its <code>prototype</code> using <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a>.</p>
-
-<p>If the <code>target</code> is an instance of a class declared using <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>,
-the <code>overrides</code> are applied to only that instance. In this case, methods are
-specially processed to allow them to use <a href="#!/api/Ext.Base-method-callParent" rel="Ext.Base-method-callParent" class="docClass">Ext.Base.callParent</a>.</p>
-
-<pre><code> var panel = new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.Panel</a>({ ... });
-
- <a href="#!/api/Ext-method-override" rel="Ext-method-override" class="docClass">Ext.override</a>(panel, {
-     initComponent: function () {
-         // extra processing...
-
-         this.callParent();
-     }
- });
-</code></pre>
-
-<p>If the <code>target</code> is none of these, the <code>overrides</code> are applied to the <code>target</code>
-using <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a>.</p>
-
-<p>Please refer to <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a> and <a href="#!/api/Ext.Base-static-method-override" rel="Ext.Base-static-method-override" class="docClass">Ext.Base.override</a> for
-further details.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>target: <code class="code">_ Js.t</code>
-    <p>The target to override.</p> 
-    </li>
-<li>overrides: <code class="code">_ Js.t</code>
-    <p>The properties to add or replace on <code>target</code>.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODpass"><span class="keyword">method</span> pass</span> : <code class="type">'u3 'v3 'w3 'x3.<br>         'u3 Js.callback -><br>         'v3 Js.js_array Js.t -> 'w3 Js.t Js.optdef -> 'x3 Js.callback Js.meth</code></pre><div class="info">
-<p>Create a new function from the provided <code>fn</code>, the arguments of which are pre-set to <code>args</code>.
-New arguments passed to the newly created callback when it's invoked are appended after the pre-set ones.
-This is especially useful when creating callbacks.</p>
-
-<p>For example:</p>
-
-<pre><code>var originalFunction = function(){
-    alert(<a href="#!/api/Ext.Array-method-from" rel="Ext.Array-method-from" class="docClass">Ext.Array.from</a>(arguments).join(' '));
-};
-
-var callback = <a href="#!/api/Ext.Function-method-pass" rel="Ext.Function-method-pass" class="docClass">Ext.Function.pass</a>(originalFunction, ['Hello', 'World']);
-
-callback(); // alerts 'Hello World'
-callback('by Me'); // alerts 'Hello World by Me'
-</code></pre>
-
-<p><a href="#!/api/Ext-method-pass" rel="Ext-method-pass" class="docClass">Ext.pass</a> is alias for <a href="#!/api/Ext.Function-method-pass" rel="Ext.Function-method-pass" class="docClass">Ext.Function.pass</a></p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>fn: <code class="code">_ Js.callback</code>
-    <p>The original function</p> 
-    </li>
-<li>args: <code class="code">_ Js.js_array Js.t</code>
-    <p>The arguments to pass to new callback</p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope (<code>this</code> reference) in which the function is executed.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.callback</code> <p>The new callback function</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODpreg"><span class="keyword">method</span> preg</span> : <code class="type">'y3. Js.js_string Js.t -> 'y3 Js.callback -> unit Js.meth</code></pre><div class="info">
-<p>Shorthand for <a href="#!/api/Ext.PluginManager-method-registerType" rel="Ext.PluginManager-method-registerType" class="docClass">Ext.PluginManager.registerType</a></p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>ptype: <code class="code">Js.js_string Js.t</code>
-    <p>The ptype mnemonic string by which the Plugin class
-may be looked up.</p> 
-    </li>
-<li>cls: <code class="code">_ Js.callback</code> <p>The new Plugin class.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODquery"><span class="keyword">method</span> query</span> : <code class="type">Js.js_string Js.t -><br>       Dom_html.element Js.t Js.optdef -><br>       Js.js_string Js.t Js.optdef -><br>       bool Js.t Js.optdef -> Dom_html.element Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
-<p>Shorthand of <a href="#!/api/Ext.dom.Query-method-select" rel="Ext.dom.Query-method-select" class="docClass">Ext.dom.Query.select</a></p>
-
-<p>Selects an array of DOM nodes by CSS/XPath selector.</p>
-
-<p>Uses <a href="https://developer.mozilla.org/en/DOM/document.querySelectorAll">document.querySelectorAll</a> if browser supports that, otherwise falls back to
-<a href="#!/api/Ext.dom.Query-method-jsSelect" rel="Ext.dom.Query-method-jsSelect" class="docClass">Ext.dom.Query.jsSelect</a> to do the work.</p>
-
-<p>Aliased as <a href="#!/api/Ext-method-query" rel="Ext-method-query" class="docClass">query</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>path: <code class="code">Js.js_string Js.t</code>
-    <p>The selector/xpath query</p> 
-    </li>
-<li>root: <code class="code">Dom_html.element Js.t</code> (optional)
-    <p>The start of the query.</p> 
-     Defaults to: document
-    </li>
-<li>_type: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>Either "select" or "simple" for a simple selector match (only valid when
-used when the call is deferred to the jsSelect method)</p> 
-     Defaults to: "select"
-    </li>
-<li>single: <code class="code">bool Js.t</code> (optional)
-    <p>Pass <code>true</code> to select only the first matching node using <code>document.querySelector</code> (where available)</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">Dom_html.element Js.t Js.js_array Js.t</code>
-    <p>An array of DOM elements (not a NodeList as returned by <code>querySelectorAll</code>).</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODregStore"><span class="keyword">method</span> regStore</span> : <code class="type">'z3. Js.js_string Js.t -> 'z3 Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Creates a new store for the given id and config, then registers it with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">Store Manager</a>.
-Sample usage:</p>
-
-<pre><code><a href="#!/api/Ext-method-regStore" rel="Ext-method-regStore" class="docClass">Ext.regStore</a>('AllUsers', {
-    model: 'User'
-});
-
-// the store can now easily be used throughout the application
-new Ext.List({
-    store: 'AllUsers',
-    ... other config
-});
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>id: <code class="code">Js.js_string Js.t</code>
-    <p>The id to set on the new store</p> 
-    </li>
-<li>config: <code class="code">_ Js.t</code> <p>The store config</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODremoveNode"><span class="keyword">method</span> removeNode</span> : <code class="type">Dom_html.element Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Removes a DOM node from the document.</p>
-
-<p>Removes this element from the document, removes all DOM event listeners, and
-deletes the cache reference. All DOM event listeners are removed from this element.
-If <a href="#!/api/Ext-property-enableNestedListenerRemoval" rel="Ext-property-enableNestedListenerRemoval" class="docClass">Ext.enableNestedListenerRemoval</a> is
-<code>true</code>, then DOM event listeners are also removed from all child nodes.
-The body node will be ignored if passed in.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>node: <code class="code">Dom_html.element Js.t</code> <p>The node to remove</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODrequire"><span class="keyword">method</span> require</span> : <code class="type">'a4 'b4 'c4 'd4.<br>         'a4 Js.t -><br>         'b4 Js.callback Js.optdef -><br>         'c4 Js.t Js.optdef -> 'd4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Loads all classes by the given names and all their direct dependencies; optionally executes
-the given callback function when finishes, within the optional scope.</p>
-
-<p><a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">require</a> is alias for <a href="#!/api/Ext.Loader-method-require" rel="Ext.Loader-method-require" class="docClass">Ext.Loader.require</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>expressions: <code class="code">_ Js.t</code>
-    </li>
-<li>fn: <code class="code">_ Js.callback</code> (optional)
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    </li>
-<li>excludes: <code class="code">_ Js.t</code> (optional)
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODresumeLayouts"><span class="keyword">method</span> resumeLayouts</span> : <code class="type">'e4. 'e4 Js.t -> unit Js.meth</code></pre><pre><span id="METHODselect"><span class="keyword">method</span> select</span> : <code class="type">'f4 'g4 'h4.<br>         'f4 Js.t -> bool Js.t Js.optdef -> 'g4 Js.t Js.optdef -> 'h4 Js.t Js.meth</code></pre><div class="info">
-<p>Shorthand of <a href="#!/api/Ext.dom.Element-method-select" rel="Ext.dom.Element-method-select" class="docClass">Ext.Element.select</a>.</p>
-
-<p>Selects elements based on the passed CSS selector to enable <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Element</a> methods
-to be applied to many related elements in one statement through the returned <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">CompositeElement</a> or
-<a href="#!/api/Ext.dom.CompositeElementLite" rel="Ext.dom.CompositeElementLite" class="docClass">CompositeElementLite</a> object.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>selector: <code class="code">_ Js.t</code>
-    <p>The CSS selector or an array of elements</p> 
-    </li>
-<li>unique: <code class="code">bool Js.t</code> (optional)
-    <p>true to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element (defaults to a shared flyweight object)</p> 
-    </li>
-<li>root: <code class="code">_ Js.t</code> (optional)
-    <p>The root element of the query or id of the root</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODsetGlyphFontFamily"><span class="keyword">method</span> setGlyphFontFamily</span> : <code class="type">Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
-<p>Sets the default font-family to use for components that support a <code>glyph</code> config.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>fontFamily: <code class="code">Js.js_string Js.t</code>
-    <p>The name of the font-family</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODsetVersion"><span class="keyword">method</span> setVersion</span> : <code class="type">'i4 'j4. Js.js_string Js.t -> 'i4 Js.t -> 'j4 Js.t Js.meth</code></pre><div class="info">
-<p>Set version number for the given package name.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>packageName: <code class="code">Js.js_string Js.t</code>
-    <p>The package name, for example: 'core', 'touch', 'extjs'</p> 
-    </li>
-<li>version: <code class="code">_ Js.t</code>
-    <p>The version, for example: '1.2.3alpha', '2.4.0-dev'</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODsuspendLayouts"><span class="keyword">method</span> suspendLayouts</span> : <code class="type">unit Js.meth</code></pre><pre><span id="METHODsyncRequire"><span class="keyword">method</span> syncRequire</span> : <code class="type">'k4 'l4 'm4 'n4.<br>         'k4 Js.t -><br>         'l4 Js.callback Js.optdef -><br>         'm4 Js.t Js.optdef -> 'n4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Synchronously loads all classes by the given names and all their direct dependencies; optionally
-executes the given callback function when finishes, within the optional scope.</p>
-
-<p><a href="#!/api/Ext-method-syncRequire" rel="Ext-method-syncRequire" class="docClass">syncRequire</a> is alias for <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">Ext.Loader.syncRequire</a>.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>expressions: <code class="code">_ Js.t</code>
-    </li>
-<li>fn: <code class="code">_ Js.callback</code> (optional)
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    </li>
-<li>excludes: <code class="code">_ Js.t</code> (optional)
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODtoArray"><span class="keyword">method</span> toArray</span> : <code class="type">'o4 'p4.<br>         'o4 Js.t -><br>         Js.number Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -> 'p4 Js.js_array Js.t Js.meth</code></pre><div class="info">
-<p>Converts any iterable (numeric indices and a length property) into a true array.</p>
-
-<pre><code>function test() {
-    var args = <a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>(arguments),
-        fromSecondToLastArgs = <a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>(arguments, 1);
-
-    alert(args.join(' '));
-    alert(fromSecondToLastArgs.join(' '));
-}
-
-test('just', 'testing', 'here'); // alerts 'just testing here';
-                                 // alerts 'testing here';
-
-<a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>(document.getElementsByTagName('div')); // will convert the NodeList into an array
-<a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>('splitted'); // returns ['s', 'p', 'l', 'i', 't', 't', 'e', 'd']
-<a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>('splitted', 0, 3); // returns ['s', 'p', 'l']
-</code></pre>
-
-<p><a href="#!/api/Ext-method-toArray" rel="Ext-method-toArray" class="docClass">Ext.toArray</a> is alias for <a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a></p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>iterable: <code class="code">_ Js.t</code>
-    <p>the iterable object to be turned into a true Array.</p> 
-    </li>
-<li>start: <code class="code">Js.number Js.t</code> (optional)
-    <p>a zero-based index that specifies the start of extraction. Defaults to 0</p> 
-    </li>
-<li>_end: <code class="code">Js.number Js.t</code> (optional)
-    <p>a 1-based index that specifies the end of extraction. Defaults to the last
-index of the iterable value</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.js_array Js.t</code> <p>array</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODtypeOf"><span class="keyword">method</span> typeOf</span> : <code class="type">'q4. 'q4 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
-<p>Returns the type of the given variable in string format. List of possible values are:</p>
-
-<ul>
-<li><code>undefined</code>: If the given value is <code>undefined</code></li>
-<li><code>null</code>: If the given value is <code>null</code></li>
-<li><code>string</code>: If the given value is a string</li>
-<li><code>number</code>: If the given value is a number</li>
-<li><code>boolean</code>: If the given value is a boolean value</li>
-<li><code>date</code>: If the given value is a <code>Date</code> object</li>
-<li><code>function</code>: If the given value is a function reference</li>
-<li><code>object</code>: If the given value is an object</li>
-<li><code>array</code>: If the given value is an array</li>
-<li><code>regexp</code>: If the given value is a regular expression</li>
-<li><code>element</code>: If the given value is a DOM Element</li>
-<li><code>textnode</code>: If the given value is a DOM text node and contains something other than whitespace</li>
-<li><code>whitespace</code>: If the given value is a DOM text node and contains only whitespace</li>
-</ul> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code>
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODun"><span class="keyword">method</span> un</span> : <code class="type">'r4 's4.<br>         Js.js_string Js.t -> 'r4 Js.callback -> 's4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p>Shorthand for the <a href="#!/api/Ext.util.Observable-method-removeListener" rel="Ext.util.Observable-method-removeListener" class="docClass">Ext.util.Observable.removeListener</a> method of the
-<a href="#!/api/Ext-property-globalEvents" rel="Ext-property-globalEvents" class="docClass">globalEvents</a> Observable instance.</p>
-
-<p>Removes an event handler.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>eventName: <code class="code">Js.js_string Js.t</code>
-    <p>The type of event the handler was associated with.</p> 
-    </li>
-<li>fn: <code class="code">_ Js.callback</code>
-    <p>The handler to remove. <strong>This must be a reference to the function passed into the
-<a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> call.</strong></p> 
-    </li>
-<li>scope: <code class="code">_ Js.t</code> (optional)
-    <p>The scope originally specified for the handler. It must be the same as the
-scope argument specified in the original call to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> or the listener will not be removed.</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODvalueFrom"><span class="keyword">method</span> valueFrom</span> : <code class="type">'t4 'u4 'v4. 't4 Js.t -> 'u4 Js.t -> bool Js.t Js.optdef -> 'v4 Js.t Js.meth</code></pre><div class="info">
-<p>Returns the given value itself if it's not empty, as described in <a href="#!/api/Ext-method-isEmpty" rel="Ext-method-isEmpty" class="docClass">isEmpty</a>; returns the default
-value (second argument) otherwise.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>value: <code class="code">_ Js.t</code>
-    <p>The value to test</p> 
-    </li>
-<li>defaultValue: <code class="code">_ Js.t</code>
-    <p>The value to return if the original value is empty</p> 
-    </li>
-<li>allowBlank: <code class="code">bool Js.t</code> (optional)
-    <p>true to allow zero length strings to qualify as non-empty (defaults to false)</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>value, if non-empty, else defaultValue</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODwidget"><span class="keyword">method</span> widget</span> : <code class="type">'w4 'x4.<br>         Js.js_string Js.t Js.optdef -> 'w4 Js.t Js.optdef -> 'x4 Js.t Js.meth</code></pre><div class="info">
-<p>Convenient shorthand to create a widget by its xtype or a config object.
-See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a>.</p>
-
-<pre><code> var button = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('button'); // Equivalent to <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.button');
-
- var panel = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('panel', { // Equivalent to <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.panel')
-     title: 'Panel'
- });
-
- var grid = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>({
-     xtype: 'grid',
-     ...
- });
-</code></pre>
-
-<p>If a <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">component</a> instance is passed, it is simply returned.</p> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>name: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>The xtype of the widget to create.</p> 
-    </li>
-<li>config: <code class="code">_ Js.t</code> (optional)
-    <p>The configuration object for the widget constructor.</p> 
-    </li>
-</ul>
-
-<p>
-
-    <b>Returns</b>:
-    <ul>
-<li><code class="code">_ Js.t</code> <p>The widget instance</p> 
-    </li>
-</ul>
-<br>
-</div>
 <pre><span id="METHOD_BLANK_IMAGE_URL"><span class="keyword">method</span> _BLANK_IMAGE_URL</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>URL to a 1x1 transparent gif image used by Ext to create inline icons with
 CSS background images. In older versions of IE, this defaults to
@@ -2198,10 +166,10 @@ Also, property names must be quoted, otherwise the data will not parse.</p>
 <pre><span id="METHODchromeVersion"><span class="keyword">method</span> chromeVersion</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>The current version of Chrome (0 if the browser is not Chrome).</p> <br>
 </div>
-<pre><span id="METHODemptyFn"><span class="keyword">method</span> emptyFn</span> : <code class="type">'y4. 'y4 Js.callback Js.prop</code></pre><div class="info">
+<pre><span id="METHODemptyFn"><span class="keyword">method</span> emptyFn</span> : <code class="type">'a. 'a Js.callback Js.prop</code></pre><div class="info">
 <p>A reusable empty function</p> <br>
 </div>
-<pre><span id="METHODemptyString"><span class="keyword">method</span> emptyString</span> : <code class="type">'z4. 'z4 Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODemptyString"><span class="keyword">method</span> emptyString</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
 <p>A zero length string which will pass a truth test. Useful for passing to methods
 which use a truth test to reject <i>falsy</i> values where a string value must be cleared.</p> <br>
 </div>
@@ -2421,5 +389,2075 @@ If you are using flash, you may want to set this to true.</p> <br>
 </div>
 <pre><span id="METHODwebKitVersion"><span class="keyword">method</span> webKitVersion</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
 <p>The current version of WebKit (0 if the browser does not use WebKit).</p> <br>
+</div>
+<pre><span id="METHODaddBehaviors"><span class="keyword">method</span> addBehaviors</span> : <code class="type">'c. 'c Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Applies event listeners to elements by selectors when the document is ready.
+The event name is specified with an <code>@</code> suffix.</p>
+
+<pre><code><a href="#!/api/Ext-method-addBehaviors" rel="Ext-method-addBehaviors" class="docClass">Ext.addBehaviors</a>({
+    // add a listener for click on all anchors in element with id foo
+    '#foo a@click' : function(e, t){
+        // do something
+    },
+
+    // add the same listener to multiple selectors (separated by comma BEFORE the @)
+    '#foo a, #bar span.some-class@mouseover' : function(){
+        // do something
+    }
+});
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>obj: <code class="code">_ Js.t</code> <p>The list of behaviors to apply</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODaddNamespaces"><span class="keyword">method</span> addNamespaces</span> : <code class="type">'d. 'd Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Adds namespace(s) to known list.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>namespace: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODapplication"><span class="keyword">method</span> application</span> : <code class="type">'e. 'e Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Loads <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> class and starts it up with given configuration after the
+page is ready.</p>
+
+<p>See <code><a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a></code> for details.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>config: <code class="code">_ Js.t</code>
+    <p>Application config object or name of a class derived from <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODapply"><span class="keyword">method</span> apply</span> : <code class="type">'f 'g 'h 'i. 'f Js.t -> 'g Js.t -> 'h Js.t Js.optdef -> 'i Js.t Js.meth</code></pre><div class="info">
+<p>Copies all the properties of config to the specified object.
+Note that if recursive merging and cloning without referencing the original objects / arrays is needed, use
+<a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a> instead.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>_object: <code class="code">_ Js.t</code>
+    <p>The receiver of the properties</p> 
+    </li>
+<li>config: <code class="code">_ Js.t</code>
+    <p>The source of the properties</p> 
+    </li>
+<li>defaults: <code class="code">_ Js.t</code> (optional)
+    <p>A different object that will also be applied for default values</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>returns obj</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODapplyIf"><span class="keyword">method</span> applyIf</span> : <code class="type">'j 'k 'l. 'j Js.t -> 'k Js.t -> 'l Js.t Js.meth</code></pre><div class="info">
+<p>Copies all the properties of config to object if they don't already exist.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>_object: <code class="code">_ Js.t</code>
+    <p>The receiver of the properties</p> 
+    </li>
+<li>config: <code class="code">_ Js.t</code>
+    <p>The source of the properties</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>returns obj</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbatchLayouts"><span class="keyword">method</span> batchLayouts</span> : <code class="type">'m 'n. 'm Js.callback -> 'n Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Utility wrapper that suspends layouts of all components for the duration of a given function.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    <p>The function to execute.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODbind"><span class="keyword">method</span> bind</span> : <code class="type">'o 'p 'q 'r 's.<br>         'o Js.callback -><br>         'p Js.t Js.optdef -><br>         'q Js.js_array Js.t Js.optdef -><br>         'r Js.t Js.optdef -> 's Js.callback Js.meth</code></pre><div class="info">
+<p>Create a new function from the provided <code>fn</code>, change <code>this</code> to the provided scope, optionally
+overrides arguments for the call. (Defaults to the arguments passed by the caller)</p>
+
+<p><a href="#!/api/Ext-method-bind" rel="Ext-method-bind" class="docClass">Ext.bind</a> is alias for <a href="#!/api/Ext.Function-method-bind" rel="Ext.Function-method-bind" class="docClass">Ext.Function.bind</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    <p>The function to delegate.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the function is executed.
+<strong>If omitted, defaults to the default global environment object (usually the browser window).</strong></p> 
+    </li>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
+    <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> 
+    </li>
+<li>appendArgs: <code class="code">_ Js.t</code> (optional)
+    <p>if True args are appended to call args instead of overriding,
+if a number the args are inserted at the specified position</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.callback</code> <p>The new function</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcallback"><span class="keyword">method</span> callback</span> : <code class="type">'t 'u 'v 'w.<br>         't Js.callback -><br>         'u Js.t Js.optdef -><br>         'v Js.js_array Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -> 'w Js.t Js.meth</code></pre><div class="info">
+<p>Execute a callback function in a particular scope. If <code>callback</code> argument is a
+function reference, that is called. If it is a string, the string is assumed to
+be the name of a method on the given <code>scope</code>. If no function is passed the call
+is ignored.</p>
+
+<p>For example, these calls are equivalent:</p>
+
+<pre><code> var myFunc = this.myFunc;
+
+ <a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>('myFunc', this, [arg1, arg2]);
+ <a href="#!/api/Ext-method-callback" rel="Ext-method-callback" class="docClass">Ext.callback</a>(myFunc, this, [arg1, arg2]);
+
+ <a href="#!/api/Ext-method-isFunction" rel="Ext-method-isFunction" class="docClass">Ext.isFunction</a>(myFunc) &amp;&amp; this.myFunc(arg1, arg2);
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>callback: <code class="code">_ Js.callback</code>
+    <p>The callback to execute</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope to execute in</p> 
+    </li>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
+    <p>The arguments to pass to the function</p> 
+    </li>
+<li>delay: <code class="code">Js.number Js.t</code> (optional)
+    <p>Pass a number to delay the call by a number of milliseconds.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p>The value returned by the callback or <code>undefined</code> (if there is a <code>delay</code>
+or if the <code>callback</code> is not a function).</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODclone"><span class="keyword">method</span> clone</span> : <code class="type">'x 'y. 'x Js.t -> 'y Js.t Js.meth</code></pre><div class="info">
+<p>Clone simple variables including array, {}-like objects, DOM nodes and Date without keeping the old reference.
+A reference for the object itself is returned if it's not a direct decendant of Object. For model cloning,
+see <a href="#!/api/Ext.data.Model-method-copy" rel="Ext.data.Model-method-copy" class="docClass">Model.copy</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>item: <code class="code">_ Js.t</code>
+    <p>The variable to clone</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>clone</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcoerce"><span class="keyword">method</span> coerce</span> : <code class="type">'z 'a1 'b1. 'z Js.t -> 'a1 Js.t -> 'b1 Js.t Js.meth</code></pre><div class="info">
+<p>Coerces the first value if possible so that it is comparable to the second value.</p>
+
+<p>Coercion only works between the basic atomic data types String, Boolean, Number, Date, null and undefined.</p>
+
+<p>Numbers and numeric strings are coerced to Dates using the value as the millisecond era value.</p>
+
+<p>Strings are coerced to Dates by parsing using the <a href="#!/api/Ext.Date-property-defaultFormat" rel="Ext.Date-property-defaultFormat" class="docClass">defaultFormat</a>.</p>
+
+<p>For example</p>
+
+<pre><code><a href="#!/api/Ext-method-coerce" rel="Ext-method-coerce" class="docClass">Ext.coerce</a>('false', true);
+</code></pre>
+
+<p>returns the boolean value <code>false</code> because the second parameter is of type <code>Boolean</code>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>from: <code class="code">_ Js.t</code> <p>The value to coerce</p> 
+    </li>
+<li>to: <code class="code">_ Js.t</code>
+    <p>The value it must be compared against</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>The coerced value.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcopyTo"><span class="keyword">method</span> copyTo</span> : <code class="type">'c1 'd1 'e1 'f1.<br>         'c1 Js.t -> 'd1 Js.t -> 'e1 Js.t -> bool Js.t Js.optdef -> 'f1 Js.t Js.meth</code></pre><div class="info">
+<p>Copies a set of named properties fom the source object to the destination object.</p>
+
+<p>Example:</p>
+
+<pre><code>ImageComponent = <a href="#!/api/Ext-method-extend" rel="Ext-method-extend" class="docClass">Ext.extend</a>(<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, {
+    initComponent: function() {
+        this.autoEl = { tag: 'img' };
+        MyComponent.superclass.initComponent.apply(this, arguments);
+        this.initialBox = <a href="#!/api/Ext-method-copyTo" rel="Ext-method-copyTo" class="docClass">Ext.copyTo</a>({}, this.initialConfig, 'x,y,width,height');
+    }
+});
+</code></pre>
+
+<p>Important note: To borrow class prototype methods, use <a href="#!/api/Ext.Base-static-method-borrow" rel="Ext.Base-static-method-borrow" class="docClass">Ext.Base.borrow</a> instead.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>dest: <code class="code">_ Js.t</code>
+    <p>The destination object.</p> 
+    </li>
+<li>source: <code class="code">_ Js.t</code> <p>The source object.</p> 
+    </li>
+<li>names: <code class="code">_ Js.t</code>
+    <p>Either an Array of property names, or a comma-delimited list
+of property names to copy.</p> 
+    </li>
+<li>usePrototypeKeys: <code class="code">bool Js.t</code> (optional)
+    <p>Defaults to false. Pass true to copy keys off of the
+prototype as well as the instance.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>The modified object.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcreate"><span class="keyword">method</span> create</span> : <code class="type">'g1 'h1.<br>         Js.js_string Js.t Js.optdef -> 'g1 Js.t Js.optdef -> 'h1 Js.t Js.meth</code></pre><div class="info">
+<p>Instantiate a class by either full name, alias or alternate name.</p>
+
+<p>If <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> is <a href="#!/api/Ext.Loader-method-setConfig" rel="Ext.Loader-method-setConfig" class="docClass">enabled</a> and the class has
+not been defined yet, it will attempt to load the class via synchronous loading.</p>
+
+<p>For example, all these three lines return the same result:</p>
+
+<pre><code> // alias
+ var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.window', {
+     width: 600,
+     height: 800,
+     ...
+ });
+
+ // alternate name
+ var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.Window</a>', {
+     width: 600,
+     height: 800,
+     ...
+ });
+
+ // full class name
+ var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', {
+     width: 600,
+     height: 800,
+     ...
+ });
+
+ // single object with xclass property:
+ var window = <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>({
+     xclass: '<a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Ext.window.Window</a>', // any valid value for 'name' (above)
+     width: 600,
+     height: 800,
+     ...
+ });
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>name: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The class name or alias. Can be specified as <code>xclass</code>
+property if only one object parameter is specified.</p> 
+    </li>
+<li>args: <code class="code">_ Js.t</code> (optional)
+    <p>Additional arguments after the name will be passed to
+the class' constructor.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>instance</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODcreateByAlias"><span class="keyword">method</span> createByAlias</span> : <code class="type">'i1 'j1. Js.js_string Js.t -> 'i1 Js.t -> 'j1 Js.t Js.meth</code></pre><div class="info">
+<p>Instantiate a class by its alias.</p>
+
+<p><a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a> is usually invoked by the shorthand <a href="#!/api/Ext-method-createByAlias" rel="Ext-method-createByAlias" class="docClass">createByAlias</a>.</p>
+
+<p>If <a href="#!/api/Ext.Loader" rel="Ext.Loader" class="docClass">Ext.Loader</a> is <a href="#!/api/Ext.Loader-method-setConfig" rel="Ext.Loader-method-setConfig" class="docClass">enabled</a> and the class has not been defined yet, it will
+attempt to load the class via synchronous loading.</p>
+
+<pre><code>var window = <a href="#!/api/Ext-method-createByAlias" rel="Ext-method-createByAlias" class="docClass">Ext.createByAlias</a>('widget.window', { width: 600, height: 800, ... });
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>alias: <code class="code">Js.js_string Js.t</code>
+    </li>
+<li>args: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdecode"><span class="keyword">method</span> decode</span> : <code class="type">'k1. Js.js_string Js.t -> bool Js.t Js.optdef -> 'k1 Js.t Js.meth</code></pre><div class="info">
+<p>Shorthand for <a href="#!/api/Ext.JSON-method-decode" rel="Ext.JSON-method-decode" class="docClass">Ext.JSON.decode</a></p>
+
+<p>Decodes (parses) a JSON string to an object. If the JSON is invalid, this function throws
+a SyntaxError unless the safe option is set.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>json: <code class="code">Js.js_string Js.t</code>
+    <p>The JSON string</p> 
+    </li>
+<li>safe: <code class="code">bool Js.t</code> (optional)
+    <p>True to return null, false to throw an exception if the JSON is invalid.</p> 
+     Defaults to: false
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>The resulting object</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdefer"><span class="keyword">method</span> defer</span> : <code class="type">'l1 'm1 'n1 'o1.<br>         'l1 Js.callback -><br>         Js.number Js.t -><br>         'm1 Js.t Js.optdef -><br>         'n1 Js.js_array Js.t Js.optdef -><br>         'o1 Js.t Js.optdef -> Js.number Js.t Js.meth</code></pre><div class="info">
+<p>Calls this function after the number of millseconds specified, optionally in a specific scope. Example usage:</p>
+
+<pre><code>var sayHi = function(name){
+    alert('Hi, ' + name);
+}
+
+// executes immediately:
+sayHi('Fred');
+
+// executes after 2 seconds:
+<a href="#!/api/Ext.Function-method-defer" rel="Ext.Function-method-defer" class="docClass">Ext.Function.defer</a>(sayHi, 2000, this, ['Fred']);
+
+// this syntax is sometimes useful for deferring
+// execution of an anonymous function:
+<a href="#!/api/Ext.Function-method-defer" rel="Ext.Function-method-defer" class="docClass">Ext.Function.defer</a>(function(){
+    alert('Anonymous');
+}, 100);
+</code></pre>
+
+<p><a href="#!/api/Ext-method-defer" rel="Ext-method-defer" class="docClass">Ext.defer</a> is alias for <a href="#!/api/Ext.Function-method-defer" rel="Ext.Function-method-defer" class="docClass">Ext.Function.defer</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    <p>The function to defer.</p> 
+    </li>
+<li>millis: <code class="code">Js.number Js.t</code>
+    <p>The number of milliseconds for the setTimeout call
+(if less than or equal to 0 the function is executed immediately)</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the function is executed.
+<strong>If omitted, defaults to the browser window.</strong></p> 
+    </li>
+<li>args: <code class="code">_ Js.js_array Js.t</code> (optional)
+    <p>Overrides arguments for the call. (Defaults to the arguments passed by the caller)</p> 
+    </li>
+<li>appendArgs: <code class="code">_ Js.t</code> (optional)
+    <p>if True args are appended to call args instead of overriding,
+if a number the args are inserted at the specified position</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.number Js.t</code>
+    <p>The timeout id that can be used with clearTimeout</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdefine"><span class="keyword">method</span> define</span> : <code class="type">'p1 'q1 'r1.<br>         Js.js_string Js.t -><br>         'p1 Js.t -> 'q1 Js.callback -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'r1) Js.t Js.meth</code></pre><div class="info">
+<p>Defines a class or override. A basic class is defined like this:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.awesome.Class', {
+     someProperty: 'something',
+
+     someMethod: function(s) {
+         alert(s + this.someProperty);
+     }
+
+     ...
+ });
+
+ var obj = new My.awesome.Class();
+
+ obj.someMethod('Say '); // alerts 'Say something'
+</code></pre>
+
+<p>To create an anonymous class, pass <code>null</code> for the <code>className</code>:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>(null, {
+     constructor: function () {
+         // ...
+     }
+ });
+</code></pre>
+
+<p>In some cases, it is helpful to create a nested scope to contain some private
+properties. The best way to do this is to pass a function instead of an object
+as the second parameter. This function will be called to produce the class
+body:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.foo.Bar', function () {
+     var id = 0;
+
+     return {
+         nextId: function () {
+             return ++id;
+         }
+     };
+ });
+</code></pre>
+
+<p><em>Note</em> that when using override, the above syntax will not override successfully, because
+the passed function would need to be executed first to determine whether or not the result
+is an override or defining a new object. As such, an alternative syntax that immediately
+invokes the function can be used:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.override.BaseOverride', function () {
+     var counter = 0;
+
+     return {
+         override: '<a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>',
+         logId: function () {
+             console.log(++counter, this.id);
+         }
+     };
+ }());
+</code></pre>
+
+<p>When using this form of <code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a></code>, the function is passed a reference to its
+class. This can be used as an efficient way to access any static properties you
+may have:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('MyApp.foo.Bar', function (Bar) {
+     return {
+         statics: {
+             staticMethod: function () {
+                 // ...
+             }
+         },
+
+         method: function () {
+             return Bar.staticMethod();
+         }
+     };
+ });
+</code></pre>
+
+<p>To define an override, include the <code>override</code> property. The content of an
+override is aggregated with the specified class in order to extend or modify
+that class. This can be as simple as setting default property values or it can
+extend and/or replace methods. This can also extend the statics of the class.</p>
+
+<p>One use for an override is to break a large class into manageable pieces.</p>
+
+<pre><code> // File: /src/app/Panel.js
+
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.Panel', {
+     extend: '<a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>',
+     requires: [
+         'My.app.PanelPart2',
+         'My.app.PanelPart3'
+     ]
+
+     constructor: function (config) {
+         this.callParent(arguments); // calls <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.panel.Panel</a>'s constructor
+         //...
+     },
+
+     statics: {
+         method: function () {
+             return 'abc';
+         }
+     }
+ });
+
+ // File: /src/app/PanelPart2.js
+ <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.PanelPart2', {
+     override: 'My.app.Panel',
+
+     constructor: function (config) {
+         this.callParent(arguments); // calls My.app.Panel's constructor
+         //...
+     }
+ });
+</code></pre>
+
+<p>Another use of overrides is to provide optional parts of classes that can be
+independently required. In this case, the class may even be unaware of the
+override altogether.</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.ux.CoolTip', {
+     override: '<a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>',
+
+     constructor: function (config) {
+         this.callParent(arguments); // calls <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">Ext.tip.ToolTip</a>'s constructor
+         //...
+     }
+ });
+</code></pre>
+
+<p>The above override can now be required as normal.</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.App', {
+     requires: [
+         'My.ux.CoolTip'
+     ]
+ });
+</code></pre>
+
+<p>Overrides can also contain statics:</p>
+
+<pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.app.BarMod', {
+     override: 'Ext.foo.Bar',
+
+     statics: {
+         method: function (x) {
+             return this.callParent([x * 2]); // call Ext.foo.Bar.method
+         }
+     }
+ });
+</code></pre>
+
+<p>IMPORTANT: An override is only included in a build if the class it overrides is
+required. Otherwise, the override, like the target class, is not included.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>className: <code class="code">Js.js_string Js.t</code>
+    <p>The class name to create in string dot-namespaced format, for example:
+'My.very.awesome.Class', 'FeedViewer.plugin.CoolPager'
+It is highly recommended to follow this simple convention:
+ * The root and the class name are 'CamelCased'
+ * Everything else is lower-cased
+Pass <code>null</code> to create an anonymous class.</p> 
+    </li>
+<li>data: <code class="code">_ Js.t</code>
+    <p>The key * value pairs of properties to apply to this class. Property names can be of any valid
+strings, except those in the reserved listed below:
+ * <code>mixins</code>
+ * <code>statics</code>
+ * <code>config</code>
+ * <code>alias</code>
+ * <code>self</code>
+ * <code>singleton</code>
+ * <code>alternateClassName</code>
+ * <code>override</code></p> 
+    </li>
+<li>createdFn: <code class="code">_ Js.callback</code>
+    <p>Optional callback to execute after the class is created, the execution scope of which
+(<code>this</code>) will be the newly created class itself.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdeprecate"><span class="keyword">method</span> deprecate</span> : <code class="type">'s1 't1.<br>         Js.js_string Js.t -><br>         Js.js_string Js.t -> 's1 Js.callback -> 't1 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Create a closure for deprecated code.</p>
+
+<pre><code>// This means Ext.oldMethod is only supported in 4.0.0beta and older.
+// If <a href="#!/api/Ext-method-getVersion" rel="Ext-method-getVersion" class="docClass">Ext.getVersion</a>('extjs') returns a version that is later than '4.0.0beta', for example '4.0.0RC',
+// the closure will not be invoked
+<a href="#!/api/Ext-method-deprecate" rel="Ext-method-deprecate" class="docClass">Ext.deprecate</a>('extjs', '4.0.0beta', function() {
+    Ext.oldMethod = Ext.newMethod;
+
+    ...
+});
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>packageName: <code class="code">Js.js_string Js.t</code>
+    <p>The package name</p> 
+    </li>
+<li>since: <code class="code">Js.js_string Js.t</code>
+    <p>The last version before it's deprecated</p> 
+    </li>
+<li>closure: <code class="code">_ Js.callback</code>
+    <p>The callback function to be executed with the specified version is less than the current version</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code>
+    <p>The execution scope (<code>this</code>) if the closure</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdestroy"><span class="keyword">method</span> destroy</span> : <code class="type">'u1. 'u1 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Attempts to destroy any objects passed to it by removing all event listeners, removing them from the
+DOM (if applicable) and calling their destroy functions (if available).  This method is primarily
+intended for arguments of type <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> and <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>, but any subclass of
+<a href="#!/api/Ext.util.Observable" rel="Ext.util.Observable" class="docClass">Ext.util.Observable</a> can be passed in.  Any number of elements and/or components can be
+passed into this function in a single call as separate arguments.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>args: <code class="code">_ Js.t</code>
+    <p>Any number of elements or components, or an Array of either of these to destroy.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODdestroyMembers"><span class="keyword">method</span> destroyMembers</span> : <code class="type">'v1. 'v1 Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Attempts to destroy and then remove a set of named properties of the passed object.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>o: <code class="code">_ Js.t</code>
+    <p>The object (most likely a Component) who's properties you wish to destroy.</p> 
+    </li>
+<li>args: <code class="code">Js.js_string Js.t</code>
+    <p>One or more names of the properties to destroy and remove from the object.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODeach"><span class="keyword">method</span> each</span> : <code class="type">'w1 'x1 'y1.<br>         'w1 Js.t -><br>         'x1 Js.callback -><br>         'y1 Js.t Js.optdef -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Iterates an array or an iterable value and invoke the given callback function for each item.</p>
+
+<pre><code>var countries = ['Vietnam', 'Singapore', 'United States', 'Russia'];
+
+<a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a>(countries, function(name, index, countriesItSelf) {
+    console.log(name);
+});
+
+var sum = function() {
+    var sum = 0;
+
+    <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a>(arguments, function(value) {
+        sum += value;
+    });
+
+    return sum;
+};
+
+sum(1, 2, 3); // returns 6
+</code></pre>
+
+<p>The iteration can be stopped by returning false in the function callback.</p>
+
+<pre><code><a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a>(countries, function(name, index, countriesItSelf) {
+    if (name === 'Singapore') {
+        return false; // break here
+    }
+});
+</code></pre>
+
+<p><a href="#!/api/Ext-method-each" rel="Ext-method-each" class="docClass">Ext.each</a> is alias for <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>iterable: <code class="code">_ Js.t</code>
+    <p>The value to be iterated. If this
+argument is not iterable, the callback function is called once.</p> 
+    </li>
+<li>fn: <code class="code">_ Js.callback</code>
+    <p>The callback function. If it returns false, the iteration stops and this method returns
+the current <code>index</code>.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the specified function is executed.</p> 
+    </li>
+<li>reverse: <code class="code">bool Js.t</code> (optional)
+    <p>Reverse the iteration order (loop from the end to the beginning)
+Defaults false</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">bool Js.t</code>
+    <p>See description for the <code>fn</code> parameter.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODencode"><span class="keyword">method</span> encode</span> : <code class="type">'z1. 'z1 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<p>Shorthand for <a href="#!/api/Ext.JSON-method-encode" rel="Ext.JSON-method-encode" class="docClass">Ext.JSON.encode</a></p>
+
+<p>Encodes an Object, Array or other value.</p>
+
+<p>If the environment's native JSON encoding is not being used (<a href="#!/api/Ext-property-USE_NATIVE_JSON" rel="Ext-property-USE_NATIVE_JSON" class="docClass">USE_NATIVE_JSON</a> is not set,
+or the environment does not support it), then ExtJS's encoding will be used. This allows the developer
+to add a <code>toJSON</code> method to their classes which need serializing to return a valid JSON representation
+of the object.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>o: <code class="code">_ Js.t</code>
+    <p>The variable to encode</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.js_string Js.t</code> <p>The JSON string</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODexclude"><span class="keyword">method</span> exclude</span> : <code class="type">'a2 'b2. 'a2 Js.js_array Js.t -> 'b2 Js.t Js.meth</code></pre><div class="info">
+<p>Convenient shortcut to <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a></p>
+
+<p>Explicitly exclude files from being loaded. Useful when used in conjunction with a broad include expression.
+Can be chained with more <code>require</code> and <code>exclude</code> methods, eg:</p>
+
+<pre><code><a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>('Ext.data.*').require('*');
+
+<a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">Ext.exclude</a>('widget.button*').require('widget.*');
+</code></pre>
+
+<p><a href="#!/api/Ext-method-exclude" rel="Ext-method-exclude" class="docClass">exclude</a> is alias for <a href="#!/api/Ext.Loader-method-exclude" rel="Ext.Loader-method-exclude" class="docClass">Ext.Loader.exclude</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>excludes: <code class="code">_ Js.js_array Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODfly"><span class="keyword">method</span> fly</span> : <code class="type">'c2.<br>         'c2 Js.t -><br>         Js.js_string Js.t Js.optdef -> <a href="Ext_dom_Element_Fly.t-c.html">Ext_dom_Element_Fly.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Gets the singleton <a href="#!/api/Ext.dom.Element.Fly" rel="Ext.dom.Element.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
+
+<p>Because it is a singleton, this Flyweight does not have an ID, and must be used and discarded in a single line.
+You may not keep and use the reference to this singleton over multiple lines because methods that you call
+may themselves make use of <a href="#!/api/Ext-method-fly" rel="Ext-method-fly" class="docClass">fly</a> and may change the DOM element to which the instance refers.</p>
+
+<p><a href="#!/api/Ext-method-fly" rel="Ext-method-fly" class="docClass">fly</a> is alias for <a href="#!/api/Ext.dom.AbstractElement-static-method-fly" rel="Ext.dom.AbstractElement-static-method-fly" class="docClass">Ext.dom.AbstractElement.fly</a>.</p>
+
+<p>Use this to make one-time references to DOM elements which are not going to be accessed again either by
+application code, or by Ext's classes. If accessing an element which will be processed regularly, then <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a> will be more appropriate to take advantage of the caching provided by the <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
+class.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>dom: <code class="code">_ Js.t</code>
+    <p>The dom node or id</p> 
+    </li>
+<li>named: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>Allows for creation of named reusable flyweights to prevent conflicts (e.g.
+internally Ext uses "_global")</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_dom_Element_Fly.t Js.t</code>
+    <p>The singleton flyweight object (or null if no matching element was found)</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODget"><span class="keyword">method</span> get</span> : <code class="type">'d2. 'd2 Js.t -> <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a> objects. <a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">get</a> is alias for <a href="#!/api/Ext.dom.Element-static-method-get" rel="Ext.dom.Element-static-method-get" class="docClass">Ext.dom.Element.get</a>.</p>
+
+<p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
+objects which encapsulate DOM elements. To retrieve a Component by its ID, use <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.</p>
+
+<p>When passing an id, it should not include the <code>#</code> character that is used for a css selector.</p>
+
+<pre><code>// For an element with id 'foo'
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('foo'); // Correct
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('#foo'); // Incorrect
+</code></pre>
+
+<p>Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with
+the same id via AJAX or DOM.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>el: <code class="code">_ Js.t</code>
+    <p>The id of the node, a DOM Node or an existing Element.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_dom_Element.t Js.t</code>
+    <p>The Element object (or null if no matching element was found)</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetBody"><span class="keyword">method</span> getBody</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Returns the current document body as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
+</div>
+<pre><span id="METHODgetClass"><span class="keyword">method</span> getClass</span> : <code class="type">'e2. 'e2 Js.t -> <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Get the class of the provided object; returns null if it's not an instance
+of any class created with <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>.</p>
+
+<p><a href="#!/api/Ext.ClassManager-method-getClass" rel="Ext.ClassManager-method-getClass" class="docClass">Ext.ClassManager.getClass</a> is usually invoked by the shorthand <a href="#!/api/Ext-method-getClass" rel="Ext-method-getClass" class="docClass">getClass</a>.</p>
+
+<pre><code>var component = new <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>();
+
+<a href="#!/api/Ext-method-getClass" rel="Ext-method-getClass" class="docClass">Ext.getClass</a>(component); // returns <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a>
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>object: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetClassName"><span class="keyword">method</span> getClassName</span> : <code class="type">'f2. 'f2 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<p>Get the name of the class by its reference or its instance;</p>
+
+<p><a href="#!/api/Ext.ClassManager-method-getName" rel="Ext.ClassManager-method-getName" class="docClass">Ext.ClassManager.getName</a> is usually invoked by the shorthand <a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">getClassName</a>.</p>
+
+<pre><code>Ext.getName(<a href="#!/api/Ext.Action" rel="Ext.Action" class="docClass">Ext.Action</a>); // returns "<a href="#!/api/Ext.Action" rel="Ext.Action" class="docClass">Ext.Action</a>"
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>object: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetCmp"><span class="keyword">method</span> getCmp</span> : <code class="type">'g2. Js.js_string Js.t -> 'g2 Js.t Js.meth</code></pre><div class="info">
+<p>This is shorthand reference to <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.
+Looks up an existing <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a> by <a href="#!/api/Ext.Component-cfg-id" rel="Ext.Component-cfg-id" class="docClass">id</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>id: <code class="code">Js.js_string Js.t</code>
+    <p>The component <a href="#!/api/Ext.Component-cfg-id" rel="Ext.Component-cfg-id" class="docClass">id</a></p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetDoc"><span class="keyword">method</span> getDoc</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Returns the current HTML document object as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
+</div>
+<pre><span id="METHODgetDom"><span class="keyword">method</span> getDom</span> : <code class="type">'h2 'i2. 'h2 Js.t -> 'i2 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the dom node for the passed String (id), dom node, or <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.
+Optional 'strict' flag is needed for IE since it can return 'name' and
+'id' elements by using getElementById.</p>
+
+<p>Here are some examples:</p>
+
+<pre><code>// gets dom node based on id
+var elDom = <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>('elId');
+// gets dom node based on the dom node
+var elDom1 = <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>(elDom);
+
+// If we don&amp;#39;t know if we are working with an
+// <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> or a dom node use <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>
+function(el){
+    var dom = <a href="#!/api/Ext-method-getDom" rel="Ext-method-getDom" class="docClass">Ext.getDom</a>(el);
+    // do something with the dom node
+}
+</code></pre>
+
+<p><strong>Note:</strong> the dom node to be found actually needs to exist (be rendered, etc)
+when this method is called to be successful.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>el: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>HTMLElement</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetHead"><span class="keyword">method</span> getHead</span> : <code class="type"><a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Returns the current document head as an <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a>.</p> <br>
+</div>
+<pre><span id="METHODgetNamespace"><span class="keyword">method</span> getNamespace</span> : <code class="type">Js.js_string Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<p>Get namespace prefix for a class name.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>className: <code class="code">Js.js_string Js.t</code>
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.js_string Js.t</code>
+    <p>Namespace prefix if it's known, otherwise undefined</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetOrientation"><span class="keyword">method</span> getOrientation</span> : <code class="type">Js.js_string Js.t Js.meth</code></pre><div class="info">
+<p>Returns the current orientation of the mobile device</p> 
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.js_string Js.t</code>
+    <p>Either 'portrait' or 'landscape'</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetScrollbarSize"><span class="keyword">method</span> getScrollbarSize</span> : <code class="type">'j2. bool Js.t Js.optdef -> 'j2 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the size of the browser scrollbars. This can differ depending on
+operating system settings, such as the theme or font size.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>force: <code class="code">bool Js.t</code> (optional)
+    <p>true to force a recalculation of the value.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>An object containing scrollbar sizes.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetStore"><span class="keyword">method</span> getStore</span> : <code class="type">'k2. 'k2 Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Shortcut to <a href="#!/api/Ext.data.StoreManager-method-lookup" rel="Ext.data.StoreManager-method-lookup" class="docClass">Ext.data.StoreManager.lookup</a>.</p>
+
+<p>Gets a registered Store by id</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>store: <code class="code">_ Js.t</code>
+    <p>The id of the Store, or a Store instance, or a store configuration</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODgetVersion"><span class="keyword">method</span> getVersion</span> : <code class="type">Js.js_string Js.t Js.optdef -> <a href="Ext_Version.t-c.html">Ext_Version.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Get the version number of the supplied package name; will return the last registered version
+(last <a href="#!/api/Ext-method-setVersion" rel="Ext-method-setVersion" class="docClass">Ext.setVersion</a> call) if there's no package name given.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>packageName: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The package name, for example: 'core', 'touch', 'extjs'</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_Version.t Js.t</code> <p>The version</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">'l2.<br>         'l2 Js.t Js.optdef -><br>         Js.js_string Js.t Js.optdef -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<p>Generates unique ids. If the element already has an id, it is unchanged</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>el: <code class="code">_ Js.t</code> (optional)
+    <p>The element to generate an id for</p> 
+    </li>
+<li>prefix: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>Id prefix (defaults "ext-gen")</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Js.js_string Js.t</code> <p>The generated Id.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODidentityFn"><span class="keyword">method</span> identityFn</span> : <code class="type">'m2. 'm2 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>A reusable identity function. The function will always return the first argument, unchanged.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>o: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisArray"><span class="keyword">method</span> isArray</span> : <code class="type">'n2. 'n2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a JavaScript Array, false otherwise.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>target: <code class="code">_ Js.t</code> <p>The target to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisBoolean"><span class="keyword">method</span> isBoolean</span> : <code class="type">'o2. 'o2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a boolean.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisDate"><span class="keyword">method</span> isDate</span> : <code class="type">'p2. 'p2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a JavaScript Date object, false otherwise.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>_object: <code class="code">_ Js.t</code> <p>The object to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisDefined"><span class="keyword">method</span> isDefined</span> : <code class="type">'q2. 'q2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is defined.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisElement"><span class="keyword">method</span> isElement</span> : <code class="type">'r2. 'r2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is an HTMLElement</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisEmpty"><span class="keyword">method</span> isEmpty</span> : <code class="type">'s2. 's2 Js.t -> bool Js.t Js.optdef -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is empty, false otherwise. The value is deemed to be empty if it is either:</p>
+
+<ul>
+<li><code>null</code></li>
+<li><code>undefined</code></li>
+<li>a zero-length array</li>
+<li>a zero-length string (Unless the <code>allowEmptyString</code> parameter is set to <code>true</code>)</li>
+</ul> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code>
+    <p>The value to test</p> 
+    </li>
+<li>allowEmptyString: <code class="code">bool Js.t</code> (optional)
+    <p>true to allow empty strings (defaults to false)</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisFunction"><span class="keyword">method</span> isFunction</span> : <code class="type">'t2. 't2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a JavaScript Function, false otherwise.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisIterable"><span class="keyword">method</span> isIterable</span> : <code class="type">'u2. 'u2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns <code>true</code> if the passed value is iterable, that is, if elements of it are addressable using array
+notation with numeric indices, <code>false</code> otherwise.</p>
+
+<p>Arrays and function <code>arguments</code> objects are iterable. Also HTML collections such as <code>NodeList</code> and `HTMLCollection'
+are iterable.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisNumber"><span class="keyword">method</span> isNumber</span> : <code class="type">'v2. 'v2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a number. Returns false for non-finite numbers.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisNumeric"><span class="keyword">method</span> isNumeric</span> : <code class="type">'w2. 'w2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Validates that a value is numeric.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code>
+    <p>Examples: 1, '1', '2.34'</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">bool Js.t</code> <p>True if numeric, false otherwise</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisObject"><span class="keyword">method</span> isObject</span> : <code class="type">'x2. 'x2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a JavaScript Object, false otherwise.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisPrimitive"><span class="keyword">method</span> isPrimitive</span> : <code class="type">'y2. 'y2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a JavaScript 'primitive', a string, number or boolean.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisString"><span class="keyword">method</span> isString</span> : <code class="type">'z2. 'z2 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a string.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODisTextNode"><span class="keyword">method</span> isTextNode</span> : <code class="type">'a3. 'a3 Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<p>Returns true if the passed value is a TextNode</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code> <p>The value to test</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODiterate"><span class="keyword">method</span> iterate</span> : <code class="type">'b3 'c3 'd3.<br>         'b3 Js.t -> 'c3 Js.callback -> 'd3 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Iterates either an array or an object. This method delegates to
+<a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> if the given value is iterable, and <a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> otherwise.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>_object: <code class="code">_ Js.t</code>
+    <p>The object or array to be iterated.</p> 
+    </li>
+<li>fn: <code class="code">_ Js.callback</code>
+    <p>The function to be called for each iteration. See and <a href="#!/api/Ext.Array-method-each" rel="Ext.Array-method-each" class="docClass">Ext.Array.each</a> and
+<a href="#!/api/Ext.Object-method-each" rel="Ext.Object-method-each" class="docClass">Ext.Object.each</a> for detailed lists of arguments passed to this function depending on the given object
+type that is being iterated.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the specified function is executed.
+Defaults to the object being iterated itself.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODlog"><span class="keyword">method</span> log</span> : <code class="type">'e3. 'e3 Js.t Js.optdef -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Logs a message. If a console is present it will be used. On Opera, the method
+"opera.postError" is called. In other cases, the message is logged to an array
+"Ext.log.out". An attached debugger can watch this array and view the log. The
+log buffer is limited to a maximum of "Ext.log.max" entries (defaults to 250).
+The <code>Ext.log.out</code> array can also be written to a popup window by entering the
+following in the URL bar (a "bookmarklet"):</p>
+
+<pre><code>javascript:void(Ext.log.show());
+</code></pre>
+
+<p>If additional parameters are passed, they are joined and appended to the message.
+A technique for tracing entry and exit of a function is this:</p>
+
+<pre><code>function foo () {
+    <a href="#!/api/Ext-method-log" rel="Ext-method-log" class="docClass">Ext.log</a>({ indent: 1 }, '&gt;&gt; foo');
+
+    // log statements in here or methods called from here will be indented
+    // by one step
+
+    <a href="#!/api/Ext-method-log" rel="Ext-method-log" class="docClass">Ext.log</a>({ outdent: 1 }, '&lt;&lt; foo');
+}
+</code></pre>
+
+<p>This method does nothing in a release build.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>options: <code class="code">_ Js.t</code> (optional)
+    <p>The message to log or an options object with any
+of the following properties:</p>
+
+<ul>
+<li><code>msg</code>: The message to log (required).</li>
+<li><code>level</code>: One of: "error", "warn", "info" or "log" (the default is "log").</li>
+<li><code>dump</code>: An object to dump to the log as part of the message.</li>
+<li><code>stack</code>: True to include a stack trace in the log.</li>
+<li><code>indent</code>: Cause subsequent log statements to be indented one step.</li>
+<li><code>outdent</code>: Cause this and following statements to be one step less indented.</li>
+</ul> 
+    </li>
+<li>message: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The message to log (required unless specified in
+options object).</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODmerge"><span class="keyword">method</span> merge</span> : <code class="type">'f3 'g3 'h3. 'f3 Js.t -> 'g3 Js.t -> 'h3 Js.t Js.meth</code></pre><div class="info">
+<p>A convenient alias method for <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a>.</p>
+
+<p>Merges any number of objects recursively without referencing them or their children.</p>
+
+<pre><code>var extjs = {
+    companyName: 'Ext JS',
+    products: ['Ext JS', 'Ext GWT', 'Ext Designer'],
+    isSuperCool: true,
+    office: {
+        size: 2000,
+        location: 'Palo Alto',
+        isFun: true
+    }
+};
+
+var newStuff = {
+    companyName: 'Sencha Inc.',
+    products: ['Ext JS', 'Ext GWT', 'Ext Designer', 'Sencha Touch', 'Sencha Animator'],
+    office: {
+        size: 40000,
+        location: 'Redwood City'
+    }
+};
+
+var sencha = <a href="#!/api/Ext.Object-method-merge" rel="Ext.Object-method-merge" class="docClass">Ext.Object.merge</a>(extjs, newStuff);
+
+// extjs and sencha then equals to
+{
+    companyName: 'Sencha Inc.',
+    products: ['Ext JS', 'Ext GWT', 'Ext Designer', 'Sencha Touch', 'Sencha Animator'],
+    isSuperCool: true,
+    office: {
+        size: 40000,
+        location: 'Redwood City',
+        isFun: true
+    }
+}
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>destination: <code class="code">_ Js.t</code>
+    <p>The object into which all subsequent objects are merged.</p> 
+    </li>
+<li>_object: <code class="code">_ Js.t</code>
+    <p>Any number of objects to merge into the destination.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p>merged The destination object with all passed objects merged in.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODnamespace"><span class="keyword">method</span> namespace</span> : <code class="type">'i3. Js.js_string Js.t -> 'i3 Js.t Js.meth</code></pre><div class="info">
+<p>Creates namespaces to be used for scoping variables and classes so that they are not global.
+Specifying the last node of a namespace implicitly creates all other nodes. Usage:</p>
+
+<pre><code><a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>('Company', 'Company.data');
+
+// equivalent and preferable to the above syntax
+<a href="#!/api/Ext-method-ns" rel="Ext-method-ns" class="docClass">Ext.ns</a>('Company.data');
+
+Company.Widget = function() { ... };
+
+Company.data.CustomStore = function(config) { ... };
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>namespaces: <code class="code">Js.js_string Js.t</code>
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p>The namespace object.
+(If multiple arguments are passed, this will be the last namespace created)</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODns"><span class="keyword">method</span> ns</span> : <code class="type">'j3. Js.js_string Js.t -> 'j3 Js.t Js.meth</code></pre><div class="info">
+<p>Convenient alias for <a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>.</p>
+
+<p>Creates namespaces to be used for scoping variables and classes so that they are not global.
+Specifying the last node of a namespace implicitly creates all other nodes. Usage:</p>
+
+<pre><code><a href="#!/api/Ext-method-namespace" rel="Ext-method-namespace" class="docClass">Ext.namespace</a>('Company', 'Company.data');
+
+// equivalent and preferable to the above syntax
+<a href="#!/api/Ext-method-ns" rel="Ext-method-ns" class="docClass">Ext.ns</a>('Company.data');
+
+Company.Widget = function() { ... };
+
+Company.data.CustomStore = function(config) { ... };
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>namespaces: <code class="code">Js.js_string Js.t</code>
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p>The namespace object.
+(If multiple arguments are passed, this will be the last namespace created)</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODon"><span class="keyword">method</span> on</span> : <code class="type">'k3 'l3 'm3 'n3 'o3.<br>         'k3 Js.t -><br>         'l3 Js.callback Js.optdef -><br>         'm3 Js.t Js.optdef -> 'n3 Js.t Js.optdef -> 'o3 Js.t Js.meth</code></pre><div class="info">
+<p>Shorthand for the <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">Ext.util.Observable.addListener</a> method of the
+<a href="#!/api/Ext-property-globalEvents" rel="Ext-property-globalEvents" class="docClass">globalEvents</a> Observable instance.</p>
+
+<p>Appends an event handler to this object.  For example:</p>
+
+<pre><code>myGridPanel.on("mouseover", this.onMouseOver, this);
+</code></pre>
+
+<p>The method also allows for a single argument to be passed which is a config object
+containing properties which specify multiple events. For example:</p>
+
+<pre><code>myGridPanel.on({
+    cellClick: this.onCellClick,
+    mouseover: this.onMouseOver,
+    mouseout: this.onMouseOut,
+    scope: this // Important. Ensure "this" is correct during handler execution
+});
+</code></pre>
+
+<p>One can also specify options for each event handler separately:</p>
+
+<pre><code>myGridPanel.on({
+    cellClick: {fn: this.onCellClick, scope: this, single: true},
+    mouseover: {fn: panel.onMouseOver, scope: panel}
+});
+</code></pre>
+
+<p><em>Names</em> of methods in a specified scope may also be used. Note that
+<code>scope</code> MUST be specified to use this option:</p>
+
+<pre><code>myGridPanel.on({
+    cellClick: {fn: 'onCellClick', scope: this, single: true},
+    mouseover: {fn: 'onMouseOver', scope: panel}
+});
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>eventName: <code class="code">_ Js.t</code>
+    <p>The name of the event to listen for.
+May also be an object who's property names are event names.</p> 
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    <p>The method the event invokes, or <em>if <code>scope</code> is specified, the </em>name* of the method within
+the specified <code>scope</code>.  Will be called with arguments
+given to <a href="#!/api/Ext.util.Observable-method-fireEvent" rel="Ext.util.Observable-method-fireEvent" class="docClass">fireEvent</a> plus the <code>options</code> parameter described below.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the handler function is
+executed. <strong>If omitted, defaults to the object which fired the event.</strong></p> 
+    </li>
+<li>options: <code class="code">_ Js.t</code> (optional)
+    <p>An object containing handler configuration.</p>
+
+
+
+
+<p><strong>Note:</strong> Unlike in ExtJS 3.x, the options object will also be passed as the last
+argument to every event handler.</p>
+
+
+
+
+<p>This object may contain any of the following properties:</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code>
+    <p><strong>Only when the <code>destroyable</code> option is specified. </strong></p>
+
+
+
+
+<p> A <code>Destroyable</code> object. An object which implements the <code>destroy</code> method which removes all listeners added in this call. For example:</p>
+
+
+
+
+<pre><code>this.btnListeners =  = myButton.on({
+    destroyable: true
+    mouseover:   function() { console.log('mouseover'); },
+    mouseout:    function() { console.log('mouseout'); },
+    click:       function() { console.log('click'); }
+});
+</code></pre>
+
+
+
+
+<p>And when those listeners need to be removed:</p>
+
+
+
+
+<pre><code><a href="#!/api/Ext-method-destroy" rel="Ext-method-destroy" class="docClass">Ext.destroy</a>(this.btnListeners);
+</code></pre>
+
+
+
+
+<p>or</p>
+
+
+
+
+<pre><code>this.btnListeners.destroy();
+</code></pre> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODonDocumentReady"><span class="keyword">method</span> onDocumentReady</span> : <code class="type">'p3 'q3 'r3.<br>         'p3 Js.callback -> 'q3 Js.t Js.optdef -> 'r3 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Adds a listener to be notified when the document is ready (before onload and before images are loaded).</p>
+
+<p><a href="#!/api/Ext-method-onDocumentReady" rel="Ext-method-onDocumentReady" class="docClass">onDocumentReady</a> is an alias for <a href="#!/api/Ext.EventManager-method-onDocumentReady" rel="Ext.EventManager-method-onDocumentReady" class="docClass">Ext.EventManager.onDocumentReady</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    </li>
+<li>options: <code class="code">_ Js.t</code> (optional)
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODonReady"><span class="keyword">method</span> onReady</span> : <code class="type">'s3 't3 'u3. 's3 Js.callback -> 't3 Js.t -> 'u3 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Adds a function to be called when the DOM is ready, and all required classes have been loaded.</p>
+
+<p>If the DOM is ready and all classes are loaded, the passed function is executed immediately.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    </li>
+<li>scope: <code class="code">_ Js.t</code>
+    </li>
+<li>options: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODoverride"><span class="keyword">method</span> override</span> : <code class="type">'v3 'w3. 'v3 Js.t -> 'w3 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Overrides members of the specified <code>target</code> with the given values.</p>
+
+<p>If the <code>target</code> is a class declared using <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>, the
+<code>override</code> method of that class is called (see <a href="#!/api/Ext.Base-static-method-override" rel="Ext.Base-static-method-override" class="docClass">Ext.Base.override</a>) given
+the <code>overrides</code>.</p>
+
+<p>If the <code>target</code> is a function, it is assumed to be a constructor and the contents
+of <code>overrides</code> are applied to its <code>prototype</code> using <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a>.</p>
+
+<p>If the <code>target</code> is an instance of a class declared using <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>,
+the <code>overrides</code> are applied to only that instance. In this case, methods are
+specially processed to allow them to use <a href="#!/api/Ext.Base-method-callParent" rel="Ext.Base-method-callParent" class="docClass">Ext.Base.callParent</a>.</p>
+
+<pre><code> var panel = new <a href="#!/api/Ext.panel.Panel" rel="Ext.panel.Panel" class="docClass">Ext.Panel</a>({ ... });
+
+ <a href="#!/api/Ext-method-override" rel="Ext-method-override" class="docClass">Ext.override</a>(panel, {
+     initComponent: function () {
+         // extra processing...
+
+         this.callParent();
+     }
+ });
+</code></pre>
+
+<p>If the <code>target</code> is none of these, the <code>overrides</code> are applied to the <code>target</code>
+using <a href="#!/api/Ext-method-apply" rel="Ext-method-apply" class="docClass">Ext.apply</a>.</p>
+
+<p>Please refer to <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a> and <a href="#!/api/Ext.Base-static-method-override" rel="Ext.Base-static-method-override" class="docClass">Ext.Base.override</a> for
+further details.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>target: <code class="code">_ Js.t</code>
+    <p>The target to override.</p> 
+    </li>
+<li>overrides: <code class="code">_ Js.t</code>
+    <p>The properties to add or replace on <code>target</code>.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODpass"><span class="keyword">method</span> pass</span> : <code class="type">'x3 'y3 'z3 'a4.<br>         'x3 Js.callback -><br>         'y3 Js.js_array Js.t -> 'z3 Js.t Js.optdef -> 'a4 Js.callback Js.meth</code></pre><div class="info">
+<p>Create a new function from the provided <code>fn</code>, the arguments of which are pre-set to <code>args</code>.
+New arguments passed to the newly created callback when it's invoked are appended after the pre-set ones.
+This is especially useful when creating callbacks.</p>
+
+<p>For example:</p>
+
+<pre><code>var originalFunction = function(){
+    alert(<a href="#!/api/Ext.Array-method-from" rel="Ext.Array-method-from" class="docClass">Ext.Array.from</a>(arguments).join(' '));
+};
+
+var callback = <a href="#!/api/Ext.Function-method-pass" rel="Ext.Function-method-pass" class="docClass">Ext.Function.pass</a>(originalFunction, ['Hello', 'World']);
+
+callback(); // alerts 'Hello World'
+callback('by Me'); // alerts 'Hello World by Me'
+</code></pre>
+
+<p><a href="#!/api/Ext-method-pass" rel="Ext-method-pass" class="docClass">Ext.pass</a> is alias for <a href="#!/api/Ext.Function-method-pass" rel="Ext.Function-method-pass" class="docClass">Ext.Function.pass</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fn: <code class="code">_ Js.callback</code>
+    <p>The original function</p> 
+    </li>
+<li>args: <code class="code">_ Js.js_array Js.t</code>
+    <p>The arguments to pass to new callback</p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope (<code>this</code> reference) in which the function is executed.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.callback</code> <p>The new callback function</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODpreg"><span class="keyword">method</span> preg</span> : <code class="type">'b4. Js.js_string Js.t -> 'b4 Js.callback -> unit Js.meth</code></pre><div class="info">
+<p>Shorthand for <a href="#!/api/Ext.PluginManager-method-registerType" rel="Ext.PluginManager-method-registerType" class="docClass">Ext.PluginManager.registerType</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>ptype: <code class="code">Js.js_string Js.t</code>
+    <p>The ptype mnemonic string by which the Plugin class
+may be looked up.</p> 
+    </li>
+<li>cls: <code class="code">_ Js.callback</code> <p>The new Plugin class.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODquery"><span class="keyword">method</span> query</span> : <code class="type">Js.js_string Js.t -><br>       Dom_html.element Js.t Js.optdef -><br>       Js.js_string Js.t Js.optdef -><br>       bool Js.t Js.optdef -> Dom_html.element Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
+<p>Shorthand of <a href="#!/api/Ext.dom.Query-method-select" rel="Ext.dom.Query-method-select" class="docClass">Ext.dom.Query.select</a></p>
+
+<p>Selects an array of DOM nodes by CSS/XPath selector.</p>
+
+<p>Uses <a href="https://developer.mozilla.org/en/DOM/document.querySelectorAll">document.querySelectorAll</a> if browser supports that, otherwise falls back to
+<a href="#!/api/Ext.dom.Query-method-jsSelect" rel="Ext.dom.Query-method-jsSelect" class="docClass">Ext.dom.Query.jsSelect</a> to do the work.</p>
+
+<p>Aliased as <a href="#!/api/Ext-method-query" rel="Ext-method-query" class="docClass">query</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>path: <code class="code">Js.js_string Js.t</code>
+    <p>The selector/xpath query</p> 
+    </li>
+<li>root: <code class="code">Dom_html.element Js.t</code> (optional)
+    <p>The start of the query.</p> 
+     Defaults to: document
+    </li>
+<li>_type: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>Either "select" or "simple" for a simple selector match (only valid when
+used when the call is deferred to the jsSelect method)</p> 
+     Defaults to: "select"
+    </li>
+<li>single: <code class="code">bool Js.t</code> (optional)
+    <p>Pass <code>true</code> to select only the first matching node using <code>document.querySelector</code> (where available)</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Dom_html.element Js.t Js.js_array Js.t</code>
+    <p>An array of DOM elements (not a NodeList as returned by <code>querySelectorAll</code>).</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODregStore"><span class="keyword">method</span> regStore</span> : <code class="type">'c4. Js.js_string Js.t -> 'c4 Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Creates a new store for the given id and config, then registers it with the <a href="#!/api/Ext.data.StoreManager" rel="Ext.data.StoreManager" class="docClass">Store Manager</a>.
+Sample usage:</p>
+
+<pre><code><a href="#!/api/Ext-method-regStore" rel="Ext-method-regStore" class="docClass">Ext.regStore</a>('AllUsers', {
+    model: 'User'
+});
+
+// the store can now easily be used throughout the application
+new Ext.List({
+    store: 'AllUsers',
+    ... other config
+});
+</code></pre> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>id: <code class="code">Js.js_string Js.t</code>
+    <p>The id to set on the new store</p> 
+    </li>
+<li>config: <code class="code">_ Js.t</code> <p>The store config</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODremoveNode"><span class="keyword">method</span> removeNode</span> : <code class="type">Dom_html.element Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Removes a DOM node from the document.</p>
+
+<p>Removes this element from the document, removes all DOM event listeners, and
+deletes the cache reference. All DOM event listeners are removed from this element.
+If <a href="#!/api/Ext-property-enableNestedListenerRemoval" rel="Ext-property-enableNestedListenerRemoval" class="docClass">Ext.enableNestedListenerRemoval</a> is
+<code>true</code>, then DOM event listeners are also removed from all child nodes.
+The body node will be ignored if passed in.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>node: <code class="code">Dom_html.element Js.t</code> <p>The node to remove</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODrequire"><span class="keyword">method</span> require</span> : <code class="type">'d4 'e4 'f4 'g4.<br>         'd4 Js.t -><br>         'e4 Js.callback Js.optdef -><br>         'f4 Js.t Js.optdef -> 'g4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Loads all classes by the given names and all their direct dependencies; optionally executes
+the given callback function when finishes, within the optional scope.</p>
+
+<p><a href="#!/api/Ext-method-require" rel="Ext-method-require" class="docClass">require</a> is alias for <a href="#!/api/Ext.Loader-method-require" rel="Ext.Loader-method-require" class="docClass">Ext.Loader.require</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>expressions: <code class="code">_ Js.t</code>
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    </li>
+<li>excludes: <code class="code">_ Js.t</code> (optional)
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODresumeLayouts"><span class="keyword">method</span> resumeLayouts</span> : <code class="type">'h4. 'h4 Js.t -> unit Js.meth</code></pre><pre><span id="METHODselect"><span class="keyword">method</span> select</span> : <code class="type">Js.js_string Js.t -><br>       bool Js.t Js.optdef -> <a href="Ext_dom_CompositeElement.t-c.html">Ext_dom_CompositeElement.t</a> Js.t Js.meth</code></pre><div class="info">
+<p>Shorthand of <a href="#!/api/Ext.dom.Element-method-select" rel="Ext.dom.Element-method-select" class="docClass">Ext.Element.select</a>.</p>
+
+<p>Creates a <a href="#!/api/Ext.dom.CompositeElement" rel="Ext.dom.CompositeElement" class="docClass">Ext.CompositeElement</a> for child nodes based on the passed CSS selector (the selector should not contain an id).</p>
+
+<p><strong>Defined in override Ext.dom.AbstractElement_traversal.</strong></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>selector: <code class="code">Js.js_string Js.t</code>
+    <p>The CSS selector</p> 
+    </li>
+<li>unique: <code class="code">bool Js.t</code> (optional)
+    <p>True to create a unique <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> for each element. Defaults to a shared flyweight object.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">Ext_dom_CompositeElement.t Js.t</code>
+    <p>The composite element</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetGlyphFontFamily"><span class="keyword">method</span> setGlyphFontFamily</span> : <code class="type">Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<p>Sets the default font-family to use for components that support a <code>glyph</code> config.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>fontFamily: <code class="code">Js.js_string Js.t</code>
+    <p>The name of the font-family</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsetVersion"><span class="keyword">method</span> setVersion</span> : <code class="type">'i4 'j4. Js.js_string Js.t -> 'i4 Js.t -> 'j4 Js.t Js.meth</code></pre><div class="info">
+<p>Set version number for the given package name.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>packageName: <code class="code">Js.js_string Js.t</code>
+    <p>The package name, for example: 'core', 'touch', 'extjs'</p> 
+    </li>
+<li>version: <code class="code">_ Js.t</code>
+    <p>The version, for example: '1.2.3alpha', '2.4.0-dev'</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODsuspendLayouts"><span class="keyword">method</span> suspendLayouts</span> : <code class="type">unit Js.meth</code></pre><pre><span id="METHODsyncRequire"><span class="keyword">method</span> syncRequire</span> : <code class="type">'k4 'l4 'm4 'n4.<br>         'k4 Js.t -><br>         'l4 Js.callback Js.optdef -><br>         'm4 Js.t Js.optdef -> 'n4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Synchronously loads all classes by the given names and all their direct dependencies; optionally
+executes the given callback function when finishes, within the optional scope.</p>
+
+<p><a href="#!/api/Ext-method-syncRequire" rel="Ext-method-syncRequire" class="docClass">syncRequire</a> is alias for <a href="#!/api/Ext.Loader-method-syncRequire" rel="Ext.Loader-method-syncRequire" class="docClass">Ext.Loader.syncRequire</a>.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>expressions: <code class="code">_ Js.t</code>
+    </li>
+<li>fn: <code class="code">_ Js.callback</code> (optional)
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    </li>
+<li>excludes: <code class="code">_ Js.t</code> (optional)
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODtoArray"><span class="keyword">method</span> toArray</span> : <code class="type">'o4 'p4.<br>         'o4 Js.t -><br>         Js.number Js.t Js.optdef -><br>         Js.number Js.t Js.optdef -> 'p4 Js.js_array Js.t Js.meth</code></pre><div class="info">
+<p>Converts any iterable (numeric indices and a length property) into a true array.</p>
+
+<pre><code>function test() {
+    var args = <a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>(arguments),
+        fromSecondToLastArgs = <a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>(arguments, 1);
+
+    alert(args.join(' '));
+    alert(fromSecondToLastArgs.join(' '));
+}
+
+test('just', 'testing', 'here'); // alerts 'just testing here';
+                                 // alerts 'testing here';
+
+<a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>(document.getElementsByTagName('div')); // will convert the NodeList into an array
+<a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>('splitted'); // returns ['s', 'p', 'l', 'i', 't', 't', 'e', 'd']
+<a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a>('splitted', 0, 3); // returns ['s', 'p', 'l']
+</code></pre>
+
+<p><a href="#!/api/Ext-method-toArray" rel="Ext-method-toArray" class="docClass">Ext.toArray</a> is alias for <a href="#!/api/Ext.Array-method-toArray" rel="Ext.Array-method-toArray" class="docClass">Ext.Array.toArray</a></p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>iterable: <code class="code">_ Js.t</code>
+    <p>the iterable object to be turned into a true Array.</p> 
+    </li>
+<li>start: <code class="code">Js.number Js.t</code> (optional)
+    <p>a zero-based index that specifies the start of extraction. Defaults to 0</p> 
+    </li>
+<li>_end: <code class="code">Js.number Js.t</code> (optional)
+    <p>a 1-based index that specifies the end of extraction. Defaults to the last
+index of the iterable value</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.js_array Js.t</code> <p>array</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODtypeOf"><span class="keyword">method</span> typeOf</span> : <code class="type">'q4. 'q4 Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<p>Returns the type of the given variable in string format. List of possible values are:</p>
+
+<ul>
+<li><code>undefined</code>: If the given value is <code>undefined</code></li>
+<li><code>null</code>: If the given value is <code>null</code></li>
+<li><code>string</code>: If the given value is a string</li>
+<li><code>number</code>: If the given value is a number</li>
+<li><code>boolean</code>: If the given value is a boolean value</li>
+<li><code>date</code>: If the given value is a <code>Date</code> object</li>
+<li><code>function</code>: If the given value is a function reference</li>
+<li><code>object</code>: If the given value is an object</li>
+<li><code>array</code>: If the given value is an array</li>
+<li><code>regexp</code>: If the given value is a regular expression</li>
+<li><code>element</code>: If the given value is a DOM Element</li>
+<li><code>textnode</code>: If the given value is a DOM text node and contains something other than whitespace</li>
+<li><code>whitespace</code>: If the given value is a DOM text node and contains only whitespace</li>
+</ul> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code>
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODun"><span class="keyword">method</span> un</span> : <code class="type">'r4 's4.<br>         Js.js_string Js.t -> 'r4 Js.callback -> 's4 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<p>Shorthand for the <a href="#!/api/Ext.util.Observable-method-removeListener" rel="Ext.util.Observable-method-removeListener" class="docClass">Ext.util.Observable.removeListener</a> method of the
+<a href="#!/api/Ext-property-globalEvents" rel="Ext-property-globalEvents" class="docClass">globalEvents</a> Observable instance.</p>
+
+<p>Removes an event handler.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>eventName: <code class="code">Js.js_string Js.t</code>
+    <p>The type of event the handler was associated with.</p> 
+    </li>
+<li>fn: <code class="code">_ Js.callback</code>
+    <p>The handler to remove. <strong>This must be a reference to the function passed into the
+<a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> call.</strong></p> 
+    </li>
+<li>scope: <code class="code">_ Js.t</code> (optional)
+    <p>The scope originally specified for the handler. It must be the same as the
+scope argument specified in the original call to <a href="#!/api/Ext.util.Observable-method-addListener" rel="Ext.util.Observable-method-addListener" class="docClass">addListener</a> or the listener will not be removed.</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODvalueFrom"><span class="keyword">method</span> valueFrom</span> : <code class="type">'t4 'u4 'v4. 't4 Js.t -> 'u4 Js.t -> bool Js.t Js.optdef -> 'v4 Js.t Js.meth</code></pre><div class="info">
+<p>Returns the given value itself if it's not empty, as described in <a href="#!/api/Ext-method-isEmpty" rel="Ext-method-isEmpty" class="docClass">isEmpty</a>; returns the default
+value (second argument) otherwise.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>value: <code class="code">_ Js.t</code>
+    <p>The value to test</p> 
+    </li>
+<li>defaultValue: <code class="code">_ Js.t</code>
+    <p>The value to return if the original value is empty</p> 
+    </li>
+<li>allowBlank: <code class="code">bool Js.t</code> (optional)
+    <p>true to allow zero length strings to qualify as non-empty (defaults to false)</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>value, if non-empty, else defaultValue</p> 
+    </li>
+</ul>
+<br>
+</div>
+<pre><span id="METHODwidget"><span class="keyword">method</span> widget</span> : <code class="type">'w4 'x4.<br>         Js.js_string Js.t Js.optdef -> 'w4 Js.t Js.optdef -> 'x4 Js.t Js.meth</code></pre><div class="info">
+<p>Convenient shorthand to create a widget by its xtype or a config object.
+See also <a href="#!/api/Ext.ClassManager-method-instantiateByAlias" rel="Ext.ClassManager-method-instantiateByAlias" class="docClass">Ext.ClassManager.instantiateByAlias</a>.</p>
+
+<pre><code> var button = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('button'); // Equivalent to <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.button');
+
+ var panel = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>('panel', { // Equivalent to <a href="#!/api/Ext-method-create" rel="Ext-method-create" class="docClass">Ext.create</a>('widget.panel')
+     title: 'Panel'
+ });
+
+ var grid = <a href="#!/api/Ext-method-widget" rel="Ext-method-widget" class="docClass">Ext.widget</a>({
+     xtype: 'grid',
+     ...
+ });
+</code></pre>
+
+<p>If a <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">component</a> instance is passed, it is simply returned.</p> 
+<p>
+
+    <b>Parameters</b>:
+    <ul>
+<li>name: <code class="code">Js.js_string Js.t</code> (optional)
+    <p>The xtype of the widget to create.</p> 
+    </li>
+<li>config: <code class="code">_ Js.t</code> (optional)
+    <p>The configuration object for the widget constructor.</p> 
+    </li>
+</ul>
+
+<p>
+
+    <b>Returns</b>:
+    <ul>
+<li><code class="code">_ Js.t</code> <p>The widget instance</p> 
+    </li>
+</ul>
+<br>
 </div>
 </body></html>

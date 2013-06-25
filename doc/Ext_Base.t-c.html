@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,6 +142,40 @@
 <center><h1>Class type <a href="type_Ext_Base.t.html">Ext_Base.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_Base.t-c.html">..</a> <code class="code">end</code></pre><hr width="100%">
+<pre><span id="METHODself"><span class="keyword">method</span> self</span> : <code class="type"><a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>Get the reference to the current class from which this object was instantiated. Unlike <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>,
+<code>this.self</code> is scope-dependent and it's meant to be used for dynamic inheritance. See <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>
+for a detailed comparison</p>
+
+<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Cat', {
+    statics: {
+        speciesName: 'Cat' // My.Cat.speciesName = 'Cat'
+    },
+
+    constructor: function() {
+        alert(this.self.speciesName); // dependent on 'this'
+    },
+
+    clone: function() {
+        return new this.self();
+    }
+});
+
+
+<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.SnowLeopard', {
+    extend: 'My.Cat',
+    statics: {
+        speciesName: 'Snow Leopard'         // My.SnowLeopard.speciesName = 'Snow Leopard'
+    }
+});
+
+var cat = new My.Cat();                     // alerts 'Cat'
+var snowLeopard = new My.SnowLeopard();     // alerts 'Snow Leopard'
+
+var clone = snowLeopard.clone();
+alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">Ext.getClassName</a>(clone));             // alerts 'My.SnowLeopard'
+</code></pre> <br>
+</div>
 <pre><span id="METHODcallParent"><span class="keyword">method</span> callParent</span> : <code class="type">'a 'b. 'a Js.t -> 'b Js.t Js.meth</code></pre><div class="info">
 <p>Call the "parent" method of the current method. That is the method previously
 overridden by derivation or by an override (see <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>).</p>
@@ -413,40 +451,6 @@ alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" cla
 alert(clone.groupName);                 // alerts 'Cat'
 
 alert(My.Cat.totalCreated);             // alerts 3
-</code></pre> <br>
-</div>
-<pre><span id="METHODself"><span class="keyword">method</span> self</span> : <code class="type"><a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>Get the reference to the current class from which this object was instantiated. Unlike <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>,
-<code>this.self</code> is scope-dependent and it's meant to be used for dynamic inheritance. See <a href="#!/api/Ext.Base-method-statics" rel="Ext.Base-method-statics" class="docClass">statics</a>
-for a detailed comparison</p>
-
-<pre><code><a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.Cat', {
-    statics: {
-        speciesName: 'Cat' // My.Cat.speciesName = 'Cat'
-    },
-
-    constructor: function() {
-        alert(this.self.speciesName); // dependent on 'this'
-    },
-
-    clone: function() {
-        return new this.self();
-    }
-});
-
-
-<a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>('My.SnowLeopard', {
-    extend: 'My.Cat',
-    statics: {
-        speciesName: 'Snow Leopard'         // My.SnowLeopard.speciesName = 'Snow Leopard'
-    }
-});
-
-var cat = new My.Cat();                     // alerts 'Cat'
-var snowLeopard = new My.SnowLeopard();     // alerts 'Snow Leopard'
-
-var clone = snowLeopard.clone();
-alert(<a href="#!/api/Ext-method-getClassName" rel="Ext-method-getClassName" class="docClass">Ext.getClassName</a>(clone));             // alerts 'My.SnowLeopard'
 </code></pre> <br>
 </div>
 </body></html>

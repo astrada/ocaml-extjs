@@ -59,6 +59,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -79,6 +81,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -93,6 +96,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -140,30 +144,18 @@
 <center><h1>Class type <a href="type_Ext_dd_DragTracker.configs.html">Ext_dd_DragTracker.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_dd_DragTracker.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 <li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
+<li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODonBeforeStart"><span class="keyword">method</span> onBeforeStart</span> : <code class="type">((< autoStart : 'c. 'c Js.t Js.prop; constrainTo : 'd. 'd Js.t Js.prop;<br>           delegate : Js.js_string Js.t Js.prop; listeners : 'e. 'e Js.t Js.prop;<br>           onBeforeStart : 'a;<br>           onDrag : ('b Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback<br>                    Js.writeonly_prop;<br>           onEnd : ('b Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback<br>                   Js.writeonly_prop;<br>           onStart : ('b Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback<br>                     Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop; preventDefault : bool Js.t Js.prop;<br>           stopEvent : bool Js.t Js.prop; tolerance : Js.number Js.t Js.prop;<br>           trackOver : bool Js.t Js.prop; .. ><br>         as 'b)<br>        Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
-See method <code class="code">t.onBeforeStart</code><br>
-</div>
-<pre><span id="METHODonDrag"><span class="keyword">method</span> onDrag</span> : <code class="type">('b Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onDrag</code><br>
-</div>
-<pre><span id="METHODonEnd"><span class="keyword">method</span> onEnd</span> : <code class="type">('b Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onEnd</code><br>
-</div>
-<pre><span id="METHODonStart"><span class="keyword">method</span> onStart</span> : <code class="type">('b Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onStart</code><br>
-</div>
-<pre><span id="METHODautoStart"><span class="keyword">method</span> autoStart</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODautoStart"><span class="keyword">method</span> autoStart</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
 <p>Specify <code>true</code> to defer trigger start by 1000 ms.
 Specify a Number for the number of milliseconds to defer trigger start.</p> 
 <p>
 
     Defaults to: <code class="code">false</code><br>
 </div>
-<pre><span id="METHODconstrainTo"><span class="keyword">method</span> constrainTo</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODconstrainTo"><span class="keyword">method</span> constrainTo</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
 <p>A <a href="#!/api/Ext.util.Region" rel="Ext.util.Region" class="docClass">Region</a> (Or an element from which a Region measurement will be read)
 which is used to constrain the result of the <a href="#!/api/Ext.dd.DragTracker-method-getOffset" rel="Ext.dd.DragTracker-method-getOffset" class="docClass">getOffset</a> call.</p>
 
@@ -209,5 +201,17 @@ considered to have started.</p>
 <p>
 
     Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODonBeforeStart"><span class="keyword">method</span> onBeforeStart</span> : <code class="type">((< autoStart : 'a. 'a Js.t Js.prop; constrainTo : 'b. 'b Js.t Js.prop;<br>           delegate : Js.js_string Js.t Js.prop; listeners : 'e. 'e Js.t Js.prop;<br>           onBeforeStart : 'c;<br>           onDrag : ('d Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback<br>                    Js.writeonly_prop;<br>           onEnd : ('d Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback<br>                   Js.writeonly_prop;<br>           onStart : ('d Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback<br>                     Js.writeonly_prop;<br>           overCls : Js.js_string Js.t Js.prop; preventDefault : bool Js.t Js.prop;<br>           stopEvent : bool Js.t Js.prop; tolerance : Js.number Js.t Js.prop;<br>           trackOver : bool Js.t Js.prop; .. ><br>         as 'd)<br>        Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit)<br>       Js.meth_callback Js.writeonly_prop as 'c</code></pre><div class="info">
+See method <code class="code">t.onBeforeStart</code><br>
+</div>
+<pre><span id="METHODonDrag"><span class="keyword">method</span> onDrag</span> : <code class="type">('d Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onDrag</code><br>
+</div>
+<pre><span id="METHODonEnd"><span class="keyword">method</span> onEnd</span> : <code class="type">('d Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onEnd</code><br>
+</div>
+<pre><span id="METHODonStart"><span class="keyword">method</span> onStart</span> : <code class="type">('d Js.t, <a href="Ext_EventObject.t-c.html">Ext_EventObject.t</a> Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onStart</code><br>
 </div>
 </body></html>

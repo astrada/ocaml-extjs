@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -141,7 +145,16 @@
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODaddCls"><span class="keyword">method</span> addCls</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODstate"><span class="keyword">method</span> state</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
+<p>State variables that are cleared when invalidated. Only applies to component items.</p> <br>
+</div>
+<pre><span id="METHODwrapsComponent"><span class="keyword">method</span> wrapsComponent</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
+<p>True if this item wraps a Component (rather than an Element).</p> 
+<p>
+
+    Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODaddCls"><span class="keyword">method</span> addCls</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Queue the addition of a class name (or array of class names) to this ContextItem's target when next flushed.</p> 
 <p>
 
@@ -152,7 +165,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODblock"><span class="keyword">method</span> block</span> : <code class="type">'b. 'b Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODblock"><span class="keyword">method</span> block</span> : <code class="type">'c. 'c Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Registers a layout in the block list for the given property. Once the property is
 set in the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a>, the layout is unblocked.</p> 
 <p>
@@ -172,7 +185,7 @@ set in the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="d
 This is needed in some special cases where the margins have changed since the last layout, making the cached
 values invalid.  For example collapsed window headers have different margin than expanded ones.</p> <br>
 </div>
-<pre><span id="METHODdomBlock"><span class="keyword">method</span> domBlock</span> : <code class="type">'c. 'c Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODdomBlock"><span class="keyword">method</span> domBlock</span> : <code class="type">'d. 'd Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Registers a layout in the DOM block list for the given property. Once the property
 flushed to the DOM by the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a>, the layout is unblocked.</p> 
 <p>
@@ -192,7 +205,7 @@ flushed to the DOM by the <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Co
 are dirty entries because this object is only added to the flushQueue of the
 <a href="#!/api/Ext.layout.Context" rel="Ext.layout.Context" class="docClass">Ext.layout.Context</a> when entries become dirty.</p> <br>
 </div>
-<pre><span id="METHODgetBorderInfo"><span class="keyword">method</span> getBorderInfo</span> : <code class="type">'d. 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetBorderInfo"><span class="keyword">method</span> getBorderInfo</span> : <code class="type">'e. 'e Js.t Js.meth</code></pre><div class="info">
 <p>Gets the border information for the element as an object with left, top, right and
 bottom properties holding border size in pixels. This object is only read from the
 DOM on first request and is cached.</p> <br>
@@ -200,7 +213,7 @@ DOM on first request and is cached.</p> <br>
 <pre><span id="METHODgetClassList"><span class="keyword">method</span> getClassList</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Returns a ClassList-like object to buffer access to this item's element's classes.</p> <br>
 </div>
-<pre><span id="METHODgetDomProp"><span class="keyword">method</span> getDomProp</span> : <code class="type">'e. Js.js_string Js.t -> 'e Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetDomProp"><span class="keyword">method</span> getDomProp</span> : <code class="type">'f. Js.js_string Js.t -> 'f Js.t Js.meth</code></pre><div class="info">
 <p>Gets a property of this object if it is correct in the DOM. Also tracks the current
 layout as dependent on this property so that DOM writes of it will trigger the
 layout to be recalculated.</p> 
@@ -223,7 +236,7 @@ layout to be recalculated.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetEl"><span class="keyword">method</span> getEl</span> : <code class="type">'f 'g.<br>         'f Js.t -><br>         'g Js.t Js.optdef -><br>         (< addCls : 'a. 'a Js.t -> unit Js.meth;<br>            block : 'b. 'b Js.t -> Js.js_string Js.t -> unit Js.meth;<br>            callParent : 'j 'k. 'j Js.t -> 'k Js.t Js.meth;<br>            callSuper : 'l 'm. 'l Js.t -> 'm Js.t Js.meth;<br>            clearMarginCache : unit Js.meth;<br>            domBlock : 'c. 'c Js.t -> Js.js_string Js.t -> unit Js.meth;<br>            flush : unit Js.meth; getBorderInfo : 'd. 'd Js.t Js.meth;<br>            getClassList : unit Js.meth;<br>            getDomProp : 'e. Js.js_string Js.t -> 'e Js.t Js.meth;<br>            getEl : 'f 'g. 'h; getFrameInfo : 'n. 'n Js.t Js.meth;<br>            getInitialConfig : 'o. Js.js_string Js.t Js.optdef -> 'o Js.t Js.meth;<br>            getMarginInfo : 'p. 'p Js.t Js.meth;<br>            getPaddingInfo : 'q. 'q Js.t Js.meth;<br>            getProp : 'r. Js.js_string Js.t -> 'r Js.t Js.meth;<br>            getStyle : 's. Js.js_string Js.t -> 's Js.t Js.meth;<br>            getStyles : 't.<br>                          Js.js_string Js.t Js.js_array Js.t -><br>                          Js.js_string Js.t Js.js_array Js.t Js.optdef -><br>                          't Js.t Js.meth;<br>            hasDomProp : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasProp : Js.js_string Js.t -> bool Js.t Js.meth;<br>            initConfig : 'u. 'u Js.t -> 'i Js.t Js.meth;<br>            invalidate : 'v. 'v Js.t -> unit Js.meth;<br>            recoverProp : 'w 'x.<br>                            Js.js_string Js.t -> 'w Js.t -> 'x Js.t -> unit Js.meth;<br>            removeCls : 'y. 'y Js.t -> unit Js.meth;<br>            removeEl : 'z 'a1. 'z Js.t -> 'a1 Js.t Js.optdef -> unit Js.meth;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            setAttribute : 'b1 'c1. 'b1 Js.t -> 'c1 Js.t -> unit Js.meth;<br>            setContentHeight : 'd1 'e1. 'd1 Js.t -> 'e1 Js.t -> unit Js.meth;<br>            setContentSize : 'f1 'g1 'h1.<br>                               'f1 Js.t -> 'g1 Js.t -> 'h1 Js.t -> unit Js.meth;<br>            setContentWidth : 'i1 'j1. 'i1 Js.t -> 'j1 Js.t -> unit Js.meth;<br>            setHeight : Js.number Js.t -><br>                        bool Js.t Js.optdef -> Js.number Js.t Js.meth;<br>            setProp : 'k1.<br>                        Js.js_string Js.t -><br>                        'k1 Js.t -> bool Js.t -> Js.number Js.t Js.meth;<br>            setWidth : Js.number Js.t -><br>                       bool Js.t Js.optdef -> Js.number Js.t Js.meth;<br>            state : 'l1. 'l1 Js.t Js.prop; statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            wrapsComponent : bool Js.t Js.readonly_prop; .. ><br>          as 'i)<br>         Js.t Js.meth as 'h</code></pre><div class="info">
+<pre><span id="METHODgetEl"><span class="keyword">method</span> getEl</span> : <code class="type">'g 'h.<br>         'g Js.t -><br>         'h Js.t Js.optdef -><br>         (< addCls : 'b. 'b Js.t -> unit Js.meth;<br>            block : 'c. 'c Js.t -> Js.js_string Js.t -> unit Js.meth;<br>            callParent : 'k 'l. 'k Js.t -> 'l Js.t Js.meth;<br>            callSuper : 'm 'n. 'm Js.t -> 'n Js.t Js.meth;<br>            clearMarginCache : unit Js.meth;<br>            domBlock : 'd. 'd Js.t -> Js.js_string Js.t -> unit Js.meth;<br>            flush : unit Js.meth; getBorderInfo : 'e. 'e Js.t Js.meth;<br>            getClassList : unit Js.meth;<br>            getDomProp : 'f. Js.js_string Js.t -> 'f Js.t Js.meth;<br>            getEl : 'g 'h. 'i; getFrameInfo : 'o. 'o Js.t Js.meth;<br>            getInitialConfig : 'p. Js.js_string Js.t Js.optdef -> 'p Js.t Js.meth;<br>            getMarginInfo : 'q. 'q Js.t Js.meth;<br>            getPaddingInfo : 'r. 'r Js.t Js.meth;<br>            getProp : 's. Js.js_string Js.t -> 's Js.t Js.meth;<br>            getStyle : 't. Js.js_string Js.t -> 't Js.t Js.meth;<br>            getStyles : 'u.<br>                          Js.js_string Js.t Js.js_array Js.t -><br>                          Js.js_string Js.t Js.js_array Js.t Js.optdef -><br>                          'u Js.t Js.meth;<br>            hasDomProp : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasProp : Js.js_string Js.t -> bool Js.t Js.meth;<br>            initConfig : 'v. 'v Js.t -> 'j Js.t Js.meth;<br>            invalidate : 'w. 'w Js.t -> unit Js.meth;<br>            recoverProp : 'x 'y.<br>                            Js.js_string Js.t -> 'x Js.t -> 'y Js.t -> unit Js.meth;<br>            removeCls : 'z. 'z Js.t -> unit Js.meth;<br>            removeEl : 'a1 'b1. 'a1 Js.t -> 'b1 Js.t Js.optdef -> unit Js.meth;<br>            self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            setAttribute : 'c1 'd1. 'c1 Js.t -> 'd1 Js.t -> unit Js.meth;<br>            setContentHeight : 'e1 'f1. 'e1 Js.t -> 'f1 Js.t -> unit Js.meth;<br>            setContentSize : 'g1 'h1 'i1.<br>                               'g1 Js.t -> 'h1 Js.t -> 'i1 Js.t -> unit Js.meth;<br>            setContentWidth : 'j1 'k1. 'j1 Js.t -> 'k1 Js.t -> unit Js.meth;<br>            setHeight : Js.number Js.t -><br>                        bool Js.t Js.optdef -> Js.number Js.t Js.meth;<br>            setProp : 'l1.<br>                        Js.js_string Js.t -><br>                        'l1 Js.t -> bool Js.t -> Js.number Js.t Js.meth;<br>            setWidth : Js.number Js.t -><br>                       bool Js.t Js.optdef -> Js.number Js.t Js.meth;<br>            state : 'a. 'a Js.t Js.prop; statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            wrapsComponent : bool Js.t Js.readonly_prop; .. ><br>          as 'j)<br>         Js.t Js.meth as 'i</code></pre><div class="info">
 <p>Returns the context item for an owned element. This should only be called on a
 component's item. The list of child items is used to manage invalidating calculated
 results.</p>
@@ -246,22 +259,22 @@ ContextItem's "target" property.  For more details on owned elements see
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetFrameInfo"><span class="keyword">method</span> getFrameInfo</span> : <code class="type">'n. 'n Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetFrameInfo"><span class="keyword">method</span> getFrameInfo</span> : <code class="type">'o. 'o Js.t Js.meth</code></pre><div class="info">
 <p>Gets the "frame" information for the element as an object with left, top, right and
 bottom properties holding border+framing size in pixels. This object is calculated
 on first request and is cached.</p> <br>
 </div>
-<pre><span id="METHODgetMarginInfo"><span class="keyword">method</span> getMarginInfo</span> : <code class="type">'p. 'p Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetMarginInfo"><span class="keyword">method</span> getMarginInfo</span> : <code class="type">'q. 'q Js.t Js.meth</code></pre><div class="info">
 <p>Gets the margin information for the element as an object with left, top, right and
 bottom properties holding margin size in pixels. This object is only read from the
 DOM on first request and is cached.</p> <br>
 </div>
-<pre><span id="METHODgetPaddingInfo"><span class="keyword">method</span> getPaddingInfo</span> : <code class="type">'q. 'q Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetPaddingInfo"><span class="keyword">method</span> getPaddingInfo</span> : <code class="type">'r. 'r Js.t Js.meth</code></pre><div class="info">
 <p>Gets the padding information for the element as an object with left, top, right and
 bottom properties holding padding size in pixels. This object is only read from the
 DOM on first request and is cached.</p> <br>
 </div>
-<pre><span id="METHODgetProp"><span class="keyword">method</span> getProp</span> : <code class="type">'r. Js.js_string Js.t -> 'r Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetProp"><span class="keyword">method</span> getProp</span> : <code class="type">'s. Js.js_string Js.t -> 's Js.t Js.meth</code></pre><div class="info">
 <p>Gets a property of this object. Also tracks the current layout as dependent on this
 property so that changes to it will trigger the layout to be recalculated.</p> 
 <p>
@@ -283,7 +296,7 @@ property so that changes to it will trigger the layout to be recalculated.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetStyle"><span class="keyword">method</span> getStyle</span> : <code class="type">'s. Js.js_string Js.t -> 's Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetStyle"><span class="keyword">method</span> getStyle</span> : <code class="type">'t. Js.js_string Js.t -> 't Js.t Js.meth</code></pre><div class="info">
 <p>Returns a style for this item. Each style is read from the DOM only once on first
 request and is then cached. If the value is an integer, it is parsed automatically
 (so '5px' is not returned, but rather 5).</p> 
@@ -306,7 +319,7 @@ request and is then cached. If the value is an integer, it is parsed automatical
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetStyles"><span class="keyword">method</span> getStyles</span> : <code class="type">'t.<br>         Js.js_string Js.t Js.js_array Js.t -><br>         Js.js_string Js.t Js.js_array Js.t Js.optdef -> 't Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetStyles"><span class="keyword">method</span> getStyles</span> : <code class="type">'u.<br>         Js.js_string Js.t Js.js_array Js.t -><br>         Js.js_string Js.t Js.js_array Js.t Js.optdef -> 'u Js.t Js.meth</code></pre><div class="info">
 <p>Returns styles for this item. Each style is read from the DOM only once on first
 request and is then cached. If the value is an integer, it is parsed automatically
 (so '5px' is not returned, but rather 5).</p> 
@@ -361,7 +374,7 @@ registers the current layout to be triggered by changes to this property.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODinvalidate"><span class="keyword">method</span> invalidate</span> : <code class="type">'v. 'v Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODinvalidate"><span class="keyword">method</span> invalidate</span> : <code class="type">'w. 'w Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Invalidates the component associated with this item. The layouts for this component
 and all of its contained items will be re-run after first clearing any computed
 values.</p>
@@ -380,7 +393,7 @@ can be used.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODrecoverProp"><span class="keyword">method</span> recoverProp</span> : <code class="type">'w 'x. Js.js_string Js.t -> 'w Js.t -> 'x Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODrecoverProp"><span class="keyword">method</span> recoverProp</span> : <code class="type">'x 'y. Js.js_string Js.t -> 'x Js.t -> 'y Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Recovers a property value from the last computation and restores its value and
 dirty state.</p> 
 <p>
@@ -399,7 +412,7 @@ dirty state.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODremoveCls"><span class="keyword">method</span> removeCls</span> : <code class="type">'y. 'y Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODremoveCls"><span class="keyword">method</span> removeCls</span> : <code class="type">'z. 'z Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Queue the removal of a class name (or array of class names) from this ContextItem's target when next flushed.</p> 
 <p>
 
@@ -410,7 +423,7 @@ dirty state.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODremoveEl"><span class="keyword">method</span> removeEl</span> : <code class="type">'z 'a1. 'z Js.t -> 'a1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODremoveEl"><span class="keyword">method</span> removeEl</span> : <code class="type">'a1 'b1. 'a1 Js.t -> 'b1 Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Removes a cached ContextItem that was created using <a href="#!/api/Ext.layout.ContextItem-method-getEl" rel="Ext.layout.ContextItem-method-getEl" class="docClass">getEl</a>.  It may be
 necessary to call this method if the dom reference for owned element changes so
 that <a href="#!/api/Ext.layout.ContextItem-method-getEl" rel="Ext.layout.ContextItem-method-getEl" class="docClass">getEl</a> can be called again to reinitialize the ContextItem with the
@@ -430,7 +443,7 @@ ContextItem's "target" property.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetAttribute"><span class="keyword">method</span> setAttribute</span> : <code class="type">'b1 'c1. 'b1 Js.t -> 'c1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetAttribute"><span class="keyword">method</span> setAttribute</span> : <code class="type">'c1 'd1. 'c1 Js.t -> 'd1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Queue the setting of a DOM attribute on this ContextItem's target when next flushed.</p> 
 <p>
 
@@ -443,7 +456,7 @@ ContextItem's "target" property.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetContentHeight"><span class="keyword">method</span> setContentHeight</span> : <code class="type">'d1 'e1. 'd1 Js.t -> 'e1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetContentHeight"><span class="keyword">method</span> setContentHeight</span> : <code class="type">'e1 'f1. 'e1 Js.t -> 'f1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Sets the contentHeight property. If the component uses raw content, then only the
 measured height is acceptable.</p>
 
@@ -464,7 +477,7 @@ content, 1 is returned indicating that the caller is done.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetContentSize"><span class="keyword">method</span> setContentSize</span> : <code class="type">'f1 'g1 'h1. 'f1 Js.t -> 'g1 Js.t -> 'h1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetContentSize"><span class="keyword">method</span> setContentSize</span> : <code class="type">'g1 'h1 'i1. 'g1 Js.t -> 'h1 Js.t -> 'i1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Sets the contentWidth and contentHeight properties. If the component uses raw content,
 then only the measured values are acceptable.</p>
 
@@ -487,7 +500,7 @@ content, true is returned indicating that the caller is done.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetContentWidth"><span class="keyword">method</span> setContentWidth</span> : <code class="type">'i1 'j1. 'i1 Js.t -> 'j1 Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetContentWidth"><span class="keyword">method</span> setContentWidth</span> : <code class="type">'j1 'k1. 'j1 Js.t -> 'k1 Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Sets the contentWidth property. If the component uses raw content, then only the
 measured width is acceptable.</p>
 
@@ -536,7 +549,7 @@ value of <code>false</code> indicates that the value is already in the DOM.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODsetProp"><span class="keyword">method</span> setProp</span> : <code class="type">'k1. Js.js_string Js.t -> 'k1 Js.t -> bool Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODsetProp"><span class="keyword">method</span> setProp</span> : <code class="type">'l1. Js.js_string Js.t -> 'l1 Js.t -> bool Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Sets a property value. This will unblock and/or trigger dependent layouts if the
 property value is being changed. Values of NaN and undefined are not accepted by
 this method.</p>
@@ -596,14 +609,5 @@ value of <code>false</code> indicates that the value is already in the DOM.</p>
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODstate"><span class="keyword">method</span> state</span> : <code class="type">'l1. 'l1 Js.t Js.prop</code></pre><div class="info">
-<p>State variables that are cleared when invalidated. Only applies to component items.</p> <br>
-</div>
-<pre><span id="METHODwrapsComponent"><span class="keyword">method</span> wrapsComponent</span> : <code class="type">bool Js.t Js.readonly_prop</code></pre><div class="info">
-<p>True if this item wraps a Component (rather than an Element).</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
 </div>
 </body></html>

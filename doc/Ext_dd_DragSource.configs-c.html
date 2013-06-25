@@ -59,6 +59,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -79,6 +81,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -93,6 +96,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -143,27 +147,6 @@
 <li><a href="Ext_dd_DDProxy.configs-c.html"><code class="code">Ext_dd_DDProxy.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODbeforeDragDrop"><span class="keyword">method</span> beforeDragDrop</span> : <code class="type">'a.<br>         ((< animRepair : bool Js.t Js.prop; beforeDragDrop : 'a. 'b;<br>             beforeDragEnter : 'd.<br>                                 ('c Js.t,<br>                                  (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'd) Js.t -><br>                                  Dom_html.event Js.t -><br>                                  Js.js_string Js.t -> bool Js.t)<br>                                 Js.meth_callback Js.writeonly_prop;<br>             beforeDragOut : 'e.<br>                               ('c Js.t,<br>                                (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'e) Js.t -><br>                                Dom_html.event Js.t -><br>                                Js.js_string Js.t -> bool Js.t)<br>                               Js.meth_callback Js.writeonly_prop;<br>             beforeDragOver : 'f.<br>                                ('c Js.t,<br>                                 (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'f) Js.t -><br>                                 Dom_html.event Js.t -><br>                                 Js.js_string Js.t -> bool Js.t)<br>                                Js.meth_callback Js.writeonly_prop;<br>             beforeInvalidDrop : 'g.<br>                                   ('c Js.t,<br>                                    (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'g) Js.t -><br>                                    Dom_html.event Js.t -><br>                                    Js.js_string Js.t -> bool Js.t)<br>                                   Js.meth_callback Js.writeonly_prop;<br>             ddGroup : Js.js_string Js.t Js.prop;<br>             dropAllowed : Js.js_string Js.t Js.prop;<br>             dropNotAllowed : Js.js_string Js.t Js.prop;<br>             onBeforeDrag : 'h.<br>                              ('c Js.t, 'h Js.t -> Dom_html.event Js.t -> bool Js.t)<br>                              Js.meth_callback Js.writeonly_prop;<br>             onStartDrag : ('c Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>             repairHighlightColor : Js.js_string Js.t Js.prop; .. ><br>           as 'c)<br>          Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'a) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop as 'b</code></pre><div class="info">
-See method <code class="code">t.beforeDragDrop</code><br>
-</div>
-<pre><span id="METHODbeforeDragEnter"><span class="keyword">method</span> beforeDragEnter</span> : <code class="type">'d.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'd) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.beforeDragEnter</code><br>
-</div>
-<pre><span id="METHODbeforeDragOut"><span class="keyword">method</span> beforeDragOut</span> : <code class="type">'e.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'e) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.beforeDragOut</code><br>
-</div>
-<pre><span id="METHODbeforeDragOver"><span class="keyword">method</span> beforeDragOver</span> : <code class="type">'f.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'f) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.beforeDragOver</code><br>
-</div>
-<pre><span id="METHODbeforeInvalidDrop"><span class="keyword">method</span> beforeInvalidDrop</span> : <code class="type">'g.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'g) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.beforeInvalidDrop</code><br>
-</div>
-<pre><span id="METHODonBeforeDrag"><span class="keyword">method</span> onBeforeDrag</span> : <code class="type">'h.<br>         ('c Js.t, 'h Js.t -> Dom_html.event Js.t -> bool Js.t) Js.meth_callback<br>         Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onBeforeDrag</code><br>
-</div>
-<pre><span id="METHODonStartDrag"><span class="keyword">method</span> onStartDrag</span> : <code class="type">('c Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onStartDrag</code><br>
-</div>
 <pre><span id="METHODanimRepair"><span class="keyword">method</span> animRepair</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>If true, animates the proxy element back to the position of the handle element used to trigger the drag.</p> 
 <p>
@@ -193,5 +176,26 @@ a preceding '#'.</p>
 <p>
 
     Defaults to: <code class="code">'c3daf9'</code><br>
+</div>
+<pre><span id="METHODbeforeDragDrop"><span class="keyword">method</span> beforeDragDrop</span> : <code class="type">'a.<br>         ((< animRepair : bool Js.t Js.prop; beforeDragDrop : 'a. 'b;<br>             beforeDragEnter : 'd.<br>                                 ('c Js.t,<br>                                  (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'd) Js.t -><br>                                  Dom_html.event Js.t -><br>                                  Js.js_string Js.t -> bool Js.t)<br>                                 Js.meth_callback Js.writeonly_prop;<br>             beforeDragOut : 'e.<br>                               ('c Js.t,<br>                                (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'e) Js.t -><br>                                Dom_html.event Js.t -><br>                                Js.js_string Js.t -> bool Js.t)<br>                               Js.meth_callback Js.writeonly_prop;<br>             beforeDragOver : 'f.<br>                                ('c Js.t,<br>                                 (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'f) Js.t -><br>                                 Dom_html.event Js.t -><br>                                 Js.js_string Js.t -> bool Js.t)<br>                                Js.meth_callback Js.writeonly_prop;<br>             beforeInvalidDrop : 'g.<br>                                   ('c Js.t,<br>                                    (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'g) Js.t -><br>                                    Dom_html.event Js.t -><br>                                    Js.js_string Js.t -> bool Js.t)<br>                                   Js.meth_callback Js.writeonly_prop;<br>             ddGroup : Js.js_string Js.t Js.prop;<br>             dropAllowed : Js.js_string Js.t Js.prop;<br>             dropNotAllowed : Js.js_string Js.t Js.prop;<br>             onBeforeDrag : 'h.<br>                              ('c Js.t, 'h Js.t -> Dom_html.event Js.t -> bool Js.t)<br>                              Js.meth_callback Js.writeonly_prop;<br>             onStartDrag : ('c Js.t, Js.number Js.t -> Js.number Js.t -> unit)<br>                           Js.meth_callback Js.writeonly_prop;<br>             repairHighlightColor : Js.js_string Js.t Js.prop; .. ><br>           as 'c)<br>          Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'a) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop as 'b</code></pre><div class="info">
+See method <code class="code">t.beforeDragDrop</code><br>
+</div>
+<pre><span id="METHODbeforeDragEnter"><span class="keyword">method</span> beforeDragEnter</span> : <code class="type">'d.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'd) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.beforeDragEnter</code><br>
+</div>
+<pre><span id="METHODbeforeDragOut"><span class="keyword">method</span> beforeDragOut</span> : <code class="type">'e.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'e) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.beforeDragOut</code><br>
+</div>
+<pre><span id="METHODbeforeDragOver"><span class="keyword">method</span> beforeDragOver</span> : <code class="type">'f.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'f) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.beforeDragOver</code><br>
+</div>
+<pre><span id="METHODbeforeInvalidDrop"><span class="keyword">method</span> beforeInvalidDrop</span> : <code class="type">'g.<br>         ('c Js.t,<br>          (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'g) Js.t -><br>          Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t)<br>         Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.beforeInvalidDrop</code><br>
+</div>
+<pre><span id="METHODonBeforeDrag"><span class="keyword">method</span> onBeforeDrag</span> : <code class="type">'h.<br>         ('c Js.t, 'h Js.t -> Dom_html.event Js.t -> bool Js.t) Js.meth_callback<br>         Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onBeforeDrag</code><br>
+</div>
+<pre><span id="METHODonStartDrag"><span class="keyword">method</span> onStartDrag</span> : <code class="type">('c Js.t, Js.number Js.t -> Js.number Js.t -> unit) Js.meth_callback<br>       Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onStartDrag</code><br>
 </div>
 </body></html>

@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -141,6 +145,38 @@
 <li><a href="Ext_Base.statics-c.html"><code class="code">Ext_Base.statics</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHOD_ASCLASS"><span class="keyword">method</span> _ASCLASS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Add or remove the <a href="#!/api/Ext.dom.Layer-cfg-visibilityCls" rel="Ext.dom.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> 
+<p>
+
+    Defaults to: <code class="code">4</code><br>
+</div>
+<pre><span id="METHOD_DISPLAY"><span class="keyword">method</span> _DISPLAY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use the CSS 'display' property to hide the element.</p> 
+<p>
+
+    Defaults to: <code class="code">2</code><br>
+</div>
+<pre><span id="METHOD_OFFSETS"><span class="keyword">method</span> _OFFSETS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use CSS absolute positioning and top/left offsets to hide the element.</p> 
+<p>
+
+    Defaults to: <code class="code">3</code><br>
+</div>
+<pre><span id="METHOD_VISIBILITY"><span class="keyword">method</span> _VISIBILITY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
+<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
+Use the CSS 'visibility' property to hide the element.</p>
+
+<p>Note that in this mode, <a href="#!/api/Ext.dom.Element-method-isVisible" rel="Ext.dom.Element-method-isVisible" class="docClass">isVisible</a> may return true
+for an element even though it actually has a parent element that is hidden. For this
+reason, and in most cases, using the <a href="#!/api/Ext.dom.AbstractElement-static-property-OFFSETS" rel="Ext.dom.AbstractElement-static-property-OFFSETS" class="docClass">OFFSETS</a> mode is a better choice.</p> 
+<p>
+
+    Defaults to: <code class="code">1</code><br>
+</div>
 <pre><span id="METHODfly"><span class="keyword">method</span> fly</span> : <code class="type">'a 'b. 'a Js.t -> Js.js_string Js.t Js.optdef -> 'b Js.t Js.meth</code></pre><div class="info">
 <p>Gets the singleton <a href="#!/api/Ext.dom.Element.Fly" rel="Ext.dom.Element.Fly" class="docClass">flyweight</a> element, with the passed node as the active element.</p>
 
@@ -206,6 +242,13 @@ internally Ext uses "_global")</p>
 
 <p><strong>This method does not retrieve <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Component</a>s.</strong> This method retrieves <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.dom.Element</a>
 objects which encapsulate DOM elements. To retrieve a Component by its ID, use <a href="#!/api/Ext.ComponentManager-method-get" rel="Ext.ComponentManager-method-get" class="docClass">Ext.ComponentManager.get</a>.</p>
+
+<p>When passing an id, it should not include the <code>#</code> character that is used for a css selector.</p>
+
+<pre><code>// For an element with id 'foo'
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('foo'); // Correct
+<a href="#!/api/Ext-method-get" rel="Ext-method-get" class="docClass">Ext.get</a>('#foo'); // Incorrect
+</code></pre>
 
 <p>Uses simple caching to consistently return the same object. Automatically fixes if an object was recreated with
 the same id via AJAX or DOM.</p> 
@@ -486,37 +529,5 @@ bottom, and left properties</p>
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHOD_ASCLASS"><span class="keyword">method</span> _ASCLASS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Add or remove the <a href="#!/api/Ext.dom.Layer-cfg-visibilityCls" rel="Ext.dom.Layer-cfg-visibilityCls" class="docClass">Ext.Layer.visibilityCls</a> class to hide the element.</p> 
-<p>
-
-    Defaults to: <code class="code">4</code><br>
-</div>
-<pre><span id="METHOD_DISPLAY"><span class="keyword">method</span> _DISPLAY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use the CSS 'display' property to hide the element.</p> 
-<p>
-
-    Defaults to: <code class="code">2</code><br>
-</div>
-<pre><span id="METHOD_OFFSETS"><span class="keyword">method</span> _OFFSETS</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use CSS absolute positioning and top/left offsets to hide the element.</p> 
-<p>
-
-    Defaults to: <code class="code">3</code><br>
-</div>
-<pre><span id="METHOD_VISIBILITY"><span class="keyword">method</span> _VISIBILITY</span> : <code class="type">Js.number Js.t Js.prop</code></pre><div class="info">
-<p>Visibility mode constant for use with <a href="#!/api/Ext.dom.Element-method-setVisibilityMode" rel="Ext.dom.Element-method-setVisibilityMode" class="docClass">Ext.dom.Element.setVisibilityMode</a>.
-Use the CSS 'visibility' property to hide the element.</p>
-
-<p>Note that in this mode, <a href="#!/api/Ext.dom.Element-method-isVisible" rel="Ext.dom.Element-method-isVisible" class="docClass">isVisible</a> may return true
-for an element even though it actually has a parent element that is hidden. For this
-reason, and in most cases, using the <a href="#!/api/Ext.dom.AbstractElement-static-property-OFFSETS" rel="Ext.dom.AbstractElement-static-property-OFFSETS" class="docClass">OFFSETS</a> mode is a better choice.</p> 
-<p>
-
-    Defaults to: <code class="code">1</code><br>
 </div>
 </body></html>

@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,11 +142,14 @@
 <center><h1>Class type <a href="type_Ext_app_Controller.t.html">Ext_app_Controller.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_app_Controller.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 <li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
+<li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODaddRef"><span class="keyword">method</span> addRef</span> : <code class="type">'a. 'a Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODapplication"><span class="keyword">method</span> application</span> : <code class="type">'a. 'a Js.t Js.readonly_prop</code></pre><div class="info">
+<p>The <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for this controller.</p> <br>
+</div>
+<pre><span id="METHODaddRef"><span class="keyword">method</span> addRef</span> : <code class="type">'b. 'b Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Registers one or more <a href="#!/api/Ext.app.Controller-cfg-refs" rel="Ext.app.Controller-cfg-refs" class="docClass">references</a>.</p> 
 <p>
 
@@ -153,7 +160,7 @@
 </ul>
 <br>
 </div>
-<pre><span id="METHODcontrol"><span class="keyword">method</span> control</span> : <code class="type">'b 'c. 'b Js.t -> 'c Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODcontrol"><span class="keyword">method</span> control</span> : <code class="type">'c 'd. 'c Js.t -> 'd Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Adds listeners to components selected via <a href="#!/api/Ext.ComponentQuery" rel="Ext.ComponentQuery" class="docClass">Ext.ComponentQuery</a>. Accepts an
 object containing component paths mapped to a hash of listener functions.</p>
 
@@ -196,7 +203,7 @@ listeners, otherwise an object of selectors -> listeners is assumed</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetApplication"><span class="keyword">method</span> getApplication</span> : <code class="type">'d. 'd Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetApplication"><span class="keyword">method</span> getApplication</span> : <code class="type">'e. 'e Js.t Js.meth</code></pre><div class="info">
 <p>Returns the base <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for this controller.</p> 
 <p>
 
@@ -207,7 +214,7 @@ listeners, otherwise an object of selectors -> listeners is assumed</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetController"><span class="keyword">method</span> getController</span> : <code class="type">Js.js_string Js.t -><br>       (< addEvents : 'g. 'g Js.t -> unit Js.meth;<br>          addListener : 'h 'i 'j 'k 'l.<br>                          'h Js.t -><br>                          'i Js.callback Js.optdef -><br>                          'j Js.t Js.optdef -> 'k Js.t Js.optdef -> 'l Js.t Js.meth;<br>          addManagedListener : 'm 'n 'o 'p 'q 'r.<br>                                 'm Js.t -><br>                                 'n Js.t -><br>                                 'o Js.callback Js.optdef -><br>                                 'p Js.t Js.optdef -><br>                                 'q Js.t Js.optdef -> 'r Js.t Js.meth;<br>          addRef : 'a. 'a Js.t -> unit Js.meth;<br>          application : 's. 's Js.t Js.readonly_prop;<br>          callParent : 't 'u. 't Js.t -> 'u Js.t Js.meth;<br>          callSuper : 'v 'w. 'v Js.t -> 'w Js.t Js.meth;<br>          clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>          control : 'b 'c. 'b Js.t -> 'c Js.t Js.optdef -> unit Js.meth;<br>          enableBubble : 'x. 'x Js.t -> unit Js.meth;<br>          fireEvent : 'y. Js.js_string Js.t -> 'y Js.t -> bool Js.t Js.meth;<br>          fireEventArgs : 'z.<br>                            Js.js_string Js.t -><br>                            'z Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>          getApplication : 'd. 'd Js.t Js.meth; getController : 'e;<br>          getInitialConfig : 'a1. Js.js_string Js.t Js.optdef -> 'a1 Js.t Js.meth;<br>          getModel : Js.js_string Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth;<br>          getStore : Js.js_string Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth;<br>          getView : 'b1. Js.js_string Js.t -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'b1) Js.t Js.meth;<br>          hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>          hasListeners : 'c1. 'c1 Js.t Js.readonly_prop;<br>          hasRef : 'd1. 'd1 Js.t -> bool Js.t Js.meth;<br>          init : 'e1. 'e1 Js.t -> unit Js.meth;<br>          initConfig : 'f1. 'f1 Js.t -> 'f Js.t Js.meth;<br>          isObservable : bool Js.t Js.prop; listen : 'g1. 'g1 Js.t -> unit Js.meth;<br>          mon : 'h1 'i1 'j1 'k1 'l1 'm1.<br>                  'h1 Js.t -><br>                  'i1 Js.t -><br>                  'j1 Js.callback Js.optdef -><br>                  'k1 Js.t Js.optdef -> 'l1 Js.t Js.optdef -> 'm1 Js.t Js.meth;<br>          mun : 'n1 'o1 'p1 'q1.<br>                  'n1 Js.t -><br>                  'o1 Js.t -><br>                  'p1 Js.callback Js.optdef -> 'q1 Js.t Js.optdef -> unit Js.meth;<br>          on : 'r1 's1 't1 'u1 'v1.<br>                 'r1 Js.t -><br>                 's1 Js.callback Js.optdef -><br>                 't1 Js.t Js.optdef -> 'u1 Js.t Js.optdef -> 'v1 Js.t Js.meth;<br>          onLaunch : 'w1. 'w1 Js.t -> unit Js.meth;<br>          relayEvents : 'x1 'y1.<br>                          'x1 Js.t -><br>                          Js.js_string Js.t Js.js_array Js.t -><br>                          Js.js_string Js.t Js.optdef -> 'y1 Js.t Js.meth;<br>          removeListener : 'z1 'a2.<br>                             Js.js_string Js.t -><br>                             'z1 Js.callback -> 'a2 Js.t Js.optdef -> unit Js.meth;<br>          removeManagedListener : 'b2 'c2 'd2 'e2.<br>                                    'b2 Js.t -><br>                                    'c2 Js.t -><br>                                    'd2 Js.callback Js.optdef -><br>                                    'e2 Js.t Js.optdef -> unit Js.meth;<br>          resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>          resumeEvents : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>          statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>          suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>          suspendEvents : bool Js.t -> unit Js.meth;<br>          un : 'f2 'g2.<br>                 Js.js_string Js.t -><br>                 'f2 Js.callback -> 'g2 Js.t Js.optdef -> unit Js.meth;<br>          .. ><br>        as 'f)<br>       Js.t Js.meth as 'e</code></pre><div class="info">
+<pre><span id="METHODgetController"><span class="keyword">method</span> getController</span> : <code class="type">Js.js_string Js.t -><br>       (< addEvents : 'h. 'h Js.t -> unit Js.meth;<br>          addListener : 'i 'j 'k 'l 'm.<br>                          'i Js.t -><br>                          'j Js.callback Js.optdef -><br>                          'k Js.t Js.optdef -> 'l Js.t Js.optdef -> 'm Js.t Js.meth;<br>          addManagedListener : 'n 'o 'p 'q 'r 's.<br>                                 'n Js.t -><br>                                 'o Js.t -><br>                                 'p Js.callback Js.optdef -><br>                                 'q Js.t Js.optdef -><br>                                 'r Js.t Js.optdef -> 's Js.t Js.meth;<br>          addRef : 'b. 'b Js.t -> unit Js.meth;<br>          application : 'a. 'a Js.t Js.readonly_prop;<br>          callParent : 't 'u. 't Js.t -> 'u Js.t Js.meth;<br>          callSuper : 'v 'w. 'v Js.t -> 'w Js.t Js.meth;<br>          clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>          control : 'c 'd. 'c Js.t -> 'd Js.t Js.optdef -> unit Js.meth;<br>          enableBubble : 'x. 'x Js.t -> unit Js.meth;<br>          fireEvent : 'y. Js.js_string Js.t -> 'y Js.t -> bool Js.t Js.meth;<br>          fireEventArgs : 'z.<br>                            Js.js_string Js.t -><br>                            'z Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>          getApplication : 'e. 'e Js.t Js.meth; getController : 'f;<br>          getInitialConfig : 'a1. Js.js_string Js.t Js.optdef -> 'a1 Js.t Js.meth;<br>          getModel : Js.js_string Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth;<br>          getStore : Js.js_string Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t Js.meth;<br>          getView : 'b1. Js.js_string Js.t -> (#<a href="Ext_Base.t-c.html">Ext_Base.t</a> as 'b1) Js.t Js.meth;<br>          hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>          hasListeners : 'c1. 'c1 Js.t Js.readonly_prop;<br>          hasRef : 'd1. 'd1 Js.t -> bool Js.t Js.meth;<br>          init : 'e1. 'e1 Js.t -> unit Js.meth;<br>          initConfig : 'f1. 'f1 Js.t -> 'g Js.t Js.meth;<br>          isObservable : bool Js.t Js.prop; listen : 'g1. 'g1 Js.t -> unit Js.meth;<br>          mon : 'h1 'i1 'j1 'k1 'l1 'm1.<br>                  'h1 Js.t -><br>                  'i1 Js.t -><br>                  'j1 Js.callback Js.optdef -><br>                  'k1 Js.t Js.optdef -> 'l1 Js.t Js.optdef -> 'm1 Js.t Js.meth;<br>          mun : 'n1 'o1 'p1 'q1.<br>                  'n1 Js.t -><br>                  'o1 Js.t -><br>                  'p1 Js.callback Js.optdef -> 'q1 Js.t Js.optdef -> unit Js.meth;<br>          on : 'r1 's1 't1 'u1 'v1.<br>                 'r1 Js.t -><br>                 's1 Js.callback Js.optdef -><br>                 't1 Js.t Js.optdef -> 'u1 Js.t Js.optdef -> 'v1 Js.t Js.meth;<br>          onLaunch : 'w1. 'w1 Js.t -> unit Js.meth;<br>          relayEvents : 'x1 'y1.<br>                          'x1 Js.t -><br>                          Js.js_string Js.t Js.js_array Js.t -><br>                          Js.js_string Js.t Js.optdef -> 'y1 Js.t Js.meth;<br>          removeListener : 'z1 'a2.<br>                             Js.js_string Js.t -><br>                             'z1 Js.callback -> 'a2 Js.t Js.optdef -> unit Js.meth;<br>          removeManagedListener : 'b2 'c2 'd2 'e2.<br>                                    'b2 Js.t -><br>                                    'c2 Js.t -><br>                                    'd2 Js.callback Js.optdef -><br>                                    'e2 Js.t Js.optdef -> unit Js.meth;<br>          resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>          resumeEvents : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>          statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>          suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>          suspendEvents : bool Js.t -> unit Js.meth;<br>          un : 'f2 'g2.<br>                 Js.js_string Js.t -><br>                 'f2 Js.callback -> 'g2 Js.t Js.optdef -> unit Js.meth;<br>          .. ><br>        as 'g)<br>       Js.t Js.meth as 'f</code></pre><div class="info">
 <p>Returns instance of a <a href="#!/api/Ext.app.Controller" rel="Ext.app.Controller" class="docClass">Controller</a> with the given id.
 When controller doesn't exist yet, it's created. Note that this method depends
 on Application instance and will return undefined when Application is not
@@ -464,8 +471,5 @@ is executed.</p>
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODapplication"><span class="keyword">method</span> application</span> : <code class="type">'s. 's Js.t Js.readonly_prop</code></pre><div class="info">
-<p>The <a href="#!/api/Ext.app.Application" rel="Ext.app.Application" class="docClass">Ext.app.Application</a> for this controller.</p> <br>
 </div>
 </body></html>

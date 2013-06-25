@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -184,32 +188,6 @@ tip.showAt([50,100]);
     <ul>
 <li>xy: <code class="code">Js.number Js.t Js.js_array Js.t</code>
     <p>An array containing the x and y coordinates</p> 
-    </li>
-</ul>
-<br>
-</div>
-<pre><span id="METHODshowBy_tip"><span class="keyword">method</span> showBy_tip</span> : <code class="type">'a. 'a Js.t -> Js.js_string Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
-<p><strong>Experimental</strong>. Shows this tip at a position relative to another element using
-a standard <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position value.  Example usage:</p>
-
-<pre><code>// Show the tip at the default position ('tl-br?')
-tip.showBy('my-el');
-
-// Show the tip's top-left corner anchored to the element's top-right corner
-tip.showBy('my-el', 'tl-tr');
-</code></pre> 
-<p>
-
-    <b>Parameters</b>:
-    <ul>
-<li>el: <code class="code">_ Js.t</code>
-    <p>An HTMLElement, <a href="#!/api/Ext.dom.Element" rel="Ext.dom.Element" class="docClass">Ext.Element</a> or string
-id of the target element to align to.</p> 
-    </li>
-<li>position: <code class="code">Js.js_string Js.t</code> (optional)
-    <p>A valid <a href="#!/api/Ext.util.Positionable-method-alignTo" rel="Ext.util.Positionable-method-alignTo" class="docClass">Ext.util.Positionable.alignTo</a> anchor position.</p>
-
-<p>Defaults to 'tl-br?' or <a href="#!/api/Ext.tip.Tip-cfg-defaultAlign" rel="Ext.tip.Tip-cfg-defaultAlign" class="docClass">defaultAlign</a> if specified.</p> 
     </li>
 </ul>
 <br>

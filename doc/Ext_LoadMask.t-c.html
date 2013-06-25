@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,9 +142,9 @@
 <center><h1>Class type <a href="type_Ext_LoadMask.t.html">Ext_LoadMask.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_LoadMask.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
 <li><a href="Ext_util_Bindable.t-c.html"><code class="code">Ext_util_Bindable.t</code></a></li>
 <li><a href="Ext_util_Floating.t-c.html"><code class="code">Ext_util_Floating.t</code></a></li>
-<li><a href="Ext_Component.t-c.html"><code class="code">Ext_Component.t</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODafterRender"><span class="keyword">method</span> afterRender</span> : <code class="type">unit Js.meth</code></pre><div class="info">
@@ -206,7 +210,7 @@ may be omitted, it is assumed to be the current instance.</p>
     <b>Parameters</b>:
     <ul>
 <li>animateTarget: <code class="code">_ Js.t</code> (optional)
-    <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components
+    <p><strong>only valid for <a href="#!/api/Ext.window.MessageBox-cfg-floating" rel="Ext.window.MessageBox-cfg-floating" class="docClass">floating</a> Components
 such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have
 been configured with <code>floating: true</code>.</strong>. The target to which the Component should animate while hiding.</p> 
      Defaults to: null
@@ -243,7 +247,7 @@ After calling the superclass's <code>onDisable</code>, the Component will be dis
 <p>Allows addition of behavior to the hide operation. After
 calling the superclass’s onHide, the Component will be hidden.</p>
 
-<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-method-hide" rel="Ext.LoadMask-method-hide" class="docClass">hide</a>.</p> 
+<p>Gets passed the same parameters as <a href="#!/api/Ext.LoadMask-event-hide" rel="Ext.LoadMask-event-hide" class="docClass">hide</a>.</p> 
 <p>
 
     <b>Parameters</b>:
@@ -287,7 +291,7 @@ brought to the front of its <a href="#!/api/Ext.LoadMask-property-zIndexManager"
     <b>Parameters</b>:
     <ul>
 <li>animateTarget: <code class="code">_ Js.t</code> (optional)
-    <p><strong>only valid for <a href="#!/api/Ext.Component-cfg-floating" rel="Ext.Component-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
+    <p><strong>only valid for <a href="#!/api/Ext.LoadMask-cfg-floating" rel="Ext.LoadMask-cfg-floating" class="docClass">floating</a> Components such as <a href="#!/api/Ext.window.Window" rel="Ext.window.Window" class="docClass">Window</a>s or <a href="#!/api/Ext.tip.ToolTip" rel="Ext.tip.ToolTip" class="docClass">ToolTip</a>s, or regular Components which have been configured
 with <code>floating: true</code>.</strong> The target from which the Component should animate from while opening.</p> 
      Defaults to: null
     </li>

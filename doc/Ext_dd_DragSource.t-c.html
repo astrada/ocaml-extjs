@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -141,7 +145,12 @@
 <li><a href="Ext_dd_DDProxy.t-c.html"><code class="code">Ext_dd_DDProxy.t</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODafterDragDrop"><span class="keyword">method</span> afterDragDrop</span> : <code class="type">'a.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'a) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODdragData"><span class="keyword">method</span> dragData</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
+<p>This property contains the data representing the dragged object. This data is set up by the implementation of the
+<a href="#!/api/Ext.dd.DragSource-method-getDragData" rel="Ext.dd.DragSource-method-getDragData" class="docClass">getDragData</a> method. It must contain a ddel property, but can contain any other data according to the
+application's needs.</p> <br>
+</div>
+<pre><span id="METHODafterDragDrop"><span class="keyword">method</span> afterDragDrop</span> : <code class="type">'b.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'b) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action
 after a valid drag drop has occurred by providing an implementation.</p> 
 <p>
@@ -159,7 +168,7 @@ after a valid drag drop has occurred by providing an implementation.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODafterDragEnter"><span class="keyword">method</span> afterDragEnter</span> : <code class="type">'b.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'b) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODafterDragEnter"><span class="keyword">method</span> afterDragEnter</span> : <code class="type">'c.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'c) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action
 when the dragged item enters the drop target by providing an implementation.</p> 
 <p>
@@ -177,7 +186,7 @@ when the dragged item enters the drop target by providing an implementation.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODafterDragOut"><span class="keyword">method</span> afterDragOut</span> : <code class="type">'c.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'c) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODafterDragOut"><span class="keyword">method</span> afterDragOut</span> : <code class="type">'d.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'd) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action
 after the dragged item is dragged out of the target without dropping.</p> 
 <p>
@@ -195,7 +204,7 @@ after the dragged item is dragged out of the target without dropping.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODafterDragOver"><span class="keyword">method</span> afterDragOver</span> : <code class="type">'d.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'd) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODafterDragOver"><span class="keyword">method</span> afterDragOver</span> : <code class="type">'e.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'e) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action
 while the dragged item is over the drop target by providing an implementation.</p> 
 <p>
@@ -228,7 +237,7 @@ after an invalid drop has occurred by providing an implementation.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODafterValidDrop"><span class="keyword">method</span> afterValidDrop</span> : <code class="type">'e. 'e Js.t -> Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODafterValidDrop"><span class="keyword">method</span> afterValidDrop</span> : <code class="type">'f. 'f Js.t -> Dom_html.event Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action
 after a valid drop has occurred by providing an implementation.</p> 
 <p>
@@ -267,7 +276,7 @@ location other than where the cursor is.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODbeforeDragDrop"><span class="keyword">method</span> beforeDragDrop</span> : <code class="type">'f.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'f) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODbeforeDragDrop"><span class="keyword">method</span> beforeDragDrop</span> : <code class="type">'g.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'g) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action before the dragged
 item is dropped onto the target and optionally cancel the onDragDrop.</p> 
 <p>
@@ -295,7 +304,7 @@ item is dropped onto the target and optionally cancel the onDragDrop.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODbeforeDragEnter"><span class="keyword">method</span> beforeDragEnter</span> : <code class="type">'g.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'g) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODbeforeDragEnter"><span class="keyword">method</span> beforeDragEnter</span> : <code class="type">'h.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'h) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action
 before the dragged item enters the drop target and optionally cancel the onDragEnter.</p> 
 <p>
@@ -323,7 +332,7 @@ before the dragged item enters the drop target and optionally cancel the onDragE
 </ul>
 <br>
 </div>
-<pre><span id="METHODbeforeDragOut"><span class="keyword">method</span> beforeDragOut</span> : <code class="type">'h.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'h) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODbeforeDragOut"><span class="keyword">method</span> beforeDragOut</span> : <code class="type">'i.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'i) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action before the dragged
 item is dragged out of the target without dropping, and optionally cancel the onDragOut.</p> 
 <p>
@@ -351,7 +360,7 @@ item is dragged out of the target without dropping, and optionally cancel the on
 </ul>
 <br>
 </div>
-<pre><span id="METHODbeforeDragOver"><span class="keyword">method</span> beforeDragOver</span> : <code class="type">'i.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'i) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODbeforeDragOver"><span class="keyword">method</span> beforeDragOver</span> : <code class="type">'j.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'j) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action
 while the dragged item is over the drop target and optionally cancel the onDragOver.</p> 
 <p>
@@ -379,7 +388,7 @@ while the dragged item is over the drop target and optionally cancel the onDragO
 </ul>
 <br>
 </div>
-<pre><span id="METHODbeforeInvalidDrop"><span class="keyword">method</span> beforeInvalidDrop</span> : <code class="type">'j.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'j) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODbeforeInvalidDrop"><span class="keyword">method</span> beforeInvalidDrop</span> : <code class="type">'k.<br>         (#<a href="Ext_dd_DragDrop.t-c.html">Ext_dd_DragDrop.t</a> as 'k) Js.t -><br>         Dom_html.event Js.t -> Js.js_string Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action after an invalid
 drop has occurred.</p> 
 <p>
@@ -407,7 +416,10 @@ drop has occurred.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetDragData"><span class="keyword">method</span> getDragData</span> : <code class="type">'k 'l. 'k Js.t -> 'l Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODdestroy"><span class="keyword">method</span> destroy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
+<p>Destroy this DragDrop instance</p> <br>
+</div>
+<pre><span id="METHODgetDragData"><span class="keyword">method</span> getDragData</span> : <code class="type">'l 'm. 'l Js.t -> 'm Js.t Js.meth</code></pre><div class="info">
 <p>Returns the data object associated with this drag source</p> 
 <p>
 
@@ -440,7 +452,7 @@ drop has occurred.</p>
 <pre><span id="METHODhideProxy"><span class="keyword">method</span> hideProxy</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Hides the drag source's <a href="#!/api/Ext.dd.StatusProxy" rel="Ext.dd.StatusProxy" class="docClass">Ext.dd.StatusProxy</a></p> <br>
 </div>
-<pre><span id="METHODonBeforeDrag"><span class="keyword">method</span> onBeforeDrag</span> : <code class="type">'m. 'm Js.t -> Dom_html.event Js.t -> bool Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODonBeforeDrag"><span class="keyword">method</span> onBeforeDrag</span> : <code class="type">'n. 'n Js.t -> Dom_html.event Js.t -> bool Js.t Js.meth</code></pre><div class="info">
 <p>An empty function by default, but provided so that you can perform a custom action before the initial
 drag event begins and optionally cancel it.</p> 
 <p>

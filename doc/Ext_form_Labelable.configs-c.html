@@ -59,6 +59,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -79,6 +81,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -93,6 +96,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -143,34 +147,31 @@
 <li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODgetFieldLabel"><span class="keyword">method</span> getFieldLabel</span> : <code class="type">(< activeError : Js.js_string Js.t Js.prop;<br>          activeErrorsTpl : 'b. 'b Js.t Js.prop; afterBodyEl : 'c. 'c Js.t Js.prop;<br>          afterLabelTextTpl : 'd. 'd Js.t Js.prop;<br>          afterLabelTpl : 'e. 'e Js.t Js.prop; afterSubTpl : 'f. 'f Js.t Js.prop;<br>          autoFitErrors : bool Js.t Js.prop;<br>          baseBodyCls : Js.js_string Js.t Js.prop;<br>          beforeBodyEl : 'g. 'g Js.t Js.prop;<br>          beforeLabelTextTpl : 'h. 'h Js.t Js.prop;<br>          beforeLabelTpl : 'i. 'i Js.t Js.prop; beforeSubTpl : 'j. 'j Js.t Js.prop;<br>          clearCls : Js.js_string Js.t Js.prop;<br>          errorMsgCls : Js.js_string Js.t Js.prop;<br>          fieldBodyCls : Js.js_string Js.t Js.prop;<br>          fieldLabel : Js.js_string Js.t Js.prop;<br>          formItemCls : Js.js_string Js.t Js.prop; getFieldLabel : 'a;<br>          hideEmptyLabel : bool Js.t Js.prop; hideLabel : bool Js.t Js.prop;<br>          invalidCls : Js.js_string Js.t Js.prop;<br>          labelAlign : Js.js_string Js.t Js.prop;<br>          labelAttrTpl : 'k. 'k Js.t Js.prop; labelCls : Js.js_string Js.t Js.prop;<br>          labelClsExtra : Js.js_string Js.t Js.prop;<br>          labelPad : Js.number Js.t Js.prop;<br>          labelSeparator : Js.js_string Js.t Js.prop;<br>          labelStyle : Js.js_string Js.t Js.prop;<br>          labelWidth : Js.number Js.t Js.prop;<br>          msgTarget : Js.js_string Js.t Js.prop; preventMark : bool Js.t Js.prop;<br>          .. ><br>        Js.t, unit -> Js.js_string Js.t)<br>       Js.meth_callback Js.writeonly_prop as 'a</code></pre><div class="info">
-See method <code class="code">t.getFieldLabel</code><br>
-</div>
 <pre><span id="METHODactiveError"><span class="keyword">method</span> activeError</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>If specified, then the component will be displayed with this value as its active error when first rendered. Use
 <a href="#!/api/Ext.form.Labelable-method-setActiveError" rel="Ext.form.Labelable-method-setActiveError" class="docClass">setActiveError</a> or <a href="#!/api/Ext.form.Labelable-method-unsetActiveError" rel="Ext.form.Labelable-method-unsetActiveError" class="docClass">unsetActiveError</a> to change it after component creation.</p> <br>
 </div>
-<pre><span id="METHODactiveErrorsTpl"><span class="keyword">method</span> activeErrorsTpl</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODactiveErrorsTpl"><span class="keyword">method</span> activeErrorsTpl</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
 <p>The template used to format the Array of error messages passed to <a href="#!/api/Ext.form.Labelable-method-setActiveErrors" rel="Ext.form.Labelable-method-setActiveErrors" class="docClass">setActiveErrors</a> into a single HTML
 string. if the <a href="#!/api/Ext.form.Labelable-cfg-msgTarget" rel="Ext.form.Labelable-cfg-msgTarget" class="docClass">msgTarget</a> is title, it defaults to a list separated by new lines. Otherwise, it
 renders each message as an item in an unordered list.</p> <br>
 </div>
-<pre><span id="METHODafterBodyEl"><span class="keyword">method</span> afterBodyEl</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODafterBodyEl"><span class="keyword">method</span> afterBodyEl</span> : <code class="type">'b. 'b Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 at the end of the input containing element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> <br>
 </div>
-<pre><span id="METHODafterLabelTextTpl"><span class="keyword">method</span> afterLabelTextTpl</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODafterLabelTextTpl"><span class="keyword">method</span> afterLabelTextTpl</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 after the label text. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> <br>
 </div>
-<pre><span id="METHODafterLabelTpl"><span class="keyword">method</span> afterLabelTpl</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODafterLabelTpl"><span class="keyword">method</span> afterLabelTpl</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 after the label element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> <br>
 </div>
-<pre><span id="METHODafterSubTpl"><span class="keyword">method</span> afterSubTpl</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODafterSubTpl"><span class="keyword">method</span> afterSubTpl</span> : <code class="type">'e. 'e Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 after the <a href="#!/api/Ext.form.Labelable-method-getSubTplMarkup" rel="Ext.form.Labelable-method-getSubTplMarkup" class="docClass">subTpl markup</a>. If an <code>XTemplate</code> is used, the
 component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a> serves as the context.</p> <br>
@@ -187,22 +188,22 @@ component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.Abstr
 
     Defaults to: <code class="code">Ext.baseCSSPrefix + 'form-item-body'</code><br>
 </div>
-<pre><span id="METHODbeforeBodyEl"><span class="keyword">method</span> beforeBodyEl</span> : <code class="type">'g. 'g Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODbeforeBodyEl"><span class="keyword">method</span> beforeBodyEl</span> : <code class="type">'f. 'f Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 at the beginning of the input containing element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> <br>
 </div>
-<pre><span id="METHODbeforeLabelTextTpl"><span class="keyword">method</span> beforeLabelTextTpl</span> : <code class="type">'h. 'h Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODbeforeLabelTextTpl"><span class="keyword">method</span> beforeLabelTextTpl</span> : <code class="type">'g. 'g Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 before the label text. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> <br>
 </div>
-<pre><span id="METHODbeforeLabelTpl"><span class="keyword">method</span> beforeLabelTpl</span> : <code class="type">'i. 'i Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODbeforeLabelTpl"><span class="keyword">method</span> beforeLabelTpl</span> : <code class="type">'h. 'h Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 before the label element. If an <code>XTemplate</code> is used, the component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a>
 serves as the context.</p> <br>
 </div>
-<pre><span id="METHODbeforeSubTpl"><span class="keyword">method</span> beforeSubTpl</span> : <code class="type">'j. 'j Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODbeforeSubTpl"><span class="keyword">method</span> beforeSubTpl</span> : <code class="type">'i. 'i Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 before the <a href="#!/api/Ext.form.Labelable-method-getSubTplMarkup" rel="Ext.form.Labelable-method-getSubTplMarkup" class="docClass">subTpl markup</a>. If an <code>XTemplate</code> is used, the
 component's <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a> serves as the context.</p> <br>
@@ -275,7 +276,7 @@ Its width is determined by the <a href="#!/api/Ext.form.Labelable-cfg-labelWidth
 
     Defaults to: <code class="code">'left'</code><br>
 </div>
-<pre><span id="METHODlabelAttrTpl"><span class="keyword">method</span> labelAttrTpl</span> : <code class="type">'k. 'k Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODlabelAttrTpl"><span class="keyword">method</span> labelAttrTpl</span> : <code class="type">'j. 'j Js.t Js.prop</code></pre><div class="info">
 <p>An optional string or <code>XTemplate</code> configuration to insert in the field markup
 inside the label element (as attributes). If an <code>XTemplate</code> is used, the component's
 <a href="#!/api/Ext.AbstractComponent-cfg-renderData" rel="Ext.AbstractComponent-cfg-renderData" class="docClass">render data</a> serves as the context.</p> <br>
@@ -338,5 +339,8 @@ This is the default.</p>
 <p>
 
     Defaults to: <code class="code">false</code><br>
+</div>
+<pre><span id="METHODgetFieldLabel"><span class="keyword">method</span> getFieldLabel</span> : <code class="type">(< activeError : Js.js_string Js.t Js.prop;<br>          activeErrorsTpl : 'a. 'a Js.t Js.prop; afterBodyEl : 'b. 'b Js.t Js.prop;<br>          afterLabelTextTpl : 'c. 'c Js.t Js.prop;<br>          afterLabelTpl : 'd. 'd Js.t Js.prop; afterSubTpl : 'e. 'e Js.t Js.prop;<br>          autoFitErrors : bool Js.t Js.prop;<br>          baseBodyCls : Js.js_string Js.t Js.prop;<br>          beforeBodyEl : 'f. 'f Js.t Js.prop;<br>          beforeLabelTextTpl : 'g. 'g Js.t Js.prop;<br>          beforeLabelTpl : 'h. 'h Js.t Js.prop; beforeSubTpl : 'i. 'i Js.t Js.prop;<br>          clearCls : Js.js_string Js.t Js.prop;<br>          errorMsgCls : Js.js_string Js.t Js.prop;<br>          fieldBodyCls : Js.js_string Js.t Js.prop;<br>          fieldLabel : Js.js_string Js.t Js.prop;<br>          formItemCls : Js.js_string Js.t Js.prop; getFieldLabel : 'k;<br>          hideEmptyLabel : bool Js.t Js.prop; hideLabel : bool Js.t Js.prop;<br>          invalidCls : Js.js_string Js.t Js.prop;<br>          labelAlign : Js.js_string Js.t Js.prop;<br>          labelAttrTpl : 'j. 'j Js.t Js.prop; labelCls : Js.js_string Js.t Js.prop;<br>          labelClsExtra : Js.js_string Js.t Js.prop;<br>          labelPad : Js.number Js.t Js.prop;<br>          labelSeparator : Js.js_string Js.t Js.prop;<br>          labelStyle : Js.js_string Js.t Js.prop;<br>          labelWidth : Js.number Js.t Js.prop;<br>          msgTarget : Js.js_string Js.t Js.prop; preventMark : bool Js.t Js.prop;<br>          .. ><br>        Js.t, unit -> Js.js_string Js.t)<br>       Js.meth_callback Js.writeonly_prop as 'k</code></pre><div class="info">
+See method <code class="code">t.getFieldLabel</code><br>
 </div>
 </body></html>

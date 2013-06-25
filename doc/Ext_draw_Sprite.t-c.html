@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -138,11 +142,24 @@
 <center><h1>Class type <a href="type_Ext_draw_Sprite.t.html">Ext_draw_Sprite.t</a></h1></center>
 <br>
 <pre><span id="TYPEt"><span class="keyword">class type</span> t</span> = <code class="code">object</code> <a href="Ext_draw_Sprite.t-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
+<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 <li><a href="Ext_util_Animate.t-c.html"><code class="code">Ext_util_Animate.t</code></a></li>
 <li><a href="Ext_util_Observable.t-c.html"><code class="code">Ext_util_Observable.t</code></a></li>
-<li><a href="Ext_Base.t-c.html"><code class="code">Ext_Base.t</code></a></li>
 </ul>
 <hr width="100%">
+<pre><span id="METHODdd"><span class="keyword">method</span> dd</span> : <code class="type"><a href="Ext_dd_DragSource.t-c.html">Ext_dd_DragSource.t</a> Js.t Js.prop</code></pre><div class="info">
+<p>If this Sprite is configured <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>, this property will contain
+an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Sprite.</p>
+
+<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a>
+in order to supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>.</p> <br>
+</div>
+<pre><span id="METHODisSprite"><span class="keyword">method</span> isSprite</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p><code>true</code> in this class to identify an object as an instantiated Sprite, or subclass thereof.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
 <pre><span id="METHODaddCls"><span class="keyword">method</span> addCls</span> : <code class="type">'a.<br>         'a Js.t -><br>         (< addCls : 'a. 'b; addEvents : 'd. 'd Js.t -> unit Js.meth;<br>            addListener : 'e 'f 'g 'h 'i.<br>                            'e Js.t -><br>                            'f Js.callback Js.optdef -><br>                            'g Js.t Js.optdef -><br>                            'h Js.t Js.optdef -> 'i Js.t Js.meth;<br>            addManagedListener : 'j 'k 'l 'm 'n 'o.<br>                                   'j Js.t -><br>                                   'k Js.t -><br>                                   'l Js.callback Js.optdef -><br>                                   'm Js.t Js.optdef -><br>                                   'n Js.t Js.optdef -> 'o Js.t Js.meth;<br>            animate : 'p 'q. 'p Js.t -> 'q Js.t Js.meth;<br>            callParent : 'r 's. 'r Js.t -> 's Js.t Js.meth;<br>            callSuper : 't 'u. 't Js.t -> 'u Js.t Js.meth;<br>            clearListeners : unit Js.meth; clearManagedListeners : unit Js.meth;<br>            dd : <a href="Ext_dd_DragSource.t-c.html">Ext_dd_DragSource.t</a> Js.t Js.prop; destroy : unit Js.meth;<br>            enableBubble : 'v. 'v Js.t -> unit Js.meth;<br>            fireEvent : 'w. Js.js_string Js.t -> 'w Js.t -> bool Js.t Js.meth;<br>            fireEventArgs : 'x.<br>                              Js.js_string Js.t -><br>                              'x Js.t Js.js_array Js.t -> bool Js.t Js.meth;<br>            getActiveAnimation : 'y. 'y Js.t Js.meth; getBBox : 'z. 'z Js.t Js.meth;<br>            getInitialConfig : 'a1. Js.js_string Js.t Js.optdef -> 'a1 Js.t Js.meth;<br>            hasListener : Js.js_string Js.t -> bool Js.t Js.meth;<br>            hasListeners : 'b1. 'b1 Js.t Js.readonly_prop;<br>            hide : bool Js.t -> 'c Js.t Js.meth;<br>            initConfig : 'c1. 'c1 Js.t -> 'c Js.t Js.meth;<br>            isObservable : bool Js.t Js.prop; isSprite : bool Js.t Js.prop;<br>            mon : 'd1 'e1 'f1 'g1 'h1 'i1.<br>                    'd1 Js.t -><br>                    'e1 Js.t -><br>                    'f1 Js.callback Js.optdef -><br>                    'g1 Js.t Js.optdef -> 'h1 Js.t Js.optdef -> 'i1 Js.t Js.meth;<br>            mun : 'j1 'k1 'l1 'm1.<br>                    'j1 Js.t -><br>                    'k1 Js.t -><br>                    'l1 Js.callback Js.optdef -> 'm1 Js.t Js.optdef -> unit Js.meth;<br>            on : 'n1 'o1 'p1 'q1 'r1.<br>                   'n1 Js.t -><br>                   'o1 Js.callback Js.optdef -><br>                   'p1 Js.t Js.optdef -> 'q1 Js.t Js.optdef -> 'r1 Js.t Js.meth;<br>            redraw : 'c Js.t Js.meth;<br>            relayEvents : 's1 't1.<br>                            's1 Js.t -><br>                            Js.js_string Js.t Js.js_array Js.t -><br>                            Js.js_string Js.t Js.optdef -> 't1 Js.t Js.meth;<br>            remove : bool Js.t Js.meth;<br>            removeCls : 'u1. 'u1 Js.t -> 'c Js.t Js.meth;<br>            removeListener : 'v1 'w1.<br>                               Js.js_string Js.t -><br>                               'v1 Js.callback -> 'w1 Js.t Js.optdef -> unit Js.meth;<br>            removeManagedListener : 'x1 'y1 'z1 'a2.<br>                                      'x1 Js.t -><br>                                      'y1 Js.t -><br>                                      'z1 Js.callback Js.optdef -><br>                                      'a2 Js.t Js.optdef -> unit Js.meth;<br>            resumeEvent : Js.js_string Js.t -> unit Js.meth;<br>            resumeEvents : unit Js.meth; self : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.prop;<br>            sequenceFx : 'b2. 'b2 Js.t Js.meth;<br>            setAttributes : 'c2. 'c2 Js.t -> bool Js.t -> 'c Js.t Js.meth;<br>            setStyle : 'd2.<br>                         'd2 Js.t -> Js.js_string Js.t Js.optdef -> 'c Js.t Js.meth;<br>            show : bool Js.t -> 'c Js.t Js.meth; statics : <a href="Ext_Class.t-c.html">Ext_Class.t</a> Js.t Js.meth;<br>            stopAnimation : <a href="Ext_dom_Element.t-c.html">Ext_dom_Element.t</a> Js.t Js.meth;<br>            suspendEvent : Js.js_string Js.t -> unit Js.meth;<br>            suspendEvents : bool Js.t -> unit Js.meth;<br>            syncFx : 'e2. 'e2 Js.t Js.meth;<br>            un : 'f2 'g2.<br>                   Js.js_string Js.t -><br>                   'f2 Js.callback -> 'g2 Js.t Js.optdef -> unit Js.meth;<br>            .. ><br>          as 'c)<br>         Js.t Js.meth as 'b</code></pre><div class="info">
 <p>Adds one or more CSS classes to the element. Duplicate classes are automatically filtered out.  Note this method
 is severly limited in VML.</p> 
@@ -373,18 +390,5 @@ and a <code>degrees</code> attribute that specifies the rotation in degrees. For
     </li>
 </ul>
 <br>
-</div>
-<pre><span id="METHODdd"><span class="keyword">method</span> dd</span> : <code class="type"><a href="Ext_dd_DragSource.t-c.html">Ext_dd_DragSource.t</a> Js.t Js.prop</code></pre><div class="info">
-<p>If this Sprite is configured <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>, this property will contain
-an instance of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a> which handles dragging the Sprite.</p>
-
-<p>The developer must provide implementations of the abstract methods of <a href="#!/api/Ext.dd.DragSource" rel="Ext.dd.DragSource" class="docClass">Ext.dd.DragSource</a>
-in order to supply behaviour for each stage of the drag/drop process. See <a href="#!/api/Ext.draw.Sprite-cfg-draggable" rel="Ext.draw.Sprite-cfg-draggable" class="docClass">draggable</a>.</p> <br>
-</div>
-<pre><span id="METHODisSprite"><span class="keyword">method</span> isSprite</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
-<p><code>true</code> in this class to identify an object as an instantiated Sprite, or subclass thereof.</p> 
-<p>
-
-    Defaults to: <code class="code">true</code><br>
 </div>
 </body></html>

@@ -59,6 +59,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -79,6 +81,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -93,6 +96,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -140,20 +144,14 @@
 <center><h1>Class type <a href="type_Ext_app_Controller.configs.html">Ext_app_Controller.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_app_Controller.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 <li><a href="Ext_Base.configs-c.html"><code class="code">Ext_Base.configs</code></a></li>
+<li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
 </ul>
 <hr width="100%">
-<pre><span id="METHODinit"><span class="keyword">method</span> init</span> : <code class="type">'a.<br>         ((< id : Js.js_string Js.t Js.prop; init : 'a. 'b;<br>             listeners : 'd. 'd Js.t Js.prop;<br>             models : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>             onLaunch : 'e.<br>                          ('c Js.t, 'e Js.t -> unit) Js.meth_callback<br>                          Js.writeonly_prop;<br>             refs : 'f. 'f Js.t Js.js_array Js.t Js.prop;<br>             stores : Js.js_string Js.t Js.js_array Js.t Js.prop;<br>             views : Js.js_string Js.t Js.js_array Js.t Js.prop; .. ><br>           as 'c)<br>          Js.t, 'a Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop as 'b</code></pre><div class="info">
-See method <code class="code">t.init</code><br>
-</div>
-<pre><span id="METHODonLaunch"><span class="keyword">method</span> onLaunch</span> : <code class="type">'e. ('c Js.t, 'e Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
-See method <code class="code">t.onLaunch</code><br>
-</div>
 <pre><span id="METHODid"><span class="keyword">method</span> id</span> : <code class="type">Js.js_string Js.t Js.prop</code></pre><div class="info">
 <p>The id of this controller. You can use this id when dispatching.</p> <br>
 </div>
-<pre><span id="METHODmodels"><span class="keyword">method</span> models</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODmodels"><span class="keyword">method</span> models</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
 <p>Array of models to require from AppName.model namespace. For example:</p>
 
 <pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("MyApp.controller.Foo", {
@@ -178,7 +176,7 @@ See method <code class="code">t.onLaunch</code><br>
  });
 </code></pre> <br>
 </div>
-<pre><span id="METHODrefs"><span class="keyword">method</span> refs</span> : <code class="type">'f. 'f Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODrefs"><span class="keyword">method</span> refs</span> : <code class="type">'b. 'b Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
 <p>Array of configs to build up references to views on page. For example:</p>
 
 <pre><code> <a href="#!/api/Ext-method-define" rel="Ext-method-define" class="docClass">Ext.define</a>("MyApp.controller.Foo", {
@@ -206,7 +204,7 @@ See method <code class="code">t.onLaunch</code><br>
 you don't provide xtype, an <a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a> instance will be created.</li>
 </ul> <br>
 </div>
-<pre><span id="METHODstores"><span class="keyword">method</span> stores</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODstores"><span class="keyword">method</span> stores</span> : <code class="type">'c. 'c Js.t Js.prop</code></pre><div class="info">
 <p>Array of stores to require from AppName.store namespace and to generate getter methods for.
 For example:</p>
 
@@ -236,7 +234,7 @@ For example:</p>
  });
 </code></pre> <br>
 </div>
-<pre><span id="METHODviews"><span class="keyword">method</span> views</span> : <code class="type">Js.js_string Js.t Js.js_array Js.t Js.prop</code></pre><div class="info">
+<pre><span id="METHODviews"><span class="keyword">method</span> views</span> : <code class="type">'d. 'd Js.t Js.prop</code></pre><div class="info">
 <p>Array of views to require from AppName.view namespace and to generate getter methods for.
 For example:</p>
 
@@ -261,5 +259,11 @@ For example:</p>
      }
  });
 </code></pre> <br>
+</div>
+<pre><span id="METHODinit"><span class="keyword">method</span> init</span> : <code class="type">'e.<br>         ((< id : Js.js_string Js.t Js.prop; init : 'e. 'f;<br>             listeners : 'h. 'h Js.t Js.prop; models : 'a. 'a Js.t Js.prop;<br>             onLaunch : 'i.<br>                          ('g Js.t, 'i Js.t -> unit) Js.meth_callback<br>                          Js.writeonly_prop;<br>             refs : 'b. 'b Js.t Js.js_array Js.t Js.prop;<br>             stores : 'c. 'c Js.t Js.prop; views : 'd. 'd Js.t Js.prop; .. ><br>           as 'g)<br>          Js.t, 'e Js.t -> unit)<br>         Js.meth_callback Js.writeonly_prop as 'f</code></pre><div class="info">
+See method <code class="code">t.init</code><br>
+</div>
+<pre><span id="METHODonLaunch"><span class="keyword">method</span> onLaunch</span> : <code class="type">'i. ('g Js.t, 'i Js.t -> unit) Js.meth_callback Js.writeonly_prop</code></pre><div class="info">
+See method <code class="code">t.onLaunch</code><br>
 </div>
 </body></html>

@@ -58,6 +58,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -78,6 +80,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -92,6 +95,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -204,7 +208,7 @@ contain <i>named</i> properties.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODfocus_table"><span class="keyword">method</span> focus_table</span> : <code class="type">'d 'e.<br>         bool Js.t Js.optdef -><br>         'd Js.t Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'e) Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODfocus_table"><span class="keyword">method</span> focus_table</span> : <code class="type">'d 'e 'f 'g.<br>         bool Js.t Js.optdef -><br>         'd Js.t Js.optdef -><br>         'e Js.callback Js.optdef -><br>         'f Js.callback Js.optdef -> (#<a href="Ext_Component.t-c.html">Ext_Component.t</a> as 'g) Js.t Js.meth</code></pre><div class="info">
 <p>Try to focus this component.</p> 
 <p>
 
@@ -215,6 +219,12 @@ contain <i>named</i> properties.</p>
     </li>
 <li>delay: <code class="code">_ Js.t</code> (optional)
     <p>Delay the focus this number of milliseconds (true for 10 milliseconds).</p> 
+    </li>
+<li>callback: <code class="code">_ Js.callback</code> (optional)
+    <p>Only needed if the <code>delay</code> parameter is used. A function to call upon focus.</p> 
+    </li>
+<li>scope: <code class="code">_ Js.callback</code> (optional)
+    <p>Only needed if the <code>delay</code> parameter is used. The scope (<code>this</code> reference) in which to execute the callback.</p> 
     </li>
 </ul>
 
@@ -230,14 +240,17 @@ delegate focus to a descendant Component (<a href="#!/api/Ext.window.Window" rel
 </ul>
 <br>
 </div>
-<pre><span id="METHODfocusRow"><span class="keyword">method</span> focusRow</span> : <code class="type">'f. 'f Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODfocusRow"><span class="keyword">method</span> focusRow</span> : <code class="type">'h 'i. 'h Js.t -> 'i Js.t Js.optdef -> unit Js.meth</code></pre><div class="info">
 <p>Focuses a particular row and brings it into view. Will fire the rowfocus event.</p> 
 <p>
 
     <b>Parameters</b>:
     <ul>
-<li>rowIdx: <code class="code">_ Js.t</code>
-    <p>An HTMLElement template node, index of a template node, the id of a template node or the
+<li>row: <code class="code">_ Js.t</code>
+    <p>An HTMLElement template node, index of a template node, the id of a template node or the</p> 
+    </li>
+<li>delay: <code class="code">_ Js.t</code> (optional)
+    <p>Delay the focus this number of milliseconds (true for 10 milliseconds).
 record associated with the node.</p> 
     </li>
 </ul>
@@ -260,7 +273,7 @@ omitted, the general cell selector which matches <strong>ant cell</strong> will 
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetColumnSizerSelector"><span class="keyword">method</span> getColumnSizerSelector</span> : <code class="type">'g. 'g Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetColumnSizerSelector"><span class="keyword">method</span> getColumnSizerSelector</span> : <code class="type">'j. 'j Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Returns a CSS selector which selects the element(s) which define the width of a column.</p>
 
 <p>This is used by the <a href="#!/api/Ext.view.TableLayout" rel="Ext.view.TableLayout" class="docClass">Ext.view.TableLayout</a> when resizing columns.</p> 
@@ -304,7 +317,7 @@ the rowTpl.</p> <br>
 <pre><span id="METHODgetItemSelector"><span class="keyword">method</span> getItemSelector</span> : <code class="type">unit Js.meth</code></pre><div class="info">
 <p>Returns a CSS selector which selects items of the view rendered by the rowTpl</p> <br>
 </div>
-<pre><span id="METHODgetNode_table"><span class="keyword">method</span> getNode_table</span> : <code class="type">'h. 'h Js.t -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetNode_table"><span class="keyword">method</span> getNode_table</span> : <code class="type">'k. 'k Js.t -> bool Js.t Js.optdef -> Dom_html.element Js.t Js.meth</code></pre><div class="info">
 <p>Returns the node given the passed Record, or index or node.</p> 
 <p>
 
@@ -333,8 +346,6 @@ to return the top level row.</p>
 <p>Returns a CSS selector which selects the element which contains record nodes.</p> <br>
 </div>
 <pre><span id="METHODgetPosition"><span class="keyword">method</span> getPosition</span> : <code class="type">bool Js.t Js.optdef -> Js.number Js.t Js.js_array Js.t Js.meth</code></pre><div class="info">
-<p>TODO: have this use the new Ext.grid.CellContext class</p>
-
 <p>Gets the current XY position of the component's underlying element.</p> 
 <p>
 
@@ -356,7 +367,7 @@ to return the top level row.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetRecord"><span class="keyword">method</span> getRecord</span> : <code class="type">'i. 'i Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetRecord"><span class="keyword">method</span> getRecord</span> : <code class="type">'l. 'l Js.t -> <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t Js.meth</code></pre><div class="info">
 <p>Gets a record from a node</p> 
 <p>
 
@@ -377,7 +388,7 @@ to return the top level row.</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODgetRowClass"><span class="keyword">method</span> getRowClass</span> : <code class="type">'j.<br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>         Js.number Js.t -><br>         'j Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODgetRowClass"><span class="keyword">method</span> getRowClass</span> : <code class="type">'m.<br>         <a href="Ext_data_Model.t-c.html">Ext_data_Model.t</a> Js.t -><br>         Js.number Js.t -><br>         'm Js.t -> <a href="Ext_data_Store.t-c.html">Ext_data_Store.t</a> Js.t -> Js.js_string Js.t Js.meth</code></pre><div class="info">
 <p>Override this function to apply custom CSS classes to rows during rendering. This function should return the
 CSS class name (or empty string '' for none) that will be added to the row's wrapping div. To apply multiple
 class names, simply return them space-delimited within the string (e.g. 'my-class another-class').
@@ -418,7 +429,7 @@ Example usage:</p>
 </ul>
 <br>
 </div>
-<pre><span id="METHODindexOf"><span class="keyword">method</span> indexOf</span> : <code class="type">'k. 'k Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
+<pre><span id="METHODindexOf"><span class="keyword">method</span> indexOf</span> : <code class="type">'n. 'n Js.t -> Js.number Js.t Js.meth</code></pre><div class="info">
 <p>Finds the index of the passed node.</p> 
 <p>
 
@@ -475,10 +486,9 @@ instantiation of the class.</p>
 After calling the superclass's onDestroy, the Component will be destroyed.</p> <br>
 </div>
 <pre><span id="METHODrefresh"><span class="keyword">method</span> refresh</span> : <code class="type">unit Js.meth</code></pre><div class="info">
-<p>Refreshes the grid view. Saves and restores the scroll state, generates a new template, stripes rows and
-invalidates the scrollers.</p> <br>
+<p>Refreshes the grid view. Sets the sort state and focuses the previously focused row.</p> <br>
 </div>
-<pre><span id="METHODremoveRowCls"><span class="keyword">method</span> removeRowCls</span> : <code class="type">'l. 'l Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
+<pre><span id="METHODremoveRowCls"><span class="keyword">method</span> removeRowCls</span> : <code class="type">'o. 'o Js.t -> Js.js_string Js.t -> unit Js.meth</code></pre><div class="info">
 <p>Removes a CSS Class from a specific row.</p> 
 <p>
 

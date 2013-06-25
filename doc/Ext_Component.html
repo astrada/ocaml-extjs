@@ -59,6 +59,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -79,6 +81,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -93,6 +96,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -200,7 +204,11 @@ Component, and it can be rendered to document, or handled by layouts as the chil
 <p>The Component above creates its encapsulating <code>div</code> upon render, and use the configured HTML as content. More complex
 internal structure may be created using the <a href="#!/api/Ext.Component-cfg-renderTpl" rel="Ext.Component-cfg-renderTpl" class="docClass">renderTpl</a> configuration, although to display database-derived
 mass data, it is recommended that an ExtJS data-backed Component such as a <a href="#!/api/Ext.view.View" rel="Ext.view.View" class="docClass">View</a>,
-<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">GridPanel</a>, or <a href="#!/api/Ext.tree.Panel" rel="Ext.tree.Panel" class="docClass">TreePanel</a> be used.</p> <br>
+<a href="#!/api/Ext.grid.Panel" rel="Ext.grid.Panel" class="docClass">GridPanel</a>, or <a href="#!/api/Ext.tree.Panel" rel="Ext.tree.Panel" class="docClass">TreePanel</a> be used.</p>
+
+<p><strong>From override Ext.layout.container.border.Region:</strong> This override provides extra, border layout specific methods for <code><a href="#!/api/Ext.Component" rel="Ext.Component" class="docClass">Ext.Component</a></code>. The
+<code><a href="#!/api/Ext.layout.container.Border" rel="Ext.layout.container.Border" class="docClass">Ext.layout.container.Border</a></code> class requires this override so that the added functions
+are only included in a build when <code>border</code> layout is used.</p> <br>
 <hr width="100%">
 <pre><span id="TYPEt"><span class="keyword">class type</span> <a href="Ext_Component.t-c.html">t</a></span> = <code class="code">object</code> <a href="Ext_Component.t-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEconfigs"><span class="keyword">class type</span> <a href="Ext_Component.configs-c.html">configs</a></span> = <code class="code">object</code> <a href="Ext_Component.configs-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEevents"><span class="keyword">class type</span> <a href="Ext_Component.events-c.html">events</a></span> = <code class="code">object</code> <a href="Ext_Component.events-c.html">..</a> <code class="code">end</code></pre><pre><span id="TYPEstatics"><span class="keyword">class type</span> <a href="Ext_Component.statics-c.html">statics</a></span> = <code class="code">object</code> <a href="Ext_Component.statics-c.html">..</a> <code class="code">end</code></pre><pre><span id="VALof_configs"><span class="keyword">val</span> of_configs</span> : <code class="type"><a href="Ext_Component.configs-c.html">configs</a> Js.t -> <a href="Ext_Component.t-c.html">t</a> Js.t</code></pre><div class="info">
 <code class="code">of_configs c</code> casts a config object <code class="code">c</code> to an instance of class <code class="code">t</code><br>

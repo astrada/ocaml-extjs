@@ -59,6 +59,8 @@
 <link title="Ext_dd_DragTracker" rel="Chapter" href="Ext_dd_DragTracker.html">
 <link title="Ext_dd_StatusProxy" rel="Chapter" href="Ext_dd_StatusProxy.html">
 <link title="Ext_dom_AbstractElement" rel="Chapter" href="Ext_dom_AbstractElement.html">
+<link title="Ext_dom_CompositeElement" rel="Chapter" href="Ext_dom_CompositeElement.html">
+<link title="Ext_dom_CompositeElementLite" rel="Chapter" href="Ext_dom_CompositeElementLite.html">
 <link title="Ext_dom_Element" rel="Chapter" href="Ext_dom_Element.html">
 <link title="Ext_dom_Element_Fly" rel="Chapter" href="Ext_dom_Element_Fly.html">
 <link title="Ext_draw_Component" rel="Chapter" href="Ext_draw_Component.html">
@@ -79,6 +81,7 @@
 <link title="Ext_grid_column_Column" rel="Chapter" href="Ext_grid_column_Column.html">
 <link title="Ext_grid_feature_Feature" rel="Chapter" href="Ext_grid_feature_Feature.html">
 <link title="Ext_grid_header_Container" rel="Chapter" href="Ext_grid_header_Container.html">
+<link title="Ext_grid_locking_Lockable" rel="Chapter" href="Ext_grid_locking_Lockable.html">
 <link title="Ext_grid_Panel" rel="Chapter" href="Ext_grid_Panel.html">
 <link title="Ext_grid_plugin_Editing" rel="Chapter" href="Ext_grid_plugin_Editing.html">
 <link title="Ext_grid_View" rel="Chapter" href="Ext_grid_View.html">
@@ -93,6 +96,7 @@
 <link title="Ext_panel_AbstractPanel" rel="Chapter" href="Ext_panel_AbstractPanel.html">
 <link title="Ext_panel_Panel" rel="Chapter" href="Ext_panel_Panel.html">
 <link title="Ext_panel_Table" rel="Chapter" href="Ext_panel_Table.html">
+<link title="Ext_Queryable" rel="Chapter" href="Ext_Queryable.html">
 <link title="Ext_selection_DataViewModel" rel="Chapter" href="Ext_selection_DataViewModel.html">
 <link title="Ext_selection_Model" rel="Chapter" href="Ext_selection_Model.html">
 <link title="Ext_selection_RowModel" rel="Chapter" href="Ext_selection_RowModel.html">
@@ -140,23 +144,20 @@
 <center><h1>Class type <a href="type_Ext_selection_Model.configs.html">Ext_selection_Model.configs</a></h1></center>
 <br>
 <pre><span id="TYPEconfigs"><span class="keyword">class type</span> configs</span> = <code class="code">object</code> <a href="Ext_selection_Model.configs-c.html">..</a> <code class="code">end</code></pre><b>Inherits</b><ul>
-<li><a href="Ext_util_Bindable.configs-c.html"><code class="code">Ext_util_Bindable.configs</code></a></li>
 <li><a href="Ext_util_Observable.configs-c.html"><code class="code">Ext_util_Observable.configs</code></a></li>
+<li><a href="Ext_util_Bindable.configs-c.html"><code class="code">Ext_util_Bindable.configs</code></a></li>
 </ul>
 <hr width="100%">
 <pre><span id="METHODallowDeselect"><span class="keyword">method</span> allowDeselect</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
 <p>Allow users to deselect a record in a DataView, List or Grid.
-Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-mode" rel="Ext.selection.Model-cfg-mode" class="docClass">mode</a> is 'SINGLE'.</p> 
-<p>
-
-    Defaults to: <code class="code">false</code><br>
+Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-mode" rel="Ext.selection.Model-cfg-mode" class="docClass">mode</a> is 'SINGLE'.</p> <br>
 </div>
 <pre><span id="METHODmode"><span class="keyword">method</span> mode</span> : <code class="type">'a. 'a Js.t Js.prop</code></pre><div class="info">
 <p>Mode of selection.  Valid values are:</p>
 
 <ul>
 <li><strong>"SINGLE"</strong> - Only allows selecting one item at a time.  Use <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> to allow
-deselecting that item.  This is the default.</li>
+deselecting that item.  Also see <a href="#!/api/Ext.selection.Model-cfg-toggleOnClick" rel="Ext.selection.Model-cfg-toggleOnClick" class="docClass">toggleOnClick</a>. This is the default.</li>
 <li><strong>"SIMPLE"</strong> - Allows simple selection of multiple items one-by-one. Each click in grid will either
 select or deselect an item.</li>
 <li><strong>"MULTI"</strong> - Allows complex selection of multiple items using Ctrl and Shift keys.</li>
@@ -174,6 +175,14 @@ or when rows are scrolled out of view. For this reason <code>pruneRemoved</code>
 you MUST ensure that the Model definition's <a href="#!/api/Ext.data.Model-cfg-idProperty" rel="Ext.data.Model-cfg-idProperty" class="docClass">idProperty</a> references a unique
 key because in this situation, records in the Store have their <strong>IDs</strong> compared to records in the SelectionModel
 in order to re-select a record which is scrolled back into view.</p> 
+<p>
+
+    Defaults to: <code class="code">true</code><br>
+</div>
+<pre><span id="METHODtoggleOnClick"><span class="keyword">method</span> toggleOnClick</span> : <code class="type">bool Js.t Js.prop</code></pre><div class="info">
+<p><code>true</code> to toggle the selection state of an item when clicked.
+Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-mode" rel="Ext.selection.Model-cfg-mode" class="docClass">mode</a> is 'SINGLE'.
+Only applicable when the <a href="#!/api/Ext.selection.Model-cfg-allowDeselect" rel="Ext.selection.Model-cfg-allowDeselect" class="docClass">allowDeselect</a> is 'true'.</p> 
 <p>
 
     Defaults to: <code class="code">true</code><br>
